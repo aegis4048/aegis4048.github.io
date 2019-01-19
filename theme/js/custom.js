@@ -4,14 +4,16 @@ var GRID_SMALL = 576;
 var LOGO_COLLAPSE_WIDTH = 768;
 
 function init_navbar () {
-    $('.nav-link').on( {
-        mouseenter: function () {
-            $(this).addClass('hover');
-        },
-        mouseleave: function () {
-            $(this).removeClass('hover');
-        }
-    });
+    if (windowSize > COLLAPSE_WIDTH) {
+        $('.nav-item').on( {
+            mouseenter: function () {
+                $(this).addClass('hover');
+            },
+            mouseleave: function () {
+                $(this).removeClass('hover');
+            }
+        });
+    }
 }
 function check_width() {
     window.windowSize = $(window).outerWidth();
@@ -45,12 +47,18 @@ function check_width() {
             $('#post-container').removeClass('post');
         }
     }
+    if (windowSize < GRID_SMALL) {
+        $('.admonition-image').css('max-width', '100%')
+    }
+    else {
+        $('.admonition-image').css('max-width', '430px')
+    }
 }
 function jupyter_css() {
     if (window.windowSize > 486) {
         $('.prompt').css('width', '69.53px');
     }
-    $('.rendered_html th').css('background', 'unset')
+    $('.rendered_html th').css('background', '100%')
 }
 function init_progressbar() {
     var getMax = function(){
