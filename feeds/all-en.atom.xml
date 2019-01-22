@@ -2748,10 +2748,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="52cda44c-d310-413f-82ff-b5d50a6af977"&gt;&lt;/div&gt;
+&lt;div id="6f7d950c-6818-4076-99ea-d38cd3b4c2d9"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#52cda44c-d310-413f-82ff-b5d50a6af977');
+var element = $('#6f7d950c-6818-4076-99ea-d38cd3b4c2d9');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4140,10 +4140,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="f52129b6-92a7-4979-a81e-e7e205193f87"&gt;&lt;/div&gt;
+&lt;div id="17fc16f6-b73a-482c-8afc-074c501f6f00"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f52129b6-92a7-4979-a81e-e7e205193f87');
+var element = $('#17fc16f6-b73a-482c-8afc-074c501f6f00');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4972,10 +4972,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="c8e732cf-10ee-4aa2-90a8-5233404e96c4"&gt;&lt;/div&gt;
+&lt;div id="8208ca53-2acd-4757-a1bf-169f78129e23"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c8e732cf-10ee-4aa2-90a8-5233404e96c4');
+var element = $('#8208ca53-2acd-4757-a1bf-169f78129e23');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -5931,10 +5931,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="7c7716dc-f32a-4afb-bae2-e03140c17cb1"&gt;&lt;/div&gt;
+&lt;div id="9cf9ce2b-33e2-43b5-b760-7effacbacf33"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7c7716dc-f32a-4afb-bae2-e03140c17cb1');
+var element = $('#9cf9ce2b-33e2-43b5-b760-7effacbacf33');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6819,10 +6819,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="c95c9f8e-5fe5-4964-964c-8ee968e383d2"&gt;&lt;/div&gt;
+&lt;div id="84900575-4af9-41ad-a64d-2d05dc655a61"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c95c9f8e-5fe5-4964-964c-8ee968e383d2');
+var element = $('#84900575-4af9-41ad-a64d-2d05dc655a61');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8208,10 +8208,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="e17c6373-d51a-4ae9-b04c-ff4c4baeb1d8"&gt;&lt;/div&gt;
+&lt;div id="e4d908fd-19e5-41a4-8d07-87e93a188d16"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e17c6373-d51a-4ae9-b04c-ff4c4baeb1d8');
+var element = $('#e4d908fd-19e5-41a4-8d07-87e93a188d16');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -9032,10 +9032,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="14a64389-3143-4d0a-8965-5e1bb79fa1de"&gt;&lt;/div&gt;
+&lt;div id="97f8d64e-ae95-4055-9893-1f52a1a5a75a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#14a64389-3143-4d0a-8965-5e1bb79fa1de');
+var element = $('#97f8d64e-ae95-4055-9893-1f52a1a5a75a');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12539,10 +12539,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="3ef3a08c-1310-4737-b6cc-3a73e9a1f5f7"&gt;&lt;/div&gt;
+&lt;div id="36f0533a-eba7-4b53-afe9-e63c8fb4a469"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3ef3a08c-1310-4737-b6cc-3a73e9a1f5f7');
+var element = $('#36f0533a-eba7-4b53-afe9-e63c8fb4a469');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13363,10 +13363,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="49bd60b0-4662-4d7c-866a-51aa9bbacc62"&gt;&lt;/div&gt;
+&lt;div id="7400f8de-1a13-46ff-8c27-c7e90d3ac9f8"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#49bd60b0-4662-4d7c-866a-51aa9bbacc62');
+var element = $('#7400f8de-1a13-46ff-8c27-c7e90d3ac9f8');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14323,10 +14323,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="d1c2d749-f23d-4dc1-9792-8a4bc3385825"&gt;&lt;/div&gt;
+&lt;div id="71a63756-287c-48d0-ab0f-ed8804c309af"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d1c2d749-f23d-4dc1-9792-8a4bc3385825');
+var element = $('#71a63756-287c-48d0-ab0f-ed8804c309af');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15670,10 +15670,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="a635eb91-cd14-4c5e-929b-17effed259ad"&gt;&lt;/div&gt;
+&lt;div id="d07ab8e8-cdba-438f-8ba1-eacfc50ec626"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#a635eb91-cd14-4c5e-929b-17effed259ad');
+var element = $('#d07ab8e8-cdba-438f-8ba1-eacfc50ec626');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
