@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-01-04T09:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Non-Parametric Confidence Intervals with Bootstrap</title><link href="https://aegis4048.github.io/non-parametric-confidence-intervals-with-bootstrap" rel="alternate"></link><published>2019-01-04T09:00:00-08:00</published><updated>2019-01-04T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-04:/non-parametric-confidence-intervals-with-bootstrap</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-01-04T09:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Non-Parametric Confidence Interval with Bootstrap</title><link href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" rel="alternate"></link><published>2019-01-04T09:00:00-08:00</published><updated>2019-01-04T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-04:/non-parametric-confidence-interval-with-bootstrap</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2748,10 +2748,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="b6a93d99-887a-427d-826a-04e539b7f421"&gt;&lt;/div&gt;
+&lt;div id="23f3c429-1083-4321-b0b7-f6380dff7ba3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b6a93d99-887a-427d-826a-04e539b7f421');
+var element = $('#23f3c429-1083-4321-b0b7-f6380dff7ba3');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4140,10 +4140,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5e953e8b-d109-460e-83a0-bc9420a90798"&gt;&lt;/div&gt;
+&lt;div id="86631a50-85f5-4446-aec5-1e0a3d746110"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5e953e8b-d109-460e-83a0-bc9420a90798');
+var element = $('#86631a50-85f5-4446-aec5-1e0a3d746110');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4972,10 +4972,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="0e9fcb53-95cd-4cea-b50c-f32dda5d32de"&gt;&lt;/div&gt;
+&lt;div id="b962ed8e-de34-411f-9988-8dc7da38dd85"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#0e9fcb53-95cd-4cea-b50c-f32dda5d32de');
+var element = $('#b962ed8e-de34-411f-9988-8dc7da38dd85');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -5931,10 +5931,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="64e508e4-4395-49e1-ad2c-5a39c8074023"&gt;&lt;/div&gt;
+&lt;div id="cd913068-af79-46df-aea4-6dd981ac51a5"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#64e508e4-4395-49e1-ad2c-5a39c8074023');
+var element = $('#cd913068-af79-46df-aea4-6dd981ac51a5');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6819,10 +6819,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="14c6ba2e-e945-48ba-8de8-551bb6ce6c2f"&gt;&lt;/div&gt;
+&lt;div id="aa9d2f09-66d5-49cb-ba2b-0854b4714a36"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#14c6ba2e-e945-48ba-8de8-551bb6ce6c2f');
+var element = $('#aa9d2f09-66d5-49cb-ba2b-0854b4714a36');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8208,10 +8208,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="4744184d-2959-495e-8e17-713651ecc223"&gt;&lt;/div&gt;
+&lt;div id="1ad92a16-d130-4dbf-a729-3c2cbc3bcea0"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4744184d-2959-495e-8e17-713651ecc223');
+var element = $('#1ad92a16-d130-4dbf-a729-3c2cbc3bcea0');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -9032,10 +9032,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="0b2bb0ac-08fa-427f-befd-f5613471fe65"&gt;&lt;/div&gt;
+&lt;div id="6646e12e-a628-4b2b-91b8-b1498bd8a262"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#0b2bb0ac-08fa-427f-befd-f5613471fe65');
+var element = $('#6646e12e-a628-4b2b-91b8-b1498bd8a262');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12539,10 +12539,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="d07a8b81-d7d7-44c2-b290-fb50eaa491b6"&gt;&lt;/div&gt;
+&lt;div id="a951b351-c5ed-4986-98a9-1e8dcd6999f7"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d07a8b81-d7d7-44c2-b290-fb50eaa491b6');
+var element = $('#a951b351-c5ed-4986-98a9-1e8dcd6999f7');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13363,10 +13363,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="368482fd-da74-40a5-934d-3d7e1009c969"&gt;&lt;/div&gt;
+&lt;div id="5278375f-d368-4340-b271-7d80206386e4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#368482fd-da74-40a5-934d-3d7e1009c969');
+var element = $('#5278375f-d368-4340-b271-7d80206386e4');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14323,10 +14323,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="c24729df-722e-4ece-86f3-280436e76a0e"&gt;&lt;/div&gt;
+&lt;div id="beb40ea4-f95a-484d-ae6a-263ab9ccd92a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c24729df-722e-4ece-86f3-280436e76a0e');
+var element = $('#beb40ea4-f95a-484d-ae6a-263ab9ccd92a');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15670,10 +15670,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="0413b858-baae-4550-b270-31f73d96c348"&gt;&lt;/div&gt;
+&lt;div id="18a17467-5040-4834-8ea8-c6b057dbe858"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#0413b858-baae-4550-b270-31f73d96c348');
+var element = $('#18a17467-5040-4834-8ea8-c6b057dbe858');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
