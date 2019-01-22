@@ -951,7 +951,7 @@ progress::-webkit-progress-bar {
 .articles-timeline {
     list-style: none;
     margin: 0;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     padding-inline-start: unset;
     overflow: hidden;
 }
@@ -1175,4 +1175,7 @@ span#MathJax-Span-199 {
 
 .admonition-image {
     max-width: 430px;
+}
+#layout {
+    margin-top: 2rem;
 }
