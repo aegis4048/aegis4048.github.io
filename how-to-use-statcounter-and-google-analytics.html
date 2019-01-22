@@ -171,43 +171,21 @@ Set <code>HEAP_ANALYTICS</code> in your configuration with this value.</p>
 </pre></div>
 <p>Elegant will take care of the rest once that value is added.</p>
         </div>
-        <section>
-<p id="comment-message">So what do you think? Did I miss something? Is any part unclear? Leave your comments below. </p>
-<div class="accordion" id="accordion2">
-    <div class="accordion-group">
-        <div class="accordion-heading">
-            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                    data-disqus-identifier="4kv80xq-how-to-use-statcounter-and-google-analytics"
-                href="https://aegis4048.github.io/how-to-use-statcounter-and-google-analytics#disqus_thread",
-                id="disqus-accordion-toggle">
-                Comments
-            </a>
-        </div>
-        <div id="disqus_thread" class="accordion-body collapse">
-            <div class="accordion-inner">
-                <div class="comments">
-                    <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'pythonic-excursions';
-        var disqus_identifier = '4kv80xq-how-to-use-statcounter-and-google-analytics';
-    var disqus_url = 'https://aegis4048.github.io/how-to-use-statcounter-and-google-analytics';
-
-    (function() {
-         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
-
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'pythonic-excursions';
+      var disqus_identifier = '/how-to-use-statcounter-and-google-analytics';
+      var disqus_url = 'https://aegis4048.github.io/how-to-use-statcounter-and-google-analytics';
+      var disqus_title = 'How to use StatCounter and Google Analytics';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section>
         <hr/>
         <aside>
         <nav>
@@ -262,45 +240,6 @@ Set <code>HEAP_ANALYTICS</code> in your configuration with this value.</p>
                     return (query.length > 0);
                 }
             </script>
-
-            <script type="text/javascript">
-var disqus_shortname = 'pythonic-excursions';
-(function () {
-    var s = document.createElement('script'); s.async = true;
-    s.type = 'text/javascript';
-    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-}());
-</script>
-<script  language="javascript" type="text/javascript">
-function uncollapse() {
-    if (window.location.hash.match(/^#comment-\d+$/)) {
-        $('#disqus_thread').collapse('show');
-    }
-}
-</script>
-<script type="text/javascript" language="JavaScript">
-uncollapse();
-window.onhashchange=function(){
-    if (window.location.hash.match(/^#comment-\d+$/))
-        window.location.reload(true);
-}
-</script>
-<script>
-$('#disqus_thread').on('shown', function () {
-    var link = document.getElementById('disqus-accordion-toggle');
-    var old_innerHTML = link.innerHTML;
-    $(link).fadeOut(500, function() {
-        $(this).text('Click here to hide comments').fadeIn(500);
-    });
-    $('#disqus_thread').on('hidden', function () {
-        $(link).fadeOut(500, function() {
-            $(this).text(old_innerHTML).fadeIn(500);
-        });
-    })
-})
-</script>
-
 
     </body>
     <!-- Theme: Elegant built for Pelican License : MIT -->
