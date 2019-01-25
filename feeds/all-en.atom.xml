@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions</title><link href="/" rel="alternate"></link><link href="/feeds/all-en.atom.xml" rel="self"></link><id>/</id><updated>2019-01-04T09:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Non-Parametric Confidence Interval with Bootstrap</title><link href="/non-parametric-confidence-interval-with-bootstrap" rel="alternate"></link><published>2019-01-04T09:00:00-08:00</published><updated>2019-01-04T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-04:/non-parametric-confidence-interval-with-bootstrap</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-01-04T09:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Non-Parametric Confidence Interval with Bootstrap</title><link href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" rel="alternate"></link><published>2019-01-04T09:00:00-08:00</published><updated>2019-01-04T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-04:/non-parametric-confidence-interval-with-bootstrap</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2748,10 +2748,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="8d0c6d4d-ead0-4572-b2e9-f0b0cfec1344"&gt;&lt;/div&gt;
+&lt;div id="ae798fcc-e9f4-4ec3-82b5-1cd34cbc47c4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8d0c6d4d-ead0-4572-b2e9-f0b0cfec1344');
+var element = $('#ae798fcc-e9f4-4ec3-82b5-1cd34cbc47c4');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4140,10 +4140,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="03f0c698-fcc4-4bd4-b95c-2eba726ce051"&gt;&lt;/div&gt;
+&lt;div id="b6e065fc-3cda-4c58-b237-d0c5d14ac6d3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#03f0c698-fcc4-4bd4-b95c-2eba726ce051');
+var element = $('#b6e065fc-3cda-4c58-b237-d0c5d14ac6d3');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4972,10 +4972,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="2cc30350-9140-40d7-a4cc-069df7bfd760"&gt;&lt;/div&gt;
+&lt;div id="357e416e-dfc0-4de3-a125-44e6fd1ffdbb"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2cc30350-9140-40d7-a4cc-069df7bfd760');
+var element = $('#357e416e-dfc0-4de3-a125-44e6fd1ffdbb');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -5931,10 +5931,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="be0e08ed-5134-4feb-ad6e-0e2ab2e12006"&gt;&lt;/div&gt;
+&lt;div id="e8994fe8-a9b7-4414-84f4-68eead619739"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#be0e08ed-5134-4feb-ad6e-0e2ab2e12006');
+var element = $('#e8994fe8-a9b7-4414-84f4-68eead619739');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6819,10 +6819,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="48f9bf8c-08cc-44c6-b99a-d2440020c2ff"&gt;&lt;/div&gt;
+&lt;div id="a19b2186-f952-47b6-ac6f-c6cc764bcb0e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#48f9bf8c-08cc-44c6-b99a-d2440020c2ff');
+var element = $('#a19b2186-f952-47b6-ac6f-c6cc764bcb0e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8208,10 +8208,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5d6f021b-26b7-41a4-bec8-ae1f782aabeb"&gt;&lt;/div&gt;
+&lt;div id="61a1af9b-5016-4088-924f-9285fb9a3d6f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5d6f021b-26b7-41a4-bec8-ae1f782aabeb');
+var element = $('#61a1af9b-5016-4088-924f-9285fb9a3d6f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -9032,10 +9032,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="846b1ffe-85db-4c85-b73b-dcc92ddac098"&gt;&lt;/div&gt;
+&lt;div id="4339755c-df35-4fd0-9c7e-3afe0255120a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#846b1ffe-85db-4c85-b73b-dcc92ddac098');
+var element = $('#4339755c-df35-4fd0-9c7e-3afe0255120a');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -9982,7 +9982,7 @@ IQR       :       78.4  ~      120.9 , AVG =  98.1
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="non-parametric"></category><category term="confidence-interval"></category><category term="bootstrap(stats)"></category><category term="statistics"></category></entry><entry><title>Uncertainty Modeling with Monte-Carlo Simulation</title><link href="/uncertainty-modeling-with-monte-carlo-simulation" rel="alternate"></link><published>2019-01-03T09:00:00-08:00</published><updated>2019-01-03T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-03:/uncertainty-modeling-with-monte-carlo-simulation</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="non-parametric"></category><category term="confidence-interval"></category><category term="bootstrap(stats)"></category><category term="statistics"></category></entry><entry><title>Uncertainty Modeling with Monte-Carlo Simulation</title><link href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" rel="alternate"></link><published>2019-01-03T09:00:00-08:00</published><updated>2019-01-03T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-03:/uncertainty-modeling-with-monte-carlo-simulation</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -12539,10 +12539,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ce81ce0c-e559-4351-ab3a-b9f3f2c8c681"&gt;&lt;/div&gt;
+&lt;div id="953365ce-c9f3-4b6a-a7fd-38a85972d4b3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ce81ce0c-e559-4351-ab3a-b9f3f2c8c681');
+var element = $('#953365ce-c9f3-4b6a-a7fd-38a85972d4b3');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13363,10 +13363,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="d5bed6cd-723d-40a2-87f2-7cd90457a902"&gt;&lt;/div&gt;
+&lt;div id="77d94486-dd94-445a-8f1f-3cad1ff1ad21"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d5bed6cd-723d-40a2-87f2-7cd90457a902');
+var element = $('#77d94486-dd94-445a-8f1f-3cad1ff1ad21');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14323,10 +14323,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="1ce6cf1b-ec18-49c1-9ff3-d2303036a6d4"&gt;&lt;/div&gt;
+&lt;div id="092bb1f7-f283-4176-9614-3d41395a8dbd"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1ce6cf1b-ec18-49c1-9ff3-d2303036a6d4');
+var element = $('#092bb1f7-f283-4176-9614-3d41395a8dbd');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15670,10 +15670,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="14fe8b4c-73a3-4dba-85c0-0e51e863fdc8"&gt;&lt;/div&gt;
+&lt;div id="3e72db3d-2fa2-42b8-9e50-7440f958e36e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#14fe8b4c-73a3-4dba-85c0-0e51e863fdc8');
+var element = $('#3e72db3d-2fa2-42b8-9e50-7440f958e36e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16554,7 +16554,7 @@ if (IPython.notebook.kernel != null) {
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="monte-carlo-simulation"></category><category term="statistics"></category><category term="uncertainty-modeling"></category><category term="prediction-interval"></category></entry><entry><title>How to use StatCounter and Google Analytics</title><link href="/how-to-use-statcounter-and-google-analytics" rel="alternate"></link><published>2013-11-11T23:05:00-08:00</published><updated>2013-11-11T23:05:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2013-11-11:/how-to-use-statcounter-and-google-analytics</id><summary type="html">&lt;p&gt;Elegant Pelican theme supports StatCounter and Google Analytics out of
+&lt;/script&gt;</content><category term="monte-carlo-simulation"></category><category term="statistics"></category><category term="uncertainty-modeling"></category><category term="prediction-interval"></category></entry><entry><title>How to use StatCounter and Google Analytics</title><link href="https://aegis4048.github.io/how-to-use-statcounter-and-google-analytics" rel="alternate"></link><published>2013-11-11T23:05:00-08:00</published><updated>2013-11-11T23:05:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2013-11-11:/how-to-use-statcounter-and-google-analytics</id><summary type="html">&lt;p&gt;Elegant Pelican theme supports StatCounter and Google Analytics out of
 the box. This articles describes how to set them up.&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;Elegant has support for popular web tracking services,
 &lt;a href="http://statcounter.com/"&gt;StatCounter&lt;/a&gt;, &lt;a href="http://www.google.com/analytics/"&gt;Google
