@@ -45,6 +45,8 @@
                 }
             </style>
 
+        <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
+
         <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
         <link rel="apple-touch-icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon.png"  type="image/png" />
@@ -107,6 +109,9 @@
         <div class="h2 mt-3 title text-center mb-5">Archive</div>
         <hr>
         <div class="meta" style="margin-bottom: 30px; margin-top: 30px;">
+                <a href="https://aegis4048.github.io/tag/web-dev.html" class="tag">web-dev (1)</a>
+                <a href="https://aegis4048.github.io/tag/pelican.html" class="tag">pelican (1)</a>
+                <a href="https://aegis4048.github.io/tag/jupyter.html" class="tag">jupyter (1)</a>
                 <a href="https://aegis4048.github.io/tag/non-parametric.html" class="tag">non-parametric (1)</a>
                 <a href="https://aegis4048.github.io/tag/confidence-interval.html" class="tag">confidence-interval (1)</a>
                 <a href="https://aegis4048.github.io/tag/bootstrapstats.html" class="tag">bootstrap(stats) (1)</a>
@@ -136,6 +141,13 @@
                         <a href='/uncertainty-modeling-with-monte-carlo-simulation'>
                             <h2>Uncertainty Modeling with Monte-Carlo Simulation</h2>
                             <span>03.01.2019</span>
+                        </a>
+                    </li>
+                <h2 class="mt-3 mb-3">WebDev</h2>
+                    <li>
+                        <a href='/creating-a-jupyternotebook-powered-data-science-blog-with-pelican'>
+                            <h2>Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</h2>
+                            <span>27.01.2019</span>
                         </a>
                     </li>
         <hr class="mt-4">
@@ -177,6 +189,22 @@
 </footer>
             <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/jquery.min.js"></script>
             <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://aegis4048.github.io/theme/libs/prism.js"></script>
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
         <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
             <script>
                 function validateForm(query)
