@@ -2436,11 +2436,16 @@ h6:hover .anchor-link {
 &lt;/pre&gt;&lt;p&gt;That's it. Aegis-Jupyter theme will take care of the rest. More detailed tutorials on how to create Google Analytics account and tracking ID will come later.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Share Your Posts on Social Media&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="row"&gt;
-&lt;div class="col"&gt;&lt;img src="https://aegis4048.github.io/images/social.png"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-
-
-
-
+&lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/social_1.png" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/social_2.png" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/social_3.png" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/social_4.png" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
@@ -5250,10 +5255,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="f8a62ed8-cec2-49a9-a876-60da38789a8b"&gt;&lt;/div&gt;
+&lt;div id="28923994-bdb1-4166-9ca1-c58a472b4672"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f8a62ed8-cec2-49a9-a876-60da38789a8b');
+var element = $('#28923994-bdb1-4166-9ca1-c58a472b4672');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6642,10 +6647,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ea3f8808-6aae-432d-b300-6a2af32102c6"&gt;&lt;/div&gt;
+&lt;div id="aa7a6731-d8ed-4f0f-b096-28d8eb24a1cf"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ea3f8808-6aae-432d-b300-6a2af32102c6');
+var element = $('#aa7a6731-d8ed-4f0f-b096-28d8eb24a1cf');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7474,10 +7479,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="44aa2594-4ab7-4ee1-a1f1-7a9d5120f1cf"&gt;&lt;/div&gt;
+&lt;div id="cee1eba3-1c4a-445d-bd15-089c498bb3eb"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#44aa2594-4ab7-4ee1-a1f1-7a9d5120f1cf');
+var element = $('#cee1eba3-1c4a-445d-bd15-089c498bb3eb');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8433,10 +8438,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="f416fe8f-211f-4d32-b016-71df303cc6d8"&gt;&lt;/div&gt;
+&lt;div id="25f3f09c-614f-4da8-ab58-d6d320eaa0a2"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f416fe8f-211f-4d32-b016-71df303cc6d8');
+var element = $('#25f3f09c-614f-4da8-ab58-d6d320eaa0a2');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -9321,10 +9326,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="4b2bd2db-b195-4287-89f9-653e13991244"&gt;&lt;/div&gt;
+&lt;div id="f1a6bde6-bc7d-45bb-a91d-449d713e69aa"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4b2bd2db-b195-4287-89f9-653e13991244');
+var element = $('#f1a6bde6-bc7d-45bb-a91d-449d713e69aa');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -10710,10 +10715,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="aa9dfa48-6b34-4bf8-8cac-ecede4757122"&gt;&lt;/div&gt;
+&lt;div id="7d7a543f-3a93-4638-9b65-5716ee336e35"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#aa9dfa48-6b34-4bf8-8cac-ecede4757122');
+var element = $('#7d7a543f-3a93-4638-9b65-5716ee336e35');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -11534,10 +11539,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5e90bcfc-35bd-41ca-887a-361bcadc1319"&gt;&lt;/div&gt;
+&lt;div id="b08a63fb-4e9d-4412-8ef0-d590a1162cb2"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5e90bcfc-35bd-41ca-887a-361bcadc1319');
+var element = $('#b08a63fb-4e9d-4412-8ef0-d590a1162cb2');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15041,10 +15046,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="605d3d1c-039b-4bd6-94f1-2ca67bc8ee72"&gt;&lt;/div&gt;
+&lt;div id="ca3dcbfe-b966-40a6-bf88-06f40fcc871b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#605d3d1c-039b-4bd6-94f1-2ca67bc8ee72');
+var element = $('#ca3dcbfe-b966-40a6-bf88-06f40fcc871b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15865,10 +15870,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9a6cc252-5f64-4817-9b54-4d1e233bf2ed"&gt;&lt;/div&gt;
+&lt;div id="1e4a9b75-5585-4a14-9123-d36e6cb8de83"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9a6cc252-5f64-4817-9b54-4d1e233bf2ed');
+var element = $('#1e4a9b75-5585-4a14-9123-d36e6cb8de83');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16825,10 +16830,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="f678df56-8b26-4906-8522-80a184da2b0d"&gt;&lt;/div&gt;
+&lt;div id="d42fa143-c55b-4e91-8adc-b23987a5352d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f678df56-8b26-4906-8522-80a184da2b0d');
+var element = $('#d42fa143-c55b-4e91-8adc-b23987a5352d');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -18172,10 +18177,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="e5335e4e-fdfe-45d2-8590-8ba7847fbe51"&gt;&lt;/div&gt;
+&lt;div id="c1782b2f-1215-4361-b9f2-292c8517d626"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e5335e4e-fdfe-45d2-8590-8ba7847fbe51');
+var element = $('#c1782b2f-1215-4361-b9f2-292c8517d626');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
