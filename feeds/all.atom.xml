@@ -2410,12 +2410,23 @@ h6:hover .anchor-link {
     &lt;/code&gt;
 &lt;/pre&gt;&lt;p&gt;And that's all it takes to integrate Pelican with Django. Part of your website can be static pages where it doesn't need to execute any code on a server, but the other part of your website can be dynamic pages where you can send queries to your server. Of course, the methodology to combine Pelican with dynamic backend will differ for each backend framework of your choice, but you get the idea.&lt;/p&gt;
 &lt;p&gt;Here is the point: Pelican is a static site generator, but that does not mean that Pelican can't be used in dynamic websites. And Pelican is GREAT for blogging.&lt;/p&gt;
-&lt;h2 id="Aegis-Jupyter-Theme"&gt;Aegis-Jupyter Theme&lt;a class="anchor-link" href="#Aegis-Jupyter-Theme"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Aegis-Jupyter theme is a custom Pelican theme I made to easily host &amp; maintain a Jupyter Notebook powered data science blog. Every articles you see in &lt;a href="https://aegis4048.github.io/archives.html"&gt;archives&lt;/a&gt; page is rendered using Jupyter Notebook .ipynb files. Even this very article you are reading right now! It also renders really nicely on all resolutions &amp; mobile devices too.&lt;/p&gt;
+&lt;h2 id="Introducing-Aegis-Jupyter-Theme"&gt;Introducing Aegis-Jupyter Theme&lt;a class="anchor-link" href="#Introducing-Aegis-Jupyter-Theme"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Aegis-Jupyter theme is a custom Pelican theme I made to easily host &amp; maintain a Jupyter Notebook powered data science blog. I burrowed the some CSS design of the articles from &lt;a href="http://jakevdp.github.io/pages/about.html"&gt;Jake VanderPlas&lt;/a&gt;, and improved the rendering of Jupyter Notebook files by adding custom CSS &amp; JS codes. Every articles you see in &lt;a href="https://aegis4048.github.io/archives.html"&gt;archives&lt;/a&gt; page is rendered using Jupyter Notebook .ipynb files. Even this very article you are reading right now!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Mobile Device Friendly&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="row"&gt;
-&lt;div class="col-4"&gt;&lt;img src="{{ SITEURL }}/images/mobile_1.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
-&lt;div class="col-4"&gt;&lt;img src="{{ SITEURL }}/images/mobile_2.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
-&lt;div class="col-4"&gt;&lt;img src="{{ SITEURL }}/images/mobile_3.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;I burrowed the overall CSS design of the articles from &lt;a href="http://jakevdp.github.io/pages/about.html"&gt;Jake VanderPlas&lt;/a&gt;, and improved the rendering of Jupyter Notebook files by adding custom CSS &amp; JS codes.&lt;/p&gt;
+&lt;div class="col-3"&gt;&lt;img src="https://aegis4048.github.io/images/mobile_1.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;div class="col-3"&gt;&lt;img src="https://aegis4048.github.io/images/mobile_2.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;div class="col-3"&gt;&lt;img src="https://aegis4048.github.io/images/mobile_3.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;div class="col-3"&gt;&lt;img src="https://aegis4048.github.io/images/mobile_4.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;The theme renders very nicely on all resolutions, screenwidth, and mobile devices. Try viewing this website on your phone. If you are on PC, try stretching &amp; collapsing the browser size and see how it responsively re-aligns itself.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Google Analytics Support&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/analytics_2.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/analytics_3.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/analytics_4.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/analytics_5.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5228,10 +5239,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="d6a2267d-51a9-4738-8f05-c8694aef59f9"&gt;&lt;/div&gt;
+&lt;div id="d8ef0015-839c-4fd6-8133-5e025d83de01"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d6a2267d-51a9-4738-8f05-c8694aef59f9');
+var element = $('#d8ef0015-839c-4fd6-8133-5e025d83de01');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6620,10 +6631,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9f170b71-8ec1-47e9-bcc0-10660a80bd48"&gt;&lt;/div&gt;
+&lt;div id="6ff189a8-0f14-4deb-aecd-0ade2a7106bf"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9f170b71-8ec1-47e9-bcc0-10660a80bd48');
+var element = $('#6ff189a8-0f14-4deb-aecd-0ade2a7106bf');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7452,10 +7463,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="1b863438-aa66-48f2-8185-b741333706d8"&gt;&lt;/div&gt;
+&lt;div id="e7e3df49-cc09-4a4a-a88c-4c0b86aefdf0"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1b863438-aa66-48f2-8185-b741333706d8');
+var element = $('#e7e3df49-cc09-4a4a-a88c-4c0b86aefdf0');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8411,10 +8422,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="4dc14c3c-6d96-4a21-af27-8460cc829146"&gt;&lt;/div&gt;
+&lt;div id="dc92f6a0-ceac-423a-ac22-db15df970b5f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4dc14c3c-6d96-4a21-af27-8460cc829146');
+var element = $('#dc92f6a0-ceac-423a-ac22-db15df970b5f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -9299,10 +9310,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="442ced3a-db1b-4471-bbb8-6b259e2ba872"&gt;&lt;/div&gt;
+&lt;div id="4863e8dd-fc00-42bb-9068-b7046ee06d80"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#442ced3a-db1b-4471-bbb8-6b259e2ba872');
+var element = $('#4863e8dd-fc00-42bb-9068-b7046ee06d80');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -10688,10 +10699,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="70d92aba-6f86-4b09-b87a-ccbc85b066f6"&gt;&lt;/div&gt;
+&lt;div id="24cbfa04-19c5-42f6-a5b1-51d8321587e7"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#70d92aba-6f86-4b09-b87a-ccbc85b066f6');
+var element = $('#24cbfa04-19c5-42f6-a5b1-51d8321587e7');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -11512,10 +11523,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="e25ffaab-e828-4976-9b47-40c014544d9e"&gt;&lt;/div&gt;
+&lt;div id="6ea1f54c-8d8f-4531-b02b-24e79447dc6d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e25ffaab-e828-4976-9b47-40c014544d9e');
+var element = $('#6ea1f54c-8d8f-4531-b02b-24e79447dc6d');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15019,10 +15030,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="76fd47eb-9807-4a8f-9790-639299ffb7ed"&gt;&lt;/div&gt;
+&lt;div id="00112ffe-c06e-4ad6-8674-7bec5d8fa292"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#76fd47eb-9807-4a8f-9790-639299ffb7ed');
+var element = $('#00112ffe-c06e-4ad6-8674-7bec5d8fa292');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15843,10 +15854,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ebcccf79-5ba1-450d-a94c-16f4687ac617"&gt;&lt;/div&gt;
+&lt;div id="674e14e1-65cd-418e-8607-522b95ff87b8"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ebcccf79-5ba1-450d-a94c-16f4687ac617');
+var element = $('#674e14e1-65cd-418e-8607-522b95ff87b8');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16803,10 +16814,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="3146d655-4556-4764-b97b-7523858ec11f"&gt;&lt;/div&gt;
+&lt;div id="38914391-b48e-4f41-a0a7-4346fab6ad37"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3146d655-4556-4764-b97b-7523858ec11f');
+var element = $('#38914391-b48e-4f41-a0a7-4346fab6ad37');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -18150,10 +18161,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="c72dc8f3-3540-4b66-b70e-75e2f1aff4b4"&gt;&lt;/div&gt;
+&lt;div id="b72ceea6-8d1b-425c-b6d9-ff7b7890c98c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c72dc8f3-3540-4b66-b70e-75e2f1aff4b4');
+var element = $('#b72ceea6-8d1b-425c-b6d9-ff7b7890c98c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
