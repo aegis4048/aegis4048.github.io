@@ -5,14 +5,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://aegis4048.github.io/</loc>
-<lastmod>2019-01-29T09:10:30-00:00</lastmod>
+<lastmod>2019-01-29T13:16:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/archives.html</loc>
-<lastmod>2019-01-29T09:10:30-00:00</lastmod>
+<lastmod>2019-01-29T13:16:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -35,20 +35,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation</loc>
 <lastmod>2019-01-03T09:00:00-08:00</lastmod>
 <changefreq>hourly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://aegis4048.github.io/how-to-use-statcounter-and-google-analytics</loc>
-<lastmod>2013-11-11T23:05:00-08:00</lastmod>
-<changefreq>hourly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://aegis4048.github.io/category/analytics.html</loc>
-<lastmod>2013-11-11T23:05:00-07:53</lastmod>
-<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -132,20 +118,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://aegis4048.github.io/tag/prediction-interval.html</loc>
 <lastmod>2019-01-03T09:00:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://aegis4048.github.io/tag/web-analytics.html</loc>
-<lastmod>2013-11-11T23:05:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://aegis4048.github.io/tag/pelican-theme.html</loc>
-<lastmod>2013-11-11T23:05:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

@@ -5261,10 +5261,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="7cc72d31-fc73-4ef0-ad86-ff10d378f17c"&gt;&lt;/div&gt;
+&lt;div id="28a29d01-00b4-4657-a968-2c718d7be5cf"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7cc72d31-fc73-4ef0-ad86-ff10d378f17c');
+var element = $('#28a29d01-00b4-4657-a968-2c718d7be5cf');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6653,10 +6653,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="e63dfd8f-3b05-44bf-a6a2-bde460c3f5bf"&gt;&lt;/div&gt;
+&lt;div id="57c39bd8-c2a4-4cb9-b610-0e9dbad772ad"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e63dfd8f-3b05-44bf-a6a2-bde460c3f5bf');
+var element = $('#57c39bd8-c2a4-4cb9-b610-0e9dbad772ad');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7485,10 +7485,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="2faa0334-e99f-43e9-93c1-672471457ba6"&gt;&lt;/div&gt;
+&lt;div id="cac1d166-80eb-49f0-89f1-d452af9ac90b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2faa0334-e99f-43e9-93c1-672471457ba6');
+var element = $('#cac1d166-80eb-49f0-89f1-d452af9ac90b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8444,10 +8444,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="d2ec93b3-931f-4e89-b00c-28a527261158"&gt;&lt;/div&gt;
+&lt;div id="593db17c-ffbc-413f-9e92-9b341ae1f00e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d2ec93b3-931f-4e89-b00c-28a527261158');
+var element = $('#593db17c-ffbc-413f-9e92-9b341ae1f00e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -9332,10 +9332,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="1d6019c0-d455-4dcf-a2b3-60c65d190403"&gt;&lt;/div&gt;
+&lt;div id="d354ad21-ee42-46e6-bb62-5ec1d31d1515"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1d6019c0-d455-4dcf-a2b3-60c65d190403');
+var element = $('#d354ad21-ee42-46e6-bb62-5ec1d31d1515');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -10721,10 +10721,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="1ff41b46-1dcb-43d9-a31b-adfcd6c744a2"&gt;&lt;/div&gt;
+&lt;div id="9694b797-6b87-413f-9488-f6383f149edc"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1ff41b46-1dcb-43d9-a31b-adfcd6c744a2');
+var element = $('#9694b797-6b87-413f-9488-f6383f149edc');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -11545,10 +11545,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="d33afe10-71cc-4918-b060-4e9c4dc8b8f6"&gt;&lt;/div&gt;
+&lt;div id="f1a08b58-3234-4371-9f0c-a25aed47dff6"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d33afe10-71cc-4918-b060-4e9c4dc8b8f6');
+var element = $('#f1a08b58-3234-4371-9f0c-a25aed47dff6');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15052,10 +15052,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="f7eb910e-0eb5-4e52-830b-08a2f0a0d0c9"&gt;&lt;/div&gt;
+&lt;div id="3e4f9ca1-bc5c-4c63-9ccc-d89630beda96"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f7eb910e-0eb5-4e52-830b-08a2f0a0d0c9');
+var element = $('#3e4f9ca1-bc5c-4c63-9ccc-d89630beda96');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15876,10 +15876,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="f0ee4728-0b9c-4703-9ad3-b0938cf5a342"&gt;&lt;/div&gt;
+&lt;div id="64cfcc67-6aa0-4f89-8e99-ed2d5567ce3c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f0ee4728-0b9c-4703-9ad3-b0938cf5a342');
+var element = $('#64cfcc67-6aa0-4f89-8e99-ed2d5567ce3c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16836,10 +16836,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="f92c3c25-7b90-4db6-a782-fcc6f7d0da9e"&gt;&lt;/div&gt;
+&lt;div id="6342632f-9834-4615-a89e-024642761e14"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f92c3c25-7b90-4db6-a782-fcc6f7d0da9e');
+var element = $('#6342632f-9834-4615-a89e-024642761e14');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -18183,10 +18183,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="a2798d65-0ccd-4fc4-8b23-4997c8a64db8"&gt;&lt;/div&gt;
+&lt;div id="dfbe54e1-190c-4dd2-a565-6e85d6811101"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#a2798d65-0ccd-4fc4-8b23-4997c8a64db8');
+var element = $('#dfbe54e1-190c-4dd2-a565-6e85d6811101');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -19067,44 +19067,4 @@ if (IPython.notebook.kernel != null) {
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="monte-carlo-simulation"></category><category term="statistics"></category><category term="uncertainty-modeling"></category><category term="prediction-interval"></category></entry><entry><title>How to use StatCounter and Google Analytics</title><link href="https://aegis4048.github.io/how-to-use-statcounter-and-google-analytics" rel="alternate"></link><published>2013-11-11T23:05:00-08:00</published><updated>2013-11-11T23:05:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2013-11-11:/how-to-use-statcounter-and-google-analytics</id><summary type="html">&lt;p&gt;Elegant Pelican theme supports StatCounter and Google Analytics out of
-the box. This articles describes how to set them up.&lt;/p&gt;</summary><content type="html">
-&lt;p&gt;Elegant has support for popular web tracking services,
-&lt;a href="http://statcounter.com/"&gt;StatCounter&lt;/a&gt;, &lt;a href="http://www.google.com/analytics/"&gt;Google
-Analytics&lt;/a&gt; and &lt;a href="https://heapanalytics.com/"&gt;Heap&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You have to put web property ID assigned to you by the these services, in your
-configuration to use the tracking code.&lt;/p&gt;
-&lt;h2 id="statcounter"&gt;StatCounter&lt;a class="headerlink" href="#statcounter" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;You need two codes from StatCounter- project ID and security code.&lt;/p&gt;
-&lt;p&gt;Create a project in StatCounter. Click on Config, Reinstall Code and then
-Default Guide.&lt;/p&gt;
-&lt;p&gt;It will show you a &lt;a href="http://statcounter.com/support/knowledge-base/14/"&gt;standard
-code&lt;/a&gt;
-that a website must have in order to use StatCounter.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nx"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;!--&lt;/span&gt; &lt;span class="nx"&gt;Start&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="nx"&gt;StatCounter&lt;/span&gt; &lt;span class="nx"&gt;Code&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nx"&gt;Default&lt;/span&gt; &lt;span class="nx"&gt;Guide&lt;/span&gt; &lt;span class="o"&gt;--&amp;amp;&lt;/span&gt;&lt;span class="nx"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nx"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="nx"&gt;script&lt;/span&gt; &lt;span class="nx"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"text/javascript"&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nx"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;sc_project&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5555555&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;sc_invisible&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;sc_security&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"XXXXXXXX"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;...&lt;/span&gt;
-&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nx"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;!--&lt;/span&gt; &lt;span class="nx"&gt;End&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="nx"&gt;StatCounter&lt;/span&gt; &lt;span class="nx"&gt;Code&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nx"&gt;Default&lt;/span&gt; &lt;span class="nx"&gt;Guide&lt;/span&gt; &lt;span class="o"&gt;--&amp;amp;&lt;/span&gt;&lt;span class="nx"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Assign &lt;code&gt;sc_project&lt;/code&gt; value to &lt;code&gt;STAT_COUNTER_PROJECT&lt;/code&gt; and &lt;code&gt;sc_security&lt;/code&gt; to &lt;code&gt;STAT_COUNTER_SECURITY&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;STAT_COUNTER_PROJECT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5555555&lt;/span&gt;
-&lt;span class="n"&gt;STAT_COUNTER_SECURITY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;u&lt;/span&gt;&lt;span class="s1"&gt;'XXXXXXXX'&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id="google-analytics"&gt;Google Analytics&lt;a class="headerlink" href="#google-analytics" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://support.google.com/analytics/answer/1032385?hl=en"&gt;Get your property
-ID&lt;/a&gt; from your Google
-Analytics account. It has this format &lt;code&gt;UA-XXXXX-X&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Set &lt;code&gt;GOOGLE_ANALYTICS&lt;/code&gt; variable to it in your configuration.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;GOOGLE_ANALYTICS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;u&lt;/span&gt;&lt;span class="s1"&gt;'UA-00000000-1'&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;That's it. Elegant will take care of the rest.&lt;/p&gt;
-&lt;h2 id="heap"&gt;Heap&lt;a class="headerlink" href="#heap" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;From your &lt;a href="https://heapanalytics.com/app/account"&gt;Heap console&lt;/a&gt;, navigate to
-Settings-&amp;gt;Projects. You need to copy the Project ID you want to log to.
-Set &lt;code&gt;HEAP_ANALYTICS&lt;/code&gt; in your configuration with this value.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;HEAP_ANALYTICS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1234567890&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Elegant will take care of the rest once that value is added.&lt;/p&gt;</content><category term="web-analytics"></category><category term="pelican-theme"></category></entry></feed>
+&lt;/script&gt;</content><category term="monte-carlo-simulation"></category><category term="statistics"></category><category term="uncertainty-modeling"></category><category term="prediction-interval"></category></entry></feed>
