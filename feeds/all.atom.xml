@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/all.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-01-27T09:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</title><link href="https://aegis4048.github.io/creating-a-jupyternotebook-powered-data-science-blog-with-pelican" rel="alternate"></link><published>2019-01-27T09:00:00-08:00</published><updated>2019-01-27T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-27:/creating-a-jupyternotebook-powered-data-science-blog-with-pelican</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2019-01-27T09:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</title><link href="/creating-a-jupyternotebook-powered-data-science-blog-with-pelican" rel="alternate"></link><published>2019-01-27T09:00:00-08:00</published><updated>2019-01-27T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-27:/creating-a-jupyternotebook-powered-data-science-blog-with-pelican</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1148,6 +1148,17 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 &lt;/style&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -2328,9 +2339,23 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;blockquote class="quote"&gt;
-  What did I use to power my blog, Pythonic Excursions? - I used Pelican.
+  What powers this blog, Pythonic Excursions? - I used Pelican.
   &lt;span&gt;- Me&lt;/span&gt;
-&lt;/blockquote&gt;&lt;p&gt;&lt;a href="https://github.com/getpelican/pelican"&gt;Pelican&lt;/a&gt; is a static site genertor, written in Python. It is a Python library used to auto-generate HTML elements that are used to run websites. Pelican-powered blogs are light and easy to host with no scaling concerns. All it's doing is pre-generating HTML files and responding with the existing files during a typical HTTP request-response cycle.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;p&gt;&lt;a href="https://github.com/getpelican/pelican"&gt;Pelican&lt;/a&gt; is a static site genertor, written in Python. It is a Python library used to auto-generate HTML elements that are used to run websites. Pelican-powered blogs are light and easy to host with no scaling concerns. It pre-generates HTML files and responds with the existing files during a typical HTTP request-response cycle.&lt;/p&gt;
+&lt;p&gt;So, why should you use Pelican?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It's GREAT for blogging&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can wrtie your content directly with the editor of your choice in &lt;a href="http://docutils.sourceforge.net/rst.html"&gt;reStructuredText&lt;/a&gt; or &lt;a href="https://daringfireball.net/projects/markdown/"&gt;Markdown&lt;/a&gt; formats. Select a favorite theme of your choice from a collection of &lt;a href="https://github.com/getpelican/pelican-themes"&gt;Pelican-themes&lt;/a&gt;, and write articles. The CSS and Javascript contained in the theme will handle the rest and output your article nice and clean. One look is worth a thousand words. Take a look at this &lt;a href="https://github.com/jakevdp/jakevdp.github.io-source/blob/master/content/articles/2013-02-02-setting-up-a-mac-for-python-development.md"&gt;markdown file&lt;/a&gt; that is used to render this &lt;a href="http://jakevdp.github.io/blog/2013/02/02/setting-up-a-mac-for-python-development/"&gt;article&lt;/a&gt; through Github Pages by &lt;a href="http://jakevdp.github.io/pages/about.html"&gt;Jake VanderPlas&lt;/a&gt;. His blog is made with Pelican, after modifying some codes in &lt;a href="https://github.com/MrSenko/pelican-octopress-theme/tree/29020e048cadefffc8825e571593b88be26f22bc"&gt;Octopress&lt;/a&gt; theme (you can also write your articles in other formats, such as Jupyter Notebook, which powers this blog).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Minimal learning curves&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Going through the official documenations, user-made tutorials, YouTube videos are painful. Using Pelican will minimize wasting your time dealing with the learning curves. One thing that makes it very easy to learn &amp; modify is that there already are lots blogs that runs on Pelican, and their source codes are open to public.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://aegis4048.github.io/"&gt;Pythonic Excursions&lt;/a&gt; -- &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source"&gt;source code&lt;/a&gt;, &lt;a href="https://github.com/aegis4048/pelican-aegis-jupyter-theme/tree/042e29d85a5741b58155fd16cab0bbdfecbdff96"&gt;Aegis-Jupyter Theme&lt;/a&gt; by &lt;a href="https://github.com/aegis4048"&gt;Me&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://oncrashreboot.com/"&gt;onCrash = 'reboot();'&lt;/a&gt; -- &lt;a href="https://github.com/talha131/onCrashReboot"&gt;source code&lt;/a&gt;, &lt;a href="https://github.com/Pelican-Elegant/elegant"&gt;Elegant Theme&lt;/a&gt; by &lt;a href="https://github.com/talha131"&gt;Talha Mansoor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://jakevdp.github.io/"&gt;Pythonic Perambulations&lt;/a&gt; -- &lt;a href="https://github.com/jakevdp/PythonicPerambulations"&gt;source code&lt;/a&gt;, &lt;a href="https://github.com/jakevdp/pelican-octopress-theme/tree/d90ff392f63980e26c9d33d38903b3e0ab5fe6af"&gt;Adapted Octopress Theme&lt;/a&gt; by &lt;a href="https://github.com/jakevdp"&gt;Jake VanderPlas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;... and many more&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you don't want to learn Pelican from scratch, you can download these open source repos and start from there. You will only need to learn how to tweak some settings to meet your needs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Completely static output is easy to host anywhere&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The output of Pelican is all HTML. You don't have to worry about configuring a complicated database and optimizing connections. Let's take a look at how Pelican works.&lt;/p&gt;
 &lt;p&gt;Most Pelican blogs have the following directory tree.&lt;/p&gt;
 &lt;ul class="ascii"&gt;
 &lt;li&gt;blog
@@ -2377,15 +2402,17 @@ h6:hover .anchor-link {
 &lt;li&gt;publishconf.py&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;&lt;p&gt;&lt;code&gt;output&lt;/code&gt; directory is the folder where Pelican stores the auto-generated HTML files, and those existing files are returned to the user who sent an HTTP request to view your website. The other directories are tools and templates used to generate the HTML files in the &lt;code&gt;output&lt;/code&gt; folder. You do not need to configure a SQL database, or execute any codes on the server. However, it does not mean that you cannot have backend features on your website. You can pre-generate the output HTML files, and just wrap it around with the backend engine of your choice.&lt;/p&gt;
-&lt;p&gt;Let's say that you are developing a web-app with Django, and you want part of your website to be a static blog. You have a Pelican-generated output HTML file called &lt;code&gt;python_article.html&lt;/code&gt;. In Django, you can render your Pelican-generated HTML file using a basic Class-Based-View like this:&lt;/p&gt;
+&lt;/ul&gt;&lt;p&gt;&lt;code&gt;output&lt;/code&gt; directory is the folder where Pelican stores the auto-generated HTML files, and those existing files are returned to the user who sent an HTTP request to view your website. The other directories are tools and templates used to generate the HTML files in the &lt;code&gt;output&lt;/code&gt; folder. You do not need to configure a SQL database, or execute any codes on the server. All outputs are completely static.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Can Pelican be used in dynamic websites too?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Yes, it can. Although Pelican is a static site generator, that does not mean that you can't have dynamic backend features on your website. You can pre-generate the output HTML files with Pelican, and just wrap it around with the backend framework of your choice.&lt;/p&gt;
+&lt;p&gt;Let's say that you are developing a web-app with Django, and you want part of your website to be a static blog. You have a Pelican-generated output HTML file called &lt;code&gt;article_1.html&lt;/code&gt;. In Django, you can render your Pelican-generated HTML file using a basic Class-Based-View like this:&lt;/p&gt;
 &lt;p&gt;&lt;p class="font-weight-bold"&gt;views.py&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
         from django.views.generic import TemplateView
 
         class PelicanView(TemplateView):
-            template_name = 'python_article.html'
+            template_name = 'article_1.html'
     &lt;/code&gt;
 &lt;/pre&gt;&lt;p&gt;&lt;p class="font-weight-bold"&gt;urls.py&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
@@ -2399,7 +2426,7 @@ h6:hover .anchor-link {
     &lt;/code&gt;
 &lt;/pre&gt;&lt;p&gt;And that's all it takes to integrate Pelican with Django. Part of your website can be static pages where it doesn't need to execute any code on a server, but the other part of your website can be dynamic pages where you can send queries to your server. Of course, the methodology to combine Pelican with dynamic backend will differ for each backend framework of your choice, but you get the idea.&lt;/p&gt;
 &lt;p&gt;Here is the point: Pelican is a static site generator, but that does not mean that Pelican can't be used in dynamic websites. And Pelican is GREAT for blogging.&lt;/p&gt;
-&lt;h2 id="Introducing-Aegis-Jupyter-Theme"&gt;Introducing Aegis-Jupyter Theme&lt;a class="anchor-link" href="#Introducing-Aegis-Jupyter-Theme"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Aegis-Jupyter theme is a custom Pelican theme I made to easily host &amp; maintain a Jupyter Notebook powered data science blog. I burrowed the some CSS design of the articles from &lt;a href="http://jakevdp.github.io/pages/about.html"&gt;Jake VanderPlas&lt;/a&gt;, and improved the rendering of Jupyter Notebook files by adding custom CSS &amp; JS codes. Every articles you see in &lt;a href="https://aegis4048.github.io/archives.html"&gt;archives&lt;/a&gt; page is rendered using Jupyter Notebook .ipynb files. Even this very article you are reading right now!&lt;/p&gt;
+&lt;h2 id="Introducing-Aegis-Jupyter-Theme"&gt;Introducing Aegis-Jupyter Theme&lt;a class="anchor-link" href="#Introducing-Aegis-Jupyter-Theme"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Aegis-Jupyter theme is a custom Pelican theme I made to easily host &amp; maintain a Jupyter Notebook powered data science blog. I burrowed the some CSS design of the articles from &lt;a href="http://jakevdp.github.io/pages/about.html"&gt;Jake VanderPlas&lt;/a&gt;, and improved the rendering of Jupyter Notebook files by adding custom CSS &amp; JS codes. Every articles you see in &lt;a href="https://aegis4048.github.io/archives.html"&gt;archives&lt;/a&gt; page is rendered using Jupyter Notebook .ipynb files, even this very article you are reading right now!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Mobile Device Friendly&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col-3"&gt;&lt;img src="https://aegis4048.github.io/images/mobile_1.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
@@ -2416,7 +2443,7 @@ h6:hover .anchor-link {
 &lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/analytics_4.png" style="border: 1px solid;"&gt;&lt;/div&gt;
 &lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/analytics_5.png" style="border: 1px solid;"&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;If you own any kind of website, not just a data science blog, at some point in your life you would be wondering about the behaviors of the viewers. How many people visit my website every week? How many of them are UNIQUE visitor? From what region do I get the most visitors? On average, how many minutes do people stay on my website? Which post was the most popular? From what social media platform do I get the most visitors from?&lt;/p&gt;
-&lt;p&gt;These kinds of questions can be answered by leveraging the power of Google Analytics, and &lt;strong&gt;IT'S FREE&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;These kinds of questions can be answered by leveraging the power of Google Analytics, &lt;strong&gt;FOR FREE&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;All you need to do is to create a &lt;a href="https://analytics.google.com/analytics/web"&gt;Google Analytics&lt;/a&gt; account, get a tracking ID, and put that on &lt;code&gt;pelicanconf.py&lt;/code&gt; file. For example, if your Google Analytics tracking ID is &lt;code&gt;UA-1XXXXXXXX-1&lt;/code&gt;, then you set &lt;code&gt;GOOGLE_ANALYTICS&lt;/code&gt; variable liks this:&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
@@ -2426,6 +2453,34 @@ h6:hover .anchor-link {
 &lt;p&gt;&lt;strong&gt;Share Your Posts on Social Media&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="https://aegis4048.github.io/images/social.png"&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Aegis-Jupyter theme leverages the power of &lt;code&gt;Open Graph Meta Tags&lt;/code&gt; and renders the preview of your website nicely when shared on social media. You can set up a preview image and description tags for each article in each markdown files. So let's take a look at an example.&lt;/p&gt;
+&lt;p&gt;The below markdown example is the actual .md file that renders the &lt;a href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation"&gt;this article&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;p class="font-weight-bold"&gt;article_1.md&lt;/p&gt;&lt;/p&gt;
+&lt;pre&gt;
+    &lt;code class="language-markdown"&gt;
+        Title: Uncertainty Modeling with Monte-Carlo Simulation
+        Tags: monte-carlo-simulation, statistics, uncertainty-modeling, prediction-interval
+        Date: 2019-01-03 09:00
+        Slug: uncertainty-modeling-with-monte-carlo-simulation
+        Subtitle:
+        Keywords:
+        Featured_Image: images/featured_images/monte-carlo.png 
+        Social_Media_Description: How do casinos earn money? The answer is simple - the longer you play, the bigger the chance of you losing the money. Monte-Carlo simulation can construct its profit forecast model
+        Summary: {% notebook downloads/notebooks/UncertaintyModelingWithMonte-CarloSimulation.ipynb cells[1:2] %}
+
+        {% notebook downloads/notebooks/UncertaintyModelingWithMonte-CarloSimulation.ipynb cells[:] %}
+    &lt;/code&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2457,7 +2512,7 @@ h6:hover .anchor-link {
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="web-dev"></category><category term="pelican"></category><category term="jupyter"></category></entry><entry><title>Non-Parametric Confidence Interval with Bootstrap</title><link href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" rel="alternate"></link><published>2019-01-04T09:00:00-08:00</published><updated>2019-01-04T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-04:/non-parametric-confidence-interval-with-bootstrap</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="web-dev"></category><category term="pelican"></category><category term="jupyter"></category></entry><entry><title>Non-Parametric Confidence Interval with Bootstrap</title><link href="/non-parametric-confidence-interval-with-bootstrap" rel="alternate"></link><published>2019-01-04T09:00:00-08:00</published><updated>2019-01-04T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-04:/non-parametric-confidence-interval-with-bootstrap</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -5206,10 +5261,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="4f6ced3c-f49a-4c7b-9823-9db36a97fd37"&gt;&lt;/div&gt;
+&lt;div id="4ca1c999-6684-4b17-985c-0bb06455a2fa"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4f6ced3c-f49a-4c7b-9823-9db36a97fd37');
+var element = $('#4ca1c999-6684-4b17-985c-0bb06455a2fa');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6598,10 +6653,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="2fb9768a-7ae3-4f6c-ad11-159083888219"&gt;&lt;/div&gt;
+&lt;div id="b799df34-0b46-4bb6-8fc0-559431a578e4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2fb9768a-7ae3-4f6c-ad11-159083888219');
+var element = $('#b799df34-0b46-4bb6-8fc0-559431a578e4');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7430,10 +7485,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="b7a7c2de-65d9-48f5-b1b7-ab7b6643dfbc"&gt;&lt;/div&gt;
+&lt;div id="75476c46-2b96-4d3e-8d7f-c558c58a7b6e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b7a7c2de-65d9-48f5-b1b7-ab7b6643dfbc');
+var element = $('#75476c46-2b96-4d3e-8d7f-c558c58a7b6e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8389,10 +8444,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="1b579be7-c823-44bd-bd88-bb743ea4fdef"&gt;&lt;/div&gt;
+&lt;div id="ef59fbdc-bf75-4364-8cc7-9f2357d1ea7f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1b579be7-c823-44bd-bd88-bb743ea4fdef');
+var element = $('#ef59fbdc-bf75-4364-8cc7-9f2357d1ea7f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -9277,10 +9332,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="63152acb-a6e4-46aa-999b-8f5dd8c0d882"&gt;&lt;/div&gt;
+&lt;div id="77cda5ee-6919-4d16-a5f9-a5670585a5fd"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#63152acb-a6e4-46aa-999b-8f5dd8c0d882');
+var element = $('#77cda5ee-6919-4d16-a5f9-a5670585a5fd');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -10666,10 +10721,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="df269174-9968-4046-8597-38002a10666f"&gt;&lt;/div&gt;
+&lt;div id="1c8a88ac-ab75-41dd-835a-ba277f10397a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#df269174-9968-4046-8597-38002a10666f');
+var element = $('#1c8a88ac-ab75-41dd-835a-ba277f10397a');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -11490,10 +11545,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="fdd033ae-bfe1-4e53-b943-479307503f02"&gt;&lt;/div&gt;
+&lt;div id="f657ae52-9845-49e9-8a0e-14c9676d3c31"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fdd033ae-bfe1-4e53-b943-479307503f02');
+var element = $('#f657ae52-9845-49e9-8a0e-14c9676d3c31');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12440,7 +12495,7 @@ IQR       :       78.4  ~      120.9 , AVG =  98.1
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="non-parametric"></category><category term="confidence-interval"></category><category term="bootstrap(stats)"></category><category term="statistics"></category></entry><entry><title>Uncertainty Modeling with Monte-Carlo Simulation</title><link href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" rel="alternate"></link><published>2019-01-03T09:00:00-08:00</published><updated>2019-01-03T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-03:/uncertainty-modeling-with-monte-carlo-simulation</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="non-parametric"></category><category term="confidence-interval"></category><category term="bootstrap(stats)"></category><category term="statistics"></category></entry><entry><title>Uncertainty Modeling with Monte-Carlo Simulation</title><link href="/uncertainty-modeling-with-monte-carlo-simulation" rel="alternate"></link><published>2019-01-03T09:00:00-08:00</published><updated>2019-01-03T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-03:/uncertainty-modeling-with-monte-carlo-simulation</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -14997,10 +15052,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="b4624999-e0eb-44a1-940a-06896eee6b9f"&gt;&lt;/div&gt;
+&lt;div id="70a41af4-589e-4cb4-b3de-2a3738e0b208"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b4624999-e0eb-44a1-940a-06896eee6b9f');
+var element = $('#70a41af4-589e-4cb4-b3de-2a3738e0b208');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15821,10 +15876,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="e32edda0-87ad-4d27-8062-c106c38685ec"&gt;&lt;/div&gt;
+&lt;div id="abbf930d-a8c2-4125-baab-6c0aef38f19f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e32edda0-87ad-4d27-8062-c106c38685ec');
+var element = $('#abbf930d-a8c2-4125-baab-6c0aef38f19f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16781,10 +16836,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="7dfac1ed-58f2-4956-be2d-8fccbacc63a9"&gt;&lt;/div&gt;
+&lt;div id="87b9710c-97a3-4c60-b2ba-088a40d12e2f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7dfac1ed-58f2-4956-be2d-8fccbacc63a9');
+var element = $('#87b9710c-97a3-4c60-b2ba-088a40d12e2f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -18128,10 +18183,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ef0ea7fc-dba6-47bb-b820-bbed5872580a"&gt;&lt;/div&gt;
+&lt;div id="89d09f8f-cc1a-4f2f-b6a3-8c42a7295704"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ef0ea7fc-dba6-47bb-b820-bbed5872580a');
+var element = $('#89d09f8f-cc1a-4f2f-b6a3-8c42a7295704');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -19012,7 +19067,7 @@ if (IPython.notebook.kernel != null) {
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="monte-carlo-simulation"></category><category term="statistics"></category><category term="uncertainty-modeling"></category><category term="prediction-interval"></category></entry><entry><title>How to use StatCounter and Google Analytics</title><link href="https://aegis4048.github.io/how-to-use-statcounter-and-google-analytics" rel="alternate"></link><published>2013-11-11T23:05:00-08:00</published><updated>2013-11-11T23:05:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2013-11-11:/how-to-use-statcounter-and-google-analytics</id><summary type="html">&lt;p&gt;Elegant Pelican theme supports StatCounter and Google Analytics out of
+&lt;/script&gt;</content><category term="monte-carlo-simulation"></category><category term="statistics"></category><category term="uncertainty-modeling"></category><category term="prediction-interval"></category></entry><entry><title>How to use StatCounter and Google Analytics</title><link href="/how-to-use-statcounter-and-google-analytics" rel="alternate"></link><published>2013-11-11T23:05:00-08:00</published><updated>2013-11-11T23:05:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2013-11-11:/how-to-use-statcounter-and-google-analytics</id><summary type="html">&lt;p&gt;Elegant Pelican theme supports StatCounter and Google Analytics out of
 the box. This articles describes how to set them up.&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;Elegant has support for popular web tracking services,
 &lt;a href="http://statcounter.com/"&gt;StatCounter&lt;/a&gt;, &lt;a href="http://www.google.com/analytics/"&gt;Google

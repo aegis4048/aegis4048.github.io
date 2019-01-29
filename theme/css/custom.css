@@ -686,7 +686,9 @@ div.output_area .rendered_html table {
 .alert {
     color: #276f86;
 }
-
+.text_cell_render ol li {
+    font-size: inherit;
+}
 
 
 
@@ -843,6 +845,7 @@ ul.no-bullets {
     font-size: 1rem;
     font-weight: 400;
 }
+
 .ability-score {
     float: right;
 }
