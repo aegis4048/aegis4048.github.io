@@ -2473,7 +2473,7 @@ h6:hover .anchor-link {
 
         {% notebook downloads/notebooks/Non-ParametricConfidenceIntervalswithBootstrap.ipynb cells[:] %}
     &lt;/code&gt;
-&lt;/pre&gt;&lt;p&gt;The below screenshot is the preview of the article on the landing page of this blog. Observe how each attributes in the markdown file are used to render the output preview page. You can declare additional attributes as much as you want.&lt;/p&gt;
+&lt;/pre&gt;&lt;p&gt;The below screenshot is the preview of the article on the landing page of this blog. Observe how each attributes in the markdown file is used to render the output preview page. You can declare additional attributes as much as you want.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
 &lt;div class="col"&gt;&lt;img src="https://aegis4048.github.io/images/md_file_exp.png"&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Share Your Posts on Social Media&lt;/strong&gt;&lt;/p&gt;
@@ -2492,13 +2492,24 @@ h6:hover .anchor-link {
 &lt;p&gt;Being able to communicate with the audiences is a quintessential component of a blog. Create an account in Disqus and get your Disqus Website Name &lt;a href="https://disqus.com/admin/create/"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
 &lt;div class="col"&gt;&lt;img src="https://aegis4048.github.io/images/disqus.png"&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Then, declare &lt;code&gt;DISQUS_SITENAME&lt;/code&gt; variable in &lt;code&gt;publishconf.py&lt;/code&gt;. This all it takes to have a comment box feature for your blog. Aegis-Jupyter will handle the rest. And, of course, &lt;strong&gt;IT'S FREE&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Then, declare &lt;code&gt;DISQUS_SITENAME&lt;/code&gt; variable in &lt;code&gt;publishconf.py&lt;/code&gt;. That's all it takes to have a comment box feature for your blog. Aegis-Jupyter will handle the rest. And, of course, &lt;strong&gt;IT'S FREE&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;p&gt;&lt;u&gt;publishconf.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
         DISQUS_SITENAME = "pythonic-excursions"
     &lt;/code&gt;
 &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
