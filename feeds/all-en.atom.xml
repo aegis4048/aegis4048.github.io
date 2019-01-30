@@ -2350,9 +2350,9 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;strong&gt;It's GREAT for Blogging&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;You can wrtie your content directly with the editor of your choice in &lt;a href="http://docutils.sourceforge.net/rst.html"&gt;reStructuredText&lt;/a&gt; or &lt;a href="https://daringfireball.net/projects/markdown/"&gt;Markdown&lt;/a&gt; formats. Select a favorite theme of your choice from a collection of &lt;a href="https://github.com/getpelican/pelican-themes"&gt;Pelican-themes&lt;/a&gt;, and write articles. The CSS and Javascript contained in the theme will handle the rest and output your article nice and clean. One look is worth a thousand words. Take a look at this &lt;a href="https://github.com/jakevdp/jakevdp.github.io-source/blob/master/content/articles/2013-02-02-setting-up-a-mac-for-python-development.md"&gt;markdown file&lt;/a&gt; that is used to render this &lt;a href="http://jakevdp.github.io/blog/2013/02/02/setting-up-a-mac-for-python-development/"&gt;article&lt;/a&gt; through Github Pages by &lt;a href="http://jakevdp.github.io/pages/about.html"&gt;Jake VanderPlas&lt;/a&gt;. His blog is made with Pelican, after modifying some codes in &lt;a href="https://github.com/MrSenko/pelican-octopress-theme/tree/29020e048cadefffc8825e571593b88be26f22bc"&gt;Octopress&lt;/a&gt; theme (you can also write your articles in other formats, such as Jupyter Notebook, which powers this blog).&lt;/p&gt;
+&lt;p&gt;You can write your content directly with the editor of your choice in &lt;a href="http://docutils.sourceforge.net/rst.html"&gt;reStructuredText&lt;/a&gt; or &lt;a href="https://daringfireball.net/projects/markdown/"&gt;Markdown&lt;/a&gt; formats. Select a favorite theme of your choice from a collection of &lt;a href="https://github.com/getpelican/pelican-themes"&gt;Pelican-themes&lt;/a&gt;, and write articles. The CSS and Javascript contained in the theme will handle the rest and output your article nice and clean. One look is worth a thousand words. Take a look at this &lt;a href="https://github.com/jakevdp/jakevdp.github.io-source/blob/master/content/articles/2013-02-02-setting-up-a-mac-for-python-development.md"&gt;markdown file&lt;/a&gt; that is used to render this &lt;a href="http://jakevdp.github.io/blog/2013/02/02/setting-up-a-mac-for-python-development/"&gt;article&lt;/a&gt; through Github Pages by &lt;a href="http://jakevdp.github.io/pages/about.html"&gt;Jake VanderPlas&lt;/a&gt;. His blog is made with Pelican, after modifying some codes in &lt;a href="https://github.com/MrSenko/pelican-octopress-theme/tree/29020e048cadefffc8825e571593b88be26f22bc"&gt;Octopress&lt;/a&gt; theme (you can also write your articles in other formats, such as Jupyter Notebook, which powers this blog).&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Minimal Learning Curves&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Going through the official documenations, user-made tutorials, YouTube videos are painful. Using Pelican will minimize wasting your time dealing with the learning curves. One thing that makes it very easy to learn &amp; modify is that there already are lots blogs that runs on Pelican, and their source codes are open to public.&lt;/p&gt;
+&lt;p&gt;Going through the official documenations, user-made tutorials, YouTube videos can be painful. Using Pelican will minimize wasting your time dealing with the learning curves. One thing that makes it very easy to learn &amp; modify is that there already are lots blogs that run on Pelican, and their source codes are open to public.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href="https://aegis4048.github.io/"&gt;Pythonic Excursions&lt;/a&gt; -- &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source"&gt;source code&lt;/a&gt;, &lt;a href="https://github.com/aegis4048/pelican-aegis-jupyter-theme/tree/042e29d85a5741b58155fd16cab0bbdfecbdff96"&gt;Aegis-Jupyter Theme&lt;/a&gt; by &lt;a href="https://github.com/aegis4048"&gt;Me&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://oncrashreboot.com/"&gt;onCrash = 'reboot();'&lt;/a&gt; -- &lt;a href="https://github.com/talha131/onCrashReboot"&gt;source code&lt;/a&gt;, &lt;a href="https://github.com/Pelican-Elegant/elegant"&gt;Elegant Theme&lt;/a&gt; by &lt;a href="https://github.com/talha131"&gt;Talha Mansoor&lt;/a&gt;&lt;/li&gt;
@@ -2424,7 +2424,9 @@ h6:hover .anchor-link {
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
         from django.urls import re_path
-        from your_app import views
+        from your_awesome_app import views
+
+        app_name = 'your_awesome_app'
 
         urlpatterns = [
             re_path('^$', views.PelicanView.as_view(), name='pelican'),
@@ -2432,7 +2434,16 @@ h6:hover .anchor-link {
     &lt;/code&gt;
 &lt;/pre&gt;&lt;p&gt;And that's all it takes to integrate Pelican with Django. Part of your website can be static pages where it doesn't need to execute any code on a server, but the other part of your website can be dynamic pages where you can send queries to your server. Of course, the methodology to combine Pelican with dynamic backend will differ for each backend framework of your choice, but you get the idea.&lt;/p&gt;
 &lt;p&gt;Here is the point: Pelican is a static site generator, but that does not mean that Pelican can't be used in dynamic websites. And Pelican is GREAT for blogging.&lt;/p&gt;
-&lt;h2 id="Introducing-Aegis-Jupyter-Theme"&gt;Introducing Aegis-Jupyter Theme&lt;a class="anchor-link" href="#Introducing-Aegis-Jupyter-Theme"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Aegis-Jupyter theme is a custom Pelican theme I made to easily host &amp; maintain a Jupyter Notebook powered data science blog. I burrowed the some CSS design of the articles from &lt;a href="http://jakevdp.github.io/pages/about.html"&gt;Jake VanderPlas&lt;/a&gt;, and improved the rendering of Jupyter Notebook files by adding custom CSS &amp; JS codes. Every articles you see in &lt;a href="https://aegis4048.github.io/archives.html"&gt;archives&lt;/a&gt; page is rendered using Jupyter Notebook .ipynb files, even this very article you are reading right now!&lt;/p&gt;
+&lt;h2 id="Introducing-Aegis-Jupyter-Theme"&gt;Introducing Aegis-Jupyter Theme&lt;a class="anchor-link" href="#Introducing-Aegis-Jupyter-Theme"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Aegis-Jupyter theme is a custom Pelican theme I made to easily host &amp; maintain a Jupyter Notebook powered data science blog. I borrowed some CSS design of the articles from &lt;a href="http://jakevdp.github.io/pages/about.html"&gt;Jake VanderPlas&lt;/a&gt;, and improved the rendering of Jupyter Notebook files by adding custom CSS &amp; JS codes. Every articles you see in &lt;a href="https://aegis4048.github.io/archives.html"&gt;archives&lt;/a&gt; page is rendered using Jupyter Notebook .ipynb files, even this very article you are reading right now!&lt;/p&gt;
+&lt;p&gt;There are several reason's you why you might wanna consider using Aegis-Jupyter theme.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Jupyter-Notebook-Based Articles&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;First and foremost, your articles are be rendered by Jupyter Notebook. The question of "Why would you want to use Aegis-Jupyter theme?" is synonymous to "Why would you want to use Jupyter Notebook?" - it allows you to create and share documents that contain live code, equations, visualizations and narrative text. You don't have to go through the hassel of writing Python input codes in HTML, save the output visualizations in jpg or png files, and then render it on a browser using an image tag like this:&lt;/p&gt;
+&lt;pre&gt;
+    &lt;code class="language-markup"&gt;
+        &amp;ltimg src="your_awesome_visualization.png"&gt;
+    &lt;/code&gt;
+&lt;/pre&gt;&lt;p&gt;No, don't do this. This is bad.&lt;/p&gt;
+&lt;p&gt;You don't want to be keep doing this for every single output of your code block. This is too much work. Simply write codes in Jupyter, save it, and render your article. Aegis-Jupyter theme was built for that purpose.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Mobile Device Friendly&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
 &lt;div class="col-3"&gt;&lt;img src="https://aegis4048.github.io/images/mobile_1.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
@@ -2448,16 +2459,17 @@ h6:hover .anchor-link {
 &lt;div class="row give-margin"&gt;
 &lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/analytics_4.png" style="border: 1px solid;"&gt;&lt;/div&gt;
 &lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/analytics_5.png" style="border: 1px solid;"&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;If you own any kind of website, not just a data science blog, at some point in your life you would be wondering about the behaviors of the viewers. How many people visit my website every week? How many of them are UNIQUE visitor? From what region do I get the most visitors? On average, how many minutes do people stay on my website? Which post was the most popular? From what social media platform do I get the most visitors from?&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;If you own any kind of website, not just a data science blog, at some point in your life you would be wondering about the behaviors of the viewers. How many people visit my website every week? How many of them are unique visitors? From what region do I get the most number of visitors? On average, how many minutes do people stay on my website? Which post was the most popular? From what social media platform do I get the most number of visitors from?&lt;/p&gt;
 &lt;p&gt;These kinds of questions can be answered by leveraging the power of Google Analytics, &lt;strong&gt;FOR FREE&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;All you need to do is to create a &lt;a href="https://analytics.google.com/analytics/web"&gt;Google Analytics&lt;/a&gt; account, get a tracking ID, and put that on &lt;code&gt;publishconf.py&lt;/code&gt; file. For example, if your Google Analytics tracking ID is &lt;code&gt;UA-1XXXXXXXX-1&lt;/code&gt;, then you set &lt;code&gt;GOOGLE_ANALYTICS&lt;/code&gt; variable liks this:&lt;/p&gt;
+&lt;p&gt;&lt;p&gt;&lt;u&gt;publishconf.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
         GOOGLE_ANALYTICS = "UA-1XXXXXXXX-1"
     &lt;/code&gt;
 &lt;/pre&gt;&lt;p&gt;That's it. Aegis-Jupyter theme will take care of the rest. More detailed tutorials on how to create Google Analytics account and tracking ID will come later.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Easy to Manage Your Articles&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Meta properties of your article can easily be managed my changing variables inside markdown files. The below markdown is the actual &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/Statistics/non-parametric-confidence-intervals-with-bootstrap.md"&gt;.md file&lt;/a&gt; that renders &lt;a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap"&gt;this article&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Meta properties of your article can easily be managed my changing attributes in markdown files. The below markdown is the actual &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/Statistics/non-parametric-confidence-intervals-with-bootstrap.md"&gt;.md file&lt;/a&gt; that renders &lt;a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap"&gt;this article&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;p&gt;&lt;u&gt;non-parametric-confidence-interval-with-bootstrap.md&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-markdown"&gt;
@@ -2473,11 +2485,11 @@ h6:hover .anchor-link {
 
         {% notebook downloads/notebooks/Non-ParametricConfidenceIntervalswithBootstrap.ipynb cells[:] %}
     &lt;/code&gt;
-&lt;/pre&gt;&lt;p&gt;The below screenshot is the preview of the article on the landing page of this blog. Observe how each attributes in the markdown file is used to render the output preview page. You can declare additional attributes as much as you want.&lt;/p&gt;
+&lt;/pre&gt;&lt;p&gt;The below screenshot is the preview of the article on the landing page of this blog. Observe how each attribute in the markdown file is used to render the output preview page. You can declare additional attributes as much as you want.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
 &lt;div class="col"&gt;&lt;img src="https://aegis4048.github.io/images/md_file_exp.png"&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Share Your Posts on Social Media&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Aegis-Jupyter theme leverages the power of &lt;code&gt;Open Graph Meta Tags&lt;/code&gt; and renders the preview of your website nicely when shared on social media. You can set preview image by declaring &lt;code&gt;Featured_Image&lt;/code&gt; and set preview descriptions by declaring &lt;code&gt;Social_Media_Description&lt;/code&gt; for each article in each markdown files.&lt;/p&gt;
+&lt;p&gt;Aegis-Jupyter theme leverages the power of &lt;code&gt;Open Graph Meta Tags&lt;/code&gt; and renders the preview of your website nicely when shared on social media. You can set a preview image by declaring &lt;code&gt;Featured_Image&lt;/code&gt; and set preview descriptions by declaring &lt;code&gt;Social_Media_Description&lt;/code&gt; for each article in its respective markdown files.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
 &lt;div class="col"&gt;&lt;img src="https://aegis4048.github.io/images/social.png"&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;If you do not specify &lt;code&gt;Featured_Image&lt;/code&gt; attribute in the markdown file, a default featured image will show up when shared on social media. Default featured image can be set up in &lt;em&gt;pelicanconf.py&lt;/em&gt; file. &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/pelicanconf.py"&gt;This&lt;/a&gt; is what I have for my blog:&lt;/p&gt;
@@ -2499,17 +2511,6 @@ h6:hover .anchor-link {
         DISQUS_SITENAME = "pythonic-excursions"
     &lt;/code&gt;
 &lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5289,10 +5290,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="b2a1962a-5367-43c1-8b8c-49380be605d5"&gt;&lt;/div&gt;
+&lt;div id="7186af27-3c7c-4c41-b32a-1dde77384a52"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b2a1962a-5367-43c1-8b8c-49380be605d5');
+var element = $('#7186af27-3c7c-4c41-b32a-1dde77384a52');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6681,10 +6682,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="427b4f4b-7eb4-4820-8be6-2d179311071d"&gt;&lt;/div&gt;
+&lt;div id="43043040-d71b-4d7e-84c5-950202ebc84e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#427b4f4b-7eb4-4820-8be6-2d179311071d');
+var element = $('#43043040-d71b-4d7e-84c5-950202ebc84e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7513,10 +7514,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="aa21b2ae-f83f-4186-80be-6006ee7f8c18"&gt;&lt;/div&gt;
+&lt;div id="a32e0814-e174-487e-b9a1-e95d662e588b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#aa21b2ae-f83f-4186-80be-6006ee7f8c18');
+var element = $('#a32e0814-e174-487e-b9a1-e95d662e588b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8472,10 +8473,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="f59cbd09-b035-48ee-9fae-63bfd610e7f6"&gt;&lt;/div&gt;
+&lt;div id="02109c0d-0e2e-47a7-b0fb-6f1c1050e6af"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f59cbd09-b035-48ee-9fae-63bfd610e7f6');
+var element = $('#02109c0d-0e2e-47a7-b0fb-6f1c1050e6af');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -9360,10 +9361,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="d9cab3cf-4ded-49ba-a23d-f34d6b7b8ba0"&gt;&lt;/div&gt;
+&lt;div id="46600830-2beb-420e-8424-446cbdd8224a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d9cab3cf-4ded-49ba-a23d-f34d6b7b8ba0');
+var element = $('#46600830-2beb-420e-8424-446cbdd8224a');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -10749,10 +10750,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="999e34d6-0059-48c8-97cc-022d9936a9c6"&gt;&lt;/div&gt;
+&lt;div id="f31527d7-d14f-4dd4-9898-5db919b3ad34"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#999e34d6-0059-48c8-97cc-022d9936a9c6');
+var element = $('#f31527d7-d14f-4dd4-9898-5db919b3ad34');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -11573,10 +11574,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="7de88311-b993-4fe6-8d40-d4f0caaa2a79"&gt;&lt;/div&gt;
+&lt;div id="ed08f3f9-75dd-463d-883d-de2823cb1488"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7de88311-b993-4fe6-8d40-d4f0caaa2a79');
+var element = $('#ed08f3f9-75dd-463d-883d-de2823cb1488');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15080,10 +15081,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="26714001-32bb-4b8d-bd24-9a101fd449fb"&gt;&lt;/div&gt;
+&lt;div id="76a0409d-fd87-428e-9653-df7f2fcada04"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#26714001-32bb-4b8d-bd24-9a101fd449fb');
+var element = $('#76a0409d-fd87-428e-9653-df7f2fcada04');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15904,10 +15905,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="2ec2ceec-7397-4162-a755-00c91ce5ee92"&gt;&lt;/div&gt;
+&lt;div id="75846718-8172-49db-bbe6-ae79e5d1b569"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2ec2ceec-7397-4162-a755-00c91ce5ee92');
+var element = $('#75846718-8172-49db-bbe6-ae79e5d1b569');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16864,10 +16865,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="fdb564f2-78e4-4ae8-a192-9042690ea78c"&gt;&lt;/div&gt;
+&lt;div id="b1dbdbbb-ddd9-4bad-9eec-6765f94908fc"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fdb564f2-78e4-4ae8-a192-9042690ea78c');
+var element = $('#b1dbdbbb-ddd9-4bad-9eec-6765f94908fc');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -18211,10 +18212,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="19cbfc04-8911-4e3f-9b74-1a06c60f3dc9"&gt;&lt;/div&gt;
+&lt;div id="820f8000-2147-4b7c-b267-fcb9c2629ce3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#19cbfc04-8911-4e3f-9b74-1a06c60f3dc9');
+var element = $('#820f8000-2147-4b7c-b267-fcb9c2629ce3');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
