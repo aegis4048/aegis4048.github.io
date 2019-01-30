@@ -2337,7 +2337,12 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;em&gt;The codes were developed on Windows 10, and were not tested on other machines. Anaconda 5.2.0 is chosen as a Python interpreter.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The code snippet assumes Anaconda 5.2.0 version of Python virtual environment&lt;/em&gt;&lt;/p&gt;
+&lt;div class="alert alert-info"&gt;
+&lt;h4&gt;Acknowledgement&lt;/h4&gt;
+&lt;p&gt;I would like to acknowledge &lt;a href="http://www.michaelpyrcz.com/"&gt;Micahel Pyrcz&lt;/a&gt;, Associate Professor at the University of Texas at Austin in the Petroleum and Geosystems Engineering, for developing course materials that helped me write this article.&lt;/p&gt;
+&lt;p&gt;Check out his &lt;a href="https://www.youtube.com/watch?v=wCgdoImlLY0/"&gt;Youtube Lecture on Bootstrap&lt;/a&gt;, and &lt;a href="https://github.com/GeostatsGuy/ExcelNumericalDemos/blob/master/Bootstrap_Demo.xlsx/"&gt;Boostrap Excel numerical demo&lt;/a&gt; on his Github repo to help yourself better understand the statistical theories and concepts.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2748,10 +2753,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="7186af27-3c7c-4c41-b32a-1dde77384a52"&gt;&lt;/div&gt;
+&lt;div id="283eec73-1881-46ea-8aee-39b718bd58dc"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7186af27-3c7c-4c41-b32a-1dde77384a52');
+var element = $('#283eec73-1881-46ea-8aee-39b718bd58dc');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4140,10 +4145,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="43043040-d71b-4d7e-84c5-950202ebc84e"&gt;&lt;/div&gt;
+&lt;div id="ddbc83a0-7256-415e-b087-b0e42dbdbb0c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#43043040-d71b-4d7e-84c5-950202ebc84e');
+var element = $('#ddbc83a0-7256-415e-b087-b0e42dbdbb0c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4972,10 +4977,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="a32e0814-e174-487e-b9a1-e95d662e588b"&gt;&lt;/div&gt;
+&lt;div id="a3821afb-d0d4-4994-80f0-4177ea0db7b8"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#a32e0814-e174-487e-b9a1-e95d662e588b');
+var element = $('#a3821afb-d0d4-4994-80f0-4177ea0db7b8');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -5931,10 +5936,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="02109c0d-0e2e-47a7-b0fb-6f1c1050e6af"&gt;&lt;/div&gt;
+&lt;div id="d638dc7b-92fa-40bd-9fb8-331dcb96c73c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#02109c0d-0e2e-47a7-b0fb-6f1c1050e6af');
+var element = $('#d638dc7b-92fa-40bd-9fb8-331dcb96c73c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6819,10 +6824,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="46600830-2beb-420e-8424-446cbdd8224a"&gt;&lt;/div&gt;
+&lt;div id="ab2948d1-b536-4b14-9b2e-2e638a53b8c0"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#46600830-2beb-420e-8424-446cbdd8224a');
+var element = $('#ab2948d1-b536-4b14-9b2e-2e638a53b8c0');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8208,10 +8213,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="f31527d7-d14f-4dd4-9898-5db919b3ad34"&gt;&lt;/div&gt;
+&lt;div id="58da75f6-e1e2-46c6-9cf2-f066e9f4dc03"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f31527d7-d14f-4dd4-9898-5db919b3ad34');
+var element = $('#58da75f6-e1e2-46c6-9cf2-f066e9f4dc03');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -9032,10 +9037,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ed08f3f9-75dd-463d-883d-de2823cb1488"&gt;&lt;/div&gt;
+&lt;div id="d280716c-809d-4663-8eed-d860ed48781a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ed08f3f9-75dd-463d-883d-de2823cb1488');
+var element = $('#d280716c-809d-4663-8eed-d860ed48781a');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12321,7 +12326,12 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;em&gt;The codes were developed on Windows 10, and were not tested on other machines. Anaconda 5.2.0 is chosen as a Python interpreter.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The code snippet assumes Anaconda 5.2.0 version of Python virtual environment&lt;/em&gt;&lt;/p&gt;
+&lt;div class="alert alert-info"&gt;
+&lt;h4&gt;Acknowledgement&lt;/h4&gt;
+&lt;p&gt;I would like to acknowledge &lt;a href="http://www.michaelpyrcz.com/"&gt;Micahel Pyrcz&lt;/a&gt;, Associate Professor at the University of Texas at Austin in the Petroleum and Geosystems Engineering, for developing course materials that helped me write this article.&lt;/p&gt;
+&lt;p&gt;Check out his &lt;a href="https://www.youtube.com/watch?v=Qb8TsSINpnU/"&gt;Youtube Lecture on Monte-Carlo Simulation&lt;/a&gt; to help yourself better understand the statistical theories and concepts.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -12539,10 +12549,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="76a0409d-fd87-428e-9653-df7f2fcada04"&gt;&lt;/div&gt;
+&lt;div id="f8d4bec0-fdaa-4fc1-9161-c252cf7f5cd8"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#76a0409d-fd87-428e-9653-df7f2fcada04');
+var element = $('#f8d4bec0-fdaa-4fc1-9161-c252cf7f5cd8');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13363,10 +13373,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="75846718-8172-49db-bbe6-ae79e5d1b569"&gt;&lt;/div&gt;
+&lt;div id="68c11c53-9e83-48cb-aa6a-f28377b227ff"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#75846718-8172-49db-bbe6-ae79e5d1b569');
+var element = $('#68c11c53-9e83-48cb-aa6a-f28377b227ff');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14323,10 +14333,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="b1dbdbbb-ddd9-4bad-9eec-6765f94908fc"&gt;&lt;/div&gt;
+&lt;div id="e507e233-5ef2-46d4-8ccf-80121bb9fb4e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b1dbdbbb-ddd9-4bad-9eec-6765f94908fc');
+var element = $('#e507e233-5ef2-46d4-8ccf-80121bb9fb4e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15670,10 +15680,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="820f8000-2147-4b7c-b267-fcb9c2629ce3"&gt;&lt;/div&gt;
+&lt;div id="955d55f0-9723-4b80-a3e5-562022ac25d9"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#820f8000-2147-4b7c-b267-fcb9c2629ce3');
+var element = $('#955d55f0-9723-4b80-a3e5-562022ac25d9');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
