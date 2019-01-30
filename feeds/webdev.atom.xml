@@ -2487,17 +2487,18 @@ h6:hover .anchor-link {
         FEATURED_IMAGE = SITEURL + '/theme/img/logo_icon_background.png'
     &lt;/code&gt;
 &lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Search Box&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Most static websites do not support search box functionality out of the box. However, Pelican supports &lt;a href="http://www.tipue.com/search/"&gt;Tipue Search&lt;/a&gt;, a jQuery site search plugin. &lt;a href="https://github.com/talha131"&gt;Talha Mansoor&lt;/a&gt; made a &lt;a href="https://github.com/getpelican/pelican-plugins/tree/master/tipue_search"&gt;pelican plugin&lt;/a&gt; that allows Pelican to leverage the power of Tipue Search, and Aegis-Jupyter integrated it to work with articles written in Jupyter Notebook.&lt;/p&gt;
+&lt;p&gt;Most static websites do not support search box functionality out of the box. However, Pelican supports &lt;a href="http://www.tipue.com/search/"&gt;Tipue Search&lt;/a&gt;, a jQuery site search plugin. &lt;a href="https://github.com/talha131"&gt;Talha Mansoor&lt;/a&gt; made a &lt;a href="https://github.com/getpelican/pelican-plugins/tree/master/tipue_search"&gt;pelican plugin&lt;/a&gt; that allows Pelican to leverage the power of Tipue Search, and Aegis-Jupyter integrated it to work with articles written in Jupyter Notebook. You can&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Disqus Comment Box&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Being able to communicate with the audiences is a quintessential component of a blog. Create an account in Disqus, get your Disqus Website Name (here)[&lt;a href="https://disqus.com/admin/create/"&gt;https://disqus.com/admin/create/&lt;/a&gt;], and declare &lt;code&gt;DISQUS_SITENAME&lt;/code&gt; variable in &lt;code&gt;publishconf.py&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Being able to communicate with the audiences is a quintessential component of a blog. Create an account in Disqus and get your Disqus Website Name &lt;a href="https://disqus.com/admin/create/"&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
 &lt;div class="col"&gt;&lt;img src="https://aegis4048.github.io/images/disqus.png"&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;p&gt;&lt;u&gt;publishconf.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Then, declare &lt;code&gt;DISQUS_SITENAME&lt;/code&gt; variable in &lt;code&gt;publishconf.py&lt;/code&gt;. This all it takes to have a comment box feature for your blog.&lt;/p&gt;
+&lt;p&gt;&lt;p&gt;&lt;u&gt;publishconf.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
         DISQUS_SITENAME = "pythonic-excursions"
     &lt;/code&gt;
-&lt;/pre&gt;&lt;p&gt;This all it takes to have a comment box feature for your blog. Create a Disqus account, decide your website name, and put that in &lt;code&gt;publishconf.py&lt;/code&gt; file. THE END.&lt;/p&gt;
+&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
