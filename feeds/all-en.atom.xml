@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions</title><link href="/" rel="alternate"></link><link href="/feeds/all-en.atom.xml" rel="self"></link><id>/</id><updated>2019-01-27T09:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</title><link href="/creating-a-jupyternotebook-powered-data-science-blog-with-pelican" rel="alternate"></link><published>2019-01-27T09:00:00-08:00</published><updated>2019-01-27T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-27:/creating-a-jupyternotebook-powered-data-science-blog-with-pelican</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-01-27T09:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</title><link href="https://aegis4048.github.io/creating-a-jupyternotebook-powered-data-science-blog-with-pelican" rel="alternate"></link><published>2019-01-27T09:00:00-08:00</published><updated>2019-01-27T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-27:/creating-a-jupyternotebook-powered-data-science-blog-with-pelican</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2412,7 +2412,7 @@ h6:hover .anchor-link {
 &lt;p&gt;&lt;strong&gt;Can Pelican be used in dynamic websites too?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Yes, it can. Although Pelican is a static site generator, that does not mean that you can't have dynamic backend features on your website. You can pre-generate the output HTML files with Pelican, and just wrap it around with the backend framework of your choice.&lt;/p&gt;
 &lt;p&gt;Let's say that you are developing a web-app with Django, and you want part of your website to be a static blog. You have a Pelican-generated output HTML file called &lt;code&gt;article_1.html&lt;/code&gt;. In Django, you can render your Pelican-generated HTML file using a basic Class-Based-View like this:&lt;/p&gt;
-&lt;p&gt;&lt;p class="font-weight-bold"&gt;views.py&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;p&gt;&lt;u&gt;views.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
         from django.views.generic import TemplateView
@@ -2420,7 +2420,7 @@ h6:hover .anchor-link {
         class PelicanView(TemplateView):
             template_name = 'article_1.html'
     &lt;/code&gt;
-&lt;/pre&gt;&lt;p&gt;&lt;p class="font-weight-bold"&gt;urls.py&lt;/p&gt;&lt;/p&gt;
+&lt;/pre&gt;&lt;p&gt;&lt;p&gt;&lt;u&gt;urls.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
         from django.urls import re_path
@@ -2434,18 +2434,18 @@ h6:hover .anchor-link {
 &lt;p&gt;Here is the point: Pelican is a static site generator, but that does not mean that Pelican can't be used in dynamic websites. And Pelican is GREAT for blogging.&lt;/p&gt;
 &lt;h2 id="Introducing-Aegis-Jupyter-Theme"&gt;Introducing Aegis-Jupyter Theme&lt;a class="anchor-link" href="#Introducing-Aegis-Jupyter-Theme"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Aegis-Jupyter theme is a custom Pelican theme I made to easily host &amp; maintain a Jupyter Notebook powered data science blog. I burrowed the some CSS design of the articles from &lt;a href="http://jakevdp.github.io/pages/about.html"&gt;Jake VanderPlas&lt;/a&gt;, and improved the rendering of Jupyter Notebook files by adding custom CSS &amp; JS codes. Every articles you see in &lt;a href="https://aegis4048.github.io/archives.html"&gt;archives&lt;/a&gt; page is rendered using Jupyter Notebook .ipynb files, even this very article you are reading right now!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Mobile Device Friendly&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="row"&gt;
+&lt;div class="row give_margin"&gt;
 &lt;div class="col-3"&gt;&lt;img src="https://aegis4048.github.io/images/mobile_1.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
 &lt;div class="col-3"&gt;&lt;img src="https://aegis4048.github.io/images/mobile_2.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
 &lt;div class="col-3"&gt;&lt;img src="https://aegis4048.github.io/images/mobile_3.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
 &lt;div class="col-3"&gt;&lt;img src="https://aegis4048.github.io/images/mobile_4.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;The theme renders very nicely on all resolutions, screenwidth, and mobile devices. Try viewing this website on your phone. If you are on PC, try stretching &amp; collapsing the browser size and see how it responsively re-aligns itself.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Google Analytics Support&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="row"&gt;
+&lt;div class="row give_margin"&gt;
 &lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/analytics_2.png" style="border: 1px solid;"&gt;&lt;/div&gt;
 &lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/analytics_3.png" style="border: 1px solid;"&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="row"&gt;
+&lt;div class="row give_margin"&gt;
 &lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/analytics_4.png" style="border: 1px solid;"&gt;&lt;/div&gt;
 &lt;div class="col-6"&gt;&lt;img src="https://aegis4048.github.io/images/analytics_5.png" style="border: 1px solid;"&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;If you own any kind of website, not just a data science blog, at some point in your life you would be wondering about the behaviors of the viewers. How many people visit my website every week? How many of them are UNIQUE visitor? From what region do I get the most visitors? On average, how many minutes do people stay on my website? Which post was the most popular? From what social media platform do I get the most visitors from?&lt;/p&gt;
@@ -2457,8 +2457,7 @@ h6:hover .anchor-link {
     &lt;/code&gt;
 &lt;/pre&gt;&lt;p&gt;That's it. Aegis-Jupyter theme will take care of the rest. More detailed tutorials on how to create Google Analytics account and tracking ID will come later.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Easy to Manage Your Articles&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Meta properties of your article can easily be managed my changing variables inside markdown files.&lt;/p&gt;
-&lt;p&gt;The below markdown is the actual &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/Statistics/non-parametric-confidence-intervals-with-bootstrap.md"&gt;.md file&lt;/a&gt; that renders &lt;a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap"&gt;this article&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Meta properties of your article can easily be managed my changing variables inside markdown files. The below markdown is the actual &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/Statistics/non-parametric-confidence-intervals-with-bootstrap.md"&gt;.md file&lt;/a&gt; that renders &lt;a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap"&gt;this article&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;p class="font-weight-bold"&gt;non-parametric-confidence-interval-with-bootstrap.md&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-markdown"&gt;
@@ -2475,14 +2474,14 @@ h6:hover .anchor-link {
         {% notebook downloads/notebooks/Non-ParametricConfidenceIntervalswithBootstrap.ipynb cells[:] %}
     &lt;/code&gt;
 &lt;/pre&gt;&lt;p&gt;The below screenshot is the preview of the article on the landing page of this blog. Observe how each attributes in the markdown file are used to render the output preview page. You can declare additional attributes as much as you want.&lt;/p&gt;
-&lt;div class="row"&gt;
+&lt;div class="row give_margin"&gt;
 &lt;div class="col"&gt;&lt;img src="https://aegis4048.github.io/images/md_file_exp.png"&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Share Your Posts on Social Media&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Aegis-Jupyter theme leverages the power of &lt;code&gt;Open Graph Meta Tags&lt;/code&gt; and renders the preview of your website nicely when shared on social media. You can set up a preview image and description tags for each article in each markdown files.&lt;/p&gt;
-&lt;div class="row"&gt;
+&lt;div class="row give_margin"&gt;
 &lt;div class="col"&gt;&lt;img src="https://aegis4048.github.io/images/social.png"&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;If you do not specify &lt;code&gt;Featured_Image&lt;/code&gt; attribute in the markdown file, a default featured image will show up when shared on social media. Default featured image can be set up in &lt;em&gt;pelicanconf.py&lt;/em&gt; file. &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/pelicanconf.py"&gt;This&lt;/a&gt; is what I have for my blog:&lt;/p&gt;
-&lt;p&gt;&lt;p class="font-weight-bold"&gt;pelicanconf.py&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;p&gt;&lt;u&gt;pelicanconf.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
         FEATURED_IMAGE = SITEURL + '/theme/img/logo_icon_background.png'
@@ -2529,7 +2528,7 @@ h6:hover .anchor-link {
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="web-dev"></category><category term="pelican"></category><category term="jupyter"></category></entry><entry><title>Non-Parametric Confidence Interval with Bootstrap</title><link href="/non-parametric-confidence-interval-with-bootstrap" rel="alternate"></link><published>2019-01-04T09:00:00-08:00</published><updated>2019-01-04T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-04:/non-parametric-confidence-interval-with-bootstrap</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="web-dev"></category><category term="pelican"></category><category term="jupyter"></category></entry><entry><title>Non-Parametric Confidence Interval with Bootstrap</title><link href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" rel="alternate"></link><published>2019-01-04T09:00:00-08:00</published><updated>2019-01-04T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-04:/non-parametric-confidence-interval-with-bootstrap</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -5278,10 +5277,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="6d4a9454-b0f1-4a01-9a64-7e91b8cc4a33"&gt;&lt;/div&gt;
+&lt;div id="8526ad66-7b33-4038-803f-2a96a2136b4d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#6d4a9454-b0f1-4a01-9a64-7e91b8cc4a33');
+var element = $('#8526ad66-7b33-4038-803f-2a96a2136b4d');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6670,10 +6669,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="086a8bf7-4eb0-4331-a374-ff29510c4e32"&gt;&lt;/div&gt;
+&lt;div id="ece19345-a2a4-4ce2-8d52-67ed59893a8e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#086a8bf7-4eb0-4331-a374-ff29510c4e32');
+var element = $('#ece19345-a2a4-4ce2-8d52-67ed59893a8e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7502,10 +7501,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="938cf7b5-f8cd-44c8-a4a4-e4b22ba1f8c7"&gt;&lt;/div&gt;
+&lt;div id="57fa82c4-fb3d-481e-89b1-8bd26ed63524"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#938cf7b5-f8cd-44c8-a4a4-e4b22ba1f8c7');
+var element = $('#57fa82c4-fb3d-481e-89b1-8bd26ed63524');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8461,10 +8460,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="a95f6d13-ef4d-4981-a178-9e34298510c7"&gt;&lt;/div&gt;
+&lt;div id="6cd3da37-ef97-40e9-8ece-194c89bae33e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#a95f6d13-ef4d-4981-a178-9e34298510c7');
+var element = $('#6cd3da37-ef97-40e9-8ece-194c89bae33e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -9349,10 +9348,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="40a1b0f7-82ed-43cd-9c6e-84ad0622f7b3"&gt;&lt;/div&gt;
+&lt;div id="e757353a-445a-4782-a70f-b539fbe3a040"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#40a1b0f7-82ed-43cd-9c6e-84ad0622f7b3');
+var element = $('#e757353a-445a-4782-a70f-b539fbe3a040');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -10738,10 +10737,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="6651ac37-8183-4760-a9f7-0b3b64e1f2e9"&gt;&lt;/div&gt;
+&lt;div id="2708dbf0-ea22-4286-9c69-bc51d099f5a0"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#6651ac37-8183-4760-a9f7-0b3b64e1f2e9');
+var element = $('#2708dbf0-ea22-4286-9c69-bc51d099f5a0');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -11562,10 +11561,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="95fa4502-0c15-42df-8c99-b230c32747e2"&gt;&lt;/div&gt;
+&lt;div id="aefeee60-9b21-4a1f-9114-b4a445ff8a3b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#95fa4502-0c15-42df-8c99-b230c32747e2');
+var element = $('#aefeee60-9b21-4a1f-9114-b4a445ff8a3b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12512,7 +12511,7 @@ IQR       :       78.4  ~      120.9 , AVG =  98.1
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="non-parametric"></category><category term="confidence-interval"></category><category term="bootstrap(stats)"></category><category term="statistics"></category></entry><entry><title>Uncertainty Modeling with Monte-Carlo Simulation</title><link href="/uncertainty-modeling-with-monte-carlo-simulation" rel="alternate"></link><published>2019-01-03T09:00:00-08:00</published><updated>2019-01-03T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-03:/uncertainty-modeling-with-monte-carlo-simulation</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="non-parametric"></category><category term="confidence-interval"></category><category term="bootstrap(stats)"></category><category term="statistics"></category></entry><entry><title>Uncertainty Modeling with Monte-Carlo Simulation</title><link href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" rel="alternate"></link><published>2019-01-03T09:00:00-08:00</published><updated>2019-01-03T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-03:/uncertainty-modeling-with-monte-carlo-simulation</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -15069,10 +15068,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="088a529d-e0ef-4abc-8532-224e441746b4"&gt;&lt;/div&gt;
+&lt;div id="8fc6ebda-112b-477b-a3ec-d553dd731d16"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#088a529d-e0ef-4abc-8532-224e441746b4');
+var element = $('#8fc6ebda-112b-477b-a3ec-d553dd731d16');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15893,10 +15892,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="196307e0-2f6f-4737-b381-876d5ccbe1b5"&gt;&lt;/div&gt;
+&lt;div id="d5b54b76-ce43-4d9e-82d5-1c4fb6d0fc89"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#196307e0-2f6f-4737-b381-876d5ccbe1b5');
+var element = $('#d5b54b76-ce43-4d9e-82d5-1c4fb6d0fc89');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16853,10 +16852,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="71f0db3b-87a7-4951-9368-f033046991e3"&gt;&lt;/div&gt;
+&lt;div id="1f305b17-5fb5-4621-975b-c6b4f8d797f5"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#71f0db3b-87a7-4951-9368-f033046991e3');
+var element = $('#1f305b17-5fb5-4621-975b-c6b4f8d797f5');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -18200,10 +18199,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="91e724c1-a2a3-41f6-830c-aa088ad46513"&gt;&lt;/div&gt;
+&lt;div id="be7ed363-0317-4644-b395-8064a10ee67a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#91e724c1-a2a3-41f6-830c-aa088ad46513');
+var element = $('#be7ed363-0317-4644-b395-8064a10ee67a');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
