@@ -20,26 +20,26 @@
 
         <meta name="keywords" content="monte-carlo-simulation, statistics, uncertainty-modeling, prediction-interval, Statistics, "/>
 
-        <link rel="canonical" href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation">
+        <link rel="canonical" href="/uncertainty-modeling-with-monte-carlo-simulation">
     <meta property="og:title" content="Uncertainty Modeling with Monte-Carlo Simulation | Pythonic Excursions"/>
-    <meta property="og:url" content="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" />
+    <meta property="og:url" content="/uncertainty-modeling-with-monte-carlo-simulation" />
     <meta property="og:description" content="How do casinos earn money? The answer is simple - the longer you play, the bigger the chance of you losing the money. Monte-Carlo simulation can construct its profit forecast model" />
     <meta property="og:site_name" content="Pythonic Excursions" />
     <meta property="og:article:author" content="ERIC SOOBIN KIM" />
         <meta property="og:article:published_time" content="2019-01-03T09:00:00-08:00" />
     <meta name="twitter:title" content="Uncertainty Modeling with Monte-Carlo Simulation | Pythonic Excursions">
     <meta name="twitter:description" content="How do casinos earn money? The answer is simple - the longer you play, the bigger the chance of you losing the money. Monte-Carlo simulation can construct its profit forecast model">
-        <meta property="og:image" content="https://aegis4048.github.io/images/featured_images/monte-carlo.png" />
-        <meta name="twitter:image" content="https://aegis4048.github.io/images/featured_images/monte-carlo.png" >
+        <meta property="og:image" content="/images/featured_images/monte-carlo.png" />
+        <meta name="twitter:image" content="/images/featured_images/monte-carlo.png" >
 
 
         <title>    Uncertainty Modeling with Monte-Carlo Simulation  | Pythonic Excursions
 </title>
 
-                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
-                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
-            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/custom.css" media="screen">
-            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/ipynb.css" media="screen">
+                <link rel="stylesheet" type="text/css" href="/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="/theme/css/ipynb.css" media="screen">
             <style>
                 #progressBar::-webkit-progress-value {
                     background-color: #24292e;
@@ -49,19 +49,19 @@
                 }
             </style>
 
-        <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
+        <link href="/theme/libs/prism.css" rel="stylesheet" />
 
-        <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="https://aegis4048.github.io/theme/img/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="https://aegis4048.github.io/theme/img/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="https://aegis4048.github.io/theme/img/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="https://aegis4048.github.io/theme/img/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="https://aegis4048.github.io/theme/img/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="https://aegis4048.github.io/theme/img/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link href="https://aegis4048.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
+        <link rel="shortcut icon" href="/theme/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/theme/img/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/img/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/img/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/theme/img/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/img/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/theme/img/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/img/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133310548-1"></script>
@@ -83,7 +83,7 @@
             <div class="banner">
                 <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
                     <div class="container navbar-title">
-                        <a href="/"><img id="banner-logo" src="https://aegis4048.github.io/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
+                        <a href="/"><img id="banner-logo" src="/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -91,13 +91,13 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link rem_08" href="https://aegis4048.github.io/about.html">About</a>
+                            <a class="nav-link rem_08" href="/about.html">About</a>
                         </li>
                         <li id="last-item" class="nav-item">
-                            <a class="nav-link rem_08" href="https://aegis4048.github.io/archives.html">Archive</a>
+                            <a class="nav-link rem_08" href="/archives.html">Archive</a>
                         </li>
                      </ul>
-                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="https://aegis4048.github.io/search.html">
+                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="/search.html">
                         <div class="search-box-div" align="center">
                             <input id="tipue_search_input" class="form-control mr-md-2 rem_08 col-9" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" aria-label="Search">
                             <button id="search-btn" class="btn btn-search btn-outline-success btn-circle rem_08 col-3" type="submit" for="tipue_search_input">Search</button>
@@ -113,15 +113,15 @@
         <header>
             <h1>Uncertainty Modeling with Monte-Carlo Simulation</h1>
             <div class="row justify-content-between no-margin">
-                <h4 class="article-category">Category > <a class="article-category-link" href="https://aegis4048.github.io/archives.html">Statistics</a></h4>
+                <h4 class="article-category">Category > <a class="article-category-link" href="/archives.html">Statistics</a></h4>
                 <span class="article-date">Jan 03, 2019</span>
             </div>
             <div class="meta meta-tag no-margin no-border">
                 <div>
-                        <a href="https://aegis4048.github.io/tag/monte-carlo-simulation.html" class="tag">monte-carlo-simulation</a>
-                        <a href="https://aegis4048.github.io/tag/statistics.html" class="tag">statistics</a>
-                        <a href="https://aegis4048.github.io/tag/uncertainty-modeling.html" class="tag">uncertainty-modeling</a>
-                        <a href="https://aegis4048.github.io/tag/prediction-interval.html" class="tag">prediction-interval</a>
+                        <a href="/tag/monte-carlo-simulation.html" class="tag">monte-carlo-simulation</a>
+                        <a href="/tag/statistics.html" class="tag">statistics</a>
+                        <a href="/tag/uncertainty-modeling.html" class="tag">uncertainty-modeling</a>
+                        <a href="/tag/prediction-interval.html" class="tag">prediction-interval</a>
                 </div>
             </div>
             <section>
@@ -129,13 +129,13 @@
         <div class="share-post-intro mr-2">Share This Post :</div>
         <div class="social-share-btns-container">
             <div class="social-share-btns">
-                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=/uncertainty-modeling-with-monte-carlo-simulation" rel="nofollow" target="_blank">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=/uncertainty-modeling-with-monte-carlo-simulation" rel="nofollow" target="_blank">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/uncertainty-modeling-with-monte-carlo-simulation" rel="nofollow" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
@@ -1516,10 +1516,10 @@ h6:hover .anchor-link {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="3e4f9ca1-bc5c-4c63-9ccc-d89630beda96"></div>
+<div id="088a529d-e0ef-4abc-8532-224e441746b4"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#3e4f9ca1-bc5c-4c63-9ccc-d89630beda96');
+var element = $('#088a529d-e0ef-4abc-8532-224e441746b4');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -2340,10 +2340,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="64cfcc67-6aa0-4f89-8e99-ed2d5567ce3c"></div>
+<div id="196307e0-2f6f-4737-b381-876d5ccbe1b5"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#64cfcc67-6aa0-4f89-8e99-ed2d5567ce3c');
+var element = $('#196307e0-2f6f-4737-b381-876d5ccbe1b5');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -3300,10 +3300,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="6342632f-9834-4615-a89e-024642761e14"></div>
+<div id="71f0db3b-87a7-4951-9368-f033046991e3"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#6342632f-9834-4615-a89e-024642761e14');
+var element = $('#71f0db3b-87a7-4951-9368-f033046991e3');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4647,10 +4647,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="dfbe54e1-190c-4dd2-a565-6e85d6811101"></div>
+<div id="91e724c1-a2a3-41f6-830c-aa088ad46513"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#dfbe54e1-190c-4dd2-a565-6e85d6811101');
+var element = $('#91e724c1-a2a3-41f6-830c-aa088ad46513');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -5537,29 +5537,15 @@ if (IPython.notebook.kernel != null) {
         <aside>
         <nav>
         <ul class="articles-timeline">
-            <li class="next-article"><a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" title="Next: Non-Parametric Confidence Interval with Bootstrap">Non-Parametric Confidence Interval with Bootstrap</a> »</li>
+            <li class="next-article"><a href="/non-parametric-confidence-interval-with-bootstrap" title="Next: Non-Parametric Confidence Interval with Bootstrap">Non-Parametric Confidence Interval with Bootstrap</a> »</li>
         </ul>
         </nav>
         </aside>
-  <section>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-    <script type="text/javascript">
-      var disqus_shortname = 'pythonic-excursions';
-      var disqus_identifier = '/uncertainty-modeling-with-monte-carlo-simulation';
-      var disqus_url = 'https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation';
-      var disqus_title = 'Uncertainty Modeling with Monte-Carlo Simulation';
-      (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-    </script>
-  </section>
         <hr/>
 <section style="margin-top: 30px">
     <h2>Related Posts</h2>
 <ul class="related-posts-list">
-<li><a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" title="Non-Parametric Confidence Interval with Bootstrap">Non-Parametric Confidence Interval with Bootstrap</a></li>
+<li><a href="/non-parametric-confidence-interval-with-bootstrap" title="Non-Parametric Confidence Interval with Bootstrap">Non-Parametric Confidence Interval with Bootstrap</a></li>
 </ul>
 </section>
     </article>
@@ -5571,7 +5557,7 @@ if (IPython.notebook.kernel != null) {
          <div class="col">
             <h5 class="headin5_amrc col_white_amrc pt2">ABOUT ERIC</h5>
             <!--headin5_amrc-->
-            <p class="mb10"><img id="profile_img" align="left" src="https://aegis4048.github.io/theme/img/profile_photo_footer.jpg">Senior undergraduate student at the Univeristy of Texas at Austin, Hildebrand Department of Petroleum Engineering, the #1 petroleum engineering school in the US. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
+            <p class="mb10"><img id="profile_img" align="left" src="/theme/img/profile_photo_footer.jpg">Senior undergraduate student at the Univeristy of Texas at Austin, Hildebrand Department of Petroleum Engineering, the #1 petroleum engineering school in the US. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
             <p><i class="fa fa-envelope mr-2"></i>aegis4048@gmail.com</p>
          </div>
       </div>
@@ -5596,10 +5582,10 @@ if (IPython.notebook.kernel != null) {
       <!--social_footer_ul ends here-->
    </div>
 </footer>
-            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/jquery.min.js"></script>
-            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+            <script type="text/javascript" src="/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
-        <script src="https://aegis4048.github.io/theme/libs/prism.js"></script>
+        <script src="/theme/libs/prism.js"></script>
         <script>
             Prism.plugins.NormalizeWhitespace.setDefaults({
                 'remove-trailing': true,
@@ -5614,7 +5600,7 @@ if (IPython.notebook.kernel != null) {
             });
         </script>
 
-        <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
+        <script type="text/javascript" src="/theme/js/custom.js"></script>
             <script>
                 function validateForm(query)
                 {
