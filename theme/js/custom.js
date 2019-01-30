@@ -54,10 +54,14 @@ function check_width() {
     }
     if (windowSize < GRID_SMALL) {
         $('.admonition-image').css('max-width', '100%');
-        $('.give-margin').removeClass('full_screen_margin');
     }
     else {
         $('.admonition-image').css('max-width', '380px');
+    }
+    if (windowSize < GRID_LARGE) {
+        $('.give-margin').removeClass('full_screen_margin');
+    }
+    else {
         $('.give-margin').addClass('full_screen_margin');
     }
 }
