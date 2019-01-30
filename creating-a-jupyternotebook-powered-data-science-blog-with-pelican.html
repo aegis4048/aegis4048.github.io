@@ -1439,19 +1439,19 @@ h6:hover .anchor-link {
 <p>Aegis-Jupyter theme leverages the power of <code>Open Graph Meta Tags</code> and renders the preview of your website nicely when shared on social media. You can set preview image by declaring <code>Featured_Image</code> and set preview descriptions by declaring <code>Social_Media_Description</code> for each article in each markdown files.</p>
 <div class="row give-margin">
 <div class="col"><img src="https://aegis4048.github.io/images/social.png"></div>
-</div><p>If you do not specify <code>Featured_Image</code> attribute in the markdown file, a default featured image will show up when shared on social media. Default featured image can be set up in <em>publishconf.py</em> file. <a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/publishconf.py">This</a> is what I have for my blog:</p>
-<p><p><u>publishconf.py</u></p></p>
+</div><p>If you do not specify <code>Featured_Image</code> attribute in the markdown file, a default featured image will show up when shared on social media. Default featured image can be set up in <em>pelicanconf.py</em> file. <a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/pelicanconf.py">This</a> is what I have for my blog:</p>
+<p><p><u>pelicanconf.py</u></p></p>
 <pre>
     <code class="language-python">
         FEATURED_IMAGE = SITEURL + '/theme/img/logo_icon_background.png'
     </code>
 </pre><p><strong>Search Box</strong></p>
-<p>Most static websites do not support search box functionality out of the box. However, Pelican supports <a href="http://www.tipue.com/search/">Tipue Search</a>, a jQuery site search plugin. <a href="https://github.com/talha131">Talha Mansoor</a> made a <a href="https://github.com/getpelican/pelican-plugins/tree/master/tipue_search">pelican plugin</a> that allows Pelican to leverage the power of Tipue Search, and Aegis-Jupyter integrated it to work with articles written in Jupyter Notebook. You can</p>
+<p>Most static websites do not support search box functionality out of the box. However, Pelican supports <a href="http://www.tipue.com/search/">Tipue Search</a>, a jQuery site search plugin. <a href="https://github.com/talha131">Talha Mansoor</a> made a <a href="https://github.com/getpelican/pelican-plugins/tree/master/tipue_search">pelican plugin</a> that allows Pelican to leverage the power of Tipue Search, and Aegis-Jupyter integrated it to work with articles written in Jupyter Notebook. Take a look at it with your own eyes by scrolling up and actually using the search box in this blog!</p>
 <p><strong>Disqus Comment Box</strong></p>
-<p>Being able to communicate with the audiences is a quintessential component of a blog. Create an account in Disqus and get your Disqus Website Name <a href="https://disqus.com/admin/create/">here</a></p>
+<p>Being able to communicate with the audiences is a quintessential component of a blog. Create an account in Disqus and get your Disqus Website Name <a href="https://disqus.com/admin/create/">here</a>.</p>
 <div class="row give-margin">
 <div class="col"><img src="https://aegis4048.github.io/images/disqus.png"></div>
-</div><p>Then, declare <code>DISQUS_SITENAME</code> variable in <code>publishconf.py</code>. This all it takes to have a comment box feature for your blog.</p>
+</div><p>Then, declare <code>DISQUS_SITENAME</code> variable in <code>publishconf.py</code>. This all it takes to have a comment box feature for your blog. Aegis-Jupyter will handle the rest. And, of course, <strong>IT'S FREE</strong></p>
 <p><p><u>publishconf.py</u></p></p>
 <pre>
     <code class="language-python">

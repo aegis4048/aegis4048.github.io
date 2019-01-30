@@ -2480,19 +2480,19 @@ h6:hover .anchor-link {
 &lt;p&gt;Aegis-Jupyter theme leverages the power of &lt;code&gt;Open Graph Meta Tags&lt;/code&gt; and renders the preview of your website nicely when shared on social media. You can set preview image by declaring &lt;code&gt;Featured_Image&lt;/code&gt; and set preview descriptions by declaring &lt;code&gt;Social_Media_Description&lt;/code&gt; for each article in each markdown files.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
 &lt;div class="col"&gt;&lt;img src="https://aegis4048.github.io/images/social.png"&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;If you do not specify &lt;code&gt;Featured_Image&lt;/code&gt; attribute in the markdown file, a default featured image will show up when shared on social media. Default featured image can be set up in &lt;em&gt;publishconf.py&lt;/em&gt; file. &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/publishconf.py"&gt;This&lt;/a&gt; is what I have for my blog:&lt;/p&gt;
-&lt;p&gt;&lt;p&gt;&lt;u&gt;publishconf.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;If you do not specify &lt;code&gt;Featured_Image&lt;/code&gt; attribute in the markdown file, a default featured image will show up when shared on social media. Default featured image can be set up in &lt;em&gt;pelicanconf.py&lt;/em&gt; file. &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/pelicanconf.py"&gt;This&lt;/a&gt; is what I have for my blog:&lt;/p&gt;
+&lt;p&gt;&lt;p&gt;&lt;u&gt;pelicanconf.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
         FEATURED_IMAGE = SITEURL + '/theme/img/logo_icon_background.png'
     &lt;/code&gt;
 &lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Search Box&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Most static websites do not support search box functionality out of the box. However, Pelican supports &lt;a href="http://www.tipue.com/search/"&gt;Tipue Search&lt;/a&gt;, a jQuery site search plugin. &lt;a href="https://github.com/talha131"&gt;Talha Mansoor&lt;/a&gt; made a &lt;a href="https://github.com/getpelican/pelican-plugins/tree/master/tipue_search"&gt;pelican plugin&lt;/a&gt; that allows Pelican to leverage the power of Tipue Search, and Aegis-Jupyter integrated it to work with articles written in Jupyter Notebook. You can&lt;/p&gt;
+&lt;p&gt;Most static websites do not support search box functionality out of the box. However, Pelican supports &lt;a href="http://www.tipue.com/search/"&gt;Tipue Search&lt;/a&gt;, a jQuery site search plugin. &lt;a href="https://github.com/talha131"&gt;Talha Mansoor&lt;/a&gt; made a &lt;a href="https://github.com/getpelican/pelican-plugins/tree/master/tipue_search"&gt;pelican plugin&lt;/a&gt; that allows Pelican to leverage the power of Tipue Search, and Aegis-Jupyter integrated it to work with articles written in Jupyter Notebook. Take a look at it with your own eyes by scrolling up and actually using the search box in this blog!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Disqus Comment Box&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Being able to communicate with the audiences is a quintessential component of a blog. Create an account in Disqus and get your Disqus Website Name &lt;a href="https://disqus.com/admin/create/"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Being able to communicate with the audiences is a quintessential component of a blog. Create an account in Disqus and get your Disqus Website Name &lt;a href="https://disqus.com/admin/create/"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
 &lt;div class="col"&gt;&lt;img src="https://aegis4048.github.io/images/disqus.png"&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Then, declare &lt;code&gt;DISQUS_SITENAME&lt;/code&gt; variable in &lt;code&gt;publishconf.py&lt;/code&gt;. This all it takes to have a comment box feature for your blog.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Then, declare &lt;code&gt;DISQUS_SITENAME&lt;/code&gt; variable in &lt;code&gt;publishconf.py&lt;/code&gt;. This all it takes to have a comment box feature for your blog. Aegis-Jupyter will handle the rest. And, of course, &lt;strong&gt;IT'S FREE&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;p&gt;&lt;u&gt;publishconf.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;

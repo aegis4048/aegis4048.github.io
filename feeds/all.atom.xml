@@ -2480,19 +2480,19 @@ h6:hover .anchor-link {
 &lt;p&gt;Aegis-Jupyter theme leverages the power of &lt;code&gt;Open Graph Meta Tags&lt;/code&gt; and renders the preview of your website nicely when shared on social media. You can set preview image by declaring &lt;code&gt;Featured_Image&lt;/code&gt; and set preview descriptions by declaring &lt;code&gt;Social_Media_Description&lt;/code&gt; for each article in each markdown files.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
 &lt;div class="col"&gt;&lt;img src="https://aegis4048.github.io/images/social.png"&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;If you do not specify &lt;code&gt;Featured_Image&lt;/code&gt; attribute in the markdown file, a default featured image will show up when shared on social media. Default featured image can be set up in &lt;em&gt;publishconf.py&lt;/em&gt; file. &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/publishconf.py"&gt;This&lt;/a&gt; is what I have for my blog:&lt;/p&gt;
-&lt;p&gt;&lt;p&gt;&lt;u&gt;publishconf.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;If you do not specify &lt;code&gt;Featured_Image&lt;/code&gt; attribute in the markdown file, a default featured image will show up when shared on social media. Default featured image can be set up in &lt;em&gt;pelicanconf.py&lt;/em&gt; file. &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/pelicanconf.py"&gt;This&lt;/a&gt; is what I have for my blog:&lt;/p&gt;
+&lt;p&gt;&lt;p&gt;&lt;u&gt;pelicanconf.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
         FEATURED_IMAGE = SITEURL + '/theme/img/logo_icon_background.png'
     &lt;/code&gt;
 &lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Search Box&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Most static websites do not support search box functionality out of the box. However, Pelican supports &lt;a href="http://www.tipue.com/search/"&gt;Tipue Search&lt;/a&gt;, a jQuery site search plugin. &lt;a href="https://github.com/talha131"&gt;Talha Mansoor&lt;/a&gt; made a &lt;a href="https://github.com/getpelican/pelican-plugins/tree/master/tipue_search"&gt;pelican plugin&lt;/a&gt; that allows Pelican to leverage the power of Tipue Search, and Aegis-Jupyter integrated it to work with articles written in Jupyter Notebook. You can&lt;/p&gt;
+&lt;p&gt;Most static websites do not support search box functionality out of the box. However, Pelican supports &lt;a href="http://www.tipue.com/search/"&gt;Tipue Search&lt;/a&gt;, a jQuery site search plugin. &lt;a href="https://github.com/talha131"&gt;Talha Mansoor&lt;/a&gt; made a &lt;a href="https://github.com/getpelican/pelican-plugins/tree/master/tipue_search"&gt;pelican plugin&lt;/a&gt; that allows Pelican to leverage the power of Tipue Search, and Aegis-Jupyter integrated it to work with articles written in Jupyter Notebook. Take a look at it with your own eyes by scrolling up and actually using the search box in this blog!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Disqus Comment Box&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Being able to communicate with the audiences is a quintessential component of a blog. Create an account in Disqus and get your Disqus Website Name &lt;a href="https://disqus.com/admin/create/"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Being able to communicate with the audiences is a quintessential component of a blog. Create an account in Disqus and get your Disqus Website Name &lt;a href="https://disqus.com/admin/create/"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
 &lt;div class="col"&gt;&lt;img src="https://aegis4048.github.io/images/disqus.png"&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Then, declare &lt;code&gt;DISQUS_SITENAME&lt;/code&gt; variable in &lt;code&gt;publishconf.py&lt;/code&gt;. This all it takes to have a comment box feature for your blog.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Then, declare &lt;code&gt;DISQUS_SITENAME&lt;/code&gt; variable in &lt;code&gt;publishconf.py&lt;/code&gt;. This all it takes to have a comment box feature for your blog. Aegis-Jupyter will handle the rest. And, of course, &lt;strong&gt;IT'S FREE&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;p&gt;&lt;u&gt;publishconf.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
@@ -5278,10 +5278,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="b7a7cb1f-a99e-4d2f-b303-c0a7a757f9a6"&gt;&lt;/div&gt;
+&lt;div id="b5f9480e-28de-41ce-a384-7b4a8c08cdb5"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b7a7cb1f-a99e-4d2f-b303-c0a7a757f9a6');
+var element = $('#b5f9480e-28de-41ce-a384-7b4a8c08cdb5');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6670,10 +6670,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="b52036b3-b3fe-4866-9482-fcbb78afc36d"&gt;&lt;/div&gt;
+&lt;div id="e80ff722-d10d-4586-89f8-bd79b89a0e41"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b52036b3-b3fe-4866-9482-fcbb78afc36d');
+var element = $('#e80ff722-d10d-4586-89f8-bd79b89a0e41');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7502,10 +7502,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="3ab5da56-eb36-44f1-a1b2-ff428a428b27"&gt;&lt;/div&gt;
+&lt;div id="830077f8-5c49-4e04-aa76-d0bbb43b2f35"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3ab5da56-eb36-44f1-a1b2-ff428a428b27');
+var element = $('#830077f8-5c49-4e04-aa76-d0bbb43b2f35');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8461,10 +8461,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="fda50fc1-17b3-4ff9-8c27-8e6014e4eb74"&gt;&lt;/div&gt;
+&lt;div id="2b0d0a8e-58e0-4344-b92c-9d9d74a281fe"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fda50fc1-17b3-4ff9-8c27-8e6014e4eb74');
+var element = $('#2b0d0a8e-58e0-4344-b92c-9d9d74a281fe');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -9349,10 +9349,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="4416344d-f777-4241-a527-413b93e79c6b"&gt;&lt;/div&gt;
+&lt;div id="f3d0c767-4fcc-42a2-9675-eb909c324062"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4416344d-f777-4241-a527-413b93e79c6b');
+var element = $('#f3d0c767-4fcc-42a2-9675-eb909c324062');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -10738,10 +10738,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="03f6ae9a-8ef1-4822-8c98-a95fb7e315bc"&gt;&lt;/div&gt;
+&lt;div id="54c49731-bf7b-4fd1-bdb4-c013f1d1a429"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#03f6ae9a-8ef1-4822-8c98-a95fb7e315bc');
+var element = $('#54c49731-bf7b-4fd1-bdb4-c013f1d1a429');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -11562,10 +11562,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="6238c5a8-696f-495d-88c4-d9dbd33bcc69"&gt;&lt;/div&gt;
+&lt;div id="bb9565b0-ba33-45df-b097-3d35d7a21fa3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#6238c5a8-696f-495d-88c4-d9dbd33bcc69');
+var element = $('#bb9565b0-ba33-45df-b097-3d35d7a21fa3');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15069,10 +15069,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="6b50473f-5568-4ca2-a62d-3720fb2561d1"&gt;&lt;/div&gt;
+&lt;div id="e1277674-555b-46c3-b08b-1e01568abfd4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#6b50473f-5568-4ca2-a62d-3720fb2561d1');
+var element = $('#e1277674-555b-46c3-b08b-1e01568abfd4');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15893,10 +15893,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="f791a67b-b203-47da-bf19-495a134d9f03"&gt;&lt;/div&gt;
+&lt;div id="585c984b-9205-45c6-afcc-cb745abed15f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f791a67b-b203-47da-bf19-495a134d9f03');
+var element = $('#585c984b-9205-45c6-afcc-cb745abed15f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16853,10 +16853,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9c3759b0-0f43-4d52-af67-22eebd0e111e"&gt;&lt;/div&gt;
+&lt;div id="cbfd88bf-54cd-474c-998a-64f9c31dc96c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9c3759b0-0f43-4d52-af67-22eebd0e111e');
+var element = $('#cbfd88bf-54cd-474c-998a-64f9c31dc96c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -18200,10 +18200,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5aae68a8-deb4-4a27-b3fa-3388bf55b139"&gt;&lt;/div&gt;
+&lt;div id="40992b49-1913-4e97-9324-b04233bfbc0c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5aae68a8-deb4-4a27-b3fa-3388bf55b139');
+var element = $('#40992b49-1913-4e97-9324-b04233bfbc0c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
