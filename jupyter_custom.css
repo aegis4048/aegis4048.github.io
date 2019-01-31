@@ -1,6 +1,14 @@
 .rendered_html pre code {
     background-color: unset !important;
 }
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
 .col-6 {
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
