@@ -685,6 +685,7 @@ div.output_area .rendered_html table {
 }
 .alert {
     color: #276f86;
+    padding: 0.25rem 1.25rem !important
 }
 .text_cell_render ol li {
     font-size: inherit;
@@ -1271,7 +1272,7 @@ span#MathJax-Span-199 {
     color: unset ! important
 }
 .admonition-image {
-    max-width: 430px;
+    max-width: 100%;
 }
 #layout {
     margin-top: 2rem;
@@ -1465,9 +1466,19 @@ ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li:last-child > u
 ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child::before { content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0"; }
 
 .full_screen_margin {
-    width: 75%;
+    width: 85%;
     margin: auto;
 }
 .language-markdown {
     font-size: inherit !important;
+}
+table.dataframe {
+    font-size: 11px !important;
+}
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: #f5f2f0 !important;
+}
+.image-description {
+    text-align: center;
+    font-style: italic;
 }
