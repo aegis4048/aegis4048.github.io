@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2019-02-02T09:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Parse PDF Files While Retaining Structure with Tabula-py</title><link href="/parse-pdf-files-while-retaining-structure-with-tabula-py" rel="alternate"></link><published>2019-02-02T09:00:00-08:00</published><updated>2019-02-02T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-02-02:/parse-pdf-files-while-retaining-structure-with-tabula-py</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/all.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-02-02T09:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Parse PDF Files While Retaining Structure with Tabula-py</title><link href="https://aegis4048.github.io/parse-pdf-files-while-retaining-structure-with-tabula-py" rel="alternate"></link><published>2019-02-02T09:00:00-08:00</published><updated>2019-02-02T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-02-02:/parse-pdf-files-while-retaining-structure-with-tabula-py</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -3763,7 +3763,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="data-mining"></category><category term="pdf"></category><category term="tabula"></category></entry><entry><title>Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</title><link href="/creating-a-jupyternotebook-powered-data-science-blog-with-pelican" rel="alternate"></link><published>2019-01-27T09:00:00-08:00</published><updated>2019-01-27T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-27:/creating-a-jupyternotebook-powered-data-science-blog-with-pelican</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="data-mining"></category><category term="pdf"></category><category term="tabula"></category></entry><entry><title>Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</title><link href="https://aegis4048.github.io/creating-a-jupyternotebook-powered-data-science-blog-with-pelican" rel="alternate"></link><published>2019-01-27T09:00:00-08:00</published><updated>2019-01-27T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-27:/creating-a-jupyternotebook-powered-data-science-blog-with-pelican</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -6305,7 +6305,7 @@ h6:hover .anchor-link {
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="web-dev"></category><category term="pelican"></category><category term="jupyter"></category></entry><entry><title>Non-Parametric Confidence Interval with Bootstrap</title><link href="/non-parametric-confidence-interval-with-bootstrap" rel="alternate"></link><published>2019-01-04T09:00:00-08:00</published><updated>2019-01-04T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-04:/non-parametric-confidence-interval-with-bootstrap</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="web-dev"></category><category term="pelican"></category><category term="jupyter"></category></entry><entry><title>Non-Parametric Confidence Interval with Bootstrap</title><link href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" rel="alternate"></link><published>2019-01-04T09:00:00-08:00</published><updated>2019-01-04T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-04:/non-parametric-confidence-interval-with-bootstrap</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -9059,10 +9059,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="8786330e-0c99-43ac-bd15-01e8c4464486"&gt;&lt;/div&gt;
+&lt;div id="0c8dbfdd-1751-4ad7-9bd0-b737ad264c78"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8786330e-0c99-43ac-bd15-01e8c4464486');
+var element = $('#0c8dbfdd-1751-4ad7-9bd0-b737ad264c78');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -10451,10 +10451,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="11cef77b-b913-4449-a2c1-c017a2d24a66"&gt;&lt;/div&gt;
+&lt;div id="b6a24e07-0e9b-4474-aa2a-16be2e48c725"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#11cef77b-b913-4449-a2c1-c017a2d24a66');
+var element = $('#b6a24e07-0e9b-4474-aa2a-16be2e48c725');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -11283,10 +11283,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="900bc7c5-0e9a-48d0-94fa-d1e0e3caf404"&gt;&lt;/div&gt;
+&lt;div id="6c2210f3-2e29-4dce-9a94-833af31713a9"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#900bc7c5-0e9a-48d0-94fa-d1e0e3caf404');
+var element = $('#6c2210f3-2e29-4dce-9a94-833af31713a9');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12242,10 +12242,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="31969906-7d99-4d07-8db1-5243275ae6cf"&gt;&lt;/div&gt;
+&lt;div id="ba9e3548-2295-4dc1-80dc-b421b07375a4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#31969906-7d99-4d07-8db1-5243275ae6cf');
+var element = $('#ba9e3548-2295-4dc1-80dc-b421b07375a4');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13130,10 +13130,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5b17078d-13a7-4dd4-a936-6d0321f7a41e"&gt;&lt;/div&gt;
+&lt;div id="f6161e74-c98d-42f7-b082-b4ea494e6117"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5b17078d-13a7-4dd4-a936-6d0321f7a41e');
+var element = $('#f6161e74-c98d-42f7-b082-b4ea494e6117');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14519,10 +14519,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="b79e4fe3-2886-42e2-9f16-f1caa2d5ee3e"&gt;&lt;/div&gt;
+&lt;div id="483d7403-ecc4-4cf9-9fdb-96f13068ceee"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b79e4fe3-2886-42e2-9f16-f1caa2d5ee3e');
+var element = $('#483d7403-ecc4-4cf9-9fdb-96f13068ceee');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15343,10 +15343,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="102a9c86-f5c7-4582-ac22-a0053ac01c62"&gt;&lt;/div&gt;
+&lt;div id="0be7d693-d7b4-432b-9f4c-285d4f702a59"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#102a9c86-f5c7-4582-ac22-a0053ac01c62');
+var element = $('#0be7d693-d7b4-432b-9f4c-285d4f702a59');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16293,7 +16293,7 @@ IQR       :       78.4  ~      120.9 , AVG =  98.1
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="non-parametric"></category><category term="confidence-interval"></category><category term="bootstrap(stats)"></category><category term="statistics"></category></entry><entry><title>Uncertainty Modeling with Monte-Carlo Simulation</title><link href="/uncertainty-modeling-with-monte-carlo-simulation" rel="alternate"></link><published>2019-01-03T09:00:00-08:00</published><updated>2019-01-03T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-03:/uncertainty-modeling-with-monte-carlo-simulation</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="non-parametric"></category><category term="confidence-interval"></category><category term="bootstrap(stats)"></category><category term="statistics"></category></entry><entry><title>Uncertainty Modeling with Monte-Carlo Simulation</title><link href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" rel="alternate"></link><published>2019-01-03T09:00:00-08:00</published><updated>2019-01-03T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-03:/uncertainty-modeling-with-monte-carlo-simulation</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -18855,10 +18855,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="cb3583f4-8bd9-43c9-838c-000ce9bbb2b5"&gt;&lt;/div&gt;
+&lt;div id="64e000e9-9a51-4210-9fb9-1a1eb14c5ad6"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#cb3583f4-8bd9-43c9-838c-000ce9bbb2b5');
+var element = $('#64e000e9-9a51-4210-9fb9-1a1eb14c5ad6');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -19679,10 +19679,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="76220db8-7c7d-41a4-8f32-e91fce3cddb0"&gt;&lt;/div&gt;
+&lt;div id="367641a5-f428-4c74-a5e1-b004455dd6c7"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#76220db8-7c7d-41a4-8f32-e91fce3cddb0');
+var element = $('#367641a5-f428-4c74-a5e1-b004455dd6c7');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -20639,10 +20639,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5d2b4a7d-e86e-4d74-b0fb-18f4489963e6"&gt;&lt;/div&gt;
+&lt;div id="9a59d930-b434-493f-a93c-b506bdfb7b4a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5d2b4a7d-e86e-4d74-b0fb-18f4489963e6');
+var element = $('#9a59d930-b434-493f-a93c-b506bdfb7b4a');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -21986,10 +21986,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9e0f796d-e4bf-4fd0-a94e-f4c473dd289f"&gt;&lt;/div&gt;
+&lt;div id="14ef9c0c-09b6-4021-a583-13ceb32a953f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9e0f796d-e4bf-4fd0-a94e-f4c473dd289f');
+var element = $('#14ef9c0c-09b6-4021-a583-13ceb32a953f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
