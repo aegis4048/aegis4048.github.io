@@ -1307,9 +1307,9 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Installations">Installations<a class="anchor-link" href="#Installations">¶</a></h2><p>This installation tutorial assumes that you are using Windows operating system. However, according to the offical <a href="https://github.com/chezou/tabula-py#os">tabula-py documentation</a>, it was confirmed that tabula-py works on macOS and Ubuntu.</p>
+<h2 id="Installations">Installations<a class="anchor-link" href="#Installations">¶</a></h2><p>This installation tutorial assumes that you are using Windows. However, according to the offical <a href="https://github.com/chezou/tabula-py#os">tabula-py documentation</a>, it was confirmed that tabula-py works on macOS and Ubuntu.</p>
 <p><strong>1. Download Java</strong></p>
-<p>Tabula-py is a wrapper for tabula-java, which translates Python commands to Java commands, so that us Python programmers don't have to bother learning Java. As the name "tabula-java" suggests, it requires Java. You can download Java <a href="https://www.java.com/en/">here</a>.</p>
+<p>Tabula-py is a wrapper for tabula-java, which translates Python commands to Java commands. As the name "tabula-java" suggests, it requires Java. You can download Java <a href="https://www.java.com/en/">here</a>.</p>
 <p><strong>2. Set environment PATH variable (Windows)</strong></p>
 <p>One thing that I don't like about Windows is that it's difficult to use a new program I downloaded in a console environment like Python or CMD window. But oh well, if you are a Windows user, you have to go through this extra step to allow Python to use Java. If you are a macOS or Ubuntu user, you probably don't need this step.</p>
 <p>Find where Java is installed, and go to <code>Control Panel > System and Security > System > Advanced system settings > Advanced > Environment Variables...</code> to set environment PATH variable for Java.</p>
@@ -1317,7 +1317,7 @@ h6:hover .anchor-link {
 <div class="col-6"><img src="jupyter_images/tabula_instruction_1.png" style="border: 1px solid;"></div>
 <div class="col-6"><img src="jupyter_images/tabula_instruction_2.png" style="border: 1px solid;"></div>
 </div><p>Make sure you have <code>Java\jdk1.8.0_201\bin</code> and <code>Java\jre1.8.0_201\bin</code> in the environment path variable. Then, type <code>java -version</code> on CMD window. If you successfully installed Java and configured the environment variable, you should see something like this:</p>
-<pre class="command-line language-powershell" data-output="2-5" data-prompt="PS C:\Users\Eric>">
+<pre class="command-line language-powershell" data-output="2-5" data-prompt="(base) C:\Users\Eric>">
 <code class="language-powershell">java -version
 
 java version "1.8.0_201"
@@ -1345,7 +1345,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
     </code>
 </pre><p><strong>4. Install Tabula-py</strong></p>
 <p>This is the last step:</p>
-<pre class="command-line language-powershell" data-prompt="C:\Users\Eric>">
+<pre class="command-line language-powershell" data-prompt="(base) C:\Users\Eric>">
 <code class="language-powershell">pip install tabula-py
 </code>
 </pre><p>More detailed instructions are provided in the <a href="https://github.com/chezou/tabula-py">github repo</a> of tabula-py</p>
@@ -1356,14 +1356,14 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Tabula-Web-Application">Tabula Web Application<a class="anchor-link" href="#Tabula-Web-Application">¶</a></h2><p>Tabula supports web application to parse PDF files. You do not need this to use tabula-py, but from my personal experience I strongly recommend you to use this tool because it really helps you debugging issues when using tabula-py. For example, I was tring to parse 100s of PDF files at once, and for some reason tabula-py would return an <code>NoneType</code> object instead of <code>pd.DataFrame</code> object (by default, tabula-py extracts tables in dataframe) for one PDF file. There was nothing wrong with my codes, and yet it would just not parse the file. So I tried opening it on the tabula web-app, and realized that it was actually a scanned PDF file and that tabula is unable to parse scanned PDFs.</p>
-<p>Long stort shot, if it can be parsed with tabula web-app, you can replicate it with tabula-py. If tabula web-app can't, you should look for a different tool to meet your need.</p>
+<p>Long story shot, if it can be parsed with tabula web-app, you can replicate it with tabula-py. If tabula web-app can't, you should probably look for a different tool.</p>
 <p><strong>Installations</strong></p>
-<p>If you already configured the environment PATH variable for Java, all you need to do is downloading the .zip file <a href="https://tabula.technology/">here</a> and running <code>tabula.exe</code>. That's it. Tabula has really nice web-interface in which you can parse tables from PDFs by just clicking buttons.</p>
+<p>If you already configured the environment PATH variable for Java, all you need to do is downloading the .zip file <a href="https://tabula.technology/">here</a> and running <code>tabula.exe</code>. That's it. Tabula has really nice web UI that allows you to parse tables from PDFs by just clicking buttons.</p>
 <div class="alert alert-info">
 <h4>Note</h4>
 <p>The web-app will automatically open in your browser with <strong>127.0.0.1:8080</strong> local host. If port 8080 is already being used by another process, you will need to shut it down. But normally you don't have to worry about this.</p>
 </div><p><strong>Screenshots</strong></p>
-<p>This is what you will see when you launch <code>tabula.exe</code>. <code>Browse</code> the PDF file you want to parse, and <code>import</code>.</p>
+<p>This is what you will see when you launch <code>tabula.exe</code>. <code>Browse...</code> the PDF file you want to parse, and <code>import</code>.</p>
 <div class="row give-margin">
 <div class="col"><img src="jupyter_images/tabula-webapp.png" style="border: solid 1px;"></div>
 </div><p>You can either use <code>Autodetect Tables</code> or drag your mouse to choose the area of your interest. If the PDF file has a  complicated structure, it is usually better to manually choose the area of your interest. Also, note the option <code>Repeat to All Pages</code>. Selecting this option will apply the area you chose for all pages.</p>
@@ -1373,7 +1373,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 <div class="row give-margin">
 <div class="col"><img src="jupyter_images/tabula-webapp_3.png" style="border: solid 1px;"></div>
 </div><p><strong>Template JSON Files</strong></p>
-<p>Tabula web-app accepts user's input with drag & click with its web interface, and translates it into Java arguments that are actually used behind the scenes to parse PDF files. The translated Java arguments are accessible to users in a JSON format.</p>
+<p>Tabula web-app accepts the user's drag & click as input and translates it into Java arguments that are actually used behind the scenes to parse PDF files. The translated Java arguments are accessible to users in a JSON format.</p>
 <p>Select the area you want to parse, and click <code>Save Selections as Template</code>. Then, <code>Download</code> the translated Java arguments in a text JSON file. These arguments are useful when coding arguments for <code>tabula.read_pdf()</code> later.</p>
 <div class="row give-margin">
 <div class="col"><img src="jupyter_images/template_1.png" style="border: solid 1px;"></div>
@@ -1400,7 +1400,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Running-Tabula-py">Running Tabula-py<a class="anchor-link" href="#Running-Tabula-py">¶</a></h2><p>Tabula-py enables you to extract table from PDF into DataFrame and JSON. It also can extract tables from PDF and save file as CSV, TSV or JSON. Some basic code examples are as follows:</p>
+<h2 id="Running-Tabula-py">Running Tabula-py<a class="anchor-link" href="#Running-Tabula-py">¶</a></h2><p>Tabula-py enables you to extract tables from PDFs into DataFrame and JSON. It can also extract tables from PDFs and save files as CSV, TSV or JSON. Some basic code examples are as follows:</p>
 <pre>
     <code class="language-python">
         import tabula
@@ -1419,14 +1419,14 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
     </code>
 </pre><p><br>
 <strong>Area Selection</strong></p>
-<p>You decide a portion of PDF you want to analyze by setting <code>area (top,left,bottom,right)</code> option in <code>tabula.read_pdf()</code>. This is equivalent to dragging your mouse and setting the area of your interest in tabula web-app as it was mentioned above. Default is the entire page. Also note that you can choose the page, or pages you want to parse with <code>pages</code> option.</p>
+<p>You can select portions of PDFs you want to analyze by setting <code>area (top,left,bottom,right)</code> option in <code>tabula.read_pdf()</code>. This is equivalent to dragging your mouse and setting the area of your interest in tabula web-app as it was mentioned above. Default is the entire page. Also note that you can choose the page, or pages you want to parse with <code>pages</code> option.</p>
 <p>The sample PDF file can be downloaded from <a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/downloads/notebooks/pdf_parsing/lattice-timelog-multiple-pages.pdf">here</a>.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [42]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tabula</span>
@@ -1974,8 +1974,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Lattice Mode vs Stream Mode</strong></p>
 <p>Tabula supports two primary modes of table extraction — Lattice mode and Stream mode.</p>
-<p><u>Lattice Mode</u></p><p>Lattice mode forces PDFs to be extracted using lattice-mode extraction. It recognizes each cells based on ruling lines, or borders of each cell.</p>
-<p><u>Stream Mode</u></p><p>Stream mode forces PDFs to be extracted using stream-mode extraction. This mode is used when there are no ruling lines to differentiate one cell from the other. Instead, it uses spacings among each cells to recognize each cell.</p>
+<p><u>Lattice Mode</u></p><p><code>lattice=True</code> forces PDFs to be extracted using lattice-mode extraction. It recognizes each cells based on ruling lines, or borders of each cell.</p>
+<p><u>Stream Mode</u></p><p><code>stream=True</code> forces PDFs to be extracted using stream-mode extraction. This mode is used when there are no ruling lines to differentiate one cell from the other. Instead, it uses spacings among each cells to recognize each cell.</p>
 <div class="row give-margin">
 <div class="col-md-6 col-sm-12">
 <div class="col-12"><img src="jupyter_images/lattice_mode.png" style="border: 1px solid; height: 380px"></div>
