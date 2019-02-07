@@ -40,6 +40,7 @@
                 <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
             <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/custom.css" media="screen">
             <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/ipynb.css" media="screen">
+
             <style>
                 #progressBar::-webkit-progress-value {
                     background-color: #24292e;
@@ -50,6 +51,14 @@
             </style>
 
         <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    processEscapes: true
+                }
+            });
+        </script>
 
         <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
@@ -1356,7 +1365,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Tabula-Web-Application">Tabula Web Application<a class="anchor-link" href="#Tabula-Web-Application">¶</a></h2><p>Tabula supports web application to parse PDF files. You do not need this to use tabula-py, but from my personal experience I strongly recommend you to use this tool because it really helps you debugging issues when using tabula-py. For example, I was tring to parse 100s of PDF files at once, and for some reason tabula-py would return an <code>NoneType</code> object instead of <code>pd.DataFrame</code> object (by default, tabula-py extracts tables in dataframe) for one PDF file. There was nothing wrong with my codes, and yet it would just not parse the file. So I tried opening it on the tabula web-app, and realized that it was actually a scanned PDF file and that tabula is unable to parse scanned PDFs.</p>
-<p>Long story shot, if it can be parsed with tabula web-app, you can replicate it with tabula-py. If tabula web-app can't, you should probably look for a different tool.</p>
+<p>Long story short, if it can be parsed with tabula web-app, you can replicate it with tabula-py. If tabula web-app can't, you should probably look for a different tool.</p>
 <p><strong>Installations</strong></p>
 <p>If you already configured the environment PATH variable for Java, all you need to do is downloading the .zip file <a href="https://tabula.technology/">here</a> and running <code>tabula.exe</code>. That's it. Tabula has really nice web UI that allows you to parse tables from PDFs by just clicking buttons.</p>
 <div class="alert alert-info">
@@ -2730,6 +2739,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
         <nav>
         <ul class="articles-timeline">
             <li class="previous-article">« <a href="https://aegis4048.github.io/creating-a-jupyternotebook-powered-data-science-blog-with-pelican" title="Previous: Creating a Jupyter Notebook-Powered Data Science Blog with Pelican">Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</a></li>
+            <li class="next-article"><a href="https://aegis4048.github.io/spatial-simulation-1-basics-of-variograms" title="Next: Spatial Simulation 1: Basics of Variograms">Spatial Simulation 1: Basics of Variograms</a> »</li>
         </ul>
         </nav>
         </aside>
@@ -2800,6 +2810,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
             });
         </script>
 
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
             <script>
                 function validateForm(query)

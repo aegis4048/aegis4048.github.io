@@ -1482,3 +1482,13 @@ table.dataframe {
     text-align: center;
     font-style: italic;
 }
+
+.center-center {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.inline-plot-margin {
+    width: 50%;
+    margin: auto;
+}
