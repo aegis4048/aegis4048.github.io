@@ -4,196 +4,196 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>https://aegis4048.github.io/</loc>
-<lastmod>2019-02-07T02:04:16-00:00</lastmod>
+<loc>/</loc>
+<lastmod>2019-02-07T02:33:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/archives.html</loc>
-<lastmod>2019-02-07T02:04:16-00:00</lastmod>
+<loc>/archives.html</loc>
+<lastmod>2019-02-07T02:33:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/spatial-simulation-1-basics-of-variograms</loc>
+<loc>/spatial-simulation-1-basics-of-variograms</loc>
 <lastmod>2019-02-06T09:00:00-08:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/parse-pdf-files-while-retaining-structure-with-tabula-py</loc>
+<loc>/parse-pdf-files-while-retaining-structure-with-tabula-py</loc>
 <lastmod>2019-02-02T09:00:00-08:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/creating-a-jupyternotebook-powered-data-science-blog-with-pelican</loc>
+<loc>/creating-a-jupyternotebook-powered-data-science-blog-with-pelican</loc>
 <lastmod>2019-01-27T09:00:00-08:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap</loc>
+<loc>/non-parametric-confidence-interval-with-bootstrap</loc>
 <lastmod>2019-01-04T09:00:00-08:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation</loc>
+<loc>/uncertainty-modeling-with-monte-carlo-simulation</loc>
 <lastmod>2019-01-03T09:00:00-08:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/category/data-mining.html</loc>
+<loc>/category/data-mining.html</loc>
 <lastmod>2019-02-02T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/category/geostatistics.html</loc>
+<loc>/category/geostatistics.html</loc>
 <lastmod>2019-02-06T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/category/statistics.html</loc>
+<loc>/category/statistics.html</loc>
 <lastmod>2019-01-04T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/category/webdev.html</loc>
+<loc>/category/webdev.html</loc>
 <lastmod>2019-01-27T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/geostatistics.html</loc>
+<loc>/tag/geostatistics.html</loc>
 <lastmod>2019-02-06T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/variogram.html</loc>
+<loc>/tag/variogram.html</loc>
 <lastmod>2019-02-06T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/simulation.html</loc>
+<loc>/tag/simulation.html</loc>
 <lastmod>2019-02-06T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/spatial.html</loc>
+<loc>/tag/spatial.html</loc>
 <lastmod>2019-02-06T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/data-mining.html</loc>
+<loc>/tag/data-mining.html</loc>
 <lastmod>2019-02-02T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/pdf.html</loc>
+<loc>/tag/pdf.html</loc>
 <lastmod>2019-02-02T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/tabula.html</loc>
+<loc>/tag/tabula.html</loc>
 <lastmod>2019-02-02T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/web-dev.html</loc>
+<loc>/tag/web-dev.html</loc>
 <lastmod>2019-01-27T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/pelican.html</loc>
+<loc>/tag/pelican.html</loc>
 <lastmod>2019-01-27T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/jupyter.html</loc>
+<loc>/tag/jupyter.html</loc>
 <lastmod>2019-01-27T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/non-parametric.html</loc>
+<loc>/tag/non-parametric.html</loc>
 <lastmod>2019-01-04T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/confidence-interval.html</loc>
+<loc>/tag/confidence-interval.html</loc>
 <lastmod>2019-01-04T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/bootstrapstats.html</loc>
+<loc>/tag/bootstrapstats.html</loc>
 <lastmod>2019-01-04T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/statistics.html</loc>
+<loc>/tag/statistics.html</loc>
 <lastmod>2019-01-04T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/monte-carlo-simulation.html</loc>
+<loc>/tag/monte-carlo-simulation.html</loc>
 <lastmod>2019-01-03T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/uncertainty-modeling.html</loc>
+<loc>/tag/uncertainty-modeling.html</loc>
 <lastmod>2019-01-03T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/tag/prediction-interval.html</loc>
+<loc>/tag/prediction-interval.html</loc>
 <lastmod>2019-01-03T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
