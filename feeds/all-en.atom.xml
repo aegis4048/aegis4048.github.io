@@ -2455,7 +2455,7 @@ $$\sum_{\alpha =1}^{N(h)}\left ( z(u_{\alpha })-z(u_{\alpha} + h) \right)^2$$&lt
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="geostatistics"></category><category term="variogram"></category><category term="simulation"></category><category term="spatial"></category></entry><entry><title>Parse PDF Files While Retaining Structure with Tabula-py</title><link href="https://aegis4048.github.io/parse-pdf-files-while-retaining-structure-with-tabula-py" rel="alternate"></link><published>2019-02-02T09:00:00-08:00</published><updated>2019-02-02T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-02-02:/parse-pdf-files-while-retaining-structure-with-tabula-py</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="geostatistics"></category><category term="variogram"></category><category term="simulation"></category><category term="spatial"></category><category term="2D"></category></entry><entry><title>Parse PDF Files While Retaining Structure with Tabula-py</title><link href="https://aegis4048.github.io/parse-pdf-files-while-retaining-structure-with-tabula-py" rel="alternate"></link><published>2019-02-02T09:00:00-08:00</published><updated>2019-02-02T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-02-02:/parse-pdf-files-while-retaining-structure-with-tabula-py</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -11515,10 +11515,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="80bbd268-7d12-46e5-a174-dea8e6be4950"&gt;&lt;/div&gt;
+&lt;div id="c7a593c4-d131-4b68-af12-a17db95c6001"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#80bbd268-7d12-46e5-a174-dea8e6be4950');
+var element = $('#c7a593c4-d131-4b68-af12-a17db95c6001');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12907,10 +12907,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9440eca0-562b-44e3-b472-84c407f4631e"&gt;&lt;/div&gt;
+&lt;div id="935c229d-9d2c-4de5-b4b8-a96b4ffef282"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9440eca0-562b-44e3-b472-84c407f4631e');
+var element = $('#935c229d-9d2c-4de5-b4b8-a96b4ffef282');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13739,10 +13739,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9e690d48-5e6e-4f65-a08f-cde1f6783103"&gt;&lt;/div&gt;
+&lt;div id="73823ac1-cc67-45b9-8b3c-d4b1e6070e5d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9e690d48-5e6e-4f65-a08f-cde1f6783103');
+var element = $('#73823ac1-cc67-45b9-8b3c-d4b1e6070e5d');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14698,10 +14698,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5f9c09ef-3155-45b8-bdaf-cfb64d3f4073"&gt;&lt;/div&gt;
+&lt;div id="3a424bd5-863b-459c-b0e1-5be38130f99f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5f9c09ef-3155-45b8-bdaf-cfb64d3f4073');
+var element = $('#3a424bd5-863b-459c-b0e1-5be38130f99f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15586,10 +15586,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="f268f267-a35a-454b-b482-8b1545d2d130"&gt;&lt;/div&gt;
+&lt;div id="38e03941-fda2-4b33-aea0-4abff42c4c77"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f268f267-a35a-454b-b482-8b1545d2d130');
+var element = $('#38e03941-fda2-4b33-aea0-4abff42c4c77');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16975,10 +16975,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="426bf7c4-c38b-4fed-9bbf-b0cbce6ae04f"&gt;&lt;/div&gt;
+&lt;div id="0223a4d0-511f-4646-affd-b848175474aa"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#426bf7c4-c38b-4fed-9bbf-b0cbce6ae04f');
+var element = $('#0223a4d0-511f-4646-affd-b848175474aa');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -17799,10 +17799,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="01a3b06b-d17b-4796-93d6-d2bf063c54b5"&gt;&lt;/div&gt;
+&lt;div id="68b09406-168e-478d-bf03-544b527d695e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#01a3b06b-d17b-4796-93d6-d2bf063c54b5');
+var element = $('#68b09406-168e-478d-bf03-544b527d695e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -21311,10 +21311,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="921242ce-c044-412d-9432-c30121f53842"&gt;&lt;/div&gt;
+&lt;div id="62f876c0-8779-4ec2-92b0-35a20bdcba50"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#921242ce-c044-412d-9432-c30121f53842');
+var element = $('#62f876c0-8779-4ec2-92b0-35a20bdcba50');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -22135,10 +22135,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="45f6fce3-4692-475d-9fd5-6b6bf508779b"&gt;&lt;/div&gt;
+&lt;div id="86bf225b-bcbc-404d-a9a2-cb37939414ae"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#45f6fce3-4692-475d-9fd5-6b6bf508779b');
+var element = $('#86bf225b-bcbc-404d-a9a2-cb37939414ae');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -23095,10 +23095,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="6a836215-0036-4a57-932d-e808fb357434"&gt;&lt;/div&gt;
+&lt;div id="d62b20ac-2161-4ac6-ae5b-b7e3abb4409c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#6a836215-0036-4a57-932d-e808fb357434');
+var element = $('#d62b20ac-2161-4ac6-ae5b-b7e3abb4409c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -24442,10 +24442,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="e143327f-144b-4f65-bcd0-6774f07bbc7d"&gt;&lt;/div&gt;
+&lt;div id="cb9af37b-48a4-4f04-863b-f22ed905ffda"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e143327f-144b-4f65-bcd0-6774f07bbc7d');
+var element = $('#cb9af37b-48a4-4f04-863b-f22ed905ffda');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 

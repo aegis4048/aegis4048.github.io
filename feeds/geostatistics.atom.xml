@@ -2455,4 +2455,4 @@ $$\sum_{\alpha =1}^{N(h)}\left ( z(u_{\alpha })-z(u_{\alpha} + h) \right)^2$$&lt
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="geostatistics"></category><category term="variogram"></category><category term="simulation"></category><category term="spatial"></category></entry></feed>
+&lt;/script&gt;</content><category term="geostatistics"></category><category term="variogram"></category><category term="simulation"></category><category term="spatial"></category><category term="2D"></category></entry></feed>
