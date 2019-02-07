@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2019-02-06T09:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Spatial Simulation 1: Basics of Variograms</title><link href="/spatial-simulation-1-basics-of-variograms" rel="alternate"></link><published>2019-02-06T09:00:00-08:00</published><updated>2019-02-06T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-02-06:/spatial-simulation-1-basics-of-variograms</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/all.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-02-06T09:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Spatial Simulation 1: Basics of Variograms</title><link href="https://aegis4048.github.io/spatial-simulation-1-basics-of-variograms" rel="alternate"></link><published>2019-02-06T09:00:00-08:00</published><updated>2019-02-06T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-02-06:/spatial-simulation-1-basics-of-variograms</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2455,7 +2455,7 @@ $$\sum_{\alpha =1}^{N(h)}\left ( z(u_{\alpha })-z(u_{\alpha} + h) \right)^2$$&lt
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="geostatistics"></category><category term="variogram"></category><category term="simulation"></category><category term="spatial"></category></entry><entry><title>Parse PDF Files While Retaining Structure with Tabula-py</title><link href="/parse-pdf-files-while-retaining-structure-with-tabula-py" rel="alternate"></link><published>2019-02-02T09:00:00-08:00</published><updated>2019-02-02T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-02-02:/parse-pdf-files-while-retaining-structure-with-tabula-py</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="geostatistics"></category><category term="variogram"></category><category term="simulation"></category><category term="spatial"></category></entry><entry><title>Parse PDF Files While Retaining Structure with Tabula-py</title><link href="https://aegis4048.github.io/parse-pdf-files-while-retaining-structure-with-tabula-py" rel="alternate"></link><published>2019-02-02T09:00:00-08:00</published><updated>2019-02-02T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-02-02:/parse-pdf-files-while-retaining-structure-with-tabula-py</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -6219,7 +6219,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="data-mining"></category><category term="pdf"></category><category term="tabula"></category></entry><entry><title>Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</title><link href="/creating-a-jupyternotebook-powered-data-science-blog-with-pelican" rel="alternate"></link><published>2019-01-27T09:00:00-08:00</published><updated>2019-01-27T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-27:/creating-a-jupyternotebook-powered-data-science-blog-with-pelican</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="data-mining"></category><category term="pdf"></category><category term="tabula"></category></entry><entry><title>Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</title><link href="https://aegis4048.github.io/creating-a-jupyternotebook-powered-data-science-blog-with-pelican" rel="alternate"></link><published>2019-01-27T09:00:00-08:00</published><updated>2019-01-27T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-27:/creating-a-jupyternotebook-powered-data-science-blog-with-pelican</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -8761,7 +8761,7 @@ h6:hover .anchor-link {
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="web-dev"></category><category term="pelican"></category><category term="jupyter"></category></entry><entry><title>Non-Parametric Confidence Interval with Bootstrap</title><link href="/non-parametric-confidence-interval-with-bootstrap" rel="alternate"></link><published>2019-01-04T09:00:00-08:00</published><updated>2019-01-04T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-04:/non-parametric-confidence-interval-with-bootstrap</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="web-dev"></category><category term="pelican"></category><category term="jupyter"></category></entry><entry><title>Non-Parametric Confidence Interval with Bootstrap</title><link href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" rel="alternate"></link><published>2019-01-04T09:00:00-08:00</published><updated>2019-01-04T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-04:/non-parametric-confidence-interval-with-bootstrap</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -11515,10 +11515,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="14615184-d1dd-4d11-ba20-5b2fc6c0e2de"&gt;&lt;/div&gt;
+&lt;div id="c93c9f3f-89ff-4df0-8ad3-efe1839d09bd"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#14615184-d1dd-4d11-ba20-5b2fc6c0e2de');
+var element = $('#c93c9f3f-89ff-4df0-8ad3-efe1839d09bd');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12907,10 +12907,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="16503d34-72c1-4fd2-b118-13ebfc858971"&gt;&lt;/div&gt;
+&lt;div id="1adde02f-f2c2-44b4-9646-3c7cb866232f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#16503d34-72c1-4fd2-b118-13ebfc858971');
+var element = $('#1adde02f-f2c2-44b4-9646-3c7cb866232f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13739,10 +13739,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5bddbcef-cc53-430e-9ab8-89fc4ab975d9"&gt;&lt;/div&gt;
+&lt;div id="254b1eba-9863-4a03-88fd-951d762658c3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5bddbcef-cc53-430e-9ab8-89fc4ab975d9');
+var element = $('#254b1eba-9863-4a03-88fd-951d762658c3');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14698,10 +14698,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="bc8eaac2-83c0-4541-a088-33bf7f89ce0f"&gt;&lt;/div&gt;
+&lt;div id="fcc729cc-3ab1-42e7-be44-c3879c24f990"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#bc8eaac2-83c0-4541-a088-33bf7f89ce0f');
+var element = $('#fcc729cc-3ab1-42e7-be44-c3879c24f990');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15586,10 +15586,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="047e58fe-2c1a-4fd5-9162-fa1637bc03ed"&gt;&lt;/div&gt;
+&lt;div id="bb02f349-4e99-4689-86ad-3da1ddd12f0e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#047e58fe-2c1a-4fd5-9162-fa1637bc03ed');
+var element = $('#bb02f349-4e99-4689-86ad-3da1ddd12f0e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16975,10 +16975,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="db6bdc93-8005-4d03-9f40-056a38f95a87"&gt;&lt;/div&gt;
+&lt;div id="219771c0-0632-48a8-8a0f-4239e169c5ba"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#db6bdc93-8005-4d03-9f40-056a38f95a87');
+var element = $('#219771c0-0632-48a8-8a0f-4239e169c5ba');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -17799,10 +17799,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="aceaa1b3-b3ab-483c-9e7b-738c287fd173"&gt;&lt;/div&gt;
+&lt;div id="dd62a048-3b01-4548-a658-bd2721f550d3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#aceaa1b3-b3ab-483c-9e7b-738c287fd173');
+var element = $('#dd62a048-3b01-4548-a658-bd2721f550d3');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -18749,7 +18749,7 @@ IQR       :       78.4  ~      120.9 , AVG =  98.1
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="non-parametric"></category><category term="confidence-interval"></category><category term="bootstrap(stats)"></category><category term="statistics"></category></entry><entry><title>Uncertainty Modeling with Monte-Carlo Simulation</title><link href="/uncertainty-modeling-with-monte-carlo-simulation" rel="alternate"></link><published>2019-01-03T09:00:00-08:00</published><updated>2019-01-03T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:None,2019-01-03:/uncertainty-modeling-with-monte-carlo-simulation</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="non-parametric"></category><category term="confidence-interval"></category><category term="bootstrap(stats)"></category><category term="statistics"></category></entry><entry><title>Uncertainty Modeling with Monte-Carlo Simulation</title><link href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" rel="alternate"></link><published>2019-01-03T09:00:00-08:00</published><updated>2019-01-03T09:00:00-08:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-01-03:/uncertainty-modeling-with-monte-carlo-simulation</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -21311,10 +21311,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ecc47abd-d063-4aa9-9486-80f40747689c"&gt;&lt;/div&gt;
+&lt;div id="4a8afb60-ce1c-41b6-b925-8bdc0d883b90"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ecc47abd-d063-4aa9-9486-80f40747689c');
+var element = $('#4a8afb60-ce1c-41b6-b925-8bdc0d883b90');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -22135,10 +22135,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="984f0858-4bf3-48ac-855e-30347a799a27"&gt;&lt;/div&gt;
+&lt;div id="0570396c-ec57-4956-a60e-ee5c29668100"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#984f0858-4bf3-48ac-855e-30347a799a27');
+var element = $('#0570396c-ec57-4956-a60e-ee5c29668100');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -23095,10 +23095,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5b02103e-3d9d-4250-85cd-8557c5b4923b"&gt;&lt;/div&gt;
+&lt;div id="b668176f-e6a0-43dd-a2c8-cebb2bc8779b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5b02103e-3d9d-4250-85cd-8557c5b4923b');
+var element = $('#b668176f-e6a0-43dd-a2c8-cebb2bc8779b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -24442,10 +24442,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="d4776809-9683-4cce-abda-2cfefa633262"&gt;&lt;/div&gt;
+&lt;div id="0b8f211f-21e6-48d9-8312-294ac682f4a1"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d4776809-9683-4cce-abda-2cfefa633262');
+var element = $('#0b8f211f-21e6-48d9-8312-294ac682f4a1');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
