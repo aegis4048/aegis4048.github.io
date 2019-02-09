@@ -1488,7 +1488,9 @@ table.dataframe {
     align-items: center !important;
     justify-content: center !important;
 }
-.inline-plot-margin {
-    width: 50%;
+.give-margin-inline-plot {
+    margin: auto;
+}
+.give-margin-inline-big-plot {
     margin: auto;
 }

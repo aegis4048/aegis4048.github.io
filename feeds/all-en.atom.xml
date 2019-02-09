@@ -2381,13 +2381,13 @@ h6:hover .anchor-link {
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Tobler%27s_first_law_of_geography"&gt;Tobler's first law of geography&lt;/a&gt; states that "everything is related to everything else, but near things are more related than distant things." Variogram shows the correlation between two spatial data points over distances. For example, terrains 1 km apart from each other are more likely to be similar than terrains 100 km apart from each other. Oil wells 500 ft apart from each other are more likely to show similar reservoir characteristics than oil wells 5000 ft apart from each other.&lt;/p&gt;
 &lt;p&gt;Variogram is a function of variance over distance. It has the following equation and plot:&lt;/p&gt;
-&lt;div class="row give-margin"&gt;
-&lt;div class="col-md-6 col-sm-12"&gt;&lt;img src="jupyter_images/basic_variogram.png"&gt;&lt;/div&gt;
-&lt;div class="col-md-6 col-sm-12 center-center"&gt;
-&lt;div style="top: 30%"&gt;
-            $$\gamma(h) = \frac{1}{2N(h)}\sum_{\alpha =1}^{N(h)}\left ( z(u_{\alpha })-z(u_{\alpha} + h) \right)^2$$  
-        &lt;/div&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-12"&gt;
+        $$\gamma(h) = \frac{1}{2N(h)}\sum_{\alpha =1}^{N(h)}\left ( z(u_{\alpha })-z(u_{\alpha} + h) \right)^2$$ 
+    &lt;/div&gt;
 &lt;/div&gt;
+&lt;div class="row give-margin-inline-big-plot"&gt;
+&lt;div class="col-12"&gt;&lt;img src="jupyter_images/basic_variogram.png"&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;u&gt;Variables Explained&lt;/u&gt;&lt;/p&gt;&lt;p&gt;$\gamma(h)$ = a measure of dissimilarity vs distance. It is a spatial variance between two data points separated by the distance, $h$.&lt;/p&gt;
 &lt;p&gt;$N(h)$ = number of all data point pairs separated by the distance, $h$.&lt;/p&gt;
 &lt;p&gt;$h$ = lag distance. Separation between two data points.&lt;/p&gt;
@@ -2417,14 +2417,42 @@ $$\sum_{\alpha =1}^{N(h)}\left ( z(u_{\alpha })-z(u_{\alpha} + h) \right)^2$$&lt
 &lt;/div&gt;&lt;p&gt;$\underline{ h = 3m }$&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col-12"&gt;&lt;img src="jupyter_images/grid_5.png"&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Observe how there were less data pairs connected by red lines for $h = 3$. As the $h$ increases, there will be fewer number of pairs that are separated by $h4 due to spatial limitation.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Observation 4:&lt;/strong&gt; $\sigma^2$&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Observe how there were less data pairs connected by red lines for $h = 3m$. As the $h$ increases, there will be fewer number of pairs that are separated by $h$ due to spatial limitation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Observation 4:&lt;/strong&gt; Sill ($\sigma^2$)&lt;/p&gt;
 &lt;p&gt;Sill ($\sigma^2$) is the variance in which spatial data pairs lose correlation. As the distance between two data points increases, it will be less likely that those two data points are related to one another. You may assume that the oil wells separated by 100 ft exibit similar geologic characteristics, but you can't assume the same for a well in Texas and a well in California. Variogram works the similar way.&lt;/p&gt;
 &lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes&lt;/h4&gt;
 &lt;p&gt;Spatial variance may never reach the sill if there is a trend. Ex: Area trend between well variability&lt;/p&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Observation 5:&lt;/strong&gt; range&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Observation 5:&lt;/strong&gt; Range ($a$)&lt;/p&gt;
 &lt;p&gt;Range is a distance in which the spatial variability reaches the sill ($\sigma^2$). Let's say that you are an exploration engineer for drilling a new oil well. You have drilled wells A, B, C, D that are each 100ft, 200ft, 300ft, and 400ft apart from the zone you want to drill a next new well, and want to know if you can use the data from the previously drilled wells. The geostatisticians in your team report that the geologic formation in the region has a &lt;u&gt;range&lt;/u&gt; of 350 ft. This means that the rocks in the region lose geologic correlation with one another if they are more than 350 ft apart — you can't use data from well D because it is 400 ft apart.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Observation 6:&lt;/strong&gt; Nugget Effect ($c_{0}$)&lt;/p&gt;
+&lt;p&gt;The nugget effect refers to the nonzero intercept of the variogram and is an overall estimate of error caused by measurement inaccuracy and environmental variability occurring at fine enough scales to be unresolved by the sampling interval. The nugget effect is like the random noise. It's just the small scale variability that you can't estimate with your large scale variability model. The nugget effect is like random noise. It's just the small scale variability that you can't estimate with your large scale variability model.&lt;/p&gt;
+&lt;p&gt;However, if there is no expectation of high degree of discontinuity at distances shorter than the minimum data spacing, experts tend to ignore nugget effect ub geologic engineering.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Experimental-Variogram:-Search-Template"&gt;Experimental Variogram: Search Template&lt;a class="anchor-link" href="#Experimental-Variogram:-Search-Template"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Calculating variogram is challenging because because real-life data are are not as clean as the 2-D grid sample images shown above. Real-life data are often sparse data that are irregularly spaced. The sparse data you will get in real-life will have very few, or even no data point pairs that are EXACTLY $h$ distance apart from each other. Furthermore, the data points will not always be orthogonal or pararell to each other — there will be diagonalities.&lt;/p&gt;
+&lt;div class="row give-margin-inline-big-plot"&gt;
+&lt;div class="col-md-6 col-sm-12"&gt;
+&lt;div class="col-12"&gt;&lt;img src="jupyter_images/spacing_regurlar.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Regular Spacing&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-md-6 col-sm-12"&gt;
+&lt;div class="col-12"&gt;&lt;img src="jupyter_images/spacing_irregurlar.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Irregular Spacing&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;So how de we get pairs separated by lag distance, $h$? We need to consider distance, tolerance, azimuth direction, azimuth tolerance, dip direction, dip tolerance, bandwith in horizontal plane, and bandwidth in vertical plane — through a set of guidelines called &lt;strong&gt;Variogram Search Template&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="row give-margin-inline-big-plot"&gt;
+&lt;div class="col-md-6 col-sm-12"&gt;
+&lt;div class="col-12"&gt;&lt;img src="jupyter_images/search_template_1.png"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-md-6 col-sm-12"&gt;
+&lt;div class="col-12"&gt;&lt;img src="jupyter_images/search_template_2.png"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -11515,10 +11543,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="c08297f9-cb75-462c-81dd-6378e46e12a0"&gt;&lt;/div&gt;
+&lt;div id="3456fb6d-48e8-4220-b03b-d6f1fcda507c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c08297f9-cb75-462c-81dd-6378e46e12a0');
+var element = $('#3456fb6d-48e8-4220-b03b-d6f1fcda507c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12907,10 +12935,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="50ffbf0c-c8ac-4c74-bdbc-0873bad7bdc3"&gt;&lt;/div&gt;
+&lt;div id="26069aa1-0207-4f56-9441-e2b741baf12a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#50ffbf0c-c8ac-4c74-bdbc-0873bad7bdc3');
+var element = $('#26069aa1-0207-4f56-9441-e2b741baf12a');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13739,10 +13767,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="a4bda1b9-4ee8-4942-853c-94c9f5f0b105"&gt;&lt;/div&gt;
+&lt;div id="217669b5-e34c-47bc-9fca-106bddcfa76e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#a4bda1b9-4ee8-4942-853c-94c9f5f0b105');
+var element = $('#217669b5-e34c-47bc-9fca-106bddcfa76e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14698,10 +14726,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="1b5a1b14-58f9-4d1b-8dc6-a6885d28107a"&gt;&lt;/div&gt;
+&lt;div id="f59b72c3-d67a-40a0-985a-29fcf9736214"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1b5a1b14-58f9-4d1b-8dc6-a6885d28107a');
+var element = $('#f59b72c3-d67a-40a0-985a-29fcf9736214');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15586,10 +15614,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="42b6cf10-51c4-4bea-9920-462f276c56df"&gt;&lt;/div&gt;
+&lt;div id="9877f397-e6f5-4568-837a-6fc28128832c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#42b6cf10-51c4-4bea-9920-462f276c56df');
+var element = $('#9877f397-e6f5-4568-837a-6fc28128832c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16975,10 +17003,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ffb9ef45-717d-41ec-b30d-3e3dad2cfdfc"&gt;&lt;/div&gt;
+&lt;div id="05fbf9fd-6ce8-45da-b7bc-6530ffd9cbbb"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ffb9ef45-717d-41ec-b30d-3e3dad2cfdfc');
+var element = $('#05fbf9fd-6ce8-45da-b7bc-6530ffd9cbbb');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -17799,10 +17827,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="3e977699-782d-424f-9a1b-0f6a7594613a"&gt;&lt;/div&gt;
+&lt;div id="a4610bdb-0492-4b01-a810-2099618932cf"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3e977699-782d-424f-9a1b-0f6a7594613a');
+var element = $('#a4610bdb-0492-4b01-a810-2099618932cf');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -21311,10 +21339,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ccd8baf1-31fb-4c91-b096-0dd22b27c39f"&gt;&lt;/div&gt;
+&lt;div id="86743f3f-d174-46a9-b5dd-959826bc8900"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ccd8baf1-31fb-4c91-b096-0dd22b27c39f');
+var element = $('#86743f3f-d174-46a9-b5dd-959826bc8900');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -22135,10 +22163,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="c21ab56d-ce0d-4468-920d-14d74990c9f8"&gt;&lt;/div&gt;
+&lt;div id="eb199e8f-644e-4a15-8948-21cfb5eaa369"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c21ab56d-ce0d-4468-920d-14d74990c9f8');
+var element = $('#eb199e8f-644e-4a15-8948-21cfb5eaa369');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -23095,10 +23123,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="b3a1704e-bae1-481a-8179-a4ae2d867bce"&gt;&lt;/div&gt;
+&lt;div id="04479ad0-8c75-498c-9405-a7bca1b93a6b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b3a1704e-bae1-481a-8179-a4ae2d867bce');
+var element = $('#04479ad0-8c75-498c-9405-a7bca1b93a6b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -24442,10 +24470,10 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="e1572f9e-14ec-48cb-b667-a8a3862ec186"&gt;&lt;/div&gt;
+&lt;div id="6d0bf967-1e67-449f-b917-0259fe820930"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e1572f9e-14ec-48cb-b667-a8a3862ec186');
+var element = $('#6d0bf967-1e67-449f-b917-0259fe820930');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
