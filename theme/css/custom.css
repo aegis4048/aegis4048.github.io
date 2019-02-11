@@ -1481,6 +1481,7 @@ table.dataframe {
 .image-description {
     text-align: center;
     font-style: italic;
+    margin-top: 0.3rem;
 }
 
 .center-center {
@@ -1490,7 +1491,20 @@ table.dataframe {
 }
 .give-margin-inline-plot {
     margin: auto;
+    width: 50%;
 }
 .give-margin-inline-big-plot {
     margin: auto;
+    width: 85%;
+}
+
+@media only screen and (max-width: 768px) {
+    .mobile_responsive_plot {
+        width: 85%;
+        margin: auto;
+    }
+    .give-margin-inline-plot {
+    margin: auto;
+    width: 85%;
+    }
 }

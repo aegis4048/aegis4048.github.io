@@ -60,13 +60,9 @@ function check_width() {
     }
     if (windowSize < GRID_LARGE) {
         $('.give-margin').removeClass('full_screen_margin');
-        $('.give-margin-inline-plot').css({"width": "85%"});
-        $('.give-margin-inline-big-plot').css({"width": "100%"});
     }
     else {
         $('.give-margin').addClass('full_screen_margin');
-        $('.give-margin-inline-plot').css({"width": "50%"});
-        $('.give-margin-inline-big-plot').css({"width": "85%"});
     }
 }
 function jupyter_css() {
