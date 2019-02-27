@@ -1323,37 +1323,7 @@ blockquote.quote span{
 }
 
 /* item  */
-.rounded-list ol > li
-{
-    position:relative; /* Create a positioning context */
-    list-style:none; /* Disable the normal item numbering */
-    background:#f6f6f6; /* Item background color */
-    margin:0; /* Give each list item a left margin to make room for the numbers */
-    padding-left: 15px; /* Add some spacing around the content */
-    padding-bottom:0px;
-    padding-top:0px;
-}
 
-/* number  */
-.rounded-list ol > li p:before
-{
-    content: counter(li);
-    counter-increment: li;
-    position: absolute;
-    left: -1.3em;
-    top: 50%;
-
-    /* number background */
-    background: #87ceeb;
-    height: 2em;
-    width: 2em;
-    margin-top: -1em;
-    line-height: 1.5em;
-    border: .3em solid #fff;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 2em;
-}
 
 /* -------------------------------------- */
 
@@ -1497,6 +1467,225 @@ table.dataframe {
     margin: auto;
     width: 85%;
 }
+/* Jupyter Notebook Markdown Tables */
+
+.jupyter-markdown-table {
+	background: white;
+	border-radius: 3px;
+	border-collapse: collapse;
+	margin: auto;
+	max-width: 600px;
+	padding: 5px;
+	width: 100%;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+	animation: float 5s infinite;
+    margin-bottom: 1.8rem !important;
+    margin-top: 2rem !important;
+}
+
+.jupyter-markdown-table th {
+	color: white;
+	background: #1b1e24 !important;
+	border-bottom: 4px solid #9ea7af;
+	border-right: 1px solid #343a45;
+	font-size: 1rem;
+	font-weight: 300;
+    padding: 16px;
+	text-align: center !important;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	vertical-align: middle;
+	display: table-cell !important;
+}
+
+.jupyter-markdown-table th:first-child {
+	border-top-left-radius: 3px;
+}
+
+.jupyter-markdown-table th:last-child {
+	border-top-right-radius: 3px;
+	border-right: none;
+}
+
+.jupyter-markdown-table tr {
+	border-top: 1px solid #C1C3D1;
+	border-bottom-: 1px solid #C1C3D1;
+	color: #666B85;
+	font-size: 16px;
+	font-weight: normal;
+	text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+.jupyter-markdown-table tr:hover td {
+	background: #4E5066;
+	color: #FFFFFF;
+	border-top: 1px solid #22262e;
+}
+
+.jupyter-markdown-table tr:first-child {
+	border-top: none;
+}
+
+.jupyter-markdown-table tr:last-child {
+	border-bottom: none;
+}
+
+.jupyter-markdown-table tr:nth-child(odd) td {
+	background: #EBEBEB;
+}
+
+.jupyter-markdown-table tr:nth-child(odd):hover td {
+	background: #4E5066;
+}
+
+.jupyter-markdown-table tr:last-child td:first-child {
+	border-bottom-left-radius: 3px;
+}
+
+.jupyter-markdown-table tr:last-child td:last-child {
+	border-bottom-right-radius: 3px;
+}
+
+.jupyter-markdown-table td {
+	background: #FFFFFF;
+    padding: 15px 0 !important;
+	text-align: left;
+	vertical-align: middle;
+	font-weight: 300;
+	font-size: 1rem;
+	text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+	border-right: 1px solid #C1C3D1;
+}
+
+.jupyter-markdown-table td:last-child {
+	border-right: 0px;
+}
+
+.jupyter-markdown-table th.text-left {
+	text-align: left;
+}
+
+.jupyter-markdown-table th.text-center {
+	text-align: center;
+}
+
+.jupyter-markdown-table th.text-right {
+	text-align: right;
+}
+
+.jupyter-markdown-table td.text-left {
+	text-align: left;
+}
+
+.jupyter-markdown-table td.text-center {
+	text-align: center;
+}
+
+.jupyter-markdown-table td.text-right {
+	text-align: right;
+}
+
+/* Jupyter Notebook Bullet Lists */
+ol.rounded-list {
+    margin-bottom: 1.5rem !important;
+}
+ol.rounded-list,
+.rounded-list ol {
+    counter-reset: li; /* Initiate a counter */
+    list-style: none; /* Remove default numbering */
+    *list-style: decimal; /* Keep using default numbering for IE6/7 */
+    font: 15px 'trebuchet MS', 'lucida sans';
+    padding: 0;
+    max-width: 600px;
+    margin: auto;
+    padding-inline-start: 10px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0!important;
+
+}
+
+.rounded-list ol ol {
+    margin: 0 0 0 2em; /* Add some left margin for inner lists */
+}
+
+.rounded-list a{
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em 2em;
+    *padding: .4em;
+    margin: .5em 0;
+    background: #ddd;
+    color: #444;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: all .3s ease-out;
+}
+
+.rounded-list a:hover{
+    background: #eee;
+}
+
+.rounded-list a:hover:before{
+    transform: rotate(360deg);
+}
+
+.rounded-list a:before{
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    left: -1.3em;
+    top: 50%;
+    margin-top: -1.3em;
+    background: #87ceeb;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border: .3em solid #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
+    transition: all .3s ease-out;
+}
+.rounded-list p {
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em 2em;
+    *padding: .4em;
+    margin: .5em 0;
+    background: #ddd;
+    color: #444;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: all .3s ease-out;
+}
+
+.rounded-list p:hover{
+    background: #eee;
+}
+
+.rounded-list p:hover:before{
+    transform: rotate(360deg);
+}
+
+.rounded-list p:before{
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    left: -1.3em;
+    top: 50%;
+    margin-top: -1.3em;
+    background: #87ceeb;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border: .3em solid #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
+    transition: all .3s ease-out;
+}
+/* Jupyter Notebook Bullet Lists End */
+
+/* Jupyter Notebook Markdown Tables end */
 
 @media only screen and (max-width: 768px) {
     .mobile_responsive_plot {
