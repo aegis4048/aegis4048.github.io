@@ -51,14 +51,19 @@
             </style>
 
         <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
-        <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({
-                tex2jax: {
-                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                    processEscapes: true
-                }
-            });
-        </script>
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
         <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
@@ -1633,8 +1638,7 @@ $$\sum_{\alpha =1}^{N(h)}\left ( z(u_{\alpha })-z(u_{\alpha} + h) \right)^2$$<p>
             });
         </script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/config/TeX-MML-AM_CHTML.js"></script>
+
         <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
             <script>
                 function validateForm(query)

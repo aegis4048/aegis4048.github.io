@@ -1683,9 +1683,22 @@ ol.rounded-list,
     border-radius: 2em;
     transition: all .3s ease-out;
 }
-/* Jupyter Notebook Bullet Lists End */
 
-/* Jupyter Notebook Markdown Tables end */
+#MathJax-Element-3811-Frame,
+#MathJax-Element-3711-Frame,
+#MathJax-Element-3611-Frame {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
 
 @media only screen and (max-width: 768px) {
     .mobile_responsive_plot {
