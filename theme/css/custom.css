@@ -374,13 +374,13 @@ article h1 {
     font-size: 2rem;
 }
 article h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 }
 article h3 {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
 }
 article h4 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 article .article-date {
     color: #9E9E9E;
@@ -440,7 +440,7 @@ article div.social-links li a:hover {
   text-decoration: none;
 }
 article p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin-bottom: 20px;
     line-height: 1.6em;
     margin-top: 20px;
@@ -626,7 +626,6 @@ article .meta a.comments_btn:hover {
     min-width: inherit !important;
     text-align: left;
 }
-
 .rendered_html thead {
     border-bottom: 1px solid black;
     vertical-align: bottom;
@@ -656,6 +655,7 @@ article .meta a.comments_btn:hover {
 .rendered_html th {
     font-weight: bold;
     background: unset;
+    display: table-cell !important;
 }
 .rendered_html thead > tr {
     background: white;
@@ -1583,7 +1583,9 @@ table.dataframe {
 .jupyter-markdown-table td.text-right {
 	text-align: right;
 }
-
+.token.operator {
+    background: unset !important;
+}
 /* Jupyter Notebook Bullet Lists */
 ol.rounded-list {
     margin-bottom: 1.5rem !important;
