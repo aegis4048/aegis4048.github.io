@@ -3388,7 +3388,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [12]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [55]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;compute_co_occurrence_matrix&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;corpus&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;window_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -3419,7 +3419,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [13]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [56]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;reuters_corpus&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;read_corpus&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'crude'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -3431,7 +3431,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [14]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [57]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;M_co_occurrence&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;word2Ind_co_occurrence&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;word2Ind_co_occurrence&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -3442,7 +3442,7 @@ h6:hover .anchor-link {
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[14]:&lt;/div&gt;
+&lt;div class="prompt output_prompt"&gt;Out[57]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
 &lt;style scoped=""&gt;
@@ -3903,7 +3903,7 @@ Explained Variance = 0.906
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The original $7583 \times 7583$ co-occurence matrix was reduced into 2-dimensional matrix of $7583 \times 2$, using dimensional reduction with &lt;code&gt;n_components=2&lt;/code&gt;. According to the &lt;code&gt;explained_variance_ratio_&lt;/code&gt;, the new reduced matrix captures 90.6% variability of the original data with &lt;code&gt;window_size=5&lt;/code&gt;. This may not be satisfactory, but good enough to obtain a reasonable word vector visualizaiton on a 2D space.&lt;/p&gt;
+&lt;p&gt;The original $8185 \times 8185$ co-occurence matrix was reduced into 2-dimensional matrix of $8185 \times 2$, using dimensional reduction with &lt;code&gt;n_components=2&lt;/code&gt;. According to the &lt;code&gt;explained_variance_ratio_&lt;/code&gt;, the new reduced matrix captures 90.6% variability of the original data with &lt;code&gt;window_size=5&lt;/code&gt;. This may not be satisfactory, but good enough to obtain a reasonable word vector visualizaiton on a 2D space.&lt;/p&gt;
 &lt;p&gt;We can also try different values of &lt;code&gt;n_components&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4003,7 +4003,7 @@ Explained Variance = 0.996
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Word-Vectors-Visualization"&gt;Word Vectors Visualization&lt;a class="anchor-link" href="#Word-Vectors-Visualization"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The original word vector had 7583-dimension, but now its reduced down to 2-dimension and 3-dimension, which can be visualized on a 2D or 3D plane.&lt;/p&gt;
+&lt;h2 id="Word-Vectors-Visualization"&gt;Word Vectors Visualization&lt;a class="anchor-link" href="#Word-Vectors-Visualization"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The original word vector had 8185-dimension, but now its reduced down to 2-dimension and 3-dimension, which can be visualized on a 2D or 3D plane.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Normalization&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Rescaling (normalization) needs to be done on rows to make each of them unit-length. Skipping this step will result in your visualization looking unbalanced.&lt;/p&gt;
 &lt;/div&gt;
@@ -4079,7 +4079,7 @@ Explained Variance = 0.996
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;strong&gt;Choice of words to visualize&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Recall that there are 7583 unique vocabulary in our data. Visualizing all of them on a plot will won't be very informative, because readers won't be able to distinguish between words because they are too densely plotted.&lt;/p&gt;
+&lt;p&gt;Recall that there are 8185 unique vocabulary in our data. Visualizing all of them on a plot will won't be very informative, because readers won't be able to distinguish between words because they are too densely plotted.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4123,10 +4123,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="1061511f-cc45-4563-b28c-fe6ef596051b"&gt;&lt;/div&gt;
+&lt;div id="4eefbda0-fc7d-4fc3-afa5-b8bed5dc97ee"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1061511f-cc45-4563-b28c-fe6ef596051b');
+var element = $('#4eefbda0-fc7d-4fc3-afa5-b8bed5dc97ee');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
