@@ -4123,10 +4123,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="4eefbda0-fc7d-4fc3-afa5-b8bed5dc97ee"&gt;&lt;/div&gt;
+&lt;div id="9a20f2f3-57d6-43fc-ad16-f51487d86983"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4eefbda0-fc7d-4fc3-afa5-b8bed5dc97ee');
+var element = $('#9a20f2f3-57d6-43fc-ad16-f51487d86983');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4928,7 +4928,7 @@ if (IPython.notebook.kernel != null) {
 &lt;/div&gt;&lt;p&gt;&lt;u&gt;Interesting Observations:&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;First, when viewed from a certain angle, the 3D plot looks exactly like the 2D plot. However, different patterns can be observed when viewed from a different angle.&lt;/p&gt;
 &lt;p&gt;Second, the distance of &lt;em&gt;"violations"&lt;/em&gt; and &lt;em&gt;"discouraged"&lt;/em&gt; are different. They are close to each other on &lt;em&gt;Figure 8&lt;/em&gt;, but far away from each other on &lt;em&gt;Figure 9 &amp; 10&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Third, similar pattern was found between &lt;em&gt;"kilowatt"&lt;/em&gt; and &lt;em&gt;"electricity"&lt;/em&gt;. As you know, &lt;em&gt;"kilowatt"&lt;/em&gt; is an unit of &lt;em&gt;"electricity"&lt;/em&gt;. That is they are close on &lt;em&gt;Figure 9 &amp; 10&lt;/em&gt;, but they are separated in &lt;em&gt;Figure 7&lt;/em&gt;. Observe how &lt;em&gt;"electricity"&lt;/em&gt; is close to the cluser of oil-producing entities. A possible explanation is that &lt;em&gt;"electricity"&lt;/em&gt; is not oil, but similar to oil in a sense that it is a "type" of energy consumed. On the other hand, although &lt;em&gt;"kilowatt"&lt;/em&gt; is a unit of energy, but it is not a type of energy.&lt;/p&gt;
+&lt;p&gt;Third, similar pattern was found between &lt;em&gt;"kilowatt"&lt;/em&gt; and &lt;em&gt;"electricity"&lt;/em&gt;. As you know, &lt;em&gt;"kilowatt"&lt;/em&gt; is an unit of &lt;em&gt;"electricity"&lt;/em&gt;. That is why they are close on &lt;em&gt;Figure 9 &amp; 10&lt;/em&gt;, but are separated in &lt;em&gt;Figure 8&lt;/em&gt;. Observe how &lt;em&gt;"electricity"&lt;/em&gt; is close, but &lt;em&gt;"kilowatt"&lt;/em&gt; is not to the cluser of oil-producing entities in &lt;em&gt;Figure 8&lt;/em&gt;. A possible explanation is that &lt;em&gt;"electricity"&lt;/em&gt; is not oil, but similar to oil in a sense that it is a "type" of energy consumed. On the other hand, although &lt;em&gt;"kilowatt"&lt;/em&gt; is a unit of energy, but it is not a type of energy.&lt;/p&gt;
 &lt;p&gt;Fourth, &lt;em&gt;"barrels"&lt;/em&gt; and "&lt;em&gt;bpd&lt;/em&gt;" are always close to one another. They seem very close on all three plots shown above, and indeed they look close on other angles as well. Due to time and space constraint, I can't take a screenshot of every possible angles and put it here, but I observed that they are always close on any angles. This makes sense, considering &lt;em&gt;"bpd"&lt;/em&gt; stands for "barrels per day".&lt;/p&gt;
 &lt;p&gt;Fifth, the co-occurrence vector space model was able to capture the cluster of oil producers. &lt;em&gt;"occidental"&lt;/em&gt; is for Occidental Petroleum Corporation (or Oxy), and &lt;em&gt;"exxon"&lt;/em&gt; is for Exxon Mobil, the two major oil-producing companies in the US. And &lt;em&gt;"gulf"&lt;/em&gt; for the Gulf of Mexico, one of the biggest offshore oil-producing region in the world.&lt;/p&gt;
 &lt;p&gt;Sixth, &lt;em&gt;"eia"&lt;/em&gt; was not inside the cluster of oil producers in most of the angles. This is noteworthy because EIA (U.S. Energy Information Administration) provides energy statistics, such as oil &amp; gas production, consumption, export and export rate. However, it is not a "producing" entity. The model was able to differentiate between an entity who "talks" about the oil-production, and the entities who actually "produce" oil.&lt;/p&gt;
