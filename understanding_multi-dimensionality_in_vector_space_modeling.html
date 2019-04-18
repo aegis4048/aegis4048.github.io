@@ -3104,10 +3104,10 @@ Explained Variance = 0.996
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="dd9b724e-de9d-4206-b25d-f9d1f8a3f25b"></div>
+<div id="1061511f-cc45-4563-b28c-fe6ef596051b"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#dd9b724e-de9d-4206-b25d-f9d1f8a3f25b');
+var element = $('#1061511f-cc45-4563-b28c-fe6ef596051b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -3909,10 +3909,11 @@ if (IPython.notebook.kernel != null) {
 </div><p><u>Interesting Observations:</u></p>
 <p>First, when viewed from a certain angle, the 3D plot looks exactly like the 2D plot. However, different patterns can be observed when viewed from a different angle.</p>
 <p>Second, the distance of <em>"violations"</em> and <em>"discouraged"</em> are different. They are close to each other on <em>Figure 8</em>, but far away from each other on <em>Figure 9 & 10</em>.</p>
-<p>Third, <em>"barrels"</em> and "<em>bpd</em>" are always close to one another. They seem very close on all three plots shown above, and indeed they look close on other angles as well. Due to time and space constraint, I can't take a screenshot of every possible angles and put it here, but I observed that they are always close on any angles. This makes sense, considering <em>"bpd"</em> stands for "barrels per day".</p>
-<p>Fourth, the co-occurrence vector space model was able to capture the cluster of oil producers. <em>"occidental"</em> is for Occidental Petroleum Corporation (or Oxy), and <em>"exxon"</em> is for Exxon Mobil, the two major oil-producing companies in the US. And <em>"gulf"</em> for the Gulf of Mexico, one of the biggest offshore oil-producing region in the world.</p>
-<p>Fifth, <em>"eia"</em> was not inside the cluster of oil producers in most of the angles. This is noteworthy because EIA (U.S. Energy Information Administration) provides energy statistics, such as oil & gas production, consumption, export and export rate. However, it is not a "producing" entity. The model was able to differentiate between an entity who "talks" about the oil-production, and the entities who actually "produce" oil.</p>
-<p>Sixth, the model was not able to differentiate nations (Kuwait, Norway, China, UK) from the other entities. A well trained Word2Vec model with 300-dimensions is able to distinguish among nations, cities, and companies, but this one couldn't.</p>
+<p>Third, similar pattern was found between <em>"kilowatt"</em> and <em>"electricity"</em>. As you know, <em>"kilowatt"</em> is an unit of <em>"electricity"</em>. That is they are close on <em>Figure 9 & 10</em>, but they are separated in <em>Figure 7</em>. Observe how <em>"electricity"</em> is close to the cluser of oil-producing entities. A possible explanation is that <em>"electricity"</em> is not oil, but similar to oil in a sense that it is a "type" of energy consumed. On the other hand, although <em>"kilowatt"</em> is a unit of energy, but it is not a type of energy.</p>
+<p>Fourth, <em>"barrels"</em> and "<em>bpd</em>" are always close to one another. They seem very close on all three plots shown above, and indeed they look close on other angles as well. Due to time and space constraint, I can't take a screenshot of every possible angles and put it here, but I observed that they are always close on any angles. This makes sense, considering <em>"bpd"</em> stands for "barrels per day".</p>
+<p>Fifth, the co-occurrence vector space model was able to capture the cluster of oil producers. <em>"occidental"</em> is for Occidental Petroleum Corporation (or Oxy), and <em>"exxon"</em> is for Exxon Mobil, the two major oil-producing companies in the US. And <em>"gulf"</em> for the Gulf of Mexico, one of the biggest offshore oil-producing region in the world.</p>
+<p>Sixth, <em>"eia"</em> was not inside the cluster of oil producers in most of the angles. This is noteworthy because EIA (U.S. Energy Information Administration) provides energy statistics, such as oil & gas production, consumption, export and export rate. However, it is not a "producing" entity. The model was able to differentiate between an entity who "talks" about the oil-production, and the entities who actually "produce" oil.</p>
+<p>Seventh, the model was not able to differentiate nations (Kuwait, Norway, China, UK) from the other entities. A well trained Word2Vec model with 300-dimensions is able to distinguish among nations, cities, and companies, but this one couldn't.</p>
 <div class="alert alert-info">
 <h4>Warning!</h4>
 <p><a href="#Why-is-Multi-Dimensionality-Important?">Previously</a> I said that a good co-occurrence matrix model has a dimension of 600-800. However, the <code>explained_variance_ratio_</code> was 90.6%, which is reasonably good, and the 3D visualizations seemed to capture the relationship among words pretty well. This happend because:</p>
