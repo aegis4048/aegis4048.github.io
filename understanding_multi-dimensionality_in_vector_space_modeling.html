@@ -1324,7 +1324,7 @@ h6:hover .anchor-link {
 <p><em>The code snippet assumes Anaconda 5.2.0 version of Python virtual environment</em></p>
 <div class="alert alert-info">
 <h4>Acknowledgement</h4>
-<p>Some materials on this post are from <a href="http://web.stanford.edu/class/cs224n/">CS224n: Natural Language Processing with Deep Learning</a> at the Standford University.</p>
+<p>Some materials on this post are from <a href="http://web.stanford.edu/class/cs224n/">CS224n: Natural Language Processing with Deep Learning</a> at the Stanford University.</p>
 <p>Check out the YouTube Lecture on <a href="https://www.youtube.com/watch?v=kEMJRjEdNzM&list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z&index=2">Word Vectors and Word Senses</a> taught by <a href="https://nlp.stanford.edu/~manning/">Dr. Chris Manning</a>.</p>
 </div>
 </div>
@@ -1639,10 +1639,10 @@ h6:hover .anchor-link {
 <div class="col"><img src="jupyter_images/reuters_logo.png" style="margin-top: 1.5rem;"></div>
 <div class="col-12"><p class="image-description">Figure 4: International news organization, Reuters</p></div>
 </div><p>Enough of theories. Now let's dive into the actual application of vector space modeling with Python code implementation. We will explore multi-dimensionality in NLP task using <strong>Reuters</strong> news articles on <strong>crude oil</strong>.</p>
-<p>Take a glance at the overall contents of the crude oil articles.</p>
+<p>Take a glance at the overall content of the crude oil articles with the following WordCloud visualizaiton.</p>
 <div class="row give-margin-inline-big-plot">
 <div class="col"><img src="jupyter_images/wordcloud.png" style="margin-top: 1.5rem;"></div>
-<div class="col-12"><p class="image-description">Figure 5: Wordcloud representation</p></div>
+<div class="col-12"><p class="image-description">Figure 5: WordCloud of crude oil articles</p></div>
 </div><p><strong>Imports</strong></p>
 <p>Here is all the imports you need to follow with this tutorial.</p>
 </div>
@@ -1862,7 +1862,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>There are a total of 10,788 articles.</p>
-<p>To our convinience, the articles are already labeled with their respective categories. This helps us in a case we want to perform further analysis and run supervised learning. But we won't be running any supervised learning in this post. But instead, we will extract only the articles that are in the category of <strong>crude</strong>. In the other words, any the articles that talk about crude oil.</p>
+<p>To our convinience, the articles are already labeled with their respective categories. This helps us in a case we want to perform further analysis and run supervised learning. But we won't be running any supervised learning in this post. But instead, we will extract only the articles that are in the category of <strong>crude</strong>. In the other words, only the articles that talk about crude oil.</p>
 </div>
 </div>
 </div>
@@ -2005,10 +2005,10 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Constructing-Co-Occurence-Matrix">Constructing Co-Occurence Matrix<a class="anchor-link" href="#Constructing-Co-Occurence-Matrix">¶</a></h3><p>We will build co-occurence matrix that looks like <em>Table 1</em> above.</p>
+<h3 id="Constructing-Co-Occurence-Matrix">Constructing Co-Occurence Matrix<a class="anchor-link" href="#Constructing-Co-Occurence-Matrix">¶</a></h3><p>We will build co-occurence matrix that looks like <em>Table 1</em> above. Before we build the matrix, we need to consider <strong>tokenization</strong> and <strong>window size</strong>.</p>
 <p><strong>Tokenization</strong></p>
-<p><em>Tokenization</em> is a process of splitting sentences into separate words. Tokenization usually isn't as simple as splitting senteces based on space bars. It is usually a very complicated process that involves heavy regex manipulation, lemmatization, stemming, and some hard-coding with different rules for different cases. For example, converting 'unchanged' to 'unchange', 'stocks' to 'stock', 'pushing' to 'push', 'is, was, being', to 'be'. Or treating multi-words as one word, such as 'in spite of', 'no matter of', 'Panda Express', 'North America', or 'beat down'.</p>
-<p>Tokenization won't be covered in detail in this post, because complex tokenization is not necessary for the purpose of explaining multi-dimensinoality in NLP. However, please do note that you will need advanced tokenization scheme in real-life application.</p>
+<p><em>Tokenization</em> is a process of splitting sentences into separate words. Tokenization usually isn't as simple as splitting senteces based on space bars. It is usually a very complicated process that involves heavy regex manipulation, lemmatization, stemming, and some hard-coding with different rules for different cases. For example, converting 'unchanged' to 'unchange', 'stocks' to 'stock', 'pushing' to 'push', 'is, was, being', to 'be'. Or treating multi-words as one word, such as 'in spite of', 'no matter of', 'Panda Express', 'North America', or 'beat down'. Or dealing with punctuations, such as 'Parskin-disease', 'one-to-one' or 'O'reilly'. And many more.</p>
+<p>Tokenization won't be covered in detail in this post, because complex tokenization is not necessary for the purpose of explaining multi-dimensinoality in NLP. However, please do note that you will need advanced tokenization scheme in real-life applications.</p>
 <p>On the other hand, NLTK has a convinient package that allows you to check if a word is within the corpora of English. However, this does not remove punctuations. The basic use case looks like this:</p>
 <pre>
     <code class="language-python">
@@ -2016,7 +2016,7 @@ h6:hover .anchor-link {
         >>> "fine" in words.words()
         True
     </code>
-</pre><p>We will split the sentences using <code>nltk.corpus.reuters.words()</code></p>
+</pre><p>We will split the sentences using <code>nltk.corpus.reuters.words()</code>.</p>
 </div>
 </div>
 </div>
@@ -2721,7 +2721,7 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="alert alert-info">
 <h4>Notes: Effect of punctuatoins</h4>
-<p>Be cautious when dealing with punctuations. Although the effect of punctuations of NLP is beyond the scope of this post, please note that punctuations often has their own role to play in NLP applications. Ex: Parkinson-disease vs Parkinson's diease. Sometimes they maybe simply removed, and sometimes they shouldn't be.</p>
+<p>Be cautious when dealing with punctuations. Although the effect of punctuations in NLP is beyond the scope of this post, please note that punctuations often have their own roles to play in NLP applications. Ex: Parkinson-disease vs Parkinson's disease. Sometimes they may be simply removed, and sometimes they shouldn't be.</p>
 </div>
 </div>
 </div>
@@ -2729,9 +2729,9 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Dimensional-Reduction">Dimensional Reduction<a class="anchor-link" href="#Dimensional-Reduction">¶</a></h2><p>Dimensional reduction is necessary in most of the machine learning problems. It is used to reduce computational cost of optimization model, and to mitigate the issue of correlated features. For example, column 1 and column 2 are independent, but column2, 3, 4 may be correlated with one another by some relationship like:</p>
+<h2 id="Dimensional-Reduction">Dimensional Reduction<a class="anchor-link" href="#Dimensional-Reduction">¶</a></h2><p>Dimensional reduction is necessary in most of the machine learning problems. It is used to reduce computational cost of optimization model, and to mitigate the issue of correlated features. For example, column 1 and column 2 are independent, but column 2, 3 and 4 may be correlated with one another by some relationship like:</p>
 $$col_2  = log{(col_3 + col_4 ) / 2}$$<p>This kind of correlationship may not be visible to an engineer, and may cause problems when left unmitigated.</p>
-<p>Dimensional reduction is especially necessary in the case of co-occurence matrix due to the size of matrix, as it was mentioned <a href="#Why-is-Multi-Dimensionality-Important?">above</a>. Recall that co-occurence matrix has a dimension of $V \times V$, where $V$ is the size of unique vocabulary. Often times vocabulary size easily exceeds tens of thousand, and it is unrealistic to run a machine learning model on such a matrix due to time constraint.</p>
+<p>Dimensional reduction is especially necessary in the case of co-occurence matrix due to the size of the matrix, as it was mentioned <a href="#Why-is-Multi-Dimensionality-Important?">above</a>. Recall that co-occurence matrix has a dimension of $V \times V$, where $V$ is the size of unique vocabulary. Often times vocabulary size easily exceeds tens of thousand, and it is unrealistic to run a machine learning model on such a matrix due to time constraint.</p>
 <p>Moreover, co-occurrence matrix is a very sparse matrix. Take a look at the above Pandas DataFrame of the co-occurrence matrix. You will notice that most of the values are zero, which doesn't add much value to the matrix. Dimensional reduction will make the matrix more compact to convey "most" of the "useful" information.</p>
 <p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html">sklearn.decomposition.TruncatedSVD</a> will be used for dimensional reduction.</p>
 <div class="alert alert-info">
@@ -2984,7 +2984,18 @@ Explained Variance = 0.996
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Word-Vectors-Visualization">Word Vectors Visualization<a class="anchor-link" href="#Word-Vectors-Visualization">¶</a></h2><p>The original word vector had 8185-dimension, but now its reduced down to 2-dimension and 3-dimension, which can be visualized on a 2D or 3D plane.</p>
+<div class="alert alert-info">
+<h4>Notes: <code>explained_variance_ratio_</code></h4>
+<p>Performing dimensional reduction inevitably results in loss of some data in the original matrix. It is a natural phenomenon considering how we are reducing $8185 \times 8185$ matrix all the way down to $8185 \times 2$ matrix. We can quantify the loss in data using <code>explained_variance_ratio_</code>. I won't cover the details of this property, but long story short, it's good if <code>explained_variance_ratio_</code> is close to 100%. Reducing the matrix to high $k$-dimension will result in smaller loss of data at the cost of high computational load, and vice versa.</p>
+<p>If you are interested in learning a deterministic way to decide the optimal value of $k$, take a look at this <a href="https://arxiv.org/pdf/1812.04224.pdf">paper</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Word-Vectors-Visualization">Word Vectors Visualization<a class="anchor-link" href="#Word-Vectors-Visualization">¶</a></h2><p>The original word vector had 8185-dimension, but now its reduced down to 2-dimension and 3-dimension, which can be visualized on a 2D and 3D plane.</p>
 <p><strong>Normalization</strong></p>
 <p>Rescaling (normalization) needs to be done on rows to make each of them unit-length. Skipping this step will result in your visualization looking unbalanced.</p>
 </div>
@@ -3104,10 +3115,10 @@ Explained Variance = 0.996
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="9a20f2f3-57d6-43fc-ad16-f51487d86983"></div>
+<div id="a32a7cae-9af2-4c48-9447-5fc38bfd60af"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#9a20f2f3-57d6-43fc-ad16-f51487d86983');
+var element = $('#a32a7cae-9af2-4c48-9447-5fc38bfd60af');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -3907,13 +3918,14 @@ if (IPython.notebook.kernel != null) {
 <div class="col-12"><img src="jupyter_images/3d_wordvec_3.png"></div>
 <div class="col-12"><p class="image-description">Figure 10: 3D plot - angle 3</p></div>
 </div><p><u>Interesting Observations:</u></p>
-<p>First, when viewed from a certain angle, the 3D plot looks exactly like the 2D plot. However, different patterns can be observed when viewed from a different angle.</p>
-<p>Second, the distance of <em>"violations"</em> and <em>"discouraged"</em> are different. They are close to each other on <em>Figure 8</em>, but far away from each other on <em>Figure 9 & 10</em>.</p>
-<p>Third, similar pattern was found between <em>"kilowatt"</em> and <em>"electricity"</em>. As you know, <em>"kilowatt"</em> is an unit of <em>"electricity"</em>. That is why they are close on <em>Figure 9 & 10</em>, but are separated in <em>Figure 8</em>. Observe how <em>"electricity"</em> is close, but <em>"kilowatt"</em> is not to the cluser of oil-producing entities in <em>Figure 8</em>. A possible explanation is that <em>"electricity"</em> is not oil, but similar to oil in a sense that it is a "type" of energy consumed. On the other hand, although <em>"kilowatt"</em> is a unit of energy, but it is not a type of energy.</p>
-<p>Fourth, <em>"barrels"</em> and "<em>bpd</em>" are always close to one another. They seem very close on all three plots shown above, and indeed they look close on other angles as well. Due to time and space constraint, I can't take a screenshot of every possible angles and put it here, but I observed that they are always close on any angles. This makes sense, considering <em>"bpd"</em> stands for "barrels per day".</p>
-<p>Fifth, the co-occurrence vector space model was able to capture the cluster of oil producers. <em>"occidental"</em> is for Occidental Petroleum Corporation (or Oxy), and <em>"exxon"</em> is for Exxon Mobil, the two major oil-producing companies in the US. And <em>"gulf"</em> for the Gulf of Mexico, one of the biggest offshore oil-producing region in the world.</p>
-<p>Sixth, <em>"eia"</em> was not inside the cluster of oil producers in most of the angles. This is noteworthy because EIA (U.S. Energy Information Administration) provides energy statistics, such as oil & gas production, consumption, export and export rate. However, it is not a "producing" entity. The model was able to differentiate between an entity who "talks" about the oil-production, and the entities who actually "produce" oil.</p>
-<p>Seventh, the model was not able to differentiate nations (Kuwait, Norway, China, UK) from the other entities. A well trained Word2Vec model with 300-dimensions is able to distinguish among nations, cities, and companies, but this one couldn't.</p>
+<p><strong>First</strong>, when viewed from a certain angle, the 3D plot looks exactly like the 2D plot. However, different patterns can be observed when viewed from a different angle.</p>
+<p><strong>Second</strong>, the distance of <em>"violations"</em> and <em>"discouraged"</em> are different. They are close to each other on <em>Figure 8</em>, but far away from each other on <em>Figure 9 & 10</em>.</p>
+<p><strong>Third</strong>, similar pattern was found between <em>"kilowatt"</em> and <em>"electricity"</em>. As you know, <em>"kilowatt"</em> is an unit of <em>"electricity"</em>. That is why they are close on <em>Figure 9 & 10</em>, but are separated in <em>Figure 8</em>. Observe how <em>"electricity"</em> is close, but <em>"kilowatt"</em> is not to the cluser of oil-producing entities in <em>Figure 8</em>. A possible explanation is that <em>"electricity"</em> is not oil, but similar to oil in a sense that it is a "type" of energy consumed. On the other hand, although <em>"kilowatt"</em> is a unit of energy, but it is not a type of energy.</p>
+<p><strong>Fourth</strong>, <em>"barrels"</em> and "<em>bpd</em>" are always close to one another. They seem very close on all three plots shown above, and indeed they look close on other angles as well. Due to time and space constraint, I can't take a screenshot of every possible angles and put it here, but I observed that they are always close on any angles. This makes sense, considering <em>"bpd"</em> stands for "barrels per day".</p>
+<p><strong>Fifth</strong>, <em>"paris"</em> was group together with <em>"barrels"</em> and <em>"bpd"</em>. They have nothing in common, and yet they were grouped together. The model failed to project <em>"paris"</em> on a right vector space.</p>
+<p><strong>Sixth</strong>, the co-occurrence vector space model was able to capture the cluster of oil producers. <em>"occidental"</em> is for Occidental Petroleum Corporation (or Oxy), and <em>"exxon"</em> is for Exxon Mobil, the two major oil-producing companies in the US. And <em>"gulf"</em> for the Gulf of Mexico, one of the biggest offshore oil-producing region in the world.</p>
+<p><strong>Seventh</strong>, <em>"eia"</em> was not inside the cluster of oil producers in most of the angles. This is noteworthy because EIA (U.S. Energy Information Administration) provides energy statistics, such as oil & gas production, consumption, export and export rate. However, it is not a "producing" entity. The model was able to differentiate between an entity who "talks" about the oil-production, and the entities who actually "produce" oil.</p>
+<p><strong>Eighth</strong>, the model was not able to differentiate nations (Kuwait, Norway, China, UK) from the other entities. A well trained Word2Vec model with 300-dimensions is able to distinguish among nations, cities, and companies, but this one couldn't.</p>
 <div class="alert alert-info">
 <h4>Warning!</h4>
 <p><a href="#Why-is-Multi-Dimensionality-Important?">Previously</a> I said that a good co-occurrence matrix model has a dimension of 600-800. However, the <code>explained_variance_ratio_</code> was 90.6%, which is reasonably good, and the 3D visualizations seemed to capture the relationship among words pretty well. This happend because:</p>
@@ -3929,9 +3941,10 @@ if (IPython.notebook.kernel != null) {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a></h2><p>It is known that a well trained Word2Vec model has 300 dimensions. Think of each dimension in Word2Vec vector space as an entity that represents word relationships: man vs woman, objects vs living, humans vs animals, nation vs city, drink vs food, action vs concept, and many more. Assume that that there are 300 of these kinds of relationships among all words in this world, represented by a single dimension per relationship.</p>
-<p>The 3D visualization from the co-occurrence matrix model was able to capture the cluster of oil-producing entities. But it wasn't able to differentiate between nations and companies, because it simply didn't have a dimension that captures that kind of relationship.</p>
-<p>On the other hand, in <em>Figure 8</em>, it sensed the negative feelings that <em>"discouraged"</em> and <em>"violations"</em> conveyed, and put them in a close vector space. But when viewed from a different angle, or to put it better, viewed from a different dimension, the model put them far apart because they do not convey similar meanings (<em>Figure 9 & 10</em>).</p>
-<p>Having more dimensions allows a model to capture more complex relationships, and that's precisly why Google's Word2Vec model had 300 dimensions.</p>
+<p>The 3D visualization from the co-occurrence matrix model was able to capture the cluster of oil-producing entities (<strong>Sixth</strong> observation). But it wasn't able to differentiate between nations and companies, because it simply didn't have a dimension that captures that kind of relationship (<strong>Eighth</strong> observation).</p>
+<p>In <em>Figure 8</em>, the model sensed the negative feelings that <em>"discouraged"</em> and <em>"violations"</em> conveyed, and put them in a close vector space (<strong>Second</strong> observation). But when viewed from a different angle, or to put it better, viewed from a different dimension, the model put them far apart because they do not convey similar meanings (<em>Figure 9 & 10</em>).</p>
+<p>On the other hand, the model completely failed to distinguish between <em>"paris"</em> vs <em>"barrels"</em> + <em>"bpd"</em> (<strong>Fifth</strong> observation). Recall that our <code>explained_variance_ratio_</code> for 3-dimension was 92.3% <a href="#Dimensional-Reduction">above</a>. Some information about <em>"paris"</em> could've been lost during dimensional reduction and that might have caused the error in word vector projection on a 3D vector space. Or, we simply did not have sufficient training data.</p>
+<p>Having more dimensions allows a model to capture more complex relationships among words, and that's precisly why Google's Word2Vec model had 300 dimensions.</p>
 </div>
 </div>
 </div>

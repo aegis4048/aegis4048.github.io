@@ -2343,7 +2343,7 @@ h6:hover .anchor-link {
 &lt;p&gt;&lt;em&gt;The code snippet assumes Anaconda 5.2.0 version of Python virtual environment&lt;/em&gt;&lt;/p&gt;
 &lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Acknowledgement&lt;/h4&gt;
-&lt;p&gt;Some materials on this post are from &lt;a href="http://web.stanford.edu/class/cs224n/"&gt;CS224n: Natural Language Processing with Deep Learning&lt;/a&gt; at the Standford University.&lt;/p&gt;
+&lt;p&gt;Some materials on this post are from &lt;a href="http://web.stanford.edu/class/cs224n/"&gt;CS224n: Natural Language Processing with Deep Learning&lt;/a&gt; at the Stanford University.&lt;/p&gt;
 &lt;p&gt;Check out the YouTube Lecture on &lt;a href="https://www.youtube.com/watch?v=kEMJRjEdNzM&amp;list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z&amp;index=2"&gt;Word Vectors and Word Senses&lt;/a&gt; taught by &lt;a href="https://nlp.stanford.edu/~manning/"&gt;Dr. Chris Manning&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2658,10 +2658,10 @@ h6:hover .anchor-link {
 &lt;div class="col"&gt;&lt;img src="jupyter_images/reuters_logo.png" style="margin-top: 1.5rem;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 4: International news organization, Reuters&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Enough of theories. Now let's dive into the actual application of vector space modeling with Python code implementation. We will explore multi-dimensionality in NLP task using &lt;strong&gt;Reuters&lt;/strong&gt; news articles on &lt;strong&gt;crude oil&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Take a glance at the overall contents of the crude oil articles.&lt;/p&gt;
+&lt;p&gt;Take a glance at the overall content of the crude oil articles with the following WordCloud visualizaiton.&lt;/p&gt;
 &lt;div class="row give-margin-inline-big-plot"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/wordcloud.png" style="margin-top: 1.5rem;"&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 5: Wordcloud representation&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 5: WordCloud of crude oil articles&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Imports&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Here is all the imports you need to follow with this tutorial.&lt;/p&gt;
 &lt;/div&gt;
@@ -2881,7 +2881,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;There are a total of 10,788 articles.&lt;/p&gt;
-&lt;p&gt;To our convinience, the articles are already labeled with their respective categories. This helps us in a case we want to perform further analysis and run supervised learning. But we won't be running any supervised learning in this post. But instead, we will extract only the articles that are in the category of &lt;strong&gt;crude&lt;/strong&gt;. In the other words, any the articles that talk about crude oil.&lt;/p&gt;
+&lt;p&gt;To our convinience, the articles are already labeled with their respective categories. This helps us in a case we want to perform further analysis and run supervised learning. But we won't be running any supervised learning in this post. But instead, we will extract only the articles that are in the category of &lt;strong&gt;crude&lt;/strong&gt;. In the other words, only the articles that talk about crude oil.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3024,10 +3024,10 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Constructing-Co-Occurence-Matrix"&gt;Constructing Co-Occurence Matrix&lt;a class="anchor-link" href="#Constructing-Co-Occurence-Matrix"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;We will build co-occurence matrix that looks like &lt;em&gt;Table 1&lt;/em&gt; above.&lt;/p&gt;
+&lt;h3 id="Constructing-Co-Occurence-Matrix"&gt;Constructing Co-Occurence Matrix&lt;a class="anchor-link" href="#Constructing-Co-Occurence-Matrix"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;We will build co-occurence matrix that looks like &lt;em&gt;Table 1&lt;/em&gt; above. Before we build the matrix, we need to consider &lt;strong&gt;tokenization&lt;/strong&gt; and &lt;strong&gt;window size&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Tokenization&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Tokenization&lt;/em&gt; is a process of splitting sentences into separate words. Tokenization usually isn't as simple as splitting senteces based on space bars. It is usually a very complicated process that involves heavy regex manipulation, lemmatization, stemming, and some hard-coding with different rules for different cases. For example, converting 'unchanged' to 'unchange', 'stocks' to 'stock', 'pushing' to 'push', 'is, was, being', to 'be'. Or treating multi-words as one word, such as 'in spite of', 'no matter of', 'Panda Express', 'North America', or 'beat down'.&lt;/p&gt;
-&lt;p&gt;Tokenization won't be covered in detail in this post, because complex tokenization is not necessary for the purpose of explaining multi-dimensinoality in NLP. However, please do note that you will need advanced tokenization scheme in real-life application.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Tokenization&lt;/em&gt; is a process of splitting sentences into separate words. Tokenization usually isn't as simple as splitting senteces based on space bars. It is usually a very complicated process that involves heavy regex manipulation, lemmatization, stemming, and some hard-coding with different rules for different cases. For example, converting 'unchanged' to 'unchange', 'stocks' to 'stock', 'pushing' to 'push', 'is, was, being', to 'be'. Or treating multi-words as one word, such as 'in spite of', 'no matter of', 'Panda Express', 'North America', or 'beat down'. Or dealing with punctuations, such as 'Parskin-disease', 'one-to-one' or 'O'reilly'. And many more.&lt;/p&gt;
+&lt;p&gt;Tokenization won't be covered in detail in this post, because complex tokenization is not necessary for the purpose of explaining multi-dimensinoality in NLP. However, please do note that you will need advanced tokenization scheme in real-life applications.&lt;/p&gt;
 &lt;p&gt;On the other hand, NLTK has a convinient package that allows you to check if a word is within the corpora of English. However, this does not remove punctuations. The basic use case looks like this:&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
@@ -3035,7 +3035,7 @@ h6:hover .anchor-link {
         &gt;&gt;&gt; "fine" in words.words()
         True
     &lt;/code&gt;
-&lt;/pre&gt;&lt;p&gt;We will split the sentences using &lt;code&gt;nltk.corpus.reuters.words()&lt;/code&gt;&lt;/p&gt;
+&lt;/pre&gt;&lt;p&gt;We will split the sentences using &lt;code&gt;nltk.corpus.reuters.words()&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3740,7 +3740,7 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: Effect of punctuatoins&lt;/h4&gt;
-&lt;p&gt;Be cautious when dealing with punctuations. Although the effect of punctuations of NLP is beyond the scope of this post, please note that punctuations often has their own role to play in NLP applications. Ex: Parkinson-disease vs Parkinson's diease. Sometimes they maybe simply removed, and sometimes they shouldn't be.&lt;/p&gt;
+&lt;p&gt;Be cautious when dealing with punctuations. Although the effect of punctuations in NLP is beyond the scope of this post, please note that punctuations often have their own roles to play in NLP applications. Ex: Parkinson-disease vs Parkinson's disease. Sometimes they may be simply removed, and sometimes they shouldn't be.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3748,9 +3748,9 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Dimensional-Reduction"&gt;Dimensional Reduction&lt;a class="anchor-link" href="#Dimensional-Reduction"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Dimensional reduction is necessary in most of the machine learning problems. It is used to reduce computational cost of optimization model, and to mitigate the issue of correlated features. For example, column 1 and column 2 are independent, but column2, 3, 4 may be correlated with one another by some relationship like:&lt;/p&gt;
+&lt;h2 id="Dimensional-Reduction"&gt;Dimensional Reduction&lt;a class="anchor-link" href="#Dimensional-Reduction"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Dimensional reduction is necessary in most of the machine learning problems. It is used to reduce computational cost of optimization model, and to mitigate the issue of correlated features. For example, column 1 and column 2 are independent, but column 2, 3 and 4 may be correlated with one another by some relationship like:&lt;/p&gt;
 $$col_2  = log{(col_3 + col_4 ) / 2}$$&lt;p&gt;This kind of correlationship may not be visible to an engineer, and may cause problems when left unmitigated.&lt;/p&gt;
-&lt;p&gt;Dimensional reduction is especially necessary in the case of co-occurence matrix due to the size of matrix, as it was mentioned &lt;a href="#Why-is-Multi-Dimensionality-Important?"&gt;above&lt;/a&gt;. Recall that co-occurence matrix has a dimension of $V \times V$, where $V$ is the size of unique vocabulary. Often times vocabulary size easily exceeds tens of thousand, and it is unrealistic to run a machine learning model on such a matrix due to time constraint.&lt;/p&gt;
+&lt;p&gt;Dimensional reduction is especially necessary in the case of co-occurence matrix due to the size of the matrix, as it was mentioned &lt;a href="#Why-is-Multi-Dimensionality-Important?"&gt;above&lt;/a&gt;. Recall that co-occurence matrix has a dimension of $V \times V$, where $V$ is the size of unique vocabulary. Often times vocabulary size easily exceeds tens of thousand, and it is unrealistic to run a machine learning model on such a matrix due to time constraint.&lt;/p&gt;
 &lt;p&gt;Moreover, co-occurrence matrix is a very sparse matrix. Take a look at the above Pandas DataFrame of the co-occurrence matrix. You will notice that most of the values are zero, which doesn't add much value to the matrix. Dimensional reduction will make the matrix more compact to convey "most" of the "useful" information.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html"&gt;sklearn.decomposition.TruncatedSVD&lt;/a&gt; will be used for dimensional reduction.&lt;/p&gt;
 &lt;div class="alert alert-info"&gt;
@@ -4003,7 +4003,18 @@ Explained Variance = 0.996
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Word-Vectors-Visualization"&gt;Word Vectors Visualization&lt;a class="anchor-link" href="#Word-Vectors-Visualization"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The original word vector had 8185-dimension, but now its reduced down to 2-dimension and 3-dimension, which can be visualized on a 2D or 3D plane.&lt;/p&gt;
+&lt;div class="alert alert-info"&gt;
+&lt;h4&gt;Notes: &lt;code&gt;explained_variance_ratio_&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;Performing dimensional reduction inevitably results in loss of some data in the original matrix. It is a natural phenomenon considering how we are reducing $8185 \times 8185$ matrix all the way down to $8185 \times 2$ matrix. We can quantify the loss in data using &lt;code&gt;explained_variance_ratio_&lt;/code&gt;. I won't cover the details of this property, but long story short, it's good if &lt;code&gt;explained_variance_ratio_&lt;/code&gt; is close to 100%. Reducing the matrix to high $k$-dimension will result in smaller loss of data at the cost of high computational load, and vice versa.&lt;/p&gt;
+&lt;p&gt;If you are interested in learning a deterministic way to decide the optimal value of $k$, take a look at this &lt;a href="https://arxiv.org/pdf/1812.04224.pdf"&gt;paper&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Word-Vectors-Visualization"&gt;Word Vectors Visualization&lt;a class="anchor-link" href="#Word-Vectors-Visualization"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The original word vector had 8185-dimension, but now its reduced down to 2-dimension and 3-dimension, which can be visualized on a 2D and 3D plane.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Normalization&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Rescaling (normalization) needs to be done on rows to make each of them unit-length. Skipping this step will result in your visualization looking unbalanced.&lt;/p&gt;
 &lt;/div&gt;
@@ -4123,10 +4134,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9a20f2f3-57d6-43fc-ad16-f51487d86983"&gt;&lt;/div&gt;
+&lt;div id="a32a7cae-9af2-4c48-9447-5fc38bfd60af"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9a20f2f3-57d6-43fc-ad16-f51487d86983');
+var element = $('#a32a7cae-9af2-4c48-9447-5fc38bfd60af');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4926,13 +4937,14 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="col-12"&gt;&lt;img src="jupyter_images/3d_wordvec_3.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 10: 3D plot - angle 3&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;u&gt;Interesting Observations:&lt;/u&gt;&lt;/p&gt;
-&lt;p&gt;First, when viewed from a certain angle, the 3D plot looks exactly like the 2D plot. However, different patterns can be observed when viewed from a different angle.&lt;/p&gt;
-&lt;p&gt;Second, the distance of &lt;em&gt;"violations"&lt;/em&gt; and &lt;em&gt;"discouraged"&lt;/em&gt; are different. They are close to each other on &lt;em&gt;Figure 8&lt;/em&gt;, but far away from each other on &lt;em&gt;Figure 9 &amp; 10&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Third, similar pattern was found between &lt;em&gt;"kilowatt"&lt;/em&gt; and &lt;em&gt;"electricity"&lt;/em&gt;. As you know, &lt;em&gt;"kilowatt"&lt;/em&gt; is an unit of &lt;em&gt;"electricity"&lt;/em&gt;. That is why they are close on &lt;em&gt;Figure 9 &amp; 10&lt;/em&gt;, but are separated in &lt;em&gt;Figure 8&lt;/em&gt;. Observe how &lt;em&gt;"electricity"&lt;/em&gt; is close, but &lt;em&gt;"kilowatt"&lt;/em&gt; is not to the cluser of oil-producing entities in &lt;em&gt;Figure 8&lt;/em&gt;. A possible explanation is that &lt;em&gt;"electricity"&lt;/em&gt; is not oil, but similar to oil in a sense that it is a "type" of energy consumed. On the other hand, although &lt;em&gt;"kilowatt"&lt;/em&gt; is a unit of energy, but it is not a type of energy.&lt;/p&gt;
-&lt;p&gt;Fourth, &lt;em&gt;"barrels"&lt;/em&gt; and "&lt;em&gt;bpd&lt;/em&gt;" are always close to one another. They seem very close on all three plots shown above, and indeed they look close on other angles as well. Due to time and space constraint, I can't take a screenshot of every possible angles and put it here, but I observed that they are always close on any angles. This makes sense, considering &lt;em&gt;"bpd"&lt;/em&gt; stands for "barrels per day".&lt;/p&gt;
-&lt;p&gt;Fifth, the co-occurrence vector space model was able to capture the cluster of oil producers. &lt;em&gt;"occidental"&lt;/em&gt; is for Occidental Petroleum Corporation (or Oxy), and &lt;em&gt;"exxon"&lt;/em&gt; is for Exxon Mobil, the two major oil-producing companies in the US. And &lt;em&gt;"gulf"&lt;/em&gt; for the Gulf of Mexico, one of the biggest offshore oil-producing region in the world.&lt;/p&gt;
-&lt;p&gt;Sixth, &lt;em&gt;"eia"&lt;/em&gt; was not inside the cluster of oil producers in most of the angles. This is noteworthy because EIA (U.S. Energy Information Administration) provides energy statistics, such as oil &amp; gas production, consumption, export and export rate. However, it is not a "producing" entity. The model was able to differentiate between an entity who "talks" about the oil-production, and the entities who actually "produce" oil.&lt;/p&gt;
-&lt;p&gt;Seventh, the model was not able to differentiate nations (Kuwait, Norway, China, UK) from the other entities. A well trained Word2Vec model with 300-dimensions is able to distinguish among nations, cities, and companies, but this one couldn't.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;First&lt;/strong&gt;, when viewed from a certain angle, the 3D plot looks exactly like the 2D plot. However, different patterns can be observed when viewed from a different angle.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Second&lt;/strong&gt;, the distance of &lt;em&gt;"violations"&lt;/em&gt; and &lt;em&gt;"discouraged"&lt;/em&gt; are different. They are close to each other on &lt;em&gt;Figure 8&lt;/em&gt;, but far away from each other on &lt;em&gt;Figure 9 &amp; 10&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Third&lt;/strong&gt;, similar pattern was found between &lt;em&gt;"kilowatt"&lt;/em&gt; and &lt;em&gt;"electricity"&lt;/em&gt;. As you know, &lt;em&gt;"kilowatt"&lt;/em&gt; is an unit of &lt;em&gt;"electricity"&lt;/em&gt;. That is why they are close on &lt;em&gt;Figure 9 &amp; 10&lt;/em&gt;, but are separated in &lt;em&gt;Figure 8&lt;/em&gt;. Observe how &lt;em&gt;"electricity"&lt;/em&gt; is close, but &lt;em&gt;"kilowatt"&lt;/em&gt; is not to the cluser of oil-producing entities in &lt;em&gt;Figure 8&lt;/em&gt;. A possible explanation is that &lt;em&gt;"electricity"&lt;/em&gt; is not oil, but similar to oil in a sense that it is a "type" of energy consumed. On the other hand, although &lt;em&gt;"kilowatt"&lt;/em&gt; is a unit of energy, but it is not a type of energy.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fourth&lt;/strong&gt;, &lt;em&gt;"barrels"&lt;/em&gt; and "&lt;em&gt;bpd&lt;/em&gt;" are always close to one another. They seem very close on all three plots shown above, and indeed they look close on other angles as well. Due to time and space constraint, I can't take a screenshot of every possible angles and put it here, but I observed that they are always close on any angles. This makes sense, considering &lt;em&gt;"bpd"&lt;/em&gt; stands for "barrels per day".&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fifth&lt;/strong&gt;, &lt;em&gt;"paris"&lt;/em&gt; was group together with &lt;em&gt;"barrels"&lt;/em&gt; and &lt;em&gt;"bpd"&lt;/em&gt;. They have nothing in common, and yet they were grouped together. The model failed to project &lt;em&gt;"paris"&lt;/em&gt; on a right vector space.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sixth&lt;/strong&gt;, the co-occurrence vector space model was able to capture the cluster of oil producers. &lt;em&gt;"occidental"&lt;/em&gt; is for Occidental Petroleum Corporation (or Oxy), and &lt;em&gt;"exxon"&lt;/em&gt; is for Exxon Mobil, the two major oil-producing companies in the US. And &lt;em&gt;"gulf"&lt;/em&gt; for the Gulf of Mexico, one of the biggest offshore oil-producing region in the world.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Seventh&lt;/strong&gt;, &lt;em&gt;"eia"&lt;/em&gt; was not inside the cluster of oil producers in most of the angles. This is noteworthy because EIA (U.S. Energy Information Administration) provides energy statistics, such as oil &amp; gas production, consumption, export and export rate. However, it is not a "producing" entity. The model was able to differentiate between an entity who "talks" about the oil-production, and the entities who actually "produce" oil.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Eighth&lt;/strong&gt;, the model was not able to differentiate nations (Kuwait, Norway, China, UK) from the other entities. A well trained Word2Vec model with 300-dimensions is able to distinguish among nations, cities, and companies, but this one couldn't.&lt;/p&gt;
 &lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Warning!&lt;/h4&gt;
 &lt;p&gt;&lt;a href="#Why-is-Multi-Dimensionality-Important?"&gt;Previously&lt;/a&gt; I said that a good co-occurrence matrix model has a dimension of 600-800. However, the &lt;code&gt;explained_variance_ratio_&lt;/code&gt; was 90.6%, which is reasonably good, and the 3D visualizations seemed to capture the relationship among words pretty well. This happend because:&lt;/p&gt;
@@ -4948,9 +4960,10 @@ if (IPython.notebook.kernel != null) {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Conclusion"&gt;Conclusion&lt;a class="anchor-link" href="#Conclusion"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;It is known that a well trained Word2Vec model has 300 dimensions. Think of each dimension in Word2Vec vector space as an entity that represents word relationships: man vs woman, objects vs living, humans vs animals, nation vs city, drink vs food, action vs concept, and many more. Assume that that there are 300 of these kinds of relationships among all words in this world, represented by a single dimension per relationship.&lt;/p&gt;
-&lt;p&gt;The 3D visualization from the co-occurrence matrix model was able to capture the cluster of oil-producing entities. But it wasn't able to differentiate between nations and companies, because it simply didn't have a dimension that captures that kind of relationship.&lt;/p&gt;
-&lt;p&gt;On the other hand, in &lt;em&gt;Figure 8&lt;/em&gt;, it sensed the negative feelings that &lt;em&gt;"discouraged"&lt;/em&gt; and &lt;em&gt;"violations"&lt;/em&gt; conveyed, and put them in a close vector space. But when viewed from a different angle, or to put it better, viewed from a different dimension, the model put them far apart because they do not convey similar meanings (&lt;em&gt;Figure 9 &amp; 10&lt;/em&gt;).&lt;/p&gt;
-&lt;p&gt;Having more dimensions allows a model to capture more complex relationships, and that's precisly why Google's Word2Vec model had 300 dimensions.&lt;/p&gt;
+&lt;p&gt;The 3D visualization from the co-occurrence matrix model was able to capture the cluster of oil-producing entities (&lt;strong&gt;Sixth&lt;/strong&gt; observation). But it wasn't able to differentiate between nations and companies, because it simply didn't have a dimension that captures that kind of relationship (&lt;strong&gt;Eighth&lt;/strong&gt; observation).&lt;/p&gt;
+&lt;p&gt;In &lt;em&gt;Figure 8&lt;/em&gt;, the model sensed the negative feelings that &lt;em&gt;"discouraged"&lt;/em&gt; and &lt;em&gt;"violations"&lt;/em&gt; conveyed, and put them in a close vector space (&lt;strong&gt;Second&lt;/strong&gt; observation). But when viewed from a different angle, or to put it better, viewed from a different dimension, the model put them far apart because they do not convey similar meanings (&lt;em&gt;Figure 9 &amp; 10&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;On the other hand, the model completely failed to distinguish between &lt;em&gt;"paris"&lt;/em&gt; vs &lt;em&gt;"barrels"&lt;/em&gt; + &lt;em&gt;"bpd"&lt;/em&gt; (&lt;strong&gt;Fifth&lt;/strong&gt; observation). Recall that our &lt;code&gt;explained_variance_ratio_&lt;/code&gt; for 3-dimension was 92.3% &lt;a href="#Dimensional-Reduction"&gt;above&lt;/a&gt;. Some information about &lt;em&gt;"paris"&lt;/em&gt; could've been lost during dimensional reduction and that might have caused the error in word vector projection on a 3D vector space. Or, we simply did not have sufficient training data.&lt;/p&gt;
+&lt;p&gt;Having more dimensions allows a model to capture more complex relationships among words, and that's precisly why Google's Word2Vec model had 300 dimensions.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
