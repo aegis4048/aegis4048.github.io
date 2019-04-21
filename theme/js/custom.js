@@ -71,10 +71,15 @@ function jupyter_css() {
     }
     $('.rendered_html th').css('background', '100%')
 }
+function init_indexpage() {
+    $('.index-static-avatar').hover(function () {
+        $(this).closest('.index-author-list-item').children('.index-author-name-tooltip').toggleClass('tooltip-opacity')
+    })
+}
 function init_progressbar() {
     var getMax = function(){
         return $(document).height() - $(window).height();
-    }
+    };
     var getValue = function() {
         return $(window).scrollTop();
     };
@@ -120,12 +125,14 @@ function init_progressbar() {
     });
 }
 
+
 $(document).ready(function() {
     check_width();
     $(window).resize(check_width);
     init_navbar();
     init_progressbar();
     jupyter_css();
+    init_indexpage();
 });
 
 
