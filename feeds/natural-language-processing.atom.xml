@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Natural Language Processing</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/natural-language-processing.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-04-16T09:00:00-07:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Understanding Multi-Dimensionality in Vector Space Modeling</title><link href="https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling" rel="alternate"></link><published>2019-04-16T09:00:00-07:00</published><updated>2019-04-16T09:00:00-07:00</updated><author><name>ERIC SOOBIN KIM</name></author><id>tag:aegis4048.github.io,2019-04-16:/understanding_multi-dimensionality_in_vector_space_modeling</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Natural Language Processing</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/natural-language-processing.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-04-16T09:00:00-07:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Understanding Multi-Dimensionality in Vector Space Modeling</title><link href="https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling" rel="alternate"></link><published>2019-04-16T09:00:00-07:00</published><updated>2019-04-16T09:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-04-16:/understanding_multi-dimensionality_in_vector_space_modeling</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -4134,10 +4134,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="a32a7cae-9af2-4c48-9447-5fc38bfd60af"&gt;&lt;/div&gt;
+&lt;div id="6acb1e0a-f605-4c78-a56b-805a5c1eed27"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#a32a7cae-9af2-4c48-9447-5fc38bfd60af');
+var element = $('#6acb1e0a-f605-4c78-a56b-805a5c1eed27');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
