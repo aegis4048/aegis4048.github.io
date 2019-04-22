@@ -4134,10 +4134,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="6acb1e0a-f605-4c78-a56b-805a5c1eed27"&gt;&lt;/div&gt;
+&lt;div id="8b0358de-2561-4799-a77f-04b6e91e7c4d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#6acb1e0a-f605-4c78-a56b-805a5c1eed27');
+var element = $('#8b0358de-2561-4799-a77f-04b6e91e7c4d');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4939,7 +4939,7 @@ if (IPython.notebook.kernel != null) {
 &lt;/div&gt;&lt;p&gt;&lt;u&gt;Interesting Observations:&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;First&lt;/strong&gt;, when viewed from a certain angle, the 3D plot looks exactly like the 2D plot. However, different patterns can be observed when viewed from a different angle.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Second&lt;/strong&gt;, the distance of &lt;em&gt;"violations"&lt;/em&gt; and &lt;em&gt;"discouraged"&lt;/em&gt; are different. They are close to each other on &lt;em&gt;Figure 8&lt;/em&gt;, but far away from each other on &lt;em&gt;Figure 9 &amp; 10&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Third&lt;/strong&gt;, similar pattern was found between &lt;em&gt;"kilowatt"&lt;/em&gt; and &lt;em&gt;"electricity"&lt;/em&gt;. As you know, &lt;em&gt;"kilowatt"&lt;/em&gt; is an unit of &lt;em&gt;"electricity"&lt;/em&gt;. That is why they are close on &lt;em&gt;Figure 9 &amp; 10&lt;/em&gt;, but are separated in &lt;em&gt;Figure 8&lt;/em&gt;. Observe how &lt;em&gt;"electricity"&lt;/em&gt; is close, but &lt;em&gt;"kilowatt"&lt;/em&gt; is not to the cluser of oil-producing entities in &lt;em&gt;Figure 8&lt;/em&gt;. A possible explanation is that &lt;em&gt;"electricity"&lt;/em&gt; is not oil, but similar to oil in a sense that it is a "type" of energy consumed. On the other hand, although &lt;em&gt;"kilowatt"&lt;/em&gt; is a unit of energy, but it is not a type of energy.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Third&lt;/strong&gt;, similar pattern was found between &lt;em&gt;"kilowatt"&lt;/em&gt; and &lt;em&gt;"electricity"&lt;/em&gt;. As you know, &lt;em&gt;"kilowatt"&lt;/em&gt; is an unit of &lt;em&gt;"electricity"&lt;/em&gt;. That is why they are close on &lt;em&gt;Figure 9 &amp; 10&lt;/em&gt;, but are separated in &lt;em&gt;Figure 8&lt;/em&gt;. Observe how &lt;em&gt;"electricity"&lt;/em&gt; is close, but &lt;em&gt;"kilowatt"&lt;/em&gt; is not to the cluster of oil-producing entities in &lt;em&gt;Figure 8&lt;/em&gt;. A possible explanation is that &lt;em&gt;"electricity"&lt;/em&gt; is not oil, but similar to oil in a sense that it is a "type" of energy consumed. On the other hand, although &lt;em&gt;"kilowatt"&lt;/em&gt; is a unit of energy, but it is not a type of energy.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Fourth&lt;/strong&gt;, &lt;em&gt;"barrels"&lt;/em&gt; and "&lt;em&gt;bpd&lt;/em&gt;" are always close to one another. They seem very close on all three plots shown above, and indeed they look close on other angles as well. Due to time and space constraint, I can't take a screenshot of every possible angles and put it here, but I observed that they are always close on any angles. This makes sense, considering &lt;em&gt;"bpd"&lt;/em&gt; stands for "barrels per day".&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Fifth&lt;/strong&gt;, &lt;em&gt;"paris"&lt;/em&gt; was group together with &lt;em&gt;"barrels"&lt;/em&gt; and &lt;em&gt;"bpd"&lt;/em&gt;. They have nothing in common, and yet they were grouped together. The model failed to project &lt;em&gt;"paris"&lt;/em&gt; on a right vector space.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Sixth&lt;/strong&gt;, the co-occurrence vector space model was able to capture the cluster of oil producers. &lt;em&gt;"occidental"&lt;/em&gt; is for Occidental Petroleum Corporation (or Oxy), and &lt;em&gt;"exxon"&lt;/em&gt; is for Exxon Mobil, the two major oil-producing companies in the US. And &lt;em&gt;"gulf"&lt;/em&gt; for the Gulf of Mexico, one of the biggest offshore oil-producing region in the world.&lt;/p&gt;
