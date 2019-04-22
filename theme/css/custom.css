@@ -1851,14 +1851,19 @@ ol.rounded-list,
     object-fit: cover;
 }
 .index-reading-time {
-flex-shrink: 0;
-    margin-left: 20px;
+    flex-shrink: 0;
+    margin-right: 10px;
     color: #738a94;
     font-size: 0.8rem;
     line-height: 33px;
     font-weight: 500;
     letter-spacing: .5px;
     text-transform: uppercase;
+}
+.index-comment-icon {
+    line-height: 33px;
+    margin-right: 7px;
+    color: #5b7a83;
 }
 
 

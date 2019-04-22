@@ -151,7 +151,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
                                 </a>
                             </li>
                         </ul>
-                        <span class="index-reading-time">13 min read</span>
+                        <div class="col">
+                            <div class="row justify-content-end">
+                                <span class="index-reading-time">13 min read</span>
+                                <i class="fas fa-comment index-comment-icon"></i>
+                                <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution#disqus_thread"></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -184,7 +190,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
                                 </a>
                             </li>
                         </ul>
-                        <span class="index-reading-time">7 min read</span>
+                        <div class="col">
+                            <div class="row justify-content-end">
+                                <span class="index-reading-time">7 min read</span>
+                                <i class="fas fa-comment index-comment-icon"></i>
+                                <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap#disqus_thread"></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -217,12 +229,36 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
                                 </a>
                             </li>
                         </ul>
-                        <span class="index-reading-time">9 min read</span>
+                        <div class="col">
+                            <div class="row justify-content-end">
+                                <span class="index-reading-time">9 min read</span>
+                                <i class="fas fa-comment index-comment-icon"></i>
+                                <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation#disqus_thread"></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </article>
         </div>
     </div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pythonic-excursions'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    } ());
+
+    $('.disqus-comment').each(function(){
+        var numCommentText = $(this).text(),
+            num = numCommentText.match(/\d+/g);
+        $(this).text(num)
+    });
+</script>
         </div>
 <footer class="footer">
    <div class="container bottom_border">
