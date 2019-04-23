@@ -1624,11 +1624,18 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Why-is-Multi-Dimensionality-Important?">Why is Multi-Dimensionality Important?<a class="anchor-link" href="#Why-is-Multi-Dimensionality-Important?">¶</a></h2><p>First, dimension is a critical parameter in word embedding. Too low dimension leads to underfitting and makes your model not expressive enough to capture all possible word relations. On the other hand, too high dimension results in overfitting. However, in the <a href="https://arxiv.org/pdf/1812.04224.pdf">recent paper</a>, it was discovered that Word2Vec and GloVe models are not sensitive to overfitting.</p>
-<p>A typical good NLP model trained on a wide variety of corpora has a dimension in the order of hundreds. The famous <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">Mikolov et al. 2013</a> paper on skip-gram Word2Vec model suggests 300 neurons, and <a href="https://pdfs.semanticscholar.org/73e6/351a8fb61afc810a8bb3feaa44c41e5c5d7b.pdf">Rohde et al. ms., 2005</a> paper on co-occurence/correlation matrix suggests 600-800 dimensions (columns) as the optimum parameters for vector space modeling.</p>
-<p>Second, high dimensionality leads to high computational cost. This is especially true in the case of co-occurence matrix, in which it has a dimension of $V \times V$, where $V$ is the size of vocabulary in a corpus. The previous example shown in <em>Table 1</em> had a corpus size of 12 words, and vocab size of 10 words. In real-life applications, corpus size easily exceeds 10's or 100 GB's. For example, <em>Gensim</em>'s pre-trained Word2Vec model trained from Google News had a vocab size of three million (<a href="https://github.com/RaRe-Technologies/gensim-data">Github Source</a>). If we obtain a co-occurence matrix and feed it into an NLP model without dimensional reduction, we will be training our model with a matrix size of $3M \times 3M$. This is unrealistic. We need to choose an optimal value for reduced dimension $k$ that will best describe the variability of the data while significantly cutting down the computational cost.</p>
+<h2 id="Why-is-Multi-Dimensionality-Important?">Why is Multi-Dimensionality Important?<a class="anchor-link" href="#Why-is-Multi-Dimensionality-Important?">¶</a></h2><p><strong>First</strong>, high dimensionality leads to high computational cost. This is especially true in the case of co-occurence matrix, in which it has a dimension of $V \times V$, where $V$ is the size of vocabulary in a corpus. The previous example shown in <em>Table 1</em> had a corpus size of 12 words, and vocab size of 10 words. In real-life applications, corpus size easily exceeds 10's or 100 GB's. For example, <em>Gensim</em>'s pre-trained Word2Vec model trained from Google News had a vocab size of three million (<a href="https://github.com/RaRe-Technologies/gensim-data">Github Source</a>). If we obtain a co-occurence matrix and feed it into an NLP model without dimensional reduction, we will be training our model with a matrix size of $3M \times 3M$. This is unrealistic. We need to choose an optimal value for reduced dimension $k$ that will best describe the variability of the data while significantly cutting down the computational cost.</p>
 <p>On the other hand, computational cost due to high dimensionality is NOT a big concern with Word2Vec, because the most optimal dimension for Word2Vec are already known to be between 200 - 600 (Note: this doesn't mean that Word2Vec is superior to co-occurence matrix. Each has its own pros and cons).</p>
 <p>It is natural to think that high dimension would lead to higher accuracy, but this happens at the cost of increased computation time. One needs to find a "sweet spot" that optimizes the trade-off between accuracy vs. computation time. The <a href="https://arxiv.org/pdf/1812.04224.pdf">recent paper</a> submitted in Dec 2018 proposed a deterministic way to compute the optimal number of $k$-dimensions. It's code implementation is available on this <a href="https://github.com/ziyin-dl/word-embedding-dimensionality-selection">Github repo</a>.</p>
+<p><strong>Second</strong>, dimension is a critical parameter in word embedding. Too low dimension leads to underfitting and makes your model not expressive enough to capture all possible word relations. On the other hand, too high dimension results in overfitting. However, in the <a href="https://arxiv.org/pdf/1812.04224.pdf">recent paper</a>, it was discovered that Word2Vec and GloVe models are not sensitive to overfitting.</p>
+<div class="row">
+<div class="col"><img src="jupyter_images/word2vec-dimensionality.png"></div>
+<div class="col-12"><p class="image-description">Figure 4: skip-gram Word2Vec: over-parametrization does not significantly hurt performance</p></div>
+</div><div class="row">
+<div class="col"><img src="jupyter_images/glove-dimensionality.png"></div>
+<div class="col-12"><p class="image-description">Figure 5:  GloVe: over-parametrization does not significantly hurt performance</p></div>
+</div><p>The spikes of the skip gram Word2Vec and and GloVe models revealed the existence of the "sweet spot" in which a certain number of dimensions leads to the highest accuracy. The sharp rise in accuracy in the far left zone showed that too low number of dimensions results in underfitting. However, it is interesting to note that the flat right tail of the charts showed that indefinitely increasing the number of dimensions did not really result in overfitting. Often times in neural net applications, too high number of dimensions (neurons) results in overfitting, but in skip-gram Word2Vec and GloVe, this was not the case.</p>
+<p>A typical good NLP model trained on a wide variety of corpora has a dimension in the order of hundreds. The famous <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">Mikolov et al. 2013</a> paper on skip-gram Word2Vec model suggests 300 neurons, and <a href="https://pdfs.semanticscholar.org/73e6/351a8fb61afc810a8bb3feaa44c41e5c5d7b.pdf">Rohde et al. ms., 2005</a> paper on co-occurence/correlation matrix suggests 600-800 dimensions (columns) as the optimum parameters for vector space modeling.</p>
 </div>
 </div>
 </div>
@@ -1637,12 +1644,12 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Vector-Space-Modeling:-Crude-Oil-News">Vector Space Modeling: Crude Oil News<a class="anchor-link" href="#Vector-Space-Modeling:-Crude-Oil-News">¶</a></h2><div class="row give-margin-inline-big-plot">
 <div class="col"><img src="jupyter_images/reuters_logo.png" style="margin-top: 1.5rem;"></div>
-<div class="col-12"><p class="image-description">Figure 4: International news organization, Reuters</p></div>
+<div class="col-12"><p class="image-description">Figure 6: International news organization, Reuters</p></div>
 </div><p>Enough of theories. Now let's dive into the actual application of vector space modeling with Python code implementation. We will explore multi-dimensionality in NLP task using <strong>Reuters</strong> news articles on <strong>crude oil</strong>.</p>
 <p>Take a glance at the overall content of the crude oil articles with the following WordCloud visualizaiton.</p>
 <div class="row give-margin-inline-big-plot">
 <div class="col"><img src="jupyter_images/wordcloud.png" style="margin-top: 1.5rem;"></div>
-<div class="col-12"><p class="image-description">Figure 5: WordCloud of crude oil articles</p></div>
+<div class="col-12"><p class="image-description">Figure 7: WordCloud of crude oil articles</p></div>
 </div><p><strong>Imports</strong></p>
 <p>Here is all the imports you need to follow with this tutorial.</p>
 </div>
@@ -2357,12 +2364,12 @@ h6:hover .anchor-link {
 <p>On of the critical variable in co-occurence matrix is <code>window_size</code>. The below illustration has a window size of 2.</p>
 <div class="row give-margin-inline-big-plot">
 <div class="col"><img src="jupyter_images/window_size.png" style="margin-top: 1.5rem;"></div>
-<div class="col-12"><p class="image-description">Figure 6: Illustration of window size</p></div>
+<div class="col-12"><p class="image-description">Figure 8: Illustration of window size</p></div>
 </div><p>A typical window size is chosen between 2-10. However, window size may exceed way over 10 in case of special circumstances, such as having too few data. Increasing window size may increase the accuracy of the model, but it comes at the price of computational cost, and sometimes loss in accuracy due to noise.</p>
 <p>The author of this <a href="https://pdfs.semanticscholar.org/73e6/351a8fb61afc810a8bb3feaa44c41e5c5d7b.pdf">paper</a> claims that he observed decrease in model performance of his co-occurrence matrix when he used high window size with large corpus. However, he observed the opposite when high window size was used with smaller corpus.</p>
 <div class="row give-margin-inline-big-plot">
 <div class="col"><img src="jupyter_images/effect_of_window_size.png" style="margin-top: 1.5rem;"></div>
-<div class="col-12"><p class="image-description">Figure 7: Effect of window size and corpus size</p></div>
+<div class="col-12"><p class="image-description">Figure 9: Effect of window size and corpus size</p></div>
 </div><p><strong>Matrix Construction</strong></p>
 </div>
 </div>
@@ -3115,10 +3122,10 @@ Explained Variance = 0.996
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="d9275644-209c-4d23-825c-1885b1124b3b"></div>
+<div id="c429d3df-93e0-4c9c-90f9-e62b979371e4"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#d9275644-209c-4d23-825c-1885b1124b3b');
+var element = $('#c429d3df-93e0-4c9c-90f9-e62b979371e4');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -3908,19 +3915,19 @@ if (IPython.notebook.kernel != null) {
 <div class="row give-margin-inline-big-plot" style="width: 100%">
 <div class="col-md-6 col-sm-12">
 <div class="col"><img src="jupyter_images/3d_wordvec_1.png"></div>
-<div class="col-12"><p class="image-description">Figure 8: 3D plot - angle 1</p></div>
+<div class="col-12"><p class="image-description">Figure 10: 3D plot - angle 1</p></div>
 </div>
 <div class="col-md-6 col-sm-12">
 <div class="col"><img src="jupyter_images/3d_wordvec_2.png"></div>
-<div class="col-12"><p class="image-description">Figure 9: 3D plot - angle 2</p></div>
+<div class="col-12"><p class="image-description">Figure 11: 3D plot - angle 2</p></div>
 </div>
 </div><div class="row give-margin-inline-plot">
 <div class="col-12"><img src="jupyter_images/3d_wordvec_3.png"></div>
-<div class="col-12"><p class="image-description">Figure 10: 3D plot - angle 3</p></div>
+<div class="col-12"><p class="image-description">Figure 12: 3D plot - angle 3</p></div>
 </div><p><u>Interesting Observations:</u></p>
 <p><strong>First</strong>, when viewed from a certain angle, the 3D plot looks exactly like the 2D plot. However, different patterns can be observed when viewed from a different angle.</p>
-<p><strong>Second</strong>, the distance of <em>"violations"</em> and <em>"discouraged"</em> are different. They are close to each other on <em>Figure 8</em>, but far away from each other on <em>Figure 9 & 10</em>.</p>
-<p><strong>Third</strong>, similar pattern was found between <em>"kilowatt"</em> and <em>"electricity"</em>. As you know, <em>"kilowatt"</em> is an unit of <em>"electricity"</em>. That is why they are close on <em>Figure 9 & 10</em>, but are separated in <em>Figure 8</em>. Observe how <em>"electricity"</em> is close, but <em>"kilowatt"</em> is not to the cluster of oil-producing entities in <em>Figure 8</em>. A possible explanation is that <em>"electricity"</em> is not oil, but similar to oil in a sense that it is a "type" of energy consumed. On the other hand, although <em>"kilowatt"</em> is a unit of energy, but it is not a type of energy.</p>
+<p><strong>Second</strong>, the distance of <em>"violations"</em> and <em>"discouraged"</em> are different. They are close to each other on <em>Figure 10</em>, but far away from each other on <em>Figure 11 & 12</em>.</p>
+<p><strong>Third</strong>, similar pattern was found between <em>"kilowatt"</em> and <em>"electricity"</em>. As you know, <em>"kilowatt"</em> is an unit of <em>"electricity"</em>. That is why they are close on <em>Figure 11 & 12</em>, but are separated in <em>Figure 10</em>. Observe how <em>"electricity"</em> is close, but <em>"kilowatt"</em> is not to the cluster of oil-producing entities in <em>Figure 10</em>. A possible explanation is that <em>"electricity"</em> is not oil, but similar to oil in a sense that it is a "type" of energy consumed. On the other hand, although <em>"kilowatt"</em> is a unit of energy, but it is not a type of energy.</p>
 <p><strong>Fourth</strong>, <em>"barrels"</em> and "<em>bpd</em>" are always close to one another. They seem very close on all three plots shown above, and indeed they look close on other angles as well. Due to time and space constraint, I can't take a screenshot of every possible angles and put it here, but I observed that they are always close on any angles. This makes sense, considering <em>"bpd"</em> stands for "barrels per day".</p>
 <p><strong>Fifth</strong>, <em>"paris"</em> was group together with <em>"barrels"</em> and <em>"bpd"</em>. They have nothing in common, and yet they were grouped together. The model failed to project <em>"paris"</em> on a right vector space.</p>
 <p><strong>Sixth</strong>, the co-occurrence vector space model was able to capture the cluster of oil producers. <em>"occidental"</em> is for Occidental Petroleum Corporation (or Oxy), and <em>"exxon"</em> is for Exxon Mobil, the two major oil-producing companies in the US. And <em>"gulf"</em> for the Gulf of Mexico, one of the biggest offshore oil-producing region in the world.</p>
@@ -3928,7 +3935,7 @@ if (IPython.notebook.kernel != null) {
 <p><strong>Eighth</strong>, the model was not able to differentiate nations (Kuwait, Norway, China, UK) from the other entities. A well trained Word2Vec model with 300-dimensions is able to distinguish among nations, cities, and companies, but this one couldn't.</p>
 <div class="alert alert-info">
 <h4>Warning!</h4>
-<p><a href="#Why-is-Multi-Dimensionality-Important?">Previously</a> I said that a good co-occurrence matrix model has a dimension of 600-800. However, the <code>explained_variance_ratio_</code> was 90.6%, which is reasonably good, and the 3D visualizations seemed to capture the relationship among words pretty well. This happend because:</p>
+<p><a href="#Why-is-Multi-Dimensionality-Important?">Previously</a> I said that a good co-occurrence matrix model has a dimension of 600-800. However, the <code>explained_variance_ratio_</code> was 92.3%, which is reasonably good, and the 3D visualizations seemed to capture the relationship among words pretty well. This happend because:</p>
 <p>1. the purpose of this post was to explain dimensionality</p>
 <p>If you attempt to feed the co-occurrence matrix of 3-dimensions into a machine learning model, it will NOT perform well. It "seems" to work well because it was used only for visualizations.</p>
 <p>2. the data had limited scope of topics: crude oil</p>
@@ -3942,7 +3949,7 @@ if (IPython.notebook.kernel != null) {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a></h2><p>It is known that a well trained Word2Vec model has 300 dimensions. Think of each dimension in Word2Vec vector space as an entity that represents word relationships: man vs woman, objects vs living, humans vs animals, nation vs city, drink vs food, action vs concept, and many more. Assume that that there are 300 of these kinds of relationships among all words in this world, represented by a single dimension per relationship.</p>
 <p>The 3D visualization from the co-occurrence matrix model was able to capture the cluster of oil-producing entities (<strong>Sixth</strong> observation). But it wasn't able to differentiate between nations and companies, because it simply didn't have a dimension that captures that kind of relationship (<strong>Eighth</strong> observation).</p>
-<p>In <em>Figure 8</em>, the model sensed the negative feelings that <em>"discouraged"</em> and <em>"violations"</em> conveyed, and put them in a close vector space (<strong>Second</strong> observation). But when viewed from a different angle, or to put it better, viewed from a different dimension, the model put them far apart because they do not convey similar meanings (<em>Figure 9 & 10</em>).</p>
+<p>In <em>Figure 10</em>, the model sensed the negative feelings that <em>"discouraged"</em> and <em>"violations"</em> conveyed, and put them in a close vector space (<strong>Second</strong> observation). But when viewed from a different angle, or to put it better, viewed from a different dimension, the model put them far apart because they do not convey similar meanings (<em>Figure 11 & 12</em>).</p>
 <p>On the other hand, the model completely failed to distinguish between <em>"paris"</em> vs <em>"barrels"</em> + <em>"bpd"</em> (<strong>Fifth</strong> observation). Recall that our <code>explained_variance_ratio_</code> for 3-dimension was 92.3% <a href="#Dimensional-Reduction">above</a>. Some information about <em>"paris"</em> could've been lost during dimensional reduction and that might have caused the error in word vector projection on a 3D vector space. Or, we simply did not have sufficient training data.</p>
 <p>Having more dimensions allows a model to capture more complex relationships among words, and that's precisly why Google's Word2Vec model had 300 dimensions.</p>
 </div>
