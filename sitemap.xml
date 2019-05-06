@@ -5,20 +5,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://aegis4048.github.io/</loc>
-<lastmod>2019-05-06T07:48:10-00:00</lastmod>
+<lastmod>2019-05-06T07:57:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/archives.html</loc>
-<lastmod>2019-05-06T07:48:10-00:00</lastmod>
+<lastmod>2019-05-06T07:57:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/demystifying_neural_network_algorithm_behind_word2vec_skip_gram</loc>
+<loc>https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling</loc>
 <lastmod>2019-05-06T09:00:00-07:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>

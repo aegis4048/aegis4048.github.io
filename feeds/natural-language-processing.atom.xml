@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Natural Language Processing</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/natural-language-processing.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-05-06T09:00:00-07:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Demystifying Neural Network in Skip-Gram Language Modeling</title><link href="https://aegis4048.github.io/demystifying_neural_network_algorithm_behind_word2vec_skip_gram" rel="alternate"></link><published>2019-05-06T09:00:00-07:00</published><updated>2019-05-06T09:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-05-06:/demystifying_neural_network_algorithm_behind_word2vec_skip_gram</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Natural Language Processing</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/natural-language-processing.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-05-06T09:00:00-07:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Demystifying Neural Network in Skip-Gram Language Modeling</title><link href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" rel="alternate"></link><published>2019-05-06T09:00:00-07:00</published><updated>2019-05-06T09:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-05-06:/demystifying_neural_network_in_skip_gram_language_modeling</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2759,7 +2759,7 @@ log
 {exp(\theta^{(k)\top}x^{(t)})}
 {\sum^K_{i=1}
 exp(\theta^{(i)\top}x^{(t)})} \tag{9}$$&lt;/div&gt;&lt;p&gt;where $T$ is the number of training samples, and $K$ is the number of labels to classify. In NLP applications, $K = V$, because there are $V$ unique vocabulary we need to classify in a vector space. $V$ can easily exceed tens of thousands. Skip-Gram tweaks this a little, and replaces $K$ with a variable called &lt;strong&gt;window size&lt;/strong&gt; ($m$). Window size is a hyper parameter of the model with a typical range of $[1, 10]$ (see &lt;a href="#fig4"&gt;figure 4&lt;/a&gt;). Recall that Skip-Gram is a model that attempts to predict neighboring words of a center word. It doesn't have to predict all $V$ vocab in the corpus that may be 100 or more words away from it, but instead predict only a few, 1~10 neighboring context words. This is also intuitive, considering how words that are far away carry less information about each another. Thus, the adapted form of the softmax regression equation for Skip-Gram becomes:&lt;/p&gt;
-&lt;div id="eq-9" style="font-size: 1rem;"&gt;
+&lt;div id="eq-10" style="font-size: 1rem;"&gt;
 $$J(\theta) = 
 -\frac{1}{T} 
 \sum^T_{t=1}
@@ -2775,7 +2775,7 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Neural-Network-Structure-of-Skip-Gram"&gt;Neural Network Structure of Skip-Gram&lt;a class="anchor-link" href="#Neural-Network-Structure-of-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;How is neural network used to minimize the cost functoin described in &lt;a href="#eq-9"&gt;eq (9)&lt;/a&gt;? One needs to look into the structure of the Skip-Gram model to gain insights about their correlation.&lt;/p&gt;
+&lt;h1 id="Neural-Network-Structure-of-Skip-Gram"&gt;Neural Network Structure of Skip-Gram&lt;a class="anchor-link" href="#Neural-Network-Structure-of-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;How is neural network used to minimize the cost functoin described in &lt;a href="#eq-10"&gt;eq (10)&lt;/a&gt;? One needs to look into the structure of the Skip-Gram model to gain insights about their correlation.&lt;/p&gt;
 &lt;p&gt;For illustration purpose, let's assume that the entire corpus is composed of the quote from the Game of Thrones, &lt;i&gt;"The man who passes the sentence should swing the sword"&lt;/i&gt;, by Ned Stark. There are 10 words ($T = 10$), and 8 unique words ($V = 8$).&lt;/p&gt;
 &lt;p&gt;Note that in real life, the corpus is much bigger than just one sentence.&lt;/p&gt;
 &lt;blockquote class="quote"&gt;
@@ -7063,10 +7063,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="82feed87-05e9-47d6-9f9b-fa9c6158e8d7"&gt;&lt;/div&gt;
+&lt;div id="4907dbfc-2bb2-457e-ba3c-9bc95f509304"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#82feed87-05e9-47d6-9f9b-fa9c6158e8d7');
+var element = $('#4907dbfc-2bb2-457e-ba3c-9bc95f509304');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
