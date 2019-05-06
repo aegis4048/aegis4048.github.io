@@ -20,9 +20,9 @@
 
         <meta name="keywords" content="data-mining, nlp, word2vec, co-occurrence matrix, vector space model, word vectors, window size, skip-gram, neural network, negative sampling, stochastic gradient descent, learning rate, Natural Language Processing, "/>
 
-        <link rel="canonical" href="https://aegis4048.github.io/demystifying_neural_network_algorithm_behind_word2vec_skip_gram">
+        <link rel="canonical" href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling">
     <meta property="og:title" content="Demystifying Neural Network in Skip-Gram Language Modeling | Pythonic Excursions"/>
-    <meta property="og:url" content="https://aegis4048.github.io/demystifying_neural_network_algorithm_behind_word2vec_skip_gram" />
+    <meta property="og:url" content="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" />
     <meta property="og:description" content="How is neural network used in language modeling to capture relationships among words?" />
     <meta property="og:site_name" content="Pythonic Excursions" />
     <meta property="og:article:author" content="ERIC KIM" />
@@ -151,13 +151,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
         <div class="share-post-intro mr-2">Share This Post :</div>
         <div class="social-share-btns-container">
             <div class="social-share-btns">
-                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=https://aegis4048.github.io/demystifying_neural_network_algorithm_behind_word2vec_skip_gram" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" rel="nofollow" target="_blank">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=https://aegis4048.github.io/demystifying_neural_network_algorithm_behind_word2vec_skip_gram" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" rel="nofollow" target="_blank">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://aegis4048.github.io/demystifying_neural_network_algorithm_behind_word2vec_skip_gram" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" rel="nofollow" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
@@ -1588,7 +1588,7 @@ log
 {exp(\theta^{(k)\top}x^{(t)})}
 {\sum^K_{i=1}
 exp(\theta^{(i)\top}x^{(t)})} \tag{9}$$</div><p>where $T$ is the number of training samples, and $K$ is the number of labels to classify. In NLP applications, $K = V$, because there are $V$ unique vocabulary we need to classify in a vector space. $V$ can easily exceed tens of thousands. Skip-Gram tweaks this a little, and replaces $K$ with a variable called <strong>window size</strong> ($m$). Window size is a hyper parameter of the model with a typical range of $[1, 10]$ (see <a href="#fig4">figure 4</a>). Recall that Skip-Gram is a model that attempts to predict neighboring words of a center word. It doesn't have to predict all $V$ vocab in the corpus that may be 100 or more words away from it, but instead predict only a few, 1~10 neighboring context words. This is also intuitive, considering how words that are far away carry less information about each another. Thus, the adapted form of the softmax regression equation for Skip-Gram becomes:</p>
-<div id="eq-9" style="font-size: 1rem;">
+<div id="eq-10" style="font-size: 1rem;">
 $$J(\theta) = 
 -\frac{1}{T} 
 \sum^T_{t=1}
@@ -1604,7 +1604,7 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$</div><p>This is equivalent to <a href="
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Neural-Network-Structure-of-Skip-Gram">Neural Network Structure of Skip-Gram<a class="anchor-link" href="#Neural-Network-Structure-of-Skip-Gram">¶</a></h1><p>How is neural network used to minimize the cost functoin described in <a href="#eq-9">eq (9)</a>? One needs to look into the structure of the Skip-Gram model to gain insights about their correlation.</p>
+<h1 id="Neural-Network-Structure-of-Skip-Gram">Neural Network Structure of Skip-Gram<a class="anchor-link" href="#Neural-Network-Structure-of-Skip-Gram">¶</a></h1><p>How is neural network used to minimize the cost functoin described in <a href="#eq-10">eq (10)</a>? One needs to look into the structure of the Skip-Gram model to gain insights about their correlation.</p>
 <p>For illustration purpose, let's assume that the entire corpus is composed of the quote from the Game of Thrones, <i>"The man who passes the sentence should swing the sword"</i>, by Ned Stark. There are 10 words ($T = 10$), and 8 unique words ($V = 8$).</p>
 <p>Note that in real life, the corpus is much bigger than just one sentence.</p>
 <blockquote class="quote">
@@ -1764,8 +1764,8 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$</div><p>This is equivalent to <a href="
     <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
     <script type="text/javascript">
       var disqus_shortname = 'pythonic-excursions';
-      var disqus_identifier = '/demystifying_neural_network_algorithm_behind_word2vec_skip_gram';
-      var disqus_url = 'https://aegis4048.github.io/demystifying_neural_network_algorithm_behind_word2vec_skip_gram';
+      var disqus_identifier = '/demystifying_neural_network_in_skip_gram_language_modeling';
+      var disqus_url = 'https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling';
       var disqus_title = 'Demystifying Neural Network in Skip-Gram Language Modeling';
       (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
