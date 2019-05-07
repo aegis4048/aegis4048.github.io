@@ -1534,7 +1534,7 @@ $$
 vec(\text{Germany}) + vec(\text{capital}) & \cong vec(\text{Berlin})
 \end{align*}
 $$<div class="alert alert-info">
-<h4>Notes: Analogy tasks doesn't always work</h4>
+<h4>Notes: Analogy tasks don't always work</h4>
 <p>Not all analogy tasks can be solved like this. The above illustration works like a magic, but there are many analogy problems that can't be solved with Word2Vec. Think of the above illustration as just one use case of Word2Vec.</p>
 </div>
 </div>
@@ -1569,7 +1569,7 @@ $$
 J(\theta; w^{(t)}) = - \sum_{c=1}^{C}(W_{output_{(c)}} \cdot h) + C \cdot log \sum^V_{i=1}exp(W_{output_{(i)}} \cdot h) \tag{6}
 $$
 </div><p>Different paper uses different notations for the cost function. To stick to the notation used in the <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">Word2Vec original paper</a>, some of the notations in <a href="#eq-6">eq (6)</a> can be changed. However, they are all equivalent:</p>
-<div id="eq-7" style="font-size: 1rem;">$$J_{t}(\theta;w^{(t)}) = -\sum_{-m\leq j \leq m} \log p(w_{t+j} \mid w_t ; \theta) \tag{7}$$</div><p>It should be noted that both <a href="#eq-6">eq (6)</a> and <a href="#eq-7">eq (7)</a> assumes <strong>stochastic gradient descent</strong>, which means that for each training sample ($w^{(t)}$) in the corpus, one update is made to the weight matrix ($\theta$). The cost function expressed in the paper shows <strong>batch gradient descent</strong> <a href="#eq-8">eq (8)</a>, which means that only one update is made for all $T$ training samples:</p>
+<div id="eq-7" style="font-size: 1rem;">$$J_{t}(\theta;w^{(t)}) = -\sum_{-m\leq j \leq m} \log p(w_{t+j} \mid w_t ; \theta) \tag{7}$$</div><p>It should be noted that <a href="#eq-6">eq (6)</a> and <a href="#eq-7">eq (7)</a> are equivalent, and that both assume <strong>stochastic gradient descent</strong>, which means that for each training sample ($w^{(t)}$) in the corpus of size ($T$), one update is made to the weight matrix ($\theta$). The cost function expressed in the paper shows <strong>batch gradient descent</strong> <a href="#eq-8">eq (8)</a>, which means that only one update is made for all $T$ training samples:</p>
 <div id="eq-8" style="font-size: 1rem;">$$J(\theta) = -\frac{1}{T} \sum^T_{t=1} \sum_{-m\leq j \leq m} \log p(w_{t+j} \mid w_t ; \theta) \tag{8}$$</div><p>However, in Word2Vec, batch gradient descent is almost never used due to its high computational cost. The author of the paper stated that he used stochastic gradient descent for training. Read the below <a href="#stochastic">notes</a> for more information about stochastic gradient descent.</p>
 </div>
 </div>
@@ -1577,7 +1577,7 @@ $$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Window-Size-of-Skip-Gram">Window Size of Skip-Gram<a class="anchor-link" href="#Window-Size-of-Skip-Gram">¶</a></h3><p>Softmax regression (or multinomial logistic regression) is a generalization of logistic regression to the case where we want to handle multiple classes. A general form of the softmax regression looks like this:</p>
+<div id="window_size"></div><h3 id="Window-Size-of-Skip-Gram">Window Size of Skip-Gram<a class="anchor-link" href="#Window-Size-of-Skip-Gram">¶</a></h3><p>Softmax regression (or multinomial logistic regression) is a generalization of logistic regression to the case where we want to handle multiple classes. A general form of the softmax regression looks like this:</p>
 <div id="eq-9" style="font-size: 1rem;">
 $$J(\theta) = 
 -\frac{1}{T} 
@@ -1633,14 +1633,14 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$</div><p>This is equivalent to <a href="
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Training:-Forward-Propagation">Training: Forward Propagation<a class="anchor-link" href="#Training:-Forward-Propagation">¶</a></h2><p>The word embedding matrices ($W_{input}$, $W_{output}$) in Skip-Gram are optimized through forward and backward propagations. For each iteration of forward + backward propagations, the model learns to reduce prediction error by optimizing the weight matrix ($\theta$), thus acquiring higher quality embedding matrices that better capture relationships among words.</p>
-<p>Forward propagation includes obtaining the probability distribution of words ($y_{pred}$ in <a href="#fig4">figure 4</a>) given a center word, and backward propagation includes calculating the prediction error, and updating the weight (embedding) matrices to minimize the prediction error.</p>
+<p>Forward propagation includes obtaining the probability distribution of words ($y_{pred}$ in <a href="#fig5">figure 5</a>) given a center word, and backward propagation includes calculating the prediction error, and updating the weight (embedding) matrices to minimize the prediction error.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Input-Layer-($x$)">Input Layer ($x$)<a class="anchor-link" href="#Input-Layer-($x$)">¶</a></h3><p>The input layer is a $V$-dim one-hot encoded vector. Every element in the vector is 0 except one element that corresponds to the center (input) word. Input vector is multiplied with the input weight matrix ($W_{input}$) of size $V \times N$, and yields a hidden (projection) layer ($h$) of $N$-dim vector. Because the input layer is one-hot encoded, it makes the input weight matrix ($W_{input}$) to behave like a <em>look-up table</em> for the center word. Assuming epoch number of 1 (<code>iter=1</code> in <em>gensim</em> Word2Vec implementation) and stochastic gradient descent, the input vector is injected into the network $T$ times for every word in the corpus and makes $T$ updates to the weight matrix ($\theta$) to learn from the training samples.</p>
+<div id="input_layer"></div><h3 id="Input-Layer-($x$)">Input Layer ($x$)<a class="anchor-link" href="#Input-Layer-($x$)">¶</a></h3><p>The input layer is a $V$-dim one-hot encoded vector. Every element in the vector is 0 except one element that corresponds to the center (input) word. Input vector is multiplied with the input weight matrix ($W_{input}$) of size $V \times N$, and yields a hidden (projection) layer ($h$) of $N$-dim vector. Because the input layer is one-hot encoded, it makes the input weight matrix ($W_{input}$) to behave like a <em>look-up table</em> for the center word. Assuming epoch number of 1 (<code>iter=1</code> in <em>gensim</em> Word2Vec implementation) and stochastic gradient descent, the input vector is injected into the network $T$ times for every word in the corpus and makes $T$ updates to the weight matrix ($\theta$) to learn from the training samples.</p>
 <div class="row give-margin-inline-big-plot">
 <div class="col"><img src="jupyter_images/one-hot-vector.png"></div>
 <div class="col-12"><p class="image-description">Figure 6: One-hot encoded input vector and parameter update</p></div>
@@ -1648,13 +1648,13 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$</div><p>This is equivalent to <a href="
 <div class="alert alert-info">
 <h4>Notes: Stochastic Gradient Descent</h4>
 <p>The goal of any machine learning model is to find the optimal values of a weight matrix ($\theta$) to minimize prediction error. A general update equation for weight matrix looks like the following:</p>
-<p><center style="margin-top: 20px">$\theta_{new}=\theta_{old}-\eta\cdot\nabla_{\theta}J(\theta)$</center></p>
-<p>$\eta$ is learning rate, $\nabla_{\theta}$ is gradient for the weight matrix, and $J(\theta)$ is the cost function that has different forms for each model. The cost function for the Skip-Gram model proposed in the <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">Word2Vec original paper</a> has the following equation:</p>
+<p><center style="margin-top: 20px">$\theta^{(new)}=\theta^{(old)}-\eta\cdot\nabla_{J(\theta)}$</center></p>
+<p>$\eta$ is learning rate, $\nabla_{J(\theta)}$ is gradient for the weight matrix, and $J(\theta)$ is the cost function that has different forms for each model. The cost function for the Skip-Gram model proposed in the <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">Word2Vec original paper</a> has the following equation:</p>
 <p><center style="margin-top: 20px">$$J(\theta) = -\frac{1}{T} \sum^T_{t=1} \sum_{-m\leq j \leq m} \log p(w_{t+j} \mid w_t ; \theta)$$</center></p>
 <p>Here, what gives us headache is the expression, $\frac{1}{T} \sum^T_{t=1}$, because $T$ can be larger than billions or more in many NLP applications. It is basically telling us that billions of iterations need to be computed to make just one update to the weight matrix ($\theta$). In order to mitigate this computational burden, the author of the paper states that Stochastic Gradient Descent (SGD) was used for parameter optimization. SGD removes the expression, $\frac{1}{T} \sum^T_{t=1}$, from the cost function and performs parameter update for each training example, $w^{(t)}$:</p>
 <p><center style="margin-top: 20px">$$J_{t}(\theta;w^{(t)}) = -\sum_{-m\leq j \leq m} \log p(w_{t+j} \mid w_t ; \theta)$$</center></p>
 <p>Then, the new parameter update equation for SGD becomes:</p>
-<p><center style="margin-top: 20px">$\theta_{new}=\theta_{old}-\eta\cdot\nabla_{\theta}J_{t}(\theta;w^{(t)})$</center></p>
+<p><center style="margin-top: 20px">$\theta^{(new)}=\theta^{(old)}-\eta\cdot\nabla_{J_{t}(\theta;w^{(t)})}$</center></p>
 <p>The original vanilla graident descent makes $1$ parameter update for $T$ training samples, but the new update equation using SGD makes $T$ parameter update for $T$ training samples. However, this comes at the price of higher fluctuation (or variance) in minimizing prediction error.</p>
 </div>
 </div>
@@ -1668,15 +1668,16 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$</div><p>This is equivalent to <a href="
 <div class="row give-margin-inline-plot">
 <div class="col"><img src="jupyter_images/embedding_matrix_input.png" style="height: 300px;"></div>
 <div class="col-12"><p class="image-description">Figure 7: Word-embedding matrix, $W_{input}$</p></div>
-</div><p>The words of our interest are <em>"passes"</em> and <em>"swing"</em>. <em>"passes"</em> has a word vector of $[0.1 \quad 0.2 \quad 0.7]$ and <em>"swing"</em> has $[-2 \quad 0.2 \quad 0.8]$. Since we set the size of the weight matrix to be <code>size=3</code>, the matrix is three-dimensional, and can be visualized in a 3D vector space:</p>
+</div><p>The words of our interest are <em>"passes"</em> and <em>"should"</em>. <em>"passes"</em> has a word vector of $[0.1 \quad 0.2 \quad 0.7]$ and <em>"should"</em> has $[-2 \quad 0.2 \quad 0.8]$. Since we set the size of the weight matrix to be <code>size=3</code>, the matrix is three-dimensional, and can be visualized in a 3D vector space:</p>
 <div class="row give-margin full_screen_margin">
 <div class="col"><img src="jupyter_images/word2vec_3d.png" style="height: 300px;"></div>
 <div class="col-12"><p class="image-description">Figure 8: 3D visualization of word vectors in embedding matrix</p></div>
 </div><p>Optimizing the embedding (weight) matrices ($\theta$) results in representing words in a high quality vector space, and the model will be able to capture meaningful relationships among words.</p>
+<div id="theta_in_cost"></div>
 <div class="alert alert-info">
 <h4>Notes: $\theta$ in cost function</h4>
 <p>There are two weight matrices that need to be optimized in Skip-Gram model: $W_{input}$ and $W_{output}$. Often times in neural net, the weights are expressed as $\theta$. In Skip-Gram, $\theta$ is a concatenation of input and output weight matrices — $[W_{input} \quad W_{output}]$.</p>
-<div id="eq-2-5">$$ \theta = [W_{input} \quad W_{output}] = \left[ \begin{array}{l} u_{the} \\ u_{passes} \\ \vdots \\ u_{who} \\  v_{the} \\ v_{passes} \\ \vdots \\ v_{who} \end{array} \right] \in \mathbb{R}^{2NV} \tag{2.5}$$</div>
+<div id="eq-2-5">$$ \theta = [W_{input} \quad W_{output}] = \left[ \begin{array}{l} u_{the} \\ u_{passes} \\ \vdots \\ u_{who} \\  v_{the} \\ v_{passes} \\ \vdots \\ v_{who} \end{array} \right] \in \mathbb{R}^{2NV}$$</div>
 <p>$\theta$ has a size of $2V \times N$, where $V$ is the number of unique vocab in a corpus, and $N$ is the dimension of word vectors in the embedding matrices. $2$ is multipled to $V$ because there are two weight matrices, $W_{input}$ and $W_{output}$. $u$ is a word vector from $W_{input}$ and $v$ is a word vector from $W_{output}$. Each word vectors are $N$-dim row vectors from input and output embedding matrices.</p>
 </div>
 </div>
@@ -1690,17 +1691,17 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$</div><p>This is equivalent to <a href="
 <div class="col"><img src="jupyter_images/skip-gram_lookup.png"></div>
 <div class="col-12"><p class="image-description">Figure 9: Computing projection layer</p></div>
 </div><p>$h$ is obtained by multiplying the input word embedding matrix with the $V$-dim input vector.</p>
-<div style="font-size: 1rem;">$$h = W_{input}^T \cdot x  \in \mathbb{R}^{N} \tag{2.5}$$</div>
+<div style="font-size: 1rem;">$$h = W_{input}^T \cdot x  \in \mathbb{R}^{N} \tag{11}$$</div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Softmax-Output-Layer-($y_{pred}$)">Softmax Output Layer ($y_{pred}$)<a class="anchor-link" href="#Softmax-Output-Layer-($y_{pred}$)">¶</a></h3><p>The output layer is a $V$-dim probability distribution of all unique words in the corpus, given a center word. In statistics, the conditional probability of $A$ given $B$ is denoted as $p(A|B)$. In Skip-Gram, we use the notation, $p(w_{context}| w_{center})$, to denote the conditional probability of observing a context word given a center word. It is obtained by using the softmax function,</p>
-<div style="font-size: 1rem;">$$ p(w_{context}|w_{center}) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{1} \tag{2.5} $$</div><p>where $W_{output_{(i)}}$ is the $i$-th row vector of size $1 \times N$ from the output embedding matrix, $W_{output_{context}}$ is also a row vector of size $1 \times N$ from the output embedding matrix corresponding to the context word. $V$ is the size of unique vocab in the corpus, and $h$ is the hidden (projection) layer of size ($N \times 1$). The output is an $1 \times 1$ scalar value of probability of range $[0, 1]$.</p>
+<div id="output_layer"></div><h3 id="Softmax-Output-Layer-($y_{pred}$)">Softmax Output Layer ($y_{pred}$)<a class="anchor-link" href="#Softmax-Output-Layer-($y_{pred}$)">¶</a></h3><p>The output layer is a $V$-dim probability distribution of all unique words in the corpus, given a center word. In statistics, the conditional probability of $A$ given $B$ is denoted as $p(A|B)$. In Skip-Gram, we use the notation, $p(w_{context}| w_{center})$, to denote the conditional probability of observing a context word given a center word. It is obtained by using the softmax function,</p>
+<div style="font-size: 1rem;">$$ p(w_{context}|w_{center}) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{1} \tag{12} $$</div><p>where $W_{output_{(i)}}$ is the $i$-th row vector of size $1 \times N$ from the output embedding matrix, $W_{output_{context}}$ is also a row vector of size $1 \times N$ from the output embedding matrix corresponding to the context word. $V$ is the size of unique vocab in the corpus, and $h$ is the hidden (projection) layer of size ($N \times 1$). The output is an $1 \times 1$ scalar value of probability of range $[0, 1]$.</p>
 <p>This probability is computed $V$ times to obtain a conditional probability distribution of observing each unique vocabs in the corpus, given a center word.</p>
-<div style="font-size: 1rem;">$$ \left[ \begin{array}{c} p(w_{1}|w_{center}) \\ p(w_{2}|w_{center}) \\ p(w_{3}|w_{center}) \\ \vdots \\ p(w_{V}|w_{center}) \end{array} \right] = \frac{exp(W_{output} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{V}\tag{2.5} $$</div><p>$W_{output}$ in the denominator of eq 3333 has size $V \times N$. Multiplying $W_{output}$ with $h$ of size $N \times 1$ will yield a dot product vector of size $V \times 1$. This dot product vector goes through the softmax function:</p>
+<div style="font-size: 1rem;">$$ \left[ \begin{array}{c} p(w_{1}|w_{center}) \\ p(w_{2}|w_{center}) \\ p(w_{3}|w_{center}) \\ \vdots \\ p(w_{V}|w_{center}) \end{array} \right] = \frac{exp(W_{output} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{V}\tag{13} $$</div><p>$W_{output}$ in the denominator of eq 3333 has size $V \times N$. Multiplying $W_{output}$ with $h$ of size $N \times 1$ will yield a dot product vector of size $V \times 1$. This dot product vector goes through the softmax function:</p>
 <div class="row give-margin full_screen_margin">
 <div class="col"><img src="jupyter_images/softmax_function.png" style="height: 300px;"></div>
 <div class="col-12"><p class="image-description">Figure 10: softmax function transformation</p></div>
@@ -1719,7 +1720,37 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$</div><p>This is equivalent to <a href="
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Training:-Backward-Propagation">Training: Backward Propagation<a class="anchor-link" href="#Training:-Backward-Propagation">¶</a></h2><div style="display: none">Once the predictions were made during the forward pass, the model can now calculate the prediction error and learn to optimize the weight matrices ($W_{input}$, $W_{output}$) in a way that minimizes the error.</div><p>coming soon...</p>
+<h2 id="Training:-Backward-Propagation">Training: Backward Propagation<a class="anchor-link" href="#Training:-Backward-Propagation">¶</a></h2><p>Backward propagation involves computing prediction errors, and updating the weight matrix ($\theta$) to optimize vector representation of words. Assuming <a href="#stochastic">stochastic gradient descent</a>, we have the following general update equations for the weight matrix ($\theta$):</p>
+<div style="font-size: 1rem;">$$ \theta_{new}=\theta_{old}-\eta\cdot\nabla_{J_{t}(\theta;w^{(t)}}) \tag{14} $$</div><p>$\eta$ is learning rate, $\nabla_{J_{t}(\theta;w^{(t)})}$ is gradient for the weight matrix, and $J_{t}(\theta;w^{(t)})$ is the cost function defined in <a href="#eq-6">eq (6)</a>. Since the $\theta$ is a concatenation of input and output weight matrices ($[W_{input} \quad W_{output}]$) as described <a href="#theta_in_cost">above</a>, there are two update equations for each embedding matrix:</p>
+<div id="eq-15" style="font-size: 1rem;">$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot \frac{\partial J_{t}}{\partial W_{input}} \tag{15} $$</div>
+<div id="eq-16" style="font-size: 1rem;">$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot \frac{\partial J_{t}}{\partial W_{output}} \tag{16} $$</div><p>Mathematically, it can be shown that the gradients of $W_{input}$ $W_{output}$ have the following forms:</p>
+<div style="font-size: 1rem;">$$ \frac{\partial J_{t}}{\partial W_{input}}  = x \cdot (W_{output}^T \sum^C_{c=1} e_c) \tag{17}$$</div>
+<div style="font-size: 1rem;">$$ \frac{\partial J_{t}}{\partial W_{output}} = (W_{input}^T x) \cdot \sum^C_{c=1} e_c \tag{18}$$</div><p>The gradients can be substitued into <a href="#eq-15">eq (15)</a> and <a href="#eq-16">eq (16)</a>:</p>
+<div id="eq-19" style="font-size: 1rem;">$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot x \cdot (W_{output}^T \sum^C_{c=1} e_c)  \tag{19} $$</div>
+<div id="eq-20" style="font-size: 1rem;">$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot (W_{input}^T x) \cdot \sum^C_{c=1} e_c \tag{20} $$</div><p>$W_{input}$ is <a href="#weight_matrix">input weight matrix</a>, $W_{output}$ is <a href="#weight_matrix">output weight matrix</a>, $x$ is one-hot encoded <a href="#input_layer">input layer</a>, $C$ is <a href="#window_size">window size</a>, and $e_{c}$ is <a href="#predict_error">prediction error</a> for $c$-th context word in the window. Note that $W_{input}^T x$ is equivalent to hidden layer ($h$).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="predict_error"></div><h3 id="Prediction-Error-($y_{pred}---y_{true}$)">Prediction Error ($y_{pred} - y_{true}$)<a class="anchor-link" href="#Prediction-Error-($y_{pred}---y_{true}$)">¶</a></h3><p>Skip-Gram model optimizes the weight matrix ($\theta$) to reduce the prediction error. Prediction error is the difference between the probability distribution of words computed from the <a href="#output_layer">softmax output layer</a> ($y_{pred}$) and the true probability distribution ($y_{true}$) of the $c$-th context word. Just like the input layer, $y_{true}$ is one-hot encoded vector, in which only one element in the vector that corresponds to the $c$-th context word is $1$, and the rest is all $0$.</p>
+<div class="row give-margin-inline-plot">
+<div class="col"><img src="jupyter_images/error_window.png" style="height: 400px;"></div>
+<div class="col-12"><p class="image-description">Figure 11: Prediction error window</p></div>
+</div><p>The figure has a window size of $2$, so two prediction errors were computed. Recall from the above notes about the <a href="#window_size">window size</a> that the original softmax regression classifier (<a href="#eq-9">eq (9)</a>) has $K$ labels to classify, in which $K = V$ in NLP applications because there are $V$ words to classify. Employing window size transforms <a href="#eq-9">eq (9)</a> into <a href="#eq-10">eq (10)</a> and significantly reduces the algorithm complexity because the model only needs to compute prediction errors for $[1, 10]$ neighboring words, instead of computing all $V$-prediction errors for all vocabs that can be millions or more.</p>
+<p>Then, prediction errors for all $C$ context words are summed up to compute weight gradients for to the update weight matrices.</p>
+<div class="row give-margin full_screen_margin">
+<div class="col"><img src="jupyter_images/prediction_error_sum.png" style="height: 230px;"></div>
+<div class="col-12"><p class="image-description">Figure 12: Sum of prediction erros</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Numerical-Demonstration">Numerical Demonstration<a class="anchor-link" href="#Numerical-Demonstration">¶</a></h3><div style="display: none">For the ease of illustration, screenshots from Excel will be used to demonstrate the concept of updating weight matrices through forward and backward propagations. </div><p>Coming soon...</p>
 </div>
 </div>
 </div>
