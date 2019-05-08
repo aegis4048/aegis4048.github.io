@@ -1308,7 +1308,7 @@ h6:hover .anchor-link {
 &lt;div class="row give-margin-inline-big-plot" id="fig1"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/countpredictresults2.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Performance comparison of models (&lt;a href="http://www.marekrei.com/blog/dont-count-predict/"&gt;source&lt;/a&gt;)&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;The blue bars represent the count-based models, and the red bars are for prediction-based models. The full summary of the paper and more detailed description about the result graph can be found &lt;a href="http://www.marekrei.com/blog/dont-count-predict/"&gt;here&lt;/a&gt;. Long story short, prediction-based models outperformed count-based models by a large margin on various language tasks.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;The blue bars represent the count-based models, and the red bars are for prediction-based models. The full summary of the paper and more detailed description about the result graph can be found &lt;a href="http://www.marekrei.com/blog/dont-count-predict/"&gt;here&lt;/a&gt;. Long story short, &lt;strong&gt;prediction-based models outperformed count-based models&lt;/strong&gt; by a large margin on various language tasks.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2659,7 +2659,7 @@ h6:hover .anchor-link {
 &lt;div class="row give-margin-inline-big-plot" id="fig1"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/countpredictresults2.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Performance comparison of models (&lt;a href="http://www.marekrei.com/blog/dont-count-predict/"&gt;source&lt;/a&gt;)&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;The blue bars represent the count-based models, and the red bars are for prediction-based models. The full summary of the paper and more detailed description about the result graph can be found &lt;a href="http://www.marekrei.com/blog/dont-count-predict/"&gt;here&lt;/a&gt;. Long story short, prediction-based models outperformed count-based models by a large margin on various language tasks.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;The blue bars represent the count-based models, and the red bars are for prediction-based models. The full summary of the paper and more detailed description about the result graph can be found &lt;a href="http://www.marekrei.com/blog/dont-count-predict/"&gt;here&lt;/a&gt;. Long story short, &lt;strong&gt;prediction-based models outperformed count-based models&lt;/strong&gt; by a large margin on various language tasks.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2674,8 +2674,8 @@ h6:hover .anchor-link {
 &lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: CBOW and Skip-Gram&lt;/h4&gt;
 &lt;p&gt;There are two models for Word2Vec: &lt;i&gt;Continous Bag Of Words (CBOW)&lt;/i&gt; and &lt;i&gt;Skip-Gram&lt;/i&gt;. While Skip-Gram model predicts context words given a center word, CBOW model predicts a center word given context words. According to Mikolov:&lt;/p&gt;
-&lt;p&gt;&lt;i&gt;Skip-gram&lt;/i&gt;: works well with small amount of the training data, represents well even rare words or phrases&lt;/p&gt;
-&lt;p&gt;&lt;i&gt;CBOW&lt;/i&gt;: several times faster to train than the skip-gram, slightly better accuracy for the frequent words&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;Skip-gram&lt;/u&gt;: works well with small amount of the training data, represents well even rare words or phrases&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;CBOW&lt;/u&gt;: several times faster to train than the skip-gram, slightly better accuracy for the frequent words&lt;/p&gt;
 &lt;p&gt;Skip-Gram model is a better choice most of the time due to its ability to predict infrequent words, but this comes at the price of increased computational cost. If training time is a big concern, and you have large enough data to overcome the issue of predicting infrequent words, CBOW model may be a more viable choice. The details of CBOW model won't be covered in this post.&lt;/p&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Why predict context words?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;A natural question is, why do we predict context words? One must understand that the ultimate goal of Skip-Gram model is not to predict context words, but to learn intelligent vector representation of words. It just happens that predicting context words inevitably results in good vector representations of words, because of the neural network structure of Skip-Gram. Neural network at its essence is just optimizing weight marices ($\theta$) to correctly predict output. In Word2Vec Skip-Gram, the weight matrices are, in fact, the vector representations of words. Therefore, optimizing weight matrix = good vector representations of words. This is described in detail &lt;a href="#weight_matrix"&gt;below&lt;/a&gt;.&lt;/p&gt;
@@ -2740,7 +2740,7 @@ $$
 J(\theta; w^{(t)}) = - \sum_{c=1}^{C}(W_{output_{(c)}} \cdot h) + C \cdot log \sum^V_{i=1}exp(W_{output_{(i)}} \cdot h) \tag{6}
 $$
 &lt;/div&gt;&lt;p&gt;Different paper uses different notations for the cost function. To stick to the notation used in the &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;Word2Vec original paper&lt;/a&gt;, some of the notations in &lt;a href="#eq-6"&gt;eq (6)&lt;/a&gt; can be changed. However, they are all equivalent:&lt;/p&gt;
-&lt;div id="eq-7" style="font-size: 1rem;"&gt;$$J_{t}(\theta;w^{(t)}) = -\sum_{-m\leq j \leq m} \log p(w_{t+j} \mid w_t ; \theta) \tag{7}$$&lt;/div&gt;&lt;p&gt;It should be noted that &lt;a href="#eq-6"&gt;eq (6)&lt;/a&gt; and &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; are equivalent, and that both assume &lt;strong&gt;stochastic gradient descent&lt;/strong&gt;, which means that for each training sample ($w^{(t)}$) in the corpus of size ($T$), one update is made to the weight matrix ($\theta$). The cost function expressed in the paper shows &lt;strong&gt;batch gradient descent&lt;/strong&gt; &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt;, which means that only one update is made for all $T$ training samples:&lt;/p&gt;
+&lt;div id="eq-7" style="font-size: 1rem;"&gt;$$J_{t}(\theta;w^{(t)}) = -\sum_{-m\leq j \leq m} \log p(w_{t+j} \mid w_t ; \theta) \tag{7}$$&lt;/div&gt;&lt;p&gt;Note that &lt;a href="#eq-6"&gt;eq (6)&lt;/a&gt; and &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; are equivalent. They both assume &lt;strong&gt;stochastic gradient descent&lt;/strong&gt;, which means that for each training sample ($w^{(t)}$) in the corpus of size ($T$), one update is made to the weight matrix ($\theta$). The cost function expressed in the paper shows &lt;strong&gt;batch gradient descent&lt;/strong&gt; &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt;, which means that only one update is made for all $T$ training samples:&lt;/p&gt;
 &lt;div id="eq-8" style="font-size: 1rem;"&gt;$$J(\theta) = -\frac{1}{T} \sum^T_{t=1} \sum_{-m\leq j \leq m} \log p(w_{t+j} \mid w_t ; \theta) \tag{8}$$&lt;/div&gt;&lt;p&gt;However, in Word2Vec, batch gradient descent is almost never used due to its high computational cost. The author of the paper stated that he used stochastic gradient descent for training. Read the below &lt;a href="#stochastic"&gt;notes&lt;/a&gt; for more information about stochastic gradient descent.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2781,7 +2781,7 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;blockquote class="quote"&gt;
   The man who passes the sentence should swing the sword.
   &lt;span&gt;- Ned Stark&lt;/span&gt;
-&lt;/blockquote&gt;&lt;p&gt;We will use &lt;code&gt;window=1&lt;/code&gt;, and assume that &lt;i&gt;'passes'&lt;/i&gt; is the current center word, making &lt;i&gt;'who'&lt;/i&gt; and &lt;i&gt;'the'&lt;/i&gt; context words. &lt;code&gt;window&lt;/code&gt; is a hyper-parameter that can be empirically tuned. It typically has a range of $[1, 10]$.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;div id="window_id"&gt;&lt;/div&gt;&lt;p&gt;We will use &lt;code&gt;window=1&lt;/code&gt;, and assume that &lt;i&gt;'passes'&lt;/i&gt; is the current center word, making &lt;i&gt;'who'&lt;/i&gt; and &lt;i&gt;'the'&lt;/i&gt; context words. &lt;code&gt;window&lt;/code&gt; is a hyper-parameter that can be empirically tuned. It typically has a range of $[1, 10]$.&lt;/p&gt;
 &lt;div class="row give-margin-inline-big-plot" id="fig4"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/quote_ned_stark.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 4: Training Window&lt;/p&gt;&lt;/div&gt;
@@ -2811,7 +2811,7 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div id="input_layer"&gt;&lt;/div&gt;&lt;h3 id="Input-Layer-($x$)"&gt;Input Layer ($x$)&lt;a class="anchor-link" href="#Input-Layer-($x$)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The input layer is a $V$-dim one-hot encoded vector. Every element in the vector is 0 except one element that corresponds to the center (input) word. Input vector is multiplied with the input weight matrix ($W_{input}$) of size $V \times N$, and yields a hidden (projection) layer ($h$) of $N$-dim vector. Because the input layer is one-hot encoded, it makes the input weight matrix ($W_{input}$) to behave like a &lt;em&gt;look-up table&lt;/em&gt; for the center word. Assuming epoch number of 1 (&lt;code&gt;iter=1&lt;/code&gt; in &lt;em&gt;gensim&lt;/em&gt; Word2Vec implementation) and stochastic gradient descent, the input vector is injected into the network $T$ times for every word in the corpus and makes $T$ updates to the weight matrix ($\theta$) to learn from the training samples.&lt;/p&gt;
+&lt;div id="input_layer"&gt;&lt;/div&gt;&lt;h3 id="Input-Layer-($x$)"&gt;Input Layer ($x$)&lt;a class="anchor-link" href="#Input-Layer-($x$)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The input layer is a $V$-dim one-hot encoded vector. Every element in the vector is 0 except one element that corresponds to the center (input) word. Input vector is multiplied with the input weight matrix ($W_{input}$) of size $V \times N$, and yields a hidden (projection) layer ($h$) of $N$-dim vector. Because the input layer is one-hot encoded, it makes the input weight matrix ($W_{input}$) to behave like a &lt;em&gt;look-up table&lt;/em&gt; for the center word. Assuming epoch number of 1 (&lt;code&gt;iter=1&lt;/code&gt; in &lt;em&gt;gensim&lt;/em&gt; Word2Vec implementation) and stochastic gradient descent, the input vector is injected into the network $T$ times for every word in the corpus and makes $T$ updates to the weight matrix ($\theta$) to learn from the training samples. Derivation of the stochasitc update equations are explained &lt;a href="#backward"&gt;below&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="row give-margin-inline-big-plot"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/one-hot-vector.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 6: One-hot encoded input vector and parameter update&lt;/p&gt;&lt;/div&gt;
@@ -2862,7 +2862,7 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="col"&gt;&lt;img src="jupyter_images/skip-gram_lookup.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 9: Computing projection layer&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;$h$ is obtained by multiplying the input word embedding matrix with the $V$-dim input vector.&lt;/p&gt;
-&lt;div style="font-size: 1rem;"&gt;$$h = W_{input}^T \cdot x  \in \mathbb{R}^{N} \tag{11}$$&lt;/div&gt;
+&lt;div id="eq-11" style="font-size: 1rem;"&gt;$$h = W_{input}^T \cdot x  \in \mathbb{R}^{N} \tag{11}$$&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2872,7 +2872,7 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div id="output_layer"&gt;&lt;/div&gt;&lt;h3 id="Softmax-Output-Layer-($y_{pred}$)"&gt;Softmax Output Layer ($y_{pred}$)&lt;a class="anchor-link" href="#Softmax-Output-Layer-($y_{pred}$)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The output layer is a $V$-dim probability distribution of all unique words in the corpus, given a center word. In statistics, the conditional probability of $A$ given $B$ is denoted as $p(A|B)$. In Skip-Gram, we use the notation, $p(w_{context}| w_{center})$, to denote the conditional probability of observing a context word given a center word. It is obtained by using the softmax function,&lt;/p&gt;
 &lt;div style="font-size: 1rem;"&gt;$$ p(w_{context}|w_{center}) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{1} \tag{12} $$&lt;/div&gt;&lt;p&gt;where $W_{output_{(i)}}$ is the $i$-th row vector of size $1 \times N$ from the output embedding matrix, $W_{output_{context}}$ is also a row vector of size $1 \times N$ from the output embedding matrix corresponding to the context word. $V$ is the size of unique vocab in the corpus, and $h$ is the hidden (projection) layer of size ($N \times 1$). The output is an $1 \times 1$ scalar value of probability of range $[0, 1]$.&lt;/p&gt;
 &lt;p&gt;This probability is computed $V$ times to obtain a conditional probability distribution of observing each unique vocabs in the corpus, given a center word.&lt;/p&gt;
-&lt;div style="font-size: 1rem;"&gt;$$ \left[ \begin{array}{c} p(w_{1}|w_{center}) \\ p(w_{2}|w_{center}) \\ p(w_{3}|w_{center}) \\ \vdots \\ p(w_{V}|w_{center}) \end{array} \right] = \frac{exp(W_{output} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{V}\tag{13} $$&lt;/div&gt;&lt;p&gt;$W_{output}$ in the denominator of eq 3333 has size $V \times N$. Multiplying $W_{output}$ with $h$ of size $N \times 1$ will yield a dot product vector of size $V \times 1$. This dot product vector goes through the softmax function:&lt;/p&gt;
+&lt;div id="eq-13" style="font-size: 1rem;"&gt;$$ \left[ \begin{array}{c} p(w_{1}|w_{center}) \\ p(w_{2}|w_{center}) \\ p(w_{3}|w_{center}) \\ \vdots \\ p(w_{V}|w_{center}) \end{array} \right] = \frac{exp(W_{output} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{V}\tag{13} $$&lt;/div&gt;&lt;p&gt;$W_{output}$ in the denominator of eq 13 has size $V \times N$. Multiplying $W_{output}$ with $h$ of size $N \times 1$ will yield a dot product vector of size $V \times 1$. This dot product vector goes through the softmax function:&lt;/p&gt;
 &lt;div class="row give-margin full_screen_margin"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/softmax_function.png" style="height: 300px;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 10: softmax function transformation&lt;/p&gt;&lt;/div&gt;
@@ -2891,12 +2891,12 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Training:-Backward-Propagation"&gt;Training: Backward Propagation&lt;a class="anchor-link" href="#Training:-Backward-Propagation"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Backward propagation involves computing prediction errors, and updating the weight matrix ($\theta$) to optimize vector representation of words. Assuming &lt;a href="#stochastic"&gt;stochastic gradient descent&lt;/a&gt;, we have the following general update equations for the weight matrix ($\theta$):&lt;/p&gt;
+&lt;div id="backward"&gt;&lt;/div&gt;&lt;h2 id="Training:-Backward-Propagation"&gt;Training: Backward Propagation&lt;a class="anchor-link" href="#Training:-Backward-Propagation"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Backward propagation involves computing prediction errors, and updating the weight matrix ($\theta$) to optimize vector representation of words. Assuming &lt;a href="#stochastic"&gt;stochastic gradient descent&lt;/a&gt;, we have the following general update equations for the weight matrix ($\theta$):&lt;/p&gt;
 &lt;div style="font-size: 1rem;"&gt;$$ \theta_{new}=\theta_{old}-\eta\cdot\nabla_{J_{t}(\theta;w^{(t)}}) \tag{14} $$&lt;/div&gt;&lt;p&gt;$\eta$ is learning rate, $\nabla_{J_{t}(\theta;w^{(t)})}$ is gradient for the weight matrix, and $J_{t}(\theta;w^{(t)})$ is the cost function defined in &lt;a href="#eq-6"&gt;eq (6)&lt;/a&gt;. Since the $\theta$ is a concatenation of input and output weight matrices ($[W_{input} \quad W_{output}]$) as described &lt;a href="#theta_in_cost"&gt;above&lt;/a&gt;, there are two update equations for each embedding matrix:&lt;/p&gt;
 &lt;div id="eq-15" style="font-size: 1rem;"&gt;$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot \frac{\partial J_{t}}{\partial W_{input}} \tag{15} $$&lt;/div&gt;
 &lt;div id="eq-16" style="font-size: 1rem;"&gt;$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot \frac{\partial J_{t}}{\partial W_{output}} \tag{16} $$&lt;/div&gt;&lt;p&gt;Mathematically, it can be shown that the gradients of $W_{input}$ $W_{output}$ have the following forms:&lt;/p&gt;
-&lt;div style="font-size: 1rem;"&gt;$$ \frac{\partial J_{t}}{\partial W_{input}}  = x \cdot (W_{output}^T \sum^C_{c=1} e_c) \tag{17}$$&lt;/div&gt;
-&lt;div style="font-size: 1rem;"&gt;$$ \frac{\partial J_{t}}{\partial W_{output}} = (W_{input}^T x) \cdot \sum^C_{c=1} e_c \tag{18}$$&lt;/div&gt;&lt;p&gt;The gradients can be substitued into &lt;a href="#eq-15"&gt;eq (15)&lt;/a&gt; and &lt;a href="#eq-16"&gt;eq (16)&lt;/a&gt;:&lt;/p&gt;
+&lt;div id="eq-17" style="font-size: 1rem;"&gt;$$ \frac{\partial J_{t}}{\partial W_{input}}  = x \cdot (W_{output}^T \sum^C_{c=1} e_c) \tag{17}$$&lt;/div&gt;
+&lt;div id="eq-18" style="font-size: 1rem;"&gt;$$ \frac{\partial J_{t}}{\partial W_{output}} = (W_{input}^T x) \cdot \sum^C_{c=1} e_c \tag{18}$$&lt;/div&gt;&lt;p&gt;The gradients can be substitued into &lt;a href="#eq-15"&gt;eq (15)&lt;/a&gt; and &lt;a href="#eq-16"&gt;eq (16)&lt;/a&gt;:&lt;/p&gt;
 &lt;div id="eq-19" style="font-size: 1rem;"&gt;$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot x \cdot (W_{output}^T \sum^C_{c=1} e_c)  \tag{19} $$&lt;/div&gt;
 &lt;div id="eq-20" style="font-size: 1rem;"&gt;$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot (W_{input}^T x) \cdot \sum^C_{c=1} e_c \tag{20} $$&lt;/div&gt;&lt;p&gt;$W_{input}$ is &lt;a href="#weight_matrix"&gt;input weight matrix&lt;/a&gt;, $W_{output}$ is &lt;a href="#weight_matrix"&gt;output weight matrix&lt;/a&gt;, $x$ is one-hot encoded &lt;a href="#input_layer"&gt;input layer&lt;/a&gt;, $C$ is &lt;a href="#window_size"&gt;window size&lt;/a&gt;, and $e_{c}$ is &lt;a href="#predict_error"&gt;prediction error&lt;/a&gt; for $c$-th context word in the window. Note that $W_{input}^T x$ is equivalent to hidden layer ($h$).&lt;/p&gt;
 &lt;/div&gt;
@@ -2910,10 +2910,10 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="col"&gt;&lt;img src="jupyter_images/error_window.png" style="height: 400px;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 11: Prediction error window&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;The figure has a window size of $2$, so two prediction errors were computed. Recall from the above notes about the &lt;a href="#window_size"&gt;window size&lt;/a&gt; that the original softmax regression classifier (&lt;a href="#eq-9"&gt;eq (9)&lt;/a&gt;) has $K$ labels to classify, in which $K = V$ in NLP applications because there are $V$ words to classify. Employing window size transforms &lt;a href="#eq-9"&gt;eq (9)&lt;/a&gt; into &lt;a href="#eq-10"&gt;eq (10)&lt;/a&gt; and significantly reduces the algorithm complexity because the model only needs to compute prediction errors for $[1, 10]$ neighboring words, instead of computing all $V$-prediction errors for all vocabs that can be millions or more.&lt;/p&gt;
-&lt;p&gt;Then, prediction errors for all $C$ context words are summed up to compute weight gradients for to the update weight matrices.&lt;/p&gt;
+&lt;p&gt;Then, prediction errors for all $C$ context words are summed up to compute weight gradients to the update weight matrices.&lt;/p&gt;
 &lt;div class="row give-margin full_screen_margin"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/prediction_error_sum.png" style="height: 230px;"&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 12: Sum of prediction erros&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 12: Sum of prediction errors&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2921,7 +2921,41 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Numerical-Demonstration"&gt;Numerical Demonstration&lt;a class="anchor-link" href="#Numerical-Demonstration"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;div style="display: none"&gt;For the ease of illustration, screenshots from Excel will be used to demonstrate the concept of updating weight matrices through forward and backward propagations. &lt;/div&gt;&lt;p&gt;Coming soon...&lt;/p&gt;
+&lt;h2 id="Numerical-Demonstration"&gt;Numerical Demonstration&lt;a class="anchor-link" href="#Numerical-Demonstration"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For the ease of illustration, screenshots from Excel will be used to demonstrate the concept of updating weight matrices through forward and backward propagations.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Forward Propagation: Computing hiden (projection) layer&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Center word is &lt;em&gt;"passes"&lt;/em&gt;. Window size is &lt;code&gt;size=1&lt;/code&gt;, making &lt;em&gt;"the"&lt;/em&gt; and &lt;em&gt;"who"&lt;/em&gt; context words. Hidden layer ($h$) is &lt;i&gt;looked up&lt;/i&gt; from the input weight matrix. It is computed with &lt;a href="#eq-11"&gt;eq (11)&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="row"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/forward_1.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 13: Computing hidden (projection) layer&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Forward Propagation: Softmax output layer&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Output layer is a probability distribution of all words, given a center word. It is computed with &lt;a href="#eq-13"&gt;eq (13)&lt;/a&gt;. Note that all context windows share the same output layer ($y_{pred}$). Only the errors ($e_c$) are different.&lt;/p&gt;
+&lt;div class="row"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/forward_2.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 14: Softmax output layer&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Sum of Prediction Errors&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$C$ different prediction errors are computed, then summed up. In this case, since we set &lt;code&gt;window=1&lt;/code&gt; &lt;a href="#window_id"&gt;above&lt;/a&gt;, only two errors are computed.&lt;/p&gt;
+&lt;div class="row"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/backward_1.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 15: Prediction errors of context words&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Computing $\nabla W_{input}$&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Gradients of input weight matrix ($\frac{\partial J_{t}}{\partial W_{input}}$) are computed using &lt;a href="#eq-17"&gt;eq (17)&lt;/a&gt;. Note that multiplying $W_{output}^T \sum^C_{c=1} e_c$ with the one-hot-encoded input vector ($x$) makes the neural net to update only one word vector that corresponds to the input (center) word.&lt;/p&gt;
+&lt;div class="row"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/backward_2.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 16: Prediction errors of context words&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Computing $\nabla W_{output}$&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Gradients of output weight matrix ($\frac{\partial J_{t}}{\partial W_{output}}$) are computed using &lt;a href="#eq-18"&gt;eq (18)&lt;/a&gt;. Unlike the input weight matrix ($W_{input}$), all word vectors in the output weight matrix ($W_{output}$) are updated.&lt;/p&gt;
+&lt;div class="row"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/backward_3.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 17: Prediction errors of context words&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Updating Weight matrices&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Input and output weight matrices ($[W_{input} \quad W_{output}]$) are updated using &lt;a href="#eq-19"&gt;eq (19)&lt;/a&gt; and &lt;a href="#eq-20"&gt;eq (20)&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="row"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/backward_4.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 18: Updating $W_{input}$&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div class="row"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/backward_5.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 19: Updating $W_{output}$&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Note that for each iteration in the learning process, all weights in $W_{output}$ are updated, but only one row vector that corresponds to the center word is updated in $W_{input}$. When the model finishes updating both of the weight matrices, then one iteration is completed. The model then moves to the next iteration with the next center word. However, remember that this uses &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; as the cost function and assumes &lt;a href="#stochastic"&gt;stochastic gradient descent&lt;/a&gt;. This means that one update is made for each training example. If &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt; is used as a cost function instead (which is almost never the case), then one update is made for all $T$ training examples in the corpus.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -7094,10 +7128,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="acc67b6a-29fb-4f89-a17a-f4c2080dbff5"&gt;&lt;/div&gt;
+&lt;div id="62e7a51c-a2a7-4458-9863-e8464f458fb0"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#acc67b6a-29fb-4f89-a17a-f4c2080dbff5');
+var element = $('#62e7a51c-a2a7-4458-9863-e8464f458fb0');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 

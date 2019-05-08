@@ -1886,8 +1886,8 @@ ol.rounded-list,
         height: 380px !important;
 	}
 	.index-post-card-large .index-post-card-image-link {
-        padding-left:20px;
         margin: 40px 0px;
+        margin-left: 20px;
 		position: relative;
 		-ms-flex: 1 1 auto;
 		flex: 1 1 auto;
