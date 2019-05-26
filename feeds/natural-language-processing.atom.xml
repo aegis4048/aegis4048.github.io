@@ -5496,8 +5496,8 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 &lt;p&gt;Due to this computational inefficiency, &lt;b&gt;softmax is not used in most implementaions of Skip-Gram&lt;/b&gt;. Instead we use an alternative called negative sampling with sigmoid function, which rephrases the problem into a set of independent binary classification task of algorithm complexity = $O(K+1)$, where $K$ typically has a range of $[5,20]$. Then, the new probability distribution is defined as:&lt;/p&gt;
 &lt;p&gt;&lt;div style="font-size: 1rem; margin-top: 20px;"&gt;$$ P = \frac{1}{1+exp(-(\{c_{pos}\} \cup W_{neg}) \cdot h)}
 \in \mathbb{R}^{K+1}\tag{7}$$&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;$K=20$ is used for small samples, and $K=5$ is used for big samples. Negative sampling is much cheaper than vanilla Skip-Gram with softmax, because $K$ is between 5 ~ 20, whereas $V$ can be millions. Moreover, no extra iterations are necessary to compute the normalization factor in the denominator, because sigmoid function is a binary regression classifier. The algorithm complexity of the probability distribution of vanilla Skip-Gram is $O(V)$, whereas negative sampling's is $O(K+1)$. This shows why negative sampling saves a significant amount of computational cost per iteration.&lt;/p&gt;
-&lt;p&gt;In &lt;i&gt;gensim&lt;/i&gt;, negative sampling is applied by default with &lt;code&gt;Word2Vec(negative=5, ns_exponent=0.75)&lt;/code&gt;, where &lt;code&gt;negative&lt;/code&gt; is the number of $K$-negative samples, and &lt;code&gt;ns_exponent&lt;/code&gt; is a hyperparameter related to negative sampling, of range $(0, 1)$. The details of the methodology behind negative sampling deserves another fully devoted post, and as such, covered in a &lt;a href="https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling/" target="_blank"&gt;different post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;$K=20$ is used for small corpus, and $K=5$ is used for big corpus. Negative sampling is much cheaper than vanilla Skip-Gram with softmax, because $K$ is between 5 ~ 20, whereas $V$ can be millions. Moreover, no extra iterations are necessary to compute the normalization factor in the denominator, because sigmoid function is a binary regression classifier. The algorithm complexity of the probability distribution of vanilla Skip-Gram is $O(V)$, whereas negative sampling's is $O(K+1)$. This shows why negative sampling saves a significant amount of computational cost per iteration.&lt;/p&gt;
+&lt;p&gt;In &lt;i&gt;gensim&lt;/i&gt;, negative sampling is applied by default with &lt;code&gt;Word2Vec(negative=5, ns_exponent=0.75)&lt;/code&gt;, where &lt;code&gt;negative&lt;/code&gt; is the number of $K$-negative samples, and &lt;code&gt;ns_exponent&lt;/code&gt; is a hyperparameter related to negative sampling, of range $(0, 1)$. The details of the methodology behind negative sampling deserves another fully devoted post, and as such, covered in a &lt;a href="https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" target="_blank"&gt;different post&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -8241,7 +8241,7 @@ h6:hover .anchor-link {
 &lt;p&gt;Contrary to frequency-based methods, prediction-based methods are more difficult to understand. As the name 'prediction' implies, their methodologies are based on predicting context words given a center word (&lt;em&gt;Word2Vec Skip-Gram:&lt;/em&gt; $P(w_{context} \mid w_{center})$), or a center word given context words (&lt;em&gt;Continuous Bag of Words:&lt;/em&gt; $P(w_{center} \mid w_{context})$).&lt;/p&gt;
 &lt;p&gt;Prediction-based methods use neural network algorithm, which means that we have to worry about the number of neurons (weights) in a network. In Word2Vec model, the model matrix has a dimension of $V \times N$, where $V$ is the size of unique vocabulary and the size of $N$ is the number of neurons in a network.&lt;/p&gt;
 &lt;div class="row give-margin-inline-big-plot"&gt;
-&lt;div class="col-12"&gt;&lt;img src="jupyter_images/word2vec-skip-gram.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;img src="jupyter_images/word2vec_skip-gram.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 3: Skip-Gram algorithm structure for Word2Vec&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;During the forward and back propagation process, the weights in &lt;em&gt;Matrix&lt;/em&gt; $W$ (&lt;em&gt;Embedding matrix&lt;/em&gt;) of size $V \times N$ and &lt;em&gt;Matrix&lt;/em&gt; $W'$ (&lt;em&gt;Context matrix&lt;/em&gt;) of size $N \times V$ are optimized to minimize a loss function. Recall that the number of neurons ($N$) is a hyper-parameter that needs to be empirically optimized. Choosing different values for $N$ will yield different output performances. $N = 300$ is a dimensional parameter known to work well with Word2Vec models. Note that a matrix with a dimension of 300 cannot be visualized. However, the dimension can be reduced down to 2D or 3D using &lt;a href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding"&gt;t-distributed stochastic neighbor embedding (t-SNE)&lt;/a&gt;, or PCA. For NLP visualization purpose, T-SNE is often preferred over PCA or SVD due to its ability to reduce high dimensions to low dimensions while capturing complex relationships with neighboring wods. More comparison about PCA vs T-SNE will be illustrated later.&lt;/p&gt;
 &lt;div class="alert alert-info"&gt;
@@ -9752,10 +9752,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="cd76354e-c95f-4f7c-b218-4c1281d3cda4"&gt;&lt;/div&gt;
+&lt;div id="94a1f744-a264-4607-b9b0-2459ef329384"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#cd76354e-c95f-4f7c-b218-4c1281d3cda4');
+var element = $('#94a1f744-a264-4607-b9b0-2459ef329384');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
