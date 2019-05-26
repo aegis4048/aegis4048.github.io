@@ -1,5 +1,2606 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Natural Language Processing</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/natural-language-processing.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-05-06T09:00:00-07:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Demystifying Neural Network in Skip-Gram Language Modeling</title><link href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" rel="alternate"></link><published>2019-05-06T09:00:00-07:00</published><updated>2019-05-06T09:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-05-06:/demystifying_neural_network_in_skip_gram_language_modeling</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Natural Language Processing</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/natural-language-processing.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-05-26T09:00:00-07:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Optimize Computational Efficiency of Skip-Gram with Negative Sampling</title><link href="https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" rel="alternate"></link><published>2019-05-26T09:00:00-07:00</published><updated>2019-05-26T09:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-05-26:/optimize_computational_efficiency_of_skip-gram_with_negative_sampling</id><summary type="html">&lt;style type="text/css"&gt;/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell &gt; div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area &gt; div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area &gt; div.highlight &gt; pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the &lt;head&gt; if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph &gt; img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell &gt; div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
+&lt;style type="text/css"&gt;
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+&lt;/style&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Review-on-Word2Vec-Skip-Gram"&gt;Review on Word2Vec Skip-Gram&lt;a class="anchor-link" href="#Review-on-Word2Vec-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#eq-11" target="_blank"&gt;previous post&lt;/a&gt;, I illustrated the neural network structure of Skip-Gram Word2Vec model that represents words in a vector space.&lt;/p&gt;
+&lt;div class="row" id="fig1"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Skip-Gram model structure&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;I also derived the cost function of Skip-Gram in &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Derivation-of-Cost-Function"&gt;Derivation of Cost Function&lt;/a&gt;:&lt;/p&gt;
+&lt;div id="eq-1" style="font-size: 1rem;"&gt;
+$$J(\theta) = -
+\frac{1}{T}
+\sum_{t=1}^{T}
+\sum_{c=1}^{C}
+log 
+\frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{1}$$
+&lt;/div&gt;&lt;p&gt;where $T$ is the size of training samples, $C$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram"&gt;window size&lt;/a&gt;, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;. I also noted that &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic"&gt;stochastic gradient descent&lt;/a&gt; (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:&lt;/p&gt;
+&lt;div id="eq-2" style="font-size: 1rem;"&gt;
+$$J(\theta; w^{(t)}) = -
+\sum_{c=1}^{C}
+log 
+\frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{2}$$
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell &gt; div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area &gt; div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area &gt; div.highlight &gt; pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the &lt;head&gt; if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph &gt; img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell &gt; div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
+&lt;style type="text/css"&gt;
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+&lt;/style&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;em&gt;The code snippet assumes Anaconda 5.2.0 version of Python virtual environment&lt;/em&gt;&lt;/p&gt;
+&lt;div class="alert alert-info"&gt;
+&lt;h4&gt;Acknowledgement&lt;/h4&gt;
+&lt;p&gt;The materials on this post are based the on four NLP papers, &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank"&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/a&gt; (Mikolov et al., 2013), &lt;a href="https://arxiv.org/pdf/1411.2738.pdf" target="_blank"&gt;word2vec Parameter Learning Explained&lt;/a&gt; (Rong, 2014), &lt;a href="https://arxiv.org/pdf/1710.09805.pdf" target="_blank"&gt;Improving Negative Sampling for Word Representation using Self-embedded Features&lt;/a&gt; (Chen et al., 2017) and &lt;a href="https://arxiv.org/pdf/1402.3722.pdf" target="_blank"&gt;word2vec Explained: Deriving Mikolov et al.’s
+Negative-Sampling Word-Embedding Method&lt;/a&gt; (Goldberg and Levy, 2014).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Review-on-Word2Vec-Skip-Gram"&gt;Review on Word2Vec Skip-Gram&lt;a class="anchor-link" href="#Review-on-Word2Vec-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#eq-11" target="_blank"&gt;previous post&lt;/a&gt;, I illustrated the neural network structure of Skip-Gram Word2Vec model that represents words in a vector space.&lt;/p&gt;
+&lt;div class="row" id="fig1"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Skip-Gram model structure&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;I also derived the cost function of Skip-Gram in &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Derivation-of-Cost-Function"&gt;Derivation of Cost Function&lt;/a&gt;:&lt;/p&gt;
+&lt;div id="eq-1" style="font-size: 1rem;"&gt;
+$$J(\theta) = -
+\frac{1}{T}
+\sum_{t=1}^{T}
+\sum_{c=1}^{C}
+log 
+\frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{1}$$
+&lt;/div&gt;&lt;p&gt;where $T$ is the size of training samples, $C$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram"&gt;window size&lt;/a&gt;, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;. I also noted that &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic"&gt;stochastic gradient descent&lt;/a&gt; (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:&lt;/p&gt;
+&lt;div id="eq-2" style="font-size: 1rem;"&gt;
+$$J(\theta; w^{(t)}) = -
+\sum_{c=1}^{C}
+log 
+\frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{2}$$
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Review-on-Softmax"&gt;Review on Softmax&lt;a class="anchor-link" href="#Review-on-Softmax"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Softmax is a multinomial regression classifier. It means that it classifies multiple labels, such as predicting if an hand-written digit is $0,\,1,\,2,\,...\,8\,$ or $9$. In case of binary classification (True or False), such as classifying fraud or not-fraud in bank transactions, binomial regression classifier called Sigmoid function is used.&lt;/p&gt;
+&lt;p&gt;In &lt;a href="#eq-2"&gt;eq (2)&lt;/a&gt;, the fraction inside the summation of log yields the probability distribution of all $V$-vocabs in the corpus, given the input word. In statistics, the conditional probability of $A$ given $B$ is denoted as $p(A|B)$. In Skip-Gram, we use the notation, $p(w_{context}| w_{center})$, to denote the conditional probability of observing a context word given a center word. It is obtained by using the softmax function:&lt;/p&gt;
+&lt;div id="eq-3" style="font-size: 1rem;"&gt;$$ p(w_{context}|w_{center}) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{1} \tag{3} $$&lt;/div&gt;&lt;p&gt;Exponentiation ensures that the transformed values are positive, and the normalization factor in the denominator ensures that the values have a range of $[0, 1)$ and their sum equals $1$.&lt;/p&gt;
+&lt;div class="row give-margin full_screen_margin" id="fig2"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/softmax_function.png" style="height: 300px;"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 2: softmax function transformation&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;The probability is computed $V$ times using &lt;a href="#eq-3"&gt;eq (3)&lt;/a&gt; to obtain a conditional probability distribution of observing all $V$-unique vocabs in the corpus, given a center word ($w^{(t)}$).&lt;/p&gt;
+&lt;div id="eq-4" style="font-size: 1rem;"&gt;$$ \left[ \begin{array}{c} p(w_{1}|w^{(t)}) \\ p(w_{2}|w^{(t)}) \\ p(w_{3}|w^{(t)}) \\ \vdots \\ p(w_{V}|w^{(t)}) \end{array} \right] = \frac{exp(W_{output} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{V}\tag{4} $$&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Softmax-is-computationally-very-expensive"&gt;Softmax is computationally very expensive&lt;a class="anchor-link" href="#Softmax-is-computationally-very-expensive"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;There is an issue with the vanilla Skip-Gram — softmax is computationally very expensive, as it requires scanning through the entire output embedding matrix ($W_{output}$) to compute the probability distribution of all $V$ words, where $V$ can be millions or more.&lt;/p&gt;
+&lt;div class="row give-margin full_screen_margin"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/vanilla-skip-gram-complexity.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 3: Algorithm complexity of vanilla Skip-Gram&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Furtheremore, the normalization factor in the denominator also requires $V$ iterations. In mathematical context, the normalization factor needs to be computed for each probability p($w_{context}| w_{center}$), making the alogrithm complexity = $O(V \times V)$. However, when implemented on code, the normalization factor is computed only once and cached as a Python variable, making the alogrithm complexity = $O(V + V) \approx O(V)$. This is possible because normalization factor is the same for all words.&lt;/p&gt;
+&lt;p&gt;Due to this computational inefficiency, &lt;strong&gt;softmax is not used in most implementaions of Skip-Gram&lt;/strong&gt;. Instead we use an alternative called &lt;em&gt;negative sampling&lt;/em&gt; with &lt;a href=""&gt;sigmoid function&lt;/a&gt;, which rephrases the problem into a set of independent binary classification task of algorithm complexity = $O(K \, + \, 1)$, where $K$ typically has a range of $[5, 20]$.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Skip-Gram-Negative-Sampling"&gt;Skip-Gram Negative Sampling&lt;a class="anchor-link" href="#Skip-Gram-Negative-Sampling"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In Skip-Gram, assuming &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt;, weight marices in the neural network are updated for each training sample to correctly predict output. Let's assume that the training corpus has 10,000 unique vocabs ($V$ = 10000) and the hidden layer is 300-dimensional ($N$ = 300). This means that there are 3,000,000 neurons in the output weight matrix ($W_{output}$) that need to be updated for each training sample (Notes: for the input weight matrix ($W_{input}$), only 300 neurons are updated for each training sample. This is illustrated in figure 18 of my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_update" target="_blank"&gt;previous post&lt;/a&gt;.) Since the size of the training corpus ($T$) is very large, updating 3M neurons for each training sample is unrealistic in terms of computational efficiency. Negative sampling addresses this issue by updating only a small fraction of the output weight neurons for each training sample.&lt;/p&gt;
+&lt;p&gt;In negative sampling, $K$ &lt;a href="neg_word"&gt;negative samples&lt;/a&gt; are &lt;a href="#neg_drawn"&gt;randomly drawn&lt;/a&gt; from a &lt;a href="noise_dist"&gt;noise distribution&lt;/a&gt;. $K$ is a hyper-parameter that can be empirically tuned, with a typical range of $[5,\, 20]$. For each training sample, you randomly draw $K$ number of negative samples from a noise distribution, $P_n(w)$, and the model will update $(k+1) \times N$ neurons in the output weight matrix ($W_{output}$). $N$ is the dimension of the hidden layer ($h$), or the size of a word vector. $+1$ accounts for a &lt;a href="pos_word"&gt;positive sample&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;With the above assumption, if you set &lt;code&gt;K=9&lt;/code&gt;, the model will update (9 + 1) * 300 = 3000 neurons, which is only 0.1% of the 3M neurons in $W_{output}$. This is computationally much faster than the original Skip-Gram, and yet maintains a good quality of word vectors.&lt;/p&gt;
+&lt;p&gt;The below figure has 3-dimensional hidden layer ($N=3$), 11 vocabs ($V=11$), and 3 negative samples ($K=3$).&lt;/p&gt;
+&lt;div class="row" id="fig4"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/neg_vs_skip.png" style="margin: 0;"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 4: Skip-Gram model structure&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div class="alert alert-info" id="negsample"&gt;
+&lt;h4&gt;Notes: Choice of $K$&lt;/h4&gt;
+&lt;p&gt;The &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;paper&lt;/a&gt; (Mikolov et al., 2013) says that K=2 ~ 5 works for large data sets, and K=5 ~ 20 for small data sets.
+    &lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="How-does-negative-sampling-work?"&gt;How does negative sampling work?&lt;a class="anchor-link" href="#How-does-negative-sampling-work?"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;With negative sampling, word vectors are no longer learned by predicting context words of a center word. Instead of using softmax to compute the $V$-dimensional probability distribution of observing an output word given an input word, $p(w_O|w_I)$, the model uses sigmoid function to learn to differentiate the actual context words (&lt;em&gt;positive&lt;/em&gt;) from randomly drawn words (&lt;em&gt;negative&lt;/em&gt;) from the &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt; $P_n(w)$.&lt;/p&gt;
+&lt;p&gt;Assume that the center word is &lt;em&gt;"regression"&lt;/em&gt;. It is likely to observe &lt;em&gt;"regression"&lt;/em&gt; + {&lt;em&gt;"logistic"&lt;/em&gt;, &lt;em&gt;"machine"&lt;/em&gt;, &lt;em&gt;"sigmoid"&lt;/em&gt;, &lt;em&gt;"supervised"&lt;/em&gt;, &lt;em&gt;"neural"&lt;/em&gt;} pairs, but it is unlikely to observe &lt;em&gt;"regression"&lt;/em&gt; + {&lt;em&gt;"zebra"&lt;/em&gt;, &lt;em&gt;"pimples"&lt;/em&gt;, &lt;em&gt;"Gangnam-Style"&lt;/em&gt;, &lt;em&gt;"toothpaste"&lt;/em&gt;, &lt;em&gt;"idiot"&lt;/em&gt;}. The model maximizes the probability $p(D=1|w,c_{pos})$ of observing positive pairs, while minimizing the probability $p(D=0|w,c_{neg})$ of observing negative pairs. The idea is that if the model can distinguish between the positive pairs ($w$, $c_{pos}$) vs negative pairs ($w$, $c_{neg}$), good word vectors will be learned.&lt;/p&gt;
+&lt;p&gt;Negative sampling converts multi-classification task into binary-classification task. The new objective is to predict, for any given word-context pair ($w,\,c$), whether the word ($c$) is in the context window of the the center word ($w$) or not. Since the goal is to identify a given word as True (&lt;em&gt;positive&lt;/em&gt;, $D=1$) or False (&lt;em&gt;negative&lt;/em&gt;, $D=0$), we use sigmoid function instead of softmax function. The probability of a word ($c$) appearing within the context of the center word ($w$) can be defined as the following:&lt;/p&gt;
+&lt;div id="eq-5" style="font-size: 1rem;"&gt;
+$$
+p(D=1|w,c;\theta)=\frac{1}{1+exp(-w_{output_{(j)}} \cdot h)}
+\in \mathbb{R}^{1}
+\tag{5} 
+$$&lt;/div&gt;&lt;p&gt;where $c$ is the word you want to know whether it came from the context window or the noise distribution. $w$ is the input (center) word, $h$ is the hidden layer, and $\theta$ is the weight matrix passed into the model. $w_{output_{(j)}}$ is the word vector from the output weight matrix ($W_{output}$) of &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="#eq-5"&gt;Eq (5)&lt;/a&gt; computes the probability that the given word ($c$) is a &lt;a href="#pos_word"&gt;positive word&lt;/a&gt; ($D=1$). It only needs to be applied $K$ + 1 times instead of $V$ times for every word in the vocabulary, because $w_j$ comes from the concatenation of true context word ($c_{pos}$) and $K$ &lt;a href="#neg_word"&gt;negative words&lt;/a&gt; ($W_{neg} = \{ c_{neg, j}|j=1,\cdots,K \}$):&lt;/p&gt;
+&lt;div id="eq-6" style="font-size: 1rem;"&gt;
+$$
+w_{output{(j)}} \in \{c_{pos}\} \cup W_{neg}
+\tag{6} 
+$$
+&lt;/div&gt;&lt;p&gt;This probability is computed $K + 1$ times to obtain a probability distribution of true context word and $K$ negative samples:&lt;/p&gt;
+&lt;div id="eq-7" style="font-size: 1rem;"&gt;
+$$
+\left[ \begin{array}{c} p(D=1|w,c_{pos}) \\ p(D=1|w,c_{neg, 1}) \\ p(D=1|w,c_{neg, 2}) \\ p(D=1|w,c_{neg, 3}) \\ \vdots \\ p(D=1|w,c_{neg, 4}) \end{array} \right] 
+= 
+\frac{1}{1+exp(-(\{c_{pos}\} \cup W_{neg}) \cdot h)}
+\in \mathbb{R}^{K+1}\tag{7} 
+$$
+&lt;/div&gt;&lt;p&gt;Compare this equation with &lt;a href="#eq-4"&gt;eq (4)&lt;/a&gt; — you will notice that &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; is computationally much cheaper because $K$ is between 5 ~ 20, whereas $V$ can be millions. Moreover, no extra iterations are necessary to compute the normalization factor in the denominator of &lt;a href="#eq-4"&gt;eq (4)&lt;/a&gt;, because sigmoid function is a binary regression classifier. The algorithm complexity for probability distribution of vanilla Skip-Gram is $O(V)$, whereas negative sampling's is $O(K+1)$. This shows why negative sampling saves a significant amount of computational cost per iteration.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div&gt;&lt;hr&gt;&lt;/div&gt;
+&lt;div class="row give-margin-inline-big-plot" id="fig5"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/negative_sample_text.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 5: Choice of negative samples (Text source: &lt;a href="https://petrowiki.org/Drilling_induced_formation_damage"&gt;Petrowiki&lt;/a&gt;)&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;For the purpose of illustration, consider the above paragraphs. Assume that our center word ($w$) is &lt;code&gt;drilling&lt;/code&gt;, window size is $3$, and the number of negative samples ($K$) is $5$. With the window size of $3$, the contexts words are: &lt;em&gt;"engineer"&lt;/em&gt;, &lt;em&gt;"traditionally"&lt;/em&gt;, &lt;em&gt;"designs"&lt;/em&gt;, &lt;em&gt;"fluids"&lt;/em&gt;, &lt;em&gt;"with"&lt;/em&gt;, and &lt;em&gt;"two"&lt;/em&gt;. These context words are considered as positive labels ($D$ = 1). Our current context word ($c_{pos}$) is &lt;code&gt;engineer&lt;/code&gt;. We also need negative words. We randomly pick $5$-words from the &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt; $P_n(w)$ of the corpus for each context word, and consider them as negative samples ($D$ = 0). For the current context word, &lt;code&gt;engineer&lt;/code&gt;, the 5 randomly drawn negative words ($c_{neg}$) are: &lt;em&gt;"minimized"&lt;/em&gt;, &lt;em&gt;"primary"&lt;/em&gt;, &lt;em&gt;"concerns"&lt;/em&gt;, &lt;em&gt;"led"&lt;/em&gt;, and &lt;em&gt;"page"&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The idea of negative sampling is that it is more likely to observe positive word pairs ($w$, $c_{pos}$) together than negative word pairs ($w$, $c_{neg}$) together in the corpus. The model attempts to maximize the the probability of observing positive pairs $p(c_{pos}|w) \rightarrow 1$ and minimize the probability of observing negative pairs $p(c_{neg}|w) \rightarrow 0$ simultaneously by iterating through the training samples and updating the weights ($\theta$). Note that the sum of the probability distribution obtained by sigmoid function (&lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt;) does not need to equal $1$, unlike softmax (&lt;a href="#eq-4"&gt;eq (4)&lt;/a&gt;).&lt;/p&gt;
+&lt;div class="row" id="fig6"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/neg_opt_1.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 6: maximizing postive pairs and minimizing negative pairs&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;By the time the output probability distribution is nearly one-hot-encoded as in $iter = 4$ of the above figure, weight matrices $\theta$ are optimized and good word vectors are learned. This optimization can be done my maximizing the dot product of the input weight matrix and the hidden layer ($-w_{output_{(j)}} \cdot h$) in &lt;a href="#"&gt;eq (333)&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="alert alert-info" id="negsample"&gt;
+&lt;h4&gt;Notes: Drawing random negative samples&lt;/h4&gt;
+&lt;p&gt;For each word-context pair ($w,\,c$), $K$ new negative samples are &lt;a href="#neg_drawn"&gt;randomly drawn&lt;/a&gt; from a noise distribution. In &lt;a href="#fig5"&gt;figure 5&lt;/a&gt;, there are 6 positive context words (&lt;i&gt;"engineer"&lt;/i&gt;, &lt;i&gt;"traditionally"&lt;/i&gt;, &lt;i&gt;"designs"&lt;/i&gt;, &lt;i&gt;"fluids"&lt;/i&gt;, &lt;i&gt;"with"&lt;/i&gt;, and &lt;i&gt;"two"&lt;/i&gt;) for one center word (&lt;i&gt;"drilling"&lt;/i&gt;), and $K$ is 5. This means that a total of 6 * 5 = 30 word vectors are updated for each center word.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="noise_dist"&gt;&lt;/div&gt;&lt;h4 id="What-is-a-noise-distribution-$P_n(w)$?"&gt;What is a noise distribution $P_n(w)$?&lt;a class="anchor-link" href="#What-is-a-noise-distribution-$P_n(w)$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Imagine a distribution of words based on how many times each word appeared in a corpus, $U(w)$ (this is called unigram distribution). For each word $w$, divide the number of times it appeared by a normalization factor $Z$ so that the distribution becomes a probability distribution of range $[0, 1)$ and sums up to $1$. Raise the normalized distribution to the power of $\alpha$ so that the distribution is "smoothed-out". Then this becomes your noise distribution $P_n(w)$ — normalized frequency distribution of words raised to the power of $\alpha$. Mathematically, it can be expressed as:&lt;/p&gt;
+&lt;div id="eq-8" style="font-size: 1rem;"&gt;
+$$
+P_n(w) = \left(\frac{U(w)}{Z}\right)^{\alpha}
+\tag{8} 
+$$&lt;/div&gt;&lt;p&gt;Raising the unigram distribution $U(w)$ to the power of $\alpha$ has an effect of smoothing out the distribution. &lt;strong&gt;It attempts to combat the imbalance between common words and rare words&lt;/strong&gt; by decreasing the probability of drawing common words, and increasing the probability drawing rare words.&lt;/p&gt;
+&lt;p&gt;$\alpha$ is a hyper-parameter that can be empirically tuned. The authors of the original Word2Vec &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;paper&lt;/a&gt; claims that the unigram distribution $U(w)$ raised to the $3/4$rd power (i.e., $U(w)^{3/4}/Z$) yielded the best result.&lt;/p&gt;
+&lt;div class="row" id="fig7"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/noise_dist.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 7: Effect of raising power of unigram distribution $U(w)$&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;div id="pos_word"&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h4 id="What-is-a-positive-word-$c_{pos}$?"&gt;What is a positive word $c_{pos}$?&lt;a class="anchor-link" href="#What-is-a-positive-word-$c_{pos}$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Words that actually appear within the context window of the center word ($w$). After the model is optimized, the probability computed with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt; will output $\approx$ 1 as shown in &lt;a href="#fig6"&gt;fig 6&lt;/a&gt;. A word vector of a center word ($w$) will be more similar to a word vector of positive word ($c_{pos}$) than of randomly drawn negative words ($c_{neg}$). This is because words that frequently appear together show strong correlation with each other.&lt;/p&gt;
+&lt;p&gt;&lt;div id="neg_word"&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h4 id="What-is-a-negative-word-$c_{neg}$?"&gt;What is a negative word $c_{neg}$?&lt;a class="anchor-link" href="#What-is-a-negative-word-$c_{neg}$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Words that are randomly drawn from a noise distribution $P_n(w)$. After the model is optimized, the probability computed with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt; will output $\approx$ 0 as shown in &lt;a href="#fig6"&gt;fig 6&lt;/a&gt;. When training an Word2Vec model, the vocab size ($V$) easily exceeds tens of thousands. When 5 ~ 20 negative samples are randomly drawn among the vocabs, it is unlikely to observe the random word with a center word together. Therefore, once the model is optimized: $p(D=1|w,c_{neg})\approx0$.&lt;/p&gt;
+&lt;p&gt;&lt;div id="neg_drawn"&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h4 id="How-are-negative-samples-drawn?"&gt;How are negative samples drawn?&lt;a class="anchor-link" href="#How-are-negative-samples-drawn?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;$K$-negative samples are randomly drawn from a &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt; $P_n(w)$ using someting like &lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.choice.html" target="_blank"&gt;np.random.choice&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [24]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt;
+
+&lt;span class="n"&gt;words&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'apple'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'bee'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'desk'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'chair'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;normalized_word_frequency&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0.023&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.34&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.517&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;choice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;words&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;normalized_word_frequency&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[24]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;array(['chair', 'bee', 'chair', 'bee', 'chair', 'bee', 'chair', 'bee',
+       'desk', 'bee', 'chair', 'desk', 'desk', 'desk', 'chair', 'desk',
+       'chair', 'desk', 'chair', 'desk'], dtype='&lt;U5')&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;div&gt;&lt;hr&gt;&lt;/div&gt;
+&lt;em&gt;"chair"&lt;/em&gt; appeared the most from the corpus, and has the highest probability (&lt;code&gt;0.517&lt;/code&gt;) of being drawn as a negative sample. As a result, &lt;em&gt;"chair"&lt;/em&gt; was drawn the most. The noise distribution is raised to the power of $3/4$rd to combat the imbalance between common vs rare words, as shown in &lt;a id="#fig7"&gt;figure 7&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Derivation-of-Cost-Function-in-Negative-Sampling"&gt;Derivation of Cost Function in Negative Sampling&lt;a class="anchor-link" href="#Derivation-of-Cost-Function-in-Negative-Sampling"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Coming soon...&lt;/p&gt;
+&lt;div style="display: none"&gt;
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+%matplotlib notebook
+
+# sample data generation
+data = sorted(stats.norm.rvs(size=1000) + 5)
+
+# fit normal distribution
+mean, std = stats.norm.fit(data, loc=0)
+pdf_norm = stats.norm.pdf(data, mean, std)
+
+temp = np.power(data, 3/4)
+temp_mean, temp_std = stats.norm.fit(temp, loc=0)
+temp_pdf_norm = stats.norm.pdf(temp, temp_mean, temp_std)
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 4), sharey=True)
+ax1.set_title('$U(w)$')
+ax1.hist(temp, bins='auto', density=True)
+ax1.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil', 'water', 'coin'])
+ax1.plot(temp, temp_pdf_norm, label='norm')
+ax2.set_title('$U(w)^{3/4}$')
+ax2.hist(data, bins='auto', density=True)
+ax2.plot(data, pdf_norm, label='norm')
+ax2.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil', 'water', 'coin'])
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="data-mining"></category><category term="nlp"></category><category term="word2vec"></category><category term="word vectors"></category><category term="window size"></category><category term="skip-gram"></category><category term="neural network"></category><category term="negative sampling"></category><category term="stochastic gradient descent"></category><category term="learning rate"></category><category term="sigmoid"></category><category term="softmax"></category><category term="algorithm complexity"></category><category term="noise distribution"></category></entry><entry><title>Demystifying Neural Network in Skip-Gram Language Modeling</title><link href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" rel="alternate"></link><published>2019-05-06T09:00:00-07:00</published><updated>2019-05-06T09:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-05-06:/demystifying_neural_network_in_skip_gram_language_modeling</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2491,10 +5092,9 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;em&gt;The code snippet assumes Anaconda 5.2.0 version of Python virtual environment&lt;/em&gt;&lt;/p&gt;
 &lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Acknowledgement&lt;/h4&gt;
-&lt;p&gt;The materials on this post are based the two research paper, &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/a&gt; (Mikolov et al., 2013) and &lt;a href="https://arxiv.org/pdf/1411.2738.pdf"&gt;word2vec Parameter Learning Explained&lt;/a&gt; (Rong, 2014).&lt;/p&gt;
+&lt;p&gt;The materials on this post are based the on two NLP papers, &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/a&gt; (Mikolov et al., 2013) and &lt;a href="https://arxiv.org/pdf/1411.2738.pdf"&gt;word2vec Parameter Learning Explained&lt;/a&gt; (Rong, 2014).&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2714,34 +5314,40 @@ $$&lt;div class="alert alert-info"&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Derivation-of-Cost-Function"&gt;Derivation of Cost Function&lt;a class="anchor-link" href="#Derivation-of-Cost-Function"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Skip-Gram model seeks to optimize the word embedding matrix by correctly predicting context words, given a center word. In the other words, the model wants to maximize the probability of correctly predicting all context words at the same time, given a center word. Mathematically, it can be expressed as:&lt;/p&gt;
-&lt;div id="eq-1" style="font-size: 1rem;"&gt;$$ max \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}) \tag{1} $$&lt;/div&gt;&lt;p&gt;where $C$ is the window size. Recall that in statistics, the probability of $A$ given $B$ is expressed as $P(A|B)$. Then, natural log is taken on &lt;a href="#eq-1"&gt;eq (1)&lt;/a&gt; to simplify taking derivatives.&lt;/p&gt;
-&lt;div id="eq-2" style="font-size: 1rem;"&gt;$$ max \, log \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}) \tag{2} $$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
+&lt;h2 id="Derivation-of-Cost-Function"&gt;Derivation of Cost Function&lt;a class="anchor-link" href="#Derivation-of-Cost-Function"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Skip-Gram model seeks to optimize the word weight (embedding) matrix by correctly predicting context words, given a center word. In the other words, the model wants to maximize the probability of correctly predicting all context words at the same time, given a center word. Maximizing the probability of predicting context words leads to optimizing the weight matrix ($\theta$) that best represents words in a vector space. $\theta$ is a concatenation of input and output weight matrices — $[W_{input} \quad W_{output}]$, as described &lt;a href="#theta_in_cost"&gt;below&lt;/a&gt;. It is passed into the cost function ($J$) as a variable and optimized. Mathematically, it can be expressed as:&lt;/p&gt;
+&lt;div id="eq-1" style="font-size: 1rem;"&gt;$$ max \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{1} $$&lt;/div&gt;&lt;p&gt;where $C$ is the window size. Recall that in statistics, the probability of $A$ given $B$ is expressed as $P(A|B)$. Then, natural log is taken on &lt;a href="#eq-1"&gt;eq (1)&lt;/a&gt; to simplify taking derivatives.&lt;/p&gt;
+&lt;div id="eq-2" style="font-size: 1rem;"&gt;$$ max \, log \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{2} $$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: Why take a natural log?&lt;/h4&gt;
 &lt;p&gt;In machine learning, it is a common practice to take a natural log to the objective function to simplify taking derivatives. For example, a multinomial regression classifer called Softmax (details explained &lt;a href="#Softmax-Output-Layer-($y_{pred}$)"&gt;below&lt;/a&gt;) has the following probability function:&lt;/p&gt;
-&lt;p&gt;&lt;center style="margin-top: 20px"&gt;$p(x_i) = \frac{e^{x_i}}{\sum_{j=1}e^{x_{j}}}$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$p(x_i) = \frac{e^{x_i}}{\sum_{j=1}e^{x_{j}}}$&lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;Taking a log simplifies the function:&lt;/p&gt;
-&lt;p&gt;&lt;center style="margin-top: 20px"&gt;$log \, p(x_i) = x_i - log \, {\sum_{j=1}e^{x_{j}}}$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$log \, p(x_i) = x_i - log \, {\sum_{j=1}e^{x_{j}}}$&lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;Depending on a model, the argument ($x_i$) passed into the probability function ($p$) can be complicated, and simplifying the original softmax function helps with taking the derivatives in the future.&lt;/p&gt;
 &lt;p&gt;Taking a log does not affect the optimized weights ($\theta$), because natural log is a &lt;u&gt;monotonically increasing&lt;/u&gt; function. This means that increasing the value of $x$-axis results in increasing the value of $y$-axis. This is important because it ensures that the maximum value of the original probability function occurs at the same point as the log probability function. Therefore:&lt;/p&gt;
-&lt;p&gt;&lt;center style="margin-top: 20px"&gt;$max \, p(x_i) = max \, log \, p(x_i)$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$max \, p(x_i) = max \, log \, p(x_i)$&lt;/center&gt;&lt;/p&gt;
 &lt;/div&gt;&lt;p&gt;In Skip-Gram, softmax function is used for context words classfication. The details are explained &lt;a href="#Softmax-Output-Layer-($y_{pred}$)"&gt;below&lt;/a&gt;. Softmax in Skip-Gram has the following equation:&lt;/p&gt;
-&lt;div id="eq-3" style="font-size: 1rem;"&gt;$$ p(w_{context}|w_{center}) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{3} $$&lt;/div&gt;&lt;p&gt;$W_{output_{(context)}}$ is a row vector for a context word from the output embedding matrix (see &lt;a href="#weight_matrix"&gt;below&lt;/a&gt;), and $h$ is the hidden (projection) layer word vector for a center word (see &lt;a href="#hidden_layer"&gt;below&lt;/a&gt;). Softmax function is then plugged into the &lt;a href="#eq-2"&gt;eq (2)&lt;/a&gt; to yield a new objective function that maximizes the probability of observing all $C$ context words, given a center word:&lt;/p&gt;
+&lt;div id="eq-3" style="font-size: 1rem;"&gt;$$ p(w_{context}|w_{center}; \, \theta) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{3} $$&lt;/div&gt;&lt;p&gt;$W_{output_{(context)}}$ is a row vector for a context word from the output embedding matrix (see &lt;a href="#weight_matrix"&gt;below&lt;/a&gt;), and $h$ is the hidden (projection) layer word vector for a center word (see &lt;a href="#hidden_layer"&gt;below&lt;/a&gt;). Softmax function is then plugged into the &lt;a href="#eq-2"&gt;eq (2)&lt;/a&gt; to yield a new objective function that maximizes the probability of observing all $C$ context words, given a center word:&lt;/p&gt;
 &lt;div id="eq-4" style="font-size: 1rem;"&gt;$$ max \, log \, \prod_{c=1}^{C} \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{4} $$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: Probability Product&lt;/h4&gt;
 &lt;p&gt;In statistics, probability of observing $C$ multiple events at the same time is computed by the product of each event's probability.&lt;/p&gt;
-&lt;p&gt;&lt;center style="margin-top: 20px"&gt;$$p(x_{1}, x_{2} ... x_{C}) = p(x_{1}) \times p(x_{2}) \, \times \, ... \, \times \, p(x_{C})$$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$$p(x_{1}, x_{2} ... x_{C}) = p(x_{1}) \times p(x_{2}) \, \times \, ... \, \times \, p(x_{C})$$&lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;This can be shortened with a product notation:&lt;/p&gt;
-&lt;p&gt;&lt;center style="margin-top: 20px"&gt;$$p(x_{1}, x_{2} ... x_{C}) = \prod_{c=1}^{C}p(x_{c})$$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$$p(x_{1}, x_{2} ... x_{C}) = \prod_{c=1}^{C}p(x_{c})$$&lt;/center&gt;&lt;/p&gt;
 &lt;/div&gt;&lt;p&gt;However, in machine learning, the convention is to minimize the cost function, not to maximize it. To stick to the convention, we add a negative sign to &lt;a href="#eq-4"&gt;eq (4)&lt;/a&gt;. This can be done because minimizing a negative log-likelihood is equivalent to maximizing a positive log-likelihood. Therefore, the cost function we want to minimize becomes:&lt;/p&gt;
-&lt;div id="eq-5" style="font-size: 1rem;"&gt;$$ J(\theta; w^{(t)}) = -log \, \prod_{c=1}^{C} \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{5} $$&lt;/div&gt;&lt;p&gt;where $c$ is the index of the context word around the center word ($w_{t}$). $t$ is the index of the center word within a corpus of size $T$. Taking a log to the softmax function allows us to simplify the expression into simpler forms because we can split the fraction into addtion of the numerator and the denominator:&lt;/p&gt;
+&lt;div id="eq-5" style="font-size: 1rem;"&gt;$$ J(\theta; w^{(t)}) = -log \, \prod_{c=1}^{C} \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{5} $$&lt;/div&gt;&lt;p&gt;where $c$ is the index of the context word around the center word ($w_{t}$). $t$ is the index of the center word within a corpus of size $T$. Using the property of log, it can be changed to:&lt;/p&gt;
 &lt;div id="eq-6" style="font-size: 1rem;"&gt;
+$$J(\theta; w^{(t)}) = -
+\sum_{c=1}^{C}
+log 
+\frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{6}$$
+&lt;/div&gt;&lt;p&gt;Taking a log to the softmax function allows us to simplify the expression into simpler forms because we can split the fraction into addtion of the numerator and the denominator:&lt;/p&gt;
+&lt;div id="eq-7" style="font-size: 1rem;"&gt;
 $$
-J(\theta; w^{(t)}) = - \sum_{c=1}^{C}(W_{output_{(c)}} \cdot h) + C \cdot log \sum^V_{i=1}exp(W_{output_{(i)}} \cdot h) \tag{6}
+J(\theta; w^{(t)}) = - \sum_{c=1}^{C}(W_{output_{(c)}} \cdot h) + C \cdot log \sum^V_{i=1}exp(W_{output_{(i)}} \cdot h) \tag{7}
 $$
-&lt;/div&gt;&lt;p&gt;Different paper uses different notations for the cost function. To stick to the notation used in the &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;Word2Vec original paper&lt;/a&gt;, some of the notations in &lt;a href="#eq-6"&gt;eq (6)&lt;/a&gt; can be changed. However, they are all equivalent:&lt;/p&gt;
-&lt;div id="eq-7" style="font-size: 1rem;"&gt;$$J_{t}(\theta;w^{(t)}) = -\sum_{-m\leq j \leq m} \log p(w_{t+j} \mid w_t ; \theta) \tag{7}$$&lt;/div&gt;&lt;p&gt;Note that &lt;a href="#eq-6"&gt;eq (6)&lt;/a&gt; and &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; are equivalent. They both assume &lt;strong&gt;stochastic gradient descent&lt;/strong&gt;, which means that for each training sample ($w^{(t)}$) in the corpus of size ($T$), one update is made to the weight matrix ($\theta$). The cost function expressed in the paper shows &lt;strong&gt;batch gradient descent&lt;/strong&gt; &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt;, which means that only one update is made for all $T$ training samples:&lt;/p&gt;
-&lt;div id="eq-8" style="font-size: 1rem;"&gt;$$J(\theta) = -\frac{1}{T} \sum^T_{t=1} \sum_{-m\leq j \leq m} \log p(w_{t+j} \mid w_t ; \theta) \tag{8}$$&lt;/div&gt;&lt;p&gt;However, in Word2Vec, batch gradient descent is almost never used due to its high computational cost. The author of the paper stated that he used stochastic gradient descent for training. Read the below &lt;a href="#stochastic"&gt;notes&lt;/a&gt; for more information about stochastic gradient descent.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Different paper uses different notations for the cost function. To stick to the notation used in the &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;Word2Vec original paper&lt;/a&gt;, some of the notations in &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; can be changed. However, they are all equivalent:&lt;/p&gt;
+&lt;div id="eq-8" style="font-size: 1rem;"&gt;$$J_{t}(\theta;w^{(t)}) = -\sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \, \theta) \tag{8}$$&lt;/div&gt;&lt;p&gt;Note that &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; and &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt; are equivalent. They both assume &lt;strong&gt;stochastic gradient descent&lt;/strong&gt;, which means that for each training sample ($w^{(t)}$) in the corpus of size ($T$), one update is made to the weight matrix ($\theta$). The cost function expressed in the paper shows &lt;strong&gt;batch gradient descent&lt;/strong&gt; &lt;a href="#eq-9"&gt;eq (9)&lt;/a&gt;, which means that only one update is made for all $T$ training samples:&lt;/p&gt;
+&lt;div id="eq-9" style="font-size: 1rem;"&gt;$$J(\theta) = -\frac{1}{T} \sum^T_{t=1} \sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ;\, \theta) \tag{9}$$&lt;/div&gt;&lt;p&gt;However, in Word2Vec, batch gradient descent is almost never used due to its high computational cost. The author of the paper stated that he used stochastic gradient descent for training. Read the below &lt;a href="#stochastic"&gt;notes&lt;/a&gt; for more information about stochastic gradient descent.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2749,7 +5355,7 @@ $$
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div id="window_size"&gt;&lt;/div&gt;&lt;h3 id="Window-Size-of-Skip-Gram"&gt;Window Size of Skip-Gram&lt;a class="anchor-link" href="#Window-Size-of-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Softmax regression (or multinomial logistic regression) is a generalization of logistic regression to the case where we want to handle multiple classes. A general form of the softmax regression looks like this:&lt;/p&gt;
-&lt;div id="eq-9" style="font-size: 1rem;"&gt;
+&lt;div id="eq-10" style="font-size: 1rem;"&gt;
 $$J(\theta) = 
 -\frac{1}{T} 
 \sum^T_{t=1}
@@ -2758,24 +5364,24 @@ log
 \frac
 {exp(\theta^{(k)\top}x^{(t)})}
 {\sum^K_{i=1}
-exp(\theta^{(i)\top}x^{(t)})} \tag{9}$$&lt;/div&gt;&lt;p&gt;where $T$ is the number of training samples, and $K$ is the number of labels to classify. In NLP applications, $K = V$, because there are $V$ unique vocabulary we need to classify in a vector space. $V$ can easily exceed tens of thousands. Skip-Gram tweaks this a little, and replaces $K$ with a variable called &lt;strong&gt;window size&lt;/strong&gt; ($m$). Window size is a hyper parameter of the model with a typical range of $[1, 10]$ (see &lt;a href="#fig4"&gt;figure 4&lt;/a&gt;). Recall that Skip-Gram is a model that attempts to predict neighboring words of a center word. It doesn't have to predict all $V$ vocab in the corpus that may be 100 or more words away from it, but instead predict only a few, 1~10 neighboring context words. This is also intuitive, considering how words that are far away carry less information about each another. Thus, the adapted form of the softmax regression equation for Skip-Gram becomes:&lt;/p&gt;
-&lt;div id="eq-10" style="font-size: 1rem;"&gt;
+exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;where $T$ is the number of training samples, and $K$ is the number of labels to classify. In NLP applications, $K = V$, because there are $V$ unique vocabulary we need to classify in a vector space. $V$ can easily exceed tens of thousands. Skip-Gram tweaks this a little, and replaces $K$ with a variable called &lt;strong&gt;window size&lt;/strong&gt; ($m$). Window size is a hyper parameter of the model with a typical range of $[1, 10]$ (see &lt;a href="#fig4"&gt;figure 4&lt;/a&gt;). Recall that Skip-Gram is a model that attempts to predict neighboring words of a center word. It doesn't have to predict all $V$ vocab in the corpus that may be 100 or more words away from it, but instead predict only a few, 1~10 neighboring context words. This is also intuitive, considering how words that are far away carry less information about each another. Thus, the adapted form of the softmax regression equation for Skip-Gram becomes:&lt;/p&gt;
+&lt;div id="eq-11" style="font-size: 1rem;"&gt;
 $$J(\theta) = 
 -\frac{1}{T} 
 \sum^T_{t=1}
-\sum_{-m\leq j \leq m}
+\sum_{-c\leq j \leq c,j\neq 0}
 log 
 \frac
 {exp(\theta^{(t+j)\top}x^{(t)})}
 {\sum^K_{i=1}
-exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent to &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt;. Note that the $K$ in the denominator is still equal to $V$, because the denominator acts as a normalization factor. However, the size of $K$ in the denominator can still be reduced to smaller size using &lt;a href="#negsample"&gt;negative sampling&lt;/a&gt;.&lt;/p&gt;
+exp(\theta^{(i)\top}x^{(t)})} \tag{11}$$&lt;/div&gt;&lt;p&gt;This is equivalent to &lt;a href="#eq-9"&gt;eq (9)&lt;/a&gt;. Note that the $K$ in the denominator is still equal to $V$, because the denominator acts as a normalization factor, as described &lt;a href="#output_layer"&gt;below&lt;/a&gt;. However, the size of $K$ in the denominator can still be reduced to smaller size using &lt;a href="#negsample"&gt;negative sampling&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Neural-Network-Structure-of-Skip-Gram"&gt;Neural Network Structure of Skip-Gram&lt;a class="anchor-link" href="#Neural-Network-Structure-of-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;How is neural network used to minimize the cost functoin described in &lt;a href="#eq-10"&gt;eq (10)&lt;/a&gt;? One needs to look into the structure of the Skip-Gram model to gain insights about their correlation.&lt;/p&gt;
+&lt;h1 id="Neural-Network-Structure-of-Skip-Gram"&gt;Neural Network Structure of Skip-Gram&lt;a class="anchor-link" href="#Neural-Network-Structure-of-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;How is neural network used to minimize the cost functoin described in &lt;a href="#eq-11"&gt;eq (11)&lt;/a&gt;? One needs to look into the structure of the Skip-Gram model to gain insights about their correlation.&lt;/p&gt;
 &lt;p&gt;For illustration purpose, let's assume that the entire corpus is composed of the quote from the Game of Thrones, &lt;i&gt;"The man who passes the sentence should swing the sword"&lt;/i&gt;, by Ned Stark. There are 10 words ($T = 10$), and 8 unique words ($V = 8$).&lt;/p&gt;
 &lt;p&gt;Note that in real life, the corpus is much bigger than just one sentence.&lt;/p&gt;
 &lt;blockquote class="quote"&gt;
@@ -2785,14 +5391,19 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="row give-margin-inline-big-plot" id="fig4"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/quote_ned_stark.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 4: Training Window&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;For illustration purpose, a three-dimensional neural net will be constructed. In &lt;em&gt;gensim&lt;/em&gt;, this can be implemented by setting &lt;code&gt;size=3&lt;/code&gt;. This makes $N = 3$. Note that &lt;code&gt;size&lt;/code&gt; is also a hyper-parameter that can be empirically tuned. In real life, a typical Word2Vec model has 200-600 neurons.&lt;/p&gt;
+&lt;/div&gt;&lt;div id="size_3"&gt;&lt;/div&gt;
+For illustration purpose, a three-dimensional neural net will be constructed. In *gensim*, this can be implemented by setting &lt;code&gt;size=3&lt;/code&gt;. This makes $N = 3$. Note that &lt;code&gt;size&lt;/code&gt; is also a hyper-parameter that can be empirically tuned. In real life, a typical Word2Vec model has 200-600 neurons. 
+
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
         from gensim.models import Word2Vec
 
         model = Word2Vec(corpus, size=3, window=1)
     &lt;/code&gt;
-&lt;/pre&gt;&lt;p&gt;This means that the input weight matrix ($W_{input}$) will have a size of $8 \times 3$, and output weight matrix ($W_{output}^T$) will have a size of $3 \times 8$. Recall that the corpus, &lt;i&gt;"The man who passes the sentence should swing the sword"&lt;/i&gt;, has 8 unique vocabularies ($V = 8$).&lt;/p&gt;
+&lt;/pre&gt;
+
+This means that the input weight matrix ($W_{input}$) will have a size of $8 \times 3$, and output weight matrix ($W_{output}^T$) will have a size of $3 \times 8$. Recall that the corpus, &lt;i&gt;"The man who passes the sentence should swing the sword"&lt;/i&gt;, has 8 unique vocabularies ($V = 8$). 
+
 &lt;div class="row" id="fig5"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 5: Skip-Gram model structure&lt;/p&gt;&lt;/div&gt;
@@ -2812,20 +5423,20 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div id="input_layer"&gt;&lt;/div&gt;&lt;h3 id="Input-Layer-($x$)"&gt;Input Layer ($x$)&lt;a class="anchor-link" href="#Input-Layer-($x$)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The input layer is a $V$-dim one-hot encoded vector. Every element in the vector is 0 except one element that corresponds to the center (input) word. Input vector is multiplied with the input weight matrix ($W_{input}$) of size $V \times N$, and yields a hidden (projection) layer ($h$) of $N$-dim vector. Because the input layer is one-hot encoded, it makes the input weight matrix ($W_{input}$) to behave like a &lt;em&gt;look-up table&lt;/em&gt; for the center word. Assuming epoch number of 1 (&lt;code&gt;iter=1&lt;/code&gt; in &lt;em&gt;gensim&lt;/em&gt; Word2Vec implementation) and stochastic gradient descent, the input vector is injected into the network $T$ times for every word in the corpus and makes $T$ updates to the weight matrix ($\theta$) to learn from the training samples. Derivation of the stochasitc update equations are explained &lt;a href="#backward"&gt;below&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="row give-margin-inline-big-plot"&gt;
+&lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/one-hot-vector.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 6: One-hot encoded input vector and parameter update&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;div id="stochastic"&gt;&lt;/div&gt;
 &lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: Stochastic Gradient Descent&lt;/h4&gt;
 &lt;p&gt;The goal of any machine learning model is to find the optimal values of a weight matrix ($\theta$) to minimize prediction error. A general update equation for weight matrix looks like the following:&lt;/p&gt;
-&lt;p&gt;&lt;center style="margin-top: 20px"&gt;$\theta^{(new)}=\theta^{(old)}-\eta\cdot\nabla_{J(\theta)}$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$\theta^{(new)}=\theta^{(old)}-\eta\cdot\nabla_{J(\theta)}$&lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;$\eta$ is learning rate, $\nabla_{J(\theta)}$ is gradient for the weight matrix, and $J(\theta)$ is the cost function that has different forms for each model. The cost function for the Skip-Gram model proposed in the &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;Word2Vec original paper&lt;/a&gt; has the following equation:&lt;/p&gt;
-&lt;p&gt;&lt;center style="margin-top: 20px"&gt;$$J(\theta) = -\frac{1}{T} \sum^T_{t=1} \sum_{-m\leq j \leq m} \log p(w_{t+j} \mid w_t ; \theta)$$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$$J(\theta) = -\frac{1}{T} \sum^T_{t=1} \sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \theta)$$&lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;Here, what gives us headache is the expression, $\frac{1}{T} \sum^T_{t=1}$, because $T$ can be larger than billions or more in many NLP applications. It is basically telling us that billions of iterations need to be computed to make just one update to the weight matrix ($\theta$). In order to mitigate this computational burden, the author of the paper states that Stochastic Gradient Descent (SGD) was used for parameter optimization. SGD removes the expression, $\frac{1}{T} \sum^T_{t=1}$, from the cost function and performs parameter update for each training example, $w^{(t)}$:&lt;/p&gt;
-&lt;p&gt;&lt;center style="margin-top: 20px"&gt;$$J_{t}(\theta;w^{(t)}) = -\sum_{-m\leq j \leq m} \log p(w_{t+j} \mid w_t ; \theta)$$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$$J_{t}(\theta;w^{(t)}) = -\sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \theta)$$&lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;Then, the new parameter update equation for SGD becomes:&lt;/p&gt;
-&lt;p&gt;&lt;center style="margin-top: 20px"&gt;$\theta^{(new)}=\theta^{(old)}-\eta\cdot\nabla_{J_{t}(\theta;w^{(t)})}$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$\theta^{(new)}=\theta^{(old)}-\eta\cdot\nabla_{J_{t}(\theta;w^{(t)})}$&lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;The original vanilla graident descent makes $1$ parameter update for $T$ training samples, but the new update equation using SGD makes $T$ parameter update for $T$ training samples. However, this comes at the price of higher fluctuation (or variance) in minimizing prediction error.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2834,12 +5445,12 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div id="weight_matrix"&gt;&lt;/div&gt;&lt;h3 id="Input-and-Output-Weight-Matrix--($W_{input}$,-$W_{output}$)"&gt;Input and Output Weight Matrix  ($W_{input}$, $W_{output}$)&lt;a class="anchor-link" href="#Input-and-Output-Weight-Matrix--($W_{input}$,-$W_{output}$)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Why does Skip-Gram model attempt to predict context words given a center word? How does predicting context words help with quantifying words and representing them in a vector space? In fact, the ultimate goal of the model is not to predict context words, but to construct the word embedding matrices ($W_{input}$, $W_{output}$) that best caputure relationship among words in a vector space. Skip-Gram achieves this by using a neural net — it optimizes the weight (embedding) matrices by adjusting the weight matrix to minimize the prediction error ($y_{pred} - y_{true}$). This will make more sense once you understand how the embedding matrix behaves like a &lt;em&gt;look-up table&lt;/em&gt;.&lt;/p&gt;
+&lt;div id="weight_matrix"&gt;&lt;/div&gt;&lt;h3 id="Input-and-Output-Weight-Matrix--($W_{input}$,-$W_{output}$)"&gt;Input and Output Weight Matrix  ($W_{input}$, $W_{output}$)&lt;a class="anchor-link" href="#Input-and-Output-Weight-Matrix--($W_{input}$,-$W_{output}$)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Why does Skip-Gram model attempt to predict context words given a center word? How does predicting context words help with quantifying words and representing them in a vector space? In fact, the ultimate goal of the model is not to predict context words, but to construct the word embedding matrices ($W_{input}$, $W_{output}$) that best caputure relationship among words in a vector space. Skip-Gram achieves this by using a neural net — it optimizes the weight (embedding) matrices by adjusting the weight matrix to minimize the &lt;a href="#predict_error"&gt;prediction error&lt;/a&gt; ($y_{pred} - y_{true}$). This will make more sense once you understand how the embedding matrix behaves like a &lt;em&gt;look-up table&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Each row in a word-embedding matrix is a word-vector for each word. Consider the following word-embedding matrix, $W_{input}$.&lt;/p&gt;
 &lt;div class="row give-margin-inline-plot"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/embedding_matrix_input.png" style="height: 300px;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 7: Word-embedding matrix, $W_{input}$&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;The words of our interest are &lt;em&gt;"passes"&lt;/em&gt; and &lt;em&gt;"should"&lt;/em&gt;. &lt;em&gt;"passes"&lt;/em&gt; has a word vector of $[0.1 \quad 0.2 \quad 0.7]$ and &lt;em&gt;"should"&lt;/em&gt; has $[-2 \quad 0.2 \quad 0.8]$. Since we set the size of the weight matrix to be &lt;code&gt;size=3&lt;/code&gt;, the matrix is three-dimensional, and can be visualized in a 3D vector space:&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;The words of our interest are &lt;em&gt;"passes"&lt;/em&gt; and &lt;em&gt;"should"&lt;/em&gt;. &lt;em&gt;"passes"&lt;/em&gt; has a word vector of $[0.1 \quad 0.2 \quad 0.7]$ and &lt;em&gt;"should"&lt;/em&gt; has $[-2 \quad 0.2 \quad 0.8]$. Since we set the size of the weight matrix to be &lt;code&gt;size=3&lt;/code&gt; &lt;a href="#size_3"&gt;above&lt;/a&gt;, the matrix is three-dimensional, and can be visualized in a 3D vector space:&lt;/p&gt;
 &lt;div class="row give-margin full_screen_margin"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/word2vec_3d.png" style="height: 300px;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 8: 3D visualization of word vectors in embedding matrix&lt;/p&gt;&lt;/div&gt;
@@ -2848,7 +5459,7 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: $\theta$ in cost function&lt;/h4&gt;
 &lt;p&gt;There are two weight matrices that need to be optimized in Skip-Gram model: $W_{input}$ and $W_{output}$. Often times in neural net, the weights are expressed as $\theta$. In Skip-Gram, $\theta$ is a concatenation of input and output weight matrices — $[W_{input} \quad W_{output}]$.&lt;/p&gt;
-&lt;div id="eq-2-5"&gt;$$ \theta = [W_{input} \quad W_{output}] = \left[ \begin{array}{l} u_{the} \\ u_{passes} \\ \vdots \\ u_{who} \\  v_{the} \\ v_{passes} \\ \vdots \\ v_{who} \end{array} \right] \in \mathbb{R}^{2NV}$$&lt;/div&gt;
+&lt;div style="font-size: 1rem; margin-top: 20px;"&gt;$$ \theta = [W_{input} \quad W_{output}] = \left[ \begin{array}{l} u_{the} \\ u_{passes} \\ \vdots \\ u_{who} \\  v_{the} \\ v_{passes} \\ \vdots \\ v_{who} \end{array} \right] \in \mathbb{R}^{2NV}$$&lt;/div&gt;
 &lt;p&gt;$\theta$ has a size of $2V \times N$, where $V$ is the number of unique vocab in a corpus, and $N$ is the dimension of word vectors in the embedding matrices. $2$ is multipled to $V$ because there are two weight matrices, $W_{input}$ and $W_{output}$. $u$ is a word vector from $W_{input}$ and $v$ is a word vector from $W_{output}$. Each word vectors are $N$-dim row vectors from input and output embedding matrices.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2862,7 +5473,7 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="col"&gt;&lt;img src="jupyter_images/skip-gram_lookup.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 9: Computing projection layer&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;$h$ is obtained by multiplying the input word embedding matrix with the $V$-dim input vector.&lt;/p&gt;
-&lt;div id="eq-11" style="font-size: 1rem;"&gt;$$h = W_{input}^T \cdot x  \in \mathbb{R}^{N} \tag{11}$$&lt;/div&gt;
+&lt;div id="eq-12" style="font-size: 1rem;"&gt;$$h = W_{input}^T \cdot x  \in \mathbb{R}^{N} \tag{12}$$&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2870,20 +5481,23 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div id="output_layer"&gt;&lt;/div&gt;&lt;h3 id="Softmax-Output-Layer-($y_{pred}$)"&gt;Softmax Output Layer ($y_{pred}$)&lt;a class="anchor-link" href="#Softmax-Output-Layer-($y_{pred}$)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The output layer is a $V$-dim probability distribution of all unique words in the corpus, given a center word. In statistics, the conditional probability of $A$ given $B$ is denoted as $p(A|B)$. In Skip-Gram, we use the notation, $p(w_{context}| w_{center})$, to denote the conditional probability of observing a context word given a center word. It is obtained by using the softmax function,&lt;/p&gt;
-&lt;div style="font-size: 1rem;"&gt;$$ p(w_{context}|w_{center}) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{1} \tag{12} $$&lt;/div&gt;&lt;p&gt;where $W_{output_{(i)}}$ is the $i$-th row vector of size $1 \times N$ from the output embedding matrix, $W_{output_{context}}$ is also a row vector of size $1 \times N$ from the output embedding matrix corresponding to the context word. $V$ is the size of unique vocab in the corpus, and $h$ is the hidden (projection) layer of size ($N \times 1$). The output is an $1 \times 1$ scalar value of probability of range $[0, 1]$.&lt;/p&gt;
+&lt;div id="eq-13" style="font-size: 1rem;"&gt;$$ p(w_{context}|w_{center}) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{1} \tag{13} $$&lt;/div&gt;&lt;p&gt;where $W_{output_{(i)}}$ is the $i$-th row vector of size $1 \times N$ from the output embedding matrix, $W_{output_{context}}$ is also a row vector of size $1 \times N$ from the output embedding matrix corresponding to the context word. $V$ is the size of unique vocab in the corpus, and $h$ is the hidden (projection) layer of size ($N \times 1$). The output is an $1 \times 1$ scalar value of probability of range $[0, 1)$.&lt;/p&gt;
 &lt;p&gt;This probability is computed $V$ times to obtain a conditional probability distribution of observing each unique vocabs in the corpus, given a center word.&lt;/p&gt;
-&lt;div id="eq-13" style="font-size: 1rem;"&gt;$$ \left[ \begin{array}{c} p(w_{1}|w_{center}) \\ p(w_{2}|w_{center}) \\ p(w_{3}|w_{center}) \\ \vdots \\ p(w_{V}|w_{center}) \end{array} \right] = \frac{exp(W_{output} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{V}\tag{13} $$&lt;/div&gt;&lt;p&gt;$W_{output}$ in the denominator of eq 13 has size $V \times N$. Multiplying $W_{output}$ with $h$ of size $N \times 1$ will yield a dot product vector of size $V \times 1$. This dot product vector goes through the softmax function:&lt;/p&gt;
+&lt;div id="eq-14" style="font-size: 1rem;"&gt;$$ \left[ \begin{array}{c} p(w_{1}|w_{center}) \\ p(w_{2}|w_{center}) \\ p(w_{3}|w_{center}) \\ \vdots \\ p(w_{V}|w_{center}) \end{array} \right] = \frac{exp(W_{output} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{V}\tag{14} $$&lt;/div&gt;&lt;p&gt;$W_{output}$ in the denominator of eq 13 has size $V \times N$. Multiplying $W_{output}$ with $h$ of size $N \times 1$ will yield a dot product vector of size $V \times 1$. This dot product vector goes through the softmax function:&lt;/p&gt;
 &lt;div class="row give-margin full_screen_margin"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/softmax_function.png" style="height: 300px;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 10: softmax function transformation&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;The exponentiation ensures that the transformed values are positive, and the normalization factor in the denominator ensures that the values have a range of $[0, 1]$. The result is a conditional probability distribution of observing each unique vocabs in the corpus, given a center word.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;The exponentiation ensures that the transformed values are positive, and the normalization factor in the denominator ensures that the values have a range of $[0, 1)$. The result is a conditional probability distribution of observing each unique vocabs in the corpus, given a center word.&lt;/p&gt;
 &lt;div class="alert alert-info" id="negsample"&gt;
 &lt;h4&gt;Notes: Negative Sampling&lt;/h4&gt;
 &lt;p&gt;Softmax function in Skip-Gram has the following equation:&lt;/p&gt;
-&lt;p&gt;&lt;div style="font-size: 1rem; margin-top: 20px;"&gt;$$ p(w_{context}|w_{center}) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)}$$&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;The normalization factor in the denominator requires special attention because the very large size of $V$ makes the computation very expensive. The author of the &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;Word2Vec original paper&lt;/a&gt; came up with a technique called &lt;i&gt;Negative Sampling&lt;/i&gt; to avoid this computational burden. It replaces the expression, $\sum^V_{i=1}$, to $\sum^k_{i^{'}=1}$, where $k$ is the number of negative samples. Then, the new softmax function is,&lt;/p&gt;
-&lt;p&gt;&lt;div style="font-size: 1rem; margin-top: 20px;"&gt;$$ p(w_{context}|w_{center}) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^k_{i^{'}=1}exp(W_{output_{(i^{'})}} \cdot h)}$$&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;where $k$ is usually chosen between 5-20. $k=20$ is used for small samples, and $k=5$ is used for big samples. $V$ can be more than tens of thousands or even millions, but $k$ is much smaller than $V$. The very small size of $k$ significantly reduces the computational cost of the normalization factor in the denominator. In &lt;i&gt;gensim&lt;/i&gt;, negative sampling is applied by default with &lt;code&gt;Word2Vec(negative=5, ns_exponent=0.75)&lt;/code&gt;, where &lt;code&gt;negative&lt;/code&gt; is the number of $k$-negative samples, and &lt;code&gt;ns_exponent&lt;/code&gt; is a hyperparameter related to negative sampling, of range $(0, 1)$. The details of the methodology behind negative sampling deserves another fully devoted post, and as such, it won't be covered here.&lt;/p&gt;
+&lt;p&gt;&lt;div style="font-size: 1rem; margin-top: 20px;"&gt;$$ P = \frac{exp(W_{output} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{V}$$&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;There is an issue with softmax in Skip-Gram — it is computationally very expensive, as it requires scanning through the entire output embedding matrix ($W_{output}$) to compute the probability distribution of all $V$ words, where $V$ can be millions or more. Furtheremore, the normalization factor in the denominator also requires $V$ iterations. When implemented in codes, the normalization factor is computed only once and cached as a Python variable, making the alogrithm complexity = $O(V+V)\approx O(V)$.&lt;/p&gt;
+&lt;p&gt;Due to this computational inefficiency, &lt;b&gt;softmax is not used in most implementaions of Skip-Gram&lt;/b&gt;. Instead we use an alternative called negative sampling with sigmoid function, which rephrases the problem into a set of independent binary classification task of algorithm complexity = $O(K+1)$, where $K$ typically has a range of $[5,20]$. Then, the new probability distribution is defined as:&lt;/p&gt;
+&lt;p&gt;&lt;div style="font-size: 1rem; margin-top: 20px;"&gt;$$ P = \frac{1}{1+exp(-(\{c_{pos}\} \cup W_{neg}) \cdot h)}
+\in \mathbb{R}^{K+1}\tag{7}$$&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;$K=20$ is used for small samples, and $K=5$ is used for big samples. Negative sampling is much cheaper than vanilla Skip-Gram with softmax, because $K$ is between 5 ~ 20, whereas $V$ can be millions. Moreover, no extra iterations are necessary to compute the normalization factor in the denominator, because sigmoid function is a binary regression classifier. The algorithm complexity of the probability distribution of vanilla Skip-Gram is $O(V)$, whereas negative sampling's is $O(K+1)$. This shows why negative sampling saves a significant amount of computational cost per iteration.&lt;/p&gt;
+&lt;p&gt;In &lt;i&gt;gensim&lt;/i&gt;, negative sampling is applied by default with &lt;code&gt;Word2Vec(negative=5, ns_exponent=0.75)&lt;/code&gt;, where &lt;code&gt;negative&lt;/code&gt; is the number of $K$-negative samples, and &lt;code&gt;ns_exponent&lt;/code&gt; is a hyperparameter related to negative sampling, of range $(0, 1)$. The details of the methodology behind negative sampling deserves another fully devoted post, and as such, covered in a &lt;a href="https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling/" target="_blank"&gt;different post&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2892,13 +5506,17 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div id="backward"&gt;&lt;/div&gt;&lt;h2 id="Training:-Backward-Propagation"&gt;Training: Backward Propagation&lt;a class="anchor-link" href="#Training:-Backward-Propagation"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Backward propagation involves computing prediction errors, and updating the weight matrix ($\theta$) to optimize vector representation of words. Assuming &lt;a href="#stochastic"&gt;stochastic gradient descent&lt;/a&gt;, we have the following general update equations for the weight matrix ($\theta$):&lt;/p&gt;
-&lt;div style="font-size: 1rem;"&gt;$$ \theta_{new}=\theta_{old}-\eta\cdot\nabla_{J_{t}(\theta;w^{(t)}}) \tag{14} $$&lt;/div&gt;&lt;p&gt;$\eta$ is learning rate, $\nabla_{J_{t}(\theta;w^{(t)})}$ is gradient for the weight matrix, and $J_{t}(\theta;w^{(t)})$ is the cost function defined in &lt;a href="#eq-6"&gt;eq (6)&lt;/a&gt;. Since the $\theta$ is a concatenation of input and output weight matrices ($[W_{input} \quad W_{output}]$) as described &lt;a href="#theta_in_cost"&gt;above&lt;/a&gt;, there are two update equations for each embedding matrix:&lt;/p&gt;
-&lt;div id="eq-15" style="font-size: 1rem;"&gt;$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot \frac{\partial J_{t}}{\partial W_{input}} \tag{15} $$&lt;/div&gt;
-&lt;div id="eq-16" style="font-size: 1rem;"&gt;$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot \frac{\partial J_{t}}{\partial W_{output}} \tag{16} $$&lt;/div&gt;&lt;p&gt;Mathematically, it can be shown that the gradients of $W_{input}$ $W_{output}$ have the following forms:&lt;/p&gt;
-&lt;div id="eq-17" style="font-size: 1rem;"&gt;$$ \frac{\partial J_{t}}{\partial W_{input}}  = x \cdot (W_{output}^T \sum^C_{c=1} e_c) \tag{17}$$&lt;/div&gt;
-&lt;div id="eq-18" style="font-size: 1rem;"&gt;$$ \frac{\partial J_{t}}{\partial W_{output}} = (W_{input}^T x) \cdot \sum^C_{c=1} e_c \tag{18}$$&lt;/div&gt;&lt;p&gt;The gradients can be substitued into &lt;a href="#eq-15"&gt;eq (15)&lt;/a&gt; and &lt;a href="#eq-16"&gt;eq (16)&lt;/a&gt;:&lt;/p&gt;
-&lt;div id="eq-19" style="font-size: 1rem;"&gt;$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot x \cdot (W_{output}^T \sum^C_{c=1} e_c)  \tag{19} $$&lt;/div&gt;
-&lt;div id="eq-20" style="font-size: 1rem;"&gt;$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot (W_{input}^T x) \cdot \sum^C_{c=1} e_c \tag{20} $$&lt;/div&gt;&lt;p&gt;$W_{input}$ is &lt;a href="#weight_matrix"&gt;input weight matrix&lt;/a&gt;, $W_{output}$ is &lt;a href="#weight_matrix"&gt;output weight matrix&lt;/a&gt;, $x$ is one-hot encoded &lt;a href="#input_layer"&gt;input layer&lt;/a&gt;, $C$ is &lt;a href="#window_size"&gt;window size&lt;/a&gt;, and $e_{c}$ is &lt;a href="#predict_error"&gt;prediction error&lt;/a&gt; for $c$-th context word in the window. Note that $W_{input}^T x$ is equivalent to hidden layer ($h$).&lt;/p&gt;
+&lt;div style="font-size: 1rem;"&gt;$$ \theta_{new}=\theta_{old}-\eta\cdot\nabla_{J_{t}(\theta;w^{(t)}}) \tag{15} $$&lt;/div&gt;&lt;p&gt;$\eta$ is learning rate, $\nabla_{J_{t}(\theta;w^{(t)})}$ is gradient for the weight matrix, and $J_{t}(\theta;w^{(t)})$ is the cost function defined in &lt;a href="#eq-6"&gt;eq (6)&lt;/a&gt;. Since the $\theta$ is a concatenation of input and output weight matrices ($[W_{input} \quad W_{output}]$) as described &lt;a href="#theta_in_cost"&gt;above&lt;/a&gt;, there are two update equations for each embedding matrix:&lt;/p&gt;
+&lt;div id="eq-16" style="font-size: 1rem;"&gt;$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot \frac{\partial J_{t}}{\partial W_{input}} \tag{16} $$&lt;/div&gt;
+&lt;div id="eq-17" style="font-size: 1rem;"&gt;$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot \frac{\partial J_{t}}{\partial W_{output}} \tag{17} $$&lt;/div&gt;&lt;p&gt;Mathematically, it can be shown that the gradients of $W_{input}$ $W_{output}$ have the following forms:&lt;/p&gt;
+&lt;div id="eq-18" style="font-size: 1rem;"&gt;$$ \frac{\partial J_{t}}{\partial W_{input}}  = x \cdot (W_{output}^T \sum^C_{c=1} e_c) \tag{18}$$&lt;/div&gt;
+&lt;div id="eq-19" style="font-size: 1rem;"&gt;$$ \frac{\partial J_{t}}{\partial W_{output}} = h \cdot \sum^C_{c=1} e_c \tag{19}$$&lt;/div&gt;&lt;p&gt;The gradients can be substitued into &lt;a href="#eq-16"&gt;eq (16)&lt;/a&gt; and &lt;a href="#eq-17"&gt;eq (17)&lt;/a&gt;:&lt;/p&gt;
+&lt;div id="eq-20" style="font-size: 1rem;"&gt;$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot x \cdot (W_{output}^T \sum^C_{c=1} e_c)  \tag{20} $$&lt;/div&gt;
+&lt;div id="eq-21" style="font-size: 1rem;"&gt;$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot h \cdot \sum^C_{c=1} e_c \tag{21} $$&lt;/div&gt;&lt;p&gt;$W_{input}$ is &lt;a href="#weight_matrix"&gt;input weight matrix&lt;/a&gt;, $W_{output}$ is &lt;a href="#weight_matrix"&gt;output weight matrix&lt;/a&gt;, $x$ is one-hot encoded &lt;a href="#input_layer"&gt;input layer&lt;/a&gt;, $C$ is &lt;a href="#window_size"&gt;window size&lt;/a&gt;, and $e_{c}$ is &lt;a href="#predict_error"&gt;prediction error&lt;/a&gt; for $c$-th context word in the window. Note that $h$ (hidden layer) is equivalent to $W_{input}^T x$.&lt;/p&gt;
+&lt;div class="alert alert-info"&gt;
+&lt;h4&gt;Notes: Applying softmax&lt;/h4&gt;
+&lt;p&gt;Although &lt;a href="#eq-21"&gt;eq (21)&lt;/a&gt; does not explicitly show it, softmax function is applied in the prediction error ($e_c$). Prediction error is the difference between the predicted and true probability ($y_{pred} - y_{true}$) as illustrated &lt;a href="#forward_softmax"&gt;below&lt;/a&gt;. The predicted probability $y_{pred}$ is computed using softmax function using &lt;a href="#eq-13"&gt;eq (13)&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2909,7 +5527,7 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="row give-margin-inline-plot"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/error_window.png" style="height: 400px;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 11: Prediction error window&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;The figure has a window size of $2$, so two prediction errors were computed. Recall from the above notes about the &lt;a href="#window_size"&gt;window size&lt;/a&gt; that the original softmax regression classifier (&lt;a href="#eq-9"&gt;eq (9)&lt;/a&gt;) has $K$ labels to classify, in which $K = V$ in NLP applications because there are $V$ words to classify. Employing window size transforms &lt;a href="#eq-9"&gt;eq (9)&lt;/a&gt; into &lt;a href="#eq-10"&gt;eq (10)&lt;/a&gt; and significantly reduces the algorithm complexity because the model only needs to compute prediction errors for $[1, 10]$ neighboring words, instead of computing all $V$-prediction errors for all vocabs that can be millions or more.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;The figure has a window size of $2$, so two prediction errors were computed. Recall from the above notes about the &lt;a href="#window_size"&gt;window size&lt;/a&gt; that the original softmax regression classifier (&lt;a href="#eq-10"&gt;eq (10)&lt;/a&gt;) has $K$ labels to classify, in which $K = V$ in NLP applications because there are $V$ words to classify. Employing window size transforms &lt;a href="#eq-10"&gt;eq (10)&lt;/a&gt; into &lt;a href="#eq-11"&gt;eq (11)&lt;/a&gt; and significantly reduces the algorithm complexity because the model only needs to compute prediction errors for $[1, 10]$ neighboring words, instead of computing all $V$-prediction errors for all vocabs that can be millions or more.&lt;/p&gt;
 &lt;p&gt;Then, prediction errors for all $C$ context words are summed up to compute weight gradients to the update weight matrices.&lt;/p&gt;
 &lt;div class="row give-margin full_screen_margin"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/prediction_error_sum.png" style="height: 230px;"&gt;&lt;/div&gt;
@@ -2923,12 +5541,15 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Numerical-Demonstration"&gt;Numerical Demonstration&lt;a class="anchor-link" href="#Numerical-Demonstration"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For the ease of illustration, screenshots from Excel will be used to demonstrate the concept of updating weight matrices through forward and backward propagations.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Forward Propagation: Computing hiden (projection) layer&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Center word is &lt;em&gt;"passes"&lt;/em&gt;. Window size is &lt;code&gt;size=1&lt;/code&gt;, making &lt;em&gt;"the"&lt;/em&gt; and &lt;em&gt;"who"&lt;/em&gt; context words. Hidden layer ($h$) is &lt;i&gt;looked up&lt;/i&gt; from the input weight matrix. It is computed with &lt;a href="#eq-11"&gt;eq (11)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Center word is &lt;em&gt;"passes"&lt;/em&gt;. Window size is &lt;code&gt;size=1&lt;/code&gt;, making &lt;em&gt;"the"&lt;/em&gt; and &lt;em&gt;"who"&lt;/em&gt; context words. Hidden layer ($h$) is &lt;i&gt;looked up&lt;/i&gt; from the input weight matrix. It is computed with &lt;a href="#eq-12"&gt;eq (12)&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/forward_1.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 13: Computing hidden (projection) layer&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Forward Propagation: Softmax output layer&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Output layer is a probability distribution of all words, given a center word. It is computed with &lt;a href="#eq-13"&gt;eq (13)&lt;/a&gt;. Note that all context windows share the same output layer ($y_{pred}$). Only the errors ($e_c$) are different.&lt;/p&gt;
+&lt;/div&gt;&lt;div id="forward_softmax"&gt;&lt;/div&gt;
+**Forward Propagation: Softmax output layer**
+
+Output layer is a probability distribution of all words, given a center word. It is computed with &lt;a href="#eq-14"&gt;eq (14)&lt;/a&gt;. Note that all context windows share the same output layer ($y_{pred}$). Only the errors ($e_c$) are different.
+
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/forward_2.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 14: Softmax output layer&lt;/p&gt;&lt;/div&gt;
@@ -2938,24 +5559,27 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_1.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 15: Prediction errors of context words&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Computing $\nabla W_{input}$&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Gradients of input weight matrix ($\frac{\partial J_{t}}{\partial W_{input}}$) are computed using &lt;a href="#eq-17"&gt;eq (17)&lt;/a&gt;. Note that multiplying $W_{output}^T \sum^C_{c=1} e_c$ with the one-hot-encoded input vector ($x$) makes the neural net to update only one word vector that corresponds to the input (center) word.&lt;/p&gt;
+&lt;p&gt;Gradients of input weight matrix ($\frac{\partial J_{t}}{\partial W_{input}}$) are computed using &lt;a href="#eq-18"&gt;eq (18)&lt;/a&gt;. Note that multiplying $W_{output}^T \sum^C_{c=1} e_c$ with the one-hot-encoded input vector ($x$) makes the neural net to &lt;u&gt;update only one word vector&lt;/u&gt; that corresponds to the input (center) word.&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_2.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 16: Prediction errors of context words&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Computing $\nabla W_{output}$&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Gradients of output weight matrix ($\frac{\partial J_{t}}{\partial W_{output}}$) are computed using &lt;a href="#eq-18"&gt;eq (18)&lt;/a&gt;. Unlike the input weight matrix ($W_{input}$), all word vectors in the output weight matrix ($W_{output}$) are updated.&lt;/p&gt;
+&lt;p&gt;Gradients of output weight matrix ($\frac{\partial J_{t}}{\partial W_{output}}$) are computed using &lt;a href="#eq-19"&gt;eq (19)&lt;/a&gt;. Unlike the input weight matrix ($W_{input}$), all word vectors in the output weight matrix ($W_{output}$) are updated.&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_3.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 17: Prediction errors of context words&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Updating Weight matrices&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Input and output weight matrices ($[W_{input} \quad W_{output}]$) are updated using &lt;a href="#eq-19"&gt;eq (19)&lt;/a&gt; and &lt;a href="#eq-20"&gt;eq (20)&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;&lt;div id="weight_update"&gt;&lt;/div&gt;
+**Backward Propagation: Updating Weight matrices**
+
+Input and output weight matrices ($[W_{input} \quad W_{output}]$) are updated using &lt;a href="#eq-20"&gt;eq (20)&lt;/a&gt; and &lt;a href="#eq-21"&gt;eq (21)&lt;/a&gt;. 
+
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_4.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 18: Updating $W_{input}$&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_5.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 19: Updating $W_{output}$&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Note that for each iteration in the learning process, all weights in $W_{output}$ are updated, but only one row vector that corresponds to the center word is updated in $W_{input}$. When the model finishes updating both of the weight matrices, then one iteration is completed. The model then moves to the next iteration with the next center word. However, remember that this uses &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; as the cost function and assumes &lt;a href="#stochastic"&gt;stochastic gradient descent&lt;/a&gt;. This means that one update is made for each training example. If &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt; is used as a cost function instead (which is almost never the case), then one update is made for all $T$ training examples in the corpus.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Note that for each iteration in the learning process, all weights in $W_{output}$ are updated, but only one row vector that corresponds to the center word is updated in $W_{input}$. When the model finishes updating both of the weight matrices, then one iteration is completed. The model then moves to the next iteration with the next center word. However, remember that this uses &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt; as the cost function and assumes &lt;a href="#stochastic"&gt;stochastic gradient descent&lt;/a&gt;. This means that one update is made for each training example. If &lt;a href="#eq-9"&gt;eq (9)&lt;/a&gt; is used as a cost function instead (which is almost never the case), then one update is made for all $T$ training examples in the corpus.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -7128,10 +9752,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="47e9b7fb-d4ba-44f9-bb8b-cf6ab02d31e0"&gt;&lt;/div&gt;
+&lt;div id="41a33239-7f36-407e-8299-b44ea4ffb5c3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#47e9b7fb-d4ba-44f9-bb8b-cf6ab02d31e0');
+var element = $('#41a33239-7f36-407e-8299-b44ea4ffb5c3');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
