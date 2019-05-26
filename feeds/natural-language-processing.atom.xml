@@ -2498,21 +2498,29 @@ $$&lt;/div&gt;&lt;p&gt;Raising the unigram distribution $U(w)$ to the power of $
 &lt;p&gt;&lt;div id="neg_word"&gt;&lt;/div&gt;&lt;/p&gt;
 &lt;h4 id="What-is-a-negative-word-$c_{neg}$?"&gt;What is a negative word $c_{neg}$?&lt;a class="anchor-link" href="#What-is-a-negative-word-$c_{neg}$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Words that are randomly drawn from a noise distribution $P_n(w)$. After the model is optimized, the probability computed with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt; will output $\approx$ 0 as shown in &lt;a href="#fig6"&gt;fig 6&lt;/a&gt;. When training an Word2Vec model, the vocab size ($V$) easily exceeds tens of thousands. When 5 ~ 20 negative samples are randomly drawn among the vocabs, it is unlikely to observe the random word with a center word together. Therefore, once the model is optimized: $p(D=1|w,c_{neg})\approx0$.&lt;/p&gt;
 &lt;p&gt;&lt;div id="neg_drawn"&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;h4 id="How-are-negative-samples-drawn?"&gt;How are negative samples drawn?&lt;a class="anchor-link" href="#How-are-negative-samples-drawn?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;$K$-negative samples are randomly drawn from a &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt; $P_n(w)$ using someting like &lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.choice.html" target="_blank"&gt;np.random.choice&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id="How-are-negative-samples-drawn?"&gt;How are negative samples drawn?&lt;a class="anchor-link" href="#How-are-negative-samples-drawn?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;$K$-negative samples are randomly drawn from a &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt; $P_n(w)$. The noise distribution is generated with &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt; and the random samples are drawn with &lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.choice.html" target="_blank"&gt;np.random.choice&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [25]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [35]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt;
-
-&lt;span class="n"&gt;words&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'apple'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'bee'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'desk'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'chair'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;normalized_word_frequency&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0.023&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.34&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.517&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-
-&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;choice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;words&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;normalized_word_frequency&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [41]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;alpha&lt;/span&gt;      &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="n"&gt;unig_dist&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;'apple'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.023&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'bee'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'desk'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.34&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'chair'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.517&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="n"&gt;unig_dist&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2520,11 +2528,36 @@ $$&lt;/div&gt;&lt;p&gt;Raising the unigram distribution $U(w)$ to the power of $
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[25]:&lt;/div&gt;
+&lt;div class="prompt output_prompt"&gt;Out[41]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;array(['chair', 'desk', 'chair', 'desk', 'chair', 'chair', 'apple',
-       'desk', 'chair', 'desk', 'chair', 'chair', 'desk', 'bee', 'chair',
-       'chair', 'chair', 'desk', 'chair', 'chair'], dtype='&lt;U5')&lt;/pre&gt;
+&lt;pre&gt;{'apple': 0.023, 'bee': 0.12, 'desk': 0.34, 'chair': 0.517}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [42]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;noise_dist&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;unig_dist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()}&lt;/span&gt;
+&lt;span class="n"&gt;Z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;noise_dist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="n"&gt;noise_dist_normalized&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;Z&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;noise_dist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()}&lt;/span&gt;
+&lt;span class="n"&gt;noise_dist_normalized&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[42]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;{'apple': 0.044813853132981724,
+ 'bee': 0.15470428538870049,
+ 'desk': 0.33785130228003507,
+ 'chair': 0.4626305591982827}&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2533,8 +2566,34 @@ $$&lt;/div&gt;&lt;p&gt;Raising the unigram distribution $U(w)$ to the power of $
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;div&gt;&lt;hr&gt;&lt;/div&gt;
-&lt;em&gt;"chair"&lt;/em&gt; appeared the most from the corpus, and has the highest probability (&lt;code&gt;0.517&lt;/code&gt;) of being drawn as a negative sample. As a result, &lt;em&gt;"chair"&lt;/em&gt; was drawn the most. The noise distribution is raised to the power of $3/4$rd to combat the imbalance between common vs rare words, as shown in &lt;a id="#fig7"&gt;figure 7&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;div id="test"&gt;&lt;hr&gt;&lt;/div&gt;
+In the initial unigram distribution, &lt;code&gt;chair&lt;/code&gt; appeared the most in the corpus, and had &lt;code&gt;0.517&lt;/code&gt; chance of being drawn as a negative sample. However, the unigram distribution is raised to the power of $3/4$rd to combat the imbalance between common vs rare words, as shown in &lt;a id="#fig7"&gt;figure 7&lt;/a&gt;. After &lt;code&gt;unig_dist&lt;/code&gt; was raised to the power of &lt;code&gt;alpha = 3/4&lt;/code&gt; and normalized, &lt;code&gt;chair&lt;/code&gt; now has &lt;code&gt;0.463&lt;/code&gt; chance of being drawn.&lt;/p&gt;
+&lt;p&gt;On the other hand, &lt;code&gt;apple&lt;/code&gt; had the lowest probability (&lt;code&gt;0.023&lt;/code&gt;) of being drawn. After the transformation, it now has a bit higher probability (&lt;code&gt;0.049&lt;/code&gt;) of being drawn. The imbalance between the most common word (&lt;code&gt;chair&lt;/code&gt;) and the least common word (&lt;code&gt;apple&lt;/code&gt;) was mitigated.&lt;/p&gt;
+&lt;p&gt;Once the noise distribution (&lt;code&gt;noise_dist_normalized&lt;/code&gt;), you randomly draw $K$ negative samples according to each words probability.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [45]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+
+&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;choice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;noise_dist_normalized&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()),&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;noise_dist_normalized&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[45]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;array(['desk', 'chair', 'chair', 'chair', 'chair', 'apple', 'chair',
+       'chair', 'desk', 'chair'], dtype='&lt;U5')&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5568,11 +5627,8 @@ Output layer is a probability distribution of all words, given a center word. It
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_3.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 17: Prediction errors of context words&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;div id="weight_update"&gt;&lt;/div&gt;
-**Backward Propagation: Updating Weight matrices**
-
-Input and output weight matrices ($[W_{input} \quad W_{output}]$) are updated using &lt;a href="#eq-20"&gt;eq (20)&lt;/a&gt; and &lt;a href="#eq-21"&gt;eq (21)&lt;/a&gt;. 
-
+&lt;/div&gt;&lt;div id="weight_update"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Updating Weight matrices&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Input and output weight matrices ($[W_{input} \quad W_{output}]$) are updated using &lt;a href="#eq-20"&gt;eq (20)&lt;/a&gt; and &lt;a href="#eq-21"&gt;eq (21)&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_4.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 18: Updating $W_{input}$&lt;/p&gt;&lt;/div&gt;
@@ -8240,7 +8296,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Word2Vec&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Contrary to frequency-based methods, prediction-based methods are more difficult to understand. As the name 'prediction' implies, their methodologies are based on predicting context words given a center word (&lt;em&gt;Word2Vec Skip-Gram:&lt;/em&gt; $P(w_{context} \mid w_{center})$), or a center word given context words (&lt;em&gt;Continuous Bag of Words:&lt;/em&gt; $P(w_{center} \mid w_{context})$).&lt;/p&gt;
 &lt;p&gt;Prediction-based methods use neural network algorithm, which means that we have to worry about the number of neurons (weights) in a network. In Word2Vec model, the model matrix has a dimension of $V \times N$, where $V$ is the size of unique vocabulary and the size of $N$ is the number of neurons in a network.&lt;/p&gt;
-&lt;div class="row give-margin-inline-big-plot"&gt;
+&lt;div class="row"&gt;
 &lt;div class="col-12"&gt;&lt;img src="jupyter_images/word2vec_skip-gram.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 3: Skip-Gram algorithm structure for Word2Vec&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;During the forward and back propagation process, the weights in &lt;em&gt;Matrix&lt;/em&gt; $W$ (&lt;em&gt;Embedding matrix&lt;/em&gt;) of size $V \times N$ and &lt;em&gt;Matrix&lt;/em&gt; $W'$ (&lt;em&gt;Context matrix&lt;/em&gt;) of size $N \times V$ are optimized to minimize a loss function. Recall that the number of neurons ($N$) is a hyper-parameter that needs to be empirically optimized. Choosing different values for $N$ will yield different output performances. $N = 300$ is a dimensional parameter known to work well with Word2Vec models. Note that a matrix with a dimension of 300 cannot be visualized. However, the dimension can be reduced down to 2D or 3D using &lt;a href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding"&gt;t-distributed stochastic neighbor embedding (t-SNE)&lt;/a&gt;, or PCA. For NLP visualization purpose, T-SNE is often preferred over PCA or SVD due to its ability to reduce high dimensions to low dimensions while capturing complex relationships with neighboring wods. More comparison about PCA vs T-SNE will be illustrated later.&lt;/p&gt;
@@ -9752,10 +9808,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="94a1f744-a264-4607-b9b0-2459ef329384"&gt;&lt;/div&gt;
+&lt;div id="8439d31a-5c20-4416-a2f6-950aff542f12"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#94a1f744-a264-4607-b9b0-2459ef329384');
+var element = $('#8439d31a-5c20-4416-a2f6-950aff542f12');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
