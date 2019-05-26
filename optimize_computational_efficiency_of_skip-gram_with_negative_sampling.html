@@ -1334,7 +1334,7 @@ Negative-Sampling Word-Embedding Method</a> (Goldberg and Levy, 2014).</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Review-on-Word2Vec-Skip-Gram">Review on Word2Vec Skip-Gram<a class="anchor-link" href="#Review-on-Word2Vec-Skip-Gram">¶</a></h2><p>In my <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#eq-11" target="_blank">previous post</a>, I illustrated the neural network structure of Skip-Gram Word2Vec model that represents words in a vector space.</p>
+<h2 id="Review-on-Word2Vec-Skip-Gram">Review on Word2Vec Skip-Gram<a class="anchor-link" href="#Review-on-Word2Vec-Skip-Gram">¶</a></h2><p>In my <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" target="_blank">previous post</a>, I illustrated the neural network structure of Skip-Gram Word2Vec model that represents words in a vector space.</p>
 <div class="row" id="fig1">
 <div class="col"><img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"></div>
 <div class="col-12"><p class="image-description">Figure 1: Skip-Gram model structure</p></div>
@@ -1346,7 +1346,7 @@ $$J(\theta) = -
 \sum_{c=1}^{C}
 log 
 \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{1}$$
-</div><p>where $T$ is the size of training samples, $C$ is the <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram">window size</a>, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in <a href="#fig1">figure 1</a>. I also noted that <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic">stochastic gradient descent</a> (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:</p>
+</div><p>where $T$ is the size of training samples, $C$ is the <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram" target="_blank">window size</a>, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in <a href="#fig1">figure 1</a>. I also noted that <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank">stochastic gradient descent</a> (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:</p>
 <div id="eq-2" style="font-size: 1rem;">
 $$J(\theta; w^{(t)}) = -
 \sum_{c=1}^{C}
@@ -1386,7 +1386,7 @@ log
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Skip-Gram-Negative-Sampling">Skip-Gram Negative Sampling<a class="anchor-link" href="#Skip-Gram-Negative-Sampling">¶</a></h2><p>In Skip-Gram, assuming <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank">stochastic gradient descent</a>, weight marices in the neural network are updated for each training sample to correctly predict output. Let's assume that the training corpus has 10,000 unique vocabs ($V$ = 10000) and the hidden layer is 300-dimensional ($N$ = 300). This means that there are 3,000,000 neurons in the output weight matrix ($W_{output}$) that need to be updated for each training sample (Notes: for the input weight matrix ($W_{input}$), only 300 neurons are updated for each training sample. This is illustrated in figure 18 of my <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_update" target="_blank">previous post</a>.) Since the size of the training corpus ($T$) is very large, updating 3M neurons for each training sample is unrealistic in terms of computational efficiency. Negative sampling addresses this issue by updating only a small fraction of the output weight neurons for each training sample.</p>
-<p>In negative sampling, $K$ <a href="neg_word">negative samples</a> are <a href="#neg_drawn">randomly drawn</a> from a <a href="noise_dist">noise distribution</a>. $K$ is a hyper-parameter that can be empirically tuned, with a typical range of $[5,\, 20]$. For each training sample, you randomly draw $K$ number of negative samples from a noise distribution, $P_n(w)$, and the model will update $(k+1) \times N$ neurons in the output weight matrix ($W_{output}$). $N$ is the dimension of the hidden layer ($h$), or the size of a word vector. $+1$ accounts for a <a href="pos_word">positive sample</a>.</p>
+<p>In negative sampling, $K$ <a href="#neg_word">negative samples</a> are <a href="#neg_drawn">randomly drawn</a> from a <a href="#noise_dist">noise distribution</a>. $K$ is a hyper-parameter that can be empirically tuned, with a typical range of $[5,\, 20]$. For each training sample, you randomly draw $K$ number of negative samples from a noise distribution, $P_n(w)$, and the model will update $(k+1) \times N$ neurons in the output weight matrix ($W_{output}$). $N$ is the dimension of the hidden layer ($h$), or the size of a word vector. $+1$ accounts for a <a href="#pos_word">positive sample</a>.</p>
 <p>With the above assumption, if you set <code>K=9</code>, the model will update (9 + 1) * 300 = 3000 neurons, which is only 0.1% of the 3M neurons in $W_{output}$. This is computationally much faster than the original Skip-Gram, and yet maintains a good quality of word vectors.</p>
 <p>The below figure has 3-dimensional hidden layer ($N=3$), 11 vocabs ($V=11$), and 3 negative samples ($K=3$).</p>
 <div class="row" id="fig4">
@@ -1394,7 +1394,7 @@ log
 <div class="col-12"><p class="image-description">Figure 4: Skip-Gram model structure</p></div>
 </div><div class="alert alert-info" id="negsample">
 <h4>Notes: Choice of $K$</h4>
-<p>The <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">paper</a> (Mikolov et al., 2013) says that K=2 ~ 5 works for large data sets, and K=5 ~ 20 for small data sets.
+<p>The <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank">paper</a> (Mikolov et al., 2013) says that K=2 ~ 5 works for large data sets, and K=5 ~ 20 for small data sets.
     </p>
 </div>
 </div>
@@ -1436,7 +1436,7 @@ $$
 <div><hr></div>
 <div class="row give-margin-inline-big-plot" id="fig5">
 <div class="col"><img src="jupyter_images/negative_sample_text.png"></div>
-<div class="col-12"><p class="image-description">Figure 5: Choice of negative samples (Text source: <a href="https://petrowiki.org/Drilling_induced_formation_damage">Petrowiki</a>)</p></div>
+<div class="col-12"><p class="image-description">Figure 5: Choice of negative samples (Text source: <a href="https://petrowiki.org/Drilling_induced_formation_damage" target="_blank">Petrowiki</a>)</p></div>
 </div><p>For the purpose of illustration, consider the above paragraphs. Assume that our center word ($w$) is <code>drilling</code>, window size is $3$, and the number of negative samples ($K$) is $5$. With the window size of $3$, the contexts words are: <em>"engineer"</em>, <em>"traditionally"</em>, <em>"designs"</em>, <em>"fluids"</em>, <em>"with"</em>, and <em>"two"</em>. These context words are considered as positive labels ($D$ = 1). Our current context word ($c_{pos}$) is <code>engineer</code>. We also need negative words. We randomly pick $5$-words from the <a href="#noise_dist">noise distribution</a> $P_n(w)$ of the corpus for each context word, and consider them as negative samples ($D$ = 0). For the current context word, <code>engineer</code>, the 5 randomly drawn negative words ($c_{neg}$) are: <em>"minimized"</em>, <em>"primary"</em>, <em>"concerns"</em>, <em>"led"</em>, and <em>"page"</em>.</p>
 <p>The idea of negative sampling is that it is more likely to observe positive word pairs ($w$, $c_{pos}$) together than negative word pairs ($w$, $c_{neg}$) together in the corpus. The model attempts to maximize the the probability of observing positive pairs $p(c_{pos}|w) \rightarrow 1$ and minimize the probability of observing negative pairs $p(c_{neg}|w) \rightarrow 0$ simultaneously by iterating through the training samples and updating the weights ($\theta$). Note that the sum of the probability distribution obtained by sigmoid function (<a href="#eq-7">eq (7)</a>) does not need to equal $1$, unlike softmax (<a href="#eq-4">eq (4)</a>).</p>
 <div class="row" id="fig6">
@@ -1459,7 +1459,7 @@ $$
 P_n(w) = \left(\frac{U(w)}{Z}\right)^{\alpha}
 \tag{8} 
 $$</div><p>Raising the unigram distribution $U(w)$ to the power of $\alpha$ has an effect of smoothing out the distribution. <strong>It attempts to combat the imbalance between common words and rare words</strong> by decreasing the probability of drawing common words, and increasing the probability drawing rare words.</p>
-<p>$\alpha$ is a hyper-parameter that can be empirically tuned. The authors of the original Word2Vec <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">paper</a> claims that the unigram distribution $U(w)$ raised to the $3/4$rd power (i.e., $U(w)^{3/4}/Z$) yielded the best result.</p>
+<p>$\alpha$ is a hyper-parameter that can be empirically tuned. The authors of the original Word2Vec <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank">paper</a> claims that the unigram distribution $U(w)$ raised to the $3/4$rd power (i.e., $U(w)^{3/4}/Z$) yielded the best result.</p>
 <div class="row" id="fig7">
 <div class="col"><img src="jupyter_images/noise_dist.png"></div>
 <div class="col-12"><p class="image-description">Figure 7: Effect of raising power of unigram distribution $U(w)$</p></div>
@@ -1474,7 +1474,7 @@ $$</div><p>Raising the unigram distribution $U(w)$ to the power of $\alpha$ has 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [24]:</div>
+<div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
@@ -1490,11 +1490,11 @@ $$</div><p>Raising the unigram distribution $U(w)$ to the power of $\alpha$ has 
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[24]:</div>
+<div class="prompt output_prompt">Out[25]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>array(['chair', 'bee', 'chair', 'bee', 'chair', 'bee', 'chair', 'bee',
-       'desk', 'bee', 'chair', 'desk', 'desk', 'desk', 'chair', 'desk',
-       'chair', 'desk', 'chair', 'desk'], dtype='<U5')</pre>
+<pre>array(['chair', 'desk', 'chair', 'desk', 'chair', 'chair', 'apple',
+       'desk', 'chair', 'desk', 'chair', 'chair', 'desk', 'bee', 'chair',
+       'chair', 'chair', 'desk', 'chair', 'chair'], dtype='<U5')</pre>
 </div>
 </div>
 </div>
