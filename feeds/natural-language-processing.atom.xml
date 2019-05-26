@@ -1151,7 +1151,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Review-on-Word2Vec-Skip-Gram"&gt;Review on Word2Vec Skip-Gram&lt;a class="anchor-link" href="#Review-on-Word2Vec-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#eq-11" target="_blank"&gt;previous post&lt;/a&gt;, I illustrated the neural network structure of Skip-Gram Word2Vec model that represents words in a vector space.&lt;/p&gt;
+&lt;h2 id="Review-on-Word2Vec-Skip-Gram"&gt;Review on Word2Vec Skip-Gram&lt;a class="anchor-link" href="#Review-on-Word2Vec-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" target="_blank"&gt;previous post&lt;/a&gt;, I illustrated the neural network structure of Skip-Gram Word2Vec model that represents words in a vector space.&lt;/p&gt;
 &lt;div class="row" id="fig1"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Skip-Gram model structure&lt;/p&gt;&lt;/div&gt;
@@ -1163,7 +1163,7 @@ $$J(\theta) = -
 \sum_{c=1}^{C}
 log 
 \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{1}$$
-&lt;/div&gt;&lt;p&gt;where $T$ is the size of training samples, $C$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram"&gt;window size&lt;/a&gt;, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;. I also noted that &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic"&gt;stochastic gradient descent&lt;/a&gt; (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;where $T$ is the size of training samples, $C$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram" target="_blank"&gt;window size&lt;/a&gt;, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;. I also noted that &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt; (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:&lt;/p&gt;
 &lt;div id="eq-2" style="font-size: 1rem;"&gt;
 $$J(\theta; w^{(t)}) = -
 \sum_{c=1}^{C}
@@ -2364,7 +2364,7 @@ Negative-Sampling Word-Embedding Method&lt;/a&gt; (Goldberg and Levy, 2014).&lt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Review-on-Word2Vec-Skip-Gram"&gt;Review on Word2Vec Skip-Gram&lt;a class="anchor-link" href="#Review-on-Word2Vec-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#eq-11" target="_blank"&gt;previous post&lt;/a&gt;, I illustrated the neural network structure of Skip-Gram Word2Vec model that represents words in a vector space.&lt;/p&gt;
+&lt;h2 id="Review-on-Word2Vec-Skip-Gram"&gt;Review on Word2Vec Skip-Gram&lt;a class="anchor-link" href="#Review-on-Word2Vec-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" target="_blank"&gt;previous post&lt;/a&gt;, I illustrated the neural network structure of Skip-Gram Word2Vec model that represents words in a vector space.&lt;/p&gt;
 &lt;div class="row" id="fig1"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Skip-Gram model structure&lt;/p&gt;&lt;/div&gt;
@@ -2376,7 +2376,7 @@ $$J(\theta) = -
 \sum_{c=1}^{C}
 log 
 \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{1}$$
-&lt;/div&gt;&lt;p&gt;where $T$ is the size of training samples, $C$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram"&gt;window size&lt;/a&gt;, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;. I also noted that &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic"&gt;stochastic gradient descent&lt;/a&gt; (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;where $T$ is the size of training samples, $C$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram" target="_blank"&gt;window size&lt;/a&gt;, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;. I also noted that &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt; (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:&lt;/p&gt;
 &lt;div id="eq-2" style="font-size: 1rem;"&gt;
 $$J(\theta; w^{(t)}) = -
 \sum_{c=1}^{C}
@@ -2416,7 +2416,7 @@ log
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Skip-Gram-Negative-Sampling"&gt;Skip-Gram Negative Sampling&lt;a class="anchor-link" href="#Skip-Gram-Negative-Sampling"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In Skip-Gram, assuming &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt;, weight marices in the neural network are updated for each training sample to correctly predict output. Let's assume that the training corpus has 10,000 unique vocabs ($V$ = 10000) and the hidden layer is 300-dimensional ($N$ = 300). This means that there are 3,000,000 neurons in the output weight matrix ($W_{output}$) that need to be updated for each training sample (Notes: for the input weight matrix ($W_{input}$), only 300 neurons are updated for each training sample. This is illustrated in figure 18 of my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_update" target="_blank"&gt;previous post&lt;/a&gt;.) Since the size of the training corpus ($T$) is very large, updating 3M neurons for each training sample is unrealistic in terms of computational efficiency. Negative sampling addresses this issue by updating only a small fraction of the output weight neurons for each training sample.&lt;/p&gt;
-&lt;p&gt;In negative sampling, $K$ &lt;a href="neg_word"&gt;negative samples&lt;/a&gt; are &lt;a href="#neg_drawn"&gt;randomly drawn&lt;/a&gt; from a &lt;a href="noise_dist"&gt;noise distribution&lt;/a&gt;. $K$ is a hyper-parameter that can be empirically tuned, with a typical range of $[5,\, 20]$. For each training sample, you randomly draw $K$ number of negative samples from a noise distribution, $P_n(w)$, and the model will update $(k+1) \times N$ neurons in the output weight matrix ($W_{output}$). $N$ is the dimension of the hidden layer ($h$), or the size of a word vector. $+1$ accounts for a &lt;a href="pos_word"&gt;positive sample&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In negative sampling, $K$ &lt;a href="#neg_word"&gt;negative samples&lt;/a&gt; are &lt;a href="#neg_drawn"&gt;randomly drawn&lt;/a&gt; from a &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt;. $K$ is a hyper-parameter that can be empirically tuned, with a typical range of $[5,\, 20]$. For each training sample, you randomly draw $K$ number of negative samples from a noise distribution, $P_n(w)$, and the model will update $(k+1) \times N$ neurons in the output weight matrix ($W_{output}$). $N$ is the dimension of the hidden layer ($h$), or the size of a word vector. $+1$ accounts for a &lt;a href="#pos_word"&gt;positive sample&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;With the above assumption, if you set &lt;code&gt;K=9&lt;/code&gt;, the model will update (9 + 1) * 300 = 3000 neurons, which is only 0.1% of the 3M neurons in $W_{output}$. This is computationally much faster than the original Skip-Gram, and yet maintains a good quality of word vectors.&lt;/p&gt;
 &lt;p&gt;The below figure has 3-dimensional hidden layer ($N=3$), 11 vocabs ($V=11$), and 3 negative samples ($K=3$).&lt;/p&gt;
 &lt;div class="row" id="fig4"&gt;
@@ -2424,7 +2424,7 @@ log
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 4: Skip-Gram model structure&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;div class="alert alert-info" id="negsample"&gt;
 &lt;h4&gt;Notes: Choice of $K$&lt;/h4&gt;
-&lt;p&gt;The &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;paper&lt;/a&gt; (Mikolov et al., 2013) says that K=2 ~ 5 works for large data sets, and K=5 ~ 20 for small data sets.
+&lt;p&gt;The &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank"&gt;paper&lt;/a&gt; (Mikolov et al., 2013) says that K=2 ~ 5 works for large data sets, and K=5 ~ 20 for small data sets.
     &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2466,7 +2466,7 @@ $$
 &lt;div&gt;&lt;hr&gt;&lt;/div&gt;
 &lt;div class="row give-margin-inline-big-plot" id="fig5"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/negative_sample_text.png"&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 5: Choice of negative samples (Text source: &lt;a href="https://petrowiki.org/Drilling_induced_formation_damage"&gt;Petrowiki&lt;/a&gt;)&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 5: Choice of negative samples (Text source: &lt;a href="https://petrowiki.org/Drilling_induced_formation_damage" target="_blank"&gt;Petrowiki&lt;/a&gt;)&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;For the purpose of illustration, consider the above paragraphs. Assume that our center word ($w$) is &lt;code&gt;drilling&lt;/code&gt;, window size is $3$, and the number of negative samples ($K$) is $5$. With the window size of $3$, the contexts words are: &lt;em&gt;"engineer"&lt;/em&gt;, &lt;em&gt;"traditionally"&lt;/em&gt;, &lt;em&gt;"designs"&lt;/em&gt;, &lt;em&gt;"fluids"&lt;/em&gt;, &lt;em&gt;"with"&lt;/em&gt;, and &lt;em&gt;"two"&lt;/em&gt;. These context words are considered as positive labels ($D$ = 1). Our current context word ($c_{pos}$) is &lt;code&gt;engineer&lt;/code&gt;. We also need negative words. We randomly pick $5$-words from the &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt; $P_n(w)$ of the corpus for each context word, and consider them as negative samples ($D$ = 0). For the current context word, &lt;code&gt;engineer&lt;/code&gt;, the 5 randomly drawn negative words ($c_{neg}$) are: &lt;em&gt;"minimized"&lt;/em&gt;, &lt;em&gt;"primary"&lt;/em&gt;, &lt;em&gt;"concerns"&lt;/em&gt;, &lt;em&gt;"led"&lt;/em&gt;, and &lt;em&gt;"page"&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;The idea of negative sampling is that it is more likely to observe positive word pairs ($w$, $c_{pos}$) together than negative word pairs ($w$, $c_{neg}$) together in the corpus. The model attempts to maximize the the probability of observing positive pairs $p(c_{pos}|w) \rightarrow 1$ and minimize the probability of observing negative pairs $p(c_{neg}|w) \rightarrow 0$ simultaneously by iterating through the training samples and updating the weights ($\theta$). Note that the sum of the probability distribution obtained by sigmoid function (&lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt;) does not need to equal $1$, unlike softmax (&lt;a href="#eq-4"&gt;eq (4)&lt;/a&gt;).&lt;/p&gt;
 &lt;div class="row" id="fig6"&gt;
@@ -2489,7 +2489,7 @@ $$
 P_n(w) = \left(\frac{U(w)}{Z}\right)^{\alpha}
 \tag{8} 
 $$&lt;/div&gt;&lt;p&gt;Raising the unigram distribution $U(w)$ to the power of $\alpha$ has an effect of smoothing out the distribution. &lt;strong&gt;It attempts to combat the imbalance between common words and rare words&lt;/strong&gt; by decreasing the probability of drawing common words, and increasing the probability drawing rare words.&lt;/p&gt;
-&lt;p&gt;$\alpha$ is a hyper-parameter that can be empirically tuned. The authors of the original Word2Vec &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;paper&lt;/a&gt; claims that the unigram distribution $U(w)$ raised to the $3/4$rd power (i.e., $U(w)^{3/4}/Z$) yielded the best result.&lt;/p&gt;
+&lt;p&gt;$\alpha$ is a hyper-parameter that can be empirically tuned. The authors of the original Word2Vec &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank"&gt;paper&lt;/a&gt; claims that the unigram distribution $U(w)$ raised to the $3/4$rd power (i.e., $U(w)^{3/4}/Z$) yielded the best result.&lt;/p&gt;
 &lt;div class="row" id="fig7"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/noise_dist.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 7: Effect of raising power of unigram distribution $U(w)$&lt;/p&gt;&lt;/div&gt;
@@ -2504,7 +2504,7 @@ $$&lt;/div&gt;&lt;p&gt;Raising the unigram distribution $U(w)$ to the power of $
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [24]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [25]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt;
@@ -2520,11 +2520,11 @@ $$&lt;/div&gt;&lt;p&gt;Raising the unigram distribution $U(w)$ to the power of $
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[24]:&lt;/div&gt;
+&lt;div class="prompt output_prompt"&gt;Out[25]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;array(['chair', 'bee', 'chair', 'bee', 'chair', 'bee', 'chair', 'bee',
-       'desk', 'bee', 'chair', 'desk', 'desk', 'desk', 'chair', 'desk',
-       'chair', 'desk', 'chair', 'desk'], dtype='&lt;U5')&lt;/pre&gt;
+&lt;pre&gt;array(['chair', 'desk', 'chair', 'desk', 'chair', 'chair', 'apple',
+       'desk', 'chair', 'desk', 'chair', 'chair', 'desk', 'bee', 'chair',
+       'chair', 'chair', 'desk', 'chair', 'chair'], dtype='&lt;U5')&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -9752,10 +9752,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="41a33239-7f36-407e-8299-b44ea4ffb5c3"&gt;&lt;/div&gt;
+&lt;div id="cd76354e-c95f-4f7c-b218-4c1281d3cda4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#41a33239-7f36-407e-8299-b44ea4ffb5c3');
+var element = $('#cd76354e-c95f-4f7c-b218-4c1281d3cda4');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
