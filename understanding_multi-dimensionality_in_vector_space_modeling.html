@@ -1611,7 +1611,7 @@ h6:hover .anchor-link {
 <p>Contrary to frequency-based methods, prediction-based methods are more difficult to understand. As the name 'prediction' implies, their methodologies are based on predicting context words given a center word (<em>Word2Vec Skip-Gram:</em> $P(w_{context} \mid w_{center})$), or a center word given context words (<em>Continuous Bag of Words:</em> $P(w_{center} \mid w_{context})$).</p>
 <p>Prediction-based methods use neural network algorithm, which means that we have to worry about the number of neurons (weights) in a network. In Word2Vec model, the model matrix has a dimension of $V \times N$, where $V$ is the size of unique vocabulary and the size of $N$ is the number of neurons in a network.</p>
 <div class="row give-margin-inline-big-plot">
-<div class="col-12"><img src="jupyter_images/word2vec-skip-gram.png"></div>
+<div class="col-12"><img src="jupyter_images/word2vec_skip-gram.png"></div>
 <div class="col-12"><p class="image-description">Figure 3: Skip-Gram algorithm structure for Word2Vec</p></div>
 </div><p>During the forward and back propagation process, the weights in <em>Matrix</em> $W$ (<em>Embedding matrix</em>) of size $V \times N$ and <em>Matrix</em> $W'$ (<em>Context matrix</em>) of size $N \times V$ are optimized to minimize a loss function. Recall that the number of neurons ($N$) is a hyper-parameter that needs to be empirically optimized. Choosing different values for $N$ will yield different output performances. $N = 300$ is a dimensional parameter known to work well with Word2Vec models. Note that a matrix with a dimension of 300 cannot be visualized. However, the dimension can be reduced down to 2D or 3D using <a href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-distributed stochastic neighbor embedding (t-SNE)</a>, or PCA. For NLP visualization purpose, T-SNE is often preferred over PCA or SVD due to its ability to reduce high dimensions to low dimensions while capturing complex relationships with neighboring wods. More comparison about PCA vs T-SNE will be illustrated later.</p>
 <div class="alert alert-info">
@@ -3122,10 +3122,10 @@ Explained Variance = 0.996
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="cd76354e-c95f-4f7c-b218-4c1281d3cda4"></div>
+<div id="94a1f744-a264-4607-b9b0-2459ef329384"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#cd76354e-c95f-4f7c-b218-4c1281d3cda4');
+var element = $('#94a1f744-a264-4607-b9b0-2459ef329384');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
