@@ -441,7 +441,7 @@ article div.social-links li a:hover {
 }
 article p {
     font-size: 0.9rem;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     line-height: 1.6em;
     margin-top: 20px;
 }
@@ -685,7 +685,7 @@ div.output_area .rendered_html table {
 }
 .alert {
     color: #276f86;
-    padding: 0.25rem 1.25rem !important
+    padding: 1.25rem !important
 }
 .text_cell_render ol li {
     font-size: inherit;
