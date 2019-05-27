@@ -20,26 +20,26 @@
 
         <meta name="keywords" content="data-mining, pdf, tabula, Others, "/>
 
-        <link rel="canonical" href="/parse-pdf-files-while-retaining-structure-with-tabula-py">
+        <link rel="canonical" href="https://aegis4048.github.io/parse-pdf-files-while-retaining-structure-with-tabula-py">
     <meta property="og:title" content="Parse PDF Files While Retaining Structure with Tabula-py | Pythonic Excursions"/>
-    <meta property="og:url" content="/parse-pdf-files-while-retaining-structure-with-tabula-py" />
+    <meta property="og:url" content="https://aegis4048.github.io/parse-pdf-files-while-retaining-structure-with-tabula-py" />
     <meta property="og:description" content="It&#39;s hard to copy-and-paste rows of data out of PDF files. Try tabula-py to extract data into a CSV or Excel spreadsheet using a simple, easy-to-use interface." />
     <meta property="og:site_name" content="Pythonic Excursions" />
     <meta property="og:article:author" content="ERIC KIM" />
         <meta property="og:article:published_time" content="2019-02-02T09:00:00-08:00" />
     <meta name="twitter:title" content="Parse PDF Files While Retaining Structure with Tabula-py | Pythonic Excursions">
     <meta name="twitter:description" content="It&#39;s hard to copy-and-paste rows of data out of PDF files. Try tabula-py to extract data into a CSV or Excel spreadsheet using a simple, easy-to-use interface.">
-        <meta property="og:image" content="/images/featured_images/pdf_parse_demo.png" />
-        <meta name="twitter:image" content="/images/featured_images/pdf_parse_demo.png" >
+        <meta property="og:image" content="https://aegis4048.github.io/images/featured_images/pdf_parse_demo.png" />
+        <meta name="twitter:image" content="https://aegis4048.github.io/images/featured_images/pdf_parse_demo.png" >
 
 
         <title>    Parse PDF Files While Retaining Structure with Tabula-py  | Pythonic Excursions
 </title>
 
-                <link rel="stylesheet" type="text/css" href="/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
-                <link rel="stylesheet" type="text/css" href="/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
-            <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
-            <link rel="stylesheet" type="text/css" href="/theme/css/ipynb.css" media="screen">
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/ipynb.css" media="screen">
 
             <style>
                 #progressBar::-webkit-progress-value {
@@ -50,7 +50,7 @@
                 }
             </style>
 
-        <link href="/theme/libs/prism.css" rel="stylesheet" />
+        <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
 <script type="text/x-mathjax-config">
 
 MathJax.Hub.Config({
@@ -65,17 +65,28 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-        <link rel="shortcut icon" href="/theme/img/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/theme/img/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="/theme/img/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="/theme/img/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="/theme/img/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="/theme/img/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="/theme/img/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="/theme/img/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
+        <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="https://aegis4048.github.io/theme/img/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://aegis4048.github.io/theme/img/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="https://aegis4048.github.io/theme/img/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://aegis4048.github.io/theme/img/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="https://aegis4048.github.io/theme/img/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="https://aegis4048.github.io/theme/img/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="https://aegis4048.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133310548-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-133310548-1');
+</script>
+
     </head>
     <body>
 <progress id="progressBar" max="19827" class="flat">
@@ -86,7 +97,7 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
             <div class="banner">
                 <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
                     <div class="container navbar-title">
-                        <a href="/"><img id="banner-logo" src="/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
+                        <a href="/"><img id="banner-logo" src="https://aegis4048.github.io/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -94,13 +105,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link rem_08" href="/about.html">About</a>
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/about.html">About</a>
                         </li>
                         <li id="last-item" class="nav-item">
-                            <a class="nav-link rem_08" href="/archives.html">Archive</a>
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/archives.html">Archive</a>
                         </li>
                      </ul>
-                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="/search.html">
+                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="https://aegis4048.github.io/search.html">
                         <div class="search-box-div" align="center">
                             <input id="tipue_search_input" class="form-control mr-md-2 rem_08 col-9" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" aria-label="Search">
                             <button id="search-btn" class="btn btn-search btn-outline-success btn-circle rem_08 col-3" type="submit" for="tipue_search_input">Search</button>
@@ -116,14 +127,14 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
         <header>
             <h1>Parse PDF Files While Retaining Structure with Tabula-py</h1>
             <div class="row justify-content-between no-margin">
-                <h4 class="article-category">Category > <a class="article-category-link" href="/archives.html">Others</a></h4>
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://aegis4048.github.io/archives.html">Others</a></h4>
                 <span class="article-date">Feb 02, 2019</span>
             </div>
             <div class="meta meta-tag no-margin no-border">
                 <div>
-                        <a href="/tag/data-mining.html" class="tag">data-mining</a>
-                        <a href="/tag/pdf.html" class="tag">pdf</a>
-                        <a href="/tag/tabula.html" class="tag">tabula</a>
+                        <a href="https://aegis4048.github.io/tag/data-mining.html" class="tag">data-mining</a>
+                        <a href="https://aegis4048.github.io/tag/pdf.html" class="tag">pdf</a>
+                        <a href="https://aegis4048.github.io/tag/tabula.html" class="tag">tabula</a>
                 </div>
             </div>
             <section>
@@ -131,13 +142,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
         <div class="share-post-intro mr-2">Share This Post :</div>
         <div class="social-share-btns-container">
             <div class="social-share-btns">
-                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=/parse-pdf-files-while-retaining-structure-with-tabula-py" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=https://aegis4048.github.io/parse-pdf-files-while-retaining-structure-with-tabula-py" rel="nofollow" target="_blank">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=/parse-pdf-files-while-retaining-structure-with-tabula-py" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=https://aegis4048.github.io/parse-pdf-files-while-retaining-structure-with-tabula-py" rel="nofollow" target="_blank">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/parse-pdf-files-while-retaining-structure-with-tabula-py" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://aegis4048.github.io/parse-pdf-files-while-retaining-structure-with-tabula-py" rel="nofollow" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
@@ -2732,18 +2743,32 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
         <aside>
         <nav>
         <ul class="articles-timeline">
-            <li class="previous-article">« <a href="/creating-a-jupyternotebook-powered-data-science-blog-with-pelican" title="Previous: Creating a Jupyter Notebook-Powered Data Science Blog with Pelican">Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</a></li>
-            <li class="next-article"><a href="/spatial-simulation-1-basics-of-variograms" title="Next: Spatial Simulation 1: Basics of Variograms">Spatial Simulation 1: Basics of Variograms</a> »</li>
+            <li class="previous-article">« <a href="https://aegis4048.github.io/creating-a-jupyternotebook-powered-data-science-blog-with-pelican" title="Previous: Creating a Jupyter Notebook-Powered Data Science Blog with Pelican">Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</a></li>
+            <li class="next-article"><a href="https://aegis4048.github.io/spatial-simulation-1-basics-of-variograms" title="Next: Spatial Simulation 1: Basics of Variograms">Spatial Simulation 1: Basics of Variograms</a> »</li>
         </ul>
         </nav>
         </aside>
+  <section>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'pythonic-excursions';
+      var disqus_identifier = '/parse-pdf-files-while-retaining-structure-with-tabula-py';
+      var disqus_url = 'https://aegis4048.github.io/parse-pdf-files-while-retaining-structure-with-tabula-py';
+      var disqus_title = 'Parse PDF Files While Retaining Structure with Tabula-py';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section>
         <hr/>
 <section style="margin-top: 30px">
     <h2>Related Posts</h2>
 <ul class="related-posts-list">
-<li><a href="/understanding_multi-dimensionality_in_vector_space_modeling" title="Understanding Multi-Dimensionality in Vector Space Modeling">Understanding Multi-Dimensionality in Vector Space Modeling</a></li>
-<li><a href="/demystifying_neural_network_in_skip_gram_language_modeling" title="Demystifying Neural Network in Skip-Gram Language Modeling">Demystifying Neural Network in Skip-Gram Language Modeling</a></li>
-<li><a href="/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" title="Optimize Computational Efficiency of Skip-Gram with Negative Sampling">Optimize Computational Efficiency of Skip-Gram with Negative Sampling</a></li>
+<li><a href="https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling" title="Understanding Multi-Dimensionality in Vector Space Modeling">Understanding Multi-Dimensionality in Vector Space Modeling</a></li>
+<li><a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" title="Demystifying Neural Network in Skip-Gram Language Modeling">Demystifying Neural Network in Skip-Gram Language Modeling</a></li>
+<li><a href="https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" title="Optimize Computational Efficiency of Skip-Gram with Negative Sampling">Optimize Computational Efficiency of Skip-Gram with Negative Sampling</a></li>
 </ul>
 </section>
     </article>
@@ -2755,7 +2780,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
          <div class="col">
             <h5 class="headin5_amrc col_white_amrc pt2">ABOUT ERIC</h5>
             <!--headin5_amrc-->
-            <p class="mb10"><img id="profile_img" align="left" src="/theme/img/profile_photo_footer.jpg">Senior undergraduate student at the Univeristy of Texas at Austin, Hildebrand Department of Petroleum Engineering, the #1 petroleum engineering school in the US. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
+            <p class="mb10"><img id="profile_img" align="left" src="https://aegis4048.github.io/theme/img/profile_photo_footer.jpg">Senior undergraduate student at the Univeristy of Texas at Austin, Hildebrand Department of Petroleum Engineering, the #1 petroleum engineering school in the US. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
             <p><i class="fa fa-envelope mr-2"></i>aegis4048@gmail.com</p>
          </div>
       </div>
@@ -2780,11 +2805,11 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
       <!--social_footer_ul ends here-->
    </div>
 </footer>
-            <script type="text/javascript" src="/theme/libs/jquery.min.js"></script>
-            <script type="text/javascript" src="/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
-        <script src="/theme/libs/prism.js"></script>
-        <script src="/theme/libs/Countable.js"></script>
+        <script src="https://aegis4048.github.io/theme/libs/prism.js"></script>
+        <script src="https://aegis4048.github.io/theme/libs/Countable.js"></script>
 
         <script>
             Prism.plugins.NormalizeWhitespace.setDefaults({
@@ -2801,7 +2826,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
         </script>
 
 
-        <script type="text/javascript" src="/theme/js/custom.js"></script>
+        <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
             <script>
                 function validateForm(query)
                 {
