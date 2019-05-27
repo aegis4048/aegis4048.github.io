@@ -20,26 +20,26 @@
 
         <meta name="keywords" content="data-mining, nlp, word2vec, co-occurrence matrix, vector space model, word vectors, window size, skip-gram, neural network, negative sampling, stochastic gradient descent, learning rate, Natural Language Processing, "/>
 
-        <link rel="canonical" href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling">
+        <link rel="canonical" href="/demystifying_neural_network_in_skip_gram_language_modeling">
     <meta property="og:title" content="Demystifying Neural Network in Skip-Gram Language Modeling | Pythonic Excursions"/>
-    <meta property="og:url" content="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" />
+    <meta property="og:url" content="/demystifying_neural_network_in_skip_gram_language_modeling" />
     <meta property="og:description" content="How is neural network used in language modeling to capture relationships among words?" />
     <meta property="og:site_name" content="Pythonic Excursions" />
     <meta property="og:article:author" content="ERIC KIM" />
         <meta property="og:article:published_time" content="2019-05-06T09:00:00-07:00" />
     <meta name="twitter:title" content="Demystifying Neural Network in Skip-Gram Language Modeling | Pythonic Excursions">
     <meta name="twitter:description" content="How is neural network used in language modeling to capture relationships among words?">
-        <meta property="og:image" content="https://aegis4048.github.io/images/featured_images/skip-gram.png" />
-        <meta name="twitter:image" content="https://aegis4048.github.io/images/featured_images/skip-gram.png" >
+        <meta property="og:image" content="/images/featured_images/skip-gram.png" />
+        <meta name="twitter:image" content="/images/featured_images/skip-gram.png" >
 
 
         <title>    Demystifying Neural Network in Skip-Gram Language Modeling  | Pythonic Excursions
 </title>
 
-                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
-                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
-            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/custom.css" media="screen">
-            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/ipynb.css" media="screen">
+                <link rel="stylesheet" type="text/css" href="/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="/theme/css/ipynb.css" media="screen">
 
             <style>
                 #progressBar::-webkit-progress-value {
@@ -50,7 +50,7 @@
                 }
             </style>
 
-        <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
+        <link href="/theme/libs/prism.css" rel="stylesheet" />
 <script type="text/x-mathjax-config">
 
 MathJax.Hub.Config({
@@ -65,28 +65,17 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-        <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="https://aegis4048.github.io/theme/img/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="https://aegis4048.github.io/theme/img/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="https://aegis4048.github.io/theme/img/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="https://aegis4048.github.io/theme/img/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="https://aegis4048.github.io/theme/img/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="https://aegis4048.github.io/theme/img/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link href="https://aegis4048.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133310548-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-133310548-1');
-</script>
-
+        <link rel="shortcut icon" href="/theme/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/theme/img/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/img/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/img/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/theme/img/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/img/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/theme/img/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/img/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
     </head>
     <body>
 <progress id="progressBar" max="19827" class="flat">
@@ -97,7 +86,7 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
             <div class="banner">
                 <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
                     <div class="container navbar-title">
-                        <a href="/"><img id="banner-logo" src="https://aegis4048.github.io/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
+                        <a href="/"><img id="banner-logo" src="/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -105,13 +94,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link rem_08" href="https://aegis4048.github.io/about.html">About</a>
+                            <a class="nav-link rem_08" href="/about.html">About</a>
                         </li>
                         <li id="last-item" class="nav-item">
-                            <a class="nav-link rem_08" href="https://aegis4048.github.io/archives.html">Archive</a>
+                            <a class="nav-link rem_08" href="/archives.html">Archive</a>
                         </li>
                      </ul>
-                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="https://aegis4048.github.io/search.html">
+                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="/search.html">
                         <div class="search-box-div" align="center">
                             <input id="tipue_search_input" class="form-control mr-md-2 rem_08 col-9" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" aria-label="Search">
                             <button id="search-btn" class="btn btn-search btn-outline-success btn-circle rem_08 col-3" type="submit" for="tipue_search_input">Search</button>
@@ -127,23 +116,23 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
         <header>
             <h1>Demystifying Neural Network in Skip-Gram Language Modeling</h1>
             <div class="row justify-content-between no-margin">
-                <h4 class="article-category">Category > <a class="article-category-link" href="https://aegis4048.github.io/archives.html">Natural Language Processing</a></h4>
+                <h4 class="article-category">Category > <a class="article-category-link" href="/archives.html">Natural Language Processing</a></h4>
                 <span class="article-date">May 06, 2019</span>
             </div>
             <div class="meta meta-tag no-margin no-border">
                 <div>
-                        <a href="https://aegis4048.github.io/tag/data-mining.html" class="tag">data-mining</a>
-                        <a href="https://aegis4048.github.io/tag/nlp.html" class="tag">nlp</a>
-                        <a href="https://aegis4048.github.io/tag/word2vec.html" class="tag">word2vec</a>
-                        <a href="https://aegis4048.github.io/tag/co-occurrence-matrix.html" class="tag">co-occurrence matrix</a>
-                        <a href="https://aegis4048.github.io/tag/vector-space-model.html" class="tag">vector space model</a>
-                        <a href="https://aegis4048.github.io/tag/word-vectors.html" class="tag">word vectors</a>
-                        <a href="https://aegis4048.github.io/tag/window-size.html" class="tag">window size</a>
-                        <a href="https://aegis4048.github.io/tag/skip-gram.html" class="tag">skip-gram</a>
-                        <a href="https://aegis4048.github.io/tag/neural-network.html" class="tag">neural network</a>
-                        <a href="https://aegis4048.github.io/tag/negative-sampling.html" class="tag">negative sampling</a>
-                        <a href="https://aegis4048.github.io/tag/stochastic-gradient-descent.html" class="tag">stochastic gradient descent</a>
-                        <a href="https://aegis4048.github.io/tag/learning-rate.html" class="tag">learning rate</a>
+                        <a href="/tag/data-mining.html" class="tag">data-mining</a>
+                        <a href="/tag/nlp.html" class="tag">nlp</a>
+                        <a href="/tag/word2vec.html" class="tag">word2vec</a>
+                        <a href="/tag/co-occurrence-matrix.html" class="tag">co-occurrence matrix</a>
+                        <a href="/tag/vector-space-model.html" class="tag">vector space model</a>
+                        <a href="/tag/word-vectors.html" class="tag">word vectors</a>
+                        <a href="/tag/window-size.html" class="tag">window size</a>
+                        <a href="/tag/skip-gram.html" class="tag">skip-gram</a>
+                        <a href="/tag/neural-network.html" class="tag">neural network</a>
+                        <a href="/tag/negative-sampling.html" class="tag">negative sampling</a>
+                        <a href="/tag/stochastic-gradient-descent.html" class="tag">stochastic gradient descent</a>
+                        <a href="/tag/learning-rate.html" class="tag">learning rate</a>
                 </div>
             </div>
             <section>
@@ -151,13 +140,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
         <div class="share-post-intro mr-2">Share This Post :</div>
         <div class="social-share-btns-container">
             <div class="social-share-btns">
-                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=/demystifying_neural_network_in_skip_gram_language_modeling" rel="nofollow" target="_blank">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=/demystifying_neural_network_in_skip_gram_language_modeling" rel="nofollow" target="_blank">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/demystifying_neural_network_in_skip_gram_language_modeling" rel="nofollow" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
@@ -1543,8 +1532,9 @@ $$<div class="alert alert-info">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Derivation-of-Cost-Function">Derivation of Cost Function<a class="anchor-link" href="#Derivation-of-Cost-Function">¶</a></h2><p>Skip-Gram model seeks to optimize the word weight (embedding) matrix by correctly predicting context words, given a center word. In the other words, the model wants to maximize the probability of correctly predicting all context words at the same time, given a center word. Maximizing the probability of predicting context words leads to optimizing the weight matrix ($\theta$) that best represents words in a vector space. $\theta$ is a concatenation of input and output weight matrices — $[W_{input} \quad W_{output}]$, as described <a href="#theta_in_cost">below</a>. It is passed into the cost function ($J$) as a variable and optimized. Mathematically, it can be expressed as:</p>
-<div id="eq-1" style="font-size: 1rem;">$$ max \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{1} $$</div><p>where $C$ is the window size. Recall that in statistics, the probability of $A$ given $B$ is expressed as $P(A|B)$. Then, natural log is taken on <a href="#eq-1">eq (1)</a> to simplify taking derivatives.</p>
-<div id="eq-2" style="font-size: 1rem;">$$ max \, log \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{2} $$</div><div class="alert alert-info">
+<div id="eq-1" style="font-size: 1rem;">$$ \underset{\theta}{\text{argmax}} \,\, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{1} $$</div><p>where $C$ is the window size. Recall that in statistics, the probability of $A$ given $B$ is expressed as $P(A|B)$. Then, natural log is taken on <a href="#eq-1">eq (1)</a> to simplify taking derivatives.</p>
+<div id="eq-2" style="font-size: 1rem;">$$ \underset{\theta}{\text{argmax}} \,\, log \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{2} $$</div><div id="take_natural_log"></div>
+<div class="alert alert-info">
 <h4>Notes: Why take a natural log?</h4>
 <p>In machine learning, it is a common practice to take a natural log to the objective function to simplify taking derivatives. For example, a multinomial regression classifer called Softmax (details explained <a href="#Softmax-Output-Layer-($y_{pred}$)">below</a>) has the following probability function:</p>
 <p><center style="font-size: 1rem; margin-top: 20px;">$p(x_i) = \frac{e^{x_i}}{\sum_{j=1}e^{x_{j}}}$</center></p>
@@ -1552,10 +1542,10 @@ $$<div class="alert alert-info">
 <p><center style="font-size: 1rem; margin-top: 20px;">$log \, p(x_i) = x_i - log \, {\sum_{j=1}e^{x_{j}}}$</center></p>
 <p>Depending on a model, the argument ($x_i$) passed into the probability function ($p$) can be complicated, and simplifying the original softmax function helps with taking the derivatives in the future.</p>
 <p>Taking a log does not affect the optimized weights ($\theta$), because natural log is a <u>monotonically increasing</u> function. This means that increasing the value of $x$-axis results in increasing the value of $y$-axis. This is important because it ensures that the maximum value of the original probability function occurs at the same point as the log probability function. Therefore:</p>
-<p><center style="font-size: 1rem; margin-top: 20px;">$max \, p(x_i) = max \, log \, p(x_i)$</center></p>
+<p><center style="font-size: 1rem; margin-top: 20px;">$\underset{\theta}{\text{argmax}} \,\, p(x_i) = \underset{\theta}{\text{argmax}} \,\, log \, p(x_i)$</center></p>
 </div><p>In Skip-Gram, softmax function is used for context words classfication. The details are explained <a href="#Softmax-Output-Layer-($y_{pred}$)">below</a>. Softmax in Skip-Gram has the following equation:</p>
 <div id="eq-3" style="font-size: 1rem;">$$ p(w_{context}|w_{center}; \, \theta) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{3} $$</div><p>$W_{output_{(context)}}$ is a row vector for a context word from the output embedding matrix (see <a href="#weight_matrix">below</a>), and $h$ is the hidden (projection) layer word vector for a center word (see <a href="#hidden_layer">below</a>). Softmax function is then plugged into the <a href="#eq-2">eq (2)</a> to yield a new objective function that maximizes the probability of observing all $C$ context words, given a center word:</p>
-<div id="eq-4" style="font-size: 1rem;">$$ max \, log \, \prod_{c=1}^{C} \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{4} $$</div><div class="alert alert-info">
+<div id="eq-4" style="font-size: 1rem;">$$ \underset{\theta}{\text{argmax}} \,\, log \, \prod_{c=1}^{C} \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{4} $$</div><div class="alert alert-info">
 <h4>Notes: Probability Product</h4>
 <p>In statistics, probability of observing $C$ multiple events at the same time is computed by the product of each event's probability.</p>
 <p><center style="font-size: 1rem; margin-top: 20px;">$$p(x_{1}, x_{2} ... x_{C}) = p(x_{1}) \times p(x_{2}) \, \times \, ... \, \times \, p(x_{C})$$</center></p>
@@ -1574,7 +1564,7 @@ $$
 J(\theta; w^{(t)}) = - \sum_{c=1}^{C}(W_{output_{(c)}} \cdot h) + C \cdot log \sum^V_{i=1}exp(W_{output_{(i)}} \cdot h) \tag{7}
 $$
 </div><p>Different paper uses different notations for the cost function. To stick to the notation used in the <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">Word2Vec original paper</a>, some of the notations in <a href="#eq-7">eq (7)</a> can be changed. However, they are all equivalent:</p>
-<div id="eq-8" style="font-size: 1rem;">$$J_{t}(\theta;w^{(t)}) = -\sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \, \theta) \tag{8}$$</div><p>Note that <a href="#eq-7">eq (7)</a> and <a href="#eq-8">eq (8)</a> are equivalent. They both assume <strong>stochastic gradient descent</strong>, which means that for each training sample ($w^{(t)}$) in the corpus of size ($T$), one update is made to the weight matrix ($\theta$). The cost function expressed in the paper shows <strong>batch gradient descent</strong> <a href="#eq-9">eq (9)</a>, which means that only one update is made for all $T$ training samples:</p>
+<div id="eq-8" style="font-size: 1rem;">$$J(\theta;w^{(t)}) = -\sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \, \theta) \tag{8}$$</div><p>Note that <a href="#eq-7">eq (7)</a> and <a href="#eq-8">eq (8)</a> are equivalent. They both assume <strong>stochastic gradient descent</strong>, which means that for each training sample ($w^{(t)}$) in the corpus of size ($T$), one update is made to the weight matrix ($\theta$). The cost function expressed in the paper shows <strong>batch gradient descent</strong> <a href="#eq-9">eq (9)</a>, which means that only one update is made for all $T$ training samples:</p>
 <div id="eq-9" style="font-size: 1rem;">$$J(\theta) = -\frac{1}{T} \sum^T_{t=1} \sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ;\, \theta) \tag{9}$$</div><p>However, in Word2Vec, batch gradient descent is almost never used due to its high computational cost. The author of the paper stated that he used stochastic gradient descent for training. Read the below <a href="#stochastic">notes</a> for more information about stochastic gradient descent.</p>
 </div>
 </div>
@@ -1662,9 +1652,9 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 <p>$\eta$ is learning rate, $\nabla_{J(\theta)}$ is gradient for the weight matrix, and $J(\theta)$ is the cost function that has different forms for each model. The cost function for the Skip-Gram model proposed in the <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">Word2Vec original paper</a> has the following equation:</p>
 <p><center style="font-size: 1rem; margin-top: 20px;">$$J(\theta) = -\frac{1}{T} \sum^T_{t=1} \sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \theta)$$</center></p>
 <p>Here, what gives us headache is the expression, $\frac{1}{T} \sum^T_{t=1}$, because $T$ can be larger than billions or more in many NLP applications. It is basically telling us that billions of iterations need to be computed to make just one update to the weight matrix ($\theta$). In order to mitigate this computational burden, the author of the paper states that Stochastic Gradient Descent (SGD) was used for parameter optimization. SGD removes the expression, $\frac{1}{T} \sum^T_{t=1}$, from the cost function and performs parameter update for each training example, $w^{(t)}$:</p>
-<p><center style="font-size: 1rem; margin-top: 20px;">$$J_{t}(\theta;w^{(t)}) = -\sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \theta)$$</center></p>
+<p><center style="font-size: 1rem; margin-top: 20px;">$$J(\theta;w^{(t)}) = -\sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \theta)$$</center></p>
 <p>Then, the new parameter update equation for SGD becomes:</p>
-<p><center style="font-size: 1rem; margin-top: 20px;">$\theta^{(new)}=\theta^{(old)}-\eta\cdot\nabla_{J_{t}(\theta;w^{(t)})}$</center></p>
+<p><center style="font-size: 1rem; margin-top: 20px;">$\theta^{(new)}=\theta^{(old)}-\eta\cdot\nabla_{J(\theta;w^{(t)})}$</center></p>
 <p>The original vanilla graident descent makes $1$ parameter update for $T$ training samples, but the new update equation using SGD makes $T$ parameter update for $T$ training samples. However, this comes at the price of higher fluctuation (or variance) in minimizing prediction error.</p>
 </div>
 </div>
@@ -1734,11 +1724,11 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div id="backward"></div><h2 id="Training:-Backward-Propagation">Training: Backward Propagation<a class="anchor-link" href="#Training:-Backward-Propagation">¶</a></h2><p>Backward propagation involves computing prediction errors, and updating the weight matrix ($\theta$) to optimize vector representation of words. Assuming <a href="#stochastic">stochastic gradient descent</a>, we have the following general update equations for the weight matrix ($\theta$):</p>
-<div style="font-size: 1rem;">$$ \theta_{new}=\theta_{old}-\eta\cdot\nabla_{J_{t}(\theta;w^{(t)}}) \tag{15} $$</div><p>$\eta$ is learning rate, $\nabla_{J_{t}(\theta;w^{(t)})}$ is gradient for the weight matrix, and $J_{t}(\theta;w^{(t)})$ is the cost function defined in <a href="#eq-6">eq (6)</a>. Since the $\theta$ is a concatenation of input and output weight matrices ($[W_{input} \quad W_{output}]$) as described <a href="#theta_in_cost">above</a>, there are two update equations for each embedding matrix:</p>
-<div id="eq-16" style="font-size: 1rem;">$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot \frac{\partial J_{t}}{\partial W_{input}} \tag{16} $$</div>
-<div id="eq-17" style="font-size: 1rem;">$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot \frac{\partial J_{t}}{\partial W_{output}} \tag{17} $$</div><p>Mathematically, it can be shown that the gradients of $W_{input}$ $W_{output}$ have the following forms:</p>
-<div id="eq-18" style="font-size: 1rem;">$$ \frac{\partial J_{t}}{\partial W_{input}}  = x \cdot (W_{output}^T \sum^C_{c=1} e_c) \tag{18}$$</div>
-<div id="eq-19" style="font-size: 1rem;">$$ \frac{\partial J_{t}}{\partial W_{output}} = h \cdot \sum^C_{c=1} e_c \tag{19}$$</div><p>The gradients can be substitued into <a href="#eq-16">eq (16)</a> and <a href="#eq-17">eq (17)</a>:</p>
+<div style="font-size: 1rem;">$$ \theta_{new}=\theta_{old}-\eta\cdot\nabla_{J(\theta;w^{(t)}}) \tag{15} $$</div><p>$\eta$ is learning rate, $\nabla_{J(\theta;w^{(t)})}$ is gradient for the weight matrix, and $J(\theta;w^{(t)})$ is the cost function defined in <a href="#eq-6">eq (6)</a>. Since the $\theta$ is a concatenation of input and output weight matrices ($[W_{input} \quad W_{output}]$) as described <a href="#theta_in_cost">above</a>, there are two update equations for each embedding matrix:</p>
+<div id="eq-16" style="font-size: 1rem;">$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot \frac{\partial J}{\partial W_{input}} \tag{16} $$</div>
+<div id="eq-17" style="font-size: 1rem;">$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot \frac{\partial J}{\partial W_{output}} \tag{17} $$</div><p>Mathematically, it can be shown that the gradients of $W_{input}$ $W_{output}$ have the following forms:</p>
+<div id="eq-18" style="font-size: 1rem;">$$ \frac{\partial J}{\partial W_{input}}  = x \cdot (W_{output}^T \sum^C_{c=1} e_c) \tag{18}$$</div>
+<div id="eq-19" style="font-size: 1rem;">$$ \frac{\partial J}{\partial W_{output}} = h \cdot \sum^C_{c=1} e_c \tag{19}$$</div><p>The gradients can be substitued into <a href="#eq-16">eq (16)</a> and <a href="#eq-17">eq (17)</a>:</p>
 <div id="eq-20" style="font-size: 1rem;">$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot x \cdot (W_{output}^T \sum^C_{c=1} e_c)  \tag{20} $$</div>
 <div id="eq-21" style="font-size: 1rem;">$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot h \cdot \sum^C_{c=1} e_c \tag{21} $$</div><p>$W_{input}$ is <a href="#weight_matrix">input weight matrix</a>, $W_{output}$ is <a href="#weight_matrix">output weight matrix</a>, $x$ is one-hot encoded <a href="#input_layer">input layer</a>, $C$ is <a href="#window_size">window size</a>, and $e_{c}$ is <a href="#predict_error">prediction error</a> for $c$-th context word in the window. Note that $h$ (hidden layer) is equivalent to $W_{input}^T x$.</p>
 <div class="alert alert-info">
@@ -1787,12 +1777,12 @@ Output layer is a probability distribution of all words, given a center word. It
 <div class="col"><img src="jupyter_images/backward_1.png"></div>
 <div class="col-12"><p class="image-description">Figure 15: Prediction errors of context words</p></div>
 </div><p><strong>Backward Propagation: Computing $\nabla W_{input}$</strong></p>
-<p>Gradients of input weight matrix ($\frac{\partial J_{t}}{\partial W_{input}}$) are computed using <a href="#eq-18">eq (18)</a>. Note that multiplying $W_{output}^T \sum^C_{c=1} e_c$ with the one-hot-encoded input vector ($x$) makes the neural net to <u>update only one word vector</u> that corresponds to the input (center) word.</p>
+<p>Gradients of input weight matrix ($\frac{\partial J}{\partial W_{input}}$) are computed using <a href="#eq-18">eq (18)</a>. Note that multiplying $W_{output}^T \sum^C_{c=1} e_c$ with the one-hot-encoded input vector ($x$) makes the neural net to <u>update only one word vector</u> that corresponds to the input (center) word.</p>
 <div class="row">
 <div class="col"><img src="jupyter_images/backward_2.png"></div>
 <div class="col-12"><p class="image-description">Figure 16: Prediction errors of context words</p></div>
 </div><p><strong>Backward Propagation: Computing $\nabla W_{output}$</strong></p>
-<p>Gradients of output weight matrix ($\frac{\partial J_{t}}{\partial W_{output}}$) are computed using <a href="#eq-19">eq (19)</a>. Unlike the input weight matrix ($W_{input}$), all word vectors in the output weight matrix ($W_{output}$) are updated.</p>
+<p>Gradients of output weight matrix ($\frac{\partial J}{\partial W_{output}}$) are computed using <a href="#eq-19">eq (19)</a>. Unlike the input weight matrix ($W_{input}$), all word vectors in the output weight matrix ($W_{output}$) are updated.</p>
 <div class="row">
 <div class="col"><img src="jupyter_images/backward_3.png"></div>
 <div class="col-12"><p class="image-description">Figure 17: Prediction errors of context words</p></div>
@@ -1841,32 +1831,18 @@ Output layer is a probability distribution of all words, given a center word. It
         <aside>
         <nav>
         <ul class="articles-timeline">
-            <li class="previous-article">« <a href="https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling" title="Previous: Understanding Multi-Dimensionality in Vector Space Modeling">Understanding Multi-Dimensionality in Vector Space Modeling</a></li>
-            <li class="next-article"><a href="https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" title="Next: Optimize Computational Efficiency of Skip-Gram with Negative Sampling">Optimize Computational Efficiency of Skip-Gram with Negative Sampling</a> »</li>
+            <li class="previous-article">« <a href="/understanding_multi-dimensionality_in_vector_space_modeling" title="Previous: Understanding Multi-Dimensionality in Vector Space Modeling">Understanding Multi-Dimensionality in Vector Space Modeling</a></li>
+            <li class="next-article"><a href="/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" title="Next: Optimize Computational Efficiency of Skip-Gram with Negative Sampling">Optimize Computational Efficiency of Skip-Gram with Negative Sampling</a> »</li>
         </ul>
         </nav>
         </aside>
-  <section>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-    <script type="text/javascript">
-      var disqus_shortname = 'pythonic-excursions';
-      var disqus_identifier = '/demystifying_neural_network_in_skip_gram_language_modeling';
-      var disqus_url = 'https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling';
-      var disqus_title = 'Demystifying Neural Network in Skip-Gram Language Modeling';
-      (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-    </script>
-  </section>
         <hr/>
 <section style="margin-top: 30px">
     <h2>Related Posts</h2>
 <ul class="related-posts-list">
-<li><a href="https://aegis4048.github.io/parse-pdf-files-while-retaining-structure-with-tabula-py" title="Parse PDF Files While Retaining Structure with Tabula-py">Parse PDF Files While Retaining Structure with Tabula-py</a></li>
-<li><a href="https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling" title="Understanding Multi-Dimensionality in Vector Space Modeling">Understanding Multi-Dimensionality in Vector Space Modeling</a></li>
-<li><a href="https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" title="Optimize Computational Efficiency of Skip-Gram with Negative Sampling">Optimize Computational Efficiency of Skip-Gram with Negative Sampling</a></li>
+<li><a href="/parse-pdf-files-while-retaining-structure-with-tabula-py" title="Parse PDF Files While Retaining Structure with Tabula-py">Parse PDF Files While Retaining Structure with Tabula-py</a></li>
+<li><a href="/understanding_multi-dimensionality_in_vector_space_modeling" title="Understanding Multi-Dimensionality in Vector Space Modeling">Understanding Multi-Dimensionality in Vector Space Modeling</a></li>
+<li><a href="/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" title="Optimize Computational Efficiency of Skip-Gram with Negative Sampling">Optimize Computational Efficiency of Skip-Gram with Negative Sampling</a></li>
 </ul>
 </section>
     </article>
@@ -1878,7 +1854,7 @@ Output layer is a probability distribution of all words, given a center word. It
          <div class="col">
             <h5 class="headin5_amrc col_white_amrc pt2">ABOUT ERIC</h5>
             <!--headin5_amrc-->
-            <p class="mb10"><img id="profile_img" align="left" src="https://aegis4048.github.io/theme/img/profile_photo_footer.jpg">Senior undergraduate student at the Univeristy of Texas at Austin, Hildebrand Department of Petroleum Engineering, the #1 petroleum engineering school in the US. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
+            <p class="mb10"><img id="profile_img" align="left" src="/theme/img/profile_photo_footer.jpg">Senior undergraduate student at the Univeristy of Texas at Austin, Hildebrand Department of Petroleum Engineering, the #1 petroleum engineering school in the US. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
             <p><i class="fa fa-envelope mr-2"></i>aegis4048@gmail.com</p>
          </div>
       </div>
@@ -1903,11 +1879,11 @@ Output layer is a probability distribution of all words, given a center word. It
       <!--social_footer_ul ends here-->
    </div>
 </footer>
-            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/jquery.min.js"></script>
-            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+            <script type="text/javascript" src="/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
-        <script src="https://aegis4048.github.io/theme/libs/prism.js"></script>
-        <script src="https://aegis4048.github.io/theme/libs/Countable.js"></script>
+        <script src="/theme/libs/prism.js"></script>
+        <script src="/theme/libs/Countable.js"></script>
 
         <script>
             Prism.plugins.NormalizeWhitespace.setDefaults({
@@ -1924,7 +1900,7 @@ Output layer is a probability distribution of all words, given a center word. It
         </script>
 
 
-        <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
+        <script type="text/javascript" src="/theme/js/custom.js"></script>
             <script>
                 function validateForm(query)
                 {

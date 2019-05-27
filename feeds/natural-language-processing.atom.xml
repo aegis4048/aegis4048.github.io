@@ -1155,14 +1155,15 @@ h6:hover .anchor-link {
 &lt;div class="row" id="fig1"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Skip-Gram model structure&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;I also derived the cost function of Skip-Gram in &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Derivation-of-Cost-Function"&gt;Derivation of Cost Function&lt;/a&gt;:&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;I also derived the cost function of Skip-Gram in &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Derivation-of-Cost-Function" target="_blank"&gt;Derivation of Cost Function&lt;/a&gt;:&lt;/p&gt;
 &lt;div id="eq-1" style="font-size: 1rem;"&gt;
-$$J(\theta) = -
-\frac{1}{T}
-\sum_{t=1}^{T}
-\sum_{c=1}^{C}
-log 
-\frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{1}$$
+$$
+\begin{align}
+  J(\theta) = &amp; - \frac{1}{T} \sum_{t=1}^{T} \sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \, \theta) \\ 
+            = &amp; - \frac{1}{T} \sum_{t=1}^{T} \sum_{c=1}^{C} log \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \\ 
+\end{align}
+\tag{1} 
+$$
 &lt;/div&gt;&lt;p&gt;where $T$ is the size of training samples, $C$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram" target="_blank"&gt;window size&lt;/a&gt;, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;. I also noted that &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt; (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:&lt;/p&gt;
 &lt;div id="eq-2" style="font-size: 1rem;"&gt;
 $$J(\theta; w^{(t)}) = -
@@ -2355,7 +2356,7 @@ h6:hover .anchor-link {
 &lt;p&gt;&lt;em&gt;The code snippet assumes Anaconda 5.2.0 version of Python virtual environment&lt;/em&gt;&lt;/p&gt;
 &lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Acknowledgement&lt;/h4&gt;
-&lt;p&gt;The materials on this post are based the on four NLP papers, &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank"&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/a&gt; (Mikolov et al., 2013), &lt;a href="https://arxiv.org/pdf/1411.2738.pdf" target="_blank"&gt;word2vec Parameter Learning Explained&lt;/a&gt; (Rong, 2014), &lt;a href="https://arxiv.org/pdf/1710.09805.pdf" target="_blank"&gt;Improving Negative Sampling for Word Representation using Self-embedded Features&lt;/a&gt; (Chen et al., 2017) and &lt;a href="https://arxiv.org/pdf/1402.3722.pdf" target="_blank"&gt;word2vec Explained: Deriving Mikolov et al.’s
+&lt;p&gt;The materials on this post are based the on five NLP papers, &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank"&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/a&gt; (Mikolov et al., 2013), &lt;a href="https://arxiv.org/pdf/1411.2738.pdf" target="_blank"&gt;word2vec Parameter Learning Explained&lt;/a&gt; (Rong, 2014), &lt;a href="https://arxiv.org/pdf/1710.09805.pdf" target="_blank"&gt;Improving Negative Sampling for Word Representation using Self-embedded Features&lt;/a&gt; (Chen et al., 2017), &lt;a href="https://aclweb.org/anthology/D17-1037" target="_blank"&gt;Incremental Skip-gram Model with Negative Sampling&lt;/a&gt; (Kaji and Kobayashi, 2017), and &lt;a href="https://arxiv.org/pdf/1402.3722.pdf" target="_blank"&gt;word2vec Explained: Deriving Mikolov et al.’s
 Negative-Sampling Word-Embedding Method&lt;/a&gt; (Goldberg and Levy, 2014).&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2368,14 +2369,15 @@ Negative-Sampling Word-Embedding Method&lt;/a&gt; (Goldberg and Levy, 2014).&lt;
 &lt;div class="row" id="fig1"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Skip-Gram model structure&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;I also derived the cost function of Skip-Gram in &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Derivation-of-Cost-Function"&gt;Derivation of Cost Function&lt;/a&gt;:&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;I also derived the cost function of Skip-Gram in &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Derivation-of-Cost-Function" target="_blank"&gt;Derivation of Cost Function&lt;/a&gt;:&lt;/p&gt;
 &lt;div id="eq-1" style="font-size: 1rem;"&gt;
-$$J(\theta) = -
-\frac{1}{T}
-\sum_{t=1}^{T}
-\sum_{c=1}^{C}
-log 
-\frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{1}$$
+$$
+\begin{align}
+  J(\theta) = &amp; - \frac{1}{T} \sum_{t=1}^{T} \sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \, \theta) \\ 
+            = &amp; - \frac{1}{T} \sum_{t=1}^{T} \sum_{c=1}^{C} log \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \\ 
+\end{align}
+\tag{1} 
+$$
 &lt;/div&gt;&lt;p&gt;where $T$ is the size of training samples, $C$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram" target="_blank"&gt;window size&lt;/a&gt;, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;. I also noted that &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt; (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:&lt;/p&gt;
 &lt;div id="eq-2" style="font-size: 1rem;"&gt;
 $$J(\theta; w^{(t)}) = -
@@ -2408,14 +2410,14 @@ log
 &lt;div class="col"&gt;&lt;img src="jupyter_images/vanilla-skip-gram-complexity.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 3: Algorithm complexity of vanilla Skip-Gram&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Furtheremore, the normalization factor in the denominator also requires $V$ iterations. In mathematical context, the normalization factor needs to be computed for each probability p($w_{context}| w_{center}$), making the alogrithm complexity = $O(V \times V)$. However, when implemented on code, the normalization factor is computed only once and cached as a Python variable, making the alogrithm complexity = $O(V + V) \approx O(V)$. This is possible because normalization factor is the same for all words.&lt;/p&gt;
-&lt;p&gt;Due to this computational inefficiency, &lt;strong&gt;softmax is not used in most implementaions of Skip-Gram&lt;/strong&gt;. Instead we use an alternative called &lt;em&gt;negative sampling&lt;/em&gt; with &lt;a href=""&gt;sigmoid function&lt;/a&gt;, which rephrases the problem into a set of independent binary classification task of algorithm complexity = $O(K \, + \, 1)$, where $K$ typically has a range of $[5, 20]$.&lt;/p&gt;
+&lt;p&gt;Due to this computational inefficiency, &lt;strong&gt;softmax is not used in most implementaions of Skip-Gram&lt;/strong&gt;. Instead we use an alternative called &lt;em&gt;negative sampling&lt;/em&gt; with &lt;a href="#sigmoid"&gt;sigmoid function&lt;/a&gt;, which rephrases the problem into a set of independent binary classification task of algorithm complexity = $O(K \, + \, 1)$, where $K$ typically has a range of $[5, 20]$.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Skip-Gram-Negative-Sampling"&gt;Skip-Gram Negative Sampling&lt;a class="anchor-link" href="#Skip-Gram-Negative-Sampling"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In Skip-Gram, assuming &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt;, weight marices in the neural network are updated for each training sample to correctly predict output. Let's assume that the training corpus has 10,000 unique vocabs ($V$ = 10000) and the hidden layer is 300-dimensional ($N$ = 300). This means that there are 3,000,000 neurons in the output weight matrix ($W_{output}$) that need to be updated for each training sample (Notes: for the input weight matrix ($W_{input}$), only 300 neurons are updated for each training sample. This is illustrated in figure 18 of my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_update" target="_blank"&gt;previous post&lt;/a&gt;.) Since the size of the training corpus ($T$) is very large, updating 3M neurons for each training sample is unrealistic in terms of computational efficiency. Negative sampling addresses this issue by updating only a small fraction of the output weight neurons for each training sample.&lt;/p&gt;
+&lt;h2 id="Skip-Gram-Negative-Sampling"&gt;Skip-Gram Negative Sampling&lt;a class="anchor-link" href="#Skip-Gram-Negative-Sampling"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In Skip-Gram, assuming &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt;, weight marices in the neural network are updated for each training sample to correctly predict output. Let's assume that the training corpus has 10,000 unique vocabs ($V$ = 10000) and the hidden layer is 300-dimensional ($N$ = 300). This means that there are 3,000,000 neurons in the output weight matrix ($W_{output}$) that need to be updated for each training sample (Notes: for the input weight matrix ($W_{input}$), only 300 neurons are updated for each training sample. This is illustrated in &lt;em&gt;figure 18&lt;/em&gt; of my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_update" target="_blank"&gt;previous post&lt;/a&gt;.) Since the size of the training corpus ($T$) is very large, updating 3M neurons for each training sample is unrealistic in terms of computational efficiency. Negative sampling addresses this issue by updating only a small fraction of the output weight neurons for each training sample.&lt;/p&gt;
 &lt;p&gt;In negative sampling, $K$ &lt;a href="#neg_word"&gt;negative samples&lt;/a&gt; are &lt;a href="#neg_drawn"&gt;randomly drawn&lt;/a&gt; from a &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt;. $K$ is a hyper-parameter that can be empirically tuned, with a typical range of $[5,\, 20]$. For each training sample, you randomly draw $K$ number of negative samples from a noise distribution, $P_n(w)$, and the model will update $(k+1) \times N$ neurons in the output weight matrix ($W_{output}$). $N$ is the dimension of the hidden layer ($h$), or the size of a word vector. $+1$ accounts for a &lt;a href="#pos_word"&gt;positive sample&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;With the above assumption, if you set &lt;code&gt;K=9&lt;/code&gt;, the model will update (9 + 1) * 300 = 3000 neurons, which is only 0.1% of the 3M neurons in $W_{output}$. This is computationally much faster than the original Skip-Gram, and yet maintains a good quality of word vectors.&lt;/p&gt;
 &lt;p&gt;The below figure has 3-dimensional hidden layer ($N=3$), 11 vocabs ($V=11$), and 3 negative samples ($K=3$).&lt;/p&gt;
@@ -2441,7 +2443,7 @@ $$
 p(D=1|w,c;\theta)=\frac{1}{1+exp(-w_{output_{(j)}} \cdot h)}
 \in \mathbb{R}^{1}
 \tag{5} 
-$$&lt;/div&gt;&lt;p&gt;where $c$ is the word you want to know whether it came from the context window or the noise distribution. $w$ is the input (center) word, $h$ is the hidden layer, and $\theta$ is the weight matrix passed into the model. $w_{output_{(j)}}$ is the word vector from the output weight matrix ($W_{output}$) of &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;.&lt;/p&gt;
+$$&lt;/div&gt;&lt;p&gt;where $c$ is the word you want to know whether it came from the context window or the noise distribution. $w$ is the input (center) word, $h$ is the hidden layer, and $\theta$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#theta_in_cost" target="_blank"&gt;weight matrix&lt;/a&gt; passed into the model. $w_{output_{(j)}}$ is the word vector from the output weight matrix ($W_{output}$) of &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="#eq-5"&gt;Eq (5)&lt;/a&gt; computes the probability that the given word ($c$) is a &lt;a href="#pos_word"&gt;positive word&lt;/a&gt; ($D=1$). It only needs to be applied $K$ + 1 times instead of $V$ times for every word in the vocabulary, because $w_j$ comes from the concatenation of true context word ($c_{pos}$) and $K$ &lt;a href="#neg_word"&gt;negative words&lt;/a&gt; ($W_{neg} = \{ c_{neg, j}|j=1,\cdots,K \}$):&lt;/p&gt;
 &lt;div id="eq-6" style="font-size: 1rem;"&gt;
 $$
@@ -2451,12 +2453,60 @@ $$
 &lt;/div&gt;&lt;p&gt;This probability is computed $K + 1$ times to obtain a probability distribution of true context word and $K$ negative samples:&lt;/p&gt;
 &lt;div id="eq-7" style="font-size: 1rem;"&gt;
 $$
-\left[ \begin{array}{c} p(D=1|w,c_{pos}) \\ p(D=1|w,c_{neg, 1}) \\ p(D=1|w,c_{neg, 2}) \\ p(D=1|w,c_{neg, 3}) \\ \vdots \\ p(D=1|w,c_{neg, 4}) \end{array} \right] 
+\left[ \begin{array}{c} p(D=1|w,c_{pos}) \\ p(D=1|w,c_{neg, 1}) \\ p(D=1|w,c_{neg, 2}) \\ p(D=1|w,c_{neg, 3}) \\ \vdots \\ p(D=1|w,c_{neg, K}) \end{array} \right] 
 = 
 \frac{1}{1+exp(-(\{c_{pos}\} \cup W_{neg}) \cdot h)}
 \in \mathbb{R}^{K+1}\tag{7} 
 $$
 &lt;/div&gt;&lt;p&gt;Compare this equation with &lt;a href="#eq-4"&gt;eq (4)&lt;/a&gt; — you will notice that &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; is computationally much cheaper because $K$ is between 5 ~ 20, whereas $V$ can be millions. Moreover, no extra iterations are necessary to compute the normalization factor in the denominator of &lt;a href="#eq-4"&gt;eq (4)&lt;/a&gt;, because sigmoid function is a binary regression classifier. The algorithm complexity for probability distribution of vanilla Skip-Gram is $O(V)$, whereas negative sampling's is $O(K+1)$. This shows why negative sampling saves a significant amount of computational cost per iteration.&lt;/p&gt;
+&lt;div class="alert alert-info" id="sigmoid"&gt;
+&lt;h4&gt;Notes: Sigmoid function $\sigma(x)$&lt;/h4&gt;
+&lt;p&gt;Sigmoid function is used for two-class logistic regression.&lt;/p&gt;
+&lt;p&gt;&lt;div style="font-size: 1rem; margin-top: 20px;"&gt;$$ \sigma(x) = \frac{1}{1+exp(-x))}$$&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;It is used to classify if a given sample is True or False based on the computed probability. The sample is classified as True if the value is greater then 0.5, and vice versa. For example, if you want to classify if a certain bank transaction is fraud or not, you will use sigmoid for binary classification.&lt;/p&gt;
+&lt;img class="admonition-image" src="jupyter_images/sigmoid.png" style="border: 1px solid #ddd;"&gt;
+&lt;p&gt;If you are working on a multi-class task, such as hand-written digit classification, you will use softmax regression classifier.&lt;/p&gt;
+&lt;/img&gt;&lt;/div&gt;&lt;div style="display: none"&gt;
+from matplotlib import pylab
+import pylab as plt
+import numpy as np
+%matplotlib notebook
+
+#sigmoid = lambda x: 1 / (1 + np.exp(-x))
+def sigmoid(x):
+    return (1 / (1 + np.exp(-x)))
+
+mySamples = []
+mySigmoid = []
+
+x = plt.linspace(-10,10,10)
+y = plt.linspace(-10,10,100)
+
+plt.plot(y, sigmoid(y))
+plt.title('Sigmoid Function $\sigma(x)$')
+plt.text(4, 0.8, r'$\sigma(x)=\frac{1}{1+e^{-x}}$', fontsize=15)
+plt.xlabel('X', fontsize=12)
+plt.ylabel('$\sigma(x)$', fontsize=14)
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;div id="algorithm"&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h3 id="Negative-sampling-algorithm"&gt;Negative sampling algorithm&lt;a class="anchor-link" href="#Negative-sampling-algorithm"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For each center word and positive context word pair ($w, c_{pos}$), $1$ word vector that corresponds to the center word ($w$) is updated in the input weight matrix $W_{input}$ (as shown in &lt;em&gt;figure 18&lt;/em&gt; of my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_update" target="_blank"&gt;previous post&lt;/a&gt;). In the output weight matrix $W_{output}$, $1+K$ word vectors that correspond to the positive ($c_{pos}$) and negative ($c_{neg}$) words are updated.&lt;/p&gt;
+&lt;p&gt;Since Skip-Gram uses SGD to reduce computational cost, negative sampling also uses SGD too. Then, the training for Skip-Gram negative sampling has the following algorithm structure:&lt;/p&gt;
+&lt;p&gt;&lt;p&gt;&lt;u&gt;Algorithm 1: Skip-Gram Negative Sampling&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;pre&gt;
+    &lt;code class="language-python"&gt;
+        P_nw = # generate noise distribution 
+        for word in corpus:
+            for context in context_window:
+                # draw K negative samples from P_nw
+                # use SGD to update w, c_pos, and c_neg_1, ... , c_neg_K
+    &lt;/code&gt;
+&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2472,11 +2522,27 @@ $$
 &lt;div class="row" id="fig6"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/neg_opt_1.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 6: maximizing postive pairs and minimizing negative pairs&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;By the time the output probability distribution is nearly one-hot-encoded as in $iter = 4$ of the above figure, weight matrices $\theta$ are optimized and good word vectors are learned. This optimization can be done my maximizing the dot product of the input weight matrix and the hidden layer ($-w_{output_{(j)}} \cdot h$) in &lt;a href="#"&gt;eq (333)&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;By the time the output probability distribution is nearly one-hot-encoded as in $iter = 4$ of the above figure, weight matrices $\theta$ are optimized and good word vectors are learned. This optimization is achieved by maximizing the dot product of positive pairs ($c_{pos}\cdot w$) and minimizing the dot product of negative paris ($c_{neg}\cdot w$) in &lt;a href="#eq-15"&gt;eq (15)&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="alert alert-info" id="negsample"&gt;
 &lt;h4&gt;Notes: Drawing random negative samples&lt;/h4&gt;
-&lt;p&gt;For each word-context pair ($w,\,c$), $K$ new negative samples are &lt;a href="#neg_drawn"&gt;randomly drawn&lt;/a&gt; from a noise distribution. In &lt;a href="#fig5"&gt;figure 5&lt;/a&gt;, there are 6 positive context words (&lt;i&gt;"engineer"&lt;/i&gt;, &lt;i&gt;"traditionally"&lt;/i&gt;, &lt;i&gt;"designs"&lt;/i&gt;, &lt;i&gt;"fluids"&lt;/i&gt;, &lt;i&gt;"with"&lt;/i&gt;, and &lt;i&gt;"two"&lt;/i&gt;) for one center word (&lt;i&gt;"drilling"&lt;/i&gt;), and $K$ is 5. This means that a total of 6 * 5 = 30 word vectors are updated for each center word.&lt;/p&gt;
+&lt;p&gt;For each word-context pair ($w,\,c$), $K$ new negative samples are &lt;a href="#neg_drawn"&gt;randomly drawn&lt;/a&gt; from a &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt;. In &lt;a href="#fig5"&gt;figure 5&lt;/a&gt;, there are 6 positive context words (&lt;i&gt;"engineer"&lt;/i&gt;, &lt;i&gt;"traditionally"&lt;/i&gt;, &lt;i&gt;"designs"&lt;/i&gt;, &lt;i&gt;"fluids"&lt;/i&gt;, &lt;i&gt;"with"&lt;/i&gt;, and &lt;i&gt;"two"&lt;/i&gt;) for one center word (&lt;i&gt;"drilling"&lt;/i&gt;), and $K$ is 5. This means that a total of 6 * 5 = 30 word vectors are updated for each center word.&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;div id="pos_word"&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h4 id="What-is-a-positive-word-$c_{pos}$?"&gt;What is a positive word $c_{pos}$?&lt;a class="anchor-link" href="#What-is-a-positive-word-$c_{pos}$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Words that actually appear within the context window of the center word ($w$). After the model is optimized, the probability computed with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt; for positive words $c_{pos}$ will output $\approx$ 1 as shown in &lt;a href="#fig6"&gt;fig 6&lt;/a&gt;. A word vector of a center word ($w$) will be more similar to a word vector of positive word ($c_{pos}$) than of randomly drawn negative words ($c_{neg}$). This is because words that frequently appear together show strong correlation with each other.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;div id="neg_word"&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h4 id="What-is-a-negative-word-$c_{neg}$?"&gt;What is a negative word $c_{neg}$?&lt;a class="anchor-link" href="#What-is-a-negative-word-$c_{neg}$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Words that are randomly drawn from a noise distribution $P_n(w)$. After the model is optimized, the probability computed with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt; for negative words $c_{neg}$ will output $\approx$ 0 as shown in &lt;a href="#fig6"&gt;fig 6&lt;/a&gt;. When training an Word2Vec model, the vocab size ($V$) easily exceeds tens of thousands. When 5 ~ 20 negative samples are randomly drawn among the vocabs, it is unlikely to observe the random word with a center word together. Therefore, once the model is optimized: $p(D=1|w,c_{neg})\approx0$.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2493,115 +2559,10 @@ $$&lt;/div&gt;&lt;p&gt;Raising the unigram distribution $U(w)$ to the power of $
 &lt;div class="row" id="fig7"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/noise_dist.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 7: Effect of raising power of unigram distribution $U(w)$&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;div id="pos_word"&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;h4 id="What-is-a-positive-word-$c_{pos}$?"&gt;What is a positive word $c_{pos}$?&lt;a class="anchor-link" href="#What-is-a-positive-word-$c_{pos}$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Words that actually appear within the context window of the center word ($w$). After the model is optimized, the probability computed with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt; will output $\approx$ 1 as shown in &lt;a href="#fig6"&gt;fig 6&lt;/a&gt;. A word vector of a center word ($w$) will be more similar to a word vector of positive word ($c_{pos}$) than of randomly drawn negative words ($c_{neg}$). This is because words that frequently appear together show strong correlation with each other.&lt;/p&gt;
-&lt;p&gt;&lt;div id="neg_word"&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;h4 id="What-is-a-negative-word-$c_{neg}$?"&gt;What is a negative word $c_{neg}$?&lt;a class="anchor-link" href="#What-is-a-negative-word-$c_{neg}$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Words that are randomly drawn from a noise distribution $P_n(w)$. After the model is optimized, the probability computed with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt; will output $\approx$ 0 as shown in &lt;a href="#fig6"&gt;fig 6&lt;/a&gt;. When training an Word2Vec model, the vocab size ($V$) easily exceeds tens of thousands. When 5 ~ 20 negative samples are randomly drawn among the vocabs, it is unlikely to observe the random word with a center word together. Therefore, once the model is optimized: $p(D=1|w,c_{neg})\approx0$.&lt;/p&gt;
-&lt;p&gt;&lt;div id="neg_drawn"&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;h4 id="How-are-negative-samples-drawn?"&gt;How are negative samples drawn?&lt;a class="anchor-link" href="#How-are-negative-samples-drawn?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;$K$-negative samples are randomly drawn from a &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt; $P_n(w)$. The noise distribution is generated with &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt; and the random samples are drawn with &lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.choice.html" target="_blank"&gt;np.random.choice&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [35]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [41]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;alpha&lt;/span&gt;      &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
-&lt;span class="n"&gt;unig_dist&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;'apple'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.023&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'bee'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'desk'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.34&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'chair'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.517&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="n"&gt;unig_dist&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[41]:&lt;/div&gt;
-&lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;{'apple': 0.023, 'bee': 0.12, 'desk': 0.34, 'chair': 0.517}&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [42]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;noise_dist&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;unig_dist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()}&lt;/span&gt;
-&lt;span class="n"&gt;Z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;noise_dist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;span class="n"&gt;noise_dist_normalized&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;Z&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;noise_dist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()}&lt;/span&gt;
-&lt;span class="n"&gt;noise_dist_normalized&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[42]:&lt;/div&gt;
-&lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;{'apple': 0.044813853132981724,
- 'bee': 0.15470428538870049,
- 'desk': 0.33785130228003507,
- 'chair': 0.4626305591982827}&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;div id="test"&gt;&lt;hr&gt;&lt;/div&gt;
-In the initial unigram distribution, &lt;code&gt;chair&lt;/code&gt; appeared the most in the corpus, and had &lt;code&gt;0.517&lt;/code&gt; chance of being drawn as a negative sample. However, the unigram distribution is raised to the power of $3/4$rd to combat the imbalance between common vs rare words, as shown in &lt;a id="#fig7"&gt;figure 7&lt;/a&gt;. After &lt;code&gt;unig_dist&lt;/code&gt; was raised to the power of &lt;code&gt;alpha = 3/4&lt;/code&gt; and normalized, &lt;code&gt;chair&lt;/code&gt; now has &lt;code&gt;0.463&lt;/code&gt; chance of being drawn.&lt;/p&gt;
-&lt;p&gt;On the other hand, &lt;code&gt;apple&lt;/code&gt; had the lowest probability (&lt;code&gt;0.023&lt;/code&gt;) of being drawn. After the transformation, it now has a bit higher probability (&lt;code&gt;0.049&lt;/code&gt;) of being drawn. The imbalance between the most common word (&lt;code&gt;chair&lt;/code&gt;) and the least common word (&lt;code&gt;apple&lt;/code&gt;) was mitigated.&lt;/p&gt;
-&lt;p&gt;Once the noise distribution (&lt;code&gt;noise_dist_normalized&lt;/code&gt;), you randomly draw $K$ negative samples according to each words probability.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [45]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
-
-&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;choice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;noise_dist_normalized&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()),&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;noise_dist_normalized&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[45]:&lt;/div&gt;
-&lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;array(['desk', 'chair', 'chair', 'chair', 'chair', 'apple', 'chair',
-       'chair', 'desk', 'chair'], dtype='&lt;U5')&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Derivation-of-Cost-Function-in-Negative-Sampling"&gt;Derivation of Cost Function in Negative Sampling&lt;a class="anchor-link" href="#Derivation-of-Cost-Function-in-Negative-Sampling"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Coming soon...&lt;/p&gt;
-&lt;div style="display: none"&gt;
+&lt;/div&gt;&lt;div class="alert alert-info" id="incremental_noise_dist"&gt;
+&lt;h4&gt;Notes: Incremental noise distribution&lt;/h4&gt;
+&lt;p&gt;Noise distribution $P_n(w)$ needs to be pre-computed by iterating through the entire corpus to obtain word frequency $U(w)$ and normalization factor $Z$ of the distribution. If an additional training data is added to the corpus, $P_n(w)$ needs to be computed all over again. To address this problem, a simple incremental extension of negative sampling was provided in this &lt;a href="https://aclweb.org/anthology/D17-1037" target="_blank"&gt;paper&lt;/a&gt; (Kaji and Kobayashi, 2017).&lt;/p&gt;
+&lt;/div&gt;&lt;div style="display: none"&gt;
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -2629,6 +2590,173 @@ ax2.hist(data, bins='auto', density=True)
 ax2.plot(data, pdf_norm, label='norm')
 ax2.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil', 'water', 'coin'])
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;div id="neg_drawn"&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h4 id="How-are-negative-samples-drawn?"&gt;How are negative samples drawn?&lt;a class="anchor-link" href="#How-are-negative-samples-drawn?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;$K$-negative samples are randomly drawn from a noise distribution $P_n(w)$. The noise distribution is generated with &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt; and the random samples are drawn with &lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.choice.html" target="_blank"&gt;np.random.choice&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;unig_dist&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;'apple'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.023&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'bee'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'desk'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.34&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'chair'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.517&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="n"&gt;unig_dist&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[2]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;{'apple': 0.023, 'bee': 0.12, 'desk': 0.34, 'chair': 0.517}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [3]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;alpha&lt;/span&gt;      &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+
+&lt;span class="n"&gt;noise_dist&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;unig_dist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()}&lt;/span&gt;
+&lt;span class="n"&gt;Z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;noise_dist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="n"&gt;noise_dist_normalized&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;Z&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;noise_dist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()}&lt;/span&gt;
+&lt;span class="n"&gt;noise_dist_normalized&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[3]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;{'apple': 0.044813853132981724,
+ 'bee': 0.15470428538870049,
+ 'desk': 0.33785130228003507,
+ 'chair': 0.4626305591982827}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;div style="margin-top: -25px;"&gt;&lt;hr&gt;&lt;/div&gt;
+In the initial unigram distribution, &lt;code&gt;chair&lt;/code&gt; appeared the most in the corpus, and had &lt;code&gt;0.517&lt;/code&gt; chance of being drawn as a negative sample. However, the unigram distribution is raised to the power of $3/4$rd to combat the imbalance between common vs rare words, as shown in &lt;a id="#fig7"&gt;figure 7&lt;/a&gt;. After &lt;code&gt;unig_dist&lt;/code&gt; was raised to the power of &lt;code&gt;alpha = 3/4&lt;/code&gt; and normalized, &lt;code&gt;chair&lt;/code&gt; now has &lt;code&gt;0.463&lt;/code&gt; chance of being drawn.&lt;/p&gt;
+&lt;p&gt;On the other hand, &lt;code&gt;apple&lt;/code&gt; had the lowest probability (&lt;code&gt;0.023&lt;/code&gt;) of being drawn. After the transformation, it now has a bit higher probability (&lt;code&gt;0.049&lt;/code&gt;) of being drawn. The imbalance between the most common word (&lt;code&gt;chair&lt;/code&gt;) and the least common word (&lt;code&gt;apple&lt;/code&gt;) was mitigated.&lt;/p&gt;
+&lt;p&gt;Once the noise distribution (&lt;code&gt;noise_dist_normalized&lt;/code&gt;) is generated, you randomly draw $K$ negative samples according to each words probability.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+
+&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;choice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;noise_dist_normalized&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()),&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;noise_dist_normalized&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[4]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;array(['chair', 'bee', 'desk', 'chair', 'desk', 'chair', 'desk', 'bee',
+       'chair', 'chair'], dtype='&lt;U5')&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Derivation-of-Cost-Function-in-Negative-Sampling"&gt;Derivation of Cost Function in Negative Sampling&lt;a class="anchor-link" href="#Derivation-of-Cost-Function-in-Negative-Sampling"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The derivations written here are based on the work of &lt;a href="https://arxiv.org/pdf/1402.3722.pdf" target="_blank"&gt;word2vec Explained: Deriving Mikolov et al.’s
+Negative-Sampling Word-Embedding Method&lt;/a&gt; (Goldberg and Levy, 2014).&lt;/p&gt;
+&lt;p&gt;Consider a pair ($w,\,c$) of center word and its context. Did this pair come from the context window or the &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt;? Let $p(D=1|w,c)$ be the probability that ($w,\,c$) is observed in the true corpus, and $p(D=0|w,c) = 1 - p(D=1|w,c)$ the probability that ($w,\,c$) is non-observed. There are &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#theta_in_cost" target="_blank"&gt;parameters&lt;/a&gt; $\theta$ controlling the probability distribution: $p(D=1|w,c;\theta)$.&lt;/p&gt;
+&lt;p&gt;Negative sampling attempts to optimize the parameters $\theta$ by maximizing the probability of observing positive pairs ($w,\,c_{pos}$) while minimizing the probability of observing negative pairs ($w,\,c_{neg}$). For each positive pair, the model randomly draws $K$ negative words $W_{neg} = \{ c_{neg, j}|j=1,\cdots,K \}$. Our objective function is then:&lt;/p&gt;
+&lt;div id="eq-9" style="font-size: 1rem;"&gt;
+$$
+\begin{align}
+     &amp; \underset{\theta}{\text{argmax}} \ p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta) \\ 
+   =\quad &amp; \underset{\theta}{\text{argmax}} \ p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{pos};\theta))
+\end{align}
+\tag{9} 
+$$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
+&lt;h4&gt;Notes: Probability Product&lt;/h4&gt;
+&lt;p&gt;In statistics, probability of observing $C$ multiple events at the same time is computed by the product of each event's probability.&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$$p(x_{1}, x_{2} ... x_{C}) = p(x_{1}) \times p(x_{2}) \, \times \, ... \, \times \, p(x_{C})$$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;This can be shortened with a product notation:&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$$p(x_{1}, x_{2} ... x_{C}) = \prod_{c=1}^{C}p(x_{c})$$&lt;/center&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;It is a common practice in machine learning to &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#take_natural_log" target="_blank"&gt;take a natural log to the objective function&lt;/a&gt; to simplify derivations. This does not affect the optimized weights ($\theta$) because natural log is a monotonically increasing function. It ensures that the maximum value of the original probability function occurs at the same point as the log probability function. Therefore:&lt;/p&gt;
+&lt;div id="eq-10" style="font-size: 1rem;"&gt;
+$$
+\begin{align}
+   =\quad &amp; \underset{\theta}{\text{argmax}} \ log \, (p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta))
+\end{align}
+\tag{10} 
+$$&lt;/div&gt;&lt;p&gt;Using the property of logs, the objective function can be simplified:&lt;/p&gt;
+&lt;div id="eq-11" style="font-size: 1rem;"&gt;
+$$
+\begin{align}
+   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, p(D=1|w,c_{pos};\theta) + log \, \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta) \\ 
+   =\quad &amp; \underset{\theta}{\text{argmax}} \ log \, p(D=1|w,c_{pos};\theta) + \sum_{c_{neg} \in W_{neg}} log \, (1 - p(D=1|w,c_{neg};\theta))
+\end{align}
+\tag{11} 
+$$&lt;/div&gt;&lt;p&gt;The binomial probability $p(D=1|w,c;\theta)$ can be replaced with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt;:&lt;/p&gt;
+&lt;div id="eq-12" style="font-size: 1rem;"&gt;
+$$
+\begin{align}
+   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, \frac{1}{1+exp(-c_{pos} \cdot w)} + \sum_{c_{pos} \in W_{neg}} log \, (1 - \frac{1}{1+exp(-c_{neg} \cdot w)}) \\ 
+   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, \frac{1}{1+exp(-c_{pos} \cdot w)} + \sum_{c_{pos} \in W_{neg}} log \, \frac{1}{1+exp(c_{neg} \cdot w)} \\ 
+\end{align}
+\tag{12} 
+$$&lt;/div&gt;&lt;p&gt;Using the definition of &lt;a href="#sigmoid"&gt;sigmoid&lt;/a&gt; function $\sigma(x)=\frac{1}{1+exp(-x)}$:&lt;/p&gt;
+&lt;div id="eq-13" style="font-size: 1rem;"&gt;
+$$
+\begin{align}
+   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, \sigma(c_{pos} \cdot w) + \sum_{c_{pos} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w) \\  
+\end{align}
+\tag{13} 
+$$&lt;/div&gt;&lt;p&gt;According to Mikolov, &lt;a href="#eq-13"&gt;eq (13)&lt;/a&gt; replaces every $log \, p(w_O|w_I)$ in the vanilla Skip-Gram cost function &lt;a href="#eq-1"&gt;eq (1)&lt;/a&gt;. Then, the cost function we want to minimize becomes:&lt;/p&gt;
+&lt;div id="eq-14" style="font-size: 1rem;"&gt;$$J(\theta) = - \frac{1}{T} \sum_{i = 1}^T \sum_{-c\leq j \leq c,j\neq 0}( log \, \sigma(c_{pos} \cdot w) + \sum_{c_{neg} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w)) \tag{14}$$&lt;/div&gt;&lt;p&gt;However, when implemented in codes, batch gradient descent (making one update after iterating through the entire $T$ corpus) is almost never used due to its high computational cost. Instead, we use &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt;. Also, for negative sampling, gradients are calculated and weights are updated for each positive training pairs ($w,\, c_{pos}$). The new cost function is then:&lt;/p&gt;
+&lt;div id="eq-15" style="font-size: 1rem;"&gt;$$J(\theta; w,c_{pos}) = - log \, \sigma(c_{pos} \cdot w) + \sum_{c_{neg} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w) \tag{15}$$&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Derivation-of-Negative-Sampling-Gradients"&gt;Derivation of Negative Sampling Gradients&lt;a class="anchor-link" href="#Derivation-of-Negative-Sampling-Gradients"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;coming soon...&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5374,8 +5502,9 @@ $$&lt;div class="alert alert-info"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Derivation-of-Cost-Function"&gt;Derivation of Cost Function&lt;a class="anchor-link" href="#Derivation-of-Cost-Function"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Skip-Gram model seeks to optimize the word weight (embedding) matrix by correctly predicting context words, given a center word. In the other words, the model wants to maximize the probability of correctly predicting all context words at the same time, given a center word. Maximizing the probability of predicting context words leads to optimizing the weight matrix ($\theta$) that best represents words in a vector space. $\theta$ is a concatenation of input and output weight matrices — $[W_{input} \quad W_{output}]$, as described &lt;a href="#theta_in_cost"&gt;below&lt;/a&gt;. It is passed into the cost function ($J$) as a variable and optimized. Mathematically, it can be expressed as:&lt;/p&gt;
-&lt;div id="eq-1" style="font-size: 1rem;"&gt;$$ max \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{1} $$&lt;/div&gt;&lt;p&gt;where $C$ is the window size. Recall that in statistics, the probability of $A$ given $B$ is expressed as $P(A|B)$. Then, natural log is taken on &lt;a href="#eq-1"&gt;eq (1)&lt;/a&gt; to simplify taking derivatives.&lt;/p&gt;
-&lt;div id="eq-2" style="font-size: 1rem;"&gt;$$ max \, log \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{2} $$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
+&lt;div id="eq-1" style="font-size: 1rem;"&gt;$$ \underset{\theta}{\text{argmax}} \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{1} $$&lt;/div&gt;&lt;p&gt;where $C$ is the window size. Recall that in statistics, the probability of $A$ given $B$ is expressed as $P(A|B)$. Then, natural log is taken on &lt;a href="#eq-1"&gt;eq (1)&lt;/a&gt; to simplify taking derivatives.&lt;/p&gt;
+&lt;div id="eq-2" style="font-size: 1rem;"&gt;$$ \underset{\theta}{\text{argmax}} \, log \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{2} $$&lt;/div&gt;&lt;div id="take_natural_log"&gt;&lt;/div&gt;
+&lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: Why take a natural log?&lt;/h4&gt;
 &lt;p&gt;In machine learning, it is a common practice to take a natural log to the objective function to simplify taking derivatives. For example, a multinomial regression classifer called Softmax (details explained &lt;a href="#Softmax-Output-Layer-($y_{pred}$)"&gt;below&lt;/a&gt;) has the following probability function:&lt;/p&gt;
 &lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$p(x_i) = \frac{e^{x_i}}{\sum_{j=1}e^{x_{j}}}$&lt;/center&gt;&lt;/p&gt;
@@ -5383,10 +5512,10 @@ $$&lt;div class="alert alert-info"&gt;
 &lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$log \, p(x_i) = x_i - log \, {\sum_{j=1}e^{x_{j}}}$&lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;Depending on a model, the argument ($x_i$) passed into the probability function ($p$) can be complicated, and simplifying the original softmax function helps with taking the derivatives in the future.&lt;/p&gt;
 &lt;p&gt;Taking a log does not affect the optimized weights ($\theta$), because natural log is a &lt;u&gt;monotonically increasing&lt;/u&gt; function. This means that increasing the value of $x$-axis results in increasing the value of $y$-axis. This is important because it ensures that the maximum value of the original probability function occurs at the same point as the log probability function. Therefore:&lt;/p&gt;
-&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$max \, p(x_i) = max \, log \, p(x_i)$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$\underset{\theta}{\text{argmax}} \, p(x_i) = \underset{\theta}{\text{argmax}} \, log \, p(x_i)$&lt;/center&gt;&lt;/p&gt;
 &lt;/div&gt;&lt;p&gt;In Skip-Gram, softmax function is used for context words classfication. The details are explained &lt;a href="#Softmax-Output-Layer-($y_{pred}$)"&gt;below&lt;/a&gt;. Softmax in Skip-Gram has the following equation:&lt;/p&gt;
 &lt;div id="eq-3" style="font-size: 1rem;"&gt;$$ p(w_{context}|w_{center}; \, \theta) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{3} $$&lt;/div&gt;&lt;p&gt;$W_{output_{(context)}}$ is a row vector for a context word from the output embedding matrix (see &lt;a href="#weight_matrix"&gt;below&lt;/a&gt;), and $h$ is the hidden (projection) layer word vector for a center word (see &lt;a href="#hidden_layer"&gt;below&lt;/a&gt;). Softmax function is then plugged into the &lt;a href="#eq-2"&gt;eq (2)&lt;/a&gt; to yield a new objective function that maximizes the probability of observing all $C$ context words, given a center word:&lt;/p&gt;
-&lt;div id="eq-4" style="font-size: 1rem;"&gt;$$ max \, log \, \prod_{c=1}^{C} \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{4} $$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
+&lt;div id="eq-4" style="font-size: 1rem;"&gt;$$ \underset{\theta}{\text{argmax}} max \, log \, \prod_{c=1}^{C} \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{4} $$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: Probability Product&lt;/h4&gt;
 &lt;p&gt;In statistics, probability of observing $C$ multiple events at the same time is computed by the product of each event's probability.&lt;/p&gt;
 &lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$$p(x_{1}, x_{2} ... x_{C}) = p(x_{1}) \times p(x_{2}) \, \times \, ... \, \times \, p(x_{C})$$&lt;/center&gt;&lt;/p&gt;
@@ -5405,7 +5534,7 @@ $$
 J(\theta; w^{(t)}) = - \sum_{c=1}^{C}(W_{output_{(c)}} \cdot h) + C \cdot log \sum^V_{i=1}exp(W_{output_{(i)}} \cdot h) \tag{7}
 $$
 &lt;/div&gt;&lt;p&gt;Different paper uses different notations for the cost function. To stick to the notation used in the &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;Word2Vec original paper&lt;/a&gt;, some of the notations in &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; can be changed. However, they are all equivalent:&lt;/p&gt;
-&lt;div id="eq-8" style="font-size: 1rem;"&gt;$$J_{t}(\theta;w^{(t)}) = -\sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \, \theta) \tag{8}$$&lt;/div&gt;&lt;p&gt;Note that &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; and &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt; are equivalent. They both assume &lt;strong&gt;stochastic gradient descent&lt;/strong&gt;, which means that for each training sample ($w^{(t)}$) in the corpus of size ($T$), one update is made to the weight matrix ($\theta$). The cost function expressed in the paper shows &lt;strong&gt;batch gradient descent&lt;/strong&gt; &lt;a href="#eq-9"&gt;eq (9)&lt;/a&gt;, which means that only one update is made for all $T$ training samples:&lt;/p&gt;
+&lt;div id="eq-8" style="font-size: 1rem;"&gt;$$J(\theta;w^{(t)}) = -\sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \, \theta) \tag{8}$$&lt;/div&gt;&lt;p&gt;Note that &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; and &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt; are equivalent. They both assume &lt;strong&gt;stochastic gradient descent&lt;/strong&gt;, which means that for each training sample ($w^{(t)}$) in the corpus of size ($T$), one update is made to the weight matrix ($\theta$). The cost function expressed in the paper shows &lt;strong&gt;batch gradient descent&lt;/strong&gt; &lt;a href="#eq-9"&gt;eq (9)&lt;/a&gt;, which means that only one update is made for all $T$ training samples:&lt;/p&gt;
 &lt;div id="eq-9" style="font-size: 1rem;"&gt;$$J(\theta) = -\frac{1}{T} \sum^T_{t=1} \sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ;\, \theta) \tag{9}$$&lt;/div&gt;&lt;p&gt;However, in Word2Vec, batch gradient descent is almost never used due to its high computational cost. The author of the paper stated that he used stochastic gradient descent for training. Read the below &lt;a href="#stochastic"&gt;notes&lt;/a&gt; for more information about stochastic gradient descent.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5493,9 +5622,9 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 &lt;p&gt;$\eta$ is learning rate, $\nabla_{J(\theta)}$ is gradient for the weight matrix, and $J(\theta)$ is the cost function that has different forms for each model. The cost function for the Skip-Gram model proposed in the &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;Word2Vec original paper&lt;/a&gt; has the following equation:&lt;/p&gt;
 &lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$$J(\theta) = -\frac{1}{T} \sum^T_{t=1} \sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \theta)$$&lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;Here, what gives us headache is the expression, $\frac{1}{T} \sum^T_{t=1}$, because $T$ can be larger than billions or more in many NLP applications. It is basically telling us that billions of iterations need to be computed to make just one update to the weight matrix ($\theta$). In order to mitigate this computational burden, the author of the paper states that Stochastic Gradient Descent (SGD) was used for parameter optimization. SGD removes the expression, $\frac{1}{T} \sum^T_{t=1}$, from the cost function and performs parameter update for each training example, $w^{(t)}$:&lt;/p&gt;
-&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$$J_{t}(\theta;w^{(t)}) = -\sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \theta)$$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$$J(\theta;w^{(t)}) = -\sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \theta)$$&lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;Then, the new parameter update equation for SGD becomes:&lt;/p&gt;
-&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$\theta^{(new)}=\theta^{(old)}-\eta\cdot\nabla_{J_{t}(\theta;w^{(t)})}$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$\theta^{(new)}=\theta^{(old)}-\eta\cdot\nabla_{J(\theta;w^{(t)})}$&lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;The original vanilla graident descent makes $1$ parameter update for $T$ training samples, but the new update equation using SGD makes $T$ parameter update for $T$ training samples. However, this comes at the price of higher fluctuation (or variance) in minimizing prediction error.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5565,11 +5694,11 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div id="backward"&gt;&lt;/div&gt;&lt;h2 id="Training:-Backward-Propagation"&gt;Training: Backward Propagation&lt;a class="anchor-link" href="#Training:-Backward-Propagation"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Backward propagation involves computing prediction errors, and updating the weight matrix ($\theta$) to optimize vector representation of words. Assuming &lt;a href="#stochastic"&gt;stochastic gradient descent&lt;/a&gt;, we have the following general update equations for the weight matrix ($\theta$):&lt;/p&gt;
-&lt;div style="font-size: 1rem;"&gt;$$ \theta_{new}=\theta_{old}-\eta\cdot\nabla_{J_{t}(\theta;w^{(t)}}) \tag{15} $$&lt;/div&gt;&lt;p&gt;$\eta$ is learning rate, $\nabla_{J_{t}(\theta;w^{(t)})}$ is gradient for the weight matrix, and $J_{t}(\theta;w^{(t)})$ is the cost function defined in &lt;a href="#eq-6"&gt;eq (6)&lt;/a&gt;. Since the $\theta$ is a concatenation of input and output weight matrices ($[W_{input} \quad W_{output}]$) as described &lt;a href="#theta_in_cost"&gt;above&lt;/a&gt;, there are two update equations for each embedding matrix:&lt;/p&gt;
-&lt;div id="eq-16" style="font-size: 1rem;"&gt;$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot \frac{\partial J_{t}}{\partial W_{input}} \tag{16} $$&lt;/div&gt;
-&lt;div id="eq-17" style="font-size: 1rem;"&gt;$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot \frac{\partial J_{t}}{\partial W_{output}} \tag{17} $$&lt;/div&gt;&lt;p&gt;Mathematically, it can be shown that the gradients of $W_{input}$ $W_{output}$ have the following forms:&lt;/p&gt;
-&lt;div id="eq-18" style="font-size: 1rem;"&gt;$$ \frac{\partial J_{t}}{\partial W_{input}}  = x \cdot (W_{output}^T \sum^C_{c=1} e_c) \tag{18}$$&lt;/div&gt;
-&lt;div id="eq-19" style="font-size: 1rem;"&gt;$$ \frac{\partial J_{t}}{\partial W_{output}} = h \cdot \sum^C_{c=1} e_c \tag{19}$$&lt;/div&gt;&lt;p&gt;The gradients can be substitued into &lt;a href="#eq-16"&gt;eq (16)&lt;/a&gt; and &lt;a href="#eq-17"&gt;eq (17)&lt;/a&gt;:&lt;/p&gt;
+&lt;div style="font-size: 1rem;"&gt;$$ \theta_{new}=\theta_{old}-\eta\cdot\nabla_{J(\theta;w^{(t)}}) \tag{15} $$&lt;/div&gt;&lt;p&gt;$\eta$ is learning rate, $\nabla_{J(\theta;w^{(t)})}$ is gradient for the weight matrix, and $J(\theta;w^{(t)})$ is the cost function defined in &lt;a href="#eq-6"&gt;eq (6)&lt;/a&gt;. Since the $\theta$ is a concatenation of input and output weight matrices ($[W_{input} \quad W_{output}]$) as described &lt;a href="#theta_in_cost"&gt;above&lt;/a&gt;, there are two update equations for each embedding matrix:&lt;/p&gt;
+&lt;div id="eq-16" style="font-size: 1rem;"&gt;$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot \frac{\partial J}{\partial W_{input}} \tag{16} $$&lt;/div&gt;
+&lt;div id="eq-17" style="font-size: 1rem;"&gt;$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot \frac{\partial J}{\partial W_{output}} \tag{17} $$&lt;/div&gt;&lt;p&gt;Mathematically, it can be shown that the gradients of $W_{input}$ $W_{output}$ have the following forms:&lt;/p&gt;
+&lt;div id="eq-18" style="font-size: 1rem;"&gt;$$ \frac{\partial J}{\partial W_{input}}  = x \cdot (W_{output}^T \sum^C_{c=1} e_c) \tag{18}$$&lt;/div&gt;
+&lt;div id="eq-19" style="font-size: 1rem;"&gt;$$ \frac{\partial J}{\partial W_{output}} = h \cdot \sum^C_{c=1} e_c \tag{19}$$&lt;/div&gt;&lt;p&gt;The gradients can be substitued into &lt;a href="#eq-16"&gt;eq (16)&lt;/a&gt; and &lt;a href="#eq-17"&gt;eq (17)&lt;/a&gt;:&lt;/p&gt;
 &lt;div id="eq-20" style="font-size: 1rem;"&gt;$$ W_{input}^{(new)}=W_{input}^{(old)}- \eta \cdot x \cdot (W_{output}^T \sum^C_{c=1} e_c)  \tag{20} $$&lt;/div&gt;
 &lt;div id="eq-21" style="font-size: 1rem;"&gt;$$ W_{output}^{(new)}=W_{output}^{(old)}- \eta \cdot h \cdot \sum^C_{c=1} e_c \tag{21} $$&lt;/div&gt;&lt;p&gt;$W_{input}$ is &lt;a href="#weight_matrix"&gt;input weight matrix&lt;/a&gt;, $W_{output}$ is &lt;a href="#weight_matrix"&gt;output weight matrix&lt;/a&gt;, $x$ is one-hot encoded &lt;a href="#input_layer"&gt;input layer&lt;/a&gt;, $C$ is &lt;a href="#window_size"&gt;window size&lt;/a&gt;, and $e_{c}$ is &lt;a href="#predict_error"&gt;prediction error&lt;/a&gt; for $c$-th context word in the window. Note that $h$ (hidden layer) is equivalent to $W_{input}^T x$.&lt;/p&gt;
 &lt;div class="alert alert-info"&gt;
@@ -5618,12 +5747,12 @@ Output layer is a probability distribution of all words, given a center word. It
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_1.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 15: Prediction errors of context words&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Computing $\nabla W_{input}$&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Gradients of input weight matrix ($\frac{\partial J_{t}}{\partial W_{input}}$) are computed using &lt;a href="#eq-18"&gt;eq (18)&lt;/a&gt;. Note that multiplying $W_{output}^T \sum^C_{c=1} e_c$ with the one-hot-encoded input vector ($x$) makes the neural net to &lt;u&gt;update only one word vector&lt;/u&gt; that corresponds to the input (center) word.&lt;/p&gt;
+&lt;p&gt;Gradients of input weight matrix ($\frac{\partial J}{\partial W_{input}}$) are computed using &lt;a href="#eq-18"&gt;eq (18)&lt;/a&gt;. Note that multiplying $W_{output}^T \sum^C_{c=1} e_c$ with the one-hot-encoded input vector ($x$) makes the neural net to &lt;u&gt;update only one word vector&lt;/u&gt; that corresponds to the input (center) word.&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_2.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 16: Prediction errors of context words&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Computing $\nabla W_{output}$&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Gradients of output weight matrix ($\frac{\partial J_{t}}{\partial W_{output}}$) are computed using &lt;a href="#eq-19"&gt;eq (19)&lt;/a&gt;. Unlike the input weight matrix ($W_{input}$), all word vectors in the output weight matrix ($W_{output}$) are updated.&lt;/p&gt;
+&lt;p&gt;Gradients of output weight matrix ($\frac{\partial J}{\partial W_{output}}$) are computed using &lt;a href="#eq-19"&gt;eq (19)&lt;/a&gt;. Unlike the input weight matrix ($W_{input}$), all word vectors in the output weight matrix ($W_{output}$) are updated.&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_3.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 17: Prediction errors of context words&lt;/p&gt;&lt;/div&gt;
@@ -9808,10 +9937,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="8439d31a-5c20-4416-a2f6-950aff542f12"&gt;&lt;/div&gt;
+&lt;div id="30adb5ca-b702-441e-b153-f9e37d6ebe11"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8439d31a-5c20-4416-a2f6-950aff542f12');
+var element = $('#30adb5ca-b702-441e-b153-f9e37d6ebe11');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 

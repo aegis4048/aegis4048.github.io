@@ -20,26 +20,26 @@
 
         <meta name="keywords" content="data-mining, nlp, word2vec, word vectors, window size, skip-gram, neural network, negative sampling, stochastic gradient descent, learning rate, sigmoid, softmax, algorithm complexity, noise distribution, Natural Language Processing, "/>
 
-        <link rel="canonical" href="https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling">
+        <link rel="canonical" href="/optimize_computational_efficiency_of_skip-gram_with_negative_sampling">
     <meta property="og:title" content="Optimize Computational Efficiency of Skip-Gram with Negative Sampling | Pythonic Excursions"/>
-    <meta property="og:url" content="https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" />
+    <meta property="og:url" content="/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" />
     <meta property="og:description" content="How is negative sampling used to improve computational efficieny of Word2Vec?" />
     <meta property="og:site_name" content="Pythonic Excursions" />
     <meta property="og:article:author" content="ERIC KIM" />
         <meta property="og:article:published_time" content="2019-05-26T09:00:00-07:00" />
     <meta name="twitter:title" content="Optimize Computational Efficiency of Skip-Gram with Negative Sampling | Pythonic Excursions">
     <meta name="twitter:description" content="How is negative sampling used to improve computational efficieny of Word2Vec?">
-        <meta property="og:image" content="https://aegis4048.github.io/images/featured_images/negative_sampling.png" />
-        <meta name="twitter:image" content="https://aegis4048.github.io/images/featured_images/negative_sampling.png" >
+        <meta property="og:image" content="/images/featured_images/negative_sampling.png" />
+        <meta name="twitter:image" content="/images/featured_images/negative_sampling.png" >
 
 
         <title>    Optimize Computational Efficiency of Skip-Gram with Negative Sampling  | Pythonic Excursions
 </title>
 
-                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
-                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
-            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/custom.css" media="screen">
-            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/ipynb.css" media="screen">
+                <link rel="stylesheet" type="text/css" href="/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="/theme/css/ipynb.css" media="screen">
 
             <style>
                 #progressBar::-webkit-progress-value {
@@ -50,7 +50,7 @@
                 }
             </style>
 
-        <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
+        <link href="/theme/libs/prism.css" rel="stylesheet" />
 <script type="text/x-mathjax-config">
 
 MathJax.Hub.Config({
@@ -65,28 +65,17 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-        <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="https://aegis4048.github.io/theme/img/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="https://aegis4048.github.io/theme/img/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="https://aegis4048.github.io/theme/img/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="https://aegis4048.github.io/theme/img/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="https://aegis4048.github.io/theme/img/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="https://aegis4048.github.io/theme/img/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link href="https://aegis4048.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133310548-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-133310548-1');
-</script>
-
+        <link rel="shortcut icon" href="/theme/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/theme/img/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/img/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/img/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/theme/img/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/img/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/theme/img/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/img/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
     </head>
     <body>
 <progress id="progressBar" max="19827" class="flat">
@@ -97,7 +86,7 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
             <div class="banner">
                 <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
                     <div class="container navbar-title">
-                        <a href="/"><img id="banner-logo" src="https://aegis4048.github.io/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
+                        <a href="/"><img id="banner-logo" src="/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -105,13 +94,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link rem_08" href="https://aegis4048.github.io/about.html">About</a>
+                            <a class="nav-link rem_08" href="/about.html">About</a>
                         </li>
                         <li id="last-item" class="nav-item">
-                            <a class="nav-link rem_08" href="https://aegis4048.github.io/archives.html">Archive</a>
+                            <a class="nav-link rem_08" href="/archives.html">Archive</a>
                         </li>
                      </ul>
-                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="https://aegis4048.github.io/search.html">
+                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="/search.html">
                         <div class="search-box-div" align="center">
                             <input id="tipue_search_input" class="form-control mr-md-2 rem_08 col-9" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" aria-label="Search">
                             <button id="search-btn" class="btn btn-search btn-outline-success btn-circle rem_08 col-3" type="submit" for="tipue_search_input">Search</button>
@@ -127,25 +116,25 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
         <header>
             <h1>Optimize Computational Efficiency of Skip-Gram with Negative Sampling</h1>
             <div class="row justify-content-between no-margin">
-                <h4 class="article-category">Category > <a class="article-category-link" href="https://aegis4048.github.io/archives.html">Natural Language Processing</a></h4>
+                <h4 class="article-category">Category > <a class="article-category-link" href="/archives.html">Natural Language Processing</a></h4>
                 <span class="article-date">May 26, 2019</span>
             </div>
             <div class="meta meta-tag no-margin no-border">
                 <div>
-                        <a href="https://aegis4048.github.io/tag/data-mining.html" class="tag">data-mining</a>
-                        <a href="https://aegis4048.github.io/tag/nlp.html" class="tag">nlp</a>
-                        <a href="https://aegis4048.github.io/tag/word2vec.html" class="tag">word2vec</a>
-                        <a href="https://aegis4048.github.io/tag/word-vectors.html" class="tag">word vectors</a>
-                        <a href="https://aegis4048.github.io/tag/window-size.html" class="tag">window size</a>
-                        <a href="https://aegis4048.github.io/tag/skip-gram.html" class="tag">skip-gram</a>
-                        <a href="https://aegis4048.github.io/tag/neural-network.html" class="tag">neural network</a>
-                        <a href="https://aegis4048.github.io/tag/negative-sampling.html" class="tag">negative sampling</a>
-                        <a href="https://aegis4048.github.io/tag/stochastic-gradient-descent.html" class="tag">stochastic gradient descent</a>
-                        <a href="https://aegis4048.github.io/tag/learning-rate.html" class="tag">learning rate</a>
-                        <a href="https://aegis4048.github.io/tag/sigmoid.html" class="tag">sigmoid</a>
-                        <a href="https://aegis4048.github.io/tag/softmax.html" class="tag">softmax</a>
-                        <a href="https://aegis4048.github.io/tag/algorithm-complexity.html" class="tag">algorithm complexity</a>
-                        <a href="https://aegis4048.github.io/tag/noise-distribution.html" class="tag">noise distribution</a>
+                        <a href="/tag/data-mining.html" class="tag">data-mining</a>
+                        <a href="/tag/nlp.html" class="tag">nlp</a>
+                        <a href="/tag/word2vec.html" class="tag">word2vec</a>
+                        <a href="/tag/word-vectors.html" class="tag">word vectors</a>
+                        <a href="/tag/window-size.html" class="tag">window size</a>
+                        <a href="/tag/skip-gram.html" class="tag">skip-gram</a>
+                        <a href="/tag/neural-network.html" class="tag">neural network</a>
+                        <a href="/tag/negative-sampling.html" class="tag">negative sampling</a>
+                        <a href="/tag/stochastic-gradient-descent.html" class="tag">stochastic gradient descent</a>
+                        <a href="/tag/learning-rate.html" class="tag">learning rate</a>
+                        <a href="/tag/sigmoid.html" class="tag">sigmoid</a>
+                        <a href="/tag/softmax.html" class="tag">softmax</a>
+                        <a href="/tag/algorithm-complexity.html" class="tag">algorithm complexity</a>
+                        <a href="/tag/noise-distribution.html" class="tag">noise distribution</a>
                 </div>
             </div>
             <section>
@@ -153,13 +142,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
         <div class="share-post-intro mr-2">Share This Post :</div>
         <div class="social-share-btns-container">
             <div class="social-share-btns">
-                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" rel="nofollow" target="_blank">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" rel="nofollow" target="_blank">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" rel="nofollow" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
@@ -1325,7 +1314,7 @@ h6:hover .anchor-link {
 <p><em>The code snippet assumes Anaconda 5.2.0 version of Python virtual environment</em></p>
 <div class="alert alert-info">
 <h4>Acknowledgement</h4>
-<p>The materials on this post are based the on four NLP papers, <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank">Distributed Representations of Words and Phrases and their Compositionality</a> (Mikolov et al., 2013), <a href="https://arxiv.org/pdf/1411.2738.pdf" target="_blank">word2vec Parameter Learning Explained</a> (Rong, 2014), <a href="https://arxiv.org/pdf/1710.09805.pdf" target="_blank">Improving Negative Sampling for Word Representation using Self-embedded Features</a> (Chen et al., 2017) and <a href="https://arxiv.org/pdf/1402.3722.pdf" target="_blank">word2vec Explained: Deriving Mikolov et al.’s
+<p>The materials on this post are based the on five NLP papers, <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank">Distributed Representations of Words and Phrases and their Compositionality</a> (Mikolov et al., 2013), <a href="https://arxiv.org/pdf/1411.2738.pdf" target="_blank">word2vec Parameter Learning Explained</a> (Rong, 2014), <a href="https://arxiv.org/pdf/1710.09805.pdf" target="_blank">Improving Negative Sampling for Word Representation using Self-embedded Features</a> (Chen et al., 2017), <a href="https://aclweb.org/anthology/D17-1037" target="_blank">Incremental Skip-gram Model with Negative Sampling</a> (Kaji and Kobayashi, 2017), and <a href="https://arxiv.org/pdf/1402.3722.pdf" target="_blank">word2vec Explained: Deriving Mikolov et al.’s
 Negative-Sampling Word-Embedding Method</a> (Goldberg and Levy, 2014).</p>
 </div>
 </div>
@@ -1338,14 +1327,15 @@ Negative-Sampling Word-Embedding Method</a> (Goldberg and Levy, 2014).</p>
 <div class="row" id="fig1">
 <div class="col"><img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"></div>
 <div class="col-12"><p class="image-description">Figure 1: Skip-Gram model structure</p></div>
-</div><p>I also derived the cost function of Skip-Gram in <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Derivation-of-Cost-Function">Derivation of Cost Function</a>:</p>
+</div><p>I also derived the cost function of Skip-Gram in <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Derivation-of-Cost-Function" target="_blank">Derivation of Cost Function</a>:</p>
 <div id="eq-1" style="font-size: 1rem;">
-$$J(\theta) = -
-\frac{1}{T}
-\sum_{t=1}^{T}
-\sum_{c=1}^{C}
-log 
-\frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{1}$$
+$$
+\begin{align}
+  J(\theta) = & - \frac{1}{T} \sum_{t=1}^{T} \sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \, \theta) \\ 
+            = & - \frac{1}{T} \sum_{t=1}^{T} \sum_{c=1}^{C} log \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \\ 
+\end{align}
+\tag{1} 
+$$
 </div><p>where $T$ is the size of training samples, $C$ is the <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram" target="_blank">window size</a>, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in <a href="#fig1">figure 1</a>. I also noted that <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank">stochastic gradient descent</a> (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:</p>
 <div id="eq-2" style="font-size: 1rem;">
 $$J(\theta; w^{(t)}) = -
@@ -1378,14 +1368,14 @@ log
 <div class="col"><img src="jupyter_images/vanilla-skip-gram-complexity.png"></div>
 <div class="col-12"><p class="image-description">Figure 3: Algorithm complexity of vanilla Skip-Gram</p></div>
 </div><p>Furtheremore, the normalization factor in the denominator also requires $V$ iterations. In mathematical context, the normalization factor needs to be computed for each probability p($w_{context}| w_{center}$), making the alogrithm complexity = $O(V \times V)$. However, when implemented on code, the normalization factor is computed only once and cached as a Python variable, making the alogrithm complexity = $O(V + V) \approx O(V)$. This is possible because normalization factor is the same for all words.</p>
-<p>Due to this computational inefficiency, <strong>softmax is not used in most implementaions of Skip-Gram</strong>. Instead we use an alternative called <em>negative sampling</em> with <a href="">sigmoid function</a>, which rephrases the problem into a set of independent binary classification task of algorithm complexity = $O(K \, + \, 1)$, where $K$ typically has a range of $[5, 20]$.</p>
+<p>Due to this computational inefficiency, <strong>softmax is not used in most implementaions of Skip-Gram</strong>. Instead we use an alternative called <em>negative sampling</em> with <a href="#sigmoid">sigmoid function</a>, which rephrases the problem into a set of independent binary classification task of algorithm complexity = $O(K \, + \, 1)$, where $K$ typically has a range of $[5, 20]$.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Skip-Gram-Negative-Sampling">Skip-Gram Negative Sampling<a class="anchor-link" href="#Skip-Gram-Negative-Sampling">¶</a></h2><p>In Skip-Gram, assuming <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank">stochastic gradient descent</a>, weight marices in the neural network are updated for each training sample to correctly predict output. Let's assume that the training corpus has 10,000 unique vocabs ($V$ = 10000) and the hidden layer is 300-dimensional ($N$ = 300). This means that there are 3,000,000 neurons in the output weight matrix ($W_{output}$) that need to be updated for each training sample (Notes: for the input weight matrix ($W_{input}$), only 300 neurons are updated for each training sample. This is illustrated in figure 18 of my <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_update" target="_blank">previous post</a>.) Since the size of the training corpus ($T$) is very large, updating 3M neurons for each training sample is unrealistic in terms of computational efficiency. Negative sampling addresses this issue by updating only a small fraction of the output weight neurons for each training sample.</p>
+<h2 id="Skip-Gram-Negative-Sampling">Skip-Gram Negative Sampling<a class="anchor-link" href="#Skip-Gram-Negative-Sampling">¶</a></h2><p>In Skip-Gram, assuming <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank">stochastic gradient descent</a>, weight marices in the neural network are updated for each training sample to correctly predict output. Let's assume that the training corpus has 10,000 unique vocabs ($V$ = 10000) and the hidden layer is 300-dimensional ($N$ = 300). This means that there are 3,000,000 neurons in the output weight matrix ($W_{output}$) that need to be updated for each training sample (Notes: for the input weight matrix ($W_{input}$), only 300 neurons are updated for each training sample. This is illustrated in <em>figure 18</em> of my <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_update" target="_blank">previous post</a>.) Since the size of the training corpus ($T$) is very large, updating 3M neurons for each training sample is unrealistic in terms of computational efficiency. Negative sampling addresses this issue by updating only a small fraction of the output weight neurons for each training sample.</p>
 <p>In negative sampling, $K$ <a href="#neg_word">negative samples</a> are <a href="#neg_drawn">randomly drawn</a> from a <a href="#noise_dist">noise distribution</a>. $K$ is a hyper-parameter that can be empirically tuned, with a typical range of $[5,\, 20]$. For each training sample, you randomly draw $K$ number of negative samples from a noise distribution, $P_n(w)$, and the model will update $(k+1) \times N$ neurons in the output weight matrix ($W_{output}$). $N$ is the dimension of the hidden layer ($h$), or the size of a word vector. $+1$ accounts for a <a href="#pos_word">positive sample</a>.</p>
 <p>With the above assumption, if you set <code>K=9</code>, the model will update (9 + 1) * 300 = 3000 neurons, which is only 0.1% of the 3M neurons in $W_{output}$. This is computationally much faster than the original Skip-Gram, and yet maintains a good quality of word vectors.</p>
 <p>The below figure has 3-dimensional hidden layer ($N=3$), 11 vocabs ($V=11$), and 3 negative samples ($K=3$).</p>
@@ -1411,7 +1401,7 @@ $$
 p(D=1|w,c;\theta)=\frac{1}{1+exp(-w_{output_{(j)}} \cdot h)}
 \in \mathbb{R}^{1}
 \tag{5} 
-$$</div><p>where $c$ is the word you want to know whether it came from the context window or the noise distribution. $w$ is the input (center) word, $h$ is the hidden layer, and $\theta$ is the weight matrix passed into the model. $w_{output_{(j)}}$ is the word vector from the output weight matrix ($W_{output}$) of <a href="#fig1">figure 1</a>.</p>
+$$</div><p>where $c$ is the word you want to know whether it came from the context window or the noise distribution. $w$ is the input (center) word, $h$ is the hidden layer, and $\theta$ is the <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#theta_in_cost" target="_blank">weight matrix</a> passed into the model. $w_{output_{(j)}}$ is the word vector from the output weight matrix ($W_{output}$) of <a href="#fig1">figure 1</a>.</p>
 <p><a href="#eq-5">Eq (5)</a> computes the probability that the given word ($c$) is a <a href="#pos_word">positive word</a> ($D=1$). It only needs to be applied $K$ + 1 times instead of $V$ times for every word in the vocabulary, because $w_j$ comes from the concatenation of true context word ($c_{pos}$) and $K$ <a href="#neg_word">negative words</a> ($W_{neg} = \{ c_{neg, j}|j=1,\cdots,K \}$):</p>
 <div id="eq-6" style="font-size: 1rem;">
 $$
@@ -1421,12 +1411,60 @@ $$
 </div><p>This probability is computed $K + 1$ times to obtain a probability distribution of true context word and $K$ negative samples:</p>
 <div id="eq-7" style="font-size: 1rem;">
 $$
-\left[ \begin{array}{c} p(D=1|w,c_{pos}) \\ p(D=1|w,c_{neg, 1}) \\ p(D=1|w,c_{neg, 2}) \\ p(D=1|w,c_{neg, 3}) \\ \vdots \\ p(D=1|w,c_{neg, 4}) \end{array} \right] 
+\left[ \begin{array}{c} p(D=1|w,c_{pos}) \\ p(D=1|w,c_{neg, 1}) \\ p(D=1|w,c_{neg, 2}) \\ p(D=1|w,c_{neg, 3}) \\ \vdots \\ p(D=1|w,c_{neg, K}) \end{array} \right] 
 = 
 \frac{1}{1+exp(-(\{c_{pos}\} \cup W_{neg}) \cdot h)}
 \in \mathbb{R}^{K+1}\tag{7} 
 $$
 </div><p>Compare this equation with <a href="#eq-4">eq (4)</a> — you will notice that <a href="#eq-7">eq (7)</a> is computationally much cheaper because $K$ is between 5 ~ 20, whereas $V$ can be millions. Moreover, no extra iterations are necessary to compute the normalization factor in the denominator of <a href="#eq-4">eq (4)</a>, because sigmoid function is a binary regression classifier. The algorithm complexity for probability distribution of vanilla Skip-Gram is $O(V)$, whereas negative sampling's is $O(K+1)$. This shows why negative sampling saves a significant amount of computational cost per iteration.</p>
+<div class="alert alert-info" id="sigmoid">
+<h4>Notes: Sigmoid function $\sigma(x)$</h4>
+<p>Sigmoid function is used for two-class logistic regression.</p>
+<p><div style="font-size: 1rem; margin-top: 20px;">$$ \sigma(x) = \frac{1}{1+exp(-x))}$$</div></p>
+<p>It is used to classify if a given sample is True or False based on the computed probability. The sample is classified as True if the value is greater then 0.5, and vice versa. For example, if you want to classify if a certain bank transaction is fraud or not, you will use sigmoid for binary classification.</p>
+<img class="admonition-image" src="jupyter_images/sigmoid.png" style="border: 1px solid #ddd;">
+<p>If you are working on a multi-class task, such as hand-written digit classification, you will use softmax regression classifier.</p>
+</img></div><div style="display: none">
+from matplotlib import pylab
+import pylab as plt
+import numpy as np
+%matplotlib notebook
+
+#sigmoid = lambda x: 1 / (1 + np.exp(-x))
+def sigmoid(x):
+    return (1 / (1 + np.exp(-x)))
+
+mySamples = []
+mySigmoid = []
+
+x = plt.linspace(-10,10,10)
+y = plt.linspace(-10,10,100)
+
+plt.plot(y, sigmoid(y))
+plt.title('Sigmoid Function $\sigma(x)$')
+plt.text(4, 0.8, r'$\sigma(x)=\frac{1}{1+e^{-x}}$', fontsize=15)
+plt.xlabel('X', fontsize=12)
+plt.ylabel('$\sigma(x)$', fontsize=14)
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><div id="algorithm"></div></p>
+<h3 id="Negative-sampling-algorithm">Negative sampling algorithm<a class="anchor-link" href="#Negative-sampling-algorithm">¶</a></h3><p>For each center word and positive context word pair ($w, c_{pos}$), $1$ word vector that corresponds to the center word ($w$) is updated in the input weight matrix $W_{input}$ (as shown in <em>figure 18</em> of my <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_update" target="_blank">previous post</a>). In the output weight matrix $W_{output}$, $1+K$ word vectors that correspond to the positive ($c_{pos}$) and negative ($c_{neg}$) words are updated.</p>
+<p>Since Skip-Gram uses SGD to reduce computational cost, negative sampling also uses SGD too. Then, the training for Skip-Gram negative sampling has the following algorithm structure:</p>
+<p><p><u>Algorithm 1: Skip-Gram Negative Sampling</u></p></p>
+<pre>
+    <code class="language-python">
+        P_nw = # generate noise distribution 
+        for word in corpus:
+            for context in context_window:
+                # draw K negative samples from P_nw
+                # use SGD to update w, c_pos, and c_neg_1, ... , c_neg_K
+    </code>
+</pre>
 </div>
 </div>
 </div>
@@ -1442,11 +1480,27 @@ $$
 <div class="row" id="fig6">
 <div class="col"><img src="jupyter_images/neg_opt_1.png"></div>
 <div class="col-12"><p class="image-description">Figure 6: maximizing postive pairs and minimizing negative pairs</p></div>
-</div><p>By the time the output probability distribution is nearly one-hot-encoded as in $iter = 4$ of the above figure, weight matrices $\theta$ are optimized and good word vectors are learned. This optimization can be done my maximizing the dot product of the input weight matrix and the hidden layer ($-w_{output_{(j)}} \cdot h$) in <a href="#">eq (333)</a>.</p>
+</div><p>By the time the output probability distribution is nearly one-hot-encoded as in $iter = 4$ of the above figure, weight matrices $\theta$ are optimized and good word vectors are learned. This optimization is achieved by maximizing the dot product of positive pairs ($c_{pos}\cdot w$) and minimizing the dot product of negative paris ($c_{neg}\cdot w$) in <a href="#eq-15">eq (15)</a>.</p>
 <div class="alert alert-info" id="negsample">
 <h4>Notes: Drawing random negative samples</h4>
-<p>For each word-context pair ($w,\,c$), $K$ new negative samples are <a href="#neg_drawn">randomly drawn</a> from a noise distribution. In <a href="#fig5">figure 5</a>, there are 6 positive context words (<i>"engineer"</i>, <i>"traditionally"</i>, <i>"designs"</i>, <i>"fluids"</i>, <i>"with"</i>, and <i>"two"</i>) for one center word (<i>"drilling"</i>), and $K$ is 5. This means that a total of 6 * 5 = 30 word vectors are updated for each center word.</p>
+<p>For each word-context pair ($w,\,c$), $K$ new negative samples are <a href="#neg_drawn">randomly drawn</a> from a <a href="#noise_dist">noise distribution</a>. In <a href="#fig5">figure 5</a>, there are 6 positive context words (<i>"engineer"</i>, <i>"traditionally"</i>, <i>"designs"</i>, <i>"fluids"</i>, <i>"with"</i>, and <i>"two"</i>) for one center word (<i>"drilling"</i>), and $K$ is 5. This means that a total of 6 * 5 = 30 word vectors are updated for each center word.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><div id="pos_word"></div></p>
+<h4 id="What-is-a-positive-word-$c_{pos}$?">What is a positive word $c_{pos}$?<a class="anchor-link" href="#What-is-a-positive-word-$c_{pos}$?">¶</a></h4><p>Words that actually appear within the context window of the center word ($w$). After the model is optimized, the probability computed with <a href="#eq-5">eq (5)</a> for positive words $c_{pos}$ will output $\approx$ 1 as shown in <a href="#fig6">fig 6</a>. A word vector of a center word ($w$) will be more similar to a word vector of positive word ($c_{pos}$) than of randomly drawn negative words ($c_{neg}$). This is because words that frequently appear together show strong correlation with each other.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><div id="neg_word"></div></p>
+<h4 id="What-is-a-negative-word-$c_{neg}$?">What is a negative word $c_{neg}$?<a class="anchor-link" href="#What-is-a-negative-word-$c_{neg}$?">¶</a></h4><p>Words that are randomly drawn from a noise distribution $P_n(w)$. After the model is optimized, the probability computed with <a href="#eq-5">eq (5)</a> for negative words $c_{neg}$ will output $\approx$ 0 as shown in <a href="#fig6">fig 6</a>. When training an Word2Vec model, the vocab size ($V$) easily exceeds tens of thousands. When 5 ~ 20 negative samples are randomly drawn among the vocabs, it is unlikely to observe the random word with a center word together. Therefore, once the model is optimized: $p(D=1|w,c_{neg})\approx0$.</p>
 </div>
 </div>
 </div>
@@ -1463,115 +1517,10 @@ $$</div><p>Raising the unigram distribution $U(w)$ to the power of $\alpha$ has 
 <div class="row" id="fig7">
 <div class="col"><img src="jupyter_images/noise_dist.png"></div>
 <div class="col-12"><p class="image-description">Figure 7: Effect of raising power of unigram distribution $U(w)$</p></div>
-</div><p><div id="pos_word"></div></p>
-<h4 id="What-is-a-positive-word-$c_{pos}$?">What is a positive word $c_{pos}$?<a class="anchor-link" href="#What-is-a-positive-word-$c_{pos}$?">¶</a></h4><p>Words that actually appear within the context window of the center word ($w$). After the model is optimized, the probability computed with <a href="#eq-5">eq (5)</a> will output $\approx$ 1 as shown in <a href="#fig6">fig 6</a>. A word vector of a center word ($w$) will be more similar to a word vector of positive word ($c_{pos}$) than of randomly drawn negative words ($c_{neg}$). This is because words that frequently appear together show strong correlation with each other.</p>
-<p><div id="neg_word"></div></p>
-<h4 id="What-is-a-negative-word-$c_{neg}$?">What is a negative word $c_{neg}$?<a class="anchor-link" href="#What-is-a-negative-word-$c_{neg}$?">¶</a></h4><p>Words that are randomly drawn from a noise distribution $P_n(w)$. After the model is optimized, the probability computed with <a href="#eq-5">eq (5)</a> will output $\approx$ 0 as shown in <a href="#fig6">fig 6</a>. When training an Word2Vec model, the vocab size ($V$) easily exceeds tens of thousands. When 5 ~ 20 negative samples are randomly drawn among the vocabs, it is unlikely to observe the random word with a center word together. Therefore, once the model is optimized: $p(D=1|w,c_{neg})\approx0$.</p>
-<p><div id="neg_drawn"></div></p>
-<h4 id="How-are-negative-samples-drawn?">How are negative samples drawn?<a class="anchor-link" href="#How-are-negative-samples-drawn?">¶</a></h4><p>$K$-negative samples are randomly drawn from a <a href="#noise_dist">noise distribution</a> $P_n(w)$. The noise distribution is generated with <a href="#eq-8">eq (8)</a> and the random samples are drawn with <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.choice.html" target="_blank">np.random.choice</a>.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [35]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [41]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">alpha</span>      <span class="o">=</span> <span class="mi">3</span> <span class="o">/</span> <span class="mi">4</span>
-<span class="n">unig_dist</span>  <span class="o">=</span> <span class="p">{</span><span class="s1">'apple'</span><span class="p">:</span> <span class="mf">0.023</span><span class="p">,</span> <span class="s1">'bee'</span><span class="p">:</span> <span class="mf">0.12</span><span class="p">,</span> <span class="s1">'desk'</span><span class="p">:</span> <span class="mf">0.34</span><span class="p">,</span> <span class="s1">'chair'</span><span class="p">:</span> <span class="mf">0.517</span><span class="p">}</span>
-<span class="n">unig_dist</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[41]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>{'apple': 0.023, 'bee': 0.12, 'desk': 0.34, 'chair': 0.517}</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [42]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">noise_dist</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">val</span> <span class="o">**</span> <span class="n">alpha</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">unig_dist</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">noise_dist</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-<span class="n">noise_dist_normalized</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">val</span> <span class="o">/</span> <span class="n">Z</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">noise_dist</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-<span class="n">noise_dist_normalized</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[42]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>{'apple': 0.044813853132981724,
- 'bee': 0.15470428538870049,
- 'desk': 0.33785130228003507,
- 'chair': 0.4626305591982827}</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><div id="test"><hr></div>
-In the initial unigram distribution, <code>chair</code> appeared the most in the corpus, and had <code>0.517</code> chance of being drawn as a negative sample. However, the unigram distribution is raised to the power of $3/4$rd to combat the imbalance between common vs rare words, as shown in <a id="#fig7">figure 7</a>. After <code>unig_dist</code> was raised to the power of <code>alpha = 3/4</code> and normalized, <code>chair</code> now has <code>0.463</code> chance of being drawn.</p>
-<p>On the other hand, <code>apple</code> had the lowest probability (<code>0.023</code>) of being drawn. After the transformation, it now has a bit higher probability (<code>0.049</code>) of being drawn. The imbalance between the most common word (<code>chair</code>) and the least common word (<code>apple</code>) was mitigated.</p>
-<p>Once the noise distribution (<code>noise_dist_normalized</code>), you randomly draw $K$ negative samples according to each words probability.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [45]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="mi">10</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">noise_dist_normalized</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">size</span><span class="o">=</span><span class="n">K</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">noise_dist_normalized</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[45]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>array(['desk', 'chair', 'chair', 'chair', 'chair', 'apple', 'chair',
-       'chair', 'desk', 'chair'], dtype='<U5')</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Derivation-of-Cost-Function-in-Negative-Sampling">Derivation of Cost Function in Negative Sampling<a class="anchor-link" href="#Derivation-of-Cost-Function-in-Negative-Sampling">¶</a></h2><p>Coming soon...</p>
-<div style="display: none">
+</div><div class="alert alert-info" id="incremental_noise_dist">
+<h4>Notes: Incremental noise distribution</h4>
+<p>Noise distribution $P_n(w)$ needs to be pre-computed by iterating through the entire corpus to obtain word frequency $U(w)$ and normalization factor $Z$ of the distribution. If an additional training data is added to the corpus, $P_n(w)$ needs to be computed all over again. To address this problem, a simple incremental extension of negative sampling was provided in this <a href="https://aclweb.org/anthology/D17-1037" target="_blank">paper</a> (Kaji and Kobayashi, 2017).</p>
+</div><div style="display: none">
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -1599,6 +1548,173 @@ ax2.hist(data, bins='auto', density=True)
 ax2.plot(data, pdf_norm, label='norm')
 ax2.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil', 'water', 'coin'])
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><div id="neg_drawn"></div></p>
+<h4 id="How-are-negative-samples-drawn?">How are negative samples drawn?<a class="anchor-link" href="#How-are-negative-samples-drawn?">¶</a></h4><p>$K$-negative samples are randomly drawn from a noise distribution $P_n(w)$. The noise distribution is generated with <a href="#eq-8">eq (8)</a> and the random samples are drawn with <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.choice.html" target="_blank">np.random.choice</a>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">unig_dist</span>  <span class="o">=</span> <span class="p">{</span><span class="s1">'apple'</span><span class="p">:</span> <span class="mf">0.023</span><span class="p">,</span> <span class="s1">'bee'</span><span class="p">:</span> <span class="mf">0.12</span><span class="p">,</span> <span class="s1">'desk'</span><span class="p">:</span> <span class="mf">0.34</span><span class="p">,</span> <span class="s1">'chair'</span><span class="p">:</span> <span class="mf">0.517</span><span class="p">}</span>
+<span class="n">unig_dist</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[2]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>{'apple': 0.023, 'bee': 0.12, 'desk': 0.34, 'chair': 0.517}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">alpha</span>      <span class="o">=</span> <span class="mi">3</span> <span class="o">/</span> <span class="mi">4</span>
+
+<span class="n">noise_dist</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">val</span> <span class="o">**</span> <span class="n">alpha</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">unig_dist</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">noise_dist</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">noise_dist_normalized</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">val</span> <span class="o">/</span> <span class="n">Z</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">noise_dist</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">noise_dist_normalized</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>{'apple': 0.044813853132981724,
+ 'bee': 0.15470428538870049,
+ 'desk': 0.33785130228003507,
+ 'chair': 0.4626305591982827}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><div style="margin-top: -25px;"><hr></div>
+In the initial unigram distribution, <code>chair</code> appeared the most in the corpus, and had <code>0.517</code> chance of being drawn as a negative sample. However, the unigram distribution is raised to the power of $3/4$rd to combat the imbalance between common vs rare words, as shown in <a id="#fig7">figure 7</a>. After <code>unig_dist</code> was raised to the power of <code>alpha = 3/4</code> and normalized, <code>chair</code> now has <code>0.463</code> chance of being drawn.</p>
+<p>On the other hand, <code>apple</code> had the lowest probability (<code>0.023</code>) of being drawn. After the transformation, it now has a bit higher probability (<code>0.049</code>) of being drawn. The imbalance between the most common word (<code>chair</code>) and the least common word (<code>apple</code>) was mitigated.</p>
+<p>Once the noise distribution (<code>noise_dist_normalized</code>) is generated, you randomly draw $K$ negative samples according to each words probability.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">noise_dist_normalized</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">size</span><span class="o">=</span><span class="n">K</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">noise_dist_normalized</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>array(['chair', 'bee', 'desk', 'chair', 'desk', 'chair', 'desk', 'bee',
+       'chair', 'chair'], dtype='<U5')</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Derivation-of-Cost-Function-in-Negative-Sampling">Derivation of Cost Function in Negative Sampling<a class="anchor-link" href="#Derivation-of-Cost-Function-in-Negative-Sampling">¶</a></h2><p>The derivations written here are based on the work of <a href="https://arxiv.org/pdf/1402.3722.pdf" target="_blank">word2vec Explained: Deriving Mikolov et al.’s
+Negative-Sampling Word-Embedding Method</a> (Goldberg and Levy, 2014).</p>
+<p>Consider a pair ($w,\,c$) of center word and its context. Did this pair come from the context window or the <a href="#noise_dist">noise distribution</a>? Let $p(D=1|w,c)$ be the probability that ($w,\,c$) is observed in the true corpus, and $p(D=0|w,c) = 1 - p(D=1|w,c)$ the probability that ($w,\,c$) is non-observed. There are <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#theta_in_cost" target="_blank">parameters</a> $\theta$ controlling the probability distribution: $p(D=1|w,c;\theta)$.</p>
+<p>Negative sampling attempts to optimize the parameters $\theta$ by maximizing the probability of observing positive pairs ($w,\,c_{pos}$) while minimizing the probability of observing negative pairs ($w,\,c_{neg}$). For each positive pair, the model randomly draws $K$ negative words $W_{neg} = \{ c_{neg, j}|j=1,\cdots,K \}$. Our objective function is then:</p>
+<div id="eq-9" style="font-size: 1rem;">
+$$
+\begin{align}
+     & \underset{\theta}{\text{argmax}} \ p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta) \\ 
+   =\quad & \underset{\theta}{\text{argmax}} \ p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{pos};\theta))
+\end{align}
+\tag{9} 
+$$</div><div class="alert alert-info">
+<h4>Notes: Probability Product</h4>
+<p>In statistics, probability of observing $C$ multiple events at the same time is computed by the product of each event's probability.</p>
+<p><center style="font-size: 1rem; margin-top: 20px;">$$p(x_{1}, x_{2} ... x_{C}) = p(x_{1}) \times p(x_{2}) \, \times \, ... \, \times \, p(x_{C})$$</center></p>
+<p>This can be shortened with a product notation:</p>
+<p><center style="font-size: 1rem; margin-top: 20px;">$$p(x_{1}, x_{2} ... x_{C}) = \prod_{c=1}^{C}p(x_{c})$$</center></p>
+</div><p>It is a common practice in machine learning to <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#take_natural_log" target="_blank">take a natural log to the objective function</a> to simplify derivations. This does not affect the optimized weights ($\theta$) because natural log is a monotonically increasing function. It ensures that the maximum value of the original probability function occurs at the same point as the log probability function. Therefore:</p>
+<div id="eq-10" style="font-size: 1rem;">
+$$
+\begin{align}
+   =\quad & \underset{\theta}{\text{argmax}} \ log \, (p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta))
+\end{align}
+\tag{10} 
+$$</div><p>Using the property of logs, the objective function can be simplified:</p>
+<div id="eq-11" style="font-size: 1rem;">
+$$
+\begin{align}
+   =\quad  & \underset{\theta}{\text{argmax}} \ log \, p(D=1|w,c_{pos};\theta) + log \, \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta) \\ 
+   =\quad & \underset{\theta}{\text{argmax}} \ log \, p(D=1|w,c_{pos};\theta) + \sum_{c_{neg} \in W_{neg}} log \, (1 - p(D=1|w,c_{neg};\theta))
+\end{align}
+\tag{11} 
+$$</div><p>The binomial probability $p(D=1|w,c;\theta)$ can be replaced with <a href="#eq-5">eq (5)</a>:</p>
+<div id="eq-12" style="font-size: 1rem;">
+$$
+\begin{align}
+   =\quad  & \underset{\theta}{\text{argmax}} \ log \, \frac{1}{1+exp(-c_{pos} \cdot w)} + \sum_{c_{pos} \in W_{neg}} log \, (1 - \frac{1}{1+exp(-c_{neg} \cdot w)}) \\ 
+   =\quad  & \underset{\theta}{\text{argmax}} \ log \, \frac{1}{1+exp(-c_{pos} \cdot w)} + \sum_{c_{pos} \in W_{neg}} log \, \frac{1}{1+exp(c_{neg} \cdot w)} \\ 
+\end{align}
+\tag{12} 
+$$</div><p>Using the definition of <a href="#sigmoid">sigmoid</a> function $\sigma(x)=\frac{1}{1+exp(-x)}$:</p>
+<div id="eq-13" style="font-size: 1rem;">
+$$
+\begin{align}
+   =\quad  & \underset{\theta}{\text{argmax}} \ log \, \sigma(c_{pos} \cdot w) + \sum_{c_{pos} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w) \\  
+\end{align}
+\tag{13} 
+$$</div><p>According to Mikolov, <a href="#eq-13">eq (13)</a> replaces every $log \, p(w_O|w_I)$ in the vanilla Skip-Gram cost function <a href="#eq-1">eq (1)</a>. Then, the cost function we want to minimize becomes:</p>
+<div id="eq-14" style="font-size: 1rem;">$$J(\theta) = - \frac{1}{T} \sum_{i = 1}^T \sum_{-c\leq j \leq c,j\neq 0}( log \, \sigma(c_{pos} \cdot w) + \sum_{c_{neg} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w)) \tag{14}$$</div><p>However, when implemented in codes, batch gradient descent (making one update after iterating through the entire $T$ corpus) is almost never used due to its high computational cost. Instead, we use <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank">stochastic gradient descent</a>. Also, for negative sampling, gradients are calculated and weights are updated for each positive training pairs ($w,\, c_{pos}$). The new cost function is then:</p>
+<div id="eq-15" style="font-size: 1rem;">$$J(\theta; w,c_{pos}) = - log \, \sigma(c_{pos} \cdot w) + \sum_{c_{neg} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w) \tag{15}$$</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Derivation-of-Negative-Sampling-Gradients">Derivation of Negative Sampling Gradients<a class="anchor-link" href="#Derivation-of-Negative-Sampling-Gradients">¶</a></h2><p>coming soon...</p>
 </div>
 </div>
 </div>
@@ -1635,31 +1751,17 @@ ax2.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil',
         <aside>
         <nav>
         <ul class="articles-timeline">
-            <li class="previous-article">« <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" title="Previous: Demystifying Neural Network in Skip-Gram Language Modeling">Demystifying Neural Network in Skip-Gram Language Modeling</a></li>
+            <li class="previous-article">« <a href="/demystifying_neural_network_in_skip_gram_language_modeling" title="Previous: Demystifying Neural Network in Skip-Gram Language Modeling">Demystifying Neural Network in Skip-Gram Language Modeling</a></li>
         </ul>
         </nav>
         </aside>
-  <section>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-    <script type="text/javascript">
-      var disqus_shortname = 'pythonic-excursions';
-      var disqus_identifier = '/optimize_computational_efficiency_of_skip-gram_with_negative_sampling';
-      var disqus_url = 'https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling';
-      var disqus_title = 'Optimize Computational Efficiency of Skip-Gram with Negative Sampling';
-      (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-    </script>
-  </section>
         <hr/>
 <section style="margin-top: 30px">
     <h2>Related Posts</h2>
 <ul class="related-posts-list">
-<li><a href="https://aegis4048.github.io/parse-pdf-files-while-retaining-structure-with-tabula-py" title="Parse PDF Files While Retaining Structure with Tabula-py">Parse PDF Files While Retaining Structure with Tabula-py</a></li>
-<li><a href="https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling" title="Understanding Multi-Dimensionality in Vector Space Modeling">Understanding Multi-Dimensionality in Vector Space Modeling</a></li>
-<li><a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" title="Demystifying Neural Network in Skip-Gram Language Modeling">Demystifying Neural Network in Skip-Gram Language Modeling</a></li>
+<li><a href="/parse-pdf-files-while-retaining-structure-with-tabula-py" title="Parse PDF Files While Retaining Structure with Tabula-py">Parse PDF Files While Retaining Structure with Tabula-py</a></li>
+<li><a href="/understanding_multi-dimensionality_in_vector_space_modeling" title="Understanding Multi-Dimensionality in Vector Space Modeling">Understanding Multi-Dimensionality in Vector Space Modeling</a></li>
+<li><a href="/demystifying_neural_network_in_skip_gram_language_modeling" title="Demystifying Neural Network in Skip-Gram Language Modeling">Demystifying Neural Network in Skip-Gram Language Modeling</a></li>
 </ul>
 </section>
     </article>
@@ -1671,7 +1773,7 @@ ax2.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil',
          <div class="col">
             <h5 class="headin5_amrc col_white_amrc pt2">ABOUT ERIC</h5>
             <!--headin5_amrc-->
-            <p class="mb10"><img id="profile_img" align="left" src="https://aegis4048.github.io/theme/img/profile_photo_footer.jpg">Senior undergraduate student at the Univeristy of Texas at Austin, Hildebrand Department of Petroleum Engineering, the #1 petroleum engineering school in the US. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
+            <p class="mb10"><img id="profile_img" align="left" src="/theme/img/profile_photo_footer.jpg">Senior undergraduate student at the Univeristy of Texas at Austin, Hildebrand Department of Petroleum Engineering, the #1 petroleum engineering school in the US. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
             <p><i class="fa fa-envelope mr-2"></i>aegis4048@gmail.com</p>
          </div>
       </div>
@@ -1696,11 +1798,11 @@ ax2.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil',
       <!--social_footer_ul ends here-->
    </div>
 </footer>
-            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/jquery.min.js"></script>
-            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+            <script type="text/javascript" src="/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
-        <script src="https://aegis4048.github.io/theme/libs/prism.js"></script>
-        <script src="https://aegis4048.github.io/theme/libs/Countable.js"></script>
+        <script src="/theme/libs/prism.js"></script>
+        <script src="/theme/libs/Countable.js"></script>
 
         <script>
             Prism.plugins.NormalizeWhitespace.setDefaults({
@@ -1717,7 +1819,7 @@ ax2.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil',
         </script>
 
 
-        <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
+        <script type="text/javascript" src="/theme/js/custom.js"></script>
             <script>
                 function validateForm(query)
                 {
