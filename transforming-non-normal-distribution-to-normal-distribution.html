@@ -20,26 +20,26 @@
 
         <meta name="keywords" content="non-parametric, confidence-interval, statistics, non-normal, normal, non-Gaussian, Gaussian, normality-test, hypotheses-testing, Statistics, "/>
 
-        <link rel="canonical" href="/transforming-non-normal-distribution-to-normal-distribution">
+        <link rel="canonical" href="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution">
     <meta property="og:title" content="Transforming Non-Normal Distribution to Normal Distribution | Pythonic Excursions"/>
-    <meta property="og:url" content="/transforming-non-normal-distribution-to-normal-distribution" />
+    <meta property="og:url" content="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution" />
     <meta property="og:description" content="Many statistical &amp; machine learning techniques assume normality of data. What are the options you have if your data is not normally distributed?" />
     <meta property="og:site_name" content="Pythonic Excursions" />
     <meta property="og:article:author" content="ERIC KIM" />
         <meta property="og:article:published_time" content="2019-02-25T09:00:00-08:00" />
     <meta name="twitter:title" content="Transforming Non-Normal Distribution to Normal Distribution | Pythonic Excursions">
     <meta name="twitter:description" content="Many statistical &amp; machine learning techniques assume normality of data. What are the options you have if your data is not normally distributed?">
-        <meta property="og:image" content="/images/featured_images/control_chart.png" />
-        <meta name="twitter:image" content="/images/featured_images/control_chart.png" >
+        <meta property="og:image" content="https://aegis4048.github.io/images/featured_images/control_chart.png" />
+        <meta name="twitter:image" content="https://aegis4048.github.io/images/featured_images/control_chart.png" >
 
 
         <title>    Transforming Non-Normal Distribution to Normal Distribution  | Pythonic Excursions
 </title>
 
-                <link rel="stylesheet" type="text/css" href="/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
-                <link rel="stylesheet" type="text/css" href="/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
-            <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
-            <link rel="stylesheet" type="text/css" href="/theme/css/ipynb.css" media="screen">
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/ipynb.css" media="screen">
 
             <style>
                 #progressBar::-webkit-progress-value {
@@ -50,7 +50,7 @@
                 }
             </style>
 
-        <link href="/theme/libs/prism.css" rel="stylesheet" />
+        <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
 <script type="text/x-mathjax-config">
 
 MathJax.Hub.Config({
@@ -65,17 +65,28 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-        <link rel="shortcut icon" href="/theme/img/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/theme/img/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="/theme/img/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="/theme/img/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="/theme/img/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="/theme/img/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="/theme/img/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="/theme/img/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
+        <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="https://aegis4048.github.io/theme/img/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://aegis4048.github.io/theme/img/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="https://aegis4048.github.io/theme/img/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://aegis4048.github.io/theme/img/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="https://aegis4048.github.io/theme/img/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="https://aegis4048.github.io/theme/img/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="https://aegis4048.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133310548-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-133310548-1');
+</script>
+
     </head>
     <body>
 <progress id="progressBar" max="19827" class="flat">
@@ -86,7 +97,7 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
             <div class="banner">
                 <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
                     <div class="container navbar-title">
-                        <a href="/"><img id="banner-logo" src="/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
+                        <a href="/"><img id="banner-logo" src="https://aegis4048.github.io/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -94,13 +105,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link rem_08" href="/about.html">About</a>
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/about.html">About</a>
                         </li>
                         <li id="last-item" class="nav-item">
-                            <a class="nav-link rem_08" href="/archives.html">Archive</a>
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/archives.html">Archive</a>
                         </li>
                      </ul>
-                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="/search.html">
+                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="https://aegis4048.github.io/search.html">
                         <div class="search-box-div" align="center">
                             <input id="tipue_search_input" class="form-control mr-md-2 rem_08 col-9" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" aria-label="Search">
                             <button id="search-btn" class="btn btn-search btn-outline-success btn-circle rem_08 col-3" type="submit" for="tipue_search_input">Search</button>
@@ -116,20 +127,20 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
         <header>
             <h1>Transforming Non-Normal Distribution to Normal Distribution</h1>
             <div class="row justify-content-between no-margin">
-                <h4 class="article-category">Category > <a class="article-category-link" href="/archives.html">Statistics</a></h4>
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://aegis4048.github.io/archives.html">Statistics</a></h4>
                 <span class="article-date">Feb 25, 2019</span>
             </div>
             <div class="meta meta-tag no-margin no-border">
                 <div>
-                        <a href="/tag/non-parametric.html" class="tag">non-parametric</a>
-                        <a href="/tag/confidence-interval.html" class="tag">confidence-interval</a>
-                        <a href="/tag/statistics.html" class="tag">statistics</a>
-                        <a href="/tag/non-normal.html" class="tag">non-normal</a>
-                        <a href="/tag/normal.html" class="tag">normal</a>
-                        <a href="/tag/non-gaussian.html" class="tag">non-Gaussian</a>
-                        <a href="/tag/gaussian.html" class="tag">Gaussian</a>
-                        <a href="/tag/normality-test.html" class="tag">normality-test</a>
-                        <a href="/tag/hypotheses-testing.html" class="tag">hypotheses-testing</a>
+                        <a href="https://aegis4048.github.io/tag/non-parametric.html" class="tag">non-parametric</a>
+                        <a href="https://aegis4048.github.io/tag/confidence-interval.html" class="tag">confidence-interval</a>
+                        <a href="https://aegis4048.github.io/tag/statistics.html" class="tag">statistics</a>
+                        <a href="https://aegis4048.github.io/tag/non-normal.html" class="tag">non-normal</a>
+                        <a href="https://aegis4048.github.io/tag/normal.html" class="tag">normal</a>
+                        <a href="https://aegis4048.github.io/tag/non-gaussian.html" class="tag">non-Gaussian</a>
+                        <a href="https://aegis4048.github.io/tag/gaussian.html" class="tag">Gaussian</a>
+                        <a href="https://aegis4048.github.io/tag/normality-test.html" class="tag">normality-test</a>
+                        <a href="https://aegis4048.github.io/tag/hypotheses-testing.html" class="tag">hypotheses-testing</a>
                 </div>
             </div>
             <section>
@@ -137,13 +148,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
         <div class="share-post-intro mr-2">Share This Post :</div>
         <div class="social-share-btns-container">
             <div class="social-share-btns">
-                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=/transforming-non-normal-distribution-to-normal-distribution" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution" rel="nofollow" target="_blank">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=/transforming-non-normal-distribution-to-normal-distribution" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution" rel="nofollow" target="_blank">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/transforming-non-normal-distribution-to-normal-distribution" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution" rel="nofollow" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
@@ -1410,10 +1421,10 @@ h6:hover .anchor-link {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="93e764ba-8525-4403-958c-b7631a401bab"></div>
+<div id="d2872ee7-b18e-45ae-9ac9-4251c11d1058"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#93e764ba-8525-4403-958c-b7631a401bab');
+var element = $('#d2872ee7-b18e-45ae-9ac9-4251c11d1058');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -2320,10 +2331,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="638593b3-d69f-481f-811a-3fb772981f17"></div>
+<div id="db66d43f-6c2e-40f9-8b3a-a1ebf9b260f0"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#638593b3-d69f-481f-811a-3fb772981f17');
+var element = $('#db66d43f-6c2e-40f9-8b3a-a1ebf9b260f0');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -3236,10 +3247,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="09d89888-83f0-4866-bbd6-8ae200843633"></div>
+<div id="60a03c88-15a7-4af4-ab82-c92221352537"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#09d89888-83f0-4866-bbd6-8ae200843633');
+var element = $('#60a03c88-15a7-4af4-ab82-c92221352537');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4392,10 +4403,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="20580b9f-d86a-4a11-bf75-857afb9a33dd"></div>
+<div id="fa2d93b4-d6f4-4a82-9d7e-421da69ba455"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#20580b9f-d86a-4a11-bf75-857afb9a33dd');
+var element = $('#fa2d93b4-d6f4-4a82-9d7e-421da69ba455');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -5228,10 +5239,10 @@ if (IPython.notebook.kernel != null) {
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="123d9aca-2c88-4186-b704-5c1ceac757cf"></div>
+<div id="5e7f1e2c-8c3b-4133-aca2-540fb7161b0d"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#123d9aca-2c88-4186-b704-5c1ceac757cf');
+var element = $('#5e7f1e2c-8c3b-4133-aca2-540fb7161b0d');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6058,10 +6069,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="724340a7-792c-4758-8113-3a9187c7f35f"></div>
+<div id="1cdaf7d0-7027-45df-b821-fcb09731568c"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#724340a7-792c-4758-8113-3a9187c7f35f');
+var element = $('#1cdaf7d0-7027-45df-b821-fcb09731568c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6876,10 +6887,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="b7ed4d7d-4348-4e68-9a19-2de8105421b0"></div>
+<div id="c6c9ecc4-e1bd-41ad-b9e7-1d0b4d38c314"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#b7ed4d7d-4348-4e68-9a19-2de8105421b0');
+var element = $('#c6c9ecc4-e1bd-41ad-b9e7-1d0b4d38c314');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7777,10 +7788,10 @@ The transformed data is Gaussian (fails to reject the null hypothesis)
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="b75754c7-8d6d-4cbd-93b0-7d67c0b32cd1"></div>
+<div id="1c9efcd5-0424-40ee-91d9-5ab912d78623"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#b75754c7-8d6d-4cbd-93b0-7d67c0b32cd1');
+var element = $('#1c9efcd5-0424-40ee-91d9-5ab912d78623');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8630,10 +8641,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="ed6667df-aad0-48ca-9b28-187303d476ab"></div>
+<div id="d04f7ba2-bacb-4a84-b319-4aae7d1208cb"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#ed6667df-aad0-48ca-9b28-187303d476ab');
+var element = $('#d04f7ba2-bacb-4a84-b319-4aae7d1208cb');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -9474,10 +9485,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="89dd4b96-b279-4426-be37-4278b295726c"></div>
+<div id="b6580dd1-3982-4baa-b9b6-28aa9bfafbcf"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#89dd4b96-b279-4426-be37-4278b295726c');
+var element = $('#b6580dd1-3982-4baa-b9b6-28aa9bfafbcf');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -10300,17 +10311,31 @@ if (IPython.notebook.kernel != null) {
         <aside>
         <nav>
         <ul class="articles-timeline">
-            <li class="previous-article">« <a href="/spatial-simulation-1-basics-of-variograms" title="Previous: Spatial Simulation 1: Basics of Variograms">Spatial Simulation 1: Basics of Variograms</a></li>
-            <li class="next-article"><a href="/understanding_multi-dimensionality_in_vector_space_modeling" title="Next: Understanding Multi-Dimensionality in Vector Space Modeling">Understanding Multi-Dimensionality in Vector Space Modeling</a> »</li>
+            <li class="previous-article">« <a href="https://aegis4048.github.io/spatial-simulation-1-basics-of-variograms" title="Previous: Spatial Simulation 1: Basics of Variograms">Spatial Simulation 1: Basics of Variograms</a></li>
+            <li class="next-article"><a href="https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling" title="Next: Understanding Multi-Dimensionality in Vector Space Modeling">Understanding Multi-Dimensionality in Vector Space Modeling</a> »</li>
         </ul>
         </nav>
         </aside>
+  <section>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'pythonic-excursions';
+      var disqus_identifier = '/transforming-non-normal-distribution-to-normal-distribution';
+      var disqus_url = 'https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution';
+      var disqus_title = 'Transforming Non-Normal Distribution to Normal Distribution';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section>
         <hr/>
 <section style="margin-top: 30px">
     <h2>Related Posts</h2>
 <ul class="related-posts-list">
-<li><a href="/uncertainty-modeling-with-monte-carlo-simulation" title="Uncertainty Modeling with Monte-Carlo Simulation">Uncertainty Modeling with Monte-Carlo Simulation</a></li>
-<li><a href="/non-parametric-confidence-interval-with-bootstrap" title="Non-Parametric Confidence Interval with Bootstrap">Non-Parametric Confidence Interval with Bootstrap</a></li>
+<li><a href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" title="Uncertainty Modeling with Monte-Carlo Simulation">Uncertainty Modeling with Monte-Carlo Simulation</a></li>
+<li><a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" title="Non-Parametric Confidence Interval with Bootstrap">Non-Parametric Confidence Interval with Bootstrap</a></li>
 </ul>
 </section>
     </article>
@@ -10322,7 +10347,7 @@ if (IPython.notebook.kernel != null) {
          <div class="col">
             <h5 class="headin5_amrc col_white_amrc pt2">ABOUT ERIC</h5>
             <!--headin5_amrc-->
-            <p class="mb10"><img id="profile_img" align="left" src="/theme/img/profile_photo_footer.jpg">Senior undergraduate student at the Univeristy of Texas at Austin, Hildebrand Department of Petroleum Engineering, the #1 petroleum engineering school in the US. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
+            <p class="mb10"><img id="profile_img" align="left" src="https://aegis4048.github.io/theme/img/profile_photo_footer.jpg">Senior undergraduate student at the Univeristy of Texas at Austin, Hildebrand Department of Petroleum Engineering, the #1 petroleum engineering school in the US. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
             <p><i class="fa fa-envelope mr-2"></i>aegis4048@gmail.com</p>
          </div>
       </div>
@@ -10347,11 +10372,11 @@ if (IPython.notebook.kernel != null) {
       <!--social_footer_ul ends here-->
    </div>
 </footer>
-            <script type="text/javascript" src="/theme/libs/jquery.min.js"></script>
-            <script type="text/javascript" src="/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
-        <script src="/theme/libs/prism.js"></script>
-        <script src="/theme/libs/Countable.js"></script>
+        <script src="https://aegis4048.github.io/theme/libs/prism.js"></script>
+        <script src="https://aegis4048.github.io/theme/libs/Countable.js"></script>
 
         <script>
             Prism.plugins.NormalizeWhitespace.setDefaults({
@@ -10368,7 +10393,7 @@ if (IPython.notebook.kernel != null) {
         </script>
 
 
-        <script type="text/javascript" src="/theme/js/custom.js"></script>
+        <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
             <script>
                 function validateForm(query)
                 {

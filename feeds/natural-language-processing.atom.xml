@@ -5502,8 +5502,8 @@ $$&lt;div class="alert alert-info"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Derivation-of-Cost-Function"&gt;Derivation of Cost Function&lt;a class="anchor-link" href="#Derivation-of-Cost-Function"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Skip-Gram model seeks to optimize the word weight (embedding) matrix by correctly predicting context words, given a center word. In the other words, the model wants to maximize the probability of correctly predicting all context words at the same time, given a center word. Maximizing the probability of predicting context words leads to optimizing the weight matrix ($\theta$) that best represents words in a vector space. $\theta$ is a concatenation of input and output weight matrices — $[W_{input} \quad W_{output}]$, as described &lt;a href="#theta_in_cost"&gt;below&lt;/a&gt;. It is passed into the cost function ($J$) as a variable and optimized. Mathematically, it can be expressed as:&lt;/p&gt;
-&lt;div id="eq-1" style="font-size: 1rem;"&gt;$$ \underset{\theta}{\text{argmax}} \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{1} $$&lt;/div&gt;&lt;p&gt;where $C$ is the window size. Recall that in statistics, the probability of $A$ given $B$ is expressed as $P(A|B)$. Then, natural log is taken on &lt;a href="#eq-1"&gt;eq (1)&lt;/a&gt; to simplify taking derivatives.&lt;/p&gt;
-&lt;div id="eq-2" style="font-size: 1rem;"&gt;$$ \underset{\theta}{\text{argmax}} \, log \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{2} $$&lt;/div&gt;&lt;div id="take_natural_log"&gt;&lt;/div&gt;
+&lt;div id="eq-1" style="font-size: 1rem;"&gt;$$ \underset{\theta}{\text{argmax}} \,\, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{1} $$&lt;/div&gt;&lt;p&gt;where $C$ is the window size. Recall that in statistics, the probability of $A$ given $B$ is expressed as $P(A|B)$. Then, natural log is taken on &lt;a href="#eq-1"&gt;eq (1)&lt;/a&gt; to simplify taking derivatives.&lt;/p&gt;
+&lt;div id="eq-2" style="font-size: 1rem;"&gt;$$ \underset{\theta}{\text{argmax}} \,\, log \, p(w_{1}, w_{2}, ... , w_{C}|w_{center}; \, \theta) \tag{2} $$&lt;/div&gt;&lt;div id="take_natural_log"&gt;&lt;/div&gt;
 &lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: Why take a natural log?&lt;/h4&gt;
 &lt;p&gt;In machine learning, it is a common practice to take a natural log to the objective function to simplify taking derivatives. For example, a multinomial regression classifer called Softmax (details explained &lt;a href="#Softmax-Output-Layer-($y_{pred}$)"&gt;below&lt;/a&gt;) has the following probability function:&lt;/p&gt;
@@ -5512,10 +5512,10 @@ $$&lt;div class="alert alert-info"&gt;
 &lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$log \, p(x_i) = x_i - log \, {\sum_{j=1}e^{x_{j}}}$&lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;Depending on a model, the argument ($x_i$) passed into the probability function ($p$) can be complicated, and simplifying the original softmax function helps with taking the derivatives in the future.&lt;/p&gt;
 &lt;p&gt;Taking a log does not affect the optimized weights ($\theta$), because natural log is a &lt;u&gt;monotonically increasing&lt;/u&gt; function. This means that increasing the value of $x$-axis results in increasing the value of $y$-axis. This is important because it ensures that the maximum value of the original probability function occurs at the same point as the log probability function. Therefore:&lt;/p&gt;
-&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$\underset{\theta}{\text{argmax}} \, p(x_i) = \underset{\theta}{\text{argmax}} \, log \, p(x_i)$&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$\underset{\theta}{\text{argmax}} \,\, p(x_i) = \underset{\theta}{\text{argmax}} \,\, log \, p(x_i)$&lt;/center&gt;&lt;/p&gt;
 &lt;/div&gt;&lt;p&gt;In Skip-Gram, softmax function is used for context words classfication. The details are explained &lt;a href="#Softmax-Output-Layer-($y_{pred}$)"&gt;below&lt;/a&gt;. Softmax in Skip-Gram has the following equation:&lt;/p&gt;
 &lt;div id="eq-3" style="font-size: 1rem;"&gt;$$ p(w_{context}|w_{center}; \, \theta) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{3} $$&lt;/div&gt;&lt;p&gt;$W_{output_{(context)}}$ is a row vector for a context word from the output embedding matrix (see &lt;a href="#weight_matrix"&gt;below&lt;/a&gt;), and $h$ is the hidden (projection) layer word vector for a center word (see &lt;a href="#hidden_layer"&gt;below&lt;/a&gt;). Softmax function is then plugged into the &lt;a href="#eq-2"&gt;eq (2)&lt;/a&gt; to yield a new objective function that maximizes the probability of observing all $C$ context words, given a center word:&lt;/p&gt;
-&lt;div id="eq-4" style="font-size: 1rem;"&gt;$$ \underset{\theta}{\text{argmax}} max \, log \, \prod_{c=1}^{C} \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{4} $$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
+&lt;div id="eq-4" style="font-size: 1rem;"&gt;$$ \underset{\theta}{\text{argmax}} \,\, log \, \prod_{c=1}^{C} \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{4} $$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: Probability Product&lt;/h4&gt;
 &lt;p&gt;In statistics, probability of observing $C$ multiple events at the same time is computed by the product of each event's probability.&lt;/p&gt;
 &lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$$p(x_{1}, x_{2} ... x_{C}) = p(x_{1}) \times p(x_{2}) \, \times \, ... \, \times \, p(x_{C})$$&lt;/center&gt;&lt;/p&gt;
@@ -9937,10 +9937,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="30adb5ca-b702-441e-b153-f9e37d6ebe11"&gt;&lt;/div&gt;
+&lt;div id="ed2e6906-2324-439d-af72-98d1e3270210"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#30adb5ca-b702-441e-b153-f9e37d6ebe11');
+var element = $('#ed2e6906-2324-439d-af72-98d1e3270210');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
