@@ -1154,23 +1154,23 @@ h6:hover .anchor-link {
 &lt;h2 id="Review-on-Word2Vec-Skip-Gram"&gt;Review on Word2Vec Skip-Gram&lt;a class="anchor-link" href="#Review-on-Word2Vec-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" target="_blank"&gt;previous post&lt;/a&gt;, I illustrated the neural network structure of Skip-Gram Word2Vec model that represents words in a vector space.&lt;/p&gt;
 &lt;div class="row" id="fig1"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Skip-Gram model structure&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Neural network structure of Skip-Gram&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;I also derived the cost function of Skip-Gram in &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Derivation-of-Cost-Function" target="_blank"&gt;Derivation of Cost Function&lt;/a&gt;:&lt;/p&gt;
 &lt;div id="eq-1" style="font-size: 1rem;"&gt;
 $$
 \begin{align}
   J(\theta) = &amp; - \frac{1}{T} \sum_{t=1}^{T} \sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \, \theta) \\ 
-            = &amp; - \frac{1}{T} \sum_{t=1}^{T} \sum_{c=1}^{C} log \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \\ 
+
 \end{align}
 \tag{1} 
 $$
-&lt;/div&gt;&lt;p&gt;where $T$ is the size of training samples, $C$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram" target="_blank"&gt;window size&lt;/a&gt;, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;. I also noted that &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt; (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;where $p(w_{t+j} \mid w_t ; \, \theta)$ is a probability of observing $w_{t+j}$ given $w_{t}$ with parameters $\theta$. In vanilla Skip-Gram, the probability is computed with softmax. I also noted that &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt; (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:&lt;/p&gt;
 &lt;div id="eq-2" style="font-size: 1rem;"&gt;
 $$J(\theta; w^{(t)}) = -
 \sum_{c=1}^{C}
 log 
 \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{2}$$
-&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;where $T$ is the size of training samples, $C$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram" target="_blank"&gt;window size&lt;/a&gt;, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2368,23 +2368,23 @@ Negative-Sampling Word-Embedding Method&lt;/a&gt; (Goldberg and Levy, 2014).&lt;
 &lt;h2 id="Review-on-Word2Vec-Skip-Gram"&gt;Review on Word2Vec Skip-Gram&lt;a class="anchor-link" href="#Review-on-Word2Vec-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" target="_blank"&gt;previous post&lt;/a&gt;, I illustrated the neural network structure of Skip-Gram Word2Vec model that represents words in a vector space.&lt;/p&gt;
 &lt;div class="row" id="fig1"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Skip-Gram model structure&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Neural network structure of Skip-Gram&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;I also derived the cost function of Skip-Gram in &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Derivation-of-Cost-Function" target="_blank"&gt;Derivation of Cost Function&lt;/a&gt;:&lt;/p&gt;
 &lt;div id="eq-1" style="font-size: 1rem;"&gt;
 $$
 \begin{align}
   J(\theta) = &amp; - \frac{1}{T} \sum_{t=1}^{T} \sum_{-c\leq j \leq c,j\neq 0} \log p(w_{t+j} \mid w_t ; \, \theta) \\ 
-            = &amp; - \frac{1}{T} \sum_{t=1}^{T} \sum_{c=1}^{C} log \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \\ 
+
 \end{align}
 \tag{1} 
 $$
-&lt;/div&gt;&lt;p&gt;where $T$ is the size of training samples, $C$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram" target="_blank"&gt;window size&lt;/a&gt;, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;. I also noted that &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt; (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;where $p(w_{t+j} \mid w_t ; \, \theta)$ is a probability of observing $w_{t+j}$ given $w_{t}$ with parameters $\theta$. In vanilla Skip-Gram, the probability is computed with softmax. I also noted that &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt; (SGD) is used to mitigate computational burden — the size of $T$ in $\frac{1}{T} \sum^T_{t=1}$ can be billions or more in NLP applications. The new cost function using SGD is:&lt;/p&gt;
 &lt;div id="eq-2" style="font-size: 1rem;"&gt;
 $$J(\theta; w^{(t)}) = -
 \sum_{c=1}^{C}
 log 
 \frac{exp(W_{output_{(c)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \tag{2}$$
-&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;where $T$ is the size of training samples, $C$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#Window-Size-of-Skip-Gram" target="_blank"&gt;window size&lt;/a&gt;, $V$ is the size of unique vocab in the corpus, and $W_{input}$, $W_{output}$ and $h$ are illustrated in &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2394,7 +2394,7 @@ log
 &lt;h3 id="Review-on-Softmax"&gt;Review on Softmax&lt;a class="anchor-link" href="#Review-on-Softmax"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Softmax is a multinomial regression classifier. It means that it classifies multiple labels, such as predicting if an hand-written digit is $0,\,1,\,2,\,...\,8\,$ or $9$. In case of binary classification (True or False), such as classifying fraud or not-fraud in bank transactions, binomial regression classifier called Sigmoid function is used.&lt;/p&gt;
 &lt;p&gt;In &lt;a href="#eq-2"&gt;eq (2)&lt;/a&gt;, the fraction inside the summation of log yields the probability distribution of all $V$-vocabs in the corpus, given the input word. In statistics, the conditional probability of $A$ given $B$ is denoted as $p(A|B)$. In Skip-Gram, we use the notation, $p(w_{context}| w_{center})$, to denote the conditional probability of observing a context word given a center word. It is obtained by using the softmax function:&lt;/p&gt;
 &lt;div id="eq-3" style="font-size: 1rem;"&gt;$$ p(w_{context}|w_{center}) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{1} \tag{3} $$&lt;/div&gt;&lt;p&gt;Exponentiation ensures that the transformed values are positive, and the normalization factor in the denominator ensures that the values have a range of $[0, 1)$ and their sum equals $1$.&lt;/p&gt;
-&lt;div class="row give-margin full_screen_margin" id="fig2"&gt;
+&lt;div class="row full_screen_margin mobile_responsive_plot_full_width" id="fig2"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/softmax_function.png" style="height: 300px;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 2: softmax function transformation&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;The probability is computed $V$ times using &lt;a href="#eq-3"&gt;eq (3)&lt;/a&gt; to obtain a conditional probability distribution of observing all $V$-unique vocabs in the corpus, given a center word ($w^{(t)}$).&lt;/p&gt;
@@ -2406,7 +2406,7 @@ log
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Softmax-is-computationally-very-expensive"&gt;Softmax is computationally very expensive&lt;a class="anchor-link" href="#Softmax-is-computationally-very-expensive"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;There is an issue with the vanilla Skip-Gram — softmax is computationally very expensive, as it requires scanning through the entire output embedding matrix ($W_{output}$) to compute the probability distribution of all $V$ words, where $V$ can be millions or more.&lt;/p&gt;
-&lt;div class="row give-margin full_screen_margin"&gt;
+&lt;div class="row full_screen_margin mobile_responsive_plot_full_width"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/vanilla-skip-gram-complexity.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 3: Algorithm complexity of vanilla Skip-Gram&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Furtheremore, the normalization factor in the denominator also requires $V$ iterations. In mathematical context, the normalization factor needs to be computed for each probability p($w_{context}| w_{center}$), making the alogrithm complexity = $O(V \times V)$. However, when implemented on code, the normalization factor is computed only once and cached as a Python variable, making the alogrithm complexity = $O(V + V) \approx O(V)$. This is possible because normalization factor is the same for all words.&lt;/p&gt;
@@ -2418,10 +2418,10 @@ log
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Skip-Gram-Negative-Sampling"&gt;Skip-Gram Negative Sampling&lt;a class="anchor-link" href="#Skip-Gram-Negative-Sampling"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In Skip-Gram, assuming &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt;, weight marices in the neural network are updated for each training sample to correctly predict output. Let's assume that the training corpus has 10,000 unique vocabs ($V$ = 10000) and the hidden layer is 300-dimensional ($N$ = 300). This means that there are 3,000,000 neurons in the output weight matrix ($W_{output}$) that need to be updated for each training sample (Notes: for the input weight matrix ($W_{input}$), only 300 neurons are updated for each training sample. This is illustrated in &lt;em&gt;figure 18&lt;/em&gt; of my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_update" target="_blank"&gt;previous post&lt;/a&gt;.) Since the size of the training corpus ($T$) is very large, updating 3M neurons for each training sample is unrealistic in terms of computational efficiency. Negative sampling addresses this issue by updating only a small fraction of the output weight neurons for each training sample.&lt;/p&gt;
-&lt;p&gt;In negative sampling, $K$ &lt;a href="#neg_word"&gt;negative samples&lt;/a&gt; are &lt;a href="#neg_drawn"&gt;randomly drawn&lt;/a&gt; from a &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt;. $K$ is a hyper-parameter that can be empirically tuned, with a typical range of $[5,\, 20]$. For each training sample, you randomly draw $K$ number of negative samples from a noise distribution, $P_n(w)$, and the model will update $(k+1) \times N$ neurons in the output weight matrix ($W_{output}$). $N$ is the dimension of the hidden layer ($h$), or the size of a word vector. $+1$ accounts for a &lt;a href="#pos_word"&gt;positive sample&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;With the above assumption, if you set &lt;code&gt;K=9&lt;/code&gt;, the model will update (9 + 1) * 300 = 3000 neurons, which is only 0.1% of the 3M neurons in $W_{output}$. This is computationally much faster than the original Skip-Gram, and yet maintains a good quality of word vectors.&lt;/p&gt;
+&lt;p&gt;In negative sampling, $K$ &lt;a href="#neg_word"&gt;negative samples&lt;/a&gt; are &lt;a href="#neg_drawn"&gt;randomly drawn&lt;/a&gt; from a &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt;. $K$ is a hyper-parameter that can be empirically tuned, with a typical range of $[5,\, 20]$. For each training sample (positive pair: $w$ and $c_{pos}$), you randomly draw $K$ number of negative samples from a noise distribution $P_n(w)$, and the model will update $(K+1) \times N$ neurons in the output weight matrix ($W_{output}$). $N$ is the dimension of the hidden layer ($h$), or the size of a word vector. $+1$ accounts for a &lt;a href="#pos_word"&gt;positive sample&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;With the above assumption, if you set &lt;code&gt;K=9&lt;/code&gt;, the model will update (9 + 1) * 300 = 3000 neurons, which is only 0.1% of the 3M neurons in $W_{output}$. This is computationally much cheaper than the original Skip-Gram, and yet maintains a good quality of word vectors.&lt;/p&gt;
 &lt;p&gt;The below figure has 3-dimensional hidden layer ($N=3$), 11 vocabs ($V=11$), and 3 negative samples ($K=3$).&lt;/p&gt;
-&lt;div class="row" id="fig4"&gt;
+&lt;div class="row" id="fig4" style="margin-top: 20px;"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/neg_vs_skip.png" style="margin: 0;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 4: Skip-Gram model structure&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;div class="alert alert-info" id="negsample"&gt;
@@ -2436,21 +2436,24 @@ log
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="How-does-negative-sampling-work?"&gt;How does negative sampling work?&lt;a class="anchor-link" href="#How-does-negative-sampling-work?"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;With negative sampling, word vectors are no longer learned by predicting context words of a center word. Instead of using softmax to compute the $V$-dimensional probability distribution of observing an output word given an input word, $p(w_O|w_I)$, the model uses sigmoid function to learn to differentiate the actual context words (&lt;em&gt;positive&lt;/em&gt;) from randomly drawn words (&lt;em&gt;negative&lt;/em&gt;) from the &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt; $P_n(w)$.&lt;/p&gt;
-&lt;p&gt;Assume that the center word is &lt;em&gt;"regression"&lt;/em&gt;. It is likely to observe &lt;em&gt;"regression"&lt;/em&gt; + {&lt;em&gt;"logistic"&lt;/em&gt;, &lt;em&gt;"machine"&lt;/em&gt;, &lt;em&gt;"sigmoid"&lt;/em&gt;, &lt;em&gt;"supervised"&lt;/em&gt;, &lt;em&gt;"neural"&lt;/em&gt;} pairs, but it is unlikely to observe &lt;em&gt;"regression"&lt;/em&gt; + {&lt;em&gt;"zebra"&lt;/em&gt;, &lt;em&gt;"pimples"&lt;/em&gt;, &lt;em&gt;"Gangnam-Style"&lt;/em&gt;, &lt;em&gt;"toothpaste"&lt;/em&gt;, &lt;em&gt;"idiot"&lt;/em&gt;}. The model maximizes the probability $p(D=1|w,c_{pos})$ of observing positive pairs, while minimizing the probability $p(D=0|w,c_{neg})$ of observing negative pairs. The idea is that if the model can distinguish between the positive pairs ($w$, $c_{pos}$) vs negative pairs ($w$, $c_{neg}$), good word vectors will be learned.&lt;/p&gt;
-&lt;p&gt;Negative sampling converts multi-classification task into binary-classification task. The new objective is to predict, for any given word-context pair ($w,\,c$), whether the word ($c$) is in the context window of the the center word ($w$) or not. Since the goal is to identify a given word as True (&lt;em&gt;positive&lt;/em&gt;, $D=1$) or False (&lt;em&gt;negative&lt;/em&gt;, $D=0$), we use sigmoid function instead of softmax function. The probability of a word ($c$) appearing within the context of the center word ($w$) can be defined as the following:&lt;/p&gt;
+&lt;p&gt;Assume that the center word is &lt;em&gt;"regression"&lt;/em&gt;. It is likely to observe &lt;em&gt;"regression"&lt;/em&gt; + {&lt;em&gt;"logistic"&lt;/em&gt;, &lt;em&gt;"machine"&lt;/em&gt;, &lt;em&gt;"sigmoid"&lt;/em&gt;, &lt;em&gt;"supervised"&lt;/em&gt;, &lt;em&gt;"neural"&lt;/em&gt;} pairs, but it is unlikely to observe &lt;em&gt;"regression"&lt;/em&gt; + {&lt;em&gt;"zebra"&lt;/em&gt;, &lt;em&gt;"pimples"&lt;/em&gt;, &lt;em&gt;"Gangnam-Style"&lt;/em&gt;, &lt;em&gt;"toothpaste"&lt;/em&gt;, &lt;em&gt;"idiot"&lt;/em&gt;}. The model maximizes the probability $p(D=1|w,c_{pos})$ of observing positive pairs, while minimizing the probability $p(D=1|w,c_{neg})$ of observing negative pairs. The idea is that if the model can distinguish between the positive pairs ($w$, $c_{pos}$) vs negative pairs ($w$, $c_{neg}$), good word vectors will be learned.&lt;/p&gt;
+&lt;div class="row full_screen_margin_md mobile_responsive_plot_full_width" id="fig5" style="margin-top: 20px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/neg_binomial.png"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 5: Binomial classification of negative sampling&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Negative sampling converts multi-classification task into binary-classification task. The new objective is to predict, for any given word-context pair ($w,\,c$), whether the word ($c$) is in the context window of the the center word ($w$) or not. Since the goal is to identify a given word as True (&lt;em&gt;positive&lt;/em&gt;, $D=1$) or False (&lt;em&gt;negative&lt;/em&gt;, $D=0$), we use sigmoid function instead of softmax function. The probability of a word ($c$) appearing within the context of the center word ($w$) can be defined as the following:&lt;/p&gt;
 &lt;div id="eq-5" style="font-size: 1rem;"&gt;
 $$
-p(D=1|w,c;\theta)=\frac{1}{1+exp(-w_{output_{(j)}} \cdot h)}
+p(D=1|w,c;\theta)=\frac{1}{1+exp(-c_{output_{j}} \cdot w)}
 \in \mathbb{R}^{1}
 \tag{5} 
-$$&lt;/div&gt;&lt;p&gt;where $c$ is the word you want to know whether it came from the context window or the noise distribution. $w$ is the input (center) word, $h$ is the hidden layer, and $\theta$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#theta_in_cost" target="_blank"&gt;weight matrix&lt;/a&gt; passed into the model. $w_{output_{(j)}}$ is the word vector from the output weight matrix ($W_{output}$) of &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="#eq-5"&gt;Eq (5)&lt;/a&gt; computes the probability that the given word ($c$) is a &lt;a href="#pos_word"&gt;positive word&lt;/a&gt; ($D=1$). It only needs to be applied $K$ + 1 times instead of $V$ times for every word in the vocabulary, because $w_j$ comes from the concatenation of true context word ($c_{pos}$) and $K$ &lt;a href="#neg_word"&gt;negative words&lt;/a&gt; ($W_{neg} = \{ c_{neg, j}|j=1,\cdots,K \}$):&lt;/p&gt;
+$$&lt;/div&gt;&lt;p&gt;where $c$ is the word you want to know whether it came from the context window or the noise distribution. $w$ is the input (center) word, and $\theta$ is the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#theta_in_cost" target="_blank"&gt;weight matrix&lt;/a&gt; passed into the model. Note that $w$ is equivalent to the hidden layer ($h$). $c_{output_{(j)}}$ is the word vector from the output weight matrix ($W_{output}$) of &lt;a href="#fig1"&gt;figure 1&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="#eq-5"&gt;Eq (5)&lt;/a&gt; computes the probability that the given word ($c$) is a &lt;a href="#pos_word"&gt;positive word&lt;/a&gt; ($D=1$). It only needs to be applied $K$ + 1 times instead of $V$ times for every word in the vocabulary, because $c_{output_{(j)}}$ comes from the concatenation of a true context word ($c_{pos}$) and $K$ &lt;a href="#neg_word"&gt;negative words&lt;/a&gt; ($W_{neg} = \{ c_{neg, j}|j=1,\cdots,K \}$):&lt;/p&gt;
 &lt;div id="eq-6" style="font-size: 1rem;"&gt;
 $$
 w_{output{(j)}} \in \{c_{pos}\} \cup W_{neg}
 \tag{6} 
 $$
-&lt;/div&gt;&lt;p&gt;This probability is computed $K + 1$ times to obtain a probability distribution of true context word and $K$ negative samples:&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;This probability is computed $K + 1$ times to obtain a probability distribution of a true context word and $K$ negative samples:&lt;/p&gt;
 &lt;div id="eq-7" style="font-size: 1rem;"&gt;
 $$
 \left[ \begin{array}{c} p(D=1|w,c_{pos}) \\ p(D=1|w,c_{neg, 1}) \\ p(D=1|w,c_{neg, 2}) \\ p(D=1|w,c_{neg, 3}) \\ \vdots \\ p(D=1|w,c_{neg, K}) \end{array} \right] 
@@ -2458,7 +2461,7 @@ $$
 \frac{1}{1+exp(-(\{c_{pos}\} \cup W_{neg}) \cdot h)}
 \in \mathbb{R}^{K+1}\tag{7} 
 $$
-&lt;/div&gt;&lt;p&gt;Compare this equation with &lt;a href="#eq-4"&gt;eq (4)&lt;/a&gt; — you will notice that &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; is computationally much cheaper because $K$ is between 5 ~ 20, whereas $V$ can be millions. Moreover, no extra iterations are necessary to compute the normalization factor in the denominator of &lt;a href="#eq-4"&gt;eq (4)&lt;/a&gt;, because sigmoid function is a binary regression classifier. The algorithm complexity for probability distribution of vanilla Skip-Gram is $O(V)$, whereas negative sampling's is $O(K+1)$. This shows why negative sampling saves a significant amount of computational cost per iteration.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Compare this equation with &lt;a href="#eq-4"&gt;eq (4)&lt;/a&gt; — you will notice that &lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt; is &lt;strong&gt;computationally much cheaper because $K$ is between 5 ~ 20, whereas $V$ can be millions. Moreover, no extra iterations are necessary to compute the normalization factor&lt;/strong&gt; in the denominator of &lt;a href="#eq-4"&gt;eq (4)&lt;/a&gt;, because sigmoid function is a binary regression classifier. The algorithm complexity for probability distribution of vanilla Skip-Gram is $O(V)$, whereas negative sampling's is $O(K+1)$. This shows why negative sampling saves a significant amount of computational cost per iteration.&lt;/p&gt;
 &lt;div class="alert alert-info" id="sigmoid"&gt;
 &lt;h4&gt;Notes: Sigmoid function $\sigma(x)$&lt;/h4&gt;
 &lt;p&gt;Sigmoid function is used for two-class logistic regression.&lt;/p&gt;
@@ -2494,38 +2497,19 @@ plt.ylabel('$\sigma(x)$', fontsize=14)
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;div id="algorithm"&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;h3 id="Negative-sampling-algorithm"&gt;Negative sampling algorithm&lt;a class="anchor-link" href="#Negative-sampling-algorithm"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For each center word and positive context word pair ($w, c_{pos}$), $1$ word vector that corresponds to the center word ($w$) is updated in the input weight matrix $W_{input}$ (as shown in &lt;em&gt;figure 18&lt;/em&gt; of my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_update" target="_blank"&gt;previous post&lt;/a&gt;). In the output weight matrix $W_{output}$, $1+K$ word vectors that correspond to the positive ($c_{pos}$) and negative ($c_{neg}$) words are updated.&lt;/p&gt;
-&lt;p&gt;Since Skip-Gram uses SGD to reduce computational cost, negative sampling also uses SGD too. Then, the training for Skip-Gram negative sampling has the following algorithm structure:&lt;/p&gt;
-&lt;p&gt;&lt;p&gt;&lt;u&gt;Algorithm 1: Skip-Gram Negative Sampling&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
-&lt;pre&gt;
-    &lt;code class="language-python"&gt;
-        P_nw = # generate noise distribution 
-        for word in corpus:
-            for context in context_window:
-                # draw K negative samples from P_nw
-                # use SGD to update w, c_pos, and c_neg_1, ... , c_neg_K
-    &lt;/code&gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div&gt;&lt;hr&gt;&lt;/div&gt;
-&lt;div class="row give-margin-inline-big-plot" id="fig5"&gt;
+&lt;div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig6"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/negative_sample_text.png"&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 5: Choice of negative samples (Text source: &lt;a href="https://petrowiki.org/Drilling_induced_formation_damage" target="_blank"&gt;Petrowiki&lt;/a&gt;)&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;For the purpose of illustration, consider the above paragraphs. Assume that our center word ($w$) is &lt;code&gt;drilling&lt;/code&gt;, window size is $3$, and the number of negative samples ($K$) is $5$. With the window size of $3$, the contexts words are: &lt;em&gt;"engineer"&lt;/em&gt;, &lt;em&gt;"traditionally"&lt;/em&gt;, &lt;em&gt;"designs"&lt;/em&gt;, &lt;em&gt;"fluids"&lt;/em&gt;, &lt;em&gt;"with"&lt;/em&gt;, and &lt;em&gt;"two"&lt;/em&gt;. These context words are considered as positive labels ($D$ = 1). Our current context word ($c_{pos}$) is &lt;code&gt;engineer&lt;/code&gt;. We also need negative words. We randomly pick $5$-words from the &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt; $P_n(w)$ of the corpus for each context word, and consider them as negative samples ($D$ = 0). For the current context word, &lt;code&gt;engineer&lt;/code&gt;, the 5 randomly drawn negative words ($c_{neg}$) are: &lt;em&gt;"minimized"&lt;/em&gt;, &lt;em&gt;"primary"&lt;/em&gt;, &lt;em&gt;"concerns"&lt;/em&gt;, &lt;em&gt;"led"&lt;/em&gt;, and &lt;em&gt;"page"&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 6: Choice of negative samples (Text source: &lt;a href="https://petrowiki.org/Drilling_induced_formation_damage" target="_blank"&gt;Petrowiki&lt;/a&gt;)&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;For the purpose of illustration, consider the above paragraphs. Assume that our center word ($w$) is &lt;code&gt;drilling&lt;/code&gt;, window size is $3$, and the number of negative samples ($K$) is $5$. With the window size of $3$, the contexts words are: &lt;em&gt;"engineer"&lt;/em&gt;, &lt;em&gt;"traditionally"&lt;/em&gt;, &lt;em&gt;"designs"&lt;/em&gt;, &lt;em&gt;"fluids"&lt;/em&gt;, &lt;em&gt;"with"&lt;/em&gt;, and &lt;em&gt;"two"&lt;/em&gt;. These context words are considered as positive labels ($D = 1$). Our current context word ($c_{pos}$) is &lt;code&gt;engineer&lt;/code&gt;. We also need negative words. We randomly pick $5$-words from the &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt; $P_n(w)$ of the corpus for each context word, and consider them as negative samples ($D = 0$). For the current context word, &lt;code&gt;engineer&lt;/code&gt;, the 5 randomly drawn negative words ($c_{neg}$) are: &lt;em&gt;"minimized"&lt;/em&gt;, &lt;em&gt;"primary"&lt;/em&gt;, &lt;em&gt;"concerns"&lt;/em&gt;, &lt;em&gt;"led"&lt;/em&gt;, and &lt;em&gt;"page"&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;The idea of negative sampling is that it is more likely to observe positive word pairs ($w$, $c_{pos}$) together than negative word pairs ($w$, $c_{neg}$) together in the corpus. The model attempts to maximize the the probability of observing positive pairs $p(c_{pos}|w) \rightarrow 1$ and minimize the probability of observing negative pairs $p(c_{neg}|w) \rightarrow 0$ simultaneously by iterating through the training samples and updating the weights ($\theta$). Note that the sum of the probability distribution obtained by sigmoid function (&lt;a href="#eq-7"&gt;eq (7)&lt;/a&gt;) does not need to equal $1$, unlike softmax (&lt;a href="#eq-4"&gt;eq (4)&lt;/a&gt;).&lt;/p&gt;
-&lt;div class="row" id="fig6"&gt;
+&lt;div class="row" id="fig7"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/neg_opt_1.png"&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 6: maximizing postive pairs and minimizing negative pairs&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;By the time the output probability distribution is nearly one-hot-encoded as in $iter = 4$ of the above figure, weight matrices $\theta$ are optimized and good word vectors are learned. This optimization is achieved by maximizing the dot product of positive pairs ($c_{pos}\cdot w$) and minimizing the dot product of negative paris ($c_{neg}\cdot w$) in &lt;a href="#eq-15"&gt;eq (15)&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 7: maximizing postive pairs and minimizing negative pairs&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;By the time the output probability distribution is nearly one-hot-encoded as in $iter = 4$ of the above figure, weight matrices $\theta$ are optimized and good word vectors are learned. This optimization is achieved by maximizing the dot product of positive pairs ($c_{pos}\cdot w$) and minimizing the dot product of negative pairs ($c_{neg}\cdot w$) in &lt;a href="#eq-18"&gt;eq (18)&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="alert alert-info" id="negsample"&gt;
 &lt;h4&gt;Notes: Drawing random negative samples&lt;/h4&gt;
-&lt;p&gt;For each word-context pair ($w,\,c$), $K$ new negative samples are &lt;a href="#neg_drawn"&gt;randomly drawn&lt;/a&gt; from a &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt;. In &lt;a href="#fig5"&gt;figure 5&lt;/a&gt;, there are 6 positive context words (&lt;i&gt;"engineer"&lt;/i&gt;, &lt;i&gt;"traditionally"&lt;/i&gt;, &lt;i&gt;"designs"&lt;/i&gt;, &lt;i&gt;"fluids"&lt;/i&gt;, &lt;i&gt;"with"&lt;/i&gt;, and &lt;i&gt;"two"&lt;/i&gt;) for one center word (&lt;i&gt;"drilling"&lt;/i&gt;), and $K$ is 5. This means that a total of 6 * 5 = 30 word vectors are updated for each center word.&lt;/p&gt;
+&lt;p&gt;For each positive word-context pair ($w,\,c_{pos}$), $K$ new negative samples are &lt;a href="#neg_drawn"&gt;randomly drawn&lt;/a&gt; from a &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt;. In &lt;a href="#fig6"&gt;figure 6&lt;/a&gt;, there are 6 positive context words (&lt;i&gt;"engineer"&lt;/i&gt;, &lt;i&gt;"traditionally"&lt;/i&gt;, &lt;i&gt;"designs"&lt;/i&gt;, &lt;i&gt;"fluids"&lt;/i&gt;, &lt;i&gt;"with"&lt;/i&gt;, and &lt;i&gt;"two"&lt;/i&gt;) for one center word (&lt;i&gt;"drilling"&lt;/i&gt;), and $K$ is 5. This means that a total of 6 * 5 = 30 word vectors are updated for each center word $w$.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2534,7 +2518,7 @@ plt.ylabel('$\sigma(x)$', fontsize=14)
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;div id="pos_word"&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;h4 id="What-is-a-positive-word-$c_{pos}$?"&gt;What is a positive word $c_{pos}$?&lt;a class="anchor-link" href="#What-is-a-positive-word-$c_{pos}$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Words that actually appear within the context window of the center word ($w$). After the model is optimized, the probability computed with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt; for positive words $c_{pos}$ will output $\approx$ 1 as shown in &lt;a href="#fig6"&gt;fig 6&lt;/a&gt;. A word vector of a center word ($w$) will be more similar to a word vector of positive word ($c_{pos}$) than of randomly drawn negative words ($c_{neg}$). This is because words that frequently appear together show strong correlation with each other.&lt;/p&gt;
+&lt;h4 id="What-is-a-positive-word-$c_{pos}$?"&gt;What is a positive word $c_{pos}$?&lt;a class="anchor-link" href="#What-is-a-positive-word-$c_{pos}$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Words that actually appear within the context window of the center word ($w$). After the model is optimized, the probability computed with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt; for positive words $c_{pos}$ will output $\approx$ 1 as shown in &lt;a href="#fig7"&gt;fig 7&lt;/a&gt;. A word vector of a center word ($w$) will be more similar to a word vector of positive word ($c_{pos}$) than of randomly drawn negative words ($c_{neg}$). This is because words that frequently appear together show strong correlation with each other. Therefore, once the model is optimized: $p(D=1|w,c_{pos})\approx1$.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2542,23 +2526,23 @@ plt.ylabel('$\sigma(x)$', fontsize=14)
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;div id="neg_word"&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;h4 id="What-is-a-negative-word-$c_{neg}$?"&gt;What is a negative word $c_{neg}$?&lt;a class="anchor-link" href="#What-is-a-negative-word-$c_{neg}$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Words that are randomly drawn from a noise distribution $P_n(w)$. After the model is optimized, the probability computed with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt; for negative words $c_{neg}$ will output $\approx$ 0 as shown in &lt;a href="#fig6"&gt;fig 6&lt;/a&gt;. When training an Word2Vec model, the vocab size ($V$) easily exceeds tens of thousands. When 5 ~ 20 negative samples are randomly drawn among the vocabs, it is unlikely to observe the random word with a center word together. Therefore, once the model is optimized: $p(D=1|w,c_{neg})\approx0$.&lt;/p&gt;
+&lt;h4 id="What-is-a-negative-word-$c_{neg}$?"&gt;What is a negative word $c_{neg}$?&lt;a class="anchor-link" href="#What-is-a-negative-word-$c_{neg}$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Words that are randomly drawn from a noise distribution $P_n(w)$. After the model is optimized, the probability computed with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt; for negative words $c_{neg}$ will output $\approx$ 0 as shown in &lt;a href="#fig7"&gt;fig 7&lt;/a&gt;. When training an Word2Vec model, the vocab size ($V$) easily exceeds tens of thousands. When 5 ~ 20 negative samples are randomly drawn among the vocabs, it is unlikely to observe the random word with a center word together in the corpus. Therefore, once the model is optimized: $p(D=1|w,c_{neg})\approx0$.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div id="noise_dist"&gt;&lt;/div&gt;&lt;h4 id="What-is-a-noise-distribution-$P_n(w)$?"&gt;What is a noise distribution $P_n(w)$?&lt;a class="anchor-link" href="#What-is-a-noise-distribution-$P_n(w)$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Imagine a distribution of words based on how many times each word appeared in a corpus, $U(w)$ (this is called unigram distribution). For each word $w$, divide the number of times it appeared by a normalization factor $Z$ so that the distribution becomes a probability distribution of range $[0, 1)$ and sums up to $1$. Raise the normalized distribution to the power of $\alpha$ so that the distribution is "smoothed-out". Then this becomes your noise distribution $P_n(w)$ — normalized frequency distribution of words raised to the power of $\alpha$. Mathematically, it can be expressed as:&lt;/p&gt;
+&lt;div id="noise_dist"&gt;&lt;/div&gt;&lt;h4 id="What-is-a-noise-distribution-$P_n(w)$?"&gt;What is a noise distribution $P_n(w)$?&lt;a class="anchor-link" href="#What-is-a-noise-distribution-$P_n(w)$?"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Imagine a distribution of words based on how many times each word appeared in a corpus, denoted as $U(w)$ (this is called unigram distribution). For each word $w$, divide the number of times it appeared in a corpus by a normalization factor $Z$ so that the distribution becomes a probability distribution of range $[0, 1)$ and sums up to $1$. Raise the normalized distribution to the power of $\alpha$ so that the distribution is "smoothed-out". Then this becomes your noise distribution $P_n(w)$ — normalized frequency distribution of words raised to the power of $\alpha$. Mathematically, it can be expressed as:&lt;/p&gt;
 &lt;div id="eq-8" style="font-size: 1rem;"&gt;
 $$
 P_n(w) = \left(\frac{U(w)}{Z}\right)^{\alpha}
 \tag{8} 
 $$&lt;/div&gt;&lt;p&gt;Raising the unigram distribution $U(w)$ to the power of $\alpha$ has an effect of smoothing out the distribution. &lt;strong&gt;It attempts to combat the imbalance between common words and rare words&lt;/strong&gt; by decreasing the probability of drawing common words, and increasing the probability drawing rare words.&lt;/p&gt;
 &lt;p&gt;$\alpha$ is a hyper-parameter that can be empirically tuned. The authors of the original Word2Vec &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank"&gt;paper&lt;/a&gt; claims that the unigram distribution $U(w)$ raised to the $3/4$rd power (i.e., $U(w)^{3/4}/Z$) yielded the best result.&lt;/p&gt;
-&lt;div class="row" id="fig7"&gt;
+&lt;div class="row" id="fig8"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/noise_dist.png"&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 7: Effect of raising power of unigram distribution $U(w)$&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 8: Effect of raising power of unigram distribution $U(w)$&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;div class="alert alert-info" id="incremental_noise_dist"&gt;
 &lt;h4&gt;Notes: Incremental noise distribution&lt;/h4&gt;
 &lt;p&gt;Noise distribution $P_n(w)$ needs to be pre-computed by iterating through the entire corpus to obtain word frequency $U(w)$ and normalization factor $Z$ of the distribution. If an additional training data is added to the corpus, $P_n(w)$ needs to be computed all over again. To address this problem, a simple incremental extension of negative sampling was provided in this &lt;a href="https://aclweb.org/anthology/D17-1037" target="_blank"&gt;paper&lt;/a&gt; (Kaji and Kobayashi, 2017).&lt;/p&gt;
@@ -2603,7 +2587,7 @@ ax2.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil',
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
@@ -2614,11 +2598,12 @@ ax2.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil',
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [7]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;unig_dist&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;'apple'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.023&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'bee'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'desk'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.34&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'chair'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.517&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="n"&gt;unig_dist&lt;/span&gt;
+
+&lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unig_dist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2626,9 +2611,9 @@ ax2.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil',
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[2]:&lt;/div&gt;
+&lt;div class="prompt output_prompt"&gt;Out[7]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;{'apple': 0.023, 'bee': 0.12, 'desk': 0.34, 'chair': 0.517}&lt;/pre&gt;
+&lt;pre&gt;1.0&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2636,7 +2621,7 @@ ax2.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil',
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [3]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [5]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;alpha&lt;/span&gt;      &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
@@ -2652,7 +2637,7 @@ ax2.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil',
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[3]:&lt;/div&gt;
+&lt;div class="prompt output_prompt"&gt;Out[5]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
 &lt;pre&gt;{'apple': 0.044813853132981724,
  'bee': 0.15470428538870049,
@@ -2663,19 +2648,40 @@ ax2.set_xticklabels(['apple', 'desk', 'cup', 'chair', 'zebra', 'room', 'pencil',
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [8]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;noise_dist_normalized&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[8]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;1.0&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;div style="margin-top: -25px;"&gt;&lt;hr&gt;&lt;/div&gt;
-In the initial unigram distribution, &lt;code&gt;chair&lt;/code&gt; appeared the most in the corpus, and had &lt;code&gt;0.517&lt;/code&gt; chance of being drawn as a negative sample. However, the unigram distribution is raised to the power of $3/4$rd to combat the imbalance between common vs rare words, as shown in &lt;a id="#fig7"&gt;figure 7&lt;/a&gt;. After &lt;code&gt;unig_dist&lt;/code&gt; was raised to the power of &lt;code&gt;alpha = 3/4&lt;/code&gt; and normalized, &lt;code&gt;chair&lt;/code&gt; now has &lt;code&gt;0.463&lt;/code&gt; chance of being drawn.&lt;/p&gt;
+In the initial unigram distribution, &lt;code&gt;chair&lt;/code&gt; appeared the most in the corpus, and had &lt;code&gt;0.517&lt;/code&gt; chance of being drawn as a negative sample. However, the unigram distribution is raised to the power of $3/4$rd to combat the imbalance between common vs rare words, as shown in &lt;a href="#fig8"&gt;figure 8&lt;/a&gt;. After &lt;code&gt;unig_dist&lt;/code&gt; was raised to the power of &lt;code&gt;alpha = 3/4&lt;/code&gt; and normalized, &lt;code&gt;chair&lt;/code&gt; now has &lt;code&gt;0.463&lt;/code&gt; chance of being drawn.&lt;/p&gt;
 &lt;p&gt;On the other hand, &lt;code&gt;apple&lt;/code&gt; had the lowest probability (&lt;code&gt;0.023&lt;/code&gt;) of being drawn. After the transformation, it now has a bit higher probability (&lt;code&gt;0.049&lt;/code&gt;) of being drawn. The imbalance between the most common word (&lt;code&gt;chair&lt;/code&gt;) and the least common word (&lt;code&gt;apple&lt;/code&gt;) was mitigated.&lt;/p&gt;
-&lt;p&gt;Once the noise distribution (&lt;code&gt;noise_dist_normalized&lt;/code&gt;) is generated, you randomly draw $K$ negative samples according to each words probability.&lt;/p&gt;
+&lt;p&gt;Once the noise distribution (&lt;code&gt;noise_dist_normalized&lt;/code&gt;) is generated, you randomly draw $K$ negative samples according to each word's probability.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [6]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
@@ -2688,10 +2694,10 @@ In the initial unigram distribution, &lt;code&gt;chair&lt;/code&gt; appeared the
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[4]:&lt;/div&gt;
+&lt;div class="prompt output_prompt"&gt;Out[6]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;array(['chair', 'bee', 'desk', 'chair', 'desk', 'chair', 'desk', 'bee',
-       'chair', 'chair'], dtype='&lt;U5')&lt;/pre&gt;
+&lt;pre&gt;array(['apple', 'chair', 'bee', 'desk', 'chair', 'bee', 'bee', 'chair',
+       'desk', 'chair'], dtype='&lt;U5')&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2707,10 +2713,9 @@ Negative-Sampling Word-Embedding Method&lt;/a&gt; (Goldberg and Levy, 2014).&lt;
 &lt;div id="eq-9" style="font-size: 1rem;"&gt;
 $$
 \begin{align}
-     &amp; \underset{\theta}{\text{argmax}} \ p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta) \\ 
-   =\quad &amp; \underset{\theta}{\text{argmax}} \ p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{pos};\theta))
+     &amp; \underset{\theta}{\text{argmax}} \ p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta) \label{}\tag{9}\\ 
+   =\quad &amp; \underset{\theta}{\text{argmax}} \ p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{pos};\theta))\label{}\tag{10}
 \end{align}
-\tag{9} 
 $$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: Probability Product&lt;/h4&gt;
 &lt;p&gt;In statistics, probability of observing $C$ multiple events at the same time is computed by the product of each event's probability.&lt;/p&gt;
@@ -2718,45 +2723,130 @@ $$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
 &lt;p&gt;This can be shortened with a product notation:&lt;/p&gt;
 &lt;p&gt;&lt;center style="font-size: 1rem; margin-top: 20px;"&gt;$$p(x_{1}, x_{2} ... x_{C}) = \prod_{c=1}^{C}p(x_{c})$$&lt;/center&gt;&lt;/p&gt;
 &lt;/div&gt;&lt;p&gt;It is a common practice in machine learning to &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#take_natural_log" target="_blank"&gt;take a natural log to the objective function&lt;/a&gt; to simplify derivations. This does not affect the optimized weights ($\theta$) because natural log is a monotonically increasing function. It ensures that the maximum value of the original probability function occurs at the same point as the log probability function. Therefore:&lt;/p&gt;
-&lt;div id="eq-10" style="font-size: 1rem;"&gt;
-$$
-\begin{align}
-   =\quad &amp; \underset{\theta}{\text{argmax}} \ log \, (p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta))
-\end{align}
-\tag{10} 
-$$&lt;/div&gt;&lt;p&gt;Using the property of logs, the objective function can be simplified:&lt;/p&gt;
 &lt;div id="eq-11" style="font-size: 1rem;"&gt;
 $$
 \begin{align}
-   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, p(D=1|w,c_{pos};\theta) + log \, \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta) \\ 
-   =\quad &amp; \underset{\theta}{\text{argmax}} \ log \, p(D=1|w,c_{pos};\theta) + \sum_{c_{neg} \in W_{neg}} log \, (1 - p(D=1|w,c_{neg};\theta))
+   =\quad &amp; \underset{\theta}{\text{argmax}} \ log \, (p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta)) \label{}\tag{11}
 \end{align}
-\tag{11} 
-$$&lt;/div&gt;&lt;p&gt;The binomial probability $p(D=1|w,c;\theta)$ can be replaced with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt;:&lt;/p&gt;
+$$&lt;/div&gt;&lt;p&gt;Using the property of logs, the objective function can be simplified:&lt;/p&gt;
 &lt;div id="eq-12" style="font-size: 1rem;"&gt;
 $$
 \begin{align}
-   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, \frac{1}{1+exp(-c_{pos} \cdot w)} + \sum_{c_{pos} \in W_{neg}} log \, (1 - \frac{1}{1+exp(-c_{neg} \cdot w)}) \\ 
-   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, \frac{1}{1+exp(-c_{pos} \cdot w)} + \sum_{c_{pos} \in W_{neg}} log \, \frac{1}{1+exp(c_{neg} \cdot w)} \\ 
-\end{align}
-\tag{12} 
-$$&lt;/div&gt;&lt;p&gt;Using the definition of &lt;a href="#sigmoid"&gt;sigmoid&lt;/a&gt; function $\sigma(x)=\frac{1}{1+exp(-x)}$:&lt;/p&gt;
-&lt;div id="eq-13" style="font-size: 1rem;"&gt;
+   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, p(D=1|w,c_{pos};\theta) + log \, \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta) \label{}\tag{12}\\ 
+   =\quad &amp; \underset{\theta}{\text{argmax}} \ log \, p(D=1|w,c_{pos};\theta) + \sum_{c_{neg} \in W_{neg}} log \, (1 - p(D=1|w,c_{neg};\theta)) \label{}\tag{13}
+\end{align} 
+$$&lt;/div&gt;&lt;p&gt;The binomial probability $p(D=1|w,c;\theta)$ can be replaced with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt;:&lt;/p&gt;
+&lt;div id="eq-14" style="font-size: 1rem;"&gt;
 $$
 \begin{align}
-   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, \sigma(c_{pos} \cdot w) + \sum_{c_{pos} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w) \\  
+   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, \frac{1}{1+exp(-c_{pos} \cdot w)} + \sum_{c_{pos} \in W_{neg}} log \, (1 - \frac{1}{1+exp(-c_{neg} \cdot w)}) \label{}\tag{14}\\ 
+   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, \frac{1}{1+exp(-c_{pos} \cdot w)} + \sum_{c_{pos} \in W_{neg}} log \, \frac{1}{1+exp(c_{neg} \cdot w)} \label{}\tag{15}\\ 
 \end{align}
-\tag{13} 
-$$&lt;/div&gt;&lt;p&gt;According to Mikolov, &lt;a href="#eq-13"&gt;eq (13)&lt;/a&gt; replaces every $log \, p(w_O|w_I)$ in the vanilla Skip-Gram cost function &lt;a href="#eq-1"&gt;eq (1)&lt;/a&gt;. Then, the cost function we want to minimize becomes:&lt;/p&gt;
-&lt;div id="eq-14" style="font-size: 1rem;"&gt;$$J(\theta) = - \frac{1}{T} \sum_{i = 1}^T \sum_{-c\leq j \leq c,j\neq 0}( log \, \sigma(c_{pos} \cdot w) + \sum_{c_{neg} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w)) \tag{14}$$&lt;/div&gt;&lt;p&gt;However, when implemented in codes, batch gradient descent (making one update after iterating through the entire $T$ corpus) is almost never used due to its high computational cost. Instead, we use &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt;. Also, for negative sampling, gradients are calculated and weights are updated for each positive training pairs ($w,\, c_{pos}$). The new cost function is then:&lt;/p&gt;
-&lt;div id="eq-15" style="font-size: 1rem;"&gt;$$J(\theta; w,c_{pos}) = - log \, \sigma(c_{pos} \cdot w) + \sum_{c_{neg} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w) \tag{15}$$&lt;/div&gt;
+$$&lt;/div&gt;&lt;p&gt;Using the definition of &lt;a href="#sigmoid"&gt;sigmoid&lt;/a&gt; function $\sigma(x)=\frac{1}{1+exp(-x)}$:&lt;/p&gt;
+&lt;div id="eq-16" style="font-size: 1rem;"&gt;
+$$
+\begin{align}
+   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, \sigma(c_{pos} \cdot w) + \sum_{c_{pos} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w) \label{}\tag{16}  
+\end{align} 
+$$&lt;/div&gt;&lt;p&gt;According to Mikolov, &lt;a href="#eq-16"&gt;eq (16)&lt;/a&gt; replaces every $log \, p(w_O|w_I)$ in the vanilla Skip-Gram cost function defined in &lt;a href="#eq-1"&gt;eq (1)&lt;/a&gt;. Then, the cost function we want to minimize becomes:&lt;/p&gt;
+&lt;div id="eq-17" style="font-size: 1rem;"&gt;$$J(\theta) = - \frac{1}{T} \sum_{i = 1}^T \sum_{-c\leq j \leq c,j\neq 0}( log \, \sigma(c_{pos} \cdot w) + \sum_{c_{neg} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w)) \tag{17}$$&lt;/div&gt;&lt;p&gt;However, when implemented in codes, batch gradient descent (making one update after iterating through the entire $T$ corpus) is almost never used due to its high computational cost. Instead, we use &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt;. Also, for negative sampling, gradients are calculated and weights are updated for each positive training pairs ($w,\, c_{pos}$). The new cost function is then:&lt;/p&gt;
+&lt;div id="eq-18" style="font-size: 1rem;"&gt;$$J(\theta; w,c_{pos}) = - log \, \sigma(c_{pos} \cdot w) - \sum_{c_{neg} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w) \tag{18}$$&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Derivation-of-Negative-Sampling-Gradients"&gt;Derivation of Negative Sampling Gradients&lt;a class="anchor-link" href="#Derivation-of-Negative-Sampling-Gradients"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;coming soon...&lt;/p&gt;
+&lt;h3 id="Derivation-of-gradients"&gt;Derivation of gradients&lt;a class="anchor-link" href="#Derivation-of-gradients"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The goal of any machine learning model is to find the optimal values of a weight matrix ($\theta$) to minimize prediction error. A general update equation for weight matrix looks like the following:&lt;/p&gt;
+&lt;div id="eq-19" style="font-size: 1rem;"&gt;$$ \theta^{(new)}=\theta^{(old)}-\eta\cdot\frac{\partial J}{\partial \theta} \tag{19}$$&lt;/div&gt;&lt;p&gt;$\theta$ is a parameter that needs to be optimized, and $\eta$ is a learning rate. In negative sampling, we take the derivative to the cost function $J(\theta; w,c_{pos})$ defined in &lt;a href="#eq-18"&gt;eq (18)&lt;/a&gt; with respect to $\theta$. Note that the derivative of a sigmoid function is $\frac{\partial \sigma}{\partial x} = \sigma(x)(1–\sigma(x))$.&lt;/p&gt;
+&lt;div id="eq-20" style="font-size: 1rem;"&gt;$$ \frac{\partial J}{\partial \theta} = (\sigma(c_{pos} \cdot w)) - 1)\frac{\partial c_{pos} \cdot w}{\partial \theta} + \sum_{c_{neg} \in W_{neg}} \sigma(c_{neg} \cdot w) \frac{\partial c_{neg} \cdot w}{\partial \theta} \tag{20}$$&lt;/div&gt;&lt;p&gt;Since the parameter $\theta$ is a &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#theta_in_cost"&gt;concatenation&lt;/a&gt; of the input and output weight matrix $[W_{input} \quad W_{output}]$, the cost function needs to be differentiated with respect to the both matrices — $[\frac{\partial J}{\partial W_{input}} \quad \frac{\partial J}{\partial W_{output}}]$.&lt;/p&gt;
+&lt;div class="alert alert-info"&gt;
+&lt;h4&gt;Notes: Clarification on notation&lt;/h4&gt;
+&lt;p&gt;$w$ is a word vector for the input (center) word. It is equivalent to the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#hidden_layer" target="_blank"&gt;hidden layer&lt;/a&gt; $h$. I used the notation $w$ instead of $h$ to stick to the notation used in the &lt;a href="https://arxiv.org/pdf/1402.3722.pdf" target="_blank"&gt;paper&lt;/a&gt; (Goldberg and Levy, 2014).&lt;/p&gt;
+&lt;p&gt;$c$ represents a word vector for context words. It can come from either the true context window ($c_{pos}$) or &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt; ($c_{neg}$).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="grad_W_output"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Gradients with respect to output weight matrix $\frac{\partial J}{\partial W_{output}}$&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;With negative sampling, we do not update the entire output weight matrix $W_{output}$, but only a fraction of it. We update $K + 1$ word vectors in the output weight matrix — $c_{pos}$, $c_{neg,1},\,...\,c_{neg,K}$. We take partial derivatives to the cost function defined in &lt;a href="#eq-18"&gt;eq (18)&lt;/a&gt; with respect to positive words and negative words. This can be done by replacing $\theta$ in &lt;a href="#eq-20"&gt;eq (20)&lt;/a&gt; with $c_{pos}$ and $c_{neg}$ each.&lt;/p&gt;
+&lt;div id="eq-21" style="font-size: 1rem;"&gt;
+$$
+\begin{align}
+   \frac{\partial J}{\partial c_{pos}} &amp;= (\sigma(c_{pos} \cdot w) - 1)\cdot w \label{}\tag{21}\\[5pt]
+   \frac{\partial J}{\partial c_{eng}} &amp;= \sigma(c_{neg} \cdot w)\cdot w \label{}\tag{22}
+\end{align}
+$$&lt;/div&gt;&lt;p&gt;The update equations are then:&lt;/p&gt;
+&lt;div id="eq-23" style="font-size: 1rem;"&gt;
+$$
+\begin{align}
+   c_{pos}^{(new)} &amp;= c_{pos}^{(old)} - \eta \cdot (\sigma(c_{pos} \cdot w) - 1)\cdot w \label{}\tag{23}\\[6pt]
+   c_{neg}^{(new)} &amp;= c_{neg}^{(old)} - \eta \cdot \sigma(c_{pos} \cdot w) \label{}\tag{24}
+\end{align}
+$$&lt;/div&gt;&lt;p&gt;The gradients for positive and negative words can be merged for brevity:&lt;/p&gt;
+&lt;div id="eq-25" style="font-size: 1rem;"&gt;$$ v_{output}^{(new)}=v_{output}^{(old)}-\eta\cdot (\sigma(v_{output} \cdot w) - t_j) \cdot w \tag{25}$$&lt;/div&gt;&lt;p&gt;where $t_j = 1$ for positive words ($c_{pos}$) and $t_j = 0$ for negative words ($c_{pos} \in W_{neg}$). $v_{output}$ is a word vector in the output word matrix $W_{output}$. For each positive pairs ($w$, $c_{pos}$), &lt;a href="#eq-25"&gt;eq (25)&lt;/a&gt; is applied to $K + 1$ word vectors in $W_{output}$ as shown in &lt;a href="#fig4"&gt;figure 4&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="grad_W_input"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Gradients with respect to input weight matrix $\frac{\partial J}{\partial W_{input}}$&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Just like vanilla Skip-Gram, only one word vector that corresponds to the input word $w$ in $W_{input}$ is updated with negative sampling. This is because the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#input_layer" target="_blank"&gt;input layer is one-hot-encoded vector&lt;/a&gt;. However, the equation for input word vector gradient is different.&lt;/p&gt;
+&lt;div id="eq-26" style="font-size: 1rem;"&gt;
+$$
+\begin{align}
+   \frac{\partial J}{\partial w} &amp;= (\sigma(c_{pos} \cdot w) - 1) \cdot c_{pos} + \sum_{c_{eng} \in W_{neg}} \sigma(c_{neg} \cdot w) \cdot c_{neg} \label{}\tag{26}\\
+   &amp;= \sum_{w_j \in \{c_{pos}\} \cup W_{neg}} (\sigma(c_{j} \cdot w) - t_j) \cdot c_{j} \label{}\tag{27}
+\end{align}
+$$&lt;/div&gt;&lt;p&gt;Same as &lt;a href="#eq-25"&gt;eq (25)&lt;/a&gt;, $t_j = 1$ for positive words ($c_{pos}$) and $t_j = 0$ for negative words ($c_{pog} \in W_{neg}$). The update equation is then:&lt;/p&gt;
+&lt;div id="eq-28" style="font-size: 1rem;"&gt;$$ w_{input}^{(new)}=w_{input}^{(old)}-\eta\cdot \sum_{w_j \in \{c_{pos}\} \cup W_{neg}} (\sigma(c_{j} \cdot w) - t_j) \cdot c_{j} \tag{28}$$&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;div id="algorithm"&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h2 id="Negative-Sampling-Algorithm"&gt;Negative Sampling Algorithm&lt;a class="anchor-link" href="#Negative-Sampling-Algorithm"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For each positive word-context pair ($w, c_{pos}$), $1$ word vector that corresponds to the center word ($w$) is updated in the input weight matrix $W_{input}$ (as shown in &lt;em&gt;figure 18&lt;/em&gt; of my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_update" target="_blank"&gt;previous post&lt;/a&gt;). In the output weight matrix $W_{output}$, $1+K$ word vectors that correspond to the positive ($c_{pos}$) and negative ($c_{neg}$) words are updated as shown in &lt;a href="#fig4"&gt;figure 4&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Since Skip-Gram uses SGD to reduce computational cost, negative sampling also uses SGD too. Then, the training for Skip-Gram negative sampling has the following algorithm structure:&lt;/p&gt;
+&lt;p&gt;&lt;div id="sgns_algorithm"&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;p&gt;&lt;u&gt;Algorithm 1: Skip-Gram Negative Sampling&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;pre&gt;
+    &lt;code class="language-python"&gt;
+        P_nw = # generate noise distribution
+        for word in corpus:
+            for context in context_window:
+
+                # draw K negative samples from P_nw
+                W_neg = np.random.choice(Pn_w.keys(), size=K, p=Pn_w.values())
+
+                # compute gradients. w is a hidden layer = input word vector
+                grad_V_output_pos = (sigmoid(c_pos * w) - 1) * w
+                grad_V_input = (sigmoid(c_pos * w) - 1) * c_pos
+                grad_V_output_neg_list = []
+                for c_neg in W_neg:
+                    grad_V_output_neg_list.append(sigmoid(c_neg * w) * w)
+                    grad_V_input += sigmoid(c_neg * w) * c_neg
+
+                # use SGD to update w, c_pos, and c_neg_1, ... , c_neg_K
+                V_output_pos = V_output_pos - alpha * grad_V_output_pos
+                V_input = V_input - alpha * grad_V_input
+                for grad_V_output_neg in grad_V_output_neg_list:
+                    V_output_neg = V_output_neg - alpha * grad_V_output_neg
+    &lt;/code&gt;
+&lt;/pre&gt;&lt;p&gt;In vanilla Skip-Gram, one update is made for the entire weight matrices $[W_{input} \quad W_{output}]$ for each input word. Each update involves summing up dot products for all context words within the context window of size $C$ as shown in eq (20) and eq (21) of my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#eq-20" target="_blank"&gt;previous post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In negative sampling, $C$ updates are made for a fraction of the weights for each input word. This is because negative sampling treats each positive pair ($w$, $c_{pos}$) as one training sample, whereas vanilla Skip-Gram treats a center word ($w$) and its $C$ neighboring context words ($c_{pos, 1}$, $...$, $c_{pos,C}$) all together as one training sample for SGD.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Numerical-Demonstration"&gt;Numerical Demonstration&lt;a class="anchor-link" href="#Numerical-Demonstration"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Coming soon...&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4093,7 +4183,7 @@ h6:hover .anchor-link {
 &lt;/table&gt;&lt;/p&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Table 1: Co-Occurence Matrix&lt;/p&gt;&lt;/div&gt;&lt;p&gt;Count-based language modeling is easy to comprehend — related words are observed (counted) together more often than unrelated words. Many attempts were made to improve the performance of the model to the state-of-art, using SVD, ramped window, and non-negative matrix factorization (&lt;a href="https://pdfs.semanticscholar.org/73e6/351a8fb61afc810a8bb3feaa44c41e5c5d7b.pdf"&gt;Rohde et al. ms., 2005&lt;/a&gt;), but the model did not do well in capturing complex relationships among words.&lt;/p&gt;
 &lt;p&gt;Then, the paradigm started to change in 2013, when Thomas Mikolov proposed the prediction-based modeling technique, called Word2Vec, in his famous paper, &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/a&gt;. Unlike counting word co-occurrences, the model uses neural networks to learn intelligent representation of words in a vector space. Then, the paper submitted to ACL in 2014, &lt;a href="http://www.aclweb.org/anthology/P/P14/P14-1023.pdf" target="_blank"&gt;Don’t count, predict! A systematic comparison of context-counting vs. context-predicting semantic vectors&lt;/a&gt;, quantified &amp; compared the performances of count-based vs prediction-based models.&lt;/p&gt;
-&lt;div class="row give-margin-inline-big-plot" id="fig1"&gt;
+&lt;div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig1"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/countpredictresults2.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Performance comparison of models (&lt;a href="http://www.marekrei.com/blog/dont-count-predict/"&gt;source&lt;/a&gt;)&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;The blue bars represent the count-based models, and the red bars are for prediction-based models. The full summary of the paper and more detailed description about the result graph can be found &lt;a href="http://www.marekrei.com/blog/dont-count-predict/"&gt;here&lt;/a&gt;. Long story short, &lt;strong&gt;prediction-based models outperformed count-based models&lt;/strong&gt; by a large margin on various language tasks.&lt;/p&gt;
@@ -5443,7 +5533,7 @@ h6:hover .anchor-link {
 &lt;/table&gt;&lt;/p&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Table 1: Co-Occurence Matrix&lt;/p&gt;&lt;/div&gt;&lt;p&gt;Count-based language modeling is easy to comprehend — related words are observed (counted) together more often than unrelated words. Many attempts were made to improve the performance of the model to the state-of-art, using SVD, ramped window, and non-negative matrix factorization (&lt;a href="https://pdfs.semanticscholar.org/73e6/351a8fb61afc810a8bb3feaa44c41e5c5d7b.pdf"&gt;Rohde et al. ms., 2005&lt;/a&gt;), but the model did not do well in capturing complex relationships among words.&lt;/p&gt;
 &lt;p&gt;Then, the paradigm started to change in 2013, when Thomas Mikolov proposed the prediction-based modeling technique, called Word2Vec, in his famous paper, &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/a&gt;. Unlike counting word co-occurrences, the model uses neural networks to learn intelligent representation of words in a vector space. Then, the paper submitted to ACL in 2014, &lt;a href="http://www.aclweb.org/anthology/P/P14/P14-1023.pdf" target="_blank"&gt;Don’t count, predict! A systematic comparison of context-counting vs. context-predicting semantic vectors&lt;/a&gt;, quantified &amp; compared the performances of count-based vs prediction-based models.&lt;/p&gt;
-&lt;div class="row give-margin-inline-big-plot" id="fig1"&gt;
+&lt;div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig1"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/countpredictresults2.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: Performance comparison of models (&lt;a href="http://www.marekrei.com/blog/dont-count-predict/"&gt;source&lt;/a&gt;)&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;The blue bars represent the count-based models, and the red bars are for prediction-based models. The full summary of the paper and more detailed description about the result graph can be found &lt;a href="http://www.marekrei.com/blog/dont-count-predict/"&gt;here&lt;/a&gt;. Long story short, &lt;strong&gt;prediction-based models outperformed count-based models&lt;/strong&gt; by a large margin on various language tasks.&lt;/p&gt;
@@ -5454,7 +5544,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Prediction-based-word-embedding:-Word2Vec-Skip-Gram"&gt;Prediction-based word-embedding: Word2Vec Skip-Gram&lt;a class="anchor-link" href="#Prediction-based-word-embedding:-Word2Vec-Skip-Gram"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;One of the prediction-based language model introduced by Mikolov is Skip-Gram:&lt;/p&gt;
-&lt;div class="row give-margin-inline-big-plot" id="fig2"&gt;
+&lt;div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig2"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/skip-gram-paper.png" style="height: 400px;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 2: Original Skip-gram model architecture&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;a href="#fig2"&gt;Figure 2&lt;/a&gt; is a diagram presented in the original Word2Vec paper. It is essentially describing that the model uses a neural network of one hidden (projection) layer to correctly predict context words ($w(t-2)$, $w(t-1)$, $w(t+1)$, $w(t+2)$) of an input word ($w(t)$). In the other words, the model attempts to maximize the probability of observing all four context words together, given a center word. Mathematically, it can be denoted as &lt;a href="#eq-1"&gt;eq (1)&lt;/a&gt;. The training objective is to learn word vector representations that are good at predicting the nearby words.&lt;/p&gt;
@@ -5468,7 +5558,7 @@ h6:hover .anchor-link {
 &lt;p&gt;A natural question is, why do we predict context words? One must understand that the ultimate goal of Skip-Gram model is not to predict context words, but to learn intelligent vector representation of words. It just happens that predicting context words inevitably results in good vector representations of words, because of the neural network structure of Skip-Gram. Neural network at its essence is just optimizing weight marices ($\theta$) to correctly predict output. In Word2Vec Skip-Gram, the weight matrices are, in fact, the vector representations of words. Therefore, optimizing weight matrix = good vector representations of words. This is described in detail &lt;a href="#weight_matrix"&gt;below&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;What is the application of vector representations of words?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;In Word2Vec, words are represented as vectors, and related words are placed closed to each other on a vector space. Mathematically, this means that the vector distance between related words are smaller than the vector distance between unrelated words.&lt;/p&gt;
-&lt;div class="row give-margin-inline-big-plot" id="fig3"&gt;
+&lt;div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig3"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/vector_distance.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 3: Vector distance between two words&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;For example in &lt;a href="#fig3"&gt;figure 3&lt;/a&gt;, correlation between &lt;em&gt;"success"&lt;/em&gt; and &lt;em&gt;"achieve"&lt;/em&gt; can be quantified by computing the vector distance between them (Notes: For illustration purpose, three-dimensional word vectors are assumed in the figure, because higher dimensional vectors can't be visualized. Also, distance annotated in the figure is Euclidean, but in real-life, we use Cosine distance to evaluate vector correlations).&lt;/p&gt;
@@ -5552,7 +5642,7 @@ log
 \frac
 {exp(\theta^{(k)\top}x^{(t)})}
 {\sum^K_{i=1}
-exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;where $T$ is the number of training samples, and $K$ is the number of labels to classify. In NLP applications, $K = V$, because there are $V$ unique vocabulary we need to classify in a vector space. $V$ can easily exceed tens of thousands. Skip-Gram tweaks this a little, and replaces $K$ with a variable called &lt;strong&gt;window size&lt;/strong&gt; ($m$). Window size is a hyper parameter of the model with a typical range of $[1, 10]$ (see &lt;a href="#fig4"&gt;figure 4&lt;/a&gt;). Recall that Skip-Gram is a model that attempts to predict neighboring words of a center word. It doesn't have to predict all $V$ vocab in the corpus that may be 100 or more words away from it, but instead predict only a few, 1~10 neighboring context words. This is also intuitive, considering how words that are far away carry less information about each another. Thus, the adapted form of the softmax regression equation for Skip-Gram becomes:&lt;/p&gt;
+exp(\theta^{(i)\top}x^{(t)})} \tag{10}$$&lt;/div&gt;&lt;p&gt;where $T$ is the number of training samples, and $K$ is the number of labels to classify. In NLP applications, $K = V$, because there are $V$ unique vocabulary we need to classify in a vector space. $V$ can easily exceed tens of thousands. Skip-Gram tweaks this a little, and replaces $K$ with a variable called &lt;strong&gt;window size&lt;/strong&gt; $C$. Window size is a hyper parameter of the model with a typical range of $[1, 10]$ (see &lt;a href="#fig4"&gt;figure 4&lt;/a&gt;). Recall that Skip-Gram is a model that attempts to predict neighboring words of a center word. It doesn't have to predict all $V$ vocab in the corpus that may be 100 or more words away from it, but instead predict only a few, 1~10 neighboring context words. This is also intuitive, considering how words that are far away carry less information about each another. Thus, the adapted form of the softmax regression equation for Skip-Gram becomes:&lt;/p&gt;
 &lt;div id="eq-11" style="font-size: 1rem;"&gt;
 $$J(\theta) = 
 -\frac{1}{T} 
@@ -5635,11 +5725,11 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div id="weight_matrix"&gt;&lt;/div&gt;&lt;h3 id="Input-and-Output-Weight-Matrix--($W_{input}$,-$W_{output}$)"&gt;Input and Output Weight Matrix  ($W_{input}$, $W_{output}$)&lt;a class="anchor-link" href="#Input-and-Output-Weight-Matrix--($W_{input}$,-$W_{output}$)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Why does Skip-Gram model attempt to predict context words given a center word? How does predicting context words help with quantifying words and representing them in a vector space? In fact, the ultimate goal of the model is not to predict context words, but to construct the word embedding matrices ($W_{input}$, $W_{output}$) that best caputure relationship among words in a vector space. Skip-Gram achieves this by using a neural net — it optimizes the weight (embedding) matrices by adjusting the weight matrix to minimize the &lt;a href="#predict_error"&gt;prediction error&lt;/a&gt; ($y_{pred} - y_{true}$). This will make more sense once you understand how the embedding matrix behaves like a &lt;em&gt;look-up table&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Each row in a word-embedding matrix is a word-vector for each word. Consider the following word-embedding matrix, $W_{input}$.&lt;/p&gt;
-&lt;div class="row give-margin-inline-plot"&gt;
+&lt;div class="row give-margin-inline-plot mobile_responsive_plot_full_width"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/embedding_matrix_input.png" style="height: 300px;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 7: Word-embedding matrix, $W_{input}$&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;The words of our interest are &lt;em&gt;"passes"&lt;/em&gt; and &lt;em&gt;"should"&lt;/em&gt;. &lt;em&gt;"passes"&lt;/em&gt; has a word vector of $[0.1 \quad 0.2 \quad 0.7]$ and &lt;em&gt;"should"&lt;/em&gt; has $[-2 \quad 0.2 \quad 0.8]$. Since we set the size of the weight matrix to be &lt;code&gt;size=3&lt;/code&gt; &lt;a href="#size_3"&gt;above&lt;/a&gt;, the matrix is three-dimensional, and can be visualized in a 3D vector space:&lt;/p&gt;
-&lt;div class="row give-margin full_screen_margin"&gt;
+&lt;div class="row full_screen_margin_md mobile_responsive_plot_full_width"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/word2vec_3d.png" style="height: 300px;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 8: 3D visualization of word vectors in embedding matrix&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Optimizing the embedding (weight) matrices ($\theta$) results in representing words in a high quality vector space, and the model will be able to capture meaningful relationships among words.&lt;/p&gt;
@@ -5657,7 +5747,7 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div id="hidden_layer"&gt;&lt;/div&gt;&lt;h3 id="Hidden-(Projection)-Layer-($h$)"&gt;Hidden (Projection) Layer ($h$)&lt;a class="anchor-link" href="#Hidden-(Projection)-Layer-($h$)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Skip-Gram uses a neural net with one hidden layer. In the context of natural language processing, hidden layer is often referred to as a &lt;em&gt;projection&lt;/em&gt; layer, because $h$ is essentially an 1D vector projected by the one-hot encoded input vector.&lt;/p&gt;
-&lt;div class="row give-margin full_screen_margin"&gt;
+&lt;div class="row full_screen_margin mobile_responsive_plot_full_width"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/skip-gram_lookup.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 9: Computing projection layer&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;$h$ is obtained by multiplying the input word embedding matrix with the $V$-dim input vector.&lt;/p&gt;
@@ -5672,8 +5762,8 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 &lt;div id="eq-13" style="font-size: 1rem;"&gt;$$ p(w_{context}|w_{center}) = \frac{exp(W_{output_{(context)}} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{1} \tag{13} $$&lt;/div&gt;&lt;p&gt;where $W_{output_{(i)}}$ is the $i$-th row vector of size $1 \times N$ from the output embedding matrix, $W_{output_{context}}$ is also a row vector of size $1 \times N$ from the output embedding matrix corresponding to the context word. $V$ is the size of unique vocab in the corpus, and $h$ is the hidden (projection) layer of size ($N \times 1$). The output is an $1 \times 1$ scalar value of probability of range $[0, 1)$.&lt;/p&gt;
 &lt;p&gt;This probability is computed $V$ times to obtain a conditional probability distribution of observing each unique vocabs in the corpus, given a center word.&lt;/p&gt;
 &lt;div id="eq-14" style="font-size: 1rem;"&gt;$$ \left[ \begin{array}{c} p(w_{1}|w_{center}) \\ p(w_{2}|w_{center}) \\ p(w_{3}|w_{center}) \\ \vdots \\ p(w_{V}|w_{center}) \end{array} \right] = \frac{exp(W_{output} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{V}\tag{14} $$&lt;/div&gt;&lt;p&gt;$W_{output}$ in the denominator of eq 13 has size $V \times N$. Multiplying $W_{output}$ with $h$ of size $N \times 1$ will yield a dot product vector of size $V \times 1$. This dot product vector goes through the softmax function:&lt;/p&gt;
-&lt;div class="row give-margin full_screen_margin"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/softmax_function.png" style="height: 300px;"&gt;&lt;/div&gt;
+&lt;div class="row full_screen_margin_md mobile_responsive_plot_full_width"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/softmax_function.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 10: softmax function transformation&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;The exponentiation ensures that the transformed values are positive, and the normalization factor in the denominator ensures that the values have a range of $[0, 1)$. The result is a conditional probability distribution of observing each unique vocabs in the corpus, given a center word.&lt;/p&gt;
 &lt;div class="alert alert-info" id="negsample"&gt;
@@ -5683,7 +5773,7 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 &lt;p&gt;There is an issue with softmax in Skip-Gram — it is computationally very expensive, as it requires scanning through the entire output embedding matrix ($W_{output}$) to compute the probability distribution of all $V$ words, where $V$ can be millions or more. Furtheremore, the normalization factor in the denominator also requires $V$ iterations. When implemented in codes, the normalization factor is computed only once and cached as a Python variable, making the alogrithm complexity = $O(V+V)\approx O(V)$.&lt;/p&gt;
 &lt;p&gt;Due to this computational inefficiency, &lt;b&gt;softmax is not used in most implementaions of Skip-Gram&lt;/b&gt;. Instead we use an alternative called negative sampling with sigmoid function, which rephrases the problem into a set of independent binary classification task of algorithm complexity = $O(K+1)$, where $K$ typically has a range of $[5,20]$. Then, the new probability distribution is defined as:&lt;/p&gt;
 &lt;p&gt;&lt;div style="font-size: 1rem; margin-top: 20px;"&gt;$$ P = \frac{1}{1+exp(-(\{c_{pos}\} \cup W_{neg}) \cdot h)}
-\in \mathbb{R}^{K+1}\tag{7}$$&lt;/div&gt;&lt;/p&gt;
+\in \mathbb{R}^{K+1}$$&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;$K=20$ is used for small corpus, and $K=5$ is used for big corpus. Negative sampling is much cheaper than vanilla Skip-Gram with softmax, because $K$ is between 5 ~ 20, whereas $V$ can be millions. Moreover, no extra iterations are necessary to compute the normalization factor in the denominator, because sigmoid function is a binary regression classifier. The algorithm complexity of the probability distribution of vanilla Skip-Gram is $O(V)$, whereas negative sampling's is $O(K+1)$. This shows why negative sampling saves a significant amount of computational cost per iteration.&lt;/p&gt;
 &lt;p&gt;In &lt;i&gt;gensim&lt;/i&gt;, negative sampling is applied by default with &lt;code&gt;Word2Vec(negative=5, ns_exponent=0.75)&lt;/code&gt;, where &lt;code&gt;negative&lt;/code&gt; is the number of $K$-negative samples, and &lt;code&gt;ns_exponent&lt;/code&gt; is a hyperparameter related to negative sampling, of range $(0, 1)$. The details of the methodology behind negative sampling deserves another fully devoted post, and as such, covered in a &lt;a href="https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" target="_blank"&gt;different post&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -5717,7 +5807,7 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 11: Prediction error window&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;The figure has a window size of $2$, so two prediction errors were computed. Recall from the above notes about the &lt;a href="#window_size"&gt;window size&lt;/a&gt; that the original softmax regression classifier (&lt;a href="#eq-10"&gt;eq (10)&lt;/a&gt;) has $K$ labels to classify, in which $K = V$ in NLP applications because there are $V$ words to classify. Employing window size transforms &lt;a href="#eq-10"&gt;eq (10)&lt;/a&gt; into &lt;a href="#eq-11"&gt;eq (11)&lt;/a&gt; and significantly reduces the algorithm complexity because the model only needs to compute prediction errors for $[1, 10]$ neighboring words, instead of computing all $V$-prediction errors for all vocabs that can be millions or more.&lt;/p&gt;
 &lt;p&gt;Then, prediction errors for all $C$ context words are summed up to compute weight gradients to the update weight matrices.&lt;/p&gt;
-&lt;div class="row give-margin full_screen_margin"&gt;
+&lt;div class="row full_screen_margin mobile_responsive_plot_full_width"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/prediction_error_sum.png" style="height: 230px;"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 12: Sum of prediction errors&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -9937,10 +10027,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ed2e6906-2324-439d-af72-98d1e3270210"&gt;&lt;/div&gt;
+&lt;div id="89b32c94-510f-4315-97f7-139f8006fcf6"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ed2e6906-2324-439d-af72-98d1e3270210');
+var element = $('#89b32c94-510f-4315-97f7-139f8006fcf6');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
