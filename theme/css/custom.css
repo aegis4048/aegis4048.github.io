@@ -1,3 +1,7 @@
+﻿html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 body {
     font-size: 0.85rem;
     min-width: 310px;
@@ -1439,6 +1443,10 @@ ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li:last-child > u
     width: 85%;
     margin: auto;
 }
+.full_screen_margin_md {
+    width: 70%;
+    margin: auto;
+}
 .language-markdown {
     font-size: inherit !important;
 }
@@ -1868,8 +1876,8 @@ ol.rounded-list,
 
 
 @media only screen and (max-width: 768px) {
-    .mobile_responsive_plot {
-        width: 85%;
+    .mobile_responsive_plot_full_width {
+        width: 100%;
         margin: auto;
     }
     .give-margin-inline-plot {
