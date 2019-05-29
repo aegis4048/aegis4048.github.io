@@ -1733,6 +1733,7 @@ $$</div><p>According to Mikolov, <a href="#eq-16">eq (16)</a> replaces every $lo
 <h4>Notes: Clarification on notation</h4>
 <p>$w$ is a word vector for the input (center) word. It is equivalent to the <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#hidden_layer" target="_blank">hidden layer</a> $h$. I used the notation $w$ instead of $h$ to stick to the notation used in the <a href="https://arxiv.org/pdf/1402.3722.pdf" target="_blank">paper</a> (Goldberg and Levy, 2014).</p>
 <p>$c$ represents a word vector for context words. It can come from either the true context window ($c_{pos}$) or <a href="#noise_dist">noise distribution</a> ($c_{neg}$).</p>
+<p>Also note that $w$ is a word vector from the input weight matrix ($w \in W_{input}$), but $c$ is a word vector from the output weight matrix ($c \in W_{output}$).</p>
 </div>
 </div>
 </div>
@@ -1753,10 +1754,10 @@ $$</div><p>The update equations are then:</p>
 $$
 \begin{align}
    c_{pos}^{(new)} &= c_{pos}^{(old)} - \eta \cdot (\sigma(c_{pos} \cdot w) - 1)\cdot w \label{}\tag{23}\\[6pt]
-   c_{neg}^{(new)} &= c_{neg}^{(old)} - \eta \cdot \sigma(c_{pos} \cdot w) \label{}\tag{24}
+   c_{neg}^{(new)} &= c_{neg}^{(old)} - \eta \cdot \sigma(c_{neg} \cdot w) \label{}\tag{24}
 \end{align}
 $$</div><p>The gradients for positive and negative words can be merged for brevity:</p>
-<div id="eq-25" style="font-size: 1rem;">$$ v_{output}^{(new)}=v_{output}^{(old)}-\eta\cdot (\sigma(v_{output} \cdot w) - t_j) \cdot w \tag{25}$$</div><p>where $t_j = 1$ for positive words ($c_{pos}$) and $t_j = 0$ for negative words ($c_{pos} \in W_{neg}$). $v_{output}$ is a word vector in the output word matrix $W_{output}$. For each positive pairs ($w$, $c_{pos}$), <a href="#eq-25">eq (25)</a> is applied to $K + 1$ word vectors in $W_{output}$ as shown in <a href="#fig4">figure 4</a>.</p>
+<div id="eq-25" style="font-size: 1rem;">$$ c_{j}^{(new)}=c_{j}^{(old)}-\eta\cdot (\sigma(c_{j} \cdot w) - t_j) \cdot w \tag{25}$$</div><p>where $t_j = 1$ for positive words ($c_{pos}$) and $t_j = 0$ for negative words ($c_{pos} \in W_{neg}$). $c_{j}$ is a word vector in the output word matrix $W_{output}$ and $j$ is the index of the word vector. For each positive pairs ($w$, $c_{pos}$), <a href="#eq-25">eq (25)</a> is applied to $K + 1$ word vectors in $W_{output}$ as shown in <a href="#fig4">figure 4</a>.</p>
 </div>
 </div>
 </div>
@@ -1769,10 +1770,10 @@ $$</div><p>The gradients for positive and negative words can be merged for brevi
 $$
 \begin{align}
    \frac{\partial J}{\partial w} &= (\sigma(c_{pos} \cdot w) - 1) \cdot c_{pos} + \sum_{c_{eng} \in W_{neg}} \sigma(c_{neg} \cdot w) \cdot c_{neg} \label{}\tag{26}\\
-   &= \sum_{w_j \in \{c_{pos}\} \cup W_{neg}} (\sigma(c_{j} \cdot w) - t_j) \cdot c_{j} \label{}\tag{27}
+   &= \sum_{c_j \in \{c_{pos}\} \cup W_{neg}} (\sigma(c_{j} \cdot w) - t_j) \cdot c_{j} \label{}\tag{27}
 \end{align}
 $$</div><p>Same as <a href="#eq-25">eq (25)</a>, $t_j = 1$ for positive words ($c_{pos}$) and $t_j = 0$ for negative words ($c_{pog} \in W_{neg}$). The update equation is then:</p>
-<div id="eq-28" style="font-size: 1rem;">$$ w_{input}^{(new)}=w_{input}^{(old)}-\eta\cdot \sum_{w_j \in \{c_{pos}\} \cup W_{neg}} (\sigma(c_{j} \cdot w) - t_j) \cdot c_{j} \tag{28}$$</div>
+<div id="eq-28" style="font-size: 1rem;">$$ w_{input}^{(new)}=w_{input}^{(old)}-\eta\cdot \sum_{c_j \in \{c_{pos}\} \cup W_{neg}} (\sigma(c_{j} \cdot w) - t_j) \cdot c_{j} \tag{28}$$</div>
 </div>
 </div>
 </div>

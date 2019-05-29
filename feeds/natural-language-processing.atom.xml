@@ -2764,6 +2764,7 @@ $$&lt;/div&gt;&lt;p&gt;According to Mikolov, &lt;a href="#eq-16"&gt;eq (16)&lt;/
 &lt;h4&gt;Notes: Clarification on notation&lt;/h4&gt;
 &lt;p&gt;$w$ is a word vector for the input (center) word. It is equivalent to the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#hidden_layer" target="_blank"&gt;hidden layer&lt;/a&gt; $h$. I used the notation $w$ instead of $h$ to stick to the notation used in the &lt;a href="https://arxiv.org/pdf/1402.3722.pdf" target="_blank"&gt;paper&lt;/a&gt; (Goldberg and Levy, 2014).&lt;/p&gt;
 &lt;p&gt;$c$ represents a word vector for context words. It can come from either the true context window ($c_{pos}$) or &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt; ($c_{neg}$).&lt;/p&gt;
+&lt;p&gt;Also note that $w$ is a word vector from the input weight matrix ($w \in W_{input}$), but $c$ is a word vector from the output weight matrix ($c \in W_{output}$).&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2784,10 +2785,10 @@ $$&lt;/div&gt;&lt;p&gt;The update equations are then:&lt;/p&gt;
 $$
 \begin{align}
    c_{pos}^{(new)} &amp;= c_{pos}^{(old)} - \eta \cdot (\sigma(c_{pos} \cdot w) - 1)\cdot w \label{}\tag{23}\\[6pt]
-   c_{neg}^{(new)} &amp;= c_{neg}^{(old)} - \eta \cdot \sigma(c_{pos} \cdot w) \label{}\tag{24}
+   c_{neg}^{(new)} &amp;= c_{neg}^{(old)} - \eta \cdot \sigma(c_{neg} \cdot w) \label{}\tag{24}
 \end{align}
 $$&lt;/div&gt;&lt;p&gt;The gradients for positive and negative words can be merged for brevity:&lt;/p&gt;
-&lt;div id="eq-25" style="font-size: 1rem;"&gt;$$ v_{output}^{(new)}=v_{output}^{(old)}-\eta\cdot (\sigma(v_{output} \cdot w) - t_j) \cdot w \tag{25}$$&lt;/div&gt;&lt;p&gt;where $t_j = 1$ for positive words ($c_{pos}$) and $t_j = 0$ for negative words ($c_{pos} \in W_{neg}$). $v_{output}$ is a word vector in the output word matrix $W_{output}$. For each positive pairs ($w$, $c_{pos}$), &lt;a href="#eq-25"&gt;eq (25)&lt;/a&gt; is applied to $K + 1$ word vectors in $W_{output}$ as shown in &lt;a href="#fig4"&gt;figure 4&lt;/a&gt;.&lt;/p&gt;
+&lt;div id="eq-25" style="font-size: 1rem;"&gt;$$ c_{j}^{(new)}=c_{j}^{(old)}-\eta\cdot (\sigma(c_{j} \cdot w) - t_j) \cdot w \tag{25}$$&lt;/div&gt;&lt;p&gt;where $t_j = 1$ for positive words ($c_{pos}$) and $t_j = 0$ for negative words ($c_{pos} \in W_{neg}$). $c_{j}$ is a word vector in the output word matrix $W_{output}$ and $j$ is the index of the word vector. For each positive pairs ($w$, $c_{pos}$), &lt;a href="#eq-25"&gt;eq (25)&lt;/a&gt; is applied to $K + 1$ word vectors in $W_{output}$ as shown in &lt;a href="#fig4"&gt;figure 4&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2800,10 +2801,10 @@ $$&lt;/div&gt;&lt;p&gt;The gradients for positive and negative words can be merg
 $$
 \begin{align}
    \frac{\partial J}{\partial w} &amp;= (\sigma(c_{pos} \cdot w) - 1) \cdot c_{pos} + \sum_{c_{eng} \in W_{neg}} \sigma(c_{neg} \cdot w) \cdot c_{neg} \label{}\tag{26}\\
-   &amp;= \sum_{w_j \in \{c_{pos}\} \cup W_{neg}} (\sigma(c_{j} \cdot w) - t_j) \cdot c_{j} \label{}\tag{27}
+   &amp;= \sum_{c_j \in \{c_{pos}\} \cup W_{neg}} (\sigma(c_{j} \cdot w) - t_j) \cdot c_{j} \label{}\tag{27}
 \end{align}
 $$&lt;/div&gt;&lt;p&gt;Same as &lt;a href="#eq-25"&gt;eq (25)&lt;/a&gt;, $t_j = 1$ for positive words ($c_{pos}$) and $t_j = 0$ for negative words ($c_{pog} \in W_{neg}$). The update equation is then:&lt;/p&gt;
-&lt;div id="eq-28" style="font-size: 1rem;"&gt;$$ w_{input}^{(new)}=w_{input}^{(old)}-\eta\cdot \sum_{w_j \in \{c_{pos}\} \cup W_{neg}} (\sigma(c_{j} \cdot w) - t_j) \cdot c_{j} \tag{28}$$&lt;/div&gt;
+&lt;div id="eq-28" style="font-size: 1rem;"&gt;$$ w_{input}^{(new)}=w_{input}^{(old)}-\eta\cdot \sum_{c_j \in \{c_{pos}\} \cup W_{neg}} (\sigma(c_{j} \cdot w) - t_j) \cdot c_{j} \tag{28}$$&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5823,11 +5824,8 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/forward_1.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 13: Computing hidden (projection) layer&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;div id="forward_softmax"&gt;&lt;/div&gt;
-**Forward Propagation: Softmax output layer**
-
-Output layer is a probability distribution of all words, given a center word. It is computed with &lt;a href="#eq-14"&gt;eq (14)&lt;/a&gt;. Note that all context windows share the same output layer ($y_{pred}$). Only the errors ($e_c$) are different.
-
+&lt;/div&gt;&lt;div id="forward_softmax"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Forward Propagation: Softmax output layer&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Output layer is a probability distribution of all words, given a center word. It is computed with &lt;a href="#eq-14"&gt;eq (14)&lt;/a&gt;. Note that all context windows share the same output layer ($y_{pred}$). Only the errors ($e_c$) are different.&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/forward_2.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 14: Softmax output layer&lt;/p&gt;&lt;/div&gt;
@@ -10027,10 +10025,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="89b32c94-510f-4315-97f7-139f8006fcf6"&gt;&lt;/div&gt;
+&lt;div id="faa88996-8165-443b-8c91-d11302fcd33b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#89b32c94-510f-4315-97f7-139f8006fcf6');
+var element = $('#faa88996-8165-443b-8c91-d11302fcd33b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
