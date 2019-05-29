@@ -1774,11 +1774,8 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 <div class="row">
 <div class="col"><img src="jupyter_images/forward_1.png"></div>
 <div class="col-12"><p class="image-description">Figure 13: Computing hidden (projection) layer</p></div>
-</div><div id="forward_softmax"></div>
-**Forward Propagation: Softmax output layer**
-
-Output layer is a probability distribution of all words, given a center word. It is computed with <a href="#eq-14">eq (14)</a>. Note that all context windows share the same output layer ($y_{pred}$). Only the errors ($e_c$) are different.
-
+</div><div id="forward_softmax"></div><p><strong>Forward Propagation: Softmax output layer</strong></p>
+<p>Output layer is a probability distribution of all words, given a center word. It is computed with <a href="#eq-14">eq (14)</a>. Note that all context windows share the same output layer ($y_{pred}$). Only the errors ($e_c$) are different.</p>
 <div class="row">
 <div class="col"><img src="jupyter_images/forward_2.png"></div>
 <div class="col-12"><p class="image-description">Figure 14: Softmax output layer</p></div>
