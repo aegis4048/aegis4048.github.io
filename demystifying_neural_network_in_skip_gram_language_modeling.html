@@ -1769,7 +1769,7 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Numerical-Demonstration">Numerical Demonstration<a class="anchor-link" href="#Numerical-Demonstration">¶</a></h2><p>For the ease of illustration, screenshots from Excel will be used to demonstrate the concept of updating weight matrices through forward and backward propagations.</p>
-<p><strong>Forward Propagation: Computing hiden (projection) layer</strong></p>
+<p><strong>Forward Propagation: Computing hidden (projection) layer</strong></p>
 <p>Center word is <em>"passes"</em>. Window size is <code>size=1</code>, making <em>"the"</em> and <em>"who"</em> context words. Hidden layer ($h$) is <i>looked up</i> from the input weight matrix. It is computed with <a href="#eq-12">eq (12)</a>.</p>
 <div class="row">
 <div class="col"><img src="jupyter_images/forward_1.png"></div>
@@ -1788,12 +1788,12 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 <p>Gradients of input weight matrix ($\frac{\partial J}{\partial W_{input}}$) are computed using <a href="#eq-18">eq (18)</a>. Note that multiplying $W_{output}^T \sum^C_{c=1} e_c$ with the one-hot-encoded input vector ($x$) makes the neural net to <u>update only one word vector</u> that corresponds to the input (center) word.</p>
 <div class="row">
 <div class="col"><img src="jupyter_images/backward_2.png"></div>
-<div class="col-12"><p class="image-description">Figure 16: Prediction errors of context words</p></div>
+<div class="col-12"><p class="image-description">Figure 16: Computing input weight matrix gradient $\nabla W_{input}$</p></div>
 </div><p><strong>Backward Propagation: Computing $\nabla W_{output}$</strong></p>
 <p>Gradients of output weight matrix ($\frac{\partial J}{\partial W_{output}}$) are computed using <a href="#eq-19">eq (19)</a>. Unlike the input weight matrix ($W_{input}$), all word vectors in the output weight matrix ($W_{output}$) are updated.</p>
 <div class="row">
 <div class="col"><img src="jupyter_images/backward_3.png"></div>
-<div class="col-12"><p class="image-description">Figure 17: Prediction errors of context words</p></div>
+<div class="col-12"><p class="image-description">Figure 17: Computing output weight matrix gradient $\nabla W_{output}$</p></div>
 </div><div id="weight_update"></div><p><strong>Backward Propagation: Updating Weight matrices</strong></p>
 <p>Input and output weight matrices ($[W_{input} \quad W_{output}]$) are updated using <a href="#eq-20">eq (20)</a> and <a href="#eq-21">eq (21)</a>.</p>
 <div class="row">
