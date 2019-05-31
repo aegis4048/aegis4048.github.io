@@ -2714,7 +2714,7 @@ Negative-Sampling Word-Embedding Method&lt;/a&gt; (Goldberg and Levy, 2014).&lt;
 $$
 \begin{align}
      &amp; \underset{\theta}{\text{argmax}} \ p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta) \label{}\tag{9}\\ 
-   =\quad &amp; \underset{\theta}{\text{argmax}} \ p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{pos};\theta))\label{}\tag{10}
+   =\quad &amp; \underset{\theta}{\text{argmax}} \ p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{neg};\theta))\label{}\tag{10}
 \end{align}
 $$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: Probability Product&lt;/h4&gt;
@@ -2726,13 +2726,13 @@ $$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
 &lt;div id="eq-11" style="font-size: 1rem;"&gt;
 $$
 \begin{align}
-   =\quad &amp; \underset{\theta}{\text{argmax}} \ log \, (p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta)) \label{}\tag{11}
+   =\quad &amp; \underset{\theta}{\text{argmax}} \ log \, (p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{neg};\theta)) \label{}\tag{11}
 \end{align}
 $$&lt;/div&gt;&lt;p&gt;Using the property of logs, the objective function can be simplified:&lt;/p&gt;
 &lt;div id="eq-12" style="font-size: 1rem;"&gt;
 $$
 \begin{align}
-   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, p(D=1|w,c_{pos};\theta) + log \, \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta) \label{}\tag{12}\\ 
+   =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, p(D=1|w,c_{pos};\theta) + log \, \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{neg};\theta)) \label{}\tag{12}\\ 
    =\quad &amp; \underset{\theta}{\text{argmax}} \ log \, p(D=1|w,c_{pos};\theta) + \sum_{c_{neg} \in W_{neg}} log \, (1 - p(D=1|w,c_{neg};\theta)) \label{}\tag{13}
 \end{align} 
 $$&lt;/div&gt;&lt;p&gt;The binomial probability $p(D=1|w,c;\theta)$ can be replaced with &lt;a href="#eq-5"&gt;eq (5)&lt;/a&gt;:&lt;/p&gt;
@@ -2749,7 +2749,7 @@ $$
    =\quad  &amp; \underset{\theta}{\text{argmax}} \ log \, \sigma(c_{pos} \cdot w) + \sum_{c_{pos} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w) \label{}\tag{16}  
 \end{align} 
 $$&lt;/div&gt;&lt;p&gt;According to Mikolov, &lt;a href="#eq-16"&gt;eq (16)&lt;/a&gt; replaces every $log \, p(w_O|w_I)$ in the vanilla Skip-Gram cost function defined in &lt;a href="#eq-1"&gt;eq (1)&lt;/a&gt;. Then, the cost function we want to minimize becomes:&lt;/p&gt;
-&lt;div id="eq-17" style="font-size: 1rem;"&gt;$$J(\theta) = - \frac{1}{T} \sum_{i = 1}^T \sum_{-c\leq j \leq c,j\neq 0}( log \, \sigma(c_{pos} \cdot w) + \sum_{c_{neg} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w)) \tag{17}$$&lt;/div&gt;&lt;p&gt;However, when implemented in codes, batch gradient descent (making one update after iterating through the entire $T$ corpus) is almost never used due to its high computational cost. Instead, we use &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt;. Also, for negative sampling, gradients are calculated and weights are updated for each positive training pairs ($w,\, c_{pos}$). The new cost function is then:&lt;/p&gt;
+&lt;div id="eq-17" style="font-size: 1rem;"&gt;$$J(\theta) = - \frac{1}{T} \sum_{i = 1}^T \sum_{-c\leq j \leq c,j\neq 0}( log \, \sigma(c_{pos} \cdot w) + \sum_{c_{neg} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w)) \tag{17}$$&lt;/div&gt;&lt;p&gt;However, when implemented in codes, batch gradient descent (making one update after iterating through the entire $T$ corpus) is almost never used due to its high computational cost. Instead, we use &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank"&gt;stochastic gradient descent&lt;/a&gt;. Also, for negative sampling, gradients are calculated and weights are updated for each positive training pairs ($w,\, c_{pos}$). In the other words, one update for each word within the context window of a center word $w$. This is shown &lt;a href="#Negative-Sampling-Algorithm"&gt;below&lt;/a&gt;. The new cost function is then:&lt;/p&gt;
 &lt;div id="eq-18" style="font-size: 1rem;"&gt;$$J(\theta; w,c_{pos}) = - log \, \sigma(c_{pos} \cdot w) - \sum_{c_{neg} \in W_{neg}} log \, \sigma(-c_{neg} \cdot w) \tag{18}$$&lt;/div&gt;&lt;p&gt;Note that $w$ is a word vector for an input word, and that it is equivalent to a &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#hidden_layer" target="_blank"&gt;hidden layer&lt;/a&gt; ($w = h$). For clarification:&lt;/p&gt;
 &lt;div id="eq-19" style="font-size: 1rem;"&gt;$$J(\theta; w,c_{pos}) = - log \, \sigma(c_{pos} \cdot h) - \sum_{c_{neg} \in W_{neg}} log \, \sigma(-c_{neg} \cdot h)\tag{19}$$&lt;/div&gt;&lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: Notations used in different papers&lt;/h4&gt;
@@ -2758,7 +2758,7 @@ $$&lt;/div&gt;&lt;p&gt;According to Mikolov, &lt;a href="#eq-16"&gt;eq (16)&lt;/
 &lt;p&gt;where $w_I$ is the input (center) word in the corpus. $w_{O}$ is a word found in the context window of $w_I$ and is a positive word. $v^{'}$ is a word vector in the output weight matrix ($v^{'} \in W_{output}$), $w_j$ is a randomly drawn negative word from the &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt;, and $v^{'}_{w_{j}}$ is a $j$-th word vector in $W_{output}$ that corresponds to the negative word $w_j$. $h$ is a &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#hidden_layer" target="_blank"&gt;hidden layer&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In the original Word2Vec paper, &lt;a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank"&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/a&gt; (Mikolov et al., 2013):&lt;/p&gt;
 &lt;p&gt;$$J(\theta; w_I, w_O) = - log \, \sigma(v^{'}_{w_{O}} \top v_I) - \sum^k_{i=1} \mathbb{E}_{w_{i} \sim P_n(w)}\big[ log \, \sigma(-v^{'}_{w_{i}} \top v_I) \big]$$&lt;/p&gt;
-&lt;p&gt;where $P_n(w)$ is a noise distribution, $k$ is the number of negative samples. $v_{w_{I}}$ is a word vector in the input weight matrix $W_{input}$ for the input word $w_I$ and is equivalent to the hidden layer $h$. These are all equivalent to &lt;a href="#eq-19"&gt;eq (19)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;$k$ is the number of negative samples and $w_i$ is an $i$-th negative word drawn from the noise distribution $P_n(w)$. $v_{w_{I}}$ is a word vector in the input weight matrix $W_{input}$ for the input word $w_I$ and is equivalent to the hidden layer $h$. These are all equivalent to &lt;a href="#eq-19"&gt;eq (19)&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2800,7 +2800,7 @@ $$&lt;/div&gt;&lt;p&gt;The gradients for positive and negative words can be merg
 &lt;div id="pred_error"&gt;&lt;/div&gt;&lt;div class="alert alert-info"&gt;
 &lt;h4&gt;Notes: Prediction Error&lt;/h4&gt;
 &lt;p&gt;In &lt;a href="#eq-26"&gt;eq (26)&lt;/a&gt;, $\sigma(c_{j} \cdot h) - t_j$ is called a &lt;i&gt;prediction error&lt;/i&gt;. Recall that negative sampling attempts to maximize the the probability of observing positive pairs $p(c_{pos}|w) \rightarrow 1$ while minimizing the probability of observing negative pairs $p(c_{neg}|w) \rightarrow 0$. If good word vectors are learned, $\sigma(c_{pos}\cdot h) \approx 1$ for positive pairs, and $\sigma(c_{neg}\cdot h) \approx 0$ for negative pairs as shown in &lt;a href="#fig7"&gt;figure 7&lt;/a&gt;.&lt;p&gt;
-&lt;p&gt;The prediction error will gradually approach zero $\sigma(c_{pos}\cdot h) - t_j \approx 0$, as the model iterates through the training samples (positive pairs) and updates the weights.&lt;/p&gt;
+&lt;p&gt;The prediction error will gradually approach zero $\sigma(c_{pos}\cdot h) - t_j \approx 0$, as the model iterates through the training samples (positive pairs) and optimizes the weights.&lt;/p&gt;
 &lt;/p&gt;&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2809,11 +2809,11 @@ $$&lt;/div&gt;&lt;p&gt;The gradients for positive and negative words can be merg
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div id="grad_W_input"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Gradients with respect to input weight matrix $\frac{\partial J}{\partial W_{input}}$&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Just like vanilla Skip-Gram, only one word vector that corresponds to the input word $w$ in $W_{input}$ is updated with negative sampling. This is because the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#input_layer" target="_blank"&gt;input layer is one-hot-encoded vector&lt;/a&gt;. However, the equation for input word vector gradient is different.&lt;/p&gt;
+&lt;p&gt;Just like vanilla Skip-Gram, only one word vector that corresponds to the input word $w$ in $W_{input}$ is updated with negative sampling. This is because the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#input_layer" target="_blank"&gt;input layer is an one-hot-encoded vector&lt;/a&gt; (however, the equation for the gradient descent is different.) Therefore, taking the derivative for the input weight matrix is equivalent to taking the derivative to the hidden layer ($\frac{\partial J}{\partial W_{input}} = \frac{\partial J}{\partial h}$). We replace $\theta$ in &lt;a href="#eq-21"&gt;eq (21)&lt;/a&gt; with $h$, and differentiate it:&lt;/p&gt;
 &lt;div id="eq-27" style="font-size: 1rem;"&gt;
 $$
 \begin{align}
-   \frac{\partial J}{\partial w} &amp;= (\sigma(c_{pos} \cdot h) - 1) \cdot c_{pos} + \sum_{c_{eng} \in W_{neg}} \sigma(c_{neg} \cdot h) \cdot c_{neg} \label{}\tag{27}\\
+   \frac{\partial J}{\partial h} &amp;= (\sigma(c_{pos} \cdot h) - 1) \cdot c_{pos} + \sum_{c_{eng} \in W_{neg}} \sigma(c_{neg} \cdot h) \cdot c_{neg} \label{}\tag{27}\\
    &amp;= \sum_{c_j \in \{c_{pos}\} \cup W_{neg}} (\sigma(c_{j} \cdot h) - t_j) \cdot c_{j} \label{}\tag{28}
 \end{align}
 $$&lt;/div&gt;&lt;p&gt;Same as &lt;a href="#eq-26"&gt;eq (26)&lt;/a&gt;, $t_j = 1$ for positive words ($c_j = c_{pos}$) and $t_j = 0$ for negative words ($c_j = c_{neg} \in W_{neg}$). The update equation is then:&lt;/p&gt;
@@ -2825,7 +2825,7 @@ $$&lt;/div&gt;&lt;p&gt;Same as &lt;a href="#eq-26"&gt;eq (26)&lt;/a&gt;, $t_j = 
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;div id="algorithm"&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;h2 id="Negative-Sampling-Algorithm"&gt;Negative Sampling Algorithm&lt;a class="anchor-link" href="#Negative-Sampling-Algorithm"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For each positive word-context pair ($w, c_{pos}$), $1$ word vector that corresponds to the center word ($w$) is updated in the input weight matrix $W_{input}$ (as shown in &lt;em&gt;figure 18&lt;/em&gt; of my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_update" target="_blank"&gt;previous post&lt;/a&gt;). In the output weight matrix $W_{output}$, $1+K$ word vectors that correspond to the positive and negative words ($\{c_{pos}\} \cup W_{neg} \in \mathbb{R}^{1+K} $) are updated as shown in &lt;a href="#fig4"&gt;figure 4&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="Negative-Sampling-Algorithm"&gt;Negative Sampling Algorithm&lt;a class="anchor-link" href="#Negative-Sampling-Algorithm"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For each positive word-context pair ($w, c_{pos}$), $1$ word vector that corresponds to the center word ($w$) is updated in the input weight matrix $W_{input}$ as shown in &lt;a href="#fig15"&gt;figure 15&lt;/a&gt;. In the output weight matrix $W_{output}$, $1+K$ word vectors that correspond to the positive and negative words ($\{c_{pos}\} \cup W_{neg} \in \mathbb{R}^{1+K} $) are updated as shown in &lt;a href="#fig4"&gt;figure 4&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Since Skip-Gram uses SGD to reduce computational cost, negative sampling also uses SGD too. Then, the training for Skip-Gram negative sampling has the following algorithm structure:&lt;/p&gt;
 &lt;p&gt;&lt;div id="sgns_algorithm"&gt;&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;&lt;p&gt;&lt;u&gt;Algorithm 1: Skip-Gram Negative Sampling&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
@@ -2838,13 +2838,13 @@ $$&lt;/div&gt;&lt;p&gt;Same as &lt;a href="#eq-26"&gt;eq (26)&lt;/a&gt;, $t_j = 
                 # draw K negative samples from P_nw
                 W_neg = np.random.choice(Pn_w.keys(), size=K, p=Pn_w.values())
 
-                # compute gradients. w is a hidden layer = input word vector
-                grad_V_output_pos = (sigmoid(c_pos * w) - 1) * w
-                grad_V_input = (sigmoid(c_pos * w) - 1) * c_pos
+                # compute gradients. w is a input word vector = hidden layer
+                grad_V_output_pos = (sigmoid(c_pos * h) - 1) * w
+                grad_V_input = (sigmoid(c_pos * h) - 1) * c_pos
                 grad_V_output_neg_list = []
                 for c_neg in W_neg:
-                    grad_V_output_neg_list.append(sigmoid(c_neg * w) * w)
-                    grad_V_input += sigmoid(c_neg * w) * c_neg
+                    grad_V_output_neg_list.append(sigmoid(c_neg * h) * h)
+                    grad_V_input += sigmoid(c_neg * h) * c_neg
 
                 # use SGD to update w, c_pos, and c_neg_1, ... , c_neg_K
                 V_output_pos = V_output_pos - alpha * grad_V_output_pos
@@ -2863,13 +2863,13 @@ $$&lt;/div&gt;&lt;p&gt;Same as &lt;a href="#eq-26"&gt;eq (26)&lt;/a&gt;, $t_j = 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Numerical-Demonstration"&gt;Numerical Demonstration&lt;a class="anchor-link" href="#Numerical-Demonstration"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For the ease of illustration, screenshots from Excel will be used to demonstrate the concept of updating weight matrices through forward and backward propagations.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Description of the Corpus&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Assume that the training corpus is the entire text in the book, "&lt;a href="https://en.wikipedia.org/wiki/A_Song_of_Ice_and_Fire" target="_black"&gt;A Song of Ice and Fire&lt;/a&gt;." Unlike the simple one-sentence training corpus used in my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#window_id" target="_blank"&gt;previous post&lt;/a&gt;, the training corpus needs to be much bigger to illustrate negative sampling, because we need to randomly draw negative samples that are unlikely to be observed with a center word in a pair. The sentence that has the current center word is &lt;em&gt;"Ned Stark is the most honorable man"&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Assume that the training corpus is the entire text in the book, "&lt;a href="https://en.wikipedia.org/wiki/A_Song_of_Ice_and_Fire" target="_black"&gt;A Song of Ice and Fire&lt;/a&gt;." Unlike the simple one-sentence training corpus used in my &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#window_id" target="_blank"&gt;previous post&lt;/a&gt;, the training corpus needs to be much bigger to illustrate negative sampling, because we need to randomly draw negative samples that are unlikely to be observed in a pair with a center word. The sentence that has the current center word is &lt;em&gt;"Ned Stark is the most honorable man"&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Center (input) word is &lt;code&gt;Ned&lt;/code&gt;, and window size is $C = 2$, making &lt;code&gt;Stark&lt;/code&gt; and &lt;code&gt;is&lt;/code&gt; context words. Number of negative samples drawn from the &lt;a href="#noise_dist"&gt;noise distribution&lt;/a&gt; for each positive pair is $K = 3$.&lt;/p&gt;
 &lt;div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/neg_training.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 9: Training corpus for negative sampling&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;For your information, Ned Stark is a fictional character from the book, &lt;em&gt;A Song of Ice and Fire&lt;/em&gt;. The book also has a TV show adaptation, known as the &lt;em&gt;Game of Thrones&lt;/em&gt; (GoT). Ned Stark is a noble lord of his land and has a reputation of being the most honorable man in the kingdom.&lt;/p&gt;
-&lt;p&gt;So here's the idea. The center word &lt;code&gt;Ned&lt;/code&gt; will be observed in pair with context words (postive) like &lt;code&gt;Stark&lt;/code&gt;, because it is his last name. The same thing goes for &lt;code&gt;is&lt;/code&gt; too, because &lt;code&gt;is&lt;/code&gt; is a verb tense used to describe a singular object.&lt;/p&gt;
+&lt;p&gt;So here's the idea. The center word &lt;code&gt;Ned&lt;/code&gt; will be observed in a pair with context words (postive) like &lt;code&gt;Stark&lt;/code&gt;, because it is his last name. The same thing goes for &lt;code&gt;is&lt;/code&gt; too, because &lt;code&gt;is&lt;/code&gt; is a verb tense used to describe a singular object.&lt;/p&gt;
 &lt;p&gt;However, &lt;code&gt;Ned&lt;/code&gt; most likely won't be observed in a pair with random words (negative) like &lt;code&gt;pimples&lt;/code&gt;, &lt;code&gt;zebra&lt;/code&gt;, &lt;code&gt;donkey&lt;/code&gt; within the book. If the model can differentiate between positive pairs and negative pairs as shown in &lt;a href="#fig5"&gt;figure 5&lt;/a&gt;, good word vectors will be learned.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2877,7 +2877,7 @@ $$&lt;/div&gt;&lt;p&gt;Same as &lt;a href="#eq-26"&gt;eq (26)&lt;/a&gt;, $t_j = 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="1.-Positive-word-pair:-(Ned,-Stark)"&gt;1. Positive word pair: (&lt;code&gt;Ned&lt;/code&gt;, &lt;code&gt;Stark&lt;/code&gt;)&lt;a class="anchor-link" href="#1.-Positive-word-pair:-(Ned,-Stark)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Recall that in negative sampling, one update is made for each of the positive training pairs. This means that $C$ weight updates for made for each input (center) word, where $C$ is the window size.&lt;/p&gt;
+&lt;h3 id="1.-Positive-word-pair:-(Ned,-Stark)"&gt;1. Positive word pair: (&lt;code&gt;Ned&lt;/code&gt;, &lt;code&gt;Stark&lt;/code&gt;)&lt;a class="anchor-link" href="#1.-Positive-word-pair:-(Ned,-Stark)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Recall that in negative sampling, one update is made for each of the positive training pairs. This means that $C$ weight updates are made for each input (center) word, where $C$ is the window size.&lt;/p&gt;
 &lt;p&gt;Our current positive word pair is (&lt;code&gt;Ned&lt;/code&gt;, &lt;code&gt;Stark&lt;/code&gt;). For the current positive pair, we &lt;a href="#neg_drawn"&gt;randomly draw&lt;/a&gt; $K=3$ negative words from the noise distribution: &lt;code&gt;pimples&lt;/code&gt;, &lt;code&gt;zebra&lt;/code&gt;, &lt;code&gt;idiot&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Forward Propagation: Computing hidden (projection) layer&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Hidden layer ($h$) is &lt;i&gt;looked up&lt;/i&gt; from $W_{input}$ by multiplying the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#input_layer" target="_blank"&gt;one-hot-encoded input vector&lt;/a&gt; with the &lt;a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#weight_matrix" target="_blank"&gt;input weight matrix&lt;/a&gt; $W_{input}$.&lt;/p&gt;
@@ -2906,7 +2906,7 @@ $$&lt;/div&gt;&lt;p&gt;Same as &lt;a href="#eq-26"&gt;eq (26)&lt;/a&gt;, $t_j = 
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 14: Computing output weight matrix gradient $\nabla W_{output}$&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Updating Weight matrices&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Input and output weight matrices ($[W_{input} \quad W_{output}]$) are updated using &lt;a href="#eq-26"&gt;eq (26)&lt;/a&gt; and &lt;a href="#eq-29"&gt;eq (29)&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="row"&gt;
+&lt;div class="row" id="fig15"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/neg_backward_4.png"&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 15: Updating $W_{input}$&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;div class="row"&gt;
@@ -10127,10 +10127,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="eb5a2980-3ac9-4f4a-b174-9f0855e3f04c"&gt;&lt;/div&gt;
+&lt;div id="56f38632-08c0-4ed0-b2be-77df86cd4bda"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#eb5a2980-3ac9-4f4a-b174-9f0855e3f04c');
+var element = $('#56f38632-08c0-4ed0-b2be-77df86cd4bda');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
