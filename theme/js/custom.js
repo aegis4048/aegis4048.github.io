@@ -125,6 +125,30 @@ function init_progressbar() {
     });
 }
 
+function init_panel_toolbox() {
+    $('.collapse-link').on('click', function () {
+        var $BOX_PANEL = $(this).closest('.solution_panel'),
+            $ICON = $(this).find('i'),
+            $BOX_CONTENT = $BOX_PANEL.find('.solution_content'),
+            $COMPONENT_PANEL = $BOX_PANEL.find('.panel-row');
+
+        // fix for some div with hardcoded fix class
+        if ($BOX_PANEL.hasClass('closed')) {
+            $BOX_CONTENT.slideToggle(200, function () {
+                $BOX_PANEL.toggleClass('closed');
+            });
+            $BOX_PANEL.css('height', 'auto');
+            $COMPONENT_PANEL.css('display', 'none');
+        } else {
+            $BOX_CONTENT.slideToggle(200, function () {
+                $BOX_PANEL.toggleClass('closed');
+            });
+            $COMPONENT_PANEL.css('display', 'block');
+        }
+
+        $ICON.toggleClass('fa-chevron-down fa-chevron-up');
+    });
+}
 
 $(document).ready(function() {
     check_width();
@@ -133,6 +157,7 @@ $(document).ready(function() {
     init_progressbar();
     jupyter_css();
     init_indexpage();
+    init_panel_toolbox();
 });
 
 

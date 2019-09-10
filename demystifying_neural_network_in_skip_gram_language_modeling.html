@@ -1279,45 +1279,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<style type="text/css">
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-</style>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="alert alert-info">
@@ -1485,7 +1447,7 @@ h6:hover .anchor-link {
 <div class="col-12"><p class="image-description">Table 1: Co-Occurence Matrix</p></div><p>Count-based language modeling is easy to comprehend — related words are observed (counted) together more often than unrelated words. Many attempts were made to improve the performance of the model to the state-of-art, using SVD, ramped window, and non-negative matrix factorization (<a href="https://pdfs.semanticscholar.org/73e6/351a8fb61afc810a8bb3feaa44c41e5c5d7b.pdf">Rohde et al. ms., 2005</a>), but the model did not do well in capturing complex relationships among words.</p>
 <p>Then, the paradigm started to change in 2013, when Thomas Mikolov proposed the prediction-based modeling technique, called Word2Vec, in his famous paper, <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">Distributed Representations of Words and Phrases and their Compositionality</a>. Unlike counting word co-occurrences, the model uses neural networks to learn intelligent representation of words in a vector space. Then, the paper submitted to ACL in 2014, <a href="http://www.aclweb.org/anthology/P/P14/P14-1023.pdf" target="_blank">Don’t count, predict! A systematic comparison of context-counting vs. context-predicting semantic vectors</a>, quantified & compared the performances of count-based vs prediction-based models.</p>
 <div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig1">
-<div class="col"><img src="jupyter_images/countpredictresults2.png"></div>
+<div class="col"><img src="jupyter_images/countpredictresults2.png"/></div>
 <div class="col-12"><p class="image-description">Figure 1: Performance comparison of models (<a href="http://www.marekrei.com/blog/dont-count-predict/">source</a>)</p></div>
 </div><p>The blue bars represent the count-based models, and the red bars are for prediction-based models. The full summary of the paper and more detailed description about the result graph can be found <a href="http://www.marekrei.com/blog/dont-count-predict/">here</a>. Long story short, <strong>prediction-based models outperformed count-based models</strong> by a large margin on various language tasks.</p>
 </div>
@@ -1496,7 +1458,7 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Prediction-based-word-embedding:-Word2Vec-Skip-Gram">Prediction-based word-embedding: Word2Vec Skip-Gram<a class="anchor-link" href="#Prediction-based-word-embedding:-Word2Vec-Skip-Gram">¶</a></h2><p>One of the prediction-based language model introduced by Mikolov is Skip-Gram:</p>
 <div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig2">
-<div class="col"><img src="jupyter_images/skip-gram-paper.png" style="height: 400px;"></div>
+<div class="col"><img src="jupyter_images/skip-gram-paper.png" style="height: 400px;"/></div>
 <div class="col-12"><p class="image-description">Figure 2: Original Skip-gram model architecture</p></div>
 </div><p><a href="#fig2">Figure 2</a> is a diagram presented in the original Word2Vec paper. It is essentially describing that the model uses a neural network of one hidden (projection) layer to correctly predict context words ($w(t-2)$, $w(t-1)$, $w(t+1)$, $w(t+2)$) of an input word ($w(t)$). In the other words, the model attempts to maximize the probability of observing all four context words together, given a center word. Mathematically, it can be denoted as <a href="#eq-1">eq (1)</a>. The training objective is to learn word vector representations that are good at predicting the nearby words.</p>
 <div class="alert alert-info">
@@ -1510,7 +1472,7 @@ h6:hover .anchor-link {
 <p><strong>What is the application of vector representations of words?</strong></p>
 <p>In Word2Vec, words are represented as vectors, and related words are placed closed to each other on a vector space. Mathematically, this means that the vector distance between related words are smaller than the vector distance between unrelated words.</p>
 <div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig3">
-<div class="col"><img src="jupyter_images/vector_distance.png"></div>
+<div class="col"><img src="jupyter_images/vector_distance.png"/></div>
 <div class="col-12"><p class="image-description">Figure 3: Vector distance between two words</p></div>
 </div><p>For example in <a href="#fig3">figure 3</a>, correlation between <em>"success"</em> and <em>"achieve"</em> can be quantified by computing the vector distance between them (Notes: For illustration purpose, three-dimensional word vectors are assumed in the figure, because higher dimensional vectors can't be visualized. Also, distance annotated in the figure is Euclidean, but in real-life, we use Cosine distance to evaluate vector correlations).</p>
 <p>One interesting application of vector representaion of words is that it can be used to solve analogy tasks. Let's assume the following word vectors for <em>"Germany"</em>, <em>"capital"</em>, and <em>"Berlin"</em>.</p>
@@ -1618,7 +1580,7 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{11}$$</div><p>This is equivalent to <a href="
   <span>- Ned Stark</span>
 </blockquote><div id="window_id"></div><p>We will use <code>window=1</code>, and assume that <i>'passes'</i> is the current center word, making <i>'who'</i> and <i>'the'</i> context words. <code>window</code> is a hyper-parameter that can be empirically tuned. It typically has a range of $[1, 10]$.</p>
 <div class="row give-margin-inline-big-plot" id="fig4">
-<div class="col"><img src="jupyter_images/quote_ned_stark.png"></div>
+<div class="col"><img src="jupyter_images/quote_ned_stark.png"/></div>
 <div class="col-12"><p class="image-description">Figure 4: Training Window</p></div>
 </div><div id="size_3"></div>
 For illustration purpose, a three-dimensional neural net will be constructed. In *gensim*, this can be implemented by setting <code>size=3</code>. This makes $N = 3$. Note that <code>size</code> is also a hyper-parameter that can be empirically tuned. In real life, a typical Word2Vec model has 200-600 neurons. 
@@ -1634,7 +1596,7 @@ For illustration purpose, a three-dimensional neural net will be constructed. In
 This means that the input weight matrix ($W_{input}$) will have a size of $8 \times 3$, and output weight matrix ($W_{output}^T$) will have a size of $3 \times 8$. Recall that the corpus, <i>"The man who passes the sentence should swing the sword"</i>, has 8 unique vocabularies ($V = 8$). 
 
 <div class="row" id="fig5">
-<div class="col"><img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"></div>
+<div class="col"><img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"/></div>
 <div class="col-12"><p class="image-description">Figure 5: Skip-Gram model structure</p></div>
 </div>
 </div>
@@ -1653,7 +1615,7 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 <div class="text_cell_render border-box-sizing rendered_html">
 <div id="input_layer"></div><h3 id="Input-Layer-($x$)">Input Layer ($x$)<a class="anchor-link" href="#Input-Layer-($x$)">¶</a></h3><p>The input layer is a $V$-dim one-hot encoded vector. Every element in the vector is 0 except one element that corresponds to the center (input) word. Input vector is multiplied with the input weight matrix ($W_{input}$) of size $V \times N$, and yields a hidden (projection) layer ($h$) of $N$-dim vector. Because the input layer is one-hot encoded, it makes the input weight matrix ($W_{input}$) to behave like a <em>look-up table</em> for the center word. Assuming epoch number of 1 (<code>iter=1</code> in <em>gensim</em> Word2Vec implementation) and stochastic gradient descent, the input vector is injected into the network $T$ times for every word in the corpus and makes $T$ updates to the weight matrix ($\theta$) to learn from the training samples. Derivation of the stochasitc update equations are explained <a href="#backward">below</a>.</p>
 <div class="row">
-<div class="col"><img src="jupyter_images/one-hot-vector.png"></div>
+<div class="col"><img src="jupyter_images/one-hot-vector.png"/></div>
 <div class="col-12"><p class="image-description">Figure 6: One-hot encoded input vector and parameter update</p></div>
 </div><div id="stochastic"></div>
 <div class="alert alert-info">
@@ -1677,11 +1639,11 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 <div id="weight_matrix"></div><h3 id="Input-and-Output-Weight-Matrix--($W_{input}$,-$W_{output}$)">Input and Output Weight Matrix  ($W_{input}$, $W_{output}$)<a class="anchor-link" href="#Input-and-Output-Weight-Matrix--($W_{input}$,-$W_{output}$)">¶</a></h3><p>Why does Skip-Gram model attempt to predict context words given a center word? How does predicting context words help with quantifying words and representing them in a vector space? In fact, the ultimate goal of the model is not to predict context words, but to construct the word embedding matrices ($W_{input}$, $W_{output}$) that best caputure relationship among words in a vector space. Skip-Gram achieves this by using a neural net — it optimizes the weight (embedding) matrices by adjusting the weight matrix to minimize the <a href="#predict_error">prediction error</a> ($y_{pred} - y_{true}$). This will make more sense once you understand how the embedding matrix behaves like a <em>look-up table</em>.</p>
 <p>Each row in a word-embedding matrix is a word-vector for each word. Consider the following word-embedding matrix, $W_{input}$.</p>
 <div class="row give-margin-inline-plot mobile_responsive_plot_full_width">
-<div class="col"><img src="jupyter_images/embedding_matrix_input.png" style="height: 300px;"></div>
+<div class="col"><img src="jupyter_images/embedding_matrix_input.png" style="height: 300px;"/></div>
 <div class="col-12"><p class="image-description">Figure 7: Word-embedding matrix, $W_{input}$</p></div>
 </div><p>The words of our interest are <em>"passes"</em> and <em>"should"</em>. <em>"passes"</em> has a word vector of $[0.1 \quad 0.2 \quad 0.7]$ and <em>"should"</em> has $[-2 \quad 0.2 \quad 0.8]$. Since we set the size of the weight matrix to be <code>size=3</code> <a href="#size_3">above</a>, the matrix is three-dimensional, and can be visualized in a 3D vector space:</p>
 <div class="row full_screen_margin_md mobile_responsive_plot_full_width">
-<div class="col"><img src="jupyter_images/word2vec_3d.png" style="height: 300px;"></div>
+<div class="col"><img src="jupyter_images/word2vec_3d.png" style="height: 300px;"/></div>
 <div class="col-12"><p class="image-description">Figure 8: 3D visualization of word vectors in embedding matrix</p></div>
 </div><p>Optimizing the embedding (weight) matrices ($\theta$) results in representing words in a high quality vector space, and the model will be able to capture meaningful relationships among words.</p>
 <div id="theta_in_cost"></div>
@@ -1699,7 +1661,7 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 <div class="text_cell_render border-box-sizing rendered_html">
 <div id="hidden_layer"></div><h3 id="Hidden-(Projection)-Layer-($h$)">Hidden (Projection) Layer ($h$)<a class="anchor-link" href="#Hidden-(Projection)-Layer-($h$)">¶</a></h3><p>Skip-Gram uses a neural net with one hidden layer. In the context of natural language processing, hidden layer is often referred to as a <em>projection</em> layer, because $h$ is essentially an 1D vector projected by the one-hot encoded input vector.</p>
 <div class="row full_screen_margin mobile_responsive_plot_full_width">
-<div class="col"><img src="jupyter_images/skip-gram_lookup.png"></div>
+<div class="col"><img src="jupyter_images/skip-gram_lookup.png"/></div>
 <div class="col-12"><p class="image-description">Figure 9: Computing projection layer</p></div>
 </div><p>$h$ is obtained by multiplying the input word embedding matrix with the $V$-dim input vector.</p>
 <div id="eq-12" style="font-size: 1rem;">$$h = W_{input}^T \cdot x  \in \mathbb{R}^{N} \tag{12}$$</div>
@@ -1714,7 +1676,7 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 <p>This probability is computed $V$ times to obtain a conditional probability distribution of observing each unique vocabs in the corpus, given a center word.</p>
 <div id="eq-14" style="font-size: 1rem;">$$ \left[ \begin{array}{c} p(w_{1}|w_{center}) \\ p(w_{2}|w_{center}) \\ p(w_{3}|w_{center}) \\ \vdots \\ p(w_{V}|w_{center}) \end{array} \right] = \frac{exp(W_{output} \cdot h)}{\sum^V_{i=1}exp(W_{output_{(i)}} \cdot h)} \in \mathbb{R}^{V}\tag{14} $$</div><p>$W_{output}$ in the denominator of eq 13 has size $V \times N$. Multiplying $W_{output}$ with $h$ of size $N \times 1$ will yield a dot product vector of size $V \times 1$. This dot product vector goes through the softmax function:</p>
 <div class="row full_screen_margin_md mobile_responsive_plot_full_width">
-<div class="col"><img src="jupyter_images/softmax_function.png"></div>
+<div class="col"><img src="jupyter_images/softmax_function.png"/></div>
 <div class="col-12"><p class="image-description">Figure 10: softmax function transformation</p></div>
 </div><p>The exponentiation ensures that the transformed values are positive, and the normalization factor in the denominator ensures that the values have a range of $[0, 1)$. The result is a conditional probability distribution of observing each unique vocabs in the corpus, given a center word.</p>
 <div class="alert alert-info" id="negsample">
@@ -1754,12 +1716,12 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 <div class="text_cell_render border-box-sizing rendered_html">
 <div id="predict_error"></div><h3 id="Prediction-Error-($y_{pred}---y_{true}$)">Prediction Error ($y_{pred} - y_{true}$)<a class="anchor-link" href="#Prediction-Error-($y_{pred}---y_{true}$)">¶</a></h3><p>Skip-Gram model optimizes the weight matrix ($\theta$) to reduce the prediction error. Prediction error is the difference between the probability distribution of words computed from the <a href="#output_layer">softmax output layer</a> ($y_{pred}$) and the true probability distribution ($y_{true}$) of the $c$-th context word. Just like the input layer, $y_{true}$ is one-hot encoded vector, in which only one element in the vector that corresponds to the $c$-th context word is $1$, and the rest is all $0$.</p>
 <div class="row give-margin-inline-plot">
-<div class="col"><img src="jupyter_images/error_window.png" style="height: 400px;"></div>
+<div class="col"><img src="jupyter_images/error_window.png" style="height: 400px;"/></div>
 <div class="col-12"><p class="image-description">Figure 11: Prediction error window</p></div>
 </div><p>The figure has a window size of $2$, so two prediction errors were computed. Recall from the above notes about the <a href="#window_size">window size</a> that the original softmax regression classifier (<a href="#eq-10">eq (10)</a>) has $K$ labels to classify, in which $K = V$ in NLP applications because there are $V$ words to classify. Employing window size transforms <a href="#eq-10">eq (10)</a> into <a href="#eq-11">eq (11)</a> and significantly reduces the algorithm complexity because the model only needs to compute prediction errors for $[1, 10]$ neighboring words, instead of computing all $V$-prediction errors for all vocabs that can be millions or more.</p>
 <p>Then, prediction errors for all $C$ context words are summed up to compute weight gradients to the update weight matrices.</p>
 <div class="row full_screen_margin mobile_responsive_plot_full_width">
-<div class="col"><img src="jupyter_images/prediction_error_sum.png" style="height: 230px;"></div>
+<div class="col"><img src="jupyter_images/prediction_error_sum.png" style="height: 230px;"/></div>
 <div class="col-12"><p class="image-description">Figure 12: Sum of prediction errors</p></div>
 </div>
 </div>
@@ -1772,35 +1734,35 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 <p><strong>Forward Propagation: Computing hidden (projection) layer</strong></p>
 <p>Center word is <em>"passes"</em>. Window size is <code>size=1</code>, making <em>"the"</em> and <em>"who"</em> context words. Hidden layer ($h$) is <i>looked up</i> from the input weight matrix. It is computed with <a href="#eq-12">eq (12)</a>.</p>
 <div class="row">
-<div class="col"><img src="jupyter_images/forward_1.png"></div>
+<div class="col"><img src="jupyter_images/forward_1.png"/></div>
 <div class="col-12"><p class="image-description">Figure 13: Computing hidden (projection) layer</p></div>
 </div><div id="forward_softmax"></div><p><strong>Forward Propagation: Softmax output layer</strong></p>
 <p>Output layer is a probability distribution of all words, given a center word. It is computed with <a href="#eq-14">eq (14)</a>. Note that all context windows share the same output layer ($y_{pred}$). Only the errors ($e_c$) are different.</p>
 <div class="row">
-<div class="col"><img src="jupyter_images/forward_2.png"></div>
+<div class="col"><img src="jupyter_images/forward_2.png"/></div>
 <div class="col-12"><p class="image-description">Figure 14: Softmax output layer</p></div>
 </div><p><strong>Backward Propagation: Sum of Prediction Errors</strong></p>
 <p>$C$ different prediction errors are computed, then summed up. In this case, since we set <code>window=1</code> <a href="#window_id">above</a>, only two errors are computed.</p>
 <div class="row">
-<div class="col"><img src="jupyter_images/backward_1.png"></div>
+<div class="col"><img src="jupyter_images/backward_1.png"/></div>
 <div class="col-12"><p class="image-description">Figure 15: Prediction errors of context words</p></div>
 </div><p><strong>Backward Propagation: Computing $\nabla W_{input}$</strong></p>
 <p>Gradients of input weight matrix ($\frac{\partial J}{\partial W_{input}}$) are computed using <a href="#eq-18">eq (18)</a>. Note that multiplying $W_{output}^T \sum^C_{c=1} e_c$ with the one-hot-encoded input vector ($x$) makes the neural net to <u>update only one word vector</u> that corresponds to the input (center) word.</p>
 <div class="row">
-<div class="col"><img src="jupyter_images/backward_2.png"></div>
+<div class="col"><img src="jupyter_images/backward_2.png"/></div>
 <div class="col-12"><p class="image-description">Figure 16: Computing input weight matrix gradient $\nabla W_{input}$</p></div>
 </div><p><strong>Backward Propagation: Computing $\nabla W_{output}$</strong></p>
 <p>Gradients of output weight matrix ($\frac{\partial J}{\partial W_{output}}$) are computed using <a href="#eq-19">eq (19)</a>. Unlike the input weight matrix ($W_{input}$), all word vectors in the output weight matrix ($W_{output}$) are updated.</p>
 <div class="row">
-<div class="col"><img src="jupyter_images/backward_3.png"></div>
+<div class="col"><img src="jupyter_images/backward_3.png"/></div>
 <div class="col-12"><p class="image-description">Figure 17: Computing output weight matrix gradient $\nabla W_{output}$</p></div>
 </div><div id="weight_update"></div><p><strong>Backward Propagation: Updating Weight matrices</strong></p>
 <p>Input and output weight matrices ($[W_{input} \quad W_{output}]$) are updated using <a href="#eq-20">eq (20)</a> and <a href="#eq-21">eq (21)</a>.</p>
 <div class="row">
-<div class="col"><img src="jupyter_images/backward_4.png"></div>
+<div class="col"><img src="jupyter_images/backward_4.png"/></div>
 <div class="col-12"><p class="image-description">Figure 18: Updating $W_{input}$</p></div>
 </div><div class="row">
-<div class="col"><img src="jupyter_images/backward_5.png"></div>
+<div class="col"><img src="jupyter_images/backward_5.png"/></div>
 <div class="col-12"><p class="image-description">Figure 19: Updating $W_{output}$</p></div>
 </div><p>Note that for each iteration in the learning process, all weights in $W_{output}$ are updated, but only one row vector that corresponds to the center word is updated in $W_{input}$. When the model finishes updating both of the weight matrices, then one iteration is completed. The model then moves to the next iteration with the next center word. However, remember that this uses <a href="#eq-8">eq (8)</a> as the cost function and assumes <a href="#stochastic">stochastic gradient descent</a>. This means that one update is made for each training example. If <a href="#eq-9">eq (9)</a> is used as a cost function instead (which is almost never the case), then one update is made for all $T$ training examples in the corpus.</p>
 </div>
