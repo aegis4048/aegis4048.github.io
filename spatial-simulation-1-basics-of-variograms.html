@@ -1272,45 +1272,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<style type="text/css">
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-</style>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><em>The code snippet assumes Anaconda 5.2.0 version of Python virtual environment</em></p>
@@ -1327,7 +1289,7 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's say that you are a spatial data analyst of a gold mining company, and want to know the distribution of gold percentage over 100m x 100m mining area. To understand the characteritics of the rock formations, you take 100 random rock samples from the mining area, but obviously these 100 data points are not enough to estimate gold percentage over every single spatial locations in the area. So you analyze the available data (100 rock samples from random locations) and simulate full 2D-surface plot for gold percentage over the mining area.</p>
 <div class="row give-margin">
-<div class="col"><img src="jupyter_images/gold_transform.png"></div>
+<div class="col"><img src="jupyter_images/gold_transform.png"/></div>
 </div><p>This 2D surface simulation from sparse spatial data is a sequential process that involved a series of geostatistical techniques.</p>
 <p>Steps:</p>
 <ol>
@@ -1354,7 +1316,7 @@ h6:hover .anchor-link {
     </div>
 </div>
 <div class="row give-margin-inline-big-plot">
-<div class="col-12"><img src="jupyter_images/basic_variogram.png"></div>
+<div class="col-12"><img src="jupyter_images/basic_variogram.png"/></div>
 </div><p><u>Variables Explained</u></p><p>$\gamma(h)$ = a measure of dissimilarity vs distance. It is a spatial variance between two data points separated by the distance, $h$.</p>
 <p>$N(h)$ = number of all data point pairs separated by the distance, $h$.</p>
 <p>$h$ = lag distance. Separation between two data points.</p>
@@ -1363,27 +1325,27 @@ h6:hover .anchor-link {
 <p>$z(u_{\alpha })$ = numerical value of data point, $u_{\alpha }$</p>
 <p>$z(u_{\alpha} + h)$ = numerical value of data point, $u_{\alpha} + h$</p>
 <p>$\sigma^2$ = sill. Variance at lag distance, $h$, in which spatial data pairs lose correlation.</p>
-<hr>
+<hr/>
 <p><strong>Observation 1:</strong> $z(u_{\alpha })$ - $z(u_{\alpha} + h)$</p>
 <div class="row give-margin-inline-plot">
-<div class="col-12"><img src="jupyter_images/grid_1.png" style="border: 1px solid;"></div>
+<div class="col-12"><img src="jupyter_images/grid_1.png" style="border: 1px solid;"/></div>
 </div><p>There are two data points on the image: $z(u_{\alpha })$ and $z(u_{\alpha } + h)$. These two points are separated by the lag distance, $h$. The equation for variogram observes the difference between these two data points:</p>
 $$z(u_{\alpha })-z(u_{\alpha} + h)$$<p></p>
 <p><strong>Observation 2:</strong> $N(h)$</p>
 <div class="row give-margin-inline-plot">
-<div class="col-12"><img src="jupyter_images/grid_2.png" style="border: 1px solid;"></div>
+<div class="col-12"><img src="jupyter_images/grid_2.png" style="border: 1px solid;"/></div>
 </div><p>$N(h)$ accounts for <u>all</u> data point pairs that are separated by lag distance $h$. Although only horizontal separation is shown in the image, separation between two data points can be horizontal, vertical, or diagonal. Variogram will calculate the difference between all pairs of data points, $z(u_{\alpha })-z(u_{\alpha} + h)$, that are separated lag distance, $h$.</p>
 $$\sum_{\alpha =1}^{N(h)}\left ( z(u_{\alpha })-z(u_{\alpha} + h) \right)^2$$<p><strong>Observation 3:</strong> $\gamma (h)$</p>
 <p>$\gamma (h)$ denotes for variability of spatial data points at a lag distance, $h$. Recall that variogram accounts for <u>all</u> pairs separated by distance, $h$. It may seem very simple, but one little dot on a variogram plot is actually obtained after iterating for all pairs separated by $h$.</p>
 <p>$\underline{ h = 1m }$</p>
 <div class="row">
-<div class="col-12"><img src="jupyter_images/grid_3.png"></div>
+<div class="col-12"><img src="jupyter_images/grid_3.png"/></div>
 </div><p>$\underline{ h = 2m }$</p>
 <div class="row">
-<div class="col-12"><img src="jupyter_images/grid_4.png"></div>
+<div class="col-12"><img src="jupyter_images/grid_4.png"/></div>
 </div><p>$\underline{ h = 3m }$</p>
 <div class="row">
-<div class="col-12"><img src="jupyter_images/grid_5.png"></div>
+<div class="col-12"><img src="jupyter_images/grid_5.png"/></div>
 </div><p>Observe how there were less data pairs connected by red lines for $h = 3m$. As the $h$ increases, there will be fewer number of pairs that are separated by $h$ due to spatial limitation.</p>
 <p><strong>Observation 4:</strong> Sill ($\sigma^2$)</p>
 <p>Sill ($\sigma^2$) is the variance in which spatial data pairs lose correlation. As the distance between two data points increases, it will be less likely that those two data points are related to one another. You may assume that the oil wells separated by 100 ft exibit similar geologic characteristics, but you can't assume the same for a well in Texas and a well in California. Variogram works the similar way.</p>
@@ -1408,31 +1370,31 @@ $$\sum_{\alpha =1}^{N(h)}\left ( z(u_{\alpha })-z(u_{\alpha} + h) \right)^2$$<p>
 <h2 id="Experimental-Variogram:-Search-Template-Parameters">Experimental Variogram: Search Template Parameters<a class="anchor-link" href="#Experimental-Variogram:-Search-Template-Parameters">¶</a></h2><p>Calculating variogram is challenging because real-life data are not as clean as the 2-D grid sample images shown above. Real-life data are often sparse data that are irregularly spaced. The sparse data you will get in real-life will have very few, or even no data point pairs that are EXACTLY $h$ distance apart from each other. Furthermore, the data points will not always be orthogonal or pararell to each other — there will be diagonalities.</p>
 <div class="row give-margin-inline-big-plot">
 <div class="col-md-6 col-sm-12">
-<div class="col-12"><img src="jupyter_images/spacing_regurlar.png"></div>
+<div class="col-12"><img src="jupyter_images/spacing_regurlar.png"/></div>
 <div class="col-12"><p class="image-description">regular Spacing</p></div>
 </div>
 <div class="col-md-6 col-sm-12">
-<div class="col-12"><img src="jupyter_images/spacing_irregurlar.png"></div>
+<div class="col-12"><img src="jupyter_images/spacing_irregurlar.png"/></div>
 <div class="col-12"><p class="image-description">irregular Spacing</p></div>
 </div>
 </div><p>So how do we get pairs separated by lag distance, $h$? We need to consider distance, tolerance, azimuth direction, azimuth tolerance, dip direction, dip tolerance, bandwith in horizontal plane, and bandwidth in vertical plane — through a set of guidelines called <strong>Variogram Search Template</strong>.</p>
 <div class="row give-margin-inline-big-plot">
 <div class="col-md-6 col-sm-12">
-<div class="col-12"><img src="jupyter_images/search_template_1.png"></div>
+<div class="col-12"><img src="jupyter_images/search_template_1.png"/></div>
 </div>
 <div class="col-md-6 col-sm-12">
-<div class="col-12"><img src="jupyter_images/search_template_2.png"></div>
+<div class="col-12"><img src="jupyter_images/search_template_2.png"/></div>
 </div>
 <div class="col-12"><p class="image-description">variogram Search Template</p></div>
 </div><p><strong>Choice of Azimuth (Directionality)</strong></p>
 <div class="row give-margin-inline-plot">
-<div class="col-12"><img src="jupyter_images/variogram_step_1.png"></div>
+<div class="col-12"><img src="jupyter_images/variogram_step_1.png"/></div>
 <div class="col-12"><p class="image-description">ellipsoidal growth in orthogonal directions, 3D</p></div>
 </div><p>Natural process does not lead to omnidirectionality. Typically there is a direction of major continuity, such as statigraphic surface, and a direction minimum continuity such as perpendicular layers. The choice of azimuth is carefully decided after combining knowledge of geologists and geologic understanding of the region from previously sampled data.</p>
 <p>There are three orthogonal directions — horizontal major, horizontal minor, and vertical. The "vertical" directional is assumed to be the direction orthogonal to the horizontal plane; the vertical direction doesn't have to correspond to the Z-axis. The three mutually orthogonal directions grow in ellipsoidal shape, with the horizontal major axis constituting the longer radius the ellipse.</p>
 <p>Azimuth decides the direction of horizontal major axis. In typical geometry, an angle ($\theta$) is measured from the positive X-axis, but in variogram, azimuth is measured from the positive Y-axis.</p>
 <div class="row give-margin-inline-plot">
-<div class="col-12"><img src="jupyter_images/variogram_azimuth_axis.png"></div>
+<div class="col-12"><img src="jupyter_images/variogram_azimuth_axis.png"/></div>
 </div><div class="alert alert-info">
 <h4>Notes</h4>
 <p>According to an article written by <a href="http://geostatisticslessons.com/pdfs/variogramparameters.pdf">Jared Deutsch</a>, in the absence of strong geologic evidence, a neutral isotropic model can be constructed to assist in determining a principle direction (in later code implementation, isotropy is established by setting <code>azi_tol=90</code>. You are allowing for $\pm$90 degrees of azimuth tolerance). Using ordinary kriging, a neutral model would be constructed with an isotropic, long range, high nugget effect variogram. You will check if you can observe any directionality in this neutral model, and combine it with other geologic knowledge to assist in determinng the principle direction.
@@ -1441,11 +1403,11 @@ $$\sum_{\alpha =1}^{N(h)}\left ( z(u_{\alpha })-z(u_{\alpha} + h) \right)^2$$<p>
 <p>Azimuth tolerance should be chosen such that maximum number of pairs are found in the search template and exclude unreasonable associations. A common choice of azimuth tolerance is 22.5°. However, it can be changed to make a decision about whether to increase precision, or stability. Reducing angle tolerance will give precise variogram (<em>figure 1</em>), and increasing angle tolerance will give stable variogram (<em>figure 2</em>).</p>
 <div class="row">
 <div class="col-md-6 col-sm-12">
-<div class="col-12"><img src="jupyter_images/variogram_azi_tol_low.png"></div>
+<div class="col-12"><img src="jupyter_images/variogram_azi_tol_low.png"/></div>
 <div class="col-12"><p class="image-description">figure 1: smaller azimuth tol -> precise</p></div>
 </div>
 <div class="col-md-6 col-sm-12">
-<div class="col-12"><img src="jupyter_images/variogram_azi_tol_high.png"></div>
+<div class="col-12"><img src="jupyter_images/variogram_azi_tol_high.png"/></div>
 <div class="col-12"><p class="image-description">figure 2: bigger azimuth tol -> stable</p></div>
 </div>
 </div><p><strong>Choice of Lag Distance</strong></p>
@@ -1453,50 +1415,50 @@ $$\sum_{\alpha =1}^{N(h)}\left ( z(u_{\alpha })-z(u_{\alpha} + h) \right)^2$$<p>
 <p>Observe how the <em>figure 4</em> shows misleading information about the region. The figure tells us that the correlation becomes stronger for pairs separated by $h > 50$ as their distance increases. This is inconsistent with natural process — we expect the spatial correlation among pairs to decrease as they are further apart from each other.</p>
 <div class="row">
 <div class="col-md-4 col-sm-12 no-padding">
-<div class="col-12 no-padding mobile_responsive_plot"><img src="jupyter_images/variogram_lag_sample_data.png"></div>
+<div class="col-12 no-padding mobile_responsive_plot"><img src="jupyter_images/variogram_lag_sample_data.png"/></div>
 <div class="col-12"><p class="image-description">figure 3: sample Data</p></div>
 </div>
 <div class="col-md-4 col-sm-12 no-padding">
-<div class="col-12 no-padding mobile_responsive_plot"><img src="jupyter_images/variogram_lag_domain_length_full.png"></div>
+<div class="col-12 no-padding mobile_responsive_plot"><img src="jupyter_images/variogram_lag_domain_length_full.png"/></div>
 <div class="col-12"><p class="image-description">figure 4: total lag = field length</p></div>
 </div>
 <div class="col-md-4 col-sm-12 no-padding">
-<div class="col-12 no-padding mobile_responsive_plot"><img src="jupyter_images/variogram_lag_domain_length_half.png"></div>
+<div class="col-12 no-padding mobile_responsive_plot"><img src="jupyter_images/variogram_lag_domain_length_half.png"/></div>
 <div class="col-12"><p class="image-description">figure 5: total lag = field length / 2</p></div>
 </div>
 </div><p>Increasing the number of lag distance will result in fewer lag bins, which means that there will be fewer points on the calculated variogram (<em>figure 6</em>). There will be a trade-off between stability and precision, and an engineer must carefully choose the parameters that is the best representative of the geology of the region.</p>
 <div class="row">
 <div class="col-md-6 col-sm-12">
-<div class="col-12"><img src="jupyter_images/variogram_lag_bins_few.png"></div>
+<div class="col-12"><img src="jupyter_images/variogram_lag_bins_few.png"/></div>
 <div class="col-12"><p class="image-description">figure 6: stable, but imprecise</p></div>
 </div>
 <div class="col-md-6 col-sm-12">
-<div class="col-12"><img src="jupyter_images/variogram_lag_bins_many.png"></div>
+<div class="col-12"><img src="jupyter_images/variogram_lag_bins_many.png"/></div>
 <div class="col-12"><p class="image-description">figure 7: precise, but unstable</p></div>
 </div>
 </div><p><strong>Choice of Lag Tolerance</strong></p>
 <p>Lag tolerance is usually half of the lag distance (<em>figure 8</em>). Choosing lag tolerance smaller than 1/2 lag distance will result in missing out data pairs that are not within the lag tolerance (<em>figure 9</em>). Choosing lag tolerance bigger than 1/2 lag distance will result in overlapping of data pairs (<em>figure 10</em>).</p>
 <div class="row">
 <div class="col-md-4 col-sm-12">
-<div class="col-12 no-padding mobile_responsive_plot"><img src="jupyter_images/variogram_lag_tol_ideal.png"></div>
+<div class="col-12 no-padding mobile_responsive_plot"><img src="jupyter_images/variogram_lag_tol_ideal.png"/></div>
 <div class="col-12"><p class="image-description">figure 8: lag tol. = 1/2 lag dist.</p></div>
 </div>
 <div class="col-md-4 col-sm-12">
-<div class="col-12 no-padding mobile_responsive_plot"><img src="jupyter_images/variogram_lag_tol_small.png"></div>
+<div class="col-12 no-padding mobile_responsive_plot"><img src="jupyter_images/variogram_lag_tol_small.png"/></div>
 <div class="col-12"><p class="image-description">figure 9: lag tol. < 1/2 lag dist.</p></div>
 </div>
 <div class="col-md-4 col-sm-12">
-<div class="col-12 no-padding mobile_responsive_plot"><img src="jupyter_images/variogram_lag_tol_big.png"></div>
+<div class="col-12 no-padding mobile_responsive_plot"><img src="jupyter_images/variogram_lag_tol_big.png"/></div>
 <div class="col-12"><p class="image-description">figure 10: lag tol. > 1/2 lag dist.</p></div>
 </div>
 </div><p>Although the lag tolerance is usually half of the lag distance, in cases of erratic variograms, we may choose to overlap calculations by setting lag tolerance that is greater than half of the lag distance to increase stability in a variogram. Overlapping calculations has an effect of smoothing out and reducing noise in the calculated variogram (<em>figure 12</em>). Smoothing out the calculated variogram maybe helpful in fitting a variogram model later. However, be careful not to smooth out too much, as it will result in imprecise variogram model that is not representative of the regional geology. A decision between stability and precision must be made.</p>
 <div class="row">
 <div class="col-md-6 col-sm-12">
-<div class="col-12"><img src="jupyter_images/variogram_lag_tol_noisy.png"></div>
+<div class="col-12"><img src="jupyter_images/variogram_lag_tol_noisy.png"/></div>
 <div class="col-12"><p class="image-description">figure 11: noisy</p></div>
 </div>
 <div class="col-md-6 col-sm-12">
-<div class="col-12"><img src="jupyter_images/variogram_lag_tol_smooth.png"></div>
+<div class="col-12"><img src="jupyter_images/variogram_lag_tol_smooth.png"/></div>
 <div class="col-12"><p class="image-description">figure 12: smooth</p></div>
 </div>
 </div><p><strong>Choice of Bandwidth</strong></p>

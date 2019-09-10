@@ -1270,50 +1270,12 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<style type="text/css">
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-</style>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>If you’ve ever tried to do anything with data provided to you in PDFs, you know how painful it is — it's hard to copy-and-paste rows of data out of PDF files. It's especially hard if you want to retain the formats of the data in PDF file while extracting text. Most of the open source PDF parsers available are good at extracting text. But when it comes to retaining the the file's structure, eh, not really. Try <a href="https://github.com/chezou/tabula-py">tabula-py</a> to extract data into a CSV or Excel spreadsheet using a simple, easy-to-use interface. One look is worth a thousand words. Take a look at the demo screenshot.</p>
 <div class="row">
-<div class="col"><img src="jupyter_images/pdf_parse_demo.png"></div>
+<div class="col"><img src="jupyter_images/pdf_parse_demo.png"/></div>
 </div>
 </div>
 </div>
@@ -1328,8 +1290,8 @@ h6:hover .anchor-link {
 <p>One thing that I don't like about Windows is that it's difficult to use a new program I downloaded in a console environment like Python or CMD window. But oh well, if you are a Windows user, you have to go through this extra step to allow Python to use Java. If you are a macOS or Ubuntu user, you probably don't need this step.</p>
 <p>Find where Java is installed, and go to <code>Control Panel > System and Security > System > Advanced system settings > Advanced > Environment Variables...</code> to set environment PATH variable for Java.</p>
 <div class="row give-margin">
-<div class="col-6"><img src="jupyter_images/tabula_instruction_1.png" style="border: 1px solid;"></div>
-<div class="col-6"><img src="jupyter_images/tabula_instruction_2.png" style="border: 1px solid;"></div>
+<div class="col-6"><img src="jupyter_images/tabula_instruction_1.png" style="border: 1px solid;"/></div>
+<div class="col-6"><img src="jupyter_images/tabula_instruction_2.png" style="border: 1px solid;"/></div>
 </div><p>Make sure you have <code>Java\jdk1.8.0_201\bin</code> and <code>Java\jre1.8.0_201\bin</code> in the environment path variable. Then, type <code>java -version</code> on CMD window. If you successfully installed Java and configured the environment variable, you should see something like this:</p>
 <pre class="command-line language-powershell" data-output="2-5" data-prompt="(base) C:\Users\Eric>">
 <code class="language-powershell">java -version
@@ -1379,20 +1341,20 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 </div><p><strong>Screenshots</strong></p>
 <p>This is what you will see when you launch <code>tabula.exe</code>. <code>Browse...</code> the PDF file you want to parse, and <code>import</code>.</p>
 <div class="row give-margin">
-<div class="col"><img src="jupyter_images/tabula-webapp.png" style="border: solid 1px;"></div>
+<div class="col"><img src="jupyter_images/tabula-webapp.png" style="border: solid 1px;"/></div>
 </div><p>You can either use <code>Autodetect Tables</code> or drag your mouse to choose the area of your interest. If the PDF file has a  complicated structure, it is usually better to manually choose the area of your interest. Also, note the option <code>Repeat to All Pages</code>. Selecting this option will apply the area you chose for all pages.</p>
 <div class="row give-margin">
-<div class="col"><img src="jupyter_images/tabula-webapp_2.png" style="border: solid 1px;"></div>
+<div class="col"><img src="jupyter_images/tabula-webapp_2.png" style="border: solid 1px;"/></div>
 </div><p>Here's the output. More explanation about <code>Lattice</code> and <code>Stream</code> options will be discussed in detail later.</p>
 <div class="row give-margin">
-<div class="col"><img src="jupyter_images/tabula-webapp_3.png" style="border: solid 1px;"></div>
+<div class="col"><img src="jupyter_images/tabula-webapp_3.png" style="border: solid 1px;"/></div>
 </div><p><strong>Template JSON Files</strong></p>
 <p>Tabula web-app accepts the user's drag & click as input and translates it into Java arguments that are actually used behind the scenes to parse PDF files. The translated Java arguments are accessible to users in a JSON format.</p>
 <p>Select the area you want to parse, and click <code>Save Selections as Template</code>. Then, <code>Download</code> the translated Java arguments in a text JSON file. These arguments are useful when coding arguments for <code>tabula.read_pdf()</code> later.</p>
 <div class="row give-margin">
-<div class="col"><img src="jupyter_images/template_1.png" style="border: solid 1px;"></div>
+<div class="col"><img src="jupyter_images/template_1.png" style="border: solid 1px;"/></div>
 </div><div class="row give-margin">
-<div class="col"><img src="jupyter_images/template_2.png" style="border: solid 1px;"></div>
+<div class="col"><img src="jupyter_images/template_2.png" style="border: solid 1px;"/></div>
 </div><p><p><u>template.json</u></p></p>
 <pre>
     <code class="language-markup">
@@ -1431,7 +1393,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
         # convert all PDFs in a directory
         tabula.convert_into_by_batch("input_directory", output_format='csv')
     </code>
-</pre><p><br>
+</pre><p><br/>
 <strong>Area Selection</strong></p>
 <p>You can select portions of PDFs you want to analyze by setting <code>area (top,left,bottom,right)</code> option in <code>tabula.read_pdf()</code>. This is equivalent to dragging your mouse and setting the area of your interest in tabula web-app as it was mentioned above. Default is the entire page. Also note that you can choose the page, or pages you want to parse with <code>pages</code> option.</p>
 <p>The sample PDF file can be downloaded from <a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/downloads/notebooks/pdf_parsing/lattice-timelog-multiple-pages.pdf">here</a>.</p>
@@ -1992,11 +1954,11 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 <p><u>Stream Mode</u></p><p><code>stream=True</code> forces PDFs to be extracted using stream-mode extraction. This mode is used when there are no ruling lines to differentiate one cell from the other. Instead, it uses spacings among each cells to recognize each cell.</p>
 <div class="row give-margin">
 <div class="col-md-6 col-sm-12">
-<div class="col-12"><img src="jupyter_images/lattice_mode.png" style="border: 1px solid; height: 380px"></div>
+<div class="col-12"><img src="jupyter_images/lattice_mode.png" style="border: 1px solid; height: 380px"/></div>
 <div class="col-12"><p class="image-description"><a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/downloads/notebooks/pdf_parsing/lattice-timelog-multiple-pages.pdf">PDF File 1</a>: Lattice mode recommended</p></div>
 </div>
 <div class="col-md-6 col-sm-12">
-<div class="col-12"><img src="jupyter_images/stream_mode_2.png" style="border: 1px solid; height: 380px"></div>
+<div class="col-12"><img src="jupyter_images/stream_mode_2.png" style="border: 1px solid; height: 380px"/></div>
 <div class="col-12"><p class="image-description"><a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/downloads/notebooks/pdf_parsing/stream-railroad-pages-1-4.pdf">PDF file 2</a>: Stream mode recommended</p></div>
 </div>
 </div><p>How would it look like if <a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/downloads/notebooks/pdf_parsing/lattice-timelog-multiple-pages.pdf">PDF File 1</a> and <a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/downloads/notebooks/pdf_parsing/stream-railroad-pages-1-4.pdf">PDF file 2</a> are each extracted in both <code>stream</code> mode and <code>lattice</code> mode?</p>

@@ -1,0 +1,3222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <meta name="google-site-verification" content="ZsWFnpirKDgtbmwb1YRymDnSfvnUrpzCbf6LD1F_4TY" />
+
+            <meta name="msvalidate.01" content="8FF1B025212A47B5B27CC47163A042F0" />
+
+            <meta name="author" content="ERIC KIM" />
+
+
+            <meta name="description" content="        This post covers everything you need to know about confidence intervals: from the introductory conceptual explanations, to the detailed discussions about the variations of different techniques, their assumptions, strength and weekness, when to use, and when not to use.
+" />
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="confidence interval, statistics, non-normal, normal, non-Gaussian, Gaussian, normality test, hypotheses testing, bootstrap, t-test, f-test, central tendency, Statistics, "/>
+
+        <link rel="canonical" href="https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers">
+    <meta property="og:title" content="Comprehensive Confidence Intervals for Python Developers | Pythonic Excursions"/>
+    <meta property="og:url" content="https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers" />
+    <meta property="og:description" content="This post covers everything you need to know about confidence intervals: from the introductory conceptual explanations, to the detailed discussions about the variations of different techniques, their assumptions, strength and weekness, when to use, and when not to use." />
+    <meta property="og:site_name" content="Pythonic Excursions" />
+    <meta property="og:article:author" content="ERIC KIM" />
+        <meta property="og:article:published_time" content="2019-09-08T09:00:00-07:00" />
+    <meta name="twitter:title" content="Comprehensive Confidence Intervals for Python Developers | Pythonic Excursions">
+    <meta name="twitter:description" content="This post covers everything you need to know about confidence intervals: from the introductory conceptual explanations, to the detailed discussions about the variations of different techniques, their assumptions, strength and weekness, when to use, and when not to use.">
+        <meta property="og:image" content="https://aegis4048.github.io/images/featured_images/rock_por_conf.png" />
+        <meta name="twitter:image" content="https://aegis4048.github.io/images/featured_images/rock_por_conf.png" >
+
+
+        <title>    Comprehensive Confidence Intervals for Python Developers  | Pythonic Excursions
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: #24292e;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: #24292e;
+                }
+            </style>
+
+        <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+        <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="https://aegis4048.github.io/theme/img/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://aegis4048.github.io/theme/img/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="https://aegis4048.github.io/theme/img/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://aegis4048.github.io/theme/img/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="https://aegis4048.github.io/theme/img/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="https://aegis4048.github.io/theme/img/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="https://aegis4048.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133310548-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-133310548-1');
+</script>
+
+    </head>
+    <body>
+<progress id="progressBar" max="19827" class="flat">
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+</progress>        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://aegis4048.github.io/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/about.html">About</a>
+                        </li>
+                        <li id="last-item" class="nav-item">
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/archives.html">Archive</a>
+                        </li>
+                     </ul>
+                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="https://aegis4048.github.io/search.html">
+                        <div class="search-box-div" align="center">
+                            <input id="tipue_search_input" class="form-control mr-md-2 rem_08 col-9" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" aria-label="Search">
+                            <button id="search-btn" class="btn btn-search btn-outline-success btn-circle rem_08 col-3" type="submit" for="tipue_search_input">Search</button>
+                        </div>
+                    </form>
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+        <header>
+            <h1>Comprehensive Confidence Intervals for Python Developers</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://aegis4048.github.io/archives.html">Statistics</a></h4>
+                <span class="article-date">Sep 08, 2019</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://aegis4048.github.io/tag/confidence-interval.html" class="tag">confidence interval</a>
+                        <a href="https://aegis4048.github.io/tag/statistics.html" class="tag">statistics</a>
+                        <a href="https://aegis4048.github.io/tag/non-normal.html" class="tag">non-normal</a>
+                        <a href="https://aegis4048.github.io/tag/normal.html" class="tag">normal</a>
+                        <a href="https://aegis4048.github.io/tag/non-gaussian.html" class="tag">non-Gaussian</a>
+                        <a href="https://aegis4048.github.io/tag/gaussian.html" class="tag">Gaussian</a>
+                        <a href="https://aegis4048.github.io/tag/normality-test.html" class="tag">normality test</a>
+                        <a href="https://aegis4048.github.io/tag/hypotheses-testing.html" class="tag">hypotheses testing</a>
+                        <a href="https://aegis4048.github.io/tag/bootstrap.html" class="tag">bootstrap</a>
+                        <a href="https://aegis4048.github.io/tag/t-test.html" class="tag">t-test</a>
+                        <a href="https://aegis4048.github.io/tag/f-test.html" class="tag">f-test</a>
+                        <a href="https://aegis4048.github.io/tag/central-tendency.html" class="tag">central tendency</a>
+                </div>
+            </div>
+            <section>
+    <div class="row justify-content-end mt-3" style="align-items: center">
+        <div class="share-post-intro mr-2">Share This Post :</div>
+        <div class="social-share-btns-container">
+            <div class="social-share-btns">
+                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers" rel="nofollow" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers" rel="nofollow" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers" rel="nofollow" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+        </header>
+        <div class="article_content">
+            
+            <style type="text/css">/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph > img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p><strong>Confidence interval</strong> is uncertainty in summary statistic represented as a range. In the other words, it is a range of values we are fairly sure our true value lies in. For example: I am 95% confident that the population mean falls between 8.76 and 15.88 $\rightarrow$ (12.32 $\pm$ 3.56)</p>
+</blockquote>
+<p>Confidence interval tells you how confident you can be that the results from a poll or survey reflect what you would expect to find if it were possible to survey the entire population. It is difficult to obtain measurement data of an entire data set (<em>population</em>) due to limited resource & time. Your best shot is to survey a small fraction (<em>samples</em>) of the entire data set, and pray that your sample data represents the population reasonably well.</p>
+<p>Sample data may not be a good representation of a population by numerous factors (Ex: bias), and as a result, uncertainty is always introduced in any estimations derived from sample data. <strong>Due to the uncertainty involved with sample data, any statistical estimation needs to be delivered in a range, not in a point estimate</strong>.</p>
+<p>How well a sample statistic estimates an underlying population parameter is always an issue (<a href="#population_vs_samples">Population vs. Samples</a>). A confidence interval addresses this issue by providing a range of values, which is likely to contain the population parameter of interest.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="toc_container">
+<p class="toc_title">Contents</p>
+<ul class="toc_list">
+<li>
+<a href="#Understanding confidence interval with analogy"><span class="toc_label">1</span>Understanding
+                confidence interval with analogy</a>
+<ul>
+<li><a href="#Uncertainty in rock porosity"><span class="toc_label">Example 1:</span>Uncertainty in rock
+                    porosity</a></li>
+<li><a href="#Purity of methamphetamine (crystal) in Breaking Bad"><span class="toc_label">Example 2:</span>Purity of methamphetamine (crystal) in Breaking Bad</a></li>
+</ul>
+</li>
+<li><a href="#quick-highlights"><span class="toc_label">2</span>Key takeaways</a></li>
+<li><a href="#population_vs_samples"><span class="toc_label">3</span>Population vs Samples</a></li>
+<ul>
+<li><a href="#sample_pop_var"><span class="toc_label">Notes:</span>Population variance $\sigma^2$ vs.
+                Sample variance $s^2$</a></li>
+<li><a href="#python_variance"><span class="toc_label">Pythonic Tip:</span>Difference between Numpy variance
+                and Pandas variance</a></li>
+</ul>
+<li><a href="#Confidence interval of different statistics"><span class="toc_label">4</span>Confidence interval
+            of normal distribution</a></li>
+<ul>
+<li><a href="#conf_int_of_mean"><span class="toc_label">4.1</span>Confidence interval of mean</a></li>
+<ul>
+<li><a href="#dist_stats"><span class="toc_label">Notes:</span>Distribution of various statistics</a>
+</li>
+<li><a href="#t_vs_z"><span class="toc_label">Notes:</span>z-score vs t-score</a></li>
+<li><a href="#python_ci_mean"><span class="toc_label">Pythonic Tip:</span>Computing confidence interval of mean with SciPy</a></li>
+</ul>
+<li><a href="#conf_int_of_diff_in_mean"><span class="toc_label">4.2</span>Confidence interval of difference
+                in mean</a></li>
+<ul>
+<li><a href="#anova"><span class="toc_label">Notes:</span>Comparing means of more than two samples with ANOVA</a></li>
+<li><a href="#ind_equal"><span class="toc_label">4.2.1</span>Independent (unpaired) samples, equal
+                    variance - Student's t-interval</a></li>
+<ul>
+<li><a href="#python_ind_equal"><span class="toc_label">Pythonic Tip:</span>Computing student's t-interval</a></li>
+</ul>
+<li><a href="#ind_unequal"><span class="toc_label">4.2.2</span>Independent (unpaired) samples, unequal variance - Welch's t-interval</a></li>
+<ul>
+<li><a href="#python_ind_unequal"><span class="toc_label">Pythonic Tip:</span>Computing Welch's t-interval</a></li>
+</ul>
+<li><a href="#dep"><span class="toc_label">4.2.3</span>Dependent (paired) samples - Paired t-interval</a></li>
+<ul>
+<li><a href="#python_dep"><span class="toc_label">Pythonic Tip:</span>Computing paired t-interval</a></li>
+</ul>
+<li><a href="#which_to_use"><span class="toc_label">Notes:</span>Deciding which t-test to use</a></li>
+</ul>
+<li><a href="#conf_int_of_var"><span class="toc_label">4.3</span>Confidence interval of variance</a></li>
+<ul>
+<li><a href="#chi_square"><span class="toc_label">Notes:</span>Chi-square $\chi^2$ distribution</a></li>
+<li><a href="#one_tail_two_tail"><span class="toc_label">Notes:</span>One-tail vs two-tail</a></li>
+<li><a href="#python_ci_var"><span class="toc_label">Pythonic Tip:</span>Computing confidence interval of variance with SciPy</a></li>
+</ul>
+<li><a href="#conf_int_of_other"><span class="toc_label">4.4</span>Confidence interval of other statistics: Bootstrap</a></li>
+<li><a href="#conf_int_regression"><span class="toc_label">4.5</span>Confidence interval of regression</a></li>
+</ul>
+<li><a href="#conf_int_non_normal"><span class="toc_label">5</span>Confidence interval of non-normal
+            distribution</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Understanding confidence interval with analogy"></div><h2 id="1.-Understanding-confidence-interval-with-analogy">1. Understanding confidence interval with analogy<a class="anchor-link" href="#1.-Understanding-confidence-interval-with-analogy">¶</a></h2><p>If you've taken a science class with lab reports in your highschool or college, you probably had to include measurement error in your lab reports. For example, if you were asked to measure the length of a paper clip with a ruler, you have to include $\pm0.5 \,\text{cm}$ or $\pm0.05\,\text{cm}$ (depending on the spacing of tick marks) to account for the measurement error that shows the precision of your measuring tool.</p>
+<p>Based on <a href="#fig1">figure (1)</a>, the paper clip seems to be about 2.7 cm long, but we don't know for sure because the tickmarks in the ruler is not precise enough to measure decimal length. However, I can tell with 100% confidence that the paper clip has a length between 2 ~ 3 cm, because the clip is between 2cm and 3cm tickmarks. You record the length of the paper clip in a <em>range</em>, instead of a <em>point estimate</em>, to account for the uncertainty introduced by the limitation of the measuring tool.</p>
+<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig1" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/conf_int_ruler.png"/></div>
+<div class="col-12"><p class="image-description">Figure 1: Measurement error in ruler</p></div>
+</div><p>Similar idea can be applied to a <a href="#conf_int_of_mean">confidence interval of mean</a>. You want to obtain a mean of a whole data set (<em>population</em>), but you can measure values of only a small fraction (<em>samples</em>) of the whole data set. This boils down to the traditional issue of <a href="#population_vs_samples">Sample vs Population</a>, due to the cost of obtaining measurement data of a large data set. Uncertainty is introduced in your samples, because you don't know if your samples are 100% representative of the population, free of bias. Therefore, you deliver your conclusion in a range, not in a point estimate, to account for the uncertainty.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div><hr/></div><div id="Uncertainty in rock porosity"></div>
+<p style="color: #666"><b>Example 1:</b> Uncertainty in rock porosity<p>
+
+A reservoir engineer in the oil & gas industry wants to know the rock porosity of a formation to estimate the total oil reserve 9,500 ft underground. Due to the high cost of obtaining rock core samples from the deep formations, he could acquire only 12 rock core samples. Since the uncertainty of a point estimation scales inversely with a sample size, his estimation is subject to non-negligible uncertainty. He obtains 14.5% average rock porosity with 4.3% standard deviation. Executives in the company wants to know the worst-case scenario and the best-case scenario to make business decisions. You can convey your estimation of average porosity with uncertainty by constructing the <a href="#conf_int_of_mean">confidence interval of mean</a>.
+
+Assuming that you have a reason to believe that the rock porosity follows normal distribution, you can construct its 80% confidence interval, with the procedure described <a href="#python_ci_mean"> below</a>:
+
+<div style="margin-bottom: -20px"></div>
+</p></p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [133]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">12</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mf">14.5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span> <span class="mf">4.3</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[133]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>(12.807569748569543, 16.19243025143046)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin-top: -20px"></div><p>In the worst-case scenario, the rock formation at 9,500 ft underground has 12.8% porosity. In the best-case scenario, the oil reservoir has 16.2% porosity. The same procedures can be applied for the core samples collected at different depths, which give us the confidence interval plot of rock porosities shown in <a href="#">figure (2)</a>.</p>
+<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig2" style="">
+<div class="col"><img src="jupyter_images/rock_por_conf_no_title.png"/></div>
+<div class="col-12"><p class="image-description">Figure 2: Confidence interval of core samples porosities along depths</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (2)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+                import numpy as np
+                from scipy import stats
+                import matplotlib.pyplot as plt
+
+                np.random.seed(39)
+
+                depth = [i * 10 + 8000 for i in range(100)]
+                l = len(depth)
+                avg_por = []
+                p10_por = []
+                p90_por = []
+                for i, item in enumerate(depth):
+
+                    # You collect 12 rock core samples for each depth
+                    # Assume that sample porosity follows a normal distribution
+                    sample_size = 12
+                    por_samples = np.random.normal(loc=0.15 - i/2000, scale=0.022, size=sample_size)
+                    avg_por.append(np.mean(por_samples))
+
+                    # 80% confidence interval of mean
+                    p10, p90 = stats.t.interval(1 - 0.2, sample_size - 1, loc=np.mean(por_samples), scale=stats.sem(por_samples))
+                    p10_por.append(p10)
+                    p90_por.append(p90)
+
+                # plotting
+                plt.style.use('seaborn-whitegrid')
+                fig, ax = plt.subplots(1, 2, figsize=(8, 4))
+
+                ax[0].plot(avg_por[:l//2], depth[:l//2], 'k', label='P50', alpha=0.8)
+                ax[0].plot(p10_por[:l//2], depth[:l//2], 'grey', linewidth=0.7, label='P10', linestyle='--')
+                ax[0].plot(p90_por[:l//2], depth[:l//2], 'grey', linewidth=0.7, label='P90')
+
+                ax[0].set_xlim(0.08, 0.17)
+                ax[0].set_ylabel('Depth (ft)', fontsize=15)
+                ax[0].set_xlabel('Porosity', fontsize=15)
+                ax[0].fill_betweenx(depth[:l//2], p10_por[:l//2], p90_por[:l//2], facecolor='lightgrey', alpha=0.3)
+                ax[0].invert_yaxis()
+
+                ax[1].plot(avg_por[l//2:], depth[l//2:], 'k', label='P50', alpha=0.8)
+                ax[1].plot(p10_por[l//2:], depth[l//2:], 'grey', linewidth=0.7, label='P10', linestyle='--')
+                ax[1].plot(p90_por[l//2:], depth[l//2:], 'grey', linewidth=0.7, label='P90')
+
+                ax[1].set_xlim(0.08, 0.17)
+                ax[1].set_xlabel('Porosity', fontsize=15)
+                ax[1].legend(loc='best', fontsize=14, framealpha=1, frameon=True)
+                ax[1].fill_betweenx(depth[l//2:], p10_por[l//2:], p90_por[l//2:], facecolor='lightgrey', alpha=0.3)
+                ax[1].invert_yaxis()
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div><hr/></div><div id="Purity of methamphetamine (crystal) in Breaking Bad"></div>
+<p style="color: #666"><b>Example 2:</b> Purity of methamphetamine (crystal) in Breaking Bad<p>
+
+21 batches of crystal cooked by Mr. White shows 99.1% average purity with 3% standard deviation. 18 batches of crystal cooked by Mr. Pinkman shows 96.2% average purity with 4% standard deviation. Does Mr. White always cook better crystal than Mr. Pinkman, or is it possible for Mr. Pinkman to beat Mr. White in purity of cooked crystals, by luck?
+
+We can construct 95% confidence interval assuming normal distribution, with the procedure described <a href="#python_ci_mean"> below</a>:
+
+<div style="margin-bottom: -20px"></div>
+</p></p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [78]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Mr. White's</span>
+
+<span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">21</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mf">99.1</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span> <span class="mi">3</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">21</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[78]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>(97.73441637228476, 100.46558362771523)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [79]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Mr. Pinkman's</span>
+
+<span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">18</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mf">96.2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">18</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[79]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>(94.21084679714819, 98.18915320285181)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin-top: -20px"></div><p>There's a small overlap between the confidence intervals of Mr. White's and Mr. Pinkman's. Although it is true that Mr. White is a better cooker, Mr. Pinkman can cook a purer batch of crystals by a small chance, if he has the luck. Comparing the means of two sample data sets is closely related to constructing <a href="#conf_int_of_diff_in_mean">confidence interval of difference in mean</a>.</p>
+<div class="row full_screen_margin_md mobile_responsive_plot_full_width" id="fig2" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/crystal_purity.png"/></div>
+<div class="col-12"><p class="image-description">Figure 3: Overlap in the 95% confidence interval of two samples</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (3)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+                import matplotlib.pyplot as plt
+                from scipy import stats
+                import numpy as np
+
+                conf_pinkman = stats.t.interval(1 - 0.05, 18 - 1, loc=96.2, scale= 4 / np.sqrt(18))
+                conf_white = stats.t.interval(1 - 0.05, 21 - 1, loc=99.1, scale= 3 / np.sqrt(21))
+
+                plt.style.use('seaborn-whitegrid')
+                fig, ax = plt.subplots(figsize=(5, 2))
+
+                ax.errorbar(99.1, 1, xerr=(conf_white[1] - conf_white[0]) / 2, 
+                            fmt='o', markersize=8, capsize=5, label='Mr. White\'s', color='grey')
+                ax.errorbar(96.2, 0, xerr=(conf_pinkman[1] - conf_pinkman[0]) / 2, 
+                            fmt='o', markersize=8, capsize=5, label='Mr. Pinkman\'s', color='k')
+                ax.set_ylim(-0.6, 1.6)
+                ax.fill_betweenx([1, 0], conf_white[0], conf_pinkman[1], facecolor='lightgrey', alpha=0.3)
+                ax.legend(loc='best', fontsize=11, framealpha=1, frameon=True)
+                ax.set_xlabel('Purity (%)', fontsize=12)
+                ax.yaxis.set_major_formatter(plt.NullFormatter())
+                fig.tight_layout();
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="quick-highlights"></div><h2 id="2.-Key-takeaways">2. Key takeaways<a class="anchor-link" href="#2.-Key-takeaways">¶</a></h2><div class="highlights" id="key1">
+<div class="highlights-title">1. Confidence interval quantifies uncertainty of statistical estimation</div>
+<div class="highlights-content">Confidence interval qunatifies the uncertainty related to a statistical estimation to mitigate the issue of <a href="#population_vs_samples">Population vs. Samples</a>. It is always expressed in a range like — $\text{C.I.}: \quad \bar{x} \pm 3.43$ or $-51.4 < \bar{x} < -43.2$</div>
+</div><div class="highlights" id="key2">
+<div class="highlights-title">2. Confidence interval is the basis of parametric hypothesis tests</div>
+<div class="highlights-content">Confidence interval is the basis of parametric hypothesis tests. For example, <a href="https://www.investopedia.com/terms/t/t-test.asp" target="_blank">t-test</a> computes its p-value using the <a href="#conf_int_of_diff_in_mean">confidence interval of difference in mean</a>. When samples follow a normal distribution, and therefore their <a href="#central_tendency">centeral tendency</a> can be described by their means, t-test can be used to conclude if two distributions are significantly different from each other. 
+    </div>
+</div><div class="highlights" id="key3">
+<div class="highlights-title">3. Formula for confidence interval varies with statistics</div>
+<div class="highlights-content">
+<p>For <a href="#conf_int_of_mean">confidence interval of mean</a></p>
+<p><div style="font-size: 1rem; margin-top: 20px;">$$ \text{C.I.}_{\text{mean}}: \quad \mu \pm (t_{\frac{\alpha}{2},df} \times \frac{s}{\sqrt{n}})$$</div></p>
+<p>For <a href="#conf_int_of_diff_in_mean">confidence interval of difference in mean</a></p>
+<p><div style="font-size: 1rem; margin-top: 20px;">$$ \text{C.I.}_{\Delta \text{mean}}: \quad (\mu_{1}- \mu_{2}) \pm (t_{1-\frac{\alpha}{2},df} \times \sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}})$$</div></p>
+<p>For confidence interval of proportion</p>
+<p><div style="font-size: 1rem; margin-top: 20px;">$$ \text{C.I.}_{\text{proportion}}: \quad \hat{p} \pm (t_{\frac{\alpha}{2},df} \times \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} )$$</div></p>
+<p>For <a href="#conf_int_of_var">confidence interval of variance</a></p>
+<p><div style="font-size: 1rem; margin-top: 20px;">$$ \text{C.I.}_{\text{variance}}: \frac{(n-1)s^{2}}{\chi^{2}_{\frac{\alpha}{2}}} \leq \sigma^2 \leq \frac{(n-1)s^{2}}{\chi^{2}_{1-\frac{\alpha}{2}}}$$</div></p>
+<p>For confidence interval of standard deviation</p>
+<p><div style="font-size: 1rem; margin-top: 20px;">$$ \text{C.I.}_{\text{standard deviation}}: \sqrt{\frac{(n-1)s^{2}}{\chi^{2}_{\frac{\alpha}{2}}}} \leq \sigma \leq \sqrt{\frac{(n-1)s^{2}}{\chi^{2}_{1-\frac{\alpha}{2}}}}$$</div></p>
+<p>Different analytical solutions exist for different statistics. However, confidence interval for many other statistics cannot be analytically solved, simply because there are no formulas for them. If the statistic of your interest does not have an analytical solution for its confidence interval, or you simply don't know it, numerical methods like <a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" target="_blank">boostrapping</a> can be a good alternative (and its powerful).</p>
+</div>
+</div><div class="highlights" id="key4">
+<div class="highlights-title">4. Things are VERY different if sample data set is not normally distributed</div>
+<div class="highlights-content">The equations listed above <b>are not valid if sample data set is not normally distributed</b>. In case of non-normally distributed data, its confidence interval can be obatined with non-parametric methods like <a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" target="_blank">boostrapping</a>, or instead use <a href="#">credible interval</a>, which is a Baysian equivalent of confidence interval. Or you can transform your data into normal distribution using <a href="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution" target="_blank">Box-Cox transformation</a>.</div>
+</div><div class="highlights" id="key5">
+<div class="highlights-title">5. 95% C.I. does not mean 95% of the sample data lie within the interval.</div>
+<div class="highlights-content">It means that there's 95% chance that the estimated statistic falls within the interval. 95% confidence interval relates to the reliability of the estimation procedure. Ex: How reliable is your estimation of population variance?</div>
+</div><div class="highlights" id="key6">
+<div class="highlights-title">6. Always use t-score instead of z-score</div>
+<div class="highlights-content">When constructing confidence interval of mean, or running t-test, always use t-score instead of z-score. This is described in detail <a href="#t_vs_z">below</a>.</div>
+</div><div class="highlights" id="key7">
+<div class="highlights-title">7. Bigger sample size gives narrower confidence intervals</div>
+<div class="highlights-content">Intuitively, this is because the more samples we have, the less uncertainty we have with our statistical estimation. Mathematically, this is because the the confidence interval is inversely related to the sample size $n$, as shown in <a href="#eq-1">eq (1)</a>.</div>
+</div><div class="highlights" id="key8">
+<div class="highlights-title">8. Means are not always equivalent to central tendency</div>
+<div class="highlights-content">When samples are not normally distributed, their means are not a good measure of their <a href="#central_tendency">centeral tendencies</a>. For example, if you are comparing the means of two non-normal data sets with t-test to conclude if they came from the same population, your approach is wrong. The more viable alternative would be to use non-parametric alternatives that uses median, or other statistics that capture the central tendency of non-normal distributions.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="population_vs_samples"></div><h2 id="3.-Population-vs.-samples">3. Population vs. samples<a class="anchor-link" href="#3.-Population-vs.-samples">¶</a></h2><p>Confidence interval describes the amount of uncertainty associated with a sample estimate of a population parameter. One needs to have a good understanding of the difference between samples and population to understand the necessity of delivering statistical estimations in a range, a.k.a. confidence interval.</p>
+<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig1" style="
+    margin-top: 10px;
+">
+<div class="col"><img src="jupyter_images/conf_int_sample_pops.png"/></div>
+<div class="col-12"><p class="image-description">Figure 1: Population vs samples</p></div>
+</div><blockquote><p><strong>Population</strong>: data set that contains all members of a specified group. Ex: ALL people living in the US.</p>
+<p><strong>Samples</strong>: data set that contains a part, or a subset, of a population Ex: SOME people living in the US.</p>
+</blockquote>
+<div><hr/></div><p>Let's say that you are conducting a phone-call survey to investigate the society's perception of The Affordable Care Act (“Obamacare”). Since you can't call all 327.2 million people (<em>population</em>) in the US, you call about 1,000 people (<em>samples</em>). Your poll showed that 59% of the registered voters support Obamacare. This does not agree with the actual survey conducted in 2018; 53% favorable, 42% unfavorable (<a href="http://www.msnbc.com/rachel-maddow-show/poll-shows-support-obamacare-reaching-all-time-high" target="_blank">source</a>). What could be the source of error?</p>
+<p>Since (formal) president Obama is a member of the Democratic Party, the voters' response can be affected by their political preference. How could you tell that the 1,000 people you called happened to be mostly Democrats, who's more likely to support Obama's policy, because they share similar political view? The samples you collected could have been <em>biased</em>, but you don't that know for sure. Of course, the voters' response could be affected by many other factors like race, age, place of residence, or financial status. The idea is that, there will always be uncertainty involved with your estimation, because you don't have an access to the entire population.</p>
+<p>Confidence interval is a technique that quantifies the uncertainty when estimating a population parameter from samples.</p>
+<div id="sample_pop_var"></div><div class="alert alert-info">
+<h4>Notes: Population variance $\sigma^2$ vs. Sample variance $s^2$</h4>
+<p>Distinction between population parameter and sample parameter is important. In statistics, it is a common practice to denote population variance as $\sigma^2$, and sample variance as $s^2$. The distinction is important because different equations are used for each.</p>
+<p>For population:</p>
+<p><div style="font-size: 1rem; margin-top: 20px;">$$ \text{variance} = \sigma^2 = \frac{\sum(x - \bar{x})^2}{n} $$</div></p>
+<p>For samples:</p>
+<p><div style="font-size: 1rem; margin-top: 20px;">$$ \text{variance} = s^2 = \frac{\sum(x - \bar{x})^2}{n-1} $$</div></p>
+<p>The divisor $n-1$ is a correction factor for bias. Note that the correction has a larger proportional effect when $n$ is small than when $n$ is large, which is what we want because the more samples we have, the better the estimation. This idea is well explained on this <a href="https://stats.stackexchange.com/questions/3931/intuitive-explanation-for-dividing-by-n-1-when-calculating-standard-deviation" target="_blank">StackExchange thread</a>.</p>
+</div><div><hr/></div><div id="python_variance"></div>
+<p style="color: #666"><b>Pythonic Tip:</b> Difference between Numpy variance and Pandas variance<p>
+
+Different libraries make different assumption about an input array. The default value of <code>ddof</code> is different for Pandas and Numpy, resulting in different variance. <code>ddof</code> represent degrees of freedom, and setting <code>ddof=True</code> or <code>ddof=1</code> tells the variance function to calculate sample variance by accounting for the bias factor $n-1$ (recall that in Python, <code>True==1</code>.) Remember that there is a distinction between <a href="#sample_pop_var">Population variance ($\sigma^2$) vs. Sample variance ($s^2$).</a>
+
+If you are confused which library is computing which variance (sample or population), just remember this: whatever library you are using, use <code>ddof=True</code> or <code>ddof=1</code> to compute sample variance, and use <code>ddof=False</code> or <code>ddof=0</code> to compute population variance.
+<div style="margin: -20px"></div>
+</p></p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># numpy, population</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>3.6875</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># numpy, sample</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[8]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>4.916666666666667</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># pandas, population</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>0    3.6875
+dtype: float64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [99]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># pandas, sample</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[99]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>0    4.916667
+dtype: float64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Confidence interval of different statistics"></div><h2 id="4.-Confidence-interval-of-normal-distribution">4. Confidence interval of normal distribution<a class="anchor-link" href="#4.-Confidence-interval-of-normal-distribution">¶</a></h2><p>Computing confidence interval of a statistic depends on two factors: type of statistic, and type of sample distribution. As explained <a href="#quick-highlights">above</a>, different formulas exist for different type of statistics (Ex: mean, std, variance), and different methods (Ex: <a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" target="_blank">boostrapping</a>, <a href="#">credible interval</a>, <a href="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution" target="_blank">Box-Cox transformation</a>) are used for non-normal data set.</p>
+<p>We will cover confidence interval of mean, difference in mean and variance.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="conf_int_of_mean"></div><h3 id="4.1.-Confidence-interval-of-mean">4.1. Confidence interval of mean<a class="anchor-link" href="#4.1.-Confidence-interval-of-mean">¶</a></h3><p>Confidence interval of mean is used to estimate the population mean from sample data and quantify the related uncertainty. Consider the following figure:</p>
+<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig3" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/conf_pop_dist.png"/></div>
+<div class="col-12"><p class="image-description">Figure 3: Distribution of population and C.I. of mean</p></div>
+</div><p>In <a href="#fig3">figure (3)</a>, assume that the population is normally distributed. Since we don't have an excess to the entire population, we have to guess the <span style="color: #ed7d32; font-weight: 500;">population mean (unknown)</span> to the best of our ability using sample data set. We do this by computing the <span style="color: #70ad47; font-weight: 500;">sample mean</span> and constructing its <span style="color: #385624; font-weight: 500;">95% confidence interval</span>. Note that the popular choices of <a href="#">confidence levels</a> are: 90%, 95%, and 99%</p>
+<p>Assuming normality of population, its sample means are also normally distributed. Let's say that you have a population, and you draw small fractions of it $N$ times. Then, the computed means of $N$ sample sets $\boldsymbol{\mu}=(\mu_1, \mu_2,..., \mu_{N-1}, \mu_N)$ is normally distributed as shown in <a href="#fig4">figure (4)</a>. Their confidence intervals are represented as the black horizontal arrows:.</p>
+<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig4" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/conf_int_mean.png"/></div>
+<div class="col-12"><p class="image-description">Figure 4: Distribution of sample mean and its C.I.</p></div>
+</div><p>You can see that the confidence interval of <span style="color: red; font-weight: 500;">$\mu_5$</span> does NOT include the <span style="color: #70ad47; font-weight: 500;">green vertical dashed line</span>, 12.31. Let's assume that 12.31 is the true population mean (we never know if this is the actual population mean or not, but let's assume). If we get <span style="color: red; font-weight: 500;">$\mu_5$</span> and its confidence interval as our estimation of the population mean, then our estimation is wrong. There is a 5% chance of this happening, because we set our confidence level as 95%. Note that the width of the confidence intervals (black horizontal arrows) depend on the sample size, as shown in <a href="#eq-1">eq (1)</a></p>
+<p>The grey area of <a href="#fig3">figure (3)</a> is essentially equivalent to the grey area of <a href="#fig4">figure (4)</a>. $\mu_1$ = 12.32 is the sample mean, and $\pm$ 3.56 is the uncertainty related to the sample mean with 95% confidence. The uncertainty is a product of distribution score and standard error of mean. Distribution score essentially tells how many standard error are the limits (8.76 and 15.88) away from the center (12.32). Choosing larger confidence level results in larger confidence interval. This increases the grey area in <a href="#fig3">figure (3)</a> and <a href="#fig4">figure (4)</a>.</p>
+<p>We convey 95% confidence interval of mean like this:</p>
+<blockquote><p>I am 95% confident that the population mean falls between 8.76 and 15.88. If I sample data 20 times, 19 times the sample mean will fall between 8.76 ~ 15.88, but expect that I will be wrong 1 time.</p>
+</blockquote>
+<div id="dist_stats"></div>
+<div class="alert alert-info">
+<h4>Notes: Distribution of various statistics</h4>
+<p>Different statistics exhibit different distributions. Normality of samples does not guarantee normality of its statistics. When the samples are normally distributed, their means are normally distributed, but their variances are chi-square <span style="font-size: 90% !important">$\chi^2$</span> distributed. More discussion about the distribution of variance and <span style="font-size: 90% !important">$\chi^2$</span> distribution is covered <a href="#chi_square">below</a>. Note that these assumptions are invalid when samples are non-normal.</p>
+<img class="" src="jupyter_images/chi_norm.png" style="border: 1px solid #ddd;">
+<div class="solution_panel closed" style="margin-top: 20px;">
+<div class="solution_title solution_admonition">
+<p class="solution_title_string">Source Code For The Figure</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+                <code class="language-python">
+                    from scipy import stats
+                    import matplotlib.pyplot as plt
+                    import numpy as np
+
+                    df_values = [1, 2, 6, 9]
+                    linestyles = ['-', '--', ':', '-.']
+                    normal_params = [(10, 1), (11, 1), (10, 2), (10, 3)]
+                    x = np.linspace(-1, 20, 1000)
+
+                    fig, ax = plt.subplots(1, 2, figsize=(13.3, 5))
+                    fig.tight_layout()
+                    plt.subplots_adjust(left=0.09, right=0.96, bottom=0.12, top=0.93)
+
+                    for df, norm_p, ls in zip(df_values, normal_params, linestyles):
+                        ax[1].plot(x, stats.chi2.pdf(x, df, loc=0, scale=1),
+                                   ls=ls, c='black', label=r'Degrees of freedom$=%i$' % df)
+                        ax[0].plot(x, stats.norm.pdf(x, loc=norm_p[0], scale=norm_p[1]), 
+                                   ls=ls, c='black', label='Mean = %d, ' % norm_p[0] + 'Std = %s' % norm_p[1])
+
+                    ax[0].set_xlim(4, 16)
+                    ax[0].set_ylim(-0.025, 0.525)
+                    ax[0].set_xlabel('$x$', fontsize=20)
+                    ax[0].set_ylabel(r'Probability', fontsize=20)
+                    ax[0].set_title(r'Distribution of means: normal distribution', fontsize=20)
+                    ax[0].legend(loc='upper left', fontsize=16, framealpha=1, frameon=True)
+
+                    ax[1].set_xlim(0, 10)
+                    ax[1].set_ylim(-0.025, 0.525)
+                    ax[1].set_xlabel('$\chi^2$', fontsize=20)
+                    ax[1].set_title(r'Distribution of variances: $\chi^2$ distribution', fontsize=20)
+                    ax[1].legend(loc='best', fontsize=16, framealpha=1, frameon=True)
+                </code>
+            </pre>
+</div>
+</div>
+</img></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If sample data is normal or normal-like distributed, we almost always assume t-distribution to compute confidence interval, as explained <a href="#t_vs_z">below</a>. Then, the confidence interval of mean has the following analytical solution:</p>
+<div id="eq-1" style="font-size: 1rem;">
+$$ \text{C.I.}_{\text{mean}}: \quad \mu \pm (t_{1-\frac{\alpha}{2},df} \times \frac{s}{\sqrt{n}}) \tag{1}$$
+</div><div class="eq-terms">
+<div class="row eq-terms-where">where</div>
+<div class="row">
+<div class="col-3"><p>$\mu$<p></p></p></div>
+<div class="col-9"><p>: sample mean<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3">$\alpha$</div>
+<div class="col-9">: <a href="#">significance level</a></div>
+</div>
+<div class="row">
+<div class="col-3"><p>$n$<p></p></p></div>
+<div class="col-9"><p>: number of samples<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3"><p>$df$<p></p></p></div>
+<div class="col-9"><p>: degrees of freedom. In this example, df = $n$ - 1<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3">$s$</div>
+<div class="col-9">: sample standard deviation</div>
+</div>
+<div class="row">
+<div class="col-3">$t$</div>
+<div class="col-9">: t-score. depends on $\alpha$ and $df$</div>
+</div>
+</div><p>Recall that when computing $s$, correction factor ($n-1$) is applied to account for sample bias, as explained <a href="#sample_pop_var">above</a>. Pay close attention to the standard error $\frac{s}{\sqrt{(n)}}$. As the sample size $n$ increases, the standard error decreases, reducing the range of confidence interval. This is intuitive in a sense that, the more samples we have, the less uncertainty we have with our statistical estimation. The length of the black horizontal arrows in <a href="#fig4">figure (4)</a> depends on the sample size. The larger the sample size, the narrower the width of arrows, and vice versa.</p>
+<div id="t_vs_z"></div>
+<div class="alert alert-info">
+<h4>Notes: z-score vs t-score</h4>
+<p>You've probably seen mixed use of z-score and t-score for confidence interval during your studies. Long story short, it is safe and almost always better to use t-score than z-score.</p>
+<p>Z-score ($z_{\frac{\alpha}{2}}$) is used for normal distribution, and t-score ($t_{\frac{\alpha}{2},df}$) is used for t-distribution. You use z-score if you know the population variance $\sigma^2$. If not, you use t-score. Since the population variance $\sigma^2$ is almost never known, you almost always use t-score for confidence interval. After all, the purpose of using confidence interval is to mitigate the issue of <a href="#population_vs_samples">Population vs. Samples</a> when estimating population parameter ($\sigma^2$) from samples. If you know the population parameters, you probably don't need confidence interval in the first place.</p>
+<p>A natural question is, "how is it safe to use t-score instead of z-score? Shouldn't I be using z-score since I know that the population is normally distributed, from previous knowledge?" It is safe to do so because t-distribution converges to normal distribution according to the Centeral Limit Theorem. Recall that t-distribution behaves more and more like a normal distribution as the sample size increases.</p>
+<p>Google <i>"95% confidence z-score"</i> and you will see $z$ = 1.96 at 95% confidence level. On the other hand, t-score approaches  1.96 as its degrees of freedom increases: $\lim_{df \to \infty}t$ = 1.96. For 95% confidence level, $t$ = 2.228 when $n$ - 1 = 10 and $t$ = 2.086 when $n$ - 1 = 20. This is why it is safe to always replace z-score with t-score when computing confidence interval.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin: -20px"></div>
+<div><hr/></div><div id="python_ci_mean"></div>
+<p style="color: #666"><b>Pythonic Tip:</b> Computing confidence interval of mean with SciPy<p>
+
+We can compute confidence interval of mean directly from using <a href="#eq-1">eq (1)</a>. Recall to pass <code>ddof=1</code> to make sure to compute sample standard deviation $s$, not population standard deviation $\sigma$, as explained <a href="#python_variance">above</a>. 
+
+We will draw random samples from normal distribution using <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.normal.html" target="_blank">np.random.normal().</a> Note that <code>loc</code> is for population mean, and <code>scale</code> is for population standard deviation, and <code>size</code> is for number of samples to draw.
+
+<div style="margin: -20px"></div>
+</p></p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [128]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">74</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">4.3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>                       <span class="c1"># significance level = 5%</span>
+<span class="n">df</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>                  <span class="c1"># degress of freedom = 20</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>   <span class="c1"># two-tailed 95% confidence t-score = 2.086</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>            <span class="c1"># sample standard deviation = 2.502</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+<span class="n">lower</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">s</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">upper</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">s</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [129]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[129]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>(71.33139551903422, 75.19543685256606)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin-top: -20px"></div><p>Or we can compute with <a arget="_blank" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.t.html">scipy.stats.t.interval().</a> Note that you don't divide <code>alpha</code> by 2, because the function does that for you. Also note that the standard error $\frac{s}{\sqrt{n}}$ can be computed with <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.sem.html" target="_blank">scipy.stats.sem()</a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [130]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">arr</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">sem</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[130]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>(71.33139551903422, 75.19543685256606)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin-top: -20px"></div><p>Note the default value of <code>loc=0</code> and <code>scale=1</code>. This will assume sample mean $\mu$ to be 0, and standard error $\frac{s}{\sqrt{n}}$ to be 1, which assumes standard normal distribution of mean = 0 and standard deviation = 1. <u>This is NOT what we want.</u></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[8]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>(-2.093024054408263, 2.093024054408263)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="conf_int_of_diff_in_mean" style="margin-top: 30px"></div><h3 id="4.2.-Confidence-interval-of-difference-in-mean">4.2. Confidence interval of difference in mean<a class="anchor-link" href="#4.2.-Confidence-interval-of-difference-in-mean">¶</a></h3><p>Confidence interval of difference in mean is not very useful by itself. But it is important to understand how it works, because it forms the basis of one of the most widely used hypothesis test: <a href="https://www.investopedia.com/terms/t/t-test.asp" target="_blank">t-test</a>.</p>
+<p>Often we are interested in knowing if two distributions are significantly different. In the other words, we want to know if two sample data sets came from the same population by <a href="#">comparing central tendency of populations</a>. A standard approach is to check if the sample means are different. However, this is a misleading approach in a sense that the means of samples are almost always different, even if the difference is microscopic. More useful would be to estimate the difference in a <i>range</i> to account for uncertainty, and compute probability that it is big enough to be of practical importance. T-test checks if the difference is "close enough" to zero by computing the confidence interval of difference in means.</p>
+<p><u>T-test hypothesis</u></p>
+<div style="font-size: 1rem;">
+$$ H_0: \mu_1 - \mu_2 = 0 \tag{2}$$
+</div>
+<div style="font-size: 1rem;">
+$$ H_1: \mu_1 - \mu_2 \neq 0 \tag{3}$$
+</div><div class="eq-terms">
+<div class="row eq-terms-where">where</div>
+<div class="row">
+<div class="col-3"><p>$\mu$<p></p></p></div>
+<div class="col-9"><p>: sample mean<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3"><p>$H_0$<p></p></p></div>
+<div class="col-9"><p>: null hypothesis — sample means are the same "enough"<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3">$H_1$</div>
+<div class="col-9"><p>: alternate hypothesis — sample means are "significantly" different</p></div>
+</div>
+</div><p>Note that the above hypothesis tests whether the mean of one group is significantly DIFFERENT from the mean of the other group; we are using two-tailed test. This does not check if the mean of one group is significantly GREATER than the mean of the other group, which uses one-tailed test.</p>
+<div id="anova"></div>
+<div class="alert alert-info">
+<h4>Notes: Comparing means of more than two samples with ANOVA</h4>
+<p>Analysis of variance (ANOVA) checks if the means of two or more samples are significantly different from each other. Using t-test is not reliable in cases where there are more than 2 samples. If we conduct multiple t-tests for comparing more than two samples, it will have a compounded effect on the error rate of the result.</p>
+<p>ANOVA has the following hypothesis:</p>
+<p><div style="font-size: 1rem; margin-top: 20px;">$$
+        \begin{align}
+           H_0: &\mu_1 = \mu_2 = \, \cdots \, =\mu_L \\[5pt]
+           H_1: &\mu_a \neq \mu_b
+        \end{align}
+    $$</div></p>
+<p>where $L$ is the number of groups, and $\mu_a$ and $\mu_b$ belong to any two sample means of any groups. <a href="https://www.analyticsvidhya.com/blog/2018/01/anova-analysis-of-variance/" target="_blank">This article</a> illustrates the concept of ANOVA very well.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row" id="fig5" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/conf_int_diff_means.png"/></div>
+<div class="col-12"><p class="image-description">Figure 5: Distributions of samples</p></div>
+</div><p>In <a href="#fig5">figure (5)</a>, $\mu$ represents the sample mean. If two sample data sets are from the same population, the distribution of means will be similar "enough". If not, they will be "significantly" different. It can be visually inspected by the area of overlap. The larger the overlap, the bigger the chance of the two distributions originating from the same population.</p>
+<p>The more robust way to compare sample means would be to construct the confidence interval of difference in means. If the two samples came from the same population, they should have the similar "enough" means. Their difference should be close to zero and satisfy (or fail to reject) the null hypothesis <span style="color: #ed7d32; font-weight: 500;">$H_0: \mu_1 - \mu_2 = 0$</span> within a range of uncertainty. Consider the following figure:</p>
+<div class="row" id="fig6" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/conf_int_diff_means_dist.png"/></div>
+<div class="col-12"><p class="image-description">Figure 6: Distribution of difference in means</p></div>
+</div><p>In <a href="#fig6">figure (6)</a>, the calculated difference in sample means is <span style="color: #70ad47; font-weight: 500;">$\mu_1 - \mu_2 = 1.00$</span>. We deliver the uncertainty related to our estimation of difference in sample means by constructing its <span style="color: #385624; font-weight: 500;">95% confidence interval $[$-1.31 ~ 3.31$]$</span>. Since the null hypothesis <span style="color: #ed7d32; font-weight: 500;">$H_0: \mu_1 - \mu_2 = 0$</span> is within the 95% confidence interval (<span style="color: #929292; font-weight: 500;">grey shaded area</span>), we accept the null hypothesis; we conclude that the samples have the same means within the uncertainty.</p>
+<p>However, if the null hypothesis is not within the confidence interval and falls in the <strong>2.5% outliers</strong> zone, we reject the null hypothesis and accept the alternate hypothesis <span style="color: #030303; font-weight: 500;">$H_1: \mu_1 - \mu_2 \neq 0$</span>. In the other words, we conclude that the sample means are significantly different.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin: -20px"></div>
+<div><hr/></div><p><div id=""></div></p>
+<p><p style="color: #666"><b>Three variations of confidence interval of difference in means</b><p></p>
+<p>There are three variations of t-test, and therefore there are three variations of confidence interval of difference in means. The difference & application of the three variations are really well-explained in <a href="https://en.wikipedia.org/wiki/Student%27s_t-test" target="_blank">Wikipedia</a> (one of the few that are actually easy to understand, with minimum jargons.)</p>
+<ol class="rounded-list" style="margin-bottom: 40px !important; margin-top: 40px! important;">
+<li><a href="#ind_equal">Independent (unpaired) samples, equal variance - Student's t-interval</a></li>
+<li><a href="#ind_unequal">Independent (unpaired) samples, unequal variance - Welch's t-interval</a></li>
+<li><a href="#dep">Dependent (paired) samples</a></li>
+</ol><p>Recall that all t-tests assume normality of data. However, they are pretty robust to non-normality as long as the deviation from normality isn't large. Visualize your distributions to test this. Robustness of t-test to non-normality is discussed in detail <a href="robustness">below</a>.</p>
+</p></p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="ind_equal"></div><h4 id="4.2.1.-Independent-(unpaired)-samples,-equal-variance---student's-t-interval">4.2.1. Independent (unpaired) samples, equal variance - student's t-interval<a class="anchor-link" href="#4.2.1.-Independent-(unpaired)-samples,-equal-variance---student's-t-interval">¶</a></h4><p>When you have a reason to believe that samples have nearly equal variances, you can use student's t-test to check if difference in means are significantly different. Note that student's t-test works pretty well even with unequal variances as long as sample sample sizes are equal or nearly equal, and sample sizes are not tiny.</p>
+<p>However, it is recommended to always use Welch's t-test by assuming unequal variances, as explained <a href="#which_to_use">below</a>. Use student's t-test if you are ABSOLUTELY sure that the population variances are nearly equal.</p>
+<p>Confidence interval of difference in mean assuming equal variance (student's t-interval) can be calculated as follows:</p>
+<div id="eq-4" style="font-size: 1rem;">
+$$ \text{C.I.}_{\Delta \text{mean}}: \quad (\mu_{1}- \mu_{2}) \pm (t_{1-\frac{\alpha}{2},df} \times s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}})\,, \quad s_p = \sqrt{\frac{(n_1-1)s_{1}^2 + (n_2-1)s_{2}^2}{n_1+n_2-2}} \tag{4}$$
+</div><div class="eq-terms">
+<div class="row eq-terms-where">where</div>
+<div class="row">
+<div class="col-3"><p>$\mu$<p></p></p></div>
+<div class="col-9"><p>: sample mean<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3">$\alpha$</div>
+<div class="col-9">: <a href="#">significance level</a></div>
+</div>
+<div class="row">
+<div class="col-3"><p>$n$<p></p></p></div>
+<div class="col-9"><p>: number of samples<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3"><p>$df$<p></p></p></div>
+<div class="col-9"><p>: degrees of freedom<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3">$s_p$</div>
+<div class="col-9">: pooled standard deviation</div>
+</div>
+<div class="row">
+<div class="col-3">$s$</div>
+<div class="col-9">: sample standard deviation</div>
+</div>
+<div class="row">
+<div class="col-3">$t$</div>
+<div class="col-9">: t-score. depends on $\alpha$ and degrees of freedom $n-1$</div>
+</div>
+</div><p>The formula for the pooled standard deviation $s_p$ looks a bit overwhelming, but its just an weighted average standard deviation of two samples, with <a href="#sample_pop_var">bias correction factor</a> $n_i-1$ for each sample. Recall that student's t-test assumes equal variances of two samples. You calculate what is assumed to be the common variance (=pooled variance, $s_p^2$) by computing the weighted average from each sample's variance.</p>
+<p>In <a href="#eq-4">eq (4)</a>, $t$-score depends on significance level $\alpha$ and degrees of freedom $df$. In student's t-test, which assumes equal variance:</p>
+<div id="eq-5" style="font-size: 1rem;">
+$$ df = n_1 + n_2 -2 \tag{5}$$
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div><hr/></div><div id="python_ind_equal"></div>
+<p style="color: #666"><b>Pythonic Tip:</b> Computing student's t-interval<p>
+
+Unfortunately, SciPy doesn't support computing confidence intereval of difference in mean separately. It is incorporated into computing t-statistic and p-value of t-test, but users can't access its underlying confidence interval. Note that in R, users have access to the CI of difference in means.
+
+We can compute CI of difference in means assuming equal variance with <a href="eq-4">eq (4)</a>. Don't forget to compute sample variance, instead of population variance by setting <code>ddof=1</code> as explained <a href="#python_variance">above</a>.
+
+<div style="margin-bottom: -20px"></div>
+</p></p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [182]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [183]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.9</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span> <span class="mf">7.4</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">10.5</span><span class="p">,</span> <span class="mf">11.9</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="mf">9.9</span><span class="p">,</span> <span class="mf">14.4</span><span class="p">,</span> <span class="mf">11.3</span><span class="p">]</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.2</span><span class="p">,</span> <span class="mf">6.9</span><span class="p">,</span> <span class="mf">10.9</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="mf">5.3</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mf">10.3</span><span class="p">,</span> <span class="mf">9.2</span><span class="p">,</span> <span class="mf">8.8</span><span class="p">]</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>                                                 <span class="c1"># significance level = 5%</span>
+<span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>                                    <span class="c1"># sample sizes</span>
+<span class="n">s1</span><span class="p">,</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>              <span class="c1"># sample variances</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">n1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">s1</span> <span class="o">+</span> <span class="p">(</span><span class="n">n2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">s2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># pooled standard deviation</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">-</span> <span class="mi">2</span>                                             <span class="c1"># degrees of freedom</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>                             <span class="c1"># two-tailed 95% confidence t-score</span>
+
+<span class="n">lower</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">-</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">*</span> <span class="n">s</span>
+<span class="n">upper</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">*</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [184]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[184]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>(-0.8520326742900641, 3.332032674290068)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin-top: -20px"></div><p>The 95% confidence interval of difference in means has 0 within its interval. This means that the null hypothesis, <span style="color: #ed7d32; font-weight: 500; font-size: 0.85rem;">$H_0: \mu_1 - \mu_2 = 0$</span> in <a href="#fig6">figure (6)</a>, falls within the interval and we fail to reject the null hypothesis. We conclude that the sample means are not significantly different.</p>
+<p>We can confirm this by running a formal hypothesis testing with <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html" target="_blank">scipy.stats.ttest_ind()</a>, and setting <code>equal_var=True</code>. Note that this assumes independent t-test with pooled variance, which is equivalent to student's t-test.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [185]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[185]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>Ttest_indResult(statistic=1.2452689491491107, pvalue=0.22900078577218805)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin-top: -20px"></div><p>The computed <code>pvalue=0.229</code> is bigger than the significance level of <code>alpha = 0.05</code>, and therefore we fail to reject the null hypothesis, which is consistent with the conclusion drawn from the confidence interval of difference in mean.</p>
+<div><hr/></div><p><p><u>Checking results with R</u>:</p></p>
+<pre>
+    <code class="language-python">
+        a <- c(12.9, 10.2, 7.4, 7.0, 10.5, 11.9, 7.1, 9.9, 14.4, 11.3)
+
+        b <- c(10.2, 6.9, 10.9, 11.0, 10.1, 5.3, 7.5, 10.3, 9.2, 8.8)
+
+        t.test(a, b, var.equal = TRUE)
+
+        #   Two Sample t-test
+
+        # data:  a and b
+        # t = 1.2453, df = 18, p-value = 0.229
+        # 95 percent confidence interval:
+        #  -0.8520327  3.3320327
+        # sample estimates:
+        # mean of x mean of y 
+        #     10.26      9.02 
+    </code>
+</pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="ind_unequal"></div><h4 id="4.2.2.-Independent-(unpaired)-samples,-unequal-variance---Welch's-t-interval">4.2.2. Independent (unpaired) samples, unequal variance - Welch's t-interval<a class="anchor-link" href="#4.2.2.-Independent-(unpaired)-samples,-unequal-variance---Welch's-t-interval">¶</a></h4><p>When comparing central tendency of normal distributions, it is safer, and therefore recommended to always use Welch's t-test, which assumes unequal variances of samples, as explained <a href="#which_to_use">below</a>. Equal variance t-test is not robust when population variances are different, but unequal variances are robust even when population variances are equal.</p>
+<p>Confidence interval of difference in mean assuming unequal variance (Welch's t-interval) can be calculated as follows:</p>
+<div id="eq-6" style="font-size: 1rem;">
+$$ \text{C.I.}_{\Delta \text{mean}}: \quad (\mu_{1}- \mu_{2}) \pm (t_{1-\frac{\alpha}{2},df} \times \sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}) \tag{6}$$
+</div><div class="eq-terms">
+<div class="row eq-terms-where">where</div>
+<div class="row">
+<div class="col-3"><p>$\mu$<p></p></p></div>
+<div class="col-9"><p>: sample mean<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3">$\alpha$</div>
+<div class="col-9">: <a href="#">significance level</a></div>
+</div>
+<div class="row">
+<div class="col-3"><p>$n$<p></p></p></div>
+<div class="col-9"><p>: number of samples<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3"><p>$df$<p></p></p></div>
+<div class="col-9"><p>: degrees of freedom<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3">$s$</div>
+<div class="col-9">: sample standard deviation</div>
+</div>
+<div class="row">
+<div class="col-3">$t$</div>
+<div class="col-9">: t-score. depends on $\alpha$ and degrees of freedom $n-1$</div>
+</div>
+</div><p>The formula is very similar to student's t-interval. There are two main differences:</p>
+<p style="padding-left: 20px;">1.  We use each sample's own variance $s_1^2$ and $s_2^2$, instead of pooled (weighted average) variance $s_p^2$.</p>
+<p style="padding-left: 20px;">2.  Degrees of freedom <span style="font-size: 0.85rem;">$df$</span> is computed with <a href="#eq-7">eq (7).</a></p><div id="eq-7" style="font-size: 1rem;">
+$$ df = \frac{(\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2})^2}{\frac{(s^2_1/n_1)^2}{n_1-1} + \frac{(s^2_2/n_2)^2}{n_2-1}} \tag{7}$$
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div><hr/></div><div id="python_ind_unequal"></div>
+<p style="color: #666"><b>Pythonic Tip:</b> Computing Welch's t-interval<p>
+
+The procedure is very similar to <a href="#python_ind_equal">Computing student's t-interval</a>. We will compute confidence interval of difference in mean assuming unequal variance, with <a href="#eq-6">eq (6).</a> Although Scipy supports computing t-statistic for Welch's t-test, it doesn't support a function that allows us to compute Welch's t-interval. We will have to write our own codes to compute it. 
+
+Don't forget to compute sample variance, instead of population variance by setting <code>ddof=1</code> as explained <a href="#python_variance">above</a>.
+
+<div style="margin-bottom: -20px"></div>
+</p></p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [186]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [187]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.9</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span> <span class="mf">7.4</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">10.5</span><span class="p">,</span> <span class="mf">11.9</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="mf">9.9</span><span class="p">,</span> <span class="mf">14.4</span><span class="p">,</span> <span class="mf">11.3</span><span class="p">]</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.2</span><span class="p">,</span> <span class="mf">6.9</span><span class="p">,</span> <span class="mf">10.9</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="mf">5.3</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mf">10.3</span><span class="p">,</span> <span class="mf">9.2</span><span class="p">,</span> <span class="mf">8.8</span><span class="p">]</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>                                                       <span class="c1"># significance level = 5%</span>
+<span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>                                          <span class="c1"># sample sizes</span>
+<span class="n">s1</span><span class="p">,</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>                    <span class="c1"># sample variances</span>
+<span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">s1</span><span class="o">/</span><span class="n">n1</span> <span class="o">+</span> <span class="n">s2</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">((</span><span class="n">s1</span><span class="o">/</span><span class="n">n1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">n1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">s2</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">n2</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># degrees of freedom</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>                                   <span class="c1"># two-tailed 95% confidence t-score</span>
+
+<span class="n">lower</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">-</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">*</span> <span class="n">s</span>
+<span class="n">upper</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">*</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [188]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[188]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>(-0.8633815129922358, 3.3433815129922397)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin-top: -20px"></div><p>The 95% confidence interval of difference in means has 0 within its interval. This means that the null hypothesis, <span style="color: #ed7d32; font-weight: 500; font-size: 0.85rem;">$H_0: \mu_1 - \mu_2 = 0$</span> in <a href="#fig6">figure (6)</a>, falls within the interval and we fail to reject the null hypothesis. We conclude that the sample means are not significantly different.</p>
+<p>We can confirm this by running a formal hypothesis testing with <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html" target="_blank">scipy.stats.ttest_ind()</a>, and setting <code>equal_var=False</code>. Note that this assumes independent t-test with pooled variance, which is equivalent to student's t-test.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [189]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[189]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>Ttest_indResult(statistic=1.245268949149111, pvalue=0.23018336828903668)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin-top: -20px"></div><p>The computed <code>pvalue=0.230</code> is bigger than the significance level of <code>alpha = 0.05</code>, and therefore we fail to reject the null hypothesis, which is consistent with the conclusion drawn from the confidence interval of difference in mean.</p>
+<div><hr/></div><p><p><u>Checking results with R</u>:</p></p>
+<pre>
+    <code class="language-python">
+        a <- c(12.9, 10.2, 7.4, 7.0, 10.5, 11.9, 7.1, 9.9, 14.4, 11.3)
+
+        b <- c(10.2, 6.9, 10.9, 11.0, 10.1, 5.3, 7.5, 10.3, 9.2, 8.8)
+
+        t.test(a, b, var.equal = FALSE)
+
+        #   Welch Two Sample t-test
+
+        # data:  a and b
+        # t = 1.2453, df = 16.74, p-value = 0.2302
+        # alternative hypothesis: true difference in means is not equal to 0
+        # 95 percent confidence interval:
+        #  -0.8633815  3.3433815
+        # sample estimates:
+        # mean of x mean of y 
+        #     10.26      9.02 
+
+    </code>
+</pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="dep"></div><h4 id="4.2.3.-Dependent-(paired)-samples---Paired-t-interval">4.2.3. Dependent (paired) samples - Paired t-interval<a class="anchor-link" href="#4.2.3.-Dependent-(paired)-samples---Paired-t-interval">¶</a></h4><p>This test is used when the samples are dependent; that is, when there is only one sample that has been tested twice (repeated measures) or when there are two samples that have been matched or "paired" (paired or unpaired? read <a href="#which_to_use">below.</a>)</p>
+<p>Confidence interval of difference in means assuming paired samples can be calculated as follows:</p>
+<div id="eq-8" style="font-size: 1rem;">
+$$ \text{C.I.}_{\Delta \text{mean}}: \quad \bar{d} \pm (t_{1-\frac{\alpha}{2}, df} \times \frac{s_d}{\sqrt{n}})\tag{8}$$
+</div><div class="eq-terms">
+<div class="row eq-terms-where">where</div>
+<div class="row">
+<div class="col-3"><p>$\bar{d}$<p></p></p></div>
+<div class="col-9"><p>: average of sample differences<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3">$\alpha$</div>
+<div class="col-9">: <a href="#">significance level</a></div>
+</div>
+<div class="row">
+<div class="col-3"><p>$n$<p></p></p></div>
+<div class="col-9"><p>: number of samples<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3"><p>$df$<p></p></p></div>
+<div class="col-9"><p>: degrees of freedom<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3">$s_d$</div>
+<div class="col-9">: standard deviation of sample differences</div>
+</div>
+<div class="row">
+<div class="col-3">$t$</div>
+<div class="col-9">: t-score. depends on $\alpha$ and degrees of freedom $n-1$</div>
+</div>
+</div><p>The equation is very similar to <a href="#eq-1">eq (1)</a>, except that we are computing mean and standard deviation of differences between before & after state of test subjects. Let's try to understand this with an example.</p>
+<p>A school develops a tutoring program to improve the SAT scores of high school students. A school requires students to take tests before & after tutoring, and checks if the tutoring had a significant impact on the SAT scores of students. Because the test subjects are compared to themselves, not anyone elses, the measurements taken before & after the training are not independent.</p>
+<p>To compute dependent t-interval, we compute differences of test scores before & after tutoring:</p>
+<table>
+<thead>
+<tr>
+<th>Student #</th>
+<th>$X_1$</th>
+<th>$X_2$</th>
+<th>$X_1$ - $X_2$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1480</td>
+<td>1510</td>
+<td>-30</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1280</td>
+<td>1460</td>
+<td>-180</td>
+</tr>
+<tr>
+<td>3</td>
+<td>890</td>
+<td>1320</td>
+<td>-430</td>
+</tr>
+<tr>
+<td>4</td>
+<td>340</td>
+<td>700</td>
+<td>-360</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1550</td>
+<td>1550</td>
+<td>0</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1230</td>
+<td>1420</td>
+<td>-190</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1010</td>
+<td>1340</td>
+<td>-330</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1590</td>
+<td>1570</td>
+<td>20</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1390</td>
+<td>1500</td>
+<td>-110</td>
+</tr>
+<tr>
+<td>10</td>
+<td>980</td>
+<td>1300</td>
+<td>-320</td>
+</tr>
+</tbody>
+</table><p>We find $\bar{d}$ = -193.0, and $s_d$ = 161.7. These values are plugged into <a href="#eq-8">eq (8).</a> Degrees of freedom $df$ for dependent t-interval can be computed with:</p>
+<div id="eq-9" style="font-size: 1rem;">
+$$ df = n - 1 \tag{9}$$
+</div><p>Unlike independent t-test, in which two samples can have different sample sizes $n_1$ and $n_2$, depedent t-test has only one sample size, because the test subjects are compared to themselves.</p>
+<p>Also note that dependent t-test assumes difference of test scores to be normally distributed, not test scores of students themselves. But as long as the test scores are normally distributed, the difference of test scores will also be normally distributed due to the property of normal distributions.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div><hr/></div><div id="python_dep"></div>
+<p style="color: #666"><b>Pythonic Tip:</b> Computing paired t-interval<p>
+
+Although Scipy supports computing t-statistic for dependent t-test, it doesn't support a function that allows us to compute dependent t-interval. We will have to write our own codes to compute it.
+
+Don't forget to compute sample standard devaition, instead of population standard deviation by setting <code>ddof=1</code> as explained <a href="#python_variance">above</a>.
+
+<div style="margin-bottom: -20px"></div>
+</p></p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [190]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [191]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1480</span><span class="p">,</span> <span class="mi">1280</span><span class="p">,</span> <span class="mi">890</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="mi">1550</span><span class="p">,</span> <span class="mi">1230</span><span class="p">,</span> <span class="mi">1010</span><span class="p">,</span> <span class="mi">1590</span><span class="p">,</span> <span class="mi">1390</span><span class="p">,</span> <span class="mi">980</span><span class="p">])</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1510</span><span class="p">,</span> <span class="mi">1460</span><span class="p">,</span> <span class="mi">1320</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">1550</span><span class="p">,</span> <span class="mi">1420</span><span class="p">,</span> <span class="mi">1340</span><span class="p">,</span> <span class="mi">1570</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">1300</span><span class="p">])</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>                        <span class="c1"># significance level = 5%</span>
+<span class="n">d_bar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x2</span><span class="p">)</span>            <span class="c1"># average of sample differences</span>
+<span class="n">s_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x2</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>       <span class="c1"># sample standard deviation of sample differences</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>                         <span class="c1"># sample size</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>                          <span class="c1"># degrees of freedom</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>    <span class="c1"># two-tailed 95% confidence t-score</span>
+
+<span class="n">lower</span> <span class="o">=</span> <span class="n">d_bar</span> <span class="o">-</span> <span class="n">t</span> <span class="o">*</span> <span class="n">s_d</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">upper</span> <span class="o">=</span> <span class="n">d_bar</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">s_d</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [192]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[192]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>(-308.64567899681356, -77.35432100318641)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin-top: -20px"></div><p>The 95% confidence interval of difference in means for dependent samples does not have 0 within its interval. This means that the null hypothesis, <span style="color: #ed7d32; font-weight: 500; font-size: 0.85rem;">$H_0: \mu_1 - \mu_2 = 0$</span> in <a href="#fig6">figure (6)</a>, does not fall within the interval. Instead, our estimation falls within the 2.5% outlier zone on the left, <span style="color: black; font-weight: 500; font-size: 0.85rem;">$H_1: \mu_1 - \mu_2 \neq 0$</span>. We reject the null hypothesis $H_0$, and accept the alternate hypothesis $H_1$. We conclude that the sample means are significantly different. In the other words, the tutoring program developed by the school had significant impact on the SAT score of its students.</p>
+<p>We can confirm this by running a formal hypothesis testing with <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html" target="_blank">scipy.stats.ttest_rel().</a> Note that this assumes dependent t-test.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [193]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_rel</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[193]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>Ttest_relResult(statistic=-3.7752930865755987, pvalue=0.004380623368522125)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin-top: -20px"></div><p>The computed <code>pvalue=0.004</code> is smaller than the significance level of <code>alpha = 0.05</code>, and therefore we reject the null hypothesis and accept the alternate hypothesis, which is consistent with the conclusion drawn from the confidence interval of difference in mean.</p>
+<p><strong>Notes</strong>: The above hypothesis testing answers the question of "Did this tutoring program had a significant impact on the SAT scores of students?". However, in cases like this, a more intuitive question is "Did this tutoring program significantly <i>improve</i> the SAT scores of students?" The former uses two-tailed test, and the latter uses one-tailed test, and the procedures for them are a little different.</p>
+<div><hr/></div><p><p><u>Checking results with R</u>:</p></p>
+<pre>
+    <code class="language-python">
+        x1 = c(1480, 1280, 890, 340, 1550, 1230, 1010, 1590, 1390, 980)
+        x2 = c(1510, 1460, 1320, 700, 1550, 1420, 1340, 1570, 1500, 1300)
+
+        t.test(x1, x2, paired=TRUE)  
+
+        #     Paired t-test
+
+        # data:  x1 and x2
+        # t = -3.7753, df = 9, p-value = 0.004381
+        # alternative hypothesis: true difference in means is not equal to 0
+        # 95 percent confidence interval:
+        #  -308.64568  -77.35432
+        # sample estimates:
+        # mean of the differences 
+        #                    -193 
+    </code>
+</pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="which_to_use"></div>
+<div class="alert alert-info">
+<h4>Notes: Deciding which t-test to use</h4>
+<p><u>Equal or unequal variance?</u></p>
+<p style="padding-left: 1rem !important">Long story short, always assume unequal variance of samples when using t-test or constructing confidence interval of difference in means.</p>
+<p style="padding-left: 1rem !important">Student's t-test is used for samples of equal variance, and Welch's t-test is used for samples of unequal variance. A natural question is, how do you know which test to use? While there exist techniques to check homogeneity of variances (f-test, Barlett's test, Levene's test), it is dangerous to run hypothesis testing for equality of variances to decide which t-test to use (student's t-test or Welch's t-test), because it increases Type I error (asserting something that is absent, false positive). This is shown by <a href="https://www.jstor.org/stable/2684403?seq=1#page_scan_tab_contents" target="_blank">Moser and Stevens (1992)</a> and <a href="https://onlinelibrary.wiley.com/doi/abs/10.1348/000711005X62576" target="_blank">Hayes and Cai (2010).</a></p>
+<p style="padding-left: 1rem !important"><a href="https://link.springer.com/article/10.1007/s00362-009-0224-x" target="_blank">Kubinger, Rasch and Moder (2009)</a> argue that when the assumptions of normality and homogeneity of variances are met, Welch's t-test performs equally well, but outperforms when the assumptions are not met. <a href="https://academic.oup.com/beheco/article/17/4/688/215960" target="_blank">Ruxton (2006)</a> argues that the <i>"unequal variance t-test should always be used in preference to the Student's t-test"</i> (Note: what he means by "always" is assuming normality of distribution)</p>
+<p style="padding-left: 1rem !important">Also note that R uses Welch's t-test as the default for the <code>t.test()</code> function.</p>
+<p><u>Independent (unpaired) or dependent (paired) samples?</u></p>
+<p style="padding-left: 1rem !important">Paired t-test compares the same subjects at 2 different times . Unpaired t-test compares two different subjects.</p>
+<p style="padding-left: 1rem !important">Samples are <i>independent (unpaired)</i> if one measurement is taken on different groups. For example in medical treament, group A is a control group, and is given a placebo with no medical effect. Group B is a test group, and receives a prescribed treatment with expected medical effect. Health check is applied on two groups, and the measurements are recorded. We say that the measurement from group A is independent from that of group B.<p>
+<p style="padding-left: 1rem !important">Samples are <i>dependent (paired)</i> when repeated measures are taken on the same or related subjects. For example, there may be instances of the same patients being tested repeatedly - before and after receiving a particular treatment. In such cases, each patient is being used as a control sample against themselves. This method also applies to cases where the samples are related in some manner or have matching characteristics, like a comparative analysis involving children, parents or siblings.</p>
+<p style="padding-left: 1rem !important">If you have a reason to believe that samples are correlated in any ways, it is recommended to use dependent test to reduce the effect of <a href="https://www.statisticshowto.datasciencecentral.com/experimental-design/confounding-variable/" target="_blank">confounding factors</a>.</p>
+</p></p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="conf_int_of_var" style="margin-top: 30px"></div><h3 id="4.3.-Confidence-interval-of-variance">4.3. Confidence interval of variance<a class="anchor-link" href="#4.3.-Confidence-interval-of-variance">¶</a></h3><p>Confidence interval of variance is used to estimate the population variance from sample data and quantify the related uncertainty. C.I. of variance is seldom used by itself, but rather used in conjunction with <a href="https://newonlinecourses.science.psu.edu/stat414/node/225/" target="_blank">f-test</a>, which tests equality of variances of different populations. Similar to how the <a href="#conf_int_of_diff_in_mean">confidence interval of difference in mean</a> forms the foundation of <a href="https://www.investopedia.com/terms/t/t-test.asp" target="_blank">t-test</a>, C.I. of variance forms the foundation of f-test. In the field of statistics and machine learning, the equality of variance is an important assumption when choosing which technique to use. For example, when comparing the means of two samples, <a href="#4.2.1.-Independent-(unpaired)-samples,-equal-variance---student's-t-interval">student's t-test</a> should not be used when you have a reason to believe that the two samples have different variances. Personally, I found f-test to be useful for the purpose of reading and understanding scientific papers, as many of the papers I have read use f-test to test their hypothesis, or use a variation of f-test for more advanced techniques. It is a pre-requisite knowledge you need to know to understand the more advanced techniques.</p>
+<p>I mentioned that different statistics exhibit different distributions <a href="#dist_stats">above</a>. When a sample data set originates from a normal distribution, its sample means are normally distributed as shown in <a href="???">figure 4</a>. On the other hand, its sample variances are <a href="#chi_square">chi-square (<span style="font-size: 90% !important">$\chi^2$</span>) distributed</a> as shown in <a href="">figure ???</a> The curve is asymptotic, and never touches the x-axis. The cumulative probabilty, which is often referred to as "p-value" in hypothesis testing, propagates from the right (p-value=0) to the left (p-value=1). For example, <span style="font-size: 90% !important">$\chi^2_{.975}=2.70$</span> is in the lower/left-tail and <span style="font-size: 90% !important">$\chi^2_{.025} = 19.02$</span> is in the upper/right-tail. When the samples follow a normal distribution, the <span style="font-size: 90% !important">$\chi^2$</span> statistic values can be plugged into <a href="#eq-10">eq (10)</a> to compute the confidence interval of variance.</p>
+<div class="row" id="" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/conf_int_variance.png"/></div>
+<div class="col-12"><p class="image-description">Figure ???: 95% confidence interval of variance.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (?)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+                from scipy import stats
+                import matplotlib.pyplot as plt
+                import numpy as np
+
+                df = 9
+                x = np.linspace(-1, 28, 1000)
+                y = stats.chi2.pdf(x, df, loc=0, scale=1)
+                right_tail = stats.chi2.ppf(1 - 0.025, df) 
+                left_tail = stats.chi2.ppf(1 - 0.975, df) 
+
+                plt.style.use('seaborn-whitegrid')
+                fig, ax = plt.subplots(figsize=(12, 5))
+
+                ax.plot(x, y, c='black', label='Degrees of freedom = %d' % df)
+                ax.set_xlabel('$\chi^2$', fontsize=17)
+                ax.set_ylabel(r'Probability', fontsize=17)
+                ax.set_title(r'$\chi^2\ \mathrm{Distribution}$, df = %d' % df, fontsize=17)
+                ax.fill_between(x, 0, y, where=(np.array(x) > min(x)) & (np.array(x) <= left_tail), facecolor='grey')
+                ax.fill_between(x, 0, y, where=(np.array(x) > left_tail) & (np.array(x) < right_tail), facecolor='lightgrey')
+                ax.fill_between(x, 0, y, where=(np.array(x) > right_tail) & (np.array(x) <= max(x)), facecolor='grey')
+                ax.grid(False)
+
+                ax.text(22, 0.008, '2.5% outlier', fontsize=13)
+                ax.text(-2, 0.008, '2.5% outlier', fontsize=13)
+                ax.text(0.5, 0.04, '$\chi^2_{.975} = %.2f$' % left_tail, fontsize=14, bbox=dict(boxstyle='round', facecolor='white'))
+                ax.text(16.5, 0.015, '$\chi^2_{.025} = %.2f$' % right_tail, fontsize=14, bbox=dict(boxstyle='round', facecolor='white'))
+                ax.text(20, 0.08, '$\chi^2_{.975} \leq \chi^2 \leq \chi^2_{.025}$', fontsize=16)
+                ax.text(20, 0.06, '$2.70 \leq \chi^2 \leq 19.02$', fontsize=16)
+                ax.text(6, 0.05, '95% confidence interval', fontsize=16)
+                ax.text(6, 0.04, 'of variance', fontsize=16);
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="eq-10" style="font-size: 1rem;">
+$$  \text{C.I.}_{\text{variance}}: \frac{(n-1)s^{2}}{\chi^{2}_{\frac{\alpha}{2}, df}} \leq \sigma^2 \leq \frac{(n-1)s^{2}}{\chi^{2}_{1-\frac{\alpha}{2}, df}} \tag{10}$$
+</div><div class="eq-terms">
+<div class="row eq-terms-where">where</div>
+<div class="row">
+<div class="col-3"><p>$\sigma^2$<p></p></p></div>
+<div class="col-9"><p>: population variance<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3"><p>$s^2$<p></p></p></div>
+<div class="col-9"><p>: sample variance<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3">$\alpha$</div>
+<div class="col-9">: <a href="#">significance level</a></div>
+</div>
+<div class="row">
+<div class="col-3"><p>$n$<p></p></p></div>
+<div class="col-9"><p>: number of samples<p></p></p></div>
+</div>
+<div class="row">
+<div class="col-3"><p>$df$<p></p></p></div>
+<div class="col-9"><p>: degrees of freedom.</p></div>
+</div>
+<div class="row">
+<div class="col-3">$\chi^2$</div>
+<div class="col-9">: chi-squared statistic. Depends on $\alpha$ and $df$</div>
+</div>
+</div><p>In confidence interval of variance, the degrees of freedom is:</p>
+<div id="eq-11" style="font-size: 1rem;">
+$$df = n - 1$$
+</div><p>Recall that the goal of any confidence interval is to estimate the population parameter from a fraction of its samples due to the high cost of obtaining measurement data of the entire data set, as explained in <a href="#population_vs_samples">Population vs Samples.</a> You attempt to estimate the population variance <span style="font-size: 90% !important">$\sigma^2$</span> within the range of uncertainty with the sample variance <span style="font-size: 90% !important">$s^2$</span> obtained from a set of <span style="font-size: 90% !important">n</span> samples that are "hopefully" representative of the true population.</p>
+<p>Confidence interval of variance assumes normality of samples, and is very sensitive to the sample distribution's deviation from normality. In case of non-normal sample distributions, you can either 1) transform the distribution to normal distribution with <a href="#">Box-Cox transformation</a>, or 2) use non-parametric alternatives. For practitioners, I do not recommend 1) unless you really understand what you are doing, as the back transformation process of Box-Cox transformation can be tricky. Furthermore, it doesn't always result in successful transformation of non-normal to normal distribution, as discussed <a href="#">below</a>. I recommend to use 2). If you have non-normal samples and your goal is to compute the C.I. of variance, use <a href="#">bootstrap</a>. If your goal is to check the equality of variances of multiple sample data sets with hypothesis testing, use Levene's test. Both are the non-parametric alternatives that does not require normality of samples.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="chi_square"></div><div class="alert alert-info">
+<h4>Notes: Chi-square $\chi^2$ distribution</h4>
+<p>Chi-square <span style="font-size: 90% !important">$\chi^2$</span> distribution is a function of degrees of freedom <span style="font-size: 90% !important">$df$</span>. It is a special case of the gamma distribution and is one of the most widely used probability distributions in inferential statistics, notably in hypothesis testing or in construction of confidence intervals.</p>
+<p>It is used in the common chi-square goodness of fit test of an observed data set to a theoretical one. Let's say that there's a company that prints baseball cards. The company claims that 30% of the cards are rookies, 60% veterans but not All-Stars, and 10% are veteran All-Stars. Suppose that you purchased a deck of 100 cards. You found out that the card deck has 50 rookies, 45 veterans, and 5 All-Stars. Is this consistent with the company's claim? An answer to this question is explained in detail <a href="https://stattrek.com/chi-square-test/goodness-of-fit.aspx" target="_blank">here</a> using the chi-squared goodness of fit test. Note that the chi-square goodness of fit test does NOT require normality of data, but the chi-square test that checks if a variance equals a specified value DOES require normality of data.</p>
+<p>When samples have a normal distribution, some of their statistics can be described by <span style="font-size: 90% !important">$\chi^2$</span> distributions. For example, the <a href="https://www.machinelearningplus.com/statistics/mahalanobis-distance/" target="_blank">Mahalanobis distance</a> follows <span style="font-size: 90% !important">$\chi^2$</span> distribution when samples are normally distributed, and can be used for multivariate outlier detection using <span style="font-size: 90% !important">$\chi^2$</span> hypothesis test. Variance of samples also follows <span style="font-size: 90% !important">$\chi^2$</span> distributions when samples are normally distributed, and can be used to construct the confidence interval of variances with <a href="">eq (???)</a>.</p>
+<p>By the central limit theorem, a <span style="font-size: 90% !important">$\chi^2$</span> distribution converges to a normal distribution for large sample size <span style="font-size: 90% !important">$n$</span>. For many practical purposes, for <span style="font-size: 90% !important">$n$</span> > 50 the distribution is sufficiently close to a normal distribution for the difference to be ignored. Note that the sampling distribution of <span style="font-size: 90% !important">$ln(\chi^2)$</span> converges to normality much faster than the sampling distribution of <span style="font-size: 90% !important">$\chi^2$</span> as the logarithm removes much of the asymmetry. </p>
+<img class="admonition-image" src="jupyter_images/chi_square.png" style="border: 1px solid #ddd;">
+<div class="solution_panel closed" style="margin-top: 20px;">
+<div class="solution_title solution_admonition">
+<p class="solution_title_string">Source Code For The Figure</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+                <code class="language-python">
+                    from scipy import stats
+                    import matplotlib.pyplot as plt
+                    import numpy as np
+
+                    df_values = [1, 2, 6, 9]
+                    linestyles = ['-', '--', ':', '-.']
+                    x = np.linspace(-1, 20, 1000)
+
+                    fig, ax = plt.subplots(figsize=(6.6666666, 5))
+                    fig.tight_layout()
+                    plt.subplots_adjust(left=0.09, right=0.96, bottom=0.12, top=0.93)
+
+                    for df, ls in zip(df_values, linestyles):
+                        ax.plot(x, stats.chi2.pdf(x, df, loc=0, scale=1), 
+                                ls=ls, c='black', label=r'Degrees of freedom$=%i$' % df)
+
+                    ax.set_xlim(0, 10)
+                    ax.set_ylim(0, 0.5)
+                    ax.set_xlabel('$\chi^2$', fontsize=14)
+                    ax.set_ylabel(r'Probability', fontsize=14)
+                    ax.set_title(r'$\chi^2\ \mathrm{Distribution}$')
+                    ax.legend(loc='best', fontsize=11, framealpha=1, frameon=True)
+                </code>
+            </pre>
+</div>
+</div>
+</img></div><div id="one_tail_two_tail" style="margin-top: 30px"></div><div class="alert alert-info">
+<h4>Notes: One-tail vs two-tail </h4>
+<p>As you explore more about the field of statistics, you will encounter many scientific papers or articles using mostly upper/right-tailed f-test, instead of two-tailed or lower/left-tailed f-test. Why? That's because they don't have much practical use in real-life. This information is little beyond the scope of this article, but I still want to touch on it because the C.I. of variance forms the foundation of f-test. </p>
+<p>When it comes to the test of variances, we often want to maintain a low variance than high variance, because the high variance is often related to high risk or instability. We are usually interested in knowing if a target population variance <span style="font-size: 90% !important">$\sigma^2$</span> is lower than a specified value <span style="font-size: 90% !important">$\sigma^2_0$</span>, not the other way around. This can be doen by using the upper/right-tailed hypothesis test, which is shown in the middle plot below. If the calculated statistic for f-test falls within the dark grey area, you reject your null hypothesis <span style="font-size: 90% !important">$H_0$</span>, and accept the alternate hypothesis <span style="font-size: 90% !important">$H_a$</span></p>
+<img class="" src="jupyter_images/two_tails.png" style="border: 1px solid #ddd;">
+<div class="solution_panel closed" style="margin-top: 20px;">
+<div class="solution_title solution_admonition">
+<p class="solution_title_string">Source Code For The Figure</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+                <code class="language-python">
+                    from scipy import stats
+                    import matplotlib.pyplot as plt
+                    import numpy as np
+
+                    df = 9
+                    x = np.linspace(-1, 28, 1000)
+                    y = stats.chi2.pdf(x, df, loc=0, scale=1)
+
+                    # two-tailed
+                    two_right_tail = stats.chi2.ppf(1 - 0.025, df) 
+                    two_left_tail = stats.chi2.ppf(1 - 0.975, df)
+
+                    # one tailed
+                    one_right_tail = stats.chi2.ppf(1 - 0.05, df)
+                    one_left_tail = stats.chi2.ppf(1 - 0.95, df)
+
+
+                    plt.style.use('seaborn-whitegrid')
+                    fig, axes = plt.subplots(1, 3, figsize=(12, 3))
+
+                    for ax in axes:
+
+                        ax.plot(x, y, c='black')
+                        ax.grid(False)
+                        ax.xaxis.set_major_formatter(plt.NullFormatter())
+                        ax.yaxis.set_major_formatter(plt.NullFormatter())
+
+                    axes[0].fill_between(x, 0, y, where=(np.array(x) > min(x)) & (np.array(x) <= two_left_tail), facecolor='grey')
+                    axes[0].fill_between(x, 0, y, where=(np.array(x) > two_left_tail) & (np.array(x) < two_right_tail), facecolor='lightgrey')
+                    axes[0].fill_between(x, 0, y, where=(np.array(x) > two_right_tail) & (np.array(x) <= max(x)), facecolor='grey')
+                    axes[0].set_title('Two-tailed', fontsize=20)
+                    axes[0].text(14, 0.08, r'$H_0: \sigma^2 = \sigma_0^2$', fontsize=20)
+                    axes[0].text(14, 0.057, r'$H_a: \sigma^2 \neq \sigma_0^2$', fontsize=20)
+
+                    axes[1].fill_between(x, 0, y, where=(np.array(x) > min(x)) & (np.array(x) < one_right_tail), facecolor='lightgrey')
+                    axes[1].fill_between(x, 0, y, where=(np.array(x) > one_right_tail) & (np.array(x) <= max(x)), facecolor='grey')
+                    axes[1].set_title('Upper/right-tailed', fontsize=20)
+                    axes[1].text(14, 0.08, r'$H_0: \sigma^2 \leq \sigma_0^2$', fontsize=20)
+                    axes[1].text(14, 0.057, r'$H_a: \sigma^2 > \sigma_0^2$', fontsize=20)
+
+                    axes[2].fill_between(x, 0, y, where=(np.array(x) > min(x)) & (np.array(x) <= one_left_tail), facecolor='grey')
+                    axes[2].fill_between(x, 0, y, where=(np.array(x) > one_left_tail) & (np.array(x) <= max(x)), facecolor='lightgrey')
+                    axes[2].set_title('Lower/left-tailed', fontsize=20)
+                    axes[2].text(14, 0.08, r'$H_0: \sigma^2 \geq \sigma_0^2$', fontsize=20)
+                    axes[2].text(14, 0.057, r'$H_a: \sigma^2 < \sigma_0^2$', fontsize=20)
+
+                    fig.tight_layout()
+                </code>
+            </pre>
+</div>
+</div>
+</img></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div><hr/></div><div id="python_ci_var"></div>
+<p style="color: #666"><b>Pythonic Tip:</b> Computing confidence interval of variance<p>
+
+Unfortunately, there's no Python or R library that computes the confidence interval of variance. The fact that the pre-built function does not exist both in Python and R suggests that the C.I. of variance is seldom used. But as I mentioned before, the reason that I introduce the C.I. of variance is because it forms the foundation of f-test, a statistical hypothesis test that is widely used in scientific papers. 
+
+The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. Don't forget to compute sample variance, instead of population variance by setting <code>ddof=1</code> as explained <a href="#python_variance">above</a>.
+
+<div style="margin-bottom: -20px"></div>
+</p></p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mf">8.69</span><span class="p">,</span> <span class="mf">8.15</span><span class="p">,</span> <span class="mf">9.25</span><span class="p">,</span> <span class="mf">9.45</span><span class="p">,</span> <span class="mf">8.96</span><span class="p">,</span> <span class="mf">8.65</span><span class="p">,</span> <span class="mf">8.43</span><span class="p">,</span> <span class="mf">8.79</span><span class="p">,</span> <span class="mf">8.63</span><span class="p">]</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>               <span class="c1"># significance level = 5%</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>               <span class="c1"># sample sizes</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># sample variance</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>                 <span class="c1"># degrees of freedom</span>
+
+<span class="n">upper</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">s2</span> <span class="o">/</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">lower</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">s2</span> <span class="o">/</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>(0.07238029119542731, 0.5822533618682987)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin-top: -20px"></div><p>The output suggests that the 95% confidence interval of variance is — <span style="font-size: 90% !important">$\text{C.I.}_{variance}: \,\, 0.072 < \sigma^2 < 0.582$</span></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="conf_int_of_other" style="margin-top: 30px"></div><h3 id="4.4.-Confidence-interval-of-other-statistics:-Bootstrap">4.4. Confidence interval of other statistics: Bootstrap<a class="anchor-link" href="#4.4.-Confidence-interval-of-other-statistics:-Bootstrap">¶</a></h3><p>(Note: For those people who have web-development experience, this is not <a href="https://getbootstrap.com/" target="_blank">CSS Bootstrap</a>.)</p>
+<p>I mentioned that different formulas are used to construct confidence intervals of different statistics <a href="#key3">above.</a> There are three problems with computing the confidence interval of statistics with analytical solutions:</p>
+<ol class="rounded-list" style="margin-bottom: 40px !important; margin-top: 40px! important;">
+<li><p>Not all statistics have formulas for their confidence intervals</p></li>
+<li><p>Their formulas can be so convoluted, that it may be better to use numerical alternatives</p></li>
+<li><p>You have to memorize their formulas</p></li>
+</ol><p>Bootstrapping is nice because it allows you to avoid these practical concerns. For example, there are no formulas to compute the confidence interval of covariance and median. On the other hand, regression coefficient has its own formula for its confidence interval, but the formulas get really messy in cases of multi-linear or non-linear regression. Wouldn't it be nice if there's a "magic" that saves you from all the math you have to worry about?</p>
+<blockquote><p><strong>Bootstrapping</strong> is a statistical method for estimating the <a href="#dist_stats">sampling distribution of a statistic</a> by sampling with replacement from the original sample, most often with the purpose of estimating confidence intervals of a population parameter like a mean, median, proportion, correlation coefficient or regression coefficient.</p>
+</blockquote>
+<p>Constructing confidence interval with bootstrapping can be visually understood with <a href="#">fig (?)</a>. Initially you have 5 samples <span style="font-size: 90% !important">$[8, 5, 4, 6, 2]$</span> that you collected from an unknown population. You randomly draw $n=5$ samples from the original sample pool WITH REPLACEMENT, and they become your <strong>single bootstrap sample</strong>. You repeat this process $r=6$ times to collect <strong>multiple bootstrap samples</strong>. For each bootstrap sample, you run your functions to compute the statistic of your interest: in this case, <code>np.mean(single_boot)</code>. Now you have $r=6$ sample means obtained from $r$ bootstrap samples. You can construct 95% confidence interval of mean with percentile method: <code>np.percentile(mutliple_boot_means, 97.5)</code></p>
+<div class="row" id="" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/conf_int_boot.png"/></div>
+<div class="col-12"><p class="image-description">Figure ???: Bootstrap 95% confidence interval of mean.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (?)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+                import matplotlib.pyplot as plt
+                import numpy as np
+
+                np.random.seed(42)
+                arr = [8, 5, 4, 6, 2]
+
+                ####################### Bootstrap ####################### 
+                num_boot_samples = 1000
+                def estimator(l):
+                    # statistic of interest; Ex: mean, median, variance ...
+                    return np.mean(l)
+
+                boot = [estimator(np.random.choice(arr, len(arr))) for _ in range(num_boot_samples)]
+                #########################################################
+
+                plt.style.use('seaborn-whitegrid')
+                fig, ax = plt.subplots(figsize=(10, 4))
+                returns = ax.boxplot(boot, widths=0.5, whis=[2.5, 97.5],
+                                     patch_artist=True, 
+                                     boxprops=dict(linewidth=3.0, color='grey'),
+                                     whiskerprops=dict(linewidth=3.0, color='grey'), vert=False,
+                                     capprops=dict(linewidth=2.0, color='grey'),
+                                     medianprops=dict(linewidth=2.0, color='yellow'))
+
+                ax.set_aspect(1)
+                ax.set_xlim(2.9, 7.1)
+                ax.set_xlabel('x', fontsize=20)
+                ax.yaxis.set_major_formatter(plt.NullFormatter())
+                ax.set_title('Bootstrap 95% confidence interval of mean', fontsize=20)
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="conf_int_regression"></div><h3 id="4.5-Confidence-interval-of-regression">4.5 Confidence interval of regression<a class="anchor-link" href="#4.5-Confidence-interval-of-regression">¶</a></h3><p>This section is not completed yet...</p>
+<p><img class="row full_screen_margin_md mobile_responsive_plot_full_width" src="jupyter_images/coming_soon.png"/></a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="conf_int_non_normal"></div><h2 id="5.-Confidence-interval-of-non-normal-distribution">5. Confidence interval of non-normal distribution<a class="anchor-link" href="#5.-Confidence-interval-of-non-normal-distribution">¶</a></h2><p>This section is not completed yet...</p>
+<p><img class="row full_screen_margin_md mobile_responsive_plot_full_width" src="jupyter_images/coming_soon.png"/></a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="central_tendency"></div><h3 id="5.1-Measuring-central-tendency-of-distributions">5.1 Measuring central tendency of distributions<a class="anchor-link" href="#5.1-Measuring-central-tendency-of-distributions">¶</a></h3><p>We discussed how to compute <a href="#conf_int_of_mean">confidence interval of mean</a> and <a href="#conf_int_of_diff_in_mean">confidence interval of difference in means.</a> But have you thought about why statisticians bother specifically about the means? Often times the ultimate goal is not to compute a <i>mean</i> of a distribution, but to compute a <i>measure of central tendency</i> of a distribution.</p>
+<p>A measure of central tendency is a single value that attempts to describe a set of data by identifying the central position within that set of data. The mean is the measure of central tendency that you are the most familiar with, but there are others, such as the median and the mode.</p>
+<div><hr/></div><p><strong>Point estimation</strong></p>
+<p>Mean is not a good measure of central tendency when there is a sign of deviation from normality, which can be characterized by skewness (asymmetry) and kurtosis (heavy-tails). Consider the following figures:</p>
+<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/conf_int_non_norm_means.png"/></div>
+<div class="col-12"><p class="image-description">Figure ??: Central tendency of distributions</p></div>
+</div><p>In <a href="#">figure (??) (a)</a>, there is no skewness, making the distribution symmetric. In this case, mean is a good measure of central tendency, along with median and mode — they are all equivalent. You can compute its confidence interval of mean using <a href="#eq-1">eq (1)</a>, and use it as a measure of central tendency, thanks to the symmetry of the distribution.</p>
+<p>However, when distributions have non-zero skewness, as in <a href="#">figure (??) (b)</a>, the assumption of normality is violated. Depending on how bad the asymmetry is, you can still use <a href="#eq-1">eq (1)</a>, because confidence interval of mean is robust to mild asymmetry. However, if a distribution has non-negligible skewness, interval computed with <a href="#eq-1">eq (1)</a> introduces bias to one side of a distribution.</p>
+<p>Although there exists non-parametric alternatives like Bootstrap and credible interval, you may want to take a step back and reconsider the purpose of your estimation. Are you really interested in the <i>mean</i>, or the <i>central tendency</i> of your distribution? In a case like <a href="#">figure (??) (b)</a>, perhaps you are more interested in the median, as it's a better measure of central tendency of asymmetric distributions.</p>
+<p>Visualize your distribution to see what your true interest is.</p>
+<div><hr/></div><p><strong>Comparison of distributions</strong></p>
+<p>Similar idea applies when you want to compare two distributions. Let's say that you want to decide if two samples came from the same population by comparing their confidence interval of means. Consider the following figure of two non-normal sample distributions:</p>
+<div class="row full_screen_margin_md mobile_responsive_plot_full_width" id="" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/conf_int_non_norms_overlap.png"/></div>
+<div class="col-12"><p class="image-description">Figure ??: Confidencen interval of means for non-normal distributions</p></div>
+</div><p>Note that the <span style="color: #385624; font-weight: 500;">95% confidence interval of means</span> in <a href="#">figure (??)</a> are asymmetric about their respective sample means, because they are computed with non-parametric alternatives. Since there is an overlap of the two intervals, you can conclude that the sample means are not significantly different. Furthermore, even the variances of the samples are the same; I generated the plots so that they have the same variances.</p>
+<p>Now, you know that the samples have equal means and variances within the range of uncertainty. Can you conclude that the two samples came from the same population? Clearly not, because their central locations are far apart from each other. Their central tendencies are better described by their medians than their means.</p>
+<p>In this case, if you are using confidence confidence interval of means and variances to check if two samples came from the same population, your approach is wrong. This kind of approach assumes normality of data. Any approach that makes a certain assumption of data fails when that assumption is violated.</p>
+<p>If your goal is to find out if the two samples originated from the same population, you may want to use non-parametric alternatives, such as Mann-Whitney test or Kruskall-Wallis test; they are geared towards comparing central tendency of distributions, not means or variances.</p>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+        </div>
+        <hr/>
+        <aside>
+        <nav>
+        <ul class="articles-timeline">
+            <li class="previous-article">« <a href="https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" title="Previous: Optimize Computational Efficiency of Skip-Gram with Negative Sampling">Optimize Computational Efficiency of Skip-Gram with Negative Sampling</a></li>
+        </ul>
+        </nav>
+        </aside>
+  <section>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'pythonic-excursions';
+      var disqus_identifier = '/comprehensive_confidence_intervals_for_python_developers';
+      var disqus_url = 'https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers';
+      var disqus_title = 'Comprehensive Confidence Intervals for Python Developers';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section>
+        <hr/>
+<section style="margin-top: 30px">
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" title="Uncertainty Modeling with Monte-Carlo Simulation">Uncertainty Modeling with Monte-Carlo Simulation</a></li>
+<li><a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" title="Non-Parametric Confidence Interval with Bootstrap">Non-Parametric Confidence Interval with Bootstrap</a></li>
+<li><a href="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution" title="Transforming Non-Normal Distribution to Normal Distribution">Transforming Non-Normal Distribution to Normal Distribution</a></li>
+</ul>
+</section>
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+      <div class="row">
+         <div class="col">
+            <h5 class="headin5_amrc col_white_amrc pt2">ABOUT ERIC</h5>
+            <!--headin5_amrc-->
+            <p class="mb10"><img id="profile_img" align="left" src="https://aegis4048.github.io/theme/img/profile_photo_footer.jpg">Senior undergraduate student at the Univeristy of Texas at Austin, Hildebrand Department of Petroleum Engineering, the #1 petroleum engineering school in the US. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
+            <p><i class="fa fa-envelope mr-2"></i>aegis4048@gmail.com</p>
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="about.html">ABOUT</a></li>
+         <li><a href="archives.html">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center">Handcrafted by me @2018</p>
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="row" align="center">
+                  <div class="footer-icon"><a href="https://www.linkedin.com/in/eric-kim-34318811b/"><i class="fab fa-linkedin-in"></i></a></div>
+                  <div class="footer-icon"><a href="https://github.com/aegis4048"><i class="fab fa-github"></i></a></div>
+              </div>
+          </div>
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://aegis4048.github.io/theme/libs/prism.js"></script>
+        <script src="https://aegis4048.github.io/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

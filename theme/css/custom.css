@@ -21,6 +21,14 @@ body {
 hr {
     border-top: 2px solid rgba(0,0,0,.1) !important;
 }
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 700;
+    line-height: 1.2;
+    color: inherit;
+    margin-top: 20px;
+}
 /*navbar begin*/
 .banner {
     background-color: #24292e !important;
@@ -444,7 +452,7 @@ article div.social-links li a:hover {
   text-decoration: none;
 }
 article p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-bottom: 0;
     line-height: 1.6em;
     margin-top: 20px;
@@ -1275,6 +1283,9 @@ span#MathJax-Span-198,
 span#MathJax-Span-199 {
     color: unset ! important
 }
+.math-inline .mi {
+    font-size: 100% !important;
+}
 .admonition-image {
     max-width: 100%;
 }
@@ -1605,8 +1616,6 @@ ol.rounded-list,
     *list-style: decimal; /* Keep using default numbering for IE6/7 */
     font: 15px 'trebuchet MS', 'lucida sans';
     padding: 0;
-    max-width: 600px;
-    margin: auto;
     padding-inline-start: 10px !important;
     margin-top: 0 !important;
     margin-bottom: 0!important;
@@ -1625,7 +1634,7 @@ ol.rounded-list,
     margin: .5em 0;
     background: #ddd;
     color: #444;
-    text-decoration: none;
+    text-decoration: none !important;
     border-radius: .3em;
     transition: all .3s ease-out;
 }
@@ -1873,7 +1882,160 @@ ol.rounded-list,
     margin-right: 7px;
     color: #5b7a83;
 }
+.eq-terms {
+    background-color: #fafafa;
+    border-radius: 2px;
+    border: 2px solid #e5e5e5;
+    padding: 0.8rem 1rem;
+    padding-bottom: 0.5rem;
+    border-left: 2px solid #507cb3;
+    font-size: 1rem;
+    font-family: monaco,'Source Code Pro',monospace,'Courier New';
+    margin-top: 20px;
+}
+.eq-terms-where {
+    color: #008;
+    margin: 0;
+    padding-left: 0 !important;
+    margin-bottom: 10px;
+}
+.eq-terms .row {
+    margin-bottom: 10px;
+    padding-left: 15px;
+}
+.eq-terms p {
+    margin-top: 0 !important;
+}
 
+.highlights {
+margin-top: 20px;
+    background: #f0f0f0;
+    border-radius: 2px;
+    border: 2px solid #e5e5e5;
+    padding: 0.8rem 1rem;
+    padding-bottom: 0.5rem;
+    border-top: 3px solid #23a19d;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+.highlights-title {
+    color: #23a19d;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.highlights-content {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    padding-left: 40px;
+}
+
+#toc_container {
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #aaa;
+    display: table;
+    font-size: 95%;
+    margin-bottom: 1em;
+    padding: 20px;
+    width: auto;
+}
+.toc_title {
+    font-weight: 700;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+#toc_container li, #toc_container ul, #toc_container ul li {
+    list-style: outside none none !important;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.toc_list a {
+    text-decoration: none !important;
+}
+.toc_label {
+    color: black;
+    padding-right: 10px;
+}
+
+.solution_panel {
+    width: 100%;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #E6E9ED;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+    opacity: 1;
+    transition: all .2s ease;
+}
+.solution_panel.closed .solution_content {
+    display: none;
+}
+.solution_panel .solution_title {
+    border-bottom: 2px solid #E6E9ED;
+    padding: 11px 22px;
+    background-color: #24292e;
+}
+.solution_panel .solution_title h2,
+.solution_panel .solution_title h3,
+.solution_panel .solution_title h4,
+.solution_panel .solution_title h5,
+.solution_panel .solution_title h6,
+.solution_panel .solution_title p {
+    margin: 5px 0 6px !important;
+    float: left;
+    display: block;
+    font-weight: 600;
+    color: white;
+    font-size: 1rem;
+}
+.solution_panel .panel_toolbox {
+    float: right;
+    margin-right: 0;
+    margin-top: 0 !important;
+}
+.solution_panel .panel_toolbox .collapse_link {
+    line-height: 1.5 !important;
+}
+.solution_panel .panel_toolbox > li {
+    float: left;
+    cursor: pointer;
+}
+.solution_panel .panel_toolbox > li > a {
+    padding: 5px;
+    color: #C5C7CB;
+    font-size: 14px;
+    display: block;
+}
+.solution_panel .panel_toolbox > li > a:hover {
+    background: #F5F7FA;
+}
+.solution_panel .nav > li {
+    position: relative;
+    display: block;
+}
+.solution_panel .solution_content {
+    padding-left: 30px;
+    float: left;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+.solution_title.solution_admonition{
+    background-color: #276f86 !important;
+}
+
+.indented {
+    padding-left: 2rem;
+}
+.indented .bullet-point {
+    color: #666;
+    font-weight: 800;
+}
 
 @media only screen and (max-width: 768px) {
     .mobile_responsive_plot_full_width {

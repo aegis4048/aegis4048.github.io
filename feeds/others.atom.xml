@@ -1110,50 +1110,12 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-&lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;If you’ve ever tried to do anything with data provided to you in PDFs, you know how painful it is — it's hard to copy-and-paste rows of data out of PDF files. It's especially hard if you want to retain the formats of the data in PDF file while extracting text. Most of the open source PDF parsers available are good at extracting text. But when it comes to retaining the the file's structure, eh, not really. Try &lt;a href="https://github.com/chezou/tabula-py"&gt;tabula-py&lt;/a&gt; to extract data into a CSV or Excel spreadsheet using a simple, easy-to-use interface. One look is worth a thousand words. Take a look at the demo screenshot.&lt;/p&gt;
 &lt;div class="row"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/pdf_parse_demo.png"&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/pdf_parse_demo.png"/&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2296,50 +2258,12 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-&lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;If you’ve ever tried to do anything with data provided to you in PDFs, you know how painful it is — it's hard to copy-and-paste rows of data out of PDF files. It's especially hard if you want to retain the formats of the data in PDF file while extracting text. Most of the open source PDF parsers available are good at extracting text. But when it comes to retaining the the file's structure, eh, not really. Try &lt;a href="https://github.com/chezou/tabula-py"&gt;tabula-py&lt;/a&gt; to extract data into a CSV or Excel spreadsheet using a simple, easy-to-use interface. One look is worth a thousand words. Take a look at the demo screenshot.&lt;/p&gt;
 &lt;div class="row"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/pdf_parse_demo.png"&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/pdf_parse_demo.png"/&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2354,8 +2278,8 @@ h6:hover .anchor-link {
 &lt;p&gt;One thing that I don't like about Windows is that it's difficult to use a new program I downloaded in a console environment like Python or CMD window. But oh well, if you are a Windows user, you have to go through this extra step to allow Python to use Java. If you are a macOS or Ubuntu user, you probably don't need this step.&lt;/p&gt;
 &lt;p&gt;Find where Java is installed, and go to &lt;code&gt;Control Panel &gt; System and Security &gt; System &gt; Advanced system settings &gt; Advanced &gt; Environment Variables...&lt;/code&gt; to set environment PATH variable for Java.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
-&lt;div class="col-6"&gt;&lt;img src="jupyter_images/tabula_instruction_1.png" style="border: 1px solid;"&gt;&lt;/div&gt;
-&lt;div class="col-6"&gt;&lt;img src="jupyter_images/tabula_instruction_2.png" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;div class="col-6"&gt;&lt;img src="jupyter_images/tabula_instruction_1.png" style="border: 1px solid;"/&gt;&lt;/div&gt;
+&lt;div class="col-6"&gt;&lt;img src="jupyter_images/tabula_instruction_2.png" style="border: 1px solid;"/&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Make sure you have &lt;code&gt;Java\jdk1.8.0_201\bin&lt;/code&gt; and &lt;code&gt;Java\jre1.8.0_201\bin&lt;/code&gt; in the environment path variable. Then, type &lt;code&gt;java -version&lt;/code&gt; on CMD window. If you successfully installed Java and configured the environment variable, you should see something like this:&lt;/p&gt;
 &lt;pre class="command-line language-powershell" data-output="2-5" data-prompt="(base) C:\Users\Eric&gt;"&gt;
 &lt;code class="language-powershell"&gt;java -version
@@ -2405,20 +2329,20 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Screenshots&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This is what you will see when you launch &lt;code&gt;tabula.exe&lt;/code&gt;. &lt;code&gt;Browse...&lt;/code&gt; the PDF file you want to parse, and &lt;code&gt;import&lt;/code&gt;.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/tabula-webapp.png" style="border: solid 1px;"&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/tabula-webapp.png" style="border: solid 1px;"/&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;You can either use &lt;code&gt;Autodetect Tables&lt;/code&gt; or drag your mouse to choose the area of your interest. If the PDF file has a  complicated structure, it is usually better to manually choose the area of your interest. Also, note the option &lt;code&gt;Repeat to All Pages&lt;/code&gt;. Selecting this option will apply the area you chose for all pages.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/tabula-webapp_2.png" style="border: solid 1px;"&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/tabula-webapp_2.png" style="border: solid 1px;"/&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Here's the output. More explanation about &lt;code&gt;Lattice&lt;/code&gt; and &lt;code&gt;Stream&lt;/code&gt; options will be discussed in detail later.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/tabula-webapp_3.png" style="border: solid 1px;"&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/tabula-webapp_3.png" style="border: solid 1px;"/&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Template JSON Files&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Tabula web-app accepts the user's drag &amp; click as input and translates it into Java arguments that are actually used behind the scenes to parse PDF files. The translated Java arguments are accessible to users in a JSON format.&lt;/p&gt;
 &lt;p&gt;Select the area you want to parse, and click &lt;code&gt;Save Selections as Template&lt;/code&gt;. Then, &lt;code&gt;Download&lt;/code&gt; the translated Java arguments in a text JSON file. These arguments are useful when coding arguments for &lt;code&gt;tabula.read_pdf()&lt;/code&gt; later.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/template_1.png" style="border: solid 1px;"&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/template_1.png" style="border: solid 1px;"/&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;div class="row give-margin"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/template_2.png" style="border: solid 1px;"&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/template_2.png" style="border: solid 1px;"/&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;p&gt;&lt;u&gt;template.json&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-markup"&gt;
@@ -2457,7 +2381,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
         # convert all PDFs in a directory
         tabula.convert_into_by_batch("input_directory", output_format='csv')
     &lt;/code&gt;
-&lt;/pre&gt;&lt;p&gt;&lt;br&gt;
+&lt;/pre&gt;&lt;p&gt;&lt;br/&gt;
 &lt;strong&gt;Area Selection&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can select portions of PDFs you want to analyze by setting &lt;code&gt;area (top,left,bottom,right)&lt;/code&gt; option in &lt;code&gt;tabula.read_pdf()&lt;/code&gt;. This is equivalent to dragging your mouse and setting the area of your interest in tabula web-app as it was mentioned above. Default is the entire page. Also note that you can choose the page, or pages you want to parse with &lt;code&gt;pages&lt;/code&gt; option.&lt;/p&gt;
 &lt;p&gt;The sample PDF file can be downloaded from &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/downloads/notebooks/pdf_parsing/lattice-timelog-multiple-pages.pdf"&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -3018,11 +2942,11 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 &lt;p&gt;&lt;u&gt;Stream Mode&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt;stream=True&lt;/code&gt; forces PDFs to be extracted using stream-mode extraction. This mode is used when there are no ruling lines to differentiate one cell from the other. Instead, it uses spacings among each cells to recognize each cell.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
 &lt;div class="col-md-6 col-sm-12"&gt;
-&lt;div class="col-12"&gt;&lt;img src="jupyter_images/lattice_mode.png" style="border: 1px solid; height: 380px"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;img src="jupyter_images/lattice_mode.png" style="border: 1px solid; height: 380px"/&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;&lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/downloads/notebooks/pdf_parsing/lattice-timelog-multiple-pages.pdf"&gt;PDF File 1&lt;/a&gt;: Lattice mode recommended&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="col-md-6 col-sm-12"&gt;
-&lt;div class="col-12"&gt;&lt;img src="jupyter_images/stream_mode_2.png" style="border: 1px solid; height: 380px"&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;img src="jupyter_images/stream_mode_2.png" style="border: 1px solid; height: 380px"/&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;&lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/downloads/notebooks/pdf_parsing/stream-railroad-pages-1-4.pdf"&gt;PDF file 2&lt;/a&gt;: Stream mode recommended&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;How would it look like if &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/downloads/notebooks/pdf_parsing/lattice-timelog-multiple-pages.pdf"&gt;PDF File 1&lt;/a&gt; and &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/content/downloads/notebooks/pdf_parsing/stream-railroad-pages-1-4.pdf"&gt;PDF file 2&lt;/a&gt; are each extracted in both &lt;code&gt;stream&lt;/code&gt; mode and &lt;code&gt;lattice&lt;/code&gt; mode?&lt;/p&gt;
@@ -4874,45 +4798,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-&lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;blockquote class="quote"&gt;
@@ -6061,45 +5947,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-&lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;blockquote class="quote"&gt;
@@ -6210,19 +6058,19 @@ h6:hover .anchor-link {
 &lt;p&gt;You don't want to be keep doing this for every single output of your code block. This is too much work. Simply write codes in Jupyter, save it, and render your article. Aegis-Jupyter theme was built for that purpose.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Mobile Device Friendly&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
-&lt;div class="col-3"&gt;&lt;img src="jupyter_images/mobile_1.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
-&lt;div class="col-3"&gt;&lt;img src="jupyter_images/mobile_2.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
-&lt;div class="col-3"&gt;&lt;img src="jupyter_images/mobile_3.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
-&lt;div class="col-3"&gt;&lt;img src="jupyter_images/mobile_4.jpg" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;div class="col-3"&gt;&lt;img src="jupyter_images/mobile_1.jpg" style="border: 1px solid;"/&gt;&lt;/div&gt;
+&lt;div class="col-3"&gt;&lt;img src="jupyter_images/mobile_2.jpg" style="border: 1px solid;"/&gt;&lt;/div&gt;
+&lt;div class="col-3"&gt;&lt;img src="jupyter_images/mobile_3.jpg" style="border: 1px solid;"/&gt;&lt;/div&gt;
+&lt;div class="col-3"&gt;&lt;img src="jupyter_images/mobile_4.jpg" style="border: 1px solid;"/&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;The theme renders very nicely on all resolutions, screenwidth, and mobile devices. Try viewing this website on your phone. If you are on PC, try stretching &amp; collapsing the browser size and see how it responsively re-aligns itself.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Google Analytics Support&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
-&lt;div class="col-6"&gt;&lt;img src="jupyter_images/analytics_2.png" style="border: 1px solid;"&gt;&lt;/div&gt;
-&lt;div class="col-6"&gt;&lt;img src="jupyter_images/analytics_3.png" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;div class="col-6"&gt;&lt;img src="jupyter_images/analytics_2.png" style="border: 1px solid;"/&gt;&lt;/div&gt;
+&lt;div class="col-6"&gt;&lt;img src="jupyter_images/analytics_3.png" style="border: 1px solid;"/&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="row give-margin"&gt;
-&lt;div class="col-6"&gt;&lt;img src="jupyter_images/analytics_4.png" style="border: 1px solid;"&gt;&lt;/div&gt;
-&lt;div class="col-6"&gt;&lt;img src="jupyter_images/analytics_5.png" style="border: 1px solid;"&gt;&lt;/div&gt;
+&lt;div class="col-6"&gt;&lt;img src="jupyter_images/analytics_4.png" style="border: 1px solid;"/&gt;&lt;/div&gt;
+&lt;div class="col-6"&gt;&lt;img src="jupyter_images/analytics_5.png" style="border: 1px solid;"/&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;If you own any kind of website, not just a data science blog, at some point in your life you would be wondering about the behaviors of the viewers. How many people visit my website every week? How many of them are unique visitors? From what region do I get the most number of visitors? On average, how many minutes do people stay on my website? Which post was the most popular? From what social media platform do I get the most number of visitors from?&lt;/p&gt;
 &lt;p&gt;These kinds of questions can be answered by leveraging the power of Google Analytics, &lt;strong&gt;FOR FREE&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;All you need to do is to create a &lt;a href="https://analytics.google.com/analytics/web"&gt;Google Analytics&lt;/a&gt; account, get a tracking ID, and put that on &lt;code&gt;publishconf.py&lt;/code&gt; file. For example, if your Google Analytics tracking ID is &lt;code&gt;UA-1XXXXXXXX-1&lt;/code&gt;, then you set &lt;code&gt;GOOGLE_ANALYTICS&lt;/code&gt; variable liks this:&lt;/p&gt;
@@ -6251,11 +6099,11 @@ h6:hover .anchor-link {
     &lt;/code&gt;
 &lt;/pre&gt;&lt;p&gt;The below screenshot is the preview of the article on the landing page of this blog. Observe how each attribute in the markdown file is used to render the output preview page. You can declare additional attributes as much as you want.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/md_file_exp.png"&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/md_file_exp.png"/&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Share Your Posts on Social Media&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Aegis-Jupyter theme leverages the power of &lt;code&gt;Open Graph Meta Tags&lt;/code&gt; and renders the preview of your website nicely when shared on social media. You can set a preview image by declaring &lt;code&gt;Featured_Image&lt;/code&gt; and set preview descriptions by declaring &lt;code&gt;Social_Media_Description&lt;/code&gt; for each article in its respective markdown files.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/social.png"&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/social.png"/&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;If you do not specify &lt;code&gt;Featured_Image&lt;/code&gt; attribute in the markdown file, a default featured image will show up when shared on social media. Default featured image can be set up in &lt;em&gt;pelicanconf.py&lt;/em&gt; file. &lt;a href="https://github.com/aegis4048/aegis4048.github.io-source/blob/master/pelicanconf.py"&gt;This&lt;/a&gt; is what I have for my blog:&lt;/p&gt;
 &lt;p&gt;&lt;p&gt;&lt;u&gt;pelicanconf.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
@@ -6267,7 +6115,7 @@ h6:hover .anchor-link {
 &lt;p&gt;&lt;strong&gt;Disqus Comment Box&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Being able to communicate with the audiences is a quintessential component of a blog. Create an account in Disqus and get your Disqus Website Name &lt;a href="https://disqus.com/admin/create/"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="row give-margin"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/disqus.png"&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/disqus.png"/&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Then, declare &lt;code&gt;DISQUS_SITENAME&lt;/code&gt; variable in &lt;code&gt;publishconf.py&lt;/code&gt;. That's all it takes to have a comment box feature for your blog. Aegis-Jupyter will handle the rest. And, of course, &lt;strong&gt;IT'S FREE&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;p&gt;&lt;u&gt;publishconf.py&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;pre&gt;
