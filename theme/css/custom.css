@@ -1289,6 +1289,9 @@ span#MathJax-Span-199 {
 .admonition-image {
     max-width: 100%;
 }
+.admonition-image-medium {
+    max-width: 100%;
+}
 #layout {
     margin-top: 2rem;
 }
@@ -1619,7 +1622,6 @@ ol.rounded-list,
     padding-inline-start: 10px !important;
     margin-top: 0 !important;
     margin-bottom: 0!important;
-
 }
 
 .rounded-list ol ol {
@@ -1703,6 +1705,57 @@ ol.rounded-list,
     transition: all .3s ease-out;
 }
 
+.custom-counter {
+    margin: 0;
+    padding-left: 0 !important;
+    list-style-type: none;
+    counter-reset: lis;
+    font: 15px 'trebuchet MS', 'lucida sans';
+    font-weight: 600;
+}
+
+.custom-counter li {
+    counter-increment: lis;
+    margin-bottom: 10px;
+}
+
+.custom-counter li::before {
+    font-size: 135%;
+    content: counter(lis);
+    margin-right: 5px;
+    background-color: rgb(0,200,200);
+    color: white;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 3px;
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    /* vertical-align: middle; */
+    padding-top: 7px;
+}
+.custom-counter p {
+    display: inline;
+}
+.custom-counter .numbering-p {
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em 1.5em;
+    margin: .5em 0;
+    margin-left: 45px;
+    background: #ddd;
+    color: #444;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: all .3s ease-out;
+}
+.left-pad-border {
+    margin-bottom: 40px;
+    padding-left: 50px;
+    border-left: 2px solid #dddddd;
+}
+
 #MathJax-Element-3811-Frame,
 #MathJax-Element-3711-Frame,
 #MathJax-Element-3611-Frame {
@@ -1717,8 +1770,6 @@ ol.rounded-list,
     margin-right: -15px;
     margin-left: -15px;
 }
-
-
 .index-container {
     background-color: #F0F4F5;
     padding-bottom: 0.1px;
@@ -2016,14 +2067,14 @@ margin-top: 20px;
     display: block;
 }
 .solution_panel .solution_content {
-    padding-left: 30px;
+    padding-left: 15px;
     float: left;
     clear: both;
     width: 100%;
     position: relative;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 9px;
+    padding-top: 8px;
 }
 .solution_title.solution_admonition{
     background-color: #276f86 !important;
