@@ -54,9 +54,13 @@ function check_width() {
     }
     if (windowSize < GRID_SMALL) {
         $('.admonition-image').css('max-width', '100%');
+        $('.admonition-image-medium').css('max-width', '100%');
+        $('.bullet-point-image-medium').css('padding', '0');
     }
     else {
         $('.admonition-image').css('max-width', '380px');
+        $('.admonition-image-medium').css('max-width', '550px');
+        $('.bullet-point-image-medium').css('padding', '0px 100px 0px 100px');
     }
     if (windowSize < GRID_LARGE) {
         $('.give-margin').removeClass('full_screen_margin');
