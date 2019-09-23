@@ -1353,12 +1353,11 @@ h6:hover .anchor-link {
 <li><a href="#monte-carlo"><span class="toc_label">Notes:</span>Monte-Carlo method</a></li>
 <li><a href="#python_bootstrap"><span class="toc_label">Pythonic Tip:</span>Bootstrapping in Python</a></li>
 </ul>
-<li><a href="#conf_int_regression"><span class="toc_label">4.5</span>Confidence interval of regression</a></li>
 </ul>
 <li><a href="#conf_int_non_normal"><span class="toc_label">5</span>Confidence interval of non-normal distribution</a></li>
 <ul>
 <li><a href="#non-normal-issues"><span class="toc_label">5.1</span>Problems of non-normal distributions and central tendency</a></li>
-<li><a href="#non-normal-robustness"><span class="toc_label">5.2</span>Robustness of confidence intervals to non-normalityce</a></li>
+<li><a href="#non-normal-robustness"><span class="toc_label">5.2</span>Robustness of confidence intervals to non-normality</a></li>
 </ul>
 </ul>
 </div>
@@ -1382,6 +1381,9 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div><hr/></div><div id="Uncertainty in rock porosity"></div>
 <p style="color: #666"><b>Example 1:</b> Uncertainty in rock porosity<p>
+
+(Burrowed from <a href="http://www.michaelpyrcz.com/" target="_blank">Dr. Michael Pyrcz's</a> Geostatistics class)
+<p></p>
 
 A reservoir engineer in the oil & gas industry wants to know the rock porosity of a formation to estimate the total oil reserve 9,500 ft underground. Due to the high cost of obtaining rock core samples from the deep formations, he could acquire only 12 rock core samples. Since the uncertainty of a point estimation scales inversely with a sample size, his estimation is subject to non-negligible uncertainty. He obtains 14.5% average rock porosity with 4.3% standard deviation. Executives in the company wants to know the worst-case scenario (P10) and the best-case scenario (P90) to make business decisions. You can convey your estimation of average porosity with uncertainty by constructing the <a href="#conf_int_of_mean">confidence interval of mean</a>.
 
@@ -4059,7 +4061,9 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 <div class="text_cell_render border-box-sizing rendered_html">
 <div id="kurtosis"></div><p><strong>Problems with kurtosis (heavy-tails)</strong></p>
 <p>(Note that heavy-, long-, fat-tails are all synonyms. Some literature distinguishes among their meanings, but in general, they are all equivalent terms.)</p>
-<p>Unlike skewness, which can be relatively easily adjusted, heavy-tails can be very painful in inferencial statistics. When a distribution has a heavy-tail, it means that the data has extreme data points that can introduce bias to statistical inferences (note that the term <i>bias</i> is defined as the difference between the statistical estimation vs. the actual population parameter). This is because the occurrence of extreme data points are so low that it is unlikely to be included in the sample you collected, and yet there are substantial number of them lurking in the uncollected portion of a population that impacts population parameter due to their extremity.</p>
+<p>Unlike skewness, which can be relatively easily adjusted, heavy-tails can be very painful in inferencial statistics. When a distribution has heavy-tails, it means that the sample has extreme data points that can introduce bias to statistical inferences (note that the term <i>bias</i> is defined as the difference between the statistical estimation vs. the actual population parameter). This is because the occurrence of extreme data points are so low that it is unlikely to be included in the sample you collected, and yet there are substantial number of them lurking in the uncollected portion of a population that impacts population parameters due to their extremity.</p>
+<p><a href="#">Figure (?)</a> below, shows the comparison of heavy- vs light-tailed distributions in a form of probability density function (PDF). Let's talk about the left plot first. Observe that in the heavy-tailed distribution (black line), the chance of occurrence for extreme values does not decay to zero as fast as that of the light-tailed distribution (grey line). This means that you have non-negligible chance observing of extreme values, and those extreme values themselves may not have upper/lower limits. In finance, such property is translated into high risk & unpredictability, which is modeled by Cauchy distributions.</p>
+<p>The right plot in <a href="#">figure (?)</a> compares normal vs Cauchy distributions. Note that the tails of Cauchy distribution is higher than that of the normal distributions. The heavy tails in Cauchy attempt to model financial/investment risks by representing randomness in which extremes are encountered. When data arise from an underlying heavy-tailed distribution, shoehorning in the "normal distribution" model of risk would severely understate the true degree of unpredictability, or risk. Practitioners often neglect the distinction between light- vs heavy-tail because they visually don't look very different when plotted in PDF. But this is big mistake.</p>
 <div class="row" id="bootstrap_uncertainty_model" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/conf_int_heavy_tail.png"/></div>
 <div class="col-12"><p class="image-description">Figure ???: Heavy-tailed distributions have more extreme data points that can be detrimental to statistical inferences</p></div>
