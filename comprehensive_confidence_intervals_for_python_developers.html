@@ -1286,7 +1286,7 @@ h6:hover .anchor-link {
 </blockquote>
 <p>Confidence interval tells you how confident you can be that the results from a poll or survey reflect what you would expect to find if it were possible to survey the entire population. It is difficult to obtain measurement data of an entire data set (<em>population</em>) due to limited resource & time. Your best shot is to survey a small fraction (<em>samples</em>) of the entire data set, and pray that your sample data represents the population reasonably well.</p>
 <p>Sample data may not be a good representation of a population by numerous factors (Ex: bias), and as a result, uncertainty is always introduced in any estimations derived from sample data. <strong>Due to the uncertainty involved with sample data, any statistical estimation needs to be delivered in a range, not in a point estimate</strong>.</p>
-<p>How well a sample statistic estimates an underlying population parameter is always an issue (<a href="#population_vs_samples">Population vs. Samples</a>). A confidence interval addresses this issue by providing a range of values, which is likely to contain the population parameter of interest.</p>
+<p>How well a sample statistic estimates an underlying population parameter is always an issue (<a href="#population_vs_samples">Population vs. Samples</a>). A confidence interval addresses this issue by providing a range of values, which is likely to contain the population parameter of interest within the range of uncertainty.</p>
 </div>
 </div>
 </div>
@@ -1355,8 +1355,11 @@ h6:hover .anchor-link {
 </ul>
 <li><a href="#conf_int_regression"><span class="toc_label">4.5</span>Confidence interval of regression</a></li>
 </ul>
-<li><a href="#conf_int_non_normal"><span class="toc_label">5</span>Confidence interval of non-normal
-            distribution</a></li>
+<li><a href="#conf_int_non_normal"><span class="toc_label">5</span>Confidence interval of non-normal distribution</a></li>
+<ul>
+<li><a href="#non-normal-issues"><span class="toc_label">5.1</span>Problems of non-normal distributions and central tendency</a></li>
+<li><a href="#non-normal-robustness"><span class="toc_label">5.2</span>Robustness of confidence intervals to non-normalityce</a></li>
+</ul>
 </ul>
 </div>
 </div>
@@ -1366,11 +1369,11 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div id="Understanding confidence interval with analogy"></div><h2 id="1.-Understanding-confidence-interval-with-analogy">1. Understanding confidence interval with analogy<a class="anchor-link" href="#1.-Understanding-confidence-interval-with-analogy">¶</a></h2><p>If you've taken a science class with lab reports in your highschool or college, you probably had to include measurement error in your lab reports. For example, if you were asked to measure the length of a paper clip with a ruler, you have to include $\pm0.5 \,\text{cm}$ or $\pm0.05\,\text{cm}$ (depending on the spacing of tick marks) to account for the measurement error that shows the precision of your measuring tool.</p>
-<p>Based on <a href="#fig1">figure (1)</a>, the paper clip seems to be about 2.7 cm long, but we don't know for sure because the tickmarks in the ruler is not precise enough to measure decimal length. However, I can tell with 100% confidence that the paper clip has a length between 2 ~ 3 cm, because the clip is between 2cm and 3cm tickmarks. You record the length of the paper clip in a <em>range</em>, instead of a <em>point estimate</em>, to account for the uncertainty introduced by the limitation of the measuring tool.</p>
+<p>Based on <a href="#fig1">figure (1)</a>, the paper clip seems to be about 2.7 cm long, but we don't know for sure because the tickmarks in the ruler is not precise enough to measure decimal length. However, I can tell with 100% confidence that the paper clip has a length between 2 ~ 3 cm, because the clip is between the 2 cm and 3 cm tickmarks. You record the length of the paper clip in a <em>range</em>, instead of a <em>point estimate</em>, to account for the uncertainty introduced by the limitation of the measuring tool.</p>
 <div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig1" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/conf_int_ruler.png"/></div>
 <div class="col-12"><p class="image-description">Figure 1: Measurement error in ruler</p></div>
-</div><p>Similar idea can be applied to a <a href="#conf_int_of_mean">confidence interval of mean</a>. You want to obtain a mean of a whole data set (<em>population</em>), but you can measure values of only a small fraction (<em>samples</em>) of the whole data set. This boils down to the traditional issue of <a href="#population_vs_samples">Sample vs Population</a>, due to the cost of obtaining measurement data of a large data set. Uncertainty is introduced in your samples, because you don't know if your samples are 100% representative of the population, free of bias. Therefore, you deliver your conclusion in a range, not in a point estimate, to account for the uncertainty.</p>
+</div><p>Similar idea can be applied to a <a href="#conf_int_of_mean">confidence interval of mean</a>. You want to obtain a mean of a whole data set (<em>population</em>), but you can measure values of only a small fraction (<em>samples</em>) of the whole data set. This boils down to the traditional issue of <a href="#population_vs_samples">Population vs Samples</a>, due to the cost of obtaining measurement data of a large data set. Uncertainty is introduced in your samples, because you don't know if your samples are 100% representative of the population, free of bias. Therefore, you deliver your conclusion in a range, not in a point estimate, to account for the uncertainty.</p>
 </div>
 </div>
 </div>
@@ -1380,7 +1383,7 @@ h6:hover .anchor-link {
 <div><hr/></div><div id="Uncertainty in rock porosity"></div>
 <p style="color: #666"><b>Example 1:</b> Uncertainty in rock porosity<p>
 
-A reservoir engineer in the oil & gas industry wants to know the rock porosity of a formation to estimate the total oil reserve 9,500 ft underground. Due to the high cost of obtaining rock core samples from the deep formations, he could acquire only 12 rock core samples. Since the uncertainty of a point estimation scales inversely with a sample size, his estimation is subject to non-negligible uncertainty. He obtains 14.5% average rock porosity with 4.3% standard deviation. Executives in the company wants to know the worst-case scenario and the best-case scenario to make business decisions. You can convey your estimation of average porosity with uncertainty by constructing the <a href="#conf_int_of_mean">confidence interval of mean</a>.
+A reservoir engineer in the oil & gas industry wants to know the rock porosity of a formation to estimate the total oil reserve 9,500 ft underground. Due to the high cost of obtaining rock core samples from the deep formations, he could acquire only 12 rock core samples. Since the uncertainty of a point estimation scales inversely with a sample size, his estimation is subject to non-negligible uncertainty. He obtains 14.5% average rock porosity with 4.3% standard deviation. Executives in the company wants to know the worst-case scenario (P10) and the best-case scenario (P90) to make business decisions. You can convey your estimation of average porosity with uncertainty by constructing the <a href="#conf_int_of_mean">confidence interval of mean</a>.
 
 Assuming that you have a reason to believe that the rock porosity follows normal distribution, you can construct its 80% confidence interval, with the procedure described <a href="#python_ci_mean"> below</a>:
 
@@ -1412,7 +1415,7 @@ Assuming that you have a reason to believe that the rock porosity follows normal
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="margin-top: -20px"></div><p>In the worst-case scenario, the rock formation at 9,500 ft underground has 12.8% porosity. In the best-case scenario, the oil reservoir has 16.2% porosity. The same procedures can be applied for the core samples collected at different depths, which give us the confidence interval plot of rock porosities shown in <a href="#">figure (2)</a>.</p>
+<div style="margin-top: -20px"></div><p>The above range of uncertainty was acquired from the 12 rock core samples. In the worst-case scenario, the rock formation at 9,500 ft underground has 12.8% porosity. In the best-case scenario, the oil reservoir has 16.2% porosity. The same procedures can be applied for the core samples collected at different depths, which give us the confidence interval plot of rock porosities shown in <a href="#fig2">figure (2)</a>.</p>
 <div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig2" style="">
 <div class="col"><img src="jupyter_images/rock_por_conf_no_title.png"/></div>
 <div class="col-12"><p class="image-description">Figure 2: Confidence interval of core samples porosities along depths</p></div>
@@ -3969,44 +3972,160 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div id="conf_int_regression"></div><h3 id="4.5-Confidence-interval-of-regression">4.5 Confidence interval of regression<a class="anchor-link" href="#4.5-Confidence-interval-of-regression">¶</a></h3><div style="display: none;">
-With skewed distributions, +/- methods are wrong. Instead you might wanna use percentile methods.</div><p>This section is not completed yet...</p>
-<p><img class="row full_screen_margin_md mobile_responsive_plot_full_width" src="jupyter_images/coming_soon.png"/></a></p>
+<div id="conf_int_non_normal"></div><h2 id="5.-Confidence-interval-of-non-normal-distribution">5. Confidence interval of non-normal distribution<a class="anchor-link" href="#5.-Confidence-interval-of-non-normal-distribution">¶</a></h2><p>One of the biggest assumptions in the field of statistics is the <b>assumption of normality</b>. It is important because of the two key characteristics of normal distribution: symmetry (low skew) and light/short-tails (low kurtosis). Symmetry is important because many statistical techniques use $\pm$ standard error methods that assume equal properties from both sides of a distribution. On the other hand, heavy-tailedness is detrimental in inferencing population parameters because heavy tailed distributions (ex: log-normal distribution, cauchy distribution) have non-negligible number of extreme data points that may introduce bias in your samples (understanding the impact of heavy-tailedness is very important in inferencial statistics. Make sure you understand the issues of it by reading <a href="#assumption_8">here</a>).</p>
+<p>As I mentioned in the <a href="#key4">Key Takeaway 4 & 8</a> above, constructing confidence intervals are very different when data is not normally distributed. This section explains the reasons why they are different, and their non-parametric alternatives.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div id="conf_int_non_normal"></div><h2 id="5.-Confidence-interval-of-non-normal-distribution">5. Confidence interval of non-normal distribution<a class="anchor-link" href="#5.-Confidence-interval-of-non-normal-distribution">¶</a></h2><div style="display: none;">
-With skewed distributions, +/- methods are wrong. Instead you might wanna use percentile methods.</div><p>This section is not completed yet...</p>
-<p><img class="row full_screen_margin_md mobile_responsive_plot_full_width" src="jupyter_images/coming_soon.png"/></a></p>
+<div id="non-normal-issues"></div><h3 id="5.1-Problems-of-non-normal-distributions-and-central-tendency">5.1 Problems of non-normal distributions and central tendency<a class="anchor-link" href="#5.1-Problems-of-non-normal-distributions-and-central-tendency">¶</a></h3><p>When reporting a summary of a sample data, statisticians tend to report the mean (average) of a sample. But have you wondered why they bother specifically about the means? Often times the ultimate goal is NOT to compute a mean of a distribution, but to compute a <i>measure of central tendency</i> of a distribution. A measure of central tendency is a single value that attempts to describe a set of data by identifying the central position within that set of data.</p>
+<p>The mean is the measure of central tendency that you are the most familiar with, but there are others, such as the median and the mode. However, mean is not a good measure of central tendency when there is a sign of deviation from normality, which can be characterized by skewness (asymmetry) and kutrosis (heavy-tails).</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div id="central_tendency"></div><h3 id="5.1-Measuring-central-tendency-of-distributions">5.1 Measuring central tendency of distributions<a class="anchor-link" href="#5.1-Measuring-central-tendency-of-distributions">¶</a></h3><p>We discussed how to compute <a href="#conf_int_of_mean">confidence interval of mean</a> and <a href="#conf_int_of_diff_in_mean">confidence interval of difference in means.</a> But have you thought about why statisticians bother specifically about the means? Often times the ultimate goal is not to compute a <i>mean</i> of a distribution, but to compute a <i>measure of central tendency</i> of a distribution.</p>
-<p>A measure of central tendency is a single value that attempts to describe a set of data by identifying the central position within that set of data. The mean is the measure of central tendency that you are the most familiar with, but there are others, such as the median and the mode.</p>
-<div><hr/></div><p><strong>Point estimation</strong></p>
-<p>Mean is not a good measure of central tendency when there is a sign of deviation from normality, which can be characterized by skewness (asymmetry) and kurtosis (heavy-tails). Consider the following figures:</p>
-<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="" style="margin-top: 15px;">
-<div class="col"><img src="jupyter_images/conf_int_non_norm_means.png"/></div>
-<div class="col-12"><p class="image-description">Figure ??: Central tendency of distributions</p></div>
-</div><p>In <a href="#">figure (??) (a)</a>, there is no skewness, making the distribution symmetric. In this case, mean is a good measure of central tendency, along with median and mode — they are all equivalent. You can compute its confidence interval of mean using <a href="#eq-1">eq (1)</a>, and use it as a measure of central tendency, thanks to the symmetry of the distribution.</p>
-<p>However, when distributions have non-zero skewness, as in <a href="#">figure (??) (b)</a>, the assumption of normality is violated. Depending on how bad the asymmetry is, you can still use <a href="#eq-1">eq (1)</a>, because confidence interval of mean is robust to mild asymmetry. However, if a distribution has non-negligible skewness, interval computed with <a href="#eq-1">eq (1)</a> introduces bias to one side of a distribution.</p>
-<p>Although there exists non-parametric alternatives like Bootstrap and credible interval, you may want to take a step back and reconsider the purpose of your estimation. Are you really interested in the <i>mean</i>, or the <i>central tendency</i> of your distribution? In a case like <a href="#">figure (??) (b)</a>, perhaps you are more interested in the median, as it's a better measure of central tendency of asymmetric distributions.</p>
-<p>Visualize your distribution to see what your true interest is.</p>
-<div><hr/></div><p><strong>Comparison of distributions</strong></p>
-<p>Similar idea applies when you want to compare two distributions. Let's say that you want to decide if two samples came from the same population by comparing their confidence interval of means. Consider the following figure of two non-normal sample distributions:</p>
-<div class="row full_screen_margin_md mobile_responsive_plot_full_width" id="" style="margin-top: 15px;">
-<div class="col"><img src="jupyter_images/conf_int_non_norms_overlap.png"/></div>
-<div class="col-12"><p class="image-description">Figure ??: Confidencen interval of means for non-normal distributions</p></div>
-</div><p>Note that the <span style="color: #385624; font-weight: 500;">95% confidence interval of means</span> in <a href="#">figure (??)</a> are asymmetric about their respective sample means, because they are computed with non-parametric alternatives. Since there is an overlap of the two intervals, you can conclude that the sample means are not significantly different. Furthermore, even the variances of the samples are the same; I generated the plots so that they have the same variances.</p>
-<p>Now, you know that the samples have equal means and variances within the range of uncertainty. Can you conclude that the two samples came from the same population? Clearly not, because their central locations are far apart from each other. Their central tendencies are better described by their medians than their means.</p>
-<p>In this case, if you are using confidence confidence interval of means and variances to check if two samples came from the same population, your approach is wrong. This kind of approach assumes normality of data. Any approach that makes a certain assumption of data fails when that assumption is violated.</p>
-<p>If your goal is to find out if the two samples originated from the same population, you may want to use non-parametric alternatives, such as Mann-Whitney test or Kruskall-Wallis test; they are geared towards comparing central tendency of distributions, not means or variances.</p>
+<div id="skewness"></div><p><strong>Problems with Skewness (asymmetry)</strong></p>
+<p><a href="fig???">Figure (?)</a> below shows the effectiveness of mean, median, and mode as a measure of central tendency for different skewness. For normal distribution (a), most samples are found at the middle, and they are symmetrically distributed around the mean. This makes the mean as a good measure of central tendency. However, in asymmetrical distributions like (b) and (c), the median is a better choice (or arguably the mode) choice of central tendency, as it is closer to the central location of the distribution than the mean does. Naively reporting mean as a summary of data results in misinterpretation of the central location of population.</p>
+<p>Note that some parametric techniques that assume normality of data are robust to mild skewness. There are many parametric alternatives that account for skewness, such as skewness-adjusted t-test and Box-Cox transformation. More discussion of robustness of parametric techinques to skewness is done <a href="#">below</a>.</p>
+<div class="row" id="bootstrap_uncertainty_model" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/conf_int_central.png"/></div>
+<div class="col-12"><p class="image-description">Figure ???: Central tendency of distributions</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (?)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+                from scipy import stats
+                import matplotlib.pyplot as plt
+                import numpy as np
+
+                np.random.seed(42)
+
+                x = np.linspace(-5, 5, 1000)
+                y_norm = stats.norm.rvs(size=1000)
+                y_expon = stats.expon.rvs(size=1000)
+                y_skewnorm = stats.skewnorm.rvs(a=10, size=1000)
+
+                plt.style.use('seaborn-whitegrid')
+                fig, axes = plt.subplots(1, 3, figsize=(13, 3))
+
+                axes[0].set_title('Normal distribution', fontsize=20)
+                axes[1].set_title('Skewed distribution', fontsize=20)
+                axes[2].set_title('Exponential distribution', fontsize=20)
+
+                adjust = 0.12
+
+                for ax, y, label in zip(axes, [y_norm, y_skewnorm, y_expon], ['(a)', '(b)', '(c)']):
+                    ax.grid(True, linestyle='--', color='#acacac')
+                    n, bins, patches = ax.hist(y, bins='auto', histtype='stepfilled', edgecolor='k', alpha=0.4, color='grey', density=True)
+                    ax.axvline(np.mean(y) + adjust, color='k', label='Mean', linestyle='-', alpha=0.9)
+                    ax.axvline(np.median(y) + adjust, color='k', label='Median', linestyle='--', alpha=0.9)
+                    ax.axvline(bins[np.where(n == max(n))[0][0]] + adjust, color='k',  label='Mode', linestyle=':', alpha=0.9)
+                    ax.xaxis.set_major_formatter(plt.NullFormatter())
+                    ax.yaxis.set_major_formatter(plt.NullFormatter())
+                    ax.text(0.9, 0.4, label, fontsize=20, ha='center', va='center',
+                            transform=ax.transAxes)
+                    ax.text(0.75, 0.15, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+                            transform=ax.transAxes, color='grey', alpha=0.5)
+                    ax.legend(loc='upper right', framealpha=1, frameon=True)
+
+                fig.tight_layout()
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="kurtosis"></div><p><strong>Problems with kurtosis (heavy-tails)</strong></p>
+<p>(Note that heavy-, long-, fat-tails are all synonyms. Some literature distinguishes among their meanings, but in general, they are all equivalent terms.)</p>
+<p>Unlike skewness, which can be relatively easily adjusted, heavy-tails can be very painful in inferencial statistics. When a distribution has a heavy-tail, it means that the data has extreme data points that can introduce bias to statistical inferences (note that the term <i>bias</i> is defined as the difference between the statistical estimation vs. the actual population parameter). This is because the occurrence of extreme data points are so low that it is unlikely to be included in the sample you collected, and yet there are substantial number of them lurking in the uncollected portion of a population that impacts population parameter due to their extremity.</p>
+<div class="row" id="bootstrap_uncertainty_model" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/conf_int_heavy_tail.png"/></div>
+<div class="col-12"><p class="image-description">Figure ???: Heavy-tailed distributions have more extreme data points that can be detrimental to statistical inferences</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (?)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+                from scipy import stats
+                import matplotlib.pyplot as plt
+                import numpy as np
+
+                plt.style.use('seaborn-whitegrid')
+
+                x = np.linspace(0, 5, 1000)
+                y1 = stats.expon.pdf(x, scale=1) + 0.1
+                y2 = stats.lognorm.pdf(x, 0.5, loc=-0.001, scale=1)
+                y3 = stats.norm.pdf(x, loc=2.5)
+                y4 = stats.cauchy.pdf(x, loc=2.5)
+
+                fig, axes = plt.subplots(1, 2, figsize=(14, 4))
+
+                axes[0].plot(x, y1, label='Heavy-tail', color='k', linewidth=2)
+                axes[0].plot(x, y2, label='Light-tail', color='grey', linewidth=2)
+                axes[0].set_xlabel(r'Extreme values $\longrightarrow$', fontsize=20)
+                axes[1].plot(x, y3, label='Normal', color='k', linewidth=2)
+                axes[1].plot(x, y4, label='Cauchy', color='grey', linewidth=2)
+                axes[1].set_xlabel(r'$\longleftarrow$ Extreme values $\longrightarrow$', fontsize=20)
+
+                for ax in axes:
+                    ax.set_ylabel(r'Chance of occurrence $\longrightarrow$', fontsize=20)
+                    ax.yaxis.set_major_formatter(plt.NullFormatter())
+                    ax.xaxis.set_major_formatter(plt.NullFormatter())
+                    ax.legend(fontsize=17, loc='upper right', framealpha=1, frameon=True)
+                    ax.grid(True, linestyle='--', color='#acacac')
+                    _ = [spine.set_edgecolor('grey') for spine in ax.spines.values()]
+                    ax.text(0.78, 0.3, 'aegis4048.github.io', fontsize=20, ha='center', va='center',
+                            transform=ax.transAxes, color='grey', alpha=0.5)
+
+                fig.tight_layout()
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="non-normal-robustness"></div><h3 id="5.2-Robustness-of-confidence-intervals-to-non-normality">5.2 Robustness of confidence intervals to non-normality<a class="anchor-link" href="#5.2-Robustness-of-confidence-intervals-to-non-normality">¶</a></h3><div style="display: none;">
+With skewed distributions, +/- methods are wrong. Instead you might wanna use percentile methods.</div><p>This section is not completed yet...</p>
+<p><img class="row full_screen_margin_md mobile_responsive_plot_full_width" src="jupyter_images/coming_soon.png"/></a></p>
 </div>
 </div>
 </div>
