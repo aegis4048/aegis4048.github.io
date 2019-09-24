@@ -1303,6 +1303,7 @@ h6:hover .anchor-link {
 <li><a href="#Uncertainty in rock porosity"><span class="toc_label">Example 1:</span>Uncertainty in rock
                     porosity</a></li>
 <li><a href="#Purity of methamphetamine (crystal) in Breaking Bad"><span class="toc_label">Example 2:</span>Purity of methamphetamine (crystal) in Breaking Bad</a></li>
+<li><a href="#dca"><span class="toc_label">Example 3:</span>Uncertainty in oil production forecast</a></li>
 </ul>
 </li>
 <li><a href="#quick-highlights"><span class="toc_label">2</span>Key takeaways</a></li>
@@ -1357,6 +1358,9 @@ h6:hover .anchor-link {
 <li><a href="#conf_int_non_normal"><span class="toc_label">5</span>Confidence interval of non-normal distribution</a></li>
 <ul>
 <li><a href="#non-normal-issues"><span class="toc_label">5.1</span>Problems of non-normal distributions and central tendency</a></li>
+<ul>
+<li><a href="#cauchy"><span class="toc_label">Notes:</span>Cauchy distribution</a></li>
+</ul>
 <li><a href="#non-normal-robustness"><span class="toc_label">5.2</span>Robustness of confidence intervals to non-normality</a></li>
 </ul>
 </ul>
@@ -1382,13 +1386,10 @@ h6:hover .anchor-link {
 <div><hr/></div><div id="Uncertainty in rock porosity"></div>
 <p style="color: #666"><b>Example 1:</b> Uncertainty in rock porosity<p>
 
-(Burrowed from <a href="http://www.michaelpyrcz.com/" target="_blank">Dr. Michael Pyrcz's</a> Geostatistics class)
+(Borrowed from <a href="http://www.michaelpyrcz.com/" target="_blank">Dr. Michael Pyrcz's</a> Geostatistics class)
 <p></p>
-
-A reservoir engineer in the oil & gas industry wants to know the rock porosity of a formation to estimate the total oil reserve 9,500 ft underground. Due to the high cost of obtaining rock core samples from the deep formations, he could acquire only 12 rock core samples. Since the uncertainty of a point estimation scales inversely with a sample size, his estimation is subject to non-negligible uncertainty. He obtains 14.5% average rock porosity with 4.3% standard deviation. Executives in the company wants to know the worst-case scenario (P10) and the best-case scenario (P90) to make business decisions. You can convey your estimation of average porosity with uncertainty by constructing the <a href="#conf_int_of_mean">confidence interval of mean</a>.
-
-Assuming that you have a reason to believe that the rock porosity follows normal distribution, you can construct its 80% confidence interval, with the procedure described <a href="#python_ci_mean"> below</a>:
-
+<p>A reservoir engineer in the oil & gas industry wants to know the rock porosity of a formation to estimate the total oil reserve 9,500 ft underground. Due to the high cost of obtaining rock core samples from the deep formations, he could acquire only 12 rock core samples. Since the uncertainty of a point estimation scales inversely with a sample size, his estimation is subject to non-negligible uncertainty. He obtains 14.5% average rock porosity with 4.3% standard deviation. Executives in the company wants to know the worst-case scenario (P10) and the best-case scenario (P90) to make business decisions. You can convey your estimation of average porosity with uncertainty by constructing the <a href="#conf_int_of_mean">confidence interval of mean</a>.</p>
+<p>Assuming that you have a reason to believe that the rock porosity follows normal distribution, you can construct its 80% confidence interval, with the procedure described <a href="#python_ci_mean"> below</a>:</p>
 <div style="margin-bottom: -20px"></div>
 </p></p></div>
 </div>
@@ -1501,7 +1502,7 @@ Assuming that you have a reason to believe that the rock porosity follows normal
 
 21 batches of crystal cooked by Mr. White shows 99.1% average purity with 3% standard deviation. 18 batches of crystal cooked by Mr. Pinkman shows 96.2% average purity with 4% standard deviation. Does Mr. White always cook better crystal than Mr. Pinkman, or is it possible for Mr. Pinkman to beat Mr. White in purity of cooked crystals, by luck?
 
-We can construct 95% confidence interval assuming normal distribution, with the procedure described <a href="#python_ci_mean"> below</a>:
+We can construct 95% confidence interval assuming normal distribution, with the procedure described <a href="#python_ci_mean">below</a>:
 
 <div style="margin-bottom: -20px"></div>
 </p></p></div>
@@ -1557,7 +1558,7 @@ We can construct 95% confidence interval assuming normal distribution, with the 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="margin-top: -20px"></div><p>There's a small overlap between the confidence intervals of Mr. White's and Mr. Pinkman's. Although it is true that Mr. White is a better cooker, Mr. Pinkman can cook a purer batch of crystals by a small chance, if he has the luck. Comparing the means of two sample data sets is closely related to constructing <a href="#conf_int_of_diff_in_mean">confidence interval of difference in mean</a>.</p>
-<div class="row full_screen_margin_md mobile_responsive_plot_full_width" id="fig2" style="margin-top: 15px;">
+<div class="row full_screen_margin_md mobile_responsive_plot_full_width" id="fig3" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/crystal_purity.png"/></div>
 <div class="col-12"><p class="image-description">Figure 3: Overlap in the 95% confidence interval of two samples</p></div>
 </div>
@@ -1608,6 +1609,128 @@ We can construct 95% confidence interval assuming normal distribution, with the 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<div><hr/></div><div id="dca"></div>
+<p style="color: #666"><b>Example 3:</b> Uncertainty in oil production forecast<p>
+
+A production engineer in the oil & gas industry wants to know the worst-case scenario (P10) and the best-case scenario (P90) of hydrocarbon production forecast. In petroleum engineering, we use a technique called Decline Curve Analysis (DCA) to project future hydrocarbon production. It is important to quantify the uncertanties of your DCA model, as the uncertainty in oil production can be as large as millions of dollars worth; executives in a company make business decisions based on P10 and P90 values.
+
+There are mainly three models for DCA: exponential, hyperbolic, and harmonic. For demonstration purpose, hyperbolic model will be used here. Hyperbolic decline curve can be defined as:
+
+<div style="font-size: 1rem;">
+$$ q = \frac{q_i}{(1+bD_it)^{1/b}}$$
+</div><p>It is a non-linear regression problem with three parameters to optimize: $Di$, $q_i$, and $b$. The independent variable is time $t$. We can construct the confidence interval of regression model to get P10 and P90 values. Since the analytical solution for the confidence interval of non-linear model is complicated, and the <a href="#non-normal-issues">data is not normally distributed</a>, we use non-parametric numerical alternative, <a href="#conf_int_of_other">bootstrap</a>, to obtain the following uncertainty forecast model:</p>
+<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig4" style="margin-top: px;">
+<div class="col"><img src="jupyter_images/bootstrap_dca.png"/></div>
+<div class="col-12"><p class="image-description">Figure 4: Uncertainty in decline curve analysis forecast</p></div>
+</div>
+</p></p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="margin-top: -20px;"></div><div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (4)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+                import numpy as np
+                import pandas as pd
+                import matplotlib.pyplot as plt
+                from scipy.optimize import curve_fit
+
+                ##################################### Prepare Data #########################################
+
+                file = 'https://aegis4048.github.io/downloads/notebooks/sample_data/decline_curve.xlsx'
+                df = pd.read_excel(file, sheet_name='sheet_1')
+                df = df[df['Oil Prod. (bopd)'] > 200]           # remove bad data points
+                t = df['Time'][1:].values[: -40]
+                y = df['Oil Prod. (bopd)'][1:].values[:-40]
+                x = np.array([i for i in range(len(t))])
+
+                #################################### Define function #######################################
+
+                def hyperbolic(x, qi, b, Di):
+                    return qi / (1 + b * Di * x) ** (1 / b)
+
+                ################################# Bootstrap regression #####################################
+
+                np.random.seed(42)
+
+                y_boot_reg = []
+                for i in range(1000):
+
+                    # Bootstrapping
+                    boot_index = np.random.choice(range(0, len(y)), len(y))
+                    x_boot = x[boot_index]
+                    y_boot = y[boot_index] 
+
+                    # Curve fit data
+                    popt, pcov = curve_fit(hyperbolic, x_boot, y_boot, maxfev=100000, p0=[max(y), 0.1, 0.1])
+
+                    # Define predicted region
+                    pred_x = [i for i in range(x[-1], x[-1] + 20)][1:] 
+                    x_new = np.append(x, np.array([pred_x]))
+
+                    # Predict
+                    y_boot_reg = y_boot_reg + [hyperbolic(x_new, *popt)]
+
+                y_boot_reg = np.array(y_boot_reg)
+
+                p10 = np.percentile(y_boot_reg, 10, axis=0)
+                p50 = np.percentile(y_boot_reg, 50, axis=0)
+                p90 = np.percentile(y_boot_reg, 90, axis=0)
+
+                # Basic curve fit
+                popt, pcov = curve_fit(hyperbolic, x, y, maxfev=100000, p0=[max(y), 0.1, 0.1])
+
+                ###################################### Plotting ##########################################
+
+                fig, ax = plt.subplots(figsize=(8, 4))
+
+                for reg_sample in y_boot_reg:
+                    ax.plot(x_new, reg_sample, color='grey', alpha=0.3)
+                ax.plot(x, y, '--o', color='k', alpha=1)
+                ax.plot(x_new, p10, ':',color='#1f77b4', alpha=1, label='P10')
+                ax.plot(x_new, hyperbolic(x_new, *popt), color='r', label='P50')
+                ax.plot(x_new, p90, '-.',color='#1f77b4', alpha=1, label='P90')
+
+                ax.set_yscale('log')
+                ax.set_ylim(80, 30000)
+                ax.set_xlim(-2, 57)
+                ax.set_xlabel('Months', fontsize=15)
+                ax.set_ylabel('Oil Production (bopd)', fontsize=15)
+                ax.set_title('Uncertainty in decline curve analysis with Bootstrap', fontsize=18)
+                ax.grid(True, linestyle='--', color='#acacac')
+
+                ax.axvspan(-2, x[-1], facecolor='#efefef', alpha=0.5)
+                ax.axvspan(x[-1], 57, facecolor='lightgrey', alpha=0.5)
+
+                ax.text(0.38, 0.1, 'Fitted region', fontsize=15,
+                        transform=ax.transAxes, color='k')
+                ax.text(0.7, 0.1, 'Predicted region', fontsize=15,
+                        transform=ax.transAxes, color='k')
+                ax.text(0.27, 0.91, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+                        transform=ax.transAxes, color='grey', alpha=0.5)
+                ax.legend()
+
+                fig.tight_layout()
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <div id="quick-highlights"></div><h2 id="2.-Key-takeaways">2. Key takeaways<a class="anchor-link" href="#2.-Key-takeaways">¶</a></h2><div class="highlights" id="key1">
 <div class="highlights-title">1. Confidence interval quantifies uncertainty of statistical estimation</div>
 <div class="highlights-content">Confidence interval qunatifies the uncertainty related to a statistical estimation to mitigate the issue of <a href="#population_vs_samples">Population vs. Samples</a>. It is always expressed in a range like — $\text{C.I.}: \quad \bar{x} \pm 3.43$ or $-51.4 < \bar{x} < -43.2$</div>
@@ -1628,11 +1751,11 @@ We can construct 95% confidence interval assuming normal distribution, with the 
 <p><div style="font-size: 1rem; margin-top: 20px;">$$ \text{C.I.}_{\text{variance}}: \frac{(n-1)s^{2}}{\chi^{2}_{\frac{\alpha}{2}}} \leq \sigma^2 \leq \frac{(n-1)s^{2}}{\chi^{2}_{1-\frac{\alpha}{2}}}$$</div></p>
 <p>For confidence interval of standard deviation</p>
 <p><div style="font-size: 1rem; margin-top: 20px;">$$ \text{C.I.}_{\text{standard deviation}}: \sqrt{\frac{(n-1)s^{2}}{\chi^{2}_{\frac{\alpha}{2}}}} \leq \sigma \leq \sqrt{\frac{(n-1)s^{2}}{\chi^{2}_{1-\frac{\alpha}{2}}}}$$</div></p>
-<p>Different analytical solutions exist for different statistics. However, confidence interval for many other statistics cannot be analytically solved, simply because there are no formulas for them. If the statistic of your interest does not have an analytical solution for its confidence interval, or you simply don't know it, numerical methods like <a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" target="_blank">boostrapping</a> can be a good alternative (and its powerful).</p>
+<p>Different analytical solutions exist for different statistics. However, confidence interval for many other statistics cannot be analytically solved, simply because there are no formulas for them. If the statistic of your interest does not have an analytical solution for its confidence interval, or you simply don't know it, numerical methods like <a href="#conf_int_of_other">boostrapping</a> can be a good alternative (and its powerful).</p>
 </div>
 </div><div class="highlights" id="key4">
 <div class="highlights-title">4. Things are VERY different if sample data set is not normally distributed</div>
-<div class="highlights-content">The equations listed above <b>are not valid if sample data set is not normally distributed</b>. In case of non-normally distributed data, its confidence interval can be obatined with non-parametric methods like <a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" target="_blank">boostrapping</a>, or instead use <a href="#">credible interval</a>, which is a Baysian equivalent of confidence interval. Or you can transform your data into normal distribution using <a href="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution" target="_blank">Box-Cox transformation</a>.</div>
+<div class="highlights-content">The equations listed above <b>are not valid if sample data set is not normally distributed</b>. In case of non-normally distributed data, its confidence interval can be obatined with non-parametric methods like <a href="#conf_int_of_other">boostrapping</a>, or instead use credible interval, which is a Baysian equivalent of confidence interval. Or you can transform your data into normal distribution using <a href="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution" target="_blank">Box-Cox transformation</a>.</div>
 </div><div class="highlights" id="key5">
 <div class="highlights-title">5. 95% C.I. does not mean 95% of the sample data lie within the interval.</div>
 <div class="highlights-content">It means that there's 95% chance that the estimated statistic falls within the interval. 95% confidence interval relates to the reliability of the estimation procedure. Ex: How reliable is your estimation of population variance?</div>
@@ -1644,7 +1767,7 @@ We can construct 95% confidence interval assuming normal distribution, with the 
 <div class="highlights-content">Intuitively, this is because the more samples we have, the less uncertainty we have with our statistical estimation. Mathematically, this is because the the confidence interval is inversely related to the sample size $n$, as shown in <a href="#eq-1">eq (1)</a>.</div>
 </div><div class="highlights" id="key8">
 <div class="highlights-title">8. Means are not always equivalent to central tendency</div>
-<div class="highlights-content">When samples are not normally distributed, their means are not a good measure of their <a href="#central_tendency">centeral tendencies</a>. For example, if you are comparing the means of two non-normal data sets with t-test to conclude if they came from the same population, your approach is wrong. The more viable alternative would be to use non-parametric alternatives that uses median, or other statistics that capture the central tendency of non-normal distributions.</div>
+<div class="highlights-content">When samples are not normally distributed, their means are not a good measure of their <a href="#non-normal-issues">centeral tendencies</a>. For example, if you are comparing the means of two non-normal data sets with t-test to conclude if they came from the same population, your approach is wrong. The more viable alternative would be to use non-parametric alternatives that uses median, or other statistics that capture the central tendency of non-normal distributions.</div>
 </div>
 </div>
 </div>
@@ -1653,11 +1776,11 @@ We can construct 95% confidence interval assuming normal distribution, with the 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div id="population_vs_samples"></div><h2 id="3.-Population-vs.-samples">3. Population vs. samples<a class="anchor-link" href="#3.-Population-vs.-samples">¶</a></h2><p>Confidence interval describes the amount of uncertainty associated with a sample estimate of a population parameter. One needs to have a good understanding of the difference between samples and population to understand the necessity of delivering statistical estimations in a range, a.k.a. confidence interval.</p>
-<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig1" style="
+<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig5" style="
     margin-top: 10px;
 ">
 <div class="col"><img src="jupyter_images/conf_int_sample_pops.png"/></div>
-<div class="col-12"><p class="image-description">Figure 1: Population vs samples</p></div>
+<div class="col-12"><p class="image-description">Figure 5: Population vs samples</p></div>
 </div><blockquote><p><strong>Population</strong>: data set that contains all members of a specified group. Ex: ALL people living in the US.</p>
 <p><strong>Samples</strong>: data set that contains a part, or a subset, of a population Ex: SOME people living in the US.</p>
 </blockquote>
@@ -1789,7 +1912,7 @@ dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div id="Confidence interval of different statistics"></div><h2 id="4.-Confidence-interval-of-normal-distribution">4. Confidence interval of normal distribution<a class="anchor-link" href="#4.-Confidence-interval-of-normal-distribution">¶</a></h2><p>Computing confidence interval of a statistic depends on two factors: type of statistic, and type of sample distribution. As explained <a href="#quick-highlights">above</a>, different formulas exist for different type of statistics (Ex: mean, std, variance), and different methods (Ex: <a href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" target="_blank">boostrapping</a>, <a href="#">credible interval</a>, <a href="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution" target="_blank">Box-Cox transformation</a>) are used for non-normal data set.</p>
+<div id="Confidence interval of different statistics"></div><h2 id="4.-Confidence-interval-of-normal-distribution">4. Confidence interval of normal distribution<a class="anchor-link" href="#4.-Confidence-interval-of-normal-distribution">¶</a></h2><p>Computing confidence interval of a statistic depends on two factors: type of statistic, and type of sample distribution. As explained <a href="#quick-highlights">above</a>, different formulas exist for different type of statistics (Ex: mean, std, variance), and different methods (Ex: <a href="#conf_int_of_other">boostrapping</a>, credible interval, <a href="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution" target="_blank">Box-Cox transformation</a>) are used for non-normal data set.</p>
 <p>We will cover confidence interval of mean, difference in mean and variance.</p>
 </div>
 </div>
@@ -1798,16 +1921,16 @@ dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div id="conf_int_of_mean"></div><h3 id="4.1.-Confidence-interval-of-mean">4.1. Confidence interval of mean<a class="anchor-link" href="#4.1.-Confidence-interval-of-mean">¶</a></h3><p>Confidence interval of mean is used to estimate the population mean from sample data and quantify the related uncertainty. Consider the following figure:</p>
-<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig3" style="margin-top: 15px;">
+<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig6" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/conf_pop_dist.png"/></div>
-<div class="col-12"><p class="image-description">Figure 3: Distribution of population and C.I. of mean</p></div>
-</div><p>In <a href="#fig3">figure (3)</a>, assume that the population is normally distributed. Since we don't have an access to the entire population, we have to guess the <span style="color: #ed7d32; font-weight: 500;">population mean (unknown)</span> to the best of our ability using sample data set. We do this by computing the <span style="color: #70ad47; font-weight: 500;">sample mean</span> and constructing its <span style="color: #385624; font-weight: 500;">95% confidence interval</span>. Note that the popular choices of <a href="#">confidence levels</a> are: 90%, 95%, and 99%</p>
-<p>Assuming normality of population, its sample means are also normally distributed. Let's say that you have a population, and you draw small fractions of it $N$ times. Then, the computed means of $N$ sample sets $\boldsymbol{\mu}=(\mu_1, \mu_2,..., \mu_{N-1}, \mu_N)$ is normally distributed as shown in <a href="#fig4">figure (4)</a>. Their confidence intervals are represented as the black horizontal arrows:.</p>
-<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig4" style="margin-top: 15px;">
+<div class="col-12"><p class="image-description">Figure 6: Distribution of population and C.I. of mean</p></div>
+</div><p>In <a href="#fig6">figure (6)</a>, assume that the population is normally distributed. Since we don't have an access to the entire population, we have to guess the <span style="color: #ed7d32; font-weight: 500;">population mean (unknown)</span> to the best of our ability using sample data set. We do this by computing the <span style="color: #70ad47; font-weight: 500;">sample mean</span> and constructing its <span style="color: #385624; font-weight: 500;">95% confidence interval</span>. Note that the popular choices of confidence level are: 90%, 95%, and 99%</p>
+<p>Assuming normality of population, its sample means are also normally distributed. Let's say that you have a population, and you draw small fractions of it $N$ times. Then, the computed means of $N$ sample sets $\boldsymbol{\mu}=(\mu_1, \mu_2,..., \mu_{N-1}, \mu_N)$ is normally distributed as shown in <a href="#fig7">figure (7)</a>. Their confidence intervals are represented as the black horizontal arrows:.</p>
+<div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width" id="fig7" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/conf_int_mean.png"/></div>
-<div class="col-12"><p class="image-description">Figure 4: Distribution of sample mean and its C.I.</p></div>
+<div class="col-12"><p class="image-description">Figure 7: Distribution of sample mean and its C.I.</p></div>
 </div><p>You can see that the confidence interval of <span style="color: red; font-weight: 500;">$\mu_5$</span> does NOT include the <span style="color: #70ad47; font-weight: 500;">green vertical dashed line</span>, 12.31. Let's assume that 12.31 is the true population mean (we never know if this is the actual population mean or not, but let's assume). If we get <span style="color: red; font-weight: 500;">$\mu_5$</span> and its confidence interval as our estimation of the population mean, then our estimation is wrong. There is a 5% chance of this happening, because we set our confidence level as 95%. Note that the width of the confidence intervals (black horizontal arrows) depend on the sample size, as shown in <a href="#eq-1">eq (1)</a></p>
-<p>The grey area of <a href="#fig3">figure (3)</a> is essentially equivalent to the grey area of <a href="#fig4">figure (4)</a>. $\mu_1$ = 12.32 is the sample mean, and $\pm$ 3.56 is the uncertainty related to the sample mean with 95% confidence. The uncertainty is a product of distribution score and standard error of mean. Distribution score essentially tells how many standard error are the limits (8.76 and 15.88) away from the center (12.32). Choosing larger confidence level results in larger confidence interval. This increases the grey area in <a href="#fig3">figure (3)</a> and <a href="#fig4">figure (4)</a>.</p>
+<p>The grey area of <a href="#fig6">figure (6)</a> is essentially equivalent to the grey area of <a href="#fig7">figure (7)</a>. $\mu_1$ = 12.32 is the sample mean, and $\pm$ 3.56 is the uncertainty related to the sample mean with 95% confidence. The uncertainty is a product of distribution score and standard error of mean. Distribution score essentially tells how many standard error are the limits (8.76 and 15.88) away from the center (12.32). Choosing larger confidence level results in larger confidence interval. This increases the grey area in <a href="#fig6">figure (6)</a> and <a href="#fig7">figure (7)</a>.</p>
 <p>We convey 95% confidence interval of mean like this:</p>
 <blockquote><p>I am 95% confident that the population mean falls between 8.76 and 15.88. If I sample data 20 times, 19 times the sample mean will fall between 8.76 ~ 15.88, but expect that I will be wrong 1 time.</p>
 </blockquote>
@@ -1881,7 +2004,7 @@ $$ \text{C.I.}_{\text{mean}}: \quad \mu \pm (t_{1-\frac{\alpha}{2},df} \times \f
 </div>
 <div class="row">
 <div class="col-3">$\alpha$</div>
-<div class="col-9">: <a href="#">significance level</a></div>
+<div class="col-9">: significance level</div>
 </div>
 <div class="row">
 <div class="col-3"><p>$n$<p></p></p></div>
@@ -1899,7 +2022,7 @@ $$ \text{C.I.}_{\text{mean}}: \quad \mu \pm (t_{1-\frac{\alpha}{2},df} \times \f
 <div class="col-3">$t$</div>
 <div class="col-9">: t-score. depends on $\alpha$ and $df$</div>
 </div>
-</div><p>Recall that when computing $s$, correction factor ($n-1$) is applied to account for sample bias, as explained <a href="#sample_pop_var">above</a>. Pay close attention to the standard error $\frac{s}{\sqrt{(n)}}$. As the sample size $n$ increases, the standard error decreases, reducing the range of confidence interval. This is intuitive in a sense that, the more samples we have, the less uncertainty we have with our statistical estimation. The length of the black horizontal arrows in <a href="#fig4">figure (4)</a> depends on the sample size. The larger the sample size, the narrower the width of arrows, and vice versa.</p>
+</div><p>Recall that when computing $s$, correction factor ($n-1$) is applied to account for sample bias, as explained <a href="#sample_pop_var">above</a>. Pay close attention to the standard error $\frac{s}{\sqrt{(n)}}$. As the sample size $n$ increases, the standard error decreases, reducing the range of confidence interval. This is intuitive in a sense that, the more samples we have, the less uncertainty we have with our statistical estimation. The length of the black horizontal arrows in <a href="#fig7">figure (7)</a> depends on the sample size. The larger the sample size, the narrower the width of arrows, and vice versa.</p>
 <div id="t_vs_z"></div>
 <div class="alert alert-info">
 <h4>Notes: z-score vs t-score</h4>
@@ -2073,15 +2196,15 @@ $$ H_1: \mu_1 - \mu_2 \neq 0 \tag{3}$$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="row" id="fig5" style="margin-top: 15px;">
+<div class="row" id="fig8" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/conf_int_diff_means.png"/></div>
-<div class="col-12"><p class="image-description">Figure 5: Distributions of samples</p></div>
-</div><p>In <a href="#fig5">figure (5)</a>, $\mu$ represents the sample mean. If two sample data sets are from the same population, the distribution of means will be similar "enough". If not, they will be "significantly" different. It can be visually inspected by the area of overlap. The larger the overlap, the bigger the chance of the two distributions originating from the same population.</p>
+<div class="col-12"><p class="image-description">Figure 8: Distributions of samples</p></div>
+</div><p>In <a href="#fig8">figure (8)</a>, $\mu$ represents the sample mean. If two sample data sets are from the same population, the distribution of means will be similar "enough". If not, they will be "significantly" different. It can be visually inspected by the area of overlap. The larger the overlap, the bigger the chance of the two distributions originating from the same population.</p>
 <p>The more robust way to compare sample means would be to construct the confidence interval of difference in means. If the two samples came from the same population, they should have the similar "enough" means. Their difference should be close to zero and satisfy (or fail to reject) the null hypothesis <span style="color: #ed7d32; font-weight: 500;">$H_0: \mu_1 - \mu_2 = 0$</span> within a range of uncertainty. Consider the following figure:</p>
-<div class="row" id="fig6" style="margin-top: 15px;">
+<div class="row" id="fig9" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/conf_int_diff_means_dist.png"/></div>
-<div class="col-12"><p class="image-description">Figure 6: Distribution of difference in means</p></div>
-</div><p>In <a href="#fig6">figure (6)</a>, the calculated difference in sample means is <span style="color: #70ad47; font-weight: 500;">$\mu_1 - \mu_2 = 1.00$</span>. We deliver the uncertainty related to our estimation of difference in sample means by constructing its <span style="color: #385624; font-weight: 500;">95% confidence interval $[$-1.31 ~ 3.31$]$</span>. Since the null hypothesis <span style="color: #ed7d32; font-weight: 500;">$H_0: \mu_1 - \mu_2 = 0$</span> is within the 95% confidence interval (<span style="color: #929292; font-weight: 500;">grey shaded area</span>), we accept the null hypothesis; we conclude that the samples have the same means within the uncertainty.</p>
+<div class="col-12"><p class="image-description">Figure 9: Distribution of difference in means</p></div>
+</div><p>In <a href="#fig9">figure (9)</a>, the calculated difference in sample means is <span style="color: #70ad47; font-weight: 500;">$\mu_1 - \mu_2 = 1.00$</span>. We deliver the uncertainty related to our estimation of difference in sample means by constructing its <span style="color: #385624; font-weight: 500;">95% confidence interval $[$-1.31 ~ 3.31$]$</span>. Since the null hypothesis <span style="color: #ed7d32; font-weight: 500;">$H_0: \mu_1 - \mu_2 = 0$</span> is within the 95% confidence interval (<span style="color: #929292; font-weight: 500;">grey shaded area</span>), we accept the null hypothesis; we conclude that the samples have the same means within the uncertainty.</p>
 <p>However, if the null hypothesis is not within the confidence interval and falls in the <strong>2.5% outliers</strong> zone, we reject the null hypothesis and accept the alternate hypothesis <span style="color: #030303; font-weight: 500;">$H_1: \mu_1 - \mu_2 \neq 0$</span>. In the other words, we conclude that the sample means are significantly different.</p>
 </div>
 </div>
@@ -2117,7 +2240,7 @@ $$ \text{C.I.}_{\Delta \text{mean}}: \quad (\mu_{1}- \mu_{2}) \pm (t_{1-\frac{\a
 </div>
 <div class="row">
 <div class="col-3">$\alpha$</div>
-<div class="col-9">: <a href="#">significance level</a></div>
+<div class="col-9">: significance level</div>
 </div>
 <div class="row">
 <div class="col-3"><p>$n$<p></p></p></div>
@@ -2155,7 +2278,7 @@ $$ df = n_1 + n_2 -2 \tag{5}$$
 
 Unfortunately, SciPy doesn't support computing confidence intereval of difference in mean separately. It is incorporated into computing t-statistic and p-value of t-test, but users can't access its underlying confidence interval. Note that in R, users have access to the CI of difference in means.
 
-We can compute CI of difference in means assuming equal variance with <a href="eq-4">eq (4)</a>. Don't forget to compute sample variance, instead of population variance by setting <code>ddof=1</code> as explained <a href="#python_variance">above</a>.
+We can compute CI of difference in means assuming equal variance with <a href="#eq-4">eq (4)</a>. Don't forget to compute sample variance, instead of population variance by setting <code>ddof=1</code> as explained <a href="#python_variance">above</a>.
 
 <div style="margin-bottom: -20px"></div>
 </p></p></div>
@@ -2219,7 +2342,7 @@ We can compute CI of difference in means assuming equal variance with <a href="e
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="margin-top: -20px"></div><p>The 95% confidence interval of difference in means has 0 within its interval. This means that the null hypothesis, <span style="color: #ed7d32; font-weight: 500; font-size: 0.85rem;">$H_0: \mu_1 - \mu_2 = 0$</span> in <a href="#fig6">figure (6)</a>, falls within the interval and we fail to reject the null hypothesis. We conclude that the sample means are not significantly different.</p>
+<div style="margin-top: -20px"></div><p>The 95% confidence interval of difference in means has 0 within its interval. This means that the null hypothesis, <span style="color: #ed7d32; font-weight: 500; font-size: 0.85rem;">$H_0: \mu_1 - \mu_2 = 0$</span> in <a href="#fig9">figure (9)</a>, falls within the interval and we fail to reject the null hypothesis. We conclude that the sample means are not significantly different.</p>
 <p>We can confirm this by running a formal hypothesis testing with <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html" target="_blank">scipy.stats.ttest_ind()</a>, and setting <code>equal_var=True</code>. Note that this assumes independent t-test with pooled variance, which is equivalent to student's t-test.</p>
 </div>
 </div>
@@ -2287,7 +2410,7 @@ $$ \text{C.I.}_{\Delta \text{mean}}: \quad (\mu_{1}- \mu_{2}) \pm (t_{1-\frac{\a
 </div>
 <div class="row">
 <div class="col-3">$\alpha$</div>
-<div class="col-9">: <a href="#">significance level</a></div>
+<div class="col-9">: significance level</div>
 </div>
 <div class="row">
 <div class="col-3"><p>$n$<p></p></p></div>
@@ -2384,7 +2507,7 @@ Don't forget to compute sample variance, instead of population variance by setti
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="margin-top: -20px"></div><p>The 95% confidence interval of difference in means has 0 within its interval. This means that the null hypothesis, <span style="color: #ed7d32; font-weight: 500; font-size: 0.85rem;">$H_0: \mu_1 - \mu_2 = 0$</span> in <a href="#fig6">figure (6)</a>, falls within the interval and we fail to reject the null hypothesis. We conclude that the sample means are not significantly different.</p>
+<div style="margin-top: -20px"></div><p>The 95% confidence interval of difference in means has 0 within its interval. This means that the null hypothesis, <span style="color: #ed7d32; font-weight: 500; font-size: 0.85rem;">$H_0: \mu_1 - \mu_2 = 0$</span> in <a href="#fig9">figure (9)</a>, falls within the interval and we fail to reject the null hypothesis. We conclude that the sample means are not significantly different.</p>
 <p>We can confirm this by running a formal hypothesis testing with <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html" target="_blank">scipy.stats.ttest_ind()</a>, and setting <code>equal_var=False</code>. Note that this assumes independent t-test with pooled variance, which is equivalent to student's t-test.</p>
 </div>
 </div>
@@ -2454,7 +2577,7 @@ $$ \text{C.I.}_{\Delta \text{mean}}: \quad \bar{d} \pm (t_{1-\frac{\alpha}{2}, d
 </div>
 <div class="row">
 <div class="col-3">$\alpha$</div>
-<div class="col-9">: <a href="#">significance level</a></div>
+<div class="col-9">: significance level</div>
 </div>
 <div class="row">
 <div class="col-3"><p>$n$<p></p></p></div>
@@ -2560,7 +2683,7 @@ $$ df = n - 1 \tag{9}$$
 <div><hr/></div><div id="python_dep"></div>
 <p style="color: #666"><b>Pythonic Tip:</b> Computing paired t-interval<p>
 
-Although Scipy supports computing t-statistic for dependent t-test, it doesn't support a function that allows us to compute dependent t-interval. We will have to write our own codes to compute it.
+Although Scipy supports computing t-statistic for dependent t-test, it doesn't support a function that allows us to compute dependent t-interval. We will have to write our own codes to compute it. You can compute it with <a href="#eq-8">eq (8)</a>
 
 Don't forget to compute sample standard devaition, instead of population standard deviation by setting <code>ddof=1</code> as explained <a href="#python_variance">above</a>.
 
@@ -2626,7 +2749,7 @@ Don't forget to compute sample standard devaition, instead of population standar
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="margin-top: -20px"></div><p>The 95% confidence interval of difference in means for dependent samples does not have 0 within its interval. This means that the null hypothesis, <span style="color: #ed7d32; font-weight: 500; font-size: 0.85rem;">$H_0: \mu_1 - \mu_2 = 0$</span> in <a href="#fig6">figure (6)</a>, does not fall within the interval. Instead, our estimation falls within the 2.5% outlier zone on the left, <span style="color: black; font-weight: 500; font-size: 0.85rem;">$H_1: \mu_1 - \mu_2 \neq 0$</span>. We reject the null hypothesis $H_0$, and accept the alternate hypothesis $H_1$. We conclude that the sample means are significantly different. In the other words, the tutoring program developed by the school had significant impact on the SAT score of its students.</p>
+<div style="margin-top: -20px"></div><p>The 95% confidence interval of difference in means for dependent samples does not have 0 within its interval. This means that the null hypothesis, <span style="color: #ed7d32; font-weight: 500; font-size: 0.85rem;">$H_0: \mu_1 - \mu_2 = 0$</span> in <a href="#fig9">figure (9)</a>, does not fall within the interval. Instead, our estimation falls within the 2.5% outlier zone on the left, <span style="color: black; font-weight: 500; font-size: 0.85rem;">$H_1: \mu_1 - \mu_2 \neq 0$</span>. We reject the null hypothesis $H_0$, and accept the alternate hypothesis $H_1$. We conclude that the sample means are significantly different. In the other words, the tutoring program developed by the school had significant impact on the SAT score of its students.</p>
 <p>We can confirm this by running a formal hypothesis testing with <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html" target="_blank">scipy.stats.ttest_rel().</a> Note that this assumes dependent t-test.</p>
 </div>
 </div>
@@ -2704,10 +2827,10 @@ Don't forget to compute sample standard devaition, instead of population standar
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div id="conf_int_of_var" style="margin-top: 30px"></div><h3 id="4.3.-Confidence-interval-of-variance">4.3. Confidence interval of variance<a class="anchor-link" href="#4.3.-Confidence-interval-of-variance">¶</a></h3><p>Confidence interval of variance is used to estimate the population variance from sample data and quantify the related uncertainty. C.I. of variance is seldom used by itself, but rather used in conjunction with <a href="https://newonlinecourses.science.psu.edu/stat414/node/225/" target="_blank">f-test</a>, which tests equality of variances of different populations. Similar to how the <a href="#conf_int_of_diff_in_mean">confidence interval of difference in mean</a> forms the foundation of <a href="https://www.investopedia.com/terms/t/t-test.asp" target="_blank">t-test</a>, C.I. of variance forms the foundation of f-test. In the field of statistics and machine learning, the equality of variance is an important assumption when choosing which technique to use. For example, when comparing the means of two samples, <a href="#4.2.1.-Independent-(unpaired)-samples,-equal-variance---student's-t-interval">student's t-test</a> should not be used when you have a reason to believe that the two samples have different variances. Personally, I found f-test to be useful for the purpose of reading and understanding scientific papers, as many of the papers I have read use f-test to test their hypothesis, or use a variation of f-test for more advanced techniques. It is a pre-requisite knowledge you need to know to understand the more advanced techniques.</p>
-<p>I mentioned that different statistics exhibit different distributions <a href="#dist_stats">above</a>. When a sample data set originates from a normal distribution, its sample means are normally distributed as shown in <a href="???">figure 4</a>. On the other hand, its sample variances are <a href="#chi_square">chi-square (<span style="font-size: 90% !important">$\chi^2$</span>) distributed</a> as shown in <a href="">figure ???</a> The curve is asymptotic, and never touches the x-axis. The cumulative probabilty, which is often referred to as "p-value" in hypothesis testing, propagates from the right (p-value=0) to the left (p-value=1). For example, <span style="font-size: 90% !important">$\chi^2_{.975}=2.70$</span> is in the lower/left-tail and <span style="font-size: 90% !important">$\chi^2_{.025} = 19.02$</span> is in the upper/right-tail. When the samples follow a normal distribution, the <span style="font-size: 90% !important">$\chi^2$</span> statistic values can be plugged into <a href="#eq-10">eq (10)</a> to compute the confidence interval of variance.</p>
-<div class="row" id="" style="margin-top: 15px;">
+<p>I mentioned that different statistics exhibit different distributions <a href="#dist_stats">above</a>. When a sample data set originates from a normal distribution, its sample means are normally distributed as shown in <a href="#fig7">figure (7)</a>. On the other hand, its sample variances are <a href="#chi_square">chi-square (<span style="font-size: 90% !important">$\chi^2$</span>) distributed</a> as shown in <a href="#fig10">figure (10)</a> The curve is asymptotic, and never touches the x-axis. The cumulative probabilty, which is often referred to as "p-value" in hypothesis testing, propagates from the right (p-value=0) to the left (p-value=1). For example, <span style="font-size: 90% !important">$\chi^2_{.975}=2.70$</span> is in the lower/left-tail and <span style="font-size: 90% !important">$\chi^2_{.025} = 19.02$</span> is in the upper/right-tail. When the samples follow a normal distribution, the <span style="font-size: 90% !important">$\chi^2$</span> statistic values can be plugged into <a href="#eq-10">eq (10)</a> to compute the confidence interval of variance.</p>
+<div class="row" id="fig10" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/conf_int_variance.png"/></div>
-<div class="col-12"><p class="image-description">Figure ???: 95% confidence interval of variance.</p></div>
+<div class="col-12"><p class="image-description">Figure 10: 95% confidence interval of variance.</p></div>
 </div>
 </div>
 </div>
@@ -2717,7 +2840,7 @@ Don't forget to compute sample standard devaition, instead of population standar
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="solution_panel closed">
 <div class="solution_title">
-<p class="solution_title_string">Source Code For Figure (?)</p>
+<p class="solution_title_string">Source Code For Figure (10)</p>
 <ul class="nav navbar-right panel_toolbox">
 <li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
 </ul>
@@ -2780,7 +2903,7 @@ $$  \text{C.I.}_{\text{variance}}: \frac{(n-1)s^{2}}{\chi^{2}_{\frac{\alpha}{2},
 </div>
 <div class="row">
 <div class="col-3">$\alpha$</div>
-<div class="col-9">: <a href="#">significance level</a></div>
+<div class="col-9">: significance level</div>
 </div>
 <div class="row">
 <div class="col-3"><p>$n$<p></p></p></div>
@@ -2798,7 +2921,7 @@ $$  \text{C.I.}_{\text{variance}}: \frac{(n-1)s^{2}}{\chi^{2}_{\frac{\alpha}{2},
 <div id="eq-11" style="font-size: 1rem;">
 $$df = n - 1$$
 </div><p>Recall that the goal of any confidence interval is to estimate the population parameter from a fraction of its samples due to the high cost of obtaining measurement data of the entire data set, as explained in <a href="#population_vs_samples">Population vs Samples.</a> You attempt to estimate the population variance <span style="font-size: 90% !important">$\sigma^2$</span> within the range of uncertainty with the sample variance <span style="font-size: 90% !important">$s^2$</span> obtained from a set of <span style="font-size: 90% !important">n</span> samples that are "hopefully" representative of the true population.</p>
-<p>Confidence interval of variance assumes normality of samples, and is very sensitive to the sample distribution's deviation from normality. In case of non-normal sample distributions, you can either 1) transform the distribution to normal distribution with <a href="#">Box-Cox transformation</a>, or 2) use non-parametric alternatives. For practitioners, I do not recommend 1) unless you really understand what you are doing, as the back transformation process of Box-Cox transformation can be tricky. Furthermore, it doesn't always result in successful transformation of non-normal to normal distribution, as discussed <a href="#">below</a>. I recommend to use 2). If you have non-normal samples and your goal is to compute the C.I. of variance, use <a href="#">bootstrap</a>. If your goal is to check the equality of variances of multiple sample data sets with hypothesis testing, use Levene's test. Both are the non-parametric alternatives that does not require normality of samples.</p>
+<p>Confidence interval of variance assumes normality of samples, and is very sensitive to the sample distribution's deviation from normality. In case of non-normal sample distributions, you can either 1) transform the distribution to normal distribution with <a href="#">Box-Cox transformation</a>, or 2) use non-parametric alternatives. For practitioners, I do not recommend 1) unless you really understand what you are doing, as the back transformation process of Box-Cox transformation can be tricky. Furthermore, it doesn't always result in successful transformation of non-normal to normal distribution, as discussed <a href="#">below</a>. I recommend to use 2). If you have non-normal samples and your goal is to compute the C.I. of variance, use <a href="#conf_int_of_other">bootstrap</a>. If your goal is to check the equality of variances of multiple sample data sets with hypothesis testing, use Levene's test. Both are the non-parametric alternatives that does not require normality of samples.</p>
 </div>
 </div>
 </div>
@@ -2809,7 +2932,7 @@ $$df = n - 1$$
 <h4>Notes: Chi-square $\chi^2$ distribution</h4>
 <p>Chi-square <span style="font-size: 90% !important">$\chi^2$</span> distribution is a function of degrees of freedom <span style="font-size: 90% !important">$df$</span>. It is a special case of the gamma distribution and is one of the most widely used probability distributions in inferential statistics, notably in hypothesis testing or in construction of confidence intervals.</p>
 <p>It is used in the common chi-square goodness of fit test of an observed data set to a theoretical one. Let's say that there's a company that prints baseball cards. The company claims that 30% of the cards are rookies, 60% veterans but not All-Stars, and 10% are veteran All-Stars. Suppose that you purchased a deck of 100 cards. You found out that the card deck has 50 rookies, 45 veterans, and 5 All-Stars. Is this consistent with the company's claim? An answer to this question is explained in detail <a href="https://stattrek.com/chi-square-test/goodness-of-fit.aspx" target="_blank">here</a> using the chi-squared goodness of fit test. Note that the chi-square goodness of fit test does NOT require normality of data, but the chi-square test that checks if a variance equals a specified value DOES require normality of data.</p>
-<p>When samples have a normal distribution, some of their statistics can be described by <span style="font-size: 90% !important">$\chi^2$</span> distributions. For example, the <a href="https://www.machinelearningplus.com/statistics/mahalanobis-distance/" target="_blank">Mahalanobis distance</a> follows <span style="font-size: 90% !important">$\chi^2$</span> distribution when samples are normally distributed, and can be used for multivariate outlier detection using <span style="font-size: 90% !important">$\chi^2$</span> hypothesis test. Variance of samples also follows <span style="font-size: 90% !important">$\chi^2$</span> distributions when samples are normally distributed, and can be used to construct the confidence interval of variances with <a href="">eq (???)</a>.</p>
+<p>When samples have a normal distribution, some of their statistics can be described by <span style="font-size: 90% !important">$\chi^2$</span> distributions. For example, the <a href="https://www.machinelearningplus.com/statistics/mahalanobis-distance/" target="_blank">Mahalanobis distance</a> follows <span style="font-size: 90% !important">$\chi^2$</span> distribution when samples are normally distributed, and can be used for multivariate outlier detection using <span style="font-size: 90% !important">$\chi^2$</span> hypothesis test. Variance of samples also follows <span style="font-size: 90% !important">$\chi^2$</span> distributions when samples are normally distributed, and can be used to construct the confidence interval of variances with <a href="#eq-1">eq (10)</a>.</p>
 <p>By the central limit theorem, a <span style="font-size: 90% !important">$\chi^2$</span> distribution converges to a normal distribution for large sample size <span style="font-size: 90% !important">$n$</span>. For many practical purposes, for <span style="font-size: 90% !important">$n$</span> > 50 the distribution is sufficiently close to a normal distribution for the difference to be ignored. Note that the sampling distribution of <span style="font-size: 90% !important">$ln(\chi^2)$</span> converges to normality much faster than the sampling distribution of <span style="font-size: 90% !important">$\chi^2$</span> as the logarithm removes much of the asymmetry. </p>
 <img class="admonition-image" src="jupyter_images/chi_square.png" style="border: 1px solid #ddd;">
 <div class="solution_panel closed" style="margin-top: 20px;">
@@ -2929,7 +3052,7 @@ $$df = n - 1$$
 
 Unfortunately, there's no Python or R library that computes the confidence interval of variance. The fact that the pre-built function does not exist both in Python and R suggests that the C.I. of variance is seldom used. But as I mentioned before, the reason that I introduce the C.I. of variance is because it forms the foundation of f-test, a statistical hypothesis test that is widely used in scientific papers. 
 
-The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. Don't forget to compute sample variance, instead of population variance by setting <code>ddof=1</code> as explained <a href="#python_variance">above</a>.
+The C.I. of variance can be manually computed with <a href="#eq-10">eq (10)</a>. Don't forget to compute sample variance, instead of population variance by setting <code>ddof=1</code> as explained <a href="#python_variance">above</a>.
 
 <div style="margin-bottom: -20px"></div>
 </p></p></div>
@@ -3008,9 +3131,9 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 </blockquote>
 <p>Bootstrap can construct confidence intervals of any statistics when combined with <a href="#monte-carlo">Monte Carlo method</a>. The process is visually shown in <a href="#">fig (?)</a>. Initially you have 5 samples <span style="font-size: 90% !important">$[8, 5, 4, 6, 2]$</span> that you collected from an unknown population. You randomly draw $n=5$ samples from the original sample pool WITH REPLACEMENT, and they become your <strong>single bootstrap sample</strong>. You repeat this process $r=6$ times to collect <strong>multiple bootstrap samples</strong>. For each bootstrap sample, you run your functions to compute the statistic of your interest: in this case, <code>np.mean(single_boot)</code>. Now you have $r=6$ sample means obtained from $r$ bootstrap samples. You can construct 95% confidence interval of mean with percentile method: <code>np.percentile(mutliple_boot_means, 97.5)</code>, <code>np.percentile(mutliple_boot_means, 2.5)</code></p>
 <p>Note that the bootstraped samples will contain duplicate elements a lot, due to random sampling WITH REPLACEMENT. This causes problems with bootstrapping regression models, as explained <a href="#assumption_7">below</a>.</p>
-<div class="row" id="" style="margin-top: 15px;">
+<div class="row" id="fig11" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/conf_int_boots.png"/></div>
-<div class="col-12"><p class="image-description">Figure ???: Bootstrap 95% confidence interval of mean.</p></div>
+<div class="col-12"><p class="image-description">Figure 11: Bootstrap 95% confidence interval of mean.</p></div>
 </div>
 </div>
 </div>
@@ -3020,7 +3143,7 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="solution_panel closed">
 <div class="solution_title">
-<p class="solution_title_string">Source Code For Figure (?)</p>
+<p class="solution_title_string">Source Code For Figure (11)</p>
 <ul class="nav navbar-right panel_toolbox">
 <li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
 </ul>
@@ -3114,7 +3237,7 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
             </pre>
 </div>
 </div>
-<p>You can create multiple instances of <code>sim_n</code> objects above to experiment with your data set; you use Monte-Carlo simulations to produce hundreds or thousands of <i>"possible outcomes"</i>. The results are analyzed to get probabilities of different outcomes occuring. The application of Monte-Carlo method includes constructing confidence interval of statistics with Bootstrap shown in <a href="">fig (?)</a>, and <a href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" target="_blank">profit modeling of casino dice roll games</a>.</p>
+<p>You can create multiple instances of <code>sim_n</code> objects above to experiment with your data set; you use Monte-Carlo simulations to produce hundreds or thousands of <i>"possible outcomes"</i>. The results are analyzed to get probabilities of different outcomes occuring. The application of Monte-Carlo method includes constructing confidence interval of statistics with Bootstrap shown in <a href="#fig11">figure (11)</a>, and <a href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" target="_blank">profit modeling of casino dice roll games</a>.</p>
 <img class="admonition-image-medium" src="jupyter_images/monte-carlo-dice.png" style="border: 1px solid #ddd; margin-top: 20px;">
 </img></div>
 </div>
@@ -3127,11 +3250,11 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 <p>(Before you read this section, make sure you understand the difference between <a href="#population_vs_samples">Population vs Samples.</a>)</p>
 <p>Practitioners wonder <i>WHY</i> bootstrapping works: why is it that resampling the same sample over and over gives good results? If we are resampling from our sample, how is it that we are learning something about the population rather than only about the sample? There seems to be a leap which is somewhat counter-intuitive. The idea comes from the assumption that the sample is a <i>reasonable</i> representation of its underlying population — the population is to the sample as the sample is to the bootstrap samples.</p>
 <p>You want to ask question of a population, but you can't because you lack the resources to get measurement data of all possible data points. So you take a fraction of the population, a.k.a the sample, and ask the question of it instead. Now, how confident you should be that the sample answer is close to the population answer depends on how well the sample represents the underlying population. One way you might learn about this is to take samples from different portions of the population again and again. You ask the same question to the multiple samples you collected, and see the variability of the different sample answers to quantify the related uncertainty of your estimation. When this is not possible due to practical limitations, you make some assumptions about the population (ex: population is normally distributed), or use the information in the collected sample to learn about the population.</p>
-<p>In bootstrapping, you treat the original sample (size=$n$) you randomly acquired from the population as if it's the population itself of size $n$. From the original sample that you treated to be the population, you randomly draw samples, each of size $n$, <i>with replacement</i> multiple times to simulate direct sampling from the original population. By doing so, you essentially imitate sampling different portions of the original population multiple times. This idea is shown in <a href="#">fig (?)</a>.</p>
+<p>In bootstrapping, you treat the original sample (size=$n$) you randomly acquired from the population as if it's the population itself of size $n$. From the original sample that you treated to be the population, you randomly draw samples, each of size $n$, <i>with replacement</i> multiple times to simulate direct sampling from the original population. By doing so, you essentially imitate sampling different portions of the original population multiple times. This idea is shown in <a href="#fig12">figure (12)</a>.</p>
 <p>This is a <i>reasonable</i> thing to do for two reasons. First, the sample in your had is the best you've got, indeed the only informatoin you have about the population. Second, if the original sample is randomly chosen, it will look like the original population they came from. This means that the sample is a good representation of its underlying population. However, if its not a good representation of the population, bootstrap fails. In fact, there's not much you can do in the first place if your sample is biased.</p>
-<div class="row" id="fig???" style="margin-top: 15px;">
+<div class="row" id="fig12" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/boots_intuitive.png"/></div>
-<div class="col-12"><p class="image-description">Figure ???: Intuitive idea behind Bootstrapping</p></div>
+<div class="col-12"><p class="image-description">Figure 12: Intuitive idea behind Bootstrapping</p></div>
 </div>
 </div>
 </div>
@@ -3153,16 +3276,16 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 <li><p class="numbering-p">Insufficient samples make the bootstrap C.I. to be narrower than the analytical C.I.</p></li>
 </ol>
 <div class="left-pad-border">
-<p>There's a myth in the field of statistics that bootstrap is a <i>"cure"</i> for small sample size. NO, it's not. First, if you have too small sample, by a high chance it is not diverse enough to represent all (reasonably) possible aspects of its population. Therefore, it is not a good representation of its population. Second, small sample size makes its bootstrap C.I. to be narrower than the analytical C.I.. This means that bootstrap C.I. reports small uncertainty even when the sample size is small. Not only this is counter-intuitive, but also it is a violation of the mathematic property of C.I. described by <a href="#eq-1">eq (1)</a>; small sample size $n$ in the denominator of <a href="#eq-1">eq (1)</a> should give wider C.I.. But this is not true with bootstrap C.I. as shown in the below simulation result in <a href="#">fig (?)</a>.</p>
+<p>There's a myth in the field of statistics that bootstrap is a <i>"cure"</i> for small sample size. NO, it's not. First, if you have too small sample, by a high chance it is not diverse enough to represent all (reasonably) possible aspects of its population. Therefore, it is not a good representation of its population. Second, small sample size makes its bootstrap C.I. to be narrower than the analytical C.I.. This means that bootstrap C.I. reports small uncertainty even when the sample size is small. Not only this is counter-intuitive, but also it is a violation of the mathematic property of C.I. described by <a href="#eq-1">eq (1)</a>; small sample size $n$ in the denominator of <a href="#eq-1">eq (1)</a> should give wider C.I.. But this is not true with bootstrap C.I. as shown in the below simulation result in <a href="#fig13">figure (13)</a>.</p>
 <p>Three things to note in the figure. First, the upper & lower error bars of bootstrap C.I. of means are asymmetric. This is because bootstrap C.I. is not based on $\pm$ standard error method. This is a very useful property to estimate the <a href="#central_tendency">central tendency</a> of asymmetric (skewed) populations. Second, both bootstrap and analytical C.I. become narrower with the increasing sample size. This intuitively and mathematically makes sense. Third, bootstap C.I. approximates the analyical C.I. very well with large sample size. This is perhaps the most important advantage of using bootstrap. If you have large sample size, you really don't have to worry anything else (except the indepence of samples), and <i>just stick to bootstrap</i>. All the disadvantages of bootstrap will be overcome by the large sample size.</p>
 <p>One might wonder what is <i>"large"</i> enough in practical applications. Unfortunately, the definition of <i>"large"</i> is different for every applications. In the simulation result, it seems that $n = 20$ falls in the category of <i>"large"</i> to approximate C.I. of the mean of a normally distributed population with bootstrap. On the other hand, $n=100$ seems to be <i>"large"</i> in case of C.I. of the variances of a normally distributed population. The definition of <i>"large $n$"</i> can vary with different applications (ex: non-normal data, C.I. of regression coefficient or covariance). Carefully investigate your samples to have a good definition of <i>"large"</i>.</p>
-<div class="row" id="fig???">
+<div class="row" id="fig13">
 <div class="col"><img class="" src="jupyter_images/analy_vs_boot_cis.png"/></div>
-<div class="col-12"><p class="image-description">Figure ???: Comparison of Bootstrap vs Analytical C.I. for different sample sizes</p></div>
+<div class="col-12"><p class="image-description">Figure 13: Comparison of Bootstrap vs Analytical C.I. for different sample sizes</p></div>
 </div>
 <div class="solution_panel closed" style="margin-top: 20px;">
 <div class="solution_title">
-<p class="solution_title_string">Source Code For Figure (?)</p>
+<p class="solution_title_string">Source Code For Figure (13)</p>
 <ul class="nav navbar-right panel_toolbox">
 <li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
 </ul>
@@ -3288,14 +3411,14 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 </ol>
 <div class="left-pad-border">
 <p>Because bootstrap relies on <i>"random"</i> resampling, the result of any statistical analysis performed with bootstrap can vary from time to time. The extent of variability depends on the number of bootstrap samples $r$, and $r$ should be large enough to guarantee convergence of bootstrap statistics to a stable value. Note that there's a distinction between the size of the original sample $n$ and the number of bootstrap samples $r$. We can't change $n$, but we can change $r$ because $r$ is equivalent to the number of <a href="#monte-carlo">Monte-Carlo</a> iterations, which can be set by a statistician.</p>
-<p>So how do we determine what value of $r$ is <i>"large"</i> enough to guarantee convergence of bootstrap statistics? You can do it by obtaining multiple bootstrap analysis results for increasing number of simulations $r$, and see if the result converges to certain range of values, as shown in <a href="#">fig (?)</a>. In the figure, it seems that $r=10,000$ is a good choice. But in practice, you want $r$ to be as large as possible, to an extent where the computational cost is not too huge. I've read a research paper where the authors used $r = 500,000$ to really ensure convergence.</p>
-<div class="row" id="fig???">
+<p>So how do we determine what value of $r$ is <i>"large"</i> enough to guarantee convergence of bootstrap statistics? You can do it by obtaining multiple bootstrap analysis results for increasing number of simulations $r$, and see if the result converges to certain range of values, as shown in <a href="#fig15">figure (15)</a>. In the figure, it seems that $r=10,000$ is a good choice. But in practice, you want $r$ to be as large as possible, to an extent where the computational cost is not too huge. I've read a research paper where the authors used $r = 500,000$ to really ensure convergence.</p>
+<div class="row" id="fig14">
 <div class="col"><img class="bullet-point-image-medium" src="jupyter_images/bootstrap_convergence.png"/></div>
-<div class="col-12"><p class="image-description">Figure ???: Convergence of Bootstrap C.I.</p></div>
+<div class="col-12"><p class="image-description">Figure 14: Convergence of Bootstrap C.I.</p></div>
 </div>
 <div class="solution_panel closed" style="margin-top: 20px;">
 <div class="solution_title">
-<p class="solution_title_string">Source Code For Figure (?)</p>
+<p class="solution_title_string">Source Code For Figure (14)</p>
 <ul class="nav navbar-right panel_toolbox">
 <li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
 </ul>
@@ -3762,9 +3885,9 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="margin-top: -20px"></div><p>Let's visualize the results in Matplotlib to understand Monte-Carlo simulations applied with bootstrap more intuitively. Recall that the goal of <a href="#monte-carlo">Monte-Carlo</a> method is to simulate hundreds or thousands of "possible outcomes". Each line in the right plot below represents a single possible outcome.</p>
-<div class="row" id="bootstrap_simulations" style="margin-top: 15px;">
+<div class="row" id="fig15" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/Boostrap_simulations.png"/></div>
-<div class="col-12"><p class="image-description">Figure ???: 1000 Bootstrap simulations</p></div>
+<div class="col-12"><p class="image-description">Figure 15: 1000 Bootstrap simulations</p></div>
 </div>
 </div>
 </div>
@@ -3774,7 +3897,7 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="solution_panel closed">
 <div class="solution_title">
-<p class="solution_title_string">Source Code For Figure (?)</p>
+<p class="solution_title_string">Source Code For Figure (15)</p>
 <ul class="nav navbar-right panel_toolbox">
 <li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
 </ul>
@@ -3896,9 +4019,9 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="margin-top: -20px"></div><p>Let's visualize the 95% confidence interval of various statistics obtained from Monte-Carlo bootstrap. Note that statistics like median, skew, kurtosis do not have analytical solutions to construct C.I., and can only be constructed from numerical methods like Monte-Carlo bootstrap (which makes bootstrap very powerful).</p>
-<div class="row" id="bootstrap_uncertainty_model" style="margin-top: 15px;">
+<div class="row" id="fig16" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/monte_boot_uncertainty_models.png"/></div>
-<div class="col-12"><p class="image-description">Figure ???: Uncertainty models obtained from Monte-Carlo bootstrap</p></div>
+<div class="col-12"><p class="image-description">Figure 16: Uncertainty models obtained from Monte-Carlo bootstrap</p></div>
 </div>
 </div>
 </div>
@@ -3908,7 +4031,7 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="solution_panel closed">
 <div class="solution_title">
-<p class="solution_title_string">Source Code For Figure (?)</p>
+<p class="solution_title_string">Source Code For Figure (16)</p>
 <ul class="nav navbar-right panel_toolbox">
 <li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
 </ul>
@@ -3974,7 +4097,7 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div id="conf_int_non_normal"></div><h2 id="5.-Confidence-interval-of-non-normal-distribution">5. Confidence interval of non-normal distribution<a class="anchor-link" href="#5.-Confidence-interval-of-non-normal-distribution">¶</a></h2><p>One of the biggest assumptions in the field of statistics is the <b>assumption of normality</b>. It is important because of the two key characteristics of normal distribution: symmetry (low skew) and light/short-tails (low kurtosis). Symmetry is important because many statistical techniques use $\pm$ standard error methods that assume equal properties from both sides of a distribution. On the other hand, heavy-tailedness is detrimental in inferencing population parameters because heavy tailed distributions (ex: log-normal distribution, cauchy distribution) have non-negligible number of extreme data points that may introduce bias in your samples (understanding the impact of heavy-tailedness is very important in inferencial statistics. Make sure you understand the issues of it by reading <a href="#assumption_8">here</a>).</p>
+<div id="conf_int_non_normal"></div><h2 id="5.-Confidence-interval-of-non-normal-distribution">5. Confidence interval of non-normal distribution<a class="anchor-link" href="#5.-Confidence-interval-of-non-normal-distribution">¶</a></h2><p>One of the biggest assumptions in the field of statistics is the <b>assumption of normality</b>. It is important because of the two key characteristics of normal distribution: symmetry (low skew) and light/short-tails (low kurtosis). Symmetry is important because many statistical techniques use $\pm$ standard error methods that assume equal properties from both sides of a distribution. On the other hand, heavy-tailedness is detrimental in inferencing population parameters because heavy tailed distributions (ex: log-normal distribution, cauchy distribution) have non-negligible number of extreme data points that may introduce bias in your samples (understanding the impact of heavy-tailedness is very important in inferencial statistics. Make sure you understand the issues of it by reading <a href="#kurtosis">below</a>).</p>
 <p>As I mentioned in the <a href="#key4">Key Takeaway 4 & 8</a> above, constructing confidence intervals are very different when data is not normally distributed. This section explains the reasons why they are different, and their non-parametric alternatives.</p>
 </div>
 </div>
@@ -3991,11 +4114,11 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div id="skewness"></div><p><strong>Problems with Skewness (asymmetry)</strong></p>
-<p><a href="fig???">Figure (?)</a> below shows the effectiveness of mean, median, and mode as a measure of central tendency for different skewness. For normal distribution (a), most samples are found at the middle, and they are symmetrically distributed around the mean. This makes the mean as a good measure of central tendency. However, in asymmetrical distributions like (b) and (c), the median is a better choice (or arguably the mode) choice of central tendency, as it is closer to the central location of the distribution than the mean does. Naively reporting mean as a summary of data results in misinterpretation of the central location of population.</p>
-<p>Note that some parametric techniques that assume normality of data are robust to mild skewness. There are many parametric alternatives that account for skewness, such as skewness-adjusted t-test and Box-Cox transformation. More discussion of robustness of parametric techinques to skewness is done <a href="#">below</a>.</p>
-<div class="row" id="bootstrap_uncertainty_model" style="margin-top: 15px;">
+<p><a href="#fig17">Figure (17)</a> below shows the effectiveness of mean, median, and mode as a measure of central tendency for different skewness. For normal distribution (a), most samples are found at the middle, and they are symmetrically distributed around the mean. This makes the mean as a good measure of central tendency. However, in asymmetrical distributions like (b) and (c), the median (or arguably the mode) is a better choice of central tendency, as it is closer to the central location of the distribution than the mean does. Naively reporting the mean as a summary of data results in misinterpretation of the central location of population.</p>
+<p>Note that some parametric techniques that assume normality of data are robust to mild skewness. There are many parametric alternatives that account for skewness, such as skewness-adjusted t-test and Box-Cox transformation. More discussion of robustness of parametric techinques relative to skewness is done <a href="#">below</a>.</p>
+<div class="row" id="fig17" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/conf_int_central.png"/></div>
-<div class="col-12"><p class="image-description">Figure ???: Central tendency of distributions</p></div>
+<div class="col-12"><p class="image-description">Figure 17: Central tendency of distributions</p></div>
 </div>
 </div>
 </div>
@@ -4005,7 +4128,7 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="solution_panel closed">
 <div class="solution_title">
-<p class="solution_title_string">Source Code For Figure (?)</p>
+<p class="solution_title_string">Source Code For Figure (17)</p>
 <ul class="nav navbar-right panel_toolbox">
 <li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
 </ul>
@@ -4062,11 +4185,11 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 <div id="kurtosis"></div><p><strong>Problems with kurtosis (heavy-tails)</strong></p>
 <p>(Note that heavy-, long-, fat-tails are all synonyms. Some literature distinguishes among their meanings, but in general, they are all equivalent terms.)</p>
 <p>Unlike skewness, which can be relatively easily adjusted, heavy-tails can be very painful in inferencial statistics. When a distribution has heavy-tails, it means that the sample has extreme data points that can introduce bias to statistical inferences (note that the term <i>bias</i> is defined as the difference between the statistical estimation vs. the actual population parameter). This is because the occurrence of extreme data points are so low that it is unlikely to be included in the sample you collected, and yet there are substantial number of them lurking in the uncollected portion of a population that impacts population parameters due to their extremity.</p>
-<p><a href="#">Figure (?)</a> below, shows the comparison of heavy- vs light-tailed distributions in a form of probability density function (PDF). Let's talk about the left plot first. Observe that in the heavy-tailed distribution (black line), the chance of occurrence for extreme values does not decay to zero as fast as that of the light-tailed distribution (grey line). This means that you have non-negligible chance observing of extreme values, and those extreme values themselves may not have upper/lower limits. In finance, such property is translated into high risk & unpredictability, which is modeled by Cauchy distributions.</p>
-<p>The right plot in <a href="#">figure (?)</a> compares normal vs Cauchy distributions. Note that the tails of Cauchy distribution is higher than that of the normal distributions. The heavy tails in Cauchy attempt to model financial/investment risks by representing randomness in which extremes are encountered. When data arise from an underlying heavy-tailed distribution, shoehorning in the "normal distribution" model of risk would severely understate the true degree of unpredictability, or risk. Practitioners often neglect the distinction between light- vs heavy-tail because they visually don't look very different when plotted in PDF. But this is big mistake.</p>
-<div class="row" id="bootstrap_uncertainty_model" style="margin-top: 15px;">
+<p><a href="#fig18">Figure (18)</a> below shows the comparison of heavy- vs light-tailed distributions in a form of probability density function (PDF). Let's talk about the left plot first. Observe that in the heavy-tailed distribution (black line), the chance of occurrence for extreme values does not decay to zero as fast as that of the light-tailed distribution (grey line). This means that you have non-negligible chance of observing extreme values, and they may not have upper/lower bounds. In finance, such property is translated into high risk & unpredictability, which is modeled by Cauchy distributions.</p>
+<p>The right plot in <a href="#fig18">figure (18)</a> compares normal vs Cauchy distributions. Note that the tails of Cauchy distribution is higher than that of the normal distributions. The heavy tails in Cauchy attempt to model financial/investment risks by representing randomness in which extremes are encountered. When data arise from an underlying heavy-tailed distribution, shoehorning in the "normal distribution" model of risk would severely understate the true degree of unpredictability, or risk. Practitioners often neglect the distinction between light- vs heavy-tail because they visually don't look very different when plotted in PDF. <strong>This is big misconception.</strong></p>
+<div class="row" id="fig18" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/conf_int_heavy_tail.png"/></div>
-<div class="col-12"><p class="image-description">Figure ???: Heavy-tailed distributions have more extreme data points that can be detrimental to statistical inferences</p></div>
+<div class="col-12"><p class="image-description">Figure 18: Heavy-tailed distributions have more extreme data points that can be detrimental to statistical inferences</p></div>
 </div>
 </div>
 </div>
@@ -4076,7 +4199,7 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="solution_panel closed">
 <div class="solution_title">
-<p class="solution_title_string">Source Code For Figure (?)</p>
+<p class="solution_title_string">Source Code For Figure (18)</p>
 <ul class="nav navbar-right panel_toolbox">
 <li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
 </ul>
@@ -4115,6 +4238,113 @@ The C.I. of variance can be manually computed with <a href="eq-10">eq (10)</a>. 
                     _ = [spine.set_edgecolor('grey') for spine in ax.spines.values()]
                     ax.text(0.78, 0.3, 'aegis4048.github.io', fontsize=20, ha='center', va='center',
                             transform=ax.transAxes, color='grey', alpha=0.5)
+
+                fig.tight_layout()
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="cauchy"></div><div class="alert alert-info">
+<h4>Notes: Cauchy distribution</h4>
+<p>Some distributions have undefined mean, or undefined variance, or both. Cauchy distributions have undefined mean, and as such, the Law of Large Numbers (LLM: the result of performing the same experiment a large number of times will converge to a single value) and the Central Limit Theorem (CLT: the distribution of sample means approximates a normal distribution with the increasing sample size) do not apply.</p>
+<p>In the below figure, I simulated 1000 Cauchy samples with the increasing sample size, and plotted their means. In seems that the sample means are <i>mostly</i> 50 (because I set <code>loc=50</code>), but then all of a sudden a huge outlier appears in the sample and adds so much weight to the average that it pulls the sample mean away from 50 by a considerable amount. The extreme outliers keep coming and hitting the sample mean like a hammer, and just kepps going on like this. The sample mean never converge to a single value, which is a violation of LLM and CLT.</p>
+<p>This casts a few practical problems with inferential statistics, because the collected sample is unlikely to contain the extreme values due to their low chance of occurrence, and yet they significantly impact the population parameters due to their extremity. It is translated as a greater risk in financial modeling.</p>
+<img class="admonition-image-medium" src="jupyter_images/cauchy.png" style="border: 1px solid #ddd; margin-top: 20px;">
+<div class="solution_panel closed" style="margin-top: 20px;">
+<div class="solution_title solution_admonition">
+<p class="solution_title_string">Source Code For The Figure</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+                <code class="language-python">
+                    from scipy import stats
+                    import matplotlib.pyplot as plt
+                    import numpy as np
+
+                    np.random.seed(18)
+
+                    cauchy_means = []
+                    sample_sizes = [i for i in range(1000)]
+                    for size in sample_sizes:
+                        y_cauchy = stats.cauchy.rvs(loc=50, size=size)
+                        cauchy_means.append(np.mean(y_cauchy))
+
+                    plt.style.use('seaborn-whitegrid')
+
+                    fig, ax = plt.subplots(figsize=(8, 4))
+                    ax.plot(sample_sizes, means, 'k', alpha=0.7)
+                    ax.set_xlabel('Sample sizes', fontsize=18)
+                    ax.set_ylabel('Sample means', fontsize=18)
+                    ax.set_title('Undefined means of Cauchy distributions', fontsize=18)
+                    ax.text(0.23, 0.85, 'aegis4048.github.io', fontsize=16, ha='center', va='center', 
+                            transform=ax.transAxes, color='grey', alpha=0.5)
+
+                    fig.tight_layout()
+                </code>
+            </pre>
+</div>
+</div>
+</img></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="multi-modal"></div><p><strong>Problems with multi-modal distributions</strong></p>
+<p>In case of multi-modal distributions, reporting the mean, median, or mode can be uninformative at all, as none of them describes the central location of populations. While it is <i>possible</i> to compute the confidence interval of statistics using non-parameteric methods like bootstrap, it is <i>useless</i>. I hope that <a href="#fig19">figure (19)</a> below is descriptive enough to understand the problems of multi-modal distributions. You will need to devise your own method to describe the central location of data, such as separating the multi-modes into distinct unimodal distributions.</p>
+<div class="row" id="fig19">
+<div class="col"><img class="bullet-point-image-medium" src="jupyter_images/multi-modal.png"/></div>
+<div class="col-12"><p class="image-description">Figure 19: Absence of central tendency in multi-modal distributions</p></div>
+</div>
+<div class="solution_panel closed" style="margin-top: 20px;">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (19)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+                import numpy as np
+                import matplotlib.pyplot as plt
+
+                np.random.seed(4)
+
+                n = 1000
+                np.random.seed(1)
+                x = np.concatenate((np.random.normal(0, 1, int(0.3 * n)),
+                                    np.random.normal(14, 1, int(0.7 * n)),
+                                    np.random.normal(8, 2, int(0.7 * n))))[:, np.newaxis]
+
+                plt.rcParams.update(plt.rcParamsDefault)
+
+                fig, ax = plt.subplots(figsize=(8, 4))
+
+                adjust = 0.12
+                n, bins, patches = ax.hist(x, bins=30, histtype='stepfilled', edgecolor='k', alpha=0.4, color='grey', density=True)
+                ax.axvline(np.mean(x) + adjust, color='k', label='Mean', linestyle='-', alpha=0.9)
+                ax.axvline(np.median(x) + adjust, color='k', label='Median', linestyle='--', alpha=0.9)
+                ax.axvline(bins[np.where(n == max(n))[0][0]] + adjust, color='k',  label='Mode', linestyle=':', alpha=0.9)
+
+                ax.text(0.2, 0.9, 'aegis4048.github.io', fontsize=15, ha='center', va='center',
+                        transform=ax.transAxes, color='grey', alpha=0.5)
+                ax.grid(True, linestyle='--', color='#acacac')
+                ax.set_xlabel('X', fontsize=16)
+                ax.set_ylabel('Probability', fontsize=16)
+                ax.legend(loc='upper right', framealpha=1, frameon=True)
 
                 fig.tight_layout()
             </code>
