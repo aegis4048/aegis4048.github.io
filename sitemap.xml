@@ -5,14 +5,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://aegis4048.github.io/</loc>
-<lastmod>2019-09-23T21:32:13-00:00</lastmod>
+<lastmod>2019-09-24T05:17:30-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/archives.html</loc>
-<lastmod>2019-09-23T21:32:13-00:00</lastmod>
+<lastmod>2019-09-24T05:17:30-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -194,6 +194,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://aegis4048.github.io/tag/central-tendency.html</loc>
+<lastmod>2019-09-08T09:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/box-cox.html</loc>
 <lastmod>2019-09-08T09:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
