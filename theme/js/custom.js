@@ -27,10 +27,6 @@ function check_width() {
         $('.search-box-div').css('display', '');
         $('.search-box-div').addClass('row');
         $('.navbar-title').removeClass('container');
-        $('#post-container').removeClass('post');
-        $('#post-container').css('padding-right', '15px');
-        $('#post-container').css('padding-left', '15px');
-
     }
     if (windowSize > COLLAPSE_WIDTH) {
         $('#navbar').addClass('container');
@@ -44,9 +40,6 @@ function check_width() {
         $('.search-box-div').css('display', 'inherit');
         $('.search-box-div').removeClass('row');
         $('.navbar-title').addClass('container');
-        $('#post-container').addClass('post');
-        $('#post-container').css('padding-right', '50px');
-        $('#post-container').css('padding-left', '50px');
         
         if (windowSize < GRID_LARGE) {
             $('#post-container').removeClass('post');

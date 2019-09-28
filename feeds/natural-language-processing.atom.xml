@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Natural Language Processing</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/natural-language-processing.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-05-26T09:00:00-07:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Optimize Computational Efficiency of Skip-Gram with Negative Sampling</title><link href="https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" rel="alternate"></link><published>2019-05-26T09:00:00-07:00</published><updated>2019-05-26T09:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-05-26:/optimize_computational_efficiency_of_skip-gram_with_negative_sampling</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Natural Language Processing</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/natural-language-processing.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2019-05-26T00:00:00-07:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Optimize Computational Efficiency of Skip-Gram with Negative Sampling</title><link href="https://aegis4048.github.io/optimize_computational_efficiency_of_skip-gram_with_negative_sampling" rel="alternate"></link><published>2019-05-26T00:00:00-07:00</published><updated>2019-05-26T00:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-05-26:/optimize_computational_efficiency_of_skip-gram_with_negative_sampling</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2894,7 +2894,7 @@ $$&lt;/div&gt;&lt;p&gt;Same as &lt;a href="#eq-26"&gt;eq (26)&lt;/a&gt;, $t_j = 
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="data-mining"></category><category term="nlp"></category><category term="word2vec"></category><category term="word vectors"></category><category term="window size"></category><category term="skip-gram"></category><category term="neural network"></category><category term="negative sampling"></category><category term="stochastic gradient descent"></category><category term="learning rate"></category><category term="sigmoid"></category><category term="softmax"></category><category term="algorithm complexity"></category><category term="noise distribution"></category></entry><entry><title>Demystifying Neural Network in Skip-Gram Language Modeling</title><link href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" rel="alternate"></link><published>2019-05-06T09:00:00-07:00</published><updated>2019-05-06T09:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-05-06:/demystifying_neural_network_in_skip_gram_language_modeling</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="data-mining"></category><category term="nlp"></category><category term="word2vec"></category><category term="word vectors"></category><category term="window size"></category><category term="skip-gram"></category><category term="neural network"></category><category term="negative sampling"></category><category term="stochastic gradient descent"></category><category term="learning rate"></category><category term="sigmoid"></category><category term="softmax"></category><category term="algorithm complexity"></category><category term="noise distribution"></category></entry><entry><title>Demystifying Neural Network in Skip-Gram Language Modeling</title><link href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" rel="alternate"></link><published>2019-05-06T00:00:00-07:00</published><updated>2019-05-06T00:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-05-06:/demystifying_neural_network_in_skip_gram_language_modeling</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -5823,7 +5823,7 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="data-mining"></category><category term="nlp"></category><category term="word2vec"></category><category term="co-occurrence matrix"></category><category term="vector space model"></category><category term="word vectors"></category><category term="window size"></category><category term="skip-gram"></category><category term="neural network"></category><category term="negative sampling"></category><category term="stochastic gradient descent"></category><category term="learning rate"></category></entry><entry><title>Understanding Multi-Dimensionality in Vector Space Modeling</title><link href="https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling" rel="alternate"></link><published>2019-04-16T09:00:00-07:00</published><updated>2019-04-16T09:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-04-16:/understanding_multi-dimensionality_in_vector_space_modeling</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="data-mining"></category><category term="nlp"></category><category term="word2vec"></category><category term="co-occurrence matrix"></category><category term="vector space model"></category><category term="word vectors"></category><category term="window size"></category><category term="skip-gram"></category><category term="neural network"></category><category term="negative sampling"></category><category term="stochastic gradient descent"></category><category term="learning rate"></category></entry><entry><title>Understanding Multi-Dimensionality in Vector Space Modeling</title><link href="https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling" rel="alternate"></link><published>2019-04-16T00:00:00-07:00</published><updated>2019-04-16T00:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-04-16:/understanding_multi-dimensionality_in_vector_space_modeling</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -9889,10 +9889,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="7765b3dd-8eb0-4124-b1d0-0ac417605112"&gt;&lt;/div&gt;
+&lt;div id="8aef4283-d615-41c4-89fb-d3e15a1d9453"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7765b3dd-8eb0-4124-b1d0-0ac417605112');
+var element = $('#8aef4283-d615-41c4-89fb-d3e15a1d9453');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
