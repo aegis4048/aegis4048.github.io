@@ -180,7 +180,7 @@ hr {
 #tipue_search_results_count {
     color: #999;
     padding: 1rem 0;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 .tipue_search_result {
     padding-top: 1rem;
@@ -196,7 +196,7 @@ hr {
     color: inherit;
 }
 .tipue_search_content_text {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #666;
 }
 .tipue_search_content_bold {
@@ -489,7 +489,7 @@ article div.social-links li a:hover {
   text-decoration: none;
 }
 article p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 0;
     line-height: 1.7em;
     margin-top: 20px;
@@ -521,7 +521,7 @@ article ol {
   margin-bottom: 25px;
 }
 article li {
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.6em;
 }
 article a:hover {
@@ -858,7 +858,7 @@ div.output_area .rendered_html table {
     padding-top: 3rem;
 }
 .section p {
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 .about-container-wrapper {
     background: #ddddde;
@@ -892,7 +892,7 @@ ul.no-bullets {
     margin: 0px;
     padding: 0px;
     line-height: 1.8;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 400;
 }
 
@@ -1016,7 +1016,7 @@ ul.no-bullets {
     text-align: right;
 }
 .share-post-intro {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #9E9E9E;
     font-weight: 700;
 }
@@ -1547,7 +1547,7 @@ table.dataframe {
 	background: #1b1e24 !important;
 	border-bottom: 4px solid #9ea7af;
 	border-right: 1px solid #343a45;
-	font-size: 1rem;
+	font-size: 0.9 rem;
 	font-weight: 300;
     padding: 16px;
 	text-align: center !important;
@@ -1610,7 +1610,7 @@ table.dataframe {
 	text-align: left;
 	vertical-align: middle;
 	font-weight: 300;
-	font-size: 1rem;
+	font-size: 0.9 rem;
 	text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
 	border-right: 1px solid #C1C3D1;
 }
@@ -1923,7 +1923,7 @@ ol.rounded-list,
     display: block;
     padding: 2px 8px;
     color: #fff;
-    font-size: 1rem;
+    font-size: 0.9 rem;
     letter-spacing: .2px;
     white-space: nowrap;
     background: #15171a;
@@ -1977,7 +1977,7 @@ ol.rounded-list,
     padding: 0.8rem 1rem;
     padding-bottom: 0.5rem;
     border-left: 2px solid #507cb3;
-    font-size: 1rem;
+    font-size: 0.9 rem;
     font-family: monaco,'Source Code Pro',monospace,'Courier New';
     margin-top: 20px;
 }
@@ -2006,7 +2006,7 @@ margin-top: 20px;
     padding: 0.8rem 1rem;
     padding-bottom: 0.5rem;
     border-top: 3px solid #23a19d;
-    font-size: 1rem;
+    font-size: 0.9 rem;
     margin-bottom: 20px;
 }
 .highlights-title {
@@ -2079,7 +2079,7 @@ margin-top: 20px;
     display: block;
     font-weight: 600;
     color: white;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 .solution_panel .panel_toolbox {
     float: right;
@@ -2304,7 +2304,7 @@ margin-top: 20px;
     display: block;
     margin-bottom: 4px;
     color: #738a94;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.15em;
     font-weight: 500;
     letter-spacing: .5px;
@@ -2324,31 +2324,42 @@ margin-top: 20px;
 }
 .index-author {
     display: unset;
+    margin-bottom: 15px;
+}
+.index-author .name-subtitle {
+    border-bottom: 1px solid #7b7b7b;
 }
 .index-author-photo {
     border-radius: 50%;
     max-width: 130px;
     border: 5px solid #f2f3f3;
 }
+.author__bio {
+    font-size: 0.8rem;
+}
 .index-left-col {
     padding-left: 120px;
     padding-right: 0;
     margin-top: 25px;
 }
-.contacts-1 {
+.contacts {
     display: flex;
     flex-grow: 1;
-    max-width: 200px;
+    font-size: 0.75rem;
+    align-items: center;
+    padding-left: 0;
 }
-.contacts-2 {
-    display: flex;
-    flex-grow: 1;
-    padding-top: 15px;
+.contacts.no-link {
+    max-width: 200px;
 }
 @media (max-width: 992px) {
     .index-author {
         display: flex;
         margin-right: 30px;
+        border-bottom: none;
+    }
+    .index-left-col {
+        padding-right: 45px;
     }
 }
 @media (max-width: 768px) {
@@ -2357,12 +2368,17 @@ margin-top: 20px;
     }
 }
 @media (min-width: 992px) {
-    .contacts-1 {
+    .contacts {
         width: 100%;
     }
-    .contacts-2 {
-        width: 100%;
+    .contacts.link {
         padding-top: 0;
+    }
+    .contacts p {
+        margin-bottom: 0.6rem !important;
+    }
+    .profile {
+        padding-bottom: 30px;
     }
 }
 
@@ -2387,6 +2403,11 @@ margin-top: 20px;
         margin-right: 25px;
     }
 }
+@media (min-width: 576px) and (max-width: 992px) {
+    .contacts {
+        padding-left: 25px
+    }
+}
 @media (min-width: 576.1px) and (max-width: 768px) {
     .article-row {
         margin: 0;
@@ -2408,9 +2429,6 @@ margin-top: 20px;
     .index-author-photo {
         max-width: 75px;
         margin-top: 15px;
-    }
-    .contacts {
-        font-size: 0.75em;
     }
     .author__name {
         font-size: 1.5rem;
@@ -2448,12 +2466,6 @@ margin-top: 20px;
         max-width: 75px;
         margin-top: 15px;
     }
-    .contacts-1 {
-        font-size: 0.75em;
-    }
-    .contacts-2 {
-        font-size: 0.75em;
-    }
     .author__name {
         font-size: 1.5rem;
     }
@@ -2462,5 +2474,161 @@ margin-top: 20px;
     }
     .index-author {
         width: 100%;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    .contacts {
+        padding-left: 0;
+    }
+    .no-link {
+        margin-left: 15px;
     }
 }
+
+.tagcloud-container {
+    transition: all .5s ease;
+    padding-top: 30px;
+    padding-right: 15px;
+}
+.tagcloud-container .title {
+    color: #7a7a7a;
+    font-weight: 600;
+}
+ul.tagcloud {
+  list-style: none;
+    padding: 0;
+}
+
+ul.tagcloud li {
+    display: inline-block;
+}
+
+li.tag-1 {
+    font-size: 125%;
+}
+li.tag-2 {
+    font-size: 100%;
+}
+li.tag-3 {
+    font-size: 80%
+}
+/* ... add li.tag-3 etc, as much as needed */
+
+ul.tagcloud .list-group-item span.badge {
+    background-color: grey;
+    color: white;
+}
+
+.read-next-card {
+    position: relative;
+    -ms-flex: 1 1 300px;
+    flex: 1 1 300px;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 20px 40px;
+    padding: 25px;
+    color: #fff;
+    background: #15171a 50%;
+    background-size: cover;
+    border-radius: 5px;
+    box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+    display: flex;
+}
+.read-next-card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    background: linear-gradient(135deg,rgba(34, 40, 52, 0.8),rgba(24, 24, 31, 0.7));
+    border-radius: 5px;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+}
+.read-next-card-header {
+    position: relative;
+    z-index: 50;
+    padding-top: 20px;
+    text-align: center;
+}
+.read-next-card-header-sitetitle {
+    display: block;
+    font-size: 0.6rem;
+    line-height: 1.3em;
+    opacity: .8;
+    margin-bottom: .2rem;
+}
+.read-next-card-header-title {
+    margin: 0;
+    padding: 0 20px;
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1.2em;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+.read-next-divider {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 60px;
+}
+.read-next-divider svg {
+    width: 40px;
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: .5px;
+    stroke-opacity: .65;
+}
+.read-next-card-content {
+    position: relative;
+    z-index: 50;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    display: -ms-flexbox;
+    display: flex;
+}
+.read-next-card-content ul {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+.read-next-card-content li {
+    margin: 0;
+    padding: 0;
+    font-size: 0.8rem;
+    line-height: 1.25em;
+    font-weight: 200;
+    letter-spacing: -.5px;
+}
+.read-next-card-content li:first-of-type a {
+    padding-top: 10px;
+}
+.read-next-card-content li a {
+    display: block;
+    padding: 20px 0;
+    border-bottom: 1px solid hsla(0,0%,100%,.3);
+    color: #fff;
+    font-weight: 500;
+    vertical-align: top;
+    transition: opacity .3s ease;
+}
+.read-next-card-footer {
+    position: relative;
+    margin: 15px 0 3px;
+    text-align: center;
+}
+.read-next-card-footer a {
+    color: #fff;
+}
+
