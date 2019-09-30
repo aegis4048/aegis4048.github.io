@@ -1115,6 +1115,8 @@ ul.articles-timeline .next-article {
 .related-posts-list {
     padding-inline-start: 16px;
     margin-top: 1rem !important;
+    margin-left: -30px;
+    margin-right: -30px;
 }
 /* related posts end */
 
@@ -2342,6 +2344,9 @@ margin-top: 20px;
     padding-right: 0;
     margin-top: 25px;
 }
+#post-container {
+
+}
 .contacts {
     display: flex;
     flex-grow: 1;
@@ -2351,6 +2356,73 @@ margin-top: 20px;
 }
 .contacts.no-link {
     max-width: 200px;
+}
+.index-scroll-container{
+
+}
+.related-post .article-row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    box-orient: horizontal;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    height: 340px;
+    overflow: hidden;
+    margin-bottom: 20px !important;
+    margin-right: 150px;
+    background: #fff 50%;
+    background-size: cover;
+    border-radius: 5px;
+    box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+    transition: all .5s ease;
+    margin: 0;
+    flex-direction: column;
+    height: unset;
+}
+.related-post .article-cell-2 h2 {
+    margin-bottom: 2px;
+    font-weight: 700;
+    font-size: 1rem !important;
+    margin-top: 0;
+}
+.related-post .article-cell-2 p {
+    font-size: 0.8rem;
+    line-height: 1.55em;
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-family: Georgia,serif;
+}
+.related-post .article-cell-2 .category {
+    display: block;
+    margin-bottom: 4px;
+    color: #738a94;
+    font-size: 0.7rem;
+    line-height: 1.15em;
+    font-weight: 500;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+article .related-post .meta {
+    font-size: 0.8em;
+    margin: 0;
+}
+article .related-post .meta .meta-left {
+    display: block !important;
+}
+article .related-post .meta div {
+    display: inline;
 }
 @media (max-width: 992px) {
     .index-author {
