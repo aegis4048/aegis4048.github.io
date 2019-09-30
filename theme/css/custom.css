@@ -2424,6 +2424,10 @@ article .related-post .meta .meta-left {
 article .related-post .meta div {
     display: inline;
 }
+.fixme {
+    width: 17vw;
+}
+
 @media (max-width: 992px) {
     .index-author {
         display: flex;
@@ -2432,6 +2436,10 @@ article .related-post .meta div {
     }
     .index-left-col {
         padding-right: 45px;
+    }
+    .fixme {
+        width: unset;
+        position: static !important;
     }
 }
 @media (max-width: 768px) {
@@ -2452,8 +2460,23 @@ article .related-post .meta div {
     .profile {
         padding-bottom: 30px;
     }
-}
+    .fixme {
+        overflow-y: scroll;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* IE 10+ */
+        height: 720px;
+    }
+    .fixme::-webkit-scrollbar { /* WebKit */
+        width: 0;
+        height: 0;
+    }
 
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+    .fixme {
+        width: 21vw;
+    }
+}
 @media (min-width: 768.1px) and (max-width: 1200px) {
     .article-row {
         flex-direction: row;
