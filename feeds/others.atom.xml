@@ -2312,7 +2312,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 &lt;pre class="command-line language-powershell" data-prompt="(base) C:\Users\Eric&gt;"&gt;
 &lt;code class="language-powershell"&gt;pip install tabula-py
 &lt;/code&gt;
-&lt;/pre&gt;&lt;p&gt;More detailed instructions are provided in the &lt;a href="https://github.com/chezou/tabula-py"&gt;github repo&lt;/a&gt; of tabula-py&lt;/p&gt;
+&lt;/pre&gt;&lt;p&gt;Make sure that you install &lt;code&gt;tabula-py&lt;/code&gt;, not &lt;code&gt;tabula&lt;/code&gt;. Failing to do so will result in &lt;i&gt;AttributeError: module 'tabula' has no attribute 'read_pdf'&lt;/i&gt;, as discussed in this &lt;a href="https://github.com/chezou/tabula-py/issues/36" target="_blank"&gt;thread&lt;/a&gt;. More detailed instructions are provided in the &lt;a href="https://github.com/chezou/tabula-py"&gt;github repo&lt;/a&gt; of tabula-py&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

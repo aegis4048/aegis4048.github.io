@@ -493,6 +493,7 @@ article p {
     margin-bottom: 0;
     line-height: 1.7em;
     margin-top: 20px;
+    font-family: "PT Sans", Helvetica, Arial, sans-serif !important;
 }
 article p.note {
   background: #f5f5f5;
@@ -2021,6 +2022,7 @@ margin-top: 20px;
     line-height: 1.7;
     margin-bottom: 10px;
     padding-left: 40px;
+    font-family: "PT Sans", Helvetica, Arial, sans-serif !important;
 }
 
 #toc_container {
@@ -2426,6 +2428,17 @@ article .related-post .meta div {
 }
 .fixme {
     width: 17vw;
+}
+.highlights.red-theme {
+    border: 2px solid #ffd3d3 !important;
+    border-top: 3px solid #af2644 !important;
+    background: #ffecec !important;
+}
+.highlights-title.red-theme {
+    color: #af2644 !important;
+}
+.highlights-content.red-theme {
+    color: #a9092c !important;
 }
 
 @media (max-width: 992px) {
