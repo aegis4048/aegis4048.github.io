@@ -123,55 +123,55 @@ function init_progressbar() {
 }
 
 function init_fixed_top() {
-    var fixmeTop = $('.fixme').offset().top;
-    if (windowSize > GRID_LARGE) {
-        $(window).scroll(function() {
-            console.log('bbbb')
-            var currentScrollTop = $(window).scrollTop();
-            var currentScrollBottom = $(window).scrollTop() + $(window).height();
-            var docHeight = $(document).height();
-            var footerHeight = $('.footer').height();
-            var bottomOffset = footerHeight + 68;
+    if ($('.fixme').length > 0) {
+        var fixmeTop = $('.fixme').offset().top;
+        if (windowSize > GRID_LARGE) {
+            $(window).scroll(function() {
+                var currentScrollTop = $(window).scrollTop();
+                var currentScrollBottom = $(window).scrollTop() + $(window).height();
+                var docHeight = $(document).height();
+                var footerHeight = $('.footer').height();
+                var bottomOffset = footerHeight + 68;
 
-            if (currentScrollTop + 25 >= fixmeTop && currentScrollBottom <  docHeight - footerHeight - 68) {
-                $('.fixme').css({
-                    position: 'fixed',
-                    top: '25px',
-                    bottom: 'unset',
-                });
-                $('.index-left-col').css({
-                    display: 'unset',
-                    'align-items': 'unset',
-                })
-            } else if (currentScrollBottom >=  docHeight - footerHeight - 68) {
-                $('.fixme').css({
-                    position: 'unset',
-                });
-                $('.index-left-col').css({
-                    display: 'flex',
-                    'align-items': 'flex-end',
-                })
-            }
-            else {
-                $('.fixme').css({
-                    position: 'static',
-                });
-                $('.index-left-col').css({
-                    display: 'unset',
-                    'align-items': 'unset',
-                })
-            }
-        });
-    }
-    else {
-        console.log('aaaa')
-        $('.fixme').css({
-            position: 'static',
-        });
-        $('.index-left-col').css({
-            display: 'unset',
-            'align-items': 'unset',
-        })
+                if (currentScrollTop + 25 >= fixmeTop && currentScrollBottom <  docHeight - footerHeight - 68) {
+                    $('.fixme').css({
+                        position: 'fixed',
+                        top: '25px',
+                        bottom: 'unset',
+                    });
+                    $('.index-left-col').css({
+                        display: 'unset',
+                        'align-items': 'unset',
+                    })
+                } else if (currentScrollBottom >=  docHeight - footerHeight - 68) {
+                    $('.fixme').css({
+                        position: 'unset',
+                    });
+                    $('.index-left-col').css({
+                        display: 'flex',
+                        'align-items': 'flex-end',
+                    })
+                }
+                else {
+                    $('.fixme').css({
+                        position: 'static',
+                    });
+                    $('.index-left-col').css({
+                        display: 'unset',
+                        'align-items': 'unset',
+                    })
+                }
+            });
+        }
+        else {
+            $('.fixme').css({
+                position: 'static',
+            });
+            $('.index-left-col').css({
+                display: 'unset',
+                'align-items': 'unset',
+            })
+        }
     }
 }
 
