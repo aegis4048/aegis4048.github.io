@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <meta name="google-site-verification" content="ZsWFnpirKDgtbmwb1YRymDnSfvnUrpzCbf6LD1F_4TY" />
+
+            <meta name="msvalidate.01" content="8FF1B025212A47B5B27CC47163A042F0" />
+
+            <meta name="author" content="ERIC KIM" />
+
+
+            <meta name="description" content="    Tag: | Pythonic Excursions | Stories about Python and Data Science
+" />
+
+            <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+<meta property="og:title" content="Tag | Pythonic Excursions"/>
+<meta name="twitter:title" content="Tag | Pythonic Excursions">
+<meta property="og:url" content="https://aegis4048.github.io/tags" />
+<meta property="og:description" content="Tag: lognormal in the Pythonic Excursions" />
+<meta name="twitter:description" content="Tag: lognormal in the Pythonic Excursions">
+<meta property="og:site_name" content="Pythonic Excursions" />
+<meta property="og:article:author" content="ERIC KIM" />
+<meta property="og:image" content="/theme/img/logo_icon_background.png" />
+<meta name="twitter:image" content="/theme/img/logo_icon_background.png" >
+
+        <title>    Tag: | Pythonic Excursions
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: #24292e;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: #24292e;
+                }
+            </style>
+
+        <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+        <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="https://aegis4048.github.io/theme/img/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://aegis4048.github.io/theme/img/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="https://aegis4048.github.io/theme/img/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://aegis4048.github.io/theme/img/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="https://aegis4048.github.io/theme/img/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="https://aegis4048.github.io/theme/img/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="https://aegis4048.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133310548-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-133310548-1');
+</script>
+
+    </head>
+    <body>
+<progress id="progressBar" max="19827" class="flat">
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+</progress>        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://aegis4048.github.io/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/about.html">About</a>
+                        </li>
+                        <li id="last-item" class="nav-item">
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/archives.html">Archive</a>
+                        </li>
+                     </ul>
+                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="https://aegis4048.github.io/search.html">
+                        <div class="search-box-div" align="center">
+                            <input id="tipue_search_input" class="form-control mr-md-2 rem_08 col-9" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" aria-label="Search">
+                            <button id="search-btn" class="btn btn-search btn-outline-success btn-circle rem_08 col-3" type="submit" for="tipue_search_input">Search</button>
+                        </div>
+                    </form>
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index list">
+    <article>
+        <div class="container list post">
+            <article>
+                <div class="h2 mt-3 title text-center mb-5 pop-over">Tag: lognormal</div>
+                <hr>
+                <ul class="double-list pop-over">
+                    <li>
+                        <a href='/comprehensive_confidence_intervals_for_python_developers'>
+                            <h2 class="tag-title">Comprehensive Confidence Intervals for Python Developers</h2>
+                            <span>08.09.2019</span>
+                        </a>
+                    </li>
+                </ul>
+            </article>
+        </div>
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+      <div class="row">
+         <div class="col">
+            <h5 class="headin5_amrc col_white_amrc pt2">ABOUT ERIC</h5>
+            <!--headin5_amrc-->
+            <p class="mb10"><img id="profile_img" align="left" src="https://aegis4048.github.io/theme/img/profile_photo_footer.jpg">Senior undergraduate student at the Univeristy of Texas at Austin, Hildebrand Department of Petroleum Engineering, the #1 petroleum engineering school in the US. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
+            <p><i class="fa fa-envelope mr-2"></i>aegis4048@gmail.com</p>
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="about.html">ABOUT</a></li>
+         <li><a href="archives.html">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center">Handcrafted by me @2018</p>
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="row" align="center">
+                  <div class="footer-icon"><a href="https://www.linkedin.com/in/eric-kim-34318811b/"><i class="fab fa-linkedin-in"></i></a></div>
+                  <div class="footer-icon"><a href="https://github.com/aegis4048"><i class="fab fa-github"></i></a></div>
+              </div>
+          </div>
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://aegis4048.github.io/theme/libs/prism.js"></script>
+        <script src="https://aegis4048.github.io/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

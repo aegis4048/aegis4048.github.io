@@ -18,7 +18,7 @@
                 <meta property="og:type" content="article" />
             <meta name="twitter:card" content="summary"/>
 
-        <meta name="keywords" content="confidence interval, statistics, non-normal, normal, non-Gaussian, Gaussian, normality test, hypotheses testing, bootstrap, t-test, f-test, central tendency, box-cox, Statistics, "/>
+        <meta name="keywords" content="confidence interval, uncertainty, statistics, non-normal, normal, non-Gaussian, Gaussian, normality test, hypotheses testing, bootstrap, t-test, f-test, central tendency, box-cox, non-parametric, parametric, lognormal, exponential, heavy-tails, skewness, kurtosis, Statistics, "/>
 
         <link rel="canonical" href="https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers">
     <meta property="og:title" content="Comprehensive Confidence Intervals for Python Developers | Pythonic Excursions"/>
@@ -133,6 +133,7 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
             <div class="meta meta-tag no-margin no-border">
                 <div>
                         <a href="https://aegis4048.github.io/tag/confidence-interval.html" class="tag">confidence interval</a>
+                        <a href="https://aegis4048.github.io/tag/uncertainty.html" class="tag">uncertainty</a>
                         <a href="https://aegis4048.github.io/tag/statistics.html" class="tag">statistics</a>
                         <a href="https://aegis4048.github.io/tag/non-normal.html" class="tag">non-normal</a>
                         <a href="https://aegis4048.github.io/tag/normal.html" class="tag">normal</a>
@@ -145,6 +146,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
                         <a href="https://aegis4048.github.io/tag/f-test.html" class="tag">f-test</a>
                         <a href="https://aegis4048.github.io/tag/central-tendency.html" class="tag">central tendency</a>
                         <a href="https://aegis4048.github.io/tag/box-cox.html" class="tag">box-cox</a>
+                        <a href="https://aegis4048.github.io/tag/non-parametric.html" class="tag">non-parametric</a>
+                        <a href="https://aegis4048.github.io/tag/parametric.html" class="tag">parametric</a>
+                        <a href="https://aegis4048.github.io/tag/lognormal.html" class="tag">lognormal</a>
+                        <a href="https://aegis4048.github.io/tag/exponential.html" class="tag">exponential</a>
+                        <a href="https://aegis4048.github.io/tag/heavy-tails.html" class="tag">heavy-tails</a>
+                        <a href="https://aegis4048.github.io/tag/skewness.html" class="tag">skewness</a>
+                        <a href="https://aegis4048.github.io/tag/kurtosis.html" class="tag">kurtosis</a>
                 </div>
             </div>
             <section>
@@ -1364,6 +1372,7 @@ h6:hover .anchor-link {
 </ul>
 <li><a href="#non-normal-robustness"><span class="toc_label">5.2</span>Robustness of confidence intervals to non-normality</a></li>
 <ul>
+<li><a href="#normality-test"><span class="toc_label">Notes:</span>Be cautious with hypothesis testing for normality</a></li>
 <li><a href="#python_qq_plots"><span class="toc_label">Pythonic Tip:</span>Q-Q plots with SciPy</a></li>
 </ul>
 <li><a href="#boxcox"><span class="toc_label">5.3</span>Transform to normal distribution: Box-Cox</a></li>
@@ -2941,7 +2950,7 @@ $$df = n - 1$$
 <h4>Notes: Chi-square $\chi^2$ distribution</h4>
 <p>Chi-square <span style="font-size: 90% !important">$\chi^2$</span> distribution is a function of degrees of freedom <span style="font-size: 90% !important">$df$</span>. It is a special case of the gamma distribution and is one of the most widely used probability distributions in inferential statistics, notably in hypothesis testing or in construction of confidence intervals.</p>
 <p>It is used in the common chi-square goodness of fit test of an observed data set to a theoretical one. Let's say that there's a company that prints baseball cards. The company claims that 30% of the cards are rookies, 60% veterans but not All-Stars, and 10% are veteran All-Stars. Suppose that you purchased a deck of 100 cards. You found out that the card deck has 50 rookies, 45 veterans, and 5 All-Stars. Is this consistent with the company's claim? An answer to this question is explained in detail <a href="https://stattrek.com/chi-square-test/goodness-of-fit.aspx" target="_blank">here</a> using the chi-squared goodness of fit test. Note that the chi-square goodness of fit test does NOT require normality of data, but the chi-square test that checks if a variance equals a specified value DOES require normality of data.</p>
-<p>When samples have a normal distribution, some of their statistics can be described by <span style="font-size: 90% !important">$\chi^2$</span> distributions. For example, the <a href="https://www.machinelearningplus.com/statistics/mahalanobis-distance/" target="_blank">Mahalanobis distance</a> follows <span style="font-size: 90% !important">$\chi^2$</span> distribution when samples are normally distributed, and can be used for multivariate outlier detection using <span style="font-size: 90% !important">$\chi^2$</span> hypothesis test. Variance of samples also follows <span style="font-size: 90% !important">$\chi^2$</span> distributions when samples are normally distributed, and can be used to construct the confidence interval of variances with <a href="#eq-1">eq (10)</a>.</p>
+<p>When samples have a normal distribution, some of their statistics can be described by <span style="font-size: 90% !important">$\chi^2$</span> distributions. For example, the <a href="https://www.machinelearningplus.com/statistics/mahalanobis-distance/" target="_blank">Mahalanobis distance</a> follows <span style="font-size: 90% !important">$\chi^2$</span> distribution when samples are normally distributed, and can be used for multivariate outlier detection using <span style="font-size: 90% !important">$\chi^2$</span> hypothesis test. Variance of samples also follows <span style="font-size: 90% !important">$\chi^2$</span> distributions when samples are normally distributed, and can be used to construct the confidence interval of variances with <a href="#eq-10">eq (10)</a>.</p>
 <p>By the central limit theorem, a <span style="font-size: 90% !important">$\chi^2$</span> distribution converges to a normal distribution for large sample size <span style="font-size: 90% !important">$n$</span>. For many practical purposes, for <span style="font-size: 90% !important">$n$</span> > 50 the distribution is sufficiently close to a normal distribution for the difference to be ignored. Note that the sampling distribution of <span style="font-size: 90% !important">$ln(\chi^2)$</span> converges to normality much faster than the sampling distribution of <span style="font-size: 90% !important">$\chi^2$</span> as the logarithm removes much of the asymmetry. </p>
 <img class="admonition-image" src="jupyter_images/chi_square.png" style="border: 1px solid #ddd;">
 <div class="solution_panel closed" style="margin-top: 20px;">
@@ -3497,7 +3506,7 @@ The C.I. of variance can be manually computed with <a href="#eq-10">eq (10)</a>.
 <li><p class="numbering-p">Bootstrapping continuous data is a bit tricky</p></li>
 </ol>
 <div class="left-pad-border">
-<p>The biggest motivation for bootstrapping continuous data would be to acquire uncertainty of a fitted regression model. In regression problems, we assume the data points to be continuous. Bootstrapping makes this a little weird when the dependent variable ($y$) is continuous, because the original populatoin does not have even one <i>exact</i> duplicate, while bootstrap samples are likely to have many <i>exact</i> duplicates. Moreover, the range of independent variables ($x$ in single-regession, $x_1, x_2, ... , x_n$ in multi-regression) changes for each bootstrap sample due to randomness. Since the range of the independent variables defines the amount information available, bootstrapping will lose some of the information in the data. In such cases, alternatives like residual bootstrap (assumes homoscedasticity, or stationary varianace) or wild bootstrap (works for heteroscedasticity, or non-stationary varianace).</p>
+<p>The biggest motivation for bootstrapping continuous data would be to acquire uncertainty of a fitted regression model. In regression problems, we assume the data points to be continuous. Bootstrapping makes this a little weird when the dependent variable ($y$) is continuous, because the original populatoin does not have even one <i>exact</i> duplicate, while bootstrap samples are likely to have many <i>exact</i> duplicates. Moreover, the range of independent variables ($x$ in single-regession, $x_1, x_2, ... , x_n$ in multi-regression) changes for each bootstrap sample due to randomness. Since the range of the independent variables defines the amount information available, bootstrapping will lose some of the information in the data. In such cases, alternatives like residual bootstrap (assumes homoscedasticity, or stationary varianace) or wild bootstrap (works for heteroscedasticity, or non-stationary varianace) may be used.</p>
 <p>Unfortunately, the procedure for these alternatives are very complicated, and they are not implemented in <code>Python</code>. To my knowledge, they are implemented in <code>R</code> though.</p>
 </div><div id="assumption_8"></div>
 <ol class="custom-counter" style="counter-reset: lis 7;">
@@ -4445,6 +4454,132 @@ The C.I. of variance can be manually computed with <a href="#eq-10">eq (10)</a>.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<div id="normality-test"></div><div id="dist_stats"></div>
+<div class="alert alert-info">
+<h4>Notes: Be cautious with hypothesis testing for normality</h4>
+<p>If you have very large sample size, hypothesis tests that check normality (ex: Shapiro-Wilk, D’Agostino’s <span style="font-size: 90%">$K^2$</span>, Anderson-Darling) are essentially useless. This is counter-intuitive. Isn't it always better to have larger sample size than the otherwise? The reason is that the confidence intervals for test statistics become too narrow with large sample size. For example, when using t-test, we compute the <a href="#conf_int_of_diff_in_mean">confidence interval of difference in means</a> with <a href="#eq-6">eq (6)</a>. If the C.I. of difference in mean includes 0, we accept the null hypothesis. However, the width of the C.I. decreases with increasing sample size, because of sample sizes <span style="font-size: 90%">$n_1$</span> and <span style="font-size: 90%">$n_2$</span> are in the denominator of <a href="#eq-6">eq (6)</a>. While the C.I. becoming narrow signifies small uncertainty in your statistical estimation, it is not desirable from a hypothesis test's point of view, because the test becomes too exact to be practical.</p>
+<p>Consider the plots below. I generated multiple samples from a normal distribution with increasing sample sizes, and added small noises from a uniform distribution. Visual inspection tells us that the samples are normally distributed, but the p-values from the Shapiro-Wilk test tell the otherwise. You can see that the p-value is almost always smaller than 0.05 when sample size > 15,000 and the null hypothesis (null: sample is normally distributed) is rejected.</p>
+<p>Is there something wrong with the Shapiro-Wilk test? No, it's actually doing <i>"exactly"</i> what it's supposed to do; it's testing if a sample is <i>"perfectly"</i> normally distributed. In fact, all samples contain some white noise that are not from a normal distribution, and the test is precisely detecting them. The problem is, that the test is too <i>"exact"</i> to be <i>"practical"</i>. The test has so many samples available that it is able to detect even the smallest non-normal noises from the sample.</p>
+<p>If you try to run Shaprio-Wilk test with SciPy for sample size > 5,000, you will see this warning message: <code>UserWarning: p-value may not be accurate for N > 5000</code>. I recommend you to almost always use Q-Q plots to assess normality. If that's not possible, make sure that you don't have too large samples for normality test.</p>
+<img class="" src="jupyter_images/cont_int_normality_dist.png" style="border: 1px solid #ddd;">
+<div class="solution_panel closed" style="margin-top: 20px;">
+<div class="solution_title solution_admonition">
+<p class="solution_title_string">Source Code For The Figure</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+                <code class="language-python">
+                    import numpy as np
+                    from scipy import stats
+                    import matplotlib.pyplot as plt
+                    import matplotlib
+
+                    ########################### Simulation Parameters ################################
+
+                    np.random.seed(5)
+
+                    mean = 10
+                    std = 3
+                    lo_noise = 6
+                    hi_noise = 14
+                    sizes = [100, 1500, 10000, 20000]
+                    dist_arr = []
+                    p_vals = []
+
+                    ####################### Hypothesis testing simulation ############################
+
+                    for size in sizes:
+                        data = np.random.normal(mean, std, size)
+                        noise = np.random.uniform(low=lo_noise, high=hi_noise, size=size)
+                        stat, p = stats.shapiro(data + noise)
+
+                        dist_arr.append(data + noise)
+                        p_vals.append(p)
+
+                    ################################## Plotting ######################################
+
+                    matplotlib.style.use('ggplot')
+                    fig, axes = plt.subplots(1, len(sizes), figsize=(15, 3))
+
+                    for ax, dist, size, p in zip(axes, dist_arr, sizes, p_vals):
+                        ax.hist(dist, bins='auto', color='k', alpha=0.5)
+                        ax.set_ylabel('Count')
+                        ax.set_xlabel('X')
+                        ax.set_title('Sample Size = %d' % size)
+                        ax.text(0.45, 0.3, 'p-val = %.4f' % p, fontsize=14, 
+                                bbox=dict(boxstyle='round', facecolor='white', edgecolor='k'), transform=ax.transAxes)
+                        ax.text(0.5, 0.1, 'aegis4048.github.io', fontsize=8, ha='center', va='center',
+                                transform=ax.transAxes, color='white', alpha=0.5)
+
+                    fig.tight_layout()
+                </code>
+            </pre>
+</div>
+</div>
+<img class="admonition-image-medium" src="jupyter_images/cont_int_normality_p_val.png" style="border: 1px solid #ddd;">
+<div class="solution_panel closed" style="margin-top: 20px;">
+<div class="solution_title solution_admonition">
+<p class="solution_title_string">Source Code For The Figure</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+                <code class="language-python">
+                    import numpy as np
+                    from scipy import stats
+                    import matplotlib.pyplot as plt
+
+                    np.random.seed(1)
+
+                    p_vals = []
+                    sizes = [i for i in range(100, 25000, 100)]
+                    for size in sizes:
+                        data = np.random.normal(10, 3, size)
+                        noise = np.random.uniform(low=6, high=14, size=size)   
+                        stat, p = stats.shapiro(data + noise)
+                        p_vals.append(p)
+
+                    plt.style.use('default')
+                    fig, ax = plt.subplots(figsize=(8, 4))
+
+                    ax.plot(sizes, p_vals)
+
+
+                    ax.axhspan(0, 0.05, alpha=0.5, color='#ad203e')
+
+                    ax.set_title('Change in p-value with increasing sample size', fontsize=18)
+                    ax.set_ylim(-0.05, 1.05)
+                    ax.set_ylabel('P-value', fontsize=15)
+                    ax.set_xlabel('Sample size', fontsize=15)
+                    ax.set_facecolor('#eeeeee')
+                    ax.grid(True, linestyle='--', color='#acacac')
+                    _ = [spine.set_edgecolor('grey') for spine in ax.spines.values()]
+                    ax.axhline(0.05, color='#ad203e', linestyle='--')
+                    ax.text(16000, 0.1, 'Reject the null hypothesis', fontsize=14, color='#ad203e')
+                    ax.text(0.6, 0.8, '$H_0$: Sample is normal\n$H_1$: Sample is non-normal', fontsize=14, 
+                            bbox=dict(boxstyle='round', facecolor='white', edgecolor='k'), transform=ax.transAxes)
+                    ax.text(0.86, 0.3, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+                            transform=ax.transAxes, color='grey', alpha=0.5)
+
+                    fig.tight_layout()
+                </code>
+            </pre>
+</div>
+</div>
+</img></img></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <div><hr/></div><p><div id="python_qq_plots"></div></p>
 <p style="color: #666"><b>Pythonic Tip:</b> Q-Q plots with SciPy</p><p>Q-Q plots are useful when assessing deviation from a pre-defined distribution. It is implemented in SciPy pakcage as <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.probplot.html" target="_blank">scipy.stats.probplot</a>. Note that the pre-defined distribution can be anything of your choice by changing the argument <code>dist</code>; it can be lognormal, Weibull, exponential, Cauchy, or anything. The red line in the Q-Q plot represents the theoretical distribution of your data in a form of Cumulative Density Function (CDF).</p>
 </div>
@@ -4506,10 +4641,10 @@ The C.I. of variance can be manually computed with <a href="#eq-10">eq (10)</a>.
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="55f9774b-9a8a-4a82-93b5-049308916ba3"></div>
+<div id="344bc293-c8a1-41af-a1c0-88dc5ec9433f"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#55f9774b-9a8a-4a82-93b5-049308916ba3');
+var element = $('#344bc293-c8a1-41af-a1c0-88dc5ec9433f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -5497,10 +5632,10 @@ $$Y^{'} = (Y + C)^{\lambda}$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="86c03af8-a7e1-4479-b244-4436e4a841b9"></div>
+<div id="82b7c73c-6dce-4b6c-9bed-685e94f9f281"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#86c03af8-a7e1-4479-b244-4436e4a841b9');
+var element = $('#82b7c73c-6dce-4b6c-9bed-685e94f9f281');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6371,10 +6506,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="ecaa625a-a48d-4a62-bc76-3410477c17ce"></div>
+<div id="c12e746a-b64d-407f-926c-012b295b0d5c"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#ecaa625a-a48d-4a62-bc76-3410477c17ce');
+var element = $('#c12e746a-b64d-407f-926c-012b295b0d5c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7395,10 +7530,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="010c5c7d-5489-4abb-82e0-76ba178888a0"></div>
+<div id="2efb63a1-1949-4cb2-9d5c-af8fe618f622"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#010c5c7d-5489-4abb-82e0-76ba178888a0');
+var element = $('#2efb63a1-1949-4cb2-9d5c-af8fe618f622');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8285,7 +8420,7 @@ if (IPython.notebook.kernel != null) {
 <li><p>Compute the parametric & non-parametric 95% confidence interval of variance and mean for a sample. For parametric CI of mean and variance, use <a href="#eq-1">eq (1)</a> and <a href="#eq-10">eq (10)</a>. For non-parametric CI, use <a href="#python_bootstrap">bootstrap</a>.</p></li>
 <li><p>Check if a population mean or variance falls within the computed confidence interval.</p></li>
 <li><p>Count the number of times a population mean and variance falls within the computed confidence interval.</p></li>
-</ol><p>The above procedure describes a situation in which we attempt to inference the unknown population parameters from a small portion of the population, a.k.a. the samples (check <i>Section 3. Population vs Samples</i> <a href="#3.-Population-vs.-samples">above</a>). We want to know if the computed CI of samples contain the true population parameter. <a href="#fig24">Figure (24)</a> summarizes the simulation result:</p>
+</ol><p>The above procedure describes a situation in which we attempt to inference the unknown population parameters from a small portion of the population, a.k.a. the samples (check <i>Section 3. Population vs Samples</i> <a href="#3.-Population-vs.-samples">above</a>). We want to know if the computed confidence interval of samples contain the true population parameter. <a href="#fig24">Figure (24)</a> summarizes the simulation result:</p>
 </div>
 </div>
 </div>
@@ -8363,10 +8498,10 @@ if (IPython.notebook.kernel != null) {
                 mean_lognorm_pop = np.mean(lognorm_pop)
 
                 # population variance
-                var_norm_pop = np.var(norm_pop, ddof=1)
-                var_expon_pop = np.var(expon_pop, ddof=1)
-                var_skew_pop = np.var(skew_pop, ddof=1)
-                var_lognorm_pop = np.var(lognorm_pop, ddof=1)
+                var_norm_pop = np.var(norm_pop, ddof=0)
+                var_expon_pop = np.var(expon_pop, ddof=0)
+                var_skew_pop = np.var(skew_pop, ddof=0)
+                var_lognorm_pop = np.var(lognorm_pop, ddof=0)
 
                 # initialize
                 count_mean_norm_analy, count_mean_expon_analy, count_mean_skew_analy, count_mean_lognorm_analy = [], [], [], []
