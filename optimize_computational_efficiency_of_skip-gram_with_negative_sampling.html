@@ -1638,8 +1638,8 @@ Negative-Sampling Word-Embedding Method</a> (Goldberg and Levy, 2014).</p>
 <div id="eq-9" style="font-size: 1rem;">
 $$
 \begin{align}
-     & \underset{\theta}{\text{argmax}} \ p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta) \label{}\tag{9}\\ 
-   =\quad & \underset{\theta}{\text{argmax}} \ p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{neg};\theta))\label{}\tag{10}
+     & \underset{\theta}{\text{argmax}} \,\,\, p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} p(D=0|w,c_{neg};\theta) \label{}\tag{9}\\ 
+   =\quad & \underset{\theta}{\text{argmax}} \,\,\, p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{neg};\theta))\label{}\tag{10}
 \end{align}
 $$</div><div class="alert alert-info">
 <h4>Notes: Probability Product</h4>
@@ -1651,27 +1651,27 @@ $$</div><div class="alert alert-info">
 <div id="eq-11" style="font-size: 1rem;">
 $$
 \begin{align}
-   =\quad & \underset{\theta}{\text{argmax}} \ log \, (p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{neg};\theta)) \label{}\tag{11}
+   =\quad  & \underset{\theta}{\text{argmax}} \,\,\, log \, p(D=1|w,c_{pos};\theta) \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{neg};\theta)) \label{}\tag{11}
 \end{align}
 $$</div><p>Using the property of logs, the objective function can be simplified:</p>
 <div id="eq-12" style="font-size: 1rem;">
 $$
 \begin{align}
-   =\quad  & \underset{\theta}{\text{argmax}} \ log \, p(D=1|w,c_{pos};\theta) + log \, \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{neg};\theta)) \label{}\tag{12}\\ 
-   =\quad & \underset{\theta}{\text{argmax}} \ log \, p(D=1|w,c_{pos};\theta) + \sum_{c_{neg} \in W_{neg}} log \, (1 - p(D=1|w,c_{neg};\theta)) \label{}\tag{13}
+   =\quad  & \underset{\theta}{\text{argmax}} \,\,\, log \, p(D=1|w,c_{pos};\theta) + log \, \prod_{c_{neg} \in W_{neg}} (1 - p(D=1|w,c_{neg};\theta)) \label{}\tag{12}\\ 
+   =\quad  & \underset{\theta}{\text{argmax}} \,\,\, log \, p(D=1|w,c_{pos};\theta) + \sum_{c_{neg} \in W_{neg}} log \, (1 - p(D=1|w,c_{neg};\theta)) \label{}\tag{13}
 \end{align} 
 $$</div><p>The binomial probability $p(D=1|w,c;\theta)$ can be replaced with <a href="#eq-5">eq (5)</a>:</p>
 <div id="eq-14" style="font-size: 1rem;">
 $$
 \begin{align}
-   =\quad  & \underset{\theta}{\text{argmax}} \ log \, \frac{1}{1+exp(-\bar{c}_{pos} \cdot \bar{w})} + \sum_{c_{pos} \in W_{neg}} log \, (1 - \frac{1}{1+exp(-\bar{c}_{neg} \cdot \bar{w})}) \label{}\tag{14}\\ 
-   =\quad  & \underset{\theta}{\text{argmax}} \ log \, \frac{1}{1+exp(-\bar{c}_{pos} \cdot \bar{w})} + \sum_{c_{pos} \in W_{neg}} log \, \frac{1}{1+exp(\bar{c}_{neg} \cdot \bar{w})} \label{}\tag{15}\\ 
+   =\quad  & \underset{\theta}{\text{argmax}} \,\,\, log \, \frac{1}{1+exp(-\bar{c}_{pos} \cdot \bar{w})} + \sum_{c_{pos} \in W_{neg}} log \, (1 - \frac{1}{1+exp(-\bar{c}_{neg} \cdot \bar{w})}) \label{}\tag{14}\\ 
+   =\quad  & \underset{\theta}{\text{argmax}} \,\,\, log \, \frac{1}{1+exp(-\bar{c}_{pos} \cdot \bar{w})} + \sum_{c_{pos} \in W_{neg}} log \, \frac{1}{1+exp(\bar{c}_{neg} \cdot \bar{w})} \label{}\tag{15}\\ 
 \end{align}
 $$</div><p>Using the definition of <a href="#sigmoid">sigmoid</a> function $\sigma(x)=\frac{1}{1+exp(-x)}$:</p>
 <div id="eq-16" style="font-size: 1rem;">
 $$
 \begin{align}
-   =\quad  & \underset{\theta}{\text{argmax}} \ log \, \sigma(\bar{c}_{pos} \cdot \bar{w}) + \sum_{c_{pos} \in W_{neg}} log \, \sigma(-\bar{c}_{neg} \cdot \bar{w}) \label{}\tag{16}  
+   =\quad  & \underset{\theta}{\text{argmax}} \,\,\, log \, \sigma(\bar{c}_{pos} \cdot \bar{w}) + \sum_{c_{pos} \in W_{neg}} log \, \sigma(-\bar{c}_{neg} \cdot \bar{w}) \label{}\tag{16}  
 \end{align} 
 $$</div><p>According to Mikolov, <a href="#eq-16">eq (16)</a> replaces every $log \, p(w_O|w_I)$ in the vanilla Skip-Gram cost function defined in <a href="#eq-1">eq (1)</a>. Then, the cost function we want to minimize becomes:</p>
 <div id="eq-17" style="font-size: 1rem;">$$J(\theta) = - \frac{1}{T} \sum_{i = 1}^T \sum_{-c\leq j \leq c,j\neq 0}( log \, \sigma(\bar{c}_{pos} \cdot \bar{w}) + \sum_{c_{neg} \in W_{neg}} log \, \sigma(-\bar{c}_{neg} \cdot \bar{w})) \tag{17}$$</div><p>However, when implemented in codes, batch gradient descent (making one update after iterating through the entire $T$ corpus) is almost never used due to its high computational cost. Instead, we use <a href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling#stochastic" target="_blank">stochastic gradient descent</a>. Also, for negative sampling, gradients are calculated and weights are updated for each positive training pairs ($w,\, c_{pos}$). In the other words, one update for each word within the context window of a center word $w$. This is shown <a href="#Negative-Sampling-Algorithm">below</a>. The new cost function is then:</p>
