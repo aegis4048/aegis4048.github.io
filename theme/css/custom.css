@@ -2702,3 +2702,18 @@ ul.tagcloud .list-group-item span.badge {
     color: #fff;
 }
 
+.output_text.output_subarea.output_execute_result pre,
+.output_subarea.output_stream.output_stdout.output_text pre {
+    color: white !important;
+}
+div.output_area {
+    margin: .2em 0.4em;
+}
+.output_text.output_subarea.output_execute_result,
+.output_subarea.output_stream.output_stdout.output_text {
+    border-radius: 2px;
+    background: #656565;
+    line-height: 1.21429em;
+    max-width: 580px;
+    max-width: inherit !important;
+}
