@@ -2069,7 +2069,7 @@ We will draw random samples from normal distribution using <a href="https://docs
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [128]:</div>
+<div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
@@ -2081,7 +2081,7 @@ We will draw random samples from normal distribution using <a href="https://docs
 
 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>                       <span class="c1"># significance level = 5%</span>
 <span class="n">df</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>                  <span class="c1"># degress of freedom = 20</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>   <span class="c1"># two-tailed 95% confidence t-score = 2.086</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>   <span class="c1"># t-critical value for 95% CI = 2.093</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>            <span class="c1"># sample standard deviation = 2.502</span>
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
 
@@ -2094,7 +2094,7 @@ We will draw random samples from normal distribution using <a href="https://docs
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [129]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
@@ -2105,7 +2105,7 @@ We will draw random samples from normal distribution using <a href="https://docs
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[129]:</div>
+<div class="prompt output_prompt">Out[2]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>(71.33139551903422, 75.19543685256606)</pre>
 </div>
@@ -2304,7 +2304,7 @@ We can compute CI of difference in means assuming equal variance with <a href="#
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [182]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
@@ -2316,7 +2316,7 @@ We can compute CI of difference in means assuming equal variance with <a href="#
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [183]:</div>
+<div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.9</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span> <span class="mf">7.4</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">10.5</span><span class="p">,</span> <span class="mf">11.9</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="mf">9.9</span><span class="p">,</span> <span class="mf">14.4</span><span class="p">,</span> <span class="mf">11.3</span><span class="p">]</span>
@@ -2327,7 +2327,7 @@ We can compute CI of difference in means assuming equal variance with <a href="#
 <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>              <span class="c1"># sample variances</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">n1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">s1</span> <span class="o">+</span> <span class="p">(</span><span class="n">n2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">s2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># pooled standard deviation</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">-</span> <span class="mi">2</span>                                             <span class="c1"># degrees of freedom</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>                             <span class="c1"># two-tailed 95% confidence t-score</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>                             <span class="c1"># t-critical value for 95% CI</span>
 
 <span class="n">lower</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">-</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">*</span> <span class="n">s</span>
 <span class="n">upper</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">*</span> <span class="n">s</span>
@@ -2338,7 +2338,7 @@ We can compute CI of difference in means assuming equal variance with <a href="#
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [184]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
@@ -2349,7 +2349,7 @@ We can compute CI of difference in means assuming equal variance with <a href="#
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[184]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>(-0.8520326742900641, 3.332032674290068)</pre>
 </div>
@@ -2482,7 +2482,7 @@ Don't forget to compute sample variance, instead of population variance by setti
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [187]:</div>
+<div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.9</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span> <span class="mf">7.4</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">10.5</span><span class="p">,</span> <span class="mf">11.9</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="mf">9.9</span><span class="p">,</span> <span class="mf">14.4</span><span class="p">,</span> <span class="mf">11.3</span><span class="p">]</span>
@@ -2492,7 +2492,7 @@ Don't forget to compute sample variance, instead of population variance by setti
 <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>                                          <span class="c1"># sample sizes</span>
 <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>                    <span class="c1"># sample variances</span>
 <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">s1</span><span class="o">/</span><span class="n">n1</span> <span class="o">+</span> <span class="n">s2</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">((</span><span class="n">s1</span><span class="o">/</span><span class="n">n1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">n1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">s2</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">n2</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># degrees of freedom</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>                                   <span class="c1"># two-tailed 95% confidence t-score</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>                                   <span class="c1"># t-critical value for 95% CI</span>
 
 <span class="n">lower</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">-</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">*</span> <span class="n">s</span>
 <span class="n">upper</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">*</span> <span class="n">s</span>
@@ -2723,7 +2723,7 @@ Don't forget to compute sample standard devaition, instead of population standar
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [191]:</div>
+<div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1480</span><span class="p">,</span> <span class="mi">1280</span><span class="p">,</span> <span class="mi">890</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="mi">1550</span><span class="p">,</span> <span class="mi">1230</span><span class="p">,</span> <span class="mi">1010</span><span class="p">,</span> <span class="mi">1590</span><span class="p">,</span> <span class="mi">1390</span><span class="p">,</span> <span class="mi">980</span><span class="p">])</span>
@@ -2734,7 +2734,7 @@ Don't forget to compute sample standard devaition, instead of population standar
 <span class="n">s_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x2</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>       <span class="c1"># sample standard deviation of sample differences</span>
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>                         <span class="c1"># sample size</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>                          <span class="c1"># degrees of freedom</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>    <span class="c1"># two-tailed 95% confidence t-score</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>    <span class="c1"># t-critical value for 95% CI</span>
 
 <span class="n">lower</span> <span class="o">=</span> <span class="n">d_bar</span> <span class="o">-</span> <span class="n">t</span> <span class="o">*</span> <span class="n">s_d</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="n">upper</span> <span class="o">=</span> <span class="n">d_bar</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">s_d</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
@@ -4641,10 +4641,10 @@ The C.I. of variance can be manually computed with <a href="#eq-10">eq (10)</a>.
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="d659cb53-53d8-4302-9622-c1fdc82f76b0"></div>
+<div id="35a2b5a7-296c-4f9d-896c-77b0c3e07e86"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#d659cb53-53d8-4302-9622-c1fdc82f76b0');
+var element = $('#35a2b5a7-296c-4f9d-896c-77b0c3e07e86');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -5632,10 +5632,10 @@ $$Y^{'} = (Y + C)^{\lambda}$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="3b4928d2-0a97-4fb5-9677-d89966bd35d9"></div>
+<div id="b73256d0-1cf0-4ff4-b64d-d2c601cc0cc1"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#3b4928d2-0a97-4fb5-9677-d89966bd35d9');
+var element = $('#b73256d0-1cf0-4ff4-b64d-d2c601cc0cc1');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6506,10 +6506,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="d30953c9-c1c8-4e6d-83ed-7b5977e49dfa"></div>
+<div id="1b2fff38-af46-4e9f-8787-9b894ed3a997"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#d30953c9-c1c8-4e6d-83ed-7b5977e49dfa');
+var element = $('#1b2fff38-af46-4e9f-8787-9b894ed3a997');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7530,10 +7530,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="8a09b1f7-2959-44f5-b8f0-32116d870c73"></div>
+<div id="926f85ce-921c-4b46-a136-21ea75e59139"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#8a09b1f7-2959-44f5-b8f0-32116d870c73');
+var element = $('#926f85ce-921c-4b46-a136-21ea75e59139');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
