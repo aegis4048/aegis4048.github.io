@@ -5610,22 +5610,17 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{11}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
 &lt;div class="row give-margin-inline-big-plot" id="fig4"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/quote_ned_stark.png"/&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 4: Training Window&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;div id="size_3"&gt;&lt;/div&gt;
-For illustration purpose, a three-dimensional neural net will be constructed. In *gensim*, this can be implemented by setting &lt;code&gt;size=3&lt;/code&gt;. This makes $N = 3$. Note that &lt;code&gt;size&lt;/code&gt; is also a hyper-parameter that can be empirically tuned. In real life, a typical Word2Vec model has 200-600 neurons. 
-
+&lt;/div&gt;&lt;div id="size_3"&gt;&lt;/div&gt;&lt;p&gt;For illustration purpose, a three-dimensional neural net will be constructed. In &lt;i&gt;gensim&lt;/i&gt;, this can be implemented by setting &lt;code&gt;size=3&lt;/code&gt;. This makes $N = 3$. Note that &lt;code&gt;size&lt;/code&gt; is also a hyper-parameter that can be empirically tuned. In real life, a typical Word2Vec model has 200-600 neurons.&lt;/p&gt;
 &lt;pre&gt;
     &lt;code class="language-python"&gt;
         from gensim.models import Word2Vec
 
         model = Word2Vec(corpus, size=3, window=1)
     &lt;/code&gt;
-&lt;/pre&gt;
-
-This means that the input weight matrix ($W_{input}$) will have a size of $8 \times 3$, and output weight matrix ($W_{output}^T$) will have a size of $3 \times 8$. Recall that the corpus, &lt;i&gt;"The man who passes the sentence should swing the sword"&lt;/i&gt;, has 8 unique vocabularies ($V = 8$). 
-
+&lt;/pre&gt;&lt;p&gt;This means that the input weight matrix ($W_{input}$) will have a size of $8 \times 3$, and output weight matrix ($W_{output}^T$) will have a size of $3 \times 8$. Recall that the corpus, &lt;i&gt;"The man who passes the sentence should swing the sword"&lt;/i&gt;, has 8 unique vocabularies ($V = 8$).&lt;/p&gt;
 &lt;div class="row" id="fig5"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/word2vec_skip-gram.png" style="margin: 0;"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 5: Skip-Gram model structure&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 5: Skip-Gram model structure. Current center word is &lt;i&gt;"passes"&lt;/i&gt;&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5687,7 +5682,7 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div id="hidden_layer"&gt;&lt;/div&gt;&lt;h3 id="Hidden-(Projection)-Layer-($h$)"&gt;Hidden (Projection) Layer ($h$)&lt;a class="anchor-link" href="#Hidden-(Projection)-Layer-($h$)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Skip-Gram uses a neural net with one hidden layer. In the context of natural language processing, hidden layer is often referred to as a &lt;em&gt;projection&lt;/em&gt; layer, because $h$ is essentially an 1D vector projected by the one-hot encoded input vector.&lt;/p&gt;
+&lt;div id="hidden_layer"&gt;&lt;/div&gt;&lt;h3 id="Hidden-(Projection)-Layer-($h$)"&gt;Hidden (Projection) Layer ($h$)&lt;a class="anchor-link" href="#Hidden-(Projection)-Layer-($h$)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Skip-Gram uses a neural net with one hidden layer. In the context of natural language processing, hidden layer is often referred to as a &lt;em&gt;projection&lt;/em&gt; layer, because $h$ is essentially an N-dim vector projected by the one-hot encoded input vector.&lt;/p&gt;
 &lt;div class="row full_screen_margin mobile_responsive_plot_full_width"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/skip-gram_lookup.png"/&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 9: Computing projection layer&lt;/p&gt;&lt;/div&gt;
@@ -5746,11 +5741,15 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 &lt;div class="row give-margin-inline-plot"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/error_window.png" style="height: 400px;"/&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 11: Prediction error window&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;The figure has a window size of $2$, so two prediction errors were computed. Recall from the above notes about the &lt;a href="#window_size"&gt;window size&lt;/a&gt; that the original softmax regression classifier (&lt;a href="#eq-10"&gt;eq (10)&lt;/a&gt;) has $K$ labels to classify, in which $K = V$ in NLP applications because there are $V$ words to classify. Employing window size transforms &lt;a href="#eq-10"&gt;eq (10)&lt;/a&gt; into &lt;a href="#eq-11"&gt;eq (11)&lt;/a&gt; and significantly reduces the algorithm complexity because the model only needs to compute prediction errors for $[1, 10]$ neighboring words, instead of computing all $V$-prediction errors for all vocabs that can be millions or more.&lt;/p&gt;
-&lt;p&gt;Then, prediction errors for all $C$ context words are summed up to compute weight gradients to the update weight matrices.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;The figure has a window size of $2$, so two prediction errors were computed. Recall from the above notes about the &lt;a href="#window_size"&gt;window size&lt;/a&gt; that the original softmax regression classifier (&lt;a href="#eq-10"&gt;eq (10)&lt;/a&gt;) has $K$ labels to classify, in which $K = V$ in NLP applications because there are $V$ words to classify. Employing window size transforms &lt;a href="#eq-10"&gt;eq (10)&lt;/a&gt; into &lt;a href="#eq-11"&gt;eq (11)&lt;/a&gt; significantly reduces the algorithm complexity because the model only needs to compute prediction errors for 2~10 (this is a hyperparameter $C$) neighboring words, instead of computing all $V$-prediction errors for all vocabs that can be millions or more.&lt;/p&gt;
+&lt;p&gt;Then, prediction errors for all $C$ context words are summed up to compute weight gradients to the update weight matrices, according to &lt;a href="#eq-18"&gt;eq (18)&lt;/a&gt; and &lt;a href="#eq-19"&gt;eq (19)&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="row full_screen_margin mobile_responsive_plot_full_width"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/prediction_error_sum.png" style="height: 230px;"/&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 12: Sum of prediction errors&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;As the weight matrices are optimized, the prediction error for all words in the prediction error vector &lt;span style="font-size: 90%"&gt;$\sum_{(c=1)}^C e_c$&lt;/span&gt; converges to 0.&lt;/p&gt;
+&lt;div class="row give-margin-inline-big-plot mobile_responsive_plot_full_width"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/pred_opt.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 13: Prediction errors converging to zero with optimization&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5763,35 +5762,35 @@ This means that the input weight matrix ($W_{input}$) will have a size of $8 \ti
 &lt;p&gt;Center word is &lt;em&gt;"passes"&lt;/em&gt;. Window size is &lt;code&gt;size=1&lt;/code&gt;, making &lt;em&gt;"the"&lt;/em&gt; and &lt;em&gt;"who"&lt;/em&gt; context words. Hidden layer ($h$) is &lt;i&gt;looked up&lt;/i&gt; from the input weight matrix. It is computed with &lt;a href="#eq-12"&gt;eq (12)&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/forward_1.png"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 13: Computing hidden (projection) layer&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 14: Computing hidden (projection) layer&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;div id="forward_softmax"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Forward Propagation: Softmax output layer&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Output layer is a probability distribution of all words, given a center word. It is computed with &lt;a href="#eq-14"&gt;eq (14)&lt;/a&gt;. Note that all context windows share the same output layer ($y_{pred}$). Only the errors ($e_c$) are different.&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/forward_2.png"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 14: Softmax output layer&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 15: Softmax output layer&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Sum of Prediction Errors&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;$C$ different prediction errors are computed, then summed up. In this case, since we set &lt;code&gt;window=1&lt;/code&gt; &lt;a href="#window_id"&gt;above&lt;/a&gt;, only two errors are computed.&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_1.png"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 15: Prediction errors of context words&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 16: Prediction errors of context words&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Computing $\nabla W_{input}$&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Gradients of input weight matrix ($\frac{\partial J}{\partial W_{input}}$) are computed using &lt;a href="#eq-18"&gt;eq (18)&lt;/a&gt;. Note that multiplying $W_{output}^T \sum^C_{c=1} e_c$ with the one-hot-encoded input vector ($x$) makes the neural net to &lt;u&gt;update only one word vector&lt;/u&gt; that corresponds to the input (center) word.&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_2.png"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 16: Computing input weight matrix gradient $\nabla W_{input}$&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 17: Computing input weight matrix gradient $\nabla W_{input}$&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Computing $\nabla W_{output}$&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Gradients of output weight matrix ($\frac{\partial J}{\partial W_{output}}$) are computed using &lt;a href="#eq-19"&gt;eq (19)&lt;/a&gt;. Unlike the input weight matrix ($W_{input}$), all word vectors in the output weight matrix ($W_{output}$) are updated.&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_3.png"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 17: Computing output weight matrix gradient $\nabla W_{output}$&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 18: Computing output weight matrix gradient $\nabla W_{output}$&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;div id="weight_update"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Backward Propagation: Updating Weight matrices&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Input and output weight matrices ($[W_{input} \quad W_{output}]$) are updated using &lt;a href="#eq-20"&gt;eq (20)&lt;/a&gt; and &lt;a href="#eq-21"&gt;eq (21)&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_4.png"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 18: Updating $W_{input}$&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 19: Updating $W_{input}$&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;div class="row"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/backward_5.png"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 19: Updating $W_{output}$&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 20: Updating $W_{output}$&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Note that for each iteration in the learning process, all weights in $W_{output}$ are updated, but only one row vector that corresponds to the center word is updated in $W_{input}$. When the model finishes updating both of the weight matrices, then one iteration is completed. The model then moves to the next iteration with the next center word. However, remember that this uses &lt;a href="#eq-8"&gt;eq (8)&lt;/a&gt; as the cost function and assumes &lt;a href="#stochastic"&gt;stochastic gradient descent&lt;/a&gt;. This means that one update is made for each training example. If &lt;a href="#eq-9"&gt;eq (9)&lt;/a&gt; is used as a cost function instead (which is almost never the case), then one update is made for all $T$ training examples in the corpus.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -9889,10 +9888,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="027c2d17-0fe6-4d3f-9c87-26203b15bcac"&gt;&lt;/div&gt;
+&lt;div id="a4c07e5b-bf58-42ba-a037-0097e9a90c34"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#027c2d17-0fe6-4d3f-9c87-26203b15bcac');
+var element = $('#a4c07e5b-bf58-42ba-a037-0097e9a90c34');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
