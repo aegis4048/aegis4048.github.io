@@ -20,26 +20,26 @@
 
         <meta name="keywords" content="correlation, machine learning, multiple linear regression, multicollinearity, linear regression, regression, feature ranking, permutation feature ranking, r-squared, model, 3d, visualization, features, data exploration, Machine Learning, "/>
 
-        <link rel="canonical" href="https://aegis4048.github.io/mutiple_linear_regression_and_visualization_in_python">
+        <link rel="canonical" href="/mutiple_linear_regression_and_visualization_in_python">
     <meta property="og:title" content="Multiple Linear Regression and Visualization in Python | Pythonic Excursions"/>
-    <meta property="og:url" content="https://aegis4048.github.io/mutiple_linear_regression_and_visualization_in_python" />
+    <meta property="og:url" content="/mutiple_linear_regression_and_visualization_in_python" />
     <meta property="og:description" content="Strengthen your understanding of linear regression in multi-dimensional space through 3D visualization of linear models." />
     <meta property="og:site_name" content="Pythonic Excursions" />
     <meta property="og:article:author" content="ERIC KIM" />
         <meta property="og:article:published_time" content="2019-11-18T00:00:00-08:00" />
     <meta name="twitter:title" content="Multiple Linear Regression and Visualization in Python | Pythonic Excursions">
     <meta name="twitter:description" content="Strengthen your understanding of linear regression in multi-dimensional space through 3D visualization of linear models.">
-        <meta property="og:image" content="https://aegis4048.github.io/images/featured_images/multiple_linear_regression_and_visualization.png" />
-        <meta name="twitter:image" content="https://aegis4048.github.io/images/featured_images/multiple_linear_regression_and_visualization.png" >
+        <meta property="og:image" content="/images/featured_images/multiple_linear_regression_and_visualization.png" />
+        <meta name="twitter:image" content="/images/featured_images/multiple_linear_regression_and_visualization.png" >
 
 
         <title>    Multiple Linear Regression and Visualization in Python  | Pythonic Excursions
 </title>
 
-                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
-                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
-            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/custom.css" media="screen">
-            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/ipynb.css" media="screen">
+                <link rel="stylesheet" type="text/css" href="/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="/theme/css/ipynb.css" media="screen">
 
             <style>
                 #progressBar::-webkit-progress-value {
@@ -50,7 +50,7 @@
                 }
             </style>
 
-        <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
+        <link href="/theme/libs/prism.css" rel="stylesheet" />
 <script type="text/x-mathjax-config">
 
 MathJax.Hub.Config({
@@ -65,28 +65,17 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-        <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="https://aegis4048.github.io/theme/img/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="https://aegis4048.github.io/theme/img/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="https://aegis4048.github.io/theme/img/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="https://aegis4048.github.io/theme/img/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="https://aegis4048.github.io/theme/img/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="https://aegis4048.github.io/theme/img/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link href="https://aegis4048.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133310548-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-133310548-1');
-</script>
-
+        <link rel="shortcut icon" href="/theme/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/theme/img/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/img/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/img/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/theme/img/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/img/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/theme/img/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/img/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
     </head>
     <body>
 <progress id="progressBar" max="19827" class="flat">
@@ -97,26 +86,30 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
             <div class="banner">
                 <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
                     <div class="container navbar-title">
-                        <a href="/"><img id="banner-logo" src="https://aegis4048.github.io/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
+                        <a href="/"><img id="banner-logo" src="/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     </div>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link rem_08" href="https://aegis4048.github.io/about.html">About</a>
+                            <a class="nav-link rem_08" href="/about.html">About</a>
                         </li>
-                        <li id="last-item" class="nav-item">
-                            <a class="nav-link rem_08" href="https://aegis4048.github.io/archives.html">Archive</a>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_08" href="/archives.html">Archive</a>
                         </li>
                      </ul>
-                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="https://aegis4048.github.io/search.html">
-                        <div class="search-box-div" align="center">
-                            <input id="tipue_search_input" class="form-control mr-md-2 rem_08 col-9" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" aria-label="Search">
-                            <button id="search-btn" class="btn btn-search btn-outline-success btn-circle rem_08 col-3" type="submit" for="tipue_search_input">Search</button>
+                    <ul class="navbar-nav">
+                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="/search.html">
+                        <div id="third-item" class="search-box-div row" style="margin-top:-3.5px;">
+                            <input id="tipue_search_input" class="form-control mr-md-2 rem_08 col-9" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" aria-label="Search"/>
+                            <button id="search-btn" class="btn btn-search btn-outline-success btn-circle rem_08 col-3" type="submit" for="tipue_search_input" style="margin-left: 3px;">Search</button>
                         </div>
                     </form>
+                    </ul>
                 </div>
                 </nav>
             </div>
@@ -127,25 +120,25 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
         <header class="pop-over">
             <h1>Multiple Linear Regression and Visualization in Python</h1>
             <div class="row justify-content-between no-margin">
-                <h4 class="article-category">Category > <a class="article-category-link" href="https://aegis4048.github.io/archives.html">Machine Learning</a></h4>
+                <h4 class="article-category">Category > <a class="article-category-link" href="/archives.html">Machine Learning</a></h4>
                 <span class="article-date">Nov 18, 2019</span>
             </div>
             <div class="meta meta-tag no-margin no-border">
                 <div>
-                        <a href="https://aegis4048.github.io/tag/correlation.html" class="tag">correlation</a>
-                        <a href="https://aegis4048.github.io/tag/machine-learning.html" class="tag">machine learning</a>
-                        <a href="https://aegis4048.github.io/tag/multiple-linear-regression.html" class="tag">multiple linear regression</a>
-                        <a href="https://aegis4048.github.io/tag/multicollinearity.html" class="tag">multicollinearity</a>
-                        <a href="https://aegis4048.github.io/tag/linear-regression.html" class="tag">linear regression</a>
-                        <a href="https://aegis4048.github.io/tag/regression.html" class="tag">regression</a>
-                        <a href="https://aegis4048.github.io/tag/feature-ranking.html" class="tag">feature ranking</a>
-                        <a href="https://aegis4048.github.io/tag/permutation-feature-ranking.html" class="tag">permutation feature ranking</a>
-                        <a href="https://aegis4048.github.io/tag/r-squared.html" class="tag">r-squared</a>
-                        <a href="https://aegis4048.github.io/tag/model.html" class="tag">model</a>
-                        <a href="https://aegis4048.github.io/tag/3d.html" class="tag">3d</a>
-                        <a href="https://aegis4048.github.io/tag/visualization.html" class="tag">visualization</a>
-                        <a href="https://aegis4048.github.io/tag/features.html" class="tag">features</a>
-                        <a href="https://aegis4048.github.io/tag/data-exploration.html" class="tag">data exploration</a>
+                        <a href="/tag/correlation.html" class="tag">correlation</a>
+                        <a href="/tag/machine-learning.html" class="tag">machine learning</a>
+                        <a href="/tag/multiple-linear-regression.html" class="tag">multiple linear regression</a>
+                        <a href="/tag/multicollinearity.html" class="tag">multicollinearity</a>
+                        <a href="/tag/linear-regression.html" class="tag">linear regression</a>
+                        <a href="/tag/regression.html" class="tag">regression</a>
+                        <a href="/tag/feature-ranking.html" class="tag">feature ranking</a>
+                        <a href="/tag/permutation-feature-ranking.html" class="tag">permutation feature ranking</a>
+                        <a href="/tag/r-squared.html" class="tag">r-squared</a>
+                        <a href="/tag/model.html" class="tag">model</a>
+                        <a href="/tag/3d.html" class="tag">3d</a>
+                        <a href="/tag/visualization.html" class="tag">visualization</a>
+                        <a href="/tag/features.html" class="tag">features</a>
+                        <a href="/tag/data-exploration.html" class="tag">data exploration</a>
                 </div>
             </div>
             <section>
@@ -153,13 +146,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
         <div class="share-post-intro mr-2">Share This Post :</div>
         <div class="social-share-btns-container">
             <div class="social-share-btns">
-                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=https://aegis4048.github.io/mutiple_linear_regression_and_visualization_in_python" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=/mutiple_linear_regression_and_visualization_in_python" rel="nofollow" target="_blank">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=https://aegis4048.github.io/mutiple_linear_regression_and_visualization_in_python" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=/mutiple_linear_regression_and_visualization_in_python" rel="nofollow" target="_blank">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://aegis4048.github.io/mutiple_linear_regression_and_visualization_in_python" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/mutiple_linear_regression_and_visualization_in_python" rel="nofollow" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
@@ -1437,7 +1430,7 @@ fig.tight_layout()
 </thead>
 <tbody>
 <tr>
-<th>0</th>
+<td>0</td>
 <td>1</td>
 <td>12.08</td>
 <td>2.92</td>
@@ -1448,7 +1441,7 @@ fig.tight_layout()
 <td>4165.196191</td>
 </tr>
 <tr>
-<th>1</th>
+<td>1</td>
 <td>2</td>
 <td>12.38</td>
 <td>3.53</td>
@@ -1459,7 +1452,7 @@ fig.tight_layout()
 <td>3561.146205</td>
 </tr>
 <tr>
-<th>2</th>
+<td>2</td>
 <td>3</td>
 <td>14.02</td>
 <td>2.59</td>
@@ -1470,7 +1463,7 @@ fig.tight_layout()
 <td>4284.348574</td>
 </tr>
 <tr>
-<th>3</th>
+<td>3</td>
 <td>4</td>
 <td>17.67</td>
 <td>6.75</td>
@@ -1481,7 +1474,7 @@ fig.tight_layout()
 <td>5098.680869</td>
 </tr>
 <tr>
-<th>4</th>
+<td>4</td>
 <td>5</td>
 <td>17.52</td>
 <td>4.57</td>
@@ -1492,7 +1485,7 @@ fig.tight_layout()
 <td>3406.132832</td>
 </tr>
 <tr>
-<th>5</th>
+<td>5</td>
 <td>6</td>
 <td>14.53</td>
 <td>4.81</td>
@@ -1503,7 +1496,7 @@ fig.tight_layout()
 <td>4395.763259</td>
 </tr>
 <tr>
-<th>6</th>
+<td>6</td>
 <td>7</td>
 <td>13.49</td>
 <td>3.60</td>
@@ -1514,7 +1507,7 @@ fig.tight_layout()
 <td>4104.400989</td>
 </tr>
 <tr>
-<th>7</th>
+<td>7</td>
 <td>8</td>
 <td>11.58</td>
 <td>3.03</td>
@@ -1525,7 +1518,7 @@ fig.tight_layout()
 <td>3496.742701</td>
 </tr>
 <tr>
-<th>8</th>
+<td>8</td>
 <td>9</td>
 <td>12.52</td>
 <td>2.72</td>
@@ -1536,7 +1529,7 @@ fig.tight_layout()
 <td>4025.851153</td>
 </tr>
 <tr>
-<th>9</th>
+<td>9</td>
 <td>10</td>
 <td>13.25</td>
 <td>3.94</td>
@@ -2016,7 +2009,7 @@ Linear regression is implemented in scikit-learn with <code>sklearn.linear_model
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [39]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -2041,7 +2034,7 @@ Linear regression is implemented in scikit-learn with <code>sklearn.linear_model
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [40]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -2058,7 +2051,7 @@ Linear regression is implemented in scikit-learn with <code>sklearn.linear_model
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [41]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -2333,10 +2326,10 @@ $$ \text{Gas Prod.} = 287.78 \cdot \text{Por} - 2.94 \tag{4}$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="e529d479-efde-4405-b31b-520559a5a935"></div>
+<div id="da4f7b25-cf29-4215-a1a9-15561a6c6c43"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#e529d479-efde-4405-b31b-520559a5a935');
+var element = $('#da4f7b25-cf29-4215-a1a9-15561a6c6c43');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -3122,10 +3115,21 @@ if (IPython.notebook.kernel != null) {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlights red-theme" id="vif-power-warning">
+<div class="highlights-title red-theme">WARNING!</div>
+<div class="highlights-content red-theme">Be careful when predicting a point outside the observed range of feautures. The relationship among variables may change as you move outside the observed range, but you never know because you don't have the data. The observed relationship may be locally linear, but there may be unobserved curves on the outside range of your data.
+    </div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <div><hr/></div><div id="Forcing zero y-intercept"></div>
 <p style="color: #666"><b>Pythonic Tip:</b> Forcing zero y-intercept<p>
 
-Sometimes you want to force y-intercept = 0. This can be done by setting <code>fit_intercept=False</code> when instantiating the linear regression model class. Printing the model y-intercept will output <code>0.0</code>.
+Sometimes you want to force y-intercept = 0. This can be done by setting <code>fit_intercept=False</code> when instantiating the linear regression model class. Printing the model y-intercept will output <code>0.0</code>. But be aware, "generally it is essential to include the constant in a regression model", because "the constant (y-intercept) absorbs the bias for the regression model", as Jim Frost says in his <a href="https://statisticsbyjim.com/regression/interpret-constant-y-intercept-regression/" target="_blank">post</a>.
 
 <div style="margin-bottom: -20px"></div>
 </p></p></div>
@@ -3167,7 +3171,7 @@ Sometimes you want to force y-intercept = 0. This can be done by setting <code>f
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="margin-top: -20px"></div><p>In <a href="#fig-7">figure (7)</a>I generated some synthetic data below to illustrate the effect of forcing zero y-intercept. Forcing a zero y-intercept can be both desirable or undesirable. If you have a reason to believe that y-intercept must be zero, use the above code snippet to suit your need.</p>
+<div style="margin-top: -20px"></div><p>In <a href="#fig-7">figure (7)</a>, I generated some synthetic data below to illustrate the effect of forcing zero y-intercept. Forcing a zero y-intercept can be both desirable or undesirable. If you have a reason to believe that y-intercept must be zero, set <code>fit_intercept=False</code>.</p>
 <div class="row" id="fig-7" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/multiple_linear_zero_intercept.png"/></div>
 <div class="col-12"><p class="image-description">Figure 7: Effect of forcing zero y-intercept</p></div>
@@ -3709,7 +3713,7 @@ $$ \text{Gas Prod.} = 244.6 \cdot \text{Por} + 31.6 \cdot \text{Brittle} + 86.9 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The simulation result tells us that even if the model is good at predicting the response variable given features (high R-squared), linear model is not robust enough to fully understand the effect of individual features on the response variable. In such circumstance, we can't trust the values of regression coefficients. Where is this instability coming from? This is because the <em>Por</em>, <em>TOC</em>, and <em>Perm</em> shows strong linear correlation with one another, as shown in the below spearnman's correlation matrix in <a href="#fig-9">figure (9)</a>.</p>
-<div class="row full_screen_margin_md mobile_responsive_plot_full_width" id="fig-9" style="margin-top: 15px;">
+<div class="row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-9" style="margin-top: 15px;">
 <div class="col"><img src="jupyter_images/mutliple_linear_correlation_matrix.png"/></div>
 <div class="col-12"><p class="image-description">Figure 9: Correlation matrix of features</p></div>
 </div>
@@ -3775,7 +3779,7 @@ $$ \text{Gas Prod.} = 244.6 \cdot \text{Por} + 31.6 \cdot \text{Brittle} + 86.9 
 </blockquote>
 <p>When using linear regression coefficients to make business decisions, you must remove the effect of multicollinearity to obtain reliable regression coefficients. Let's say that you are doing a medical research on cervical cancer. You trained a linear regression model with patients' survival rate with respect to many features, in which water consumption being one of them. Your linear regression coefficient for water consumption reports that if a patient increases water consumption by 1.5 L everyday, his survival rate will increase by 2%. Can you trust this analysis? The answer is yes, if there is no sign of multicollinearity. You can actually tell the patient, with confidence, that he must drink more water to increase his chance of survival. However, if there is a sign of multicollinearity, this analysis is not valid.</p>
 <p>Note that multicollinearity is not restricted on 1 vs 1 relationship. Even if there is minimum 1 vs 1 correlation among features, three or more features together may show multicollinearity. Also note that <strong>multicollinearity does not affect prediction accuracy</strong>. While the values of individual coefficients may be unreliable, it does not undermine the prediction power of the model. Multicollinearity is an issue only when you want to study the impact of individual features on a response variable.</p>
-<p>The details of detection & remedies of mutlicollinearity is not discussed here (though I plan to write about it very soon). While the focus of this post is only on multiple linear regression itself, I still wanted to turn grab your attention as to why you should not always trust your regression coefficients.</p>
+<p>The details of detection & remedies of mutlicollinearity is not discussed here (though I plan to write about it very soon). While the focus of this post is only on multiple linear regression itself, I still wanted to grab your attention as to why you should not always trust your regression coefficients.</p>
 </div>
 </div>
 </div>
@@ -3812,30 +3816,16 @@ $$ \text{Gas Prod.} = 244.6 \cdot \text{Por} + 31.6 \cdot \text{Brittle} + 86.9 
         <aside>
         <nav>
         <ul class="articles-timeline">
-            <li class="previous-article">« <a href="https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers" title="Previous: Comprehensive Confidence Intervals for Python Developers">Comprehensive Confidence Intervals for Python Developers</a></li>
+            <li class="previous-article">« <a href="/comprehensive_confidence_intervals_for_python_developers" title="Previous: Comprehensive Confidence Intervals for Python Developers">Comprehensive Confidence Intervals for Python Developers</a></li>
         </ul>
         </nav>
         </aside>
-  <section>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-    <script type="text/javascript">
-      var disqus_shortname = 'pythonic-excursions';
-      var disqus_identifier = '/mutiple_linear_regression_and_visualization_in_python';
-      var disqus_url = 'https://aegis4048.github.io/mutiple_linear_regression_and_visualization_in_python';
-      var disqus_title = 'Multiple Linear Regression and Visualization in Python';
-      (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-    </script>
-  </section>
         <hr/>
 <section style="margin-top: 30px">
     <h2>Related Posts</h2>
 <ul class="related-posts-list related-post row">
     <div class="pop-over col-12 col-md-6 col-lg-4">
-        <div class="article-row" onclick="window.location='https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling';">
+        <div class="article-row" onclick="window.location='/understanding_multi-dimensionality_in_vector_space_modeling';">
             <div class="article-cell-1">
                 <img class="article-img" src="images/featured_images/3d_wordvec_3.png">
             </div>
@@ -3851,8 +3841,8 @@ $$ \text{Gas Prod.} = 244.6 \cdot \text{Por} + 31.6 \cdot \text{Brittle} + 86.9 
                     <div class="meta-right">
                         <i class="far fa-clock index-comment-icon"></i>
                         <span class="index-reading-time">18 min reading</span>
-                        <i class="fas fa-comment index-comment-icon" href="https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling#disqus_thread"></i>
-                        <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling#disqus_thread"></a>
+                        <i class="fas fa-comment index-comment-icon" href="/understanding_multi-dimensionality_in_vector_space_modeling#disqus_thread"></i>
+                        <a class="index-reading-time disqus-comment" href="/understanding_multi-dimensionality_in_vector_space_modeling#disqus_thread"></a>
                     </div>
                 </div>
             </div>
@@ -3869,7 +3859,7 @@ $$ \text{Gas Prod.} = 244.6 \cdot \text{Por} + 31.6 \cdot \text{Brittle} + 86.9 
          <div class="col">
             <h5 class="headin5_amrc col_white_amrc pt2">ABOUT ERIC</h5>
             <!--headin5_amrc-->
-            <p class="mb10"><img id="profile_img" align="left" src="https://aegis4048.github.io/theme/img/profile_photo_footer.jpg">Senior undergraduate student at the Univeristy of Texas at Austin, Hildebrand Department of Petroleum Engineering, the #1 petroleum engineering school in the US. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
+            <p class="mb10"><img id="profile_img" align="left" src="/theme/img/profile_photo_footer.jpg">Petroleum engineering analyst at <a href="https://flogistix.com/" target="blank">Flogistix</a>. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
             <p><i class="fa fa-envelope mr-2"></i>aegis4048@gmail.com</p>
          </div>
       </div>
@@ -3894,11 +3884,11 @@ $$ \text{Gas Prod.} = 244.6 \cdot \text{Por} + 31.6 \cdot \text{Brittle} + 86.9 
       <!--social_footer_ul ends here-->
    </div>
 </footer>
-            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/jquery.min.js"></script>
-            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+            <script type="text/javascript" src="/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
-        <script src="https://aegis4048.github.io/theme/libs/prism.js"></script>
-        <script src="https://aegis4048.github.io/theme/libs/Countable.js"></script>
+        <script src="/theme/libs/prism.js"></script>
+        <script src="/theme/libs/Countable.js"></script>
 
         <script>
             Prism.plugins.NormalizeWhitespace.setDefaults({
@@ -3915,7 +3905,7 @@ $$ \text{Gas Prod.} = 244.6 \cdot \text{Por} + 31.6 \cdot \text{Brittle} + 86.9 
         </script>
 
 
-        <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
+        <script type="text/javascript" src="/theme/js/custom.js"></script>
             <script>
                 function validateForm(query)
                 {

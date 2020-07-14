@@ -89,6 +89,12 @@ hr {
     text-transform: uppercase;
     font-weight: 500;
 }
+@media (max-width: 760px) {
+	.navbar .nav-link:hover {
+	   background-color: #ECF0F1;
+	   color: #212529 !important;
+	}
+}
 .navbar-title {
     justify-content: space-between;
     display: flex;
@@ -132,7 +138,7 @@ hr {
     font-size: 0.8rem !important
 }
 .nav-link.collapsed {
-    background-color: #151515;;
+    background-color: #212529;
 }
 .text-align-center {
     text-align: center;
@@ -155,7 +161,7 @@ hr {
     padding-left: 15px !important;
 }
 .search-box-div {
-    display: inherit;
+    flex-flow: row;
 }
 #tipue_search_input {
     width: auto !important;
@@ -216,9 +222,9 @@ hr {
     background-color: #fff;
 }
 #search-form.collapsed{
-    background-color: #151515;
+    background-color: #212529;
     margin-top: 0 !important;
-    margin-bottom: 0 !important;
+    margin-bottom: 10px !important;
     padding-top: .5rem !important;
     padding-bottom: .5rem !important;
 }
@@ -229,9 +235,10 @@ form .row .collapsed{
     height: 1.8rem;
     padding: 1px 6px !important;
     min-width: 60px;
+    padding-left: -50px;
 }
 #last-item .collapsed{
-    background-color: #151515;
+    background-color: #212529;
 }
 #last-item .nav-link .collapsed{
     padding-bottom: 0;
@@ -1501,6 +1508,42 @@ ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li:last-child > u
     width: 70%;
     margin: auto;
 }
+.full_screen_margin_10 {
+    width: 10%;
+    margin: auto;
+}
+.full_screen_margin_20 {
+    width: 20%;
+    margin: auto;
+}
+.full_screen_margin_30 {
+    width: 30%;
+    margin: auto;
+}
+.full_screen_margin_40 {
+    width: 40%;
+    margin: auto;
+}
+.full_screen_margin_50 {
+    width: 50%;
+    margin: auto;
+}
+.full_screen_margin_60 {
+    width: 60%;
+    margin: auto;
+}
+.full_screen_margin_70 {
+    width: 70%;
+    margin: auto;
+}
+.full_screen_margin_80 {
+    width: 80%;
+    margin: auto;
+}
+.full_screen_margin_90 {
+    width: 90%;
+    margin: auto;
+}
 .language-markdown {
     font-size: inherit !important;
 }
@@ -2321,8 +2364,11 @@ margin-top: 20px;
 .contacts.no-link {
     max-width: 200px;
 }
-.index-scroll-container{
+.index-scroll-container {
 
+}
+.related-post .pop-over {
+    display: flex;
 }
 .related-post .article-row {
     display: -webkit-box;
@@ -2434,12 +2480,6 @@ article .related-post .meta div {
     }
     .profile {
         padding-bottom: 30px;
-    }
-    .fixme {
-        overflow-y: scroll;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none;  /* IE 10+ */
-        height: 720px;
     }
     .fixme::-webkit-scrollbar { /* WebKit */
         width: 0;
