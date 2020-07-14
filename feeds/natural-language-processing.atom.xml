@@ -2654,8 +2654,8 @@ $$&lt;/div&gt;&lt;p&gt;The binomial probability $p(D=1|w,c;\theta)$ can be repla
 &lt;div id="eq-14" style="font-size: 1rem;"&gt;
 $$
 \begin{align}
-   =\quad  &amp; \underset{\theta}{\text{argmax}} \,\,\, log \, \frac{1}{1+exp(-\bar{c}_{pos} \cdot \bar{w})} + \sum_{c_{pos} \in W_{neg}} log \, (1 - \frac{1}{1+exp(-\bar{c}_{neg} \cdot \bar{w})}) \label{}\tag{14}\\ 
-   =\quad  &amp; \underset{\theta}{\text{argmax}} \,\,\, log \, \frac{1}{1+exp(-\bar{c}_{pos} \cdot \bar{w})} + \sum_{c_{pos} \in W_{neg}} log \, \frac{1}{1+exp(\bar{c}_{neg} \cdot \bar{w})} \label{}\tag{15}\\ 
+   =\quad  &amp; \underset{\theta}{\text{argmax}} \,\,\, log \, \frac{1}{1+exp(-\bar{c}_{pos} \cdot \bar{w})} + \sum_{c_{neg} \in W_{neg}} log \, (1 - \frac{1}{1+exp(-\bar{c}_{neg} \cdot \bar{w})}) \label{}\tag{14}\\ 
+   =\quad  &amp; \underset{\theta}{\text{argmax}} \,\,\, log \, \frac{1}{1+exp(-\bar{c}_{pos} \cdot \bar{w})} + \sum_{c_{neg} \in W_{neg}} log \, \frac{1}{1+exp(\bar{c}_{neg} \cdot \bar{w})} \label{}\tag{15}\\ 
 \end{align}
 $$&lt;/div&gt;&lt;p&gt;Using the definition of &lt;a href="#sigmoid"&gt;sigmoid&lt;/a&gt; function $\sigma(x)=\frac{1}{1+exp(-x)}$:&lt;/p&gt;
 &lt;div id="eq-16" style="font-size: 1rem;"&gt;
@@ -2894,7 +2894,7 @@ $$&lt;/div&gt;&lt;p&gt;Same as &lt;a href="#eq-26"&gt;eq (26)&lt;/a&gt;, $t_j = 
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="data-mining"></category><category term="nlp"></category><category term="word2vec"></category><category term="word vectors"></category><category term="window size"></category><category term="skip-gram"></category><category term="neural network"></category><category term="negative sampling"></category><category term="stochastic gradient descent"></category><category term="learning rate"></category><category term="sigmoid"></category><category term="softmax"></category><category term="algorithm complexity"></category><category term="noise distribution"></category></entry><entry><title>Demystifying Neural Network in Skip-Gram Language Modeling</title><link href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" rel="alternate"></link><published>2019-05-06T00:00:00-07:00</published><updated>2019-05-06T00:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-05-06:/demystifying_neural_network_in_skip_gram_language_modeling</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="Natural Language Processing"></category><category term="data-mining"></category><category term="nlp"></category><category term="word2vec"></category><category term="word vectors"></category><category term="window size"></category><category term="skip-gram"></category><category term="neural network"></category><category term="negative sampling"></category><category term="stochastic gradient descent"></category><category term="learning rate"></category><category term="sigmoid"></category><category term="softmax"></category><category term="algorithm complexity"></category><category term="noise distribution"></category></entry><entry><title>Demystifying Neural Network in Skip-Gram Language Modeling</title><link href="https://aegis4048.github.io/demystifying_neural_network_in_skip_gram_language_modeling" rel="alternate"></link><published>2019-05-06T00:00:00-07:00</published><updated>2019-05-06T00:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-05-06:/demystifying_neural_network_in_skip_gram_language_modeling</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -5822,7 +5822,7 @@ exp(\theta^{(i)\top}x^{(t)})} \tag{11}$$&lt;/div&gt;&lt;p&gt;This is equivalent 
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="data-mining"></category><category term="nlp"></category><category term="word2vec"></category><category term="co-occurrence matrix"></category><category term="vector space model"></category><category term="word vectors"></category><category term="window size"></category><category term="skip-gram"></category><category term="neural network"></category><category term="negative sampling"></category><category term="stochastic gradient descent"></category><category term="learning rate"></category></entry><entry><title>Understanding Multi-Dimensionality in Vector Space Modeling</title><link href="https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling" rel="alternate"></link><published>2019-04-16T00:00:00-07:00</published><updated>2019-04-16T00:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-04-16:/understanding_multi-dimensionality_in_vector_space_modeling</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="Natural Language Processing"></category><category term="data-mining"></category><category term="nlp"></category><category term="word2vec"></category><category term="co-occurrence matrix"></category><category term="vector space model"></category><category term="word vectors"></category><category term="window size"></category><category term="skip-gram"></category><category term="neural network"></category><category term="negative sampling"></category><category term="stochastic gradient descent"></category><category term="learning rate"></category></entry><entry><title>Understanding Multi-Dimensionality in Vector Space Modeling</title><link href="https://aegis4048.github.io/understanding_multi-dimensionality_in_vector_space_modeling" rel="alternate"></link><published>2019-04-16T00:00:00-07:00</published><updated>2019-04-16T00:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2019-04-16:/understanding_multi-dimensionality_in_vector_space_modeling</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -9888,10 +9888,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="fdf0bcad-83f7-4b0c-8351-5289a22d5ef1"&gt;&lt;/div&gt;
+&lt;div id="3f69be82-0f4d-463f-9e15-ba6a78396cfd"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fdf0bcad-83f7-4b0c-8351-5289a22d5ef1');
+var element = $('#3f69be82-0f4d-463f-9e15-ba6a78396cfd');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -10748,4 +10748,4 @@ if (IPython.notebook.kernel != null) {
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="data-mining"></category><category term="nlp"></category><category term="dimensional reduction"></category><category term="svd"></category><category term="tf-idf"></category><category term="word2vec"></category><category term="co-occurrence matrix"></category><category term="vector space model"></category><category term="word vectors"></category><category term="3D"></category><category term="nltk"></category><category term="tokenization"></category><category term="window size"></category></entry></feed>
+&lt;/script&gt;</content><category term="Natural Language Processing"></category><category term="data-mining"></category><category term="nlp"></category><category term="dimensional reduction"></category><category term="svd"></category><category term="tf-idf"></category><category term="word2vec"></category><category term="co-occurrence matrix"></category><category term="vector space model"></category><category term="word vectors"></category><category term="3D"></category><category term="nltk"></category><category term="tokenization"></category><category term="window size"></category></entry></feed>

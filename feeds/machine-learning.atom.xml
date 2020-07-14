@@ -1294,7 +1294,7 @@ fig.tight_layout()
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;th&gt;0&lt;/th&gt;
+&lt;td&gt;0&lt;/td&gt;
 &lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;12.08&lt;/td&gt;
 &lt;td&gt;2.92&lt;/td&gt;
@@ -1305,7 +1305,7 @@ fig.tight_layout()
 &lt;td&gt;4165.196191&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;1&lt;/th&gt;
+&lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;12.38&lt;/td&gt;
 &lt;td&gt;3.53&lt;/td&gt;
@@ -1316,7 +1316,7 @@ fig.tight_layout()
 &lt;td&gt;3561.146205&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;2&lt;/th&gt;
+&lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;14.02&lt;/td&gt;
 &lt;td&gt;2.59&lt;/td&gt;
@@ -1327,7 +1327,7 @@ fig.tight_layout()
 &lt;td&gt;4284.348574&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;3&lt;/th&gt;
+&lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;17.67&lt;/td&gt;
 &lt;td&gt;6.75&lt;/td&gt;
@@ -1338,7 +1338,7 @@ fig.tight_layout()
 &lt;td&gt;5098.680869&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;5&lt;/td&gt;
 &lt;td&gt;17.52&lt;/td&gt;
 &lt;td&gt;4.57&lt;/td&gt;
@@ -1349,7 +1349,7 @@ fig.tight_layout()
 &lt;td&gt;3406.132832&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;5&lt;/th&gt;
+&lt;td&gt;5&lt;/td&gt;
 &lt;td&gt;6&lt;/td&gt;
 &lt;td&gt;14.53&lt;/td&gt;
 &lt;td&gt;4.81&lt;/td&gt;
@@ -1360,7 +1360,7 @@ fig.tight_layout()
 &lt;td&gt;4395.763259&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;6&lt;/th&gt;
+&lt;td&gt;6&lt;/td&gt;
 &lt;td&gt;7&lt;/td&gt;
 &lt;td&gt;13.49&lt;/td&gt;
 &lt;td&gt;3.60&lt;/td&gt;
@@ -1371,7 +1371,7 @@ fig.tight_layout()
 &lt;td&gt;4104.400989&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;7&lt;/th&gt;
+&lt;td&gt;7&lt;/td&gt;
 &lt;td&gt;8&lt;/td&gt;
 &lt;td&gt;11.58&lt;/td&gt;
 &lt;td&gt;3.03&lt;/td&gt;
@@ -1382,7 +1382,7 @@ fig.tight_layout()
 &lt;td&gt;3496.742701&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;8&lt;/th&gt;
+&lt;td&gt;8&lt;/td&gt;
 &lt;td&gt;9&lt;/td&gt;
 &lt;td&gt;12.52&lt;/td&gt;
 &lt;td&gt;2.72&lt;/td&gt;
@@ -1393,7 +1393,7 @@ fig.tight_layout()
 &lt;td&gt;4025.851153&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;9&lt;/th&gt;
+&lt;td&gt;9&lt;/td&gt;
 &lt;td&gt;10&lt;/td&gt;
 &lt;td&gt;13.25&lt;/td&gt;
 &lt;td&gt;3.94&lt;/td&gt;
@@ -1873,7 +1873,7 @@ Linear regression is implemented in scikit-learn with &lt;code&gt;sklearn.linear
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [39]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [8]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
@@ -1898,7 +1898,7 @@ Linear regression is implemented in scikit-learn with &lt;code&gt;sklearn.linear
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [40]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [9]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
@@ -1915,7 +1915,7 @@ Linear regression is implemented in scikit-learn with &lt;code&gt;sklearn.linear
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [41]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [12]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -2190,10 +2190,10 @@ $$ \text{Gas Prod.} = 287.78 \cdot \text{Por} - 2.94 \tag{4}$$
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="e529d479-efde-4405-b31b-520559a5a935"&gt;&lt;/div&gt;
+&lt;div id="206a430b-b2bd-41e8-b43e-e1810b67d0ea"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e529d479-efde-4405-b31b-520559a5a935');
+var element = $('#206a430b-b2bd-41e8-b43e-e1810b67d0ea');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -2979,10 +2979,21 @@ if (IPython.notebook.kernel != null) {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="highlights red-theme" id="vif-power-warning"&gt;
+&lt;div class="highlights-title red-theme"&gt;WARNING!&lt;/div&gt;
+&lt;div class="highlights-content red-theme"&gt;Be careful when predicting a point outside the observed range of feautures. The relationship among variables may change as you move outside the observed range, but you never know because you don't have the data. The observed relationship may be locally linear, but there may be unobserved curves on the outside range of your data.
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div&gt;&lt;hr/&gt;&lt;/div&gt;&lt;div id="Forcing zero y-intercept"&gt;&lt;/div&gt;
 &lt;p style="color: #666"&gt;&lt;b&gt;Pythonic Tip:&lt;/b&gt; Forcing zero y-intercept&lt;p&gt;
 
-Sometimes you want to force y-intercept = 0. This can be done by setting &lt;code&gt;fit_intercept=False&lt;/code&gt; when instantiating the linear regression model class. Printing the model y-intercept will output &lt;code&gt;0.0&lt;/code&gt;.
+Sometimes you want to force y-intercept = 0. This can be done by setting &lt;code&gt;fit_intercept=False&lt;/code&gt; when instantiating the linear regression model class. Printing the model y-intercept will output &lt;code&gt;0.0&lt;/code&gt;. But be aware, "generally it is essential to include the constant in a regression model", because "the constant (y-intercept) absorbs the bias for the regression model", as Jim Frost says in his &lt;a href="https://statisticsbyjim.com/regression/interpret-constant-y-intercept-regression/" target="_blank"&gt;post&lt;/a&gt;.
 
 &lt;div style="margin-bottom: -20px"&gt;&lt;/div&gt;
 &lt;/p&gt;&lt;/p&gt;&lt;/div&gt;
@@ -3024,7 +3035,7 @@ Sometimes you want to force y-intercept = 0. This can be done by setting &lt;cod
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div style="margin-top: -20px"&gt;&lt;/div&gt;&lt;p&gt;In &lt;a href="#fig-7"&gt;figure (7)&lt;/a&gt;I generated some synthetic data below to illustrate the effect of forcing zero y-intercept. Forcing a zero y-intercept can be both desirable or undesirable. If you have a reason to believe that y-intercept must be zero, use the above code snippet to suit your need.&lt;/p&gt;
+&lt;div style="margin-top: -20px"&gt;&lt;/div&gt;&lt;p&gt;In &lt;a href="#fig-7"&gt;figure (7)&lt;/a&gt;, I generated some synthetic data below to illustrate the effect of forcing zero y-intercept. Forcing a zero y-intercept can be both desirable or undesirable. If you have a reason to believe that y-intercept must be zero, set &lt;code&gt;fit_intercept=False&lt;/code&gt;.&lt;/p&gt;
 &lt;div class="row" id="fig-7" style="margin-top: 15px;"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/multiple_linear_zero_intercept.png"/&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 7: Effect of forcing zero y-intercept&lt;/p&gt;&lt;/div&gt;
@@ -3566,7 +3577,7 @@ $$ \text{Gas Prod.} = 244.6 \cdot \text{Por} + 31.6 \cdot \text{Brittle} + 86.9 
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;The simulation result tells us that even if the model is good at predicting the response variable given features (high R-squared), linear model is not robust enough to fully understand the effect of individual features on the response variable. In such circumstance, we can't trust the values of regression coefficients. Where is this instability coming from? This is because the &lt;em&gt;Por&lt;/em&gt;, &lt;em&gt;TOC&lt;/em&gt;, and &lt;em&gt;Perm&lt;/em&gt; shows strong linear correlation with one another, as shown in the below spearnman's correlation matrix in &lt;a href="#fig-9"&gt;figure (9)&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="row full_screen_margin_md mobile_responsive_plot_full_width" id="fig-9" style="margin-top: 15px;"&gt;
+&lt;div class="row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-9" style="margin-top: 15px;"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/mutliple_linear_correlation_matrix.png"/&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 9: Correlation matrix of features&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -3632,7 +3643,7 @@ $$ \text{Gas Prod.} = 244.6 \cdot \text{Por} + 31.6 \cdot \text{Brittle} + 86.9 
 &lt;/blockquote&gt;
 &lt;p&gt;When using linear regression coefficients to make business decisions, you must remove the effect of multicollinearity to obtain reliable regression coefficients. Let's say that you are doing a medical research on cervical cancer. You trained a linear regression model with patients' survival rate with respect to many features, in which water consumption being one of them. Your linear regression coefficient for water consumption reports that if a patient increases water consumption by 1.5 L everyday, his survival rate will increase by 2%. Can you trust this analysis? The answer is yes, if there is no sign of multicollinearity. You can actually tell the patient, with confidence, that he must drink more water to increase his chance of survival. However, if there is a sign of multicollinearity, this analysis is not valid.&lt;/p&gt;
 &lt;p&gt;Note that multicollinearity is not restricted on 1 vs 1 relationship. Even if there is minimum 1 vs 1 correlation among features, three or more features together may show multicollinearity. Also note that &lt;strong&gt;multicollinearity does not affect prediction accuracy&lt;/strong&gt;. While the values of individual coefficients may be unreliable, it does not undermine the prediction power of the model. Multicollinearity is an issue only when you want to study the impact of individual features on a response variable.&lt;/p&gt;
-&lt;p&gt;The details of detection &amp; remedies of mutlicollinearity is not discussed here (though I plan to write about it very soon). While the focus of this post is only on multiple linear regression itself, I still wanted to turn grab your attention as to why you should not always trust your regression coefficients.&lt;/p&gt;
+&lt;p&gt;The details of detection &amp; remedies of mutlicollinearity is not discussed here (though I plan to write about it very soon). While the focus of this post is only on multiple linear regression itself, I still wanted to grab your attention as to why you should not always trust your regression coefficients.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3663,4 +3674,4 @@ $$ \text{Gas Prod.} = 244.6 \cdot \text{Por} + 31.6 \cdot \text{Brittle} + 86.9 
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="correlation"></category><category term="machine learning"></category><category term="multiple linear regression"></category><category term="multicollinearity"></category><category term="linear regression"></category><category term="regression"></category><category term="feature ranking"></category><category term="permutation feature ranking"></category><category term="r-squared"></category><category term="model"></category><category term="3d"></category><category term="visualization"></category><category term="features"></category><category term="data exploration"></category></entry></feed>
+&lt;/script&gt;</content><category term="Machine Learning"></category><category term="correlation"></category><category term="machine learning"></category><category term="multiple linear regression"></category><category term="multicollinearity"></category><category term="linear regression"></category><category term="regression"></category><category term="feature ranking"></category><category term="permutation feature ranking"></category><category term="r-squared"></category><category term="model"></category><category term="3d"></category><category term="visualization"></category><category term="features"></category><category term="data exploration"></category></entry></feed>
