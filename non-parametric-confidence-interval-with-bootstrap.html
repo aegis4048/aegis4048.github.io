@@ -20,26 +20,26 @@
 
         <meta name="keywords" content="non-parametric, confidence-interval, bootstrap(stats), statistics, Statistics, "/>
 
-        <link rel="canonical" href="/non-parametric-confidence-interval-with-bootstrap">
+        <link rel="canonical" href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap">
     <meta property="og:title" content="Non-Parametric Confidence Interval with Bootstrap | Pythonic Excursions"/>
-    <meta property="og:url" content="/non-parametric-confidence-interval-with-bootstrap" />
+    <meta property="og:url" content="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" />
     <meta property="og:description" content="Bootstrapping can calculate uncertainty in any confidence interval of any kind of distribution. It&#39;s great because it is distribution-free." />
     <meta property="og:site_name" content="Pythonic Excursions" />
     <meta property="og:article:author" content="ERIC KIM" />
         <meta property="og:article:published_time" content="2019-01-04T00:00:00-08:00" />
     <meta name="twitter:title" content="Non-Parametric Confidence Interval with Bootstrap | Pythonic Excursions">
     <meta name="twitter:description" content="Bootstrapping can calculate uncertainty in any confidence interval of any kind of distribution. It&#39;s great because it is distribution-free.">
-        <meta property="og:image" content="/images/featured_images/bootstrap.png" />
-        <meta name="twitter:image" content="/images/featured_images/bootstrap.png" >
+        <meta property="og:image" content="https://aegis4048.github.io/images/featured_images/bootstrap.png" />
+        <meta name="twitter:image" content="https://aegis4048.github.io/images/featured_images/bootstrap.png" >
 
 
         <title>    Non-Parametric Confidence Interval with Bootstrap  | Pythonic Excursions
 </title>
 
-                <link rel="stylesheet" type="text/css" href="/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
-                <link rel="stylesheet" type="text/css" href="/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
-            <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
-            <link rel="stylesheet" type="text/css" href="/theme/css/ipynb.css" media="screen">
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/ipynb.css" media="screen">
 
             <style>
                 #progressBar::-webkit-progress-value {
@@ -50,7 +50,7 @@
                 }
             </style>
 
-        <link href="/theme/libs/prism.css" rel="stylesheet" />
+        <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
 <script type="text/x-mathjax-config">
 
 MathJax.Hub.Config({
@@ -65,17 +65,28 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-        <link rel="shortcut icon" href="/theme/img/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/theme/img/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="/theme/img/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="/theme/img/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="/theme/img/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="/theme/img/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="/theme/img/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="/theme/img/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
+        <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="https://aegis4048.github.io/theme/img/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://aegis4048.github.io/theme/img/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="https://aegis4048.github.io/theme/img/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://aegis4048.github.io/theme/img/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="https://aegis4048.github.io/theme/img/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="https://aegis4048.github.io/theme/img/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="https://aegis4048.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133310548-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-133310548-1');
+</script>
+
     </head>
     <body>
 <progress id="progressBar" max="19827" class="flat">
@@ -86,7 +97,7 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
             <div class="banner">
                 <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
                     <div class="container navbar-title">
-                        <a href="/"><img id="banner-logo" src="/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
+                        <a href="/"><img id="banner-logo" src="https://aegis4048.github.io/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -94,16 +105,16 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link rem_08" href="/about.html">About</a>
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/about.html">About</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li id="second-item" class="nav-item">
-                            <a class="nav-link rem_08" href="/archives.html">Archive</a>
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/archives.html">Archive</a>
                         </li>
                      </ul>
                     <ul class="navbar-nav">
-                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="/search.html">
+                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="https://aegis4048.github.io/search.html">
                         <div id="third-item" class="search-box-div row" style="margin-top:-3.5px;">
                             <input id="tipue_search_input" class="form-control mr-md-2 rem_08 col-9" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" aria-label="Search"/>
                             <button id="search-btn" class="btn btn-search btn-outline-success btn-circle rem_08 col-3" type="submit" for="tipue_search_input" style="margin-left: 3px;">Search</button>
@@ -120,15 +131,15 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
         <header class="pop-over">
             <h1>Non-Parametric Confidence Interval with Bootstrap</h1>
             <div class="row justify-content-between no-margin">
-                <h4 class="article-category">Category > <a class="article-category-link" href="/archives.html">Statistics</a></h4>
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://aegis4048.github.io/archives.html">Statistics</a></h4>
                 <span class="article-date">Jan 04, 2019</span>
             </div>
             <div class="meta meta-tag no-margin no-border">
                 <div>
-                        <a href="/tag/non-parametric.html" class="tag">non-parametric</a>
-                        <a href="/tag/confidence-interval.html" class="tag">confidence-interval</a>
-                        <a href="/tag/bootstrapstats.html" class="tag">bootstrap(stats)</a>
-                        <a href="/tag/statistics.html" class="tag">statistics</a>
+                        <a href="https://aegis4048.github.io/tag/non-parametric.html" class="tag">non-parametric</a>
+                        <a href="https://aegis4048.github.io/tag/confidence-interval.html" class="tag">confidence-interval</a>
+                        <a href="https://aegis4048.github.io/tag/bootstrapstats.html" class="tag">bootstrap(stats)</a>
+                        <a href="https://aegis4048.github.io/tag/statistics.html" class="tag">statistics</a>
                 </div>
             </div>
             <section>
@@ -136,13 +147,13 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
         <div class="share-post-intro mr-2">Share This Post :</div>
         <div class="social-share-btns-container">
             <div class="social-share-btns">
-                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=/non-parametric-confidence-interval-with-bootstrap" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" rel="nofollow" target="_blank">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=/non-parametric-confidence-interval-with-bootstrap" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" rel="nofollow" target="_blank">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/non-parametric-confidence-interval-with-bootstrap" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap" rel="nofollow" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
@@ -1683,10 +1694,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="6e91f51c-0540-47ff-bb61-fba04b601f7a"></div>
+<div id="ad3b1933-53b6-4320-b531-d62034bda2a2"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#6e91f51c-0540-47ff-bb61-fba04b601f7a');
+var element = $('#ad3b1933-53b6-4320-b531-d62034bda2a2');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -3075,10 +3086,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="fa0a3418-2b08-4ca4-82ad-1b2d02b2ea2c"></div>
+<div id="38d45cce-93ae-44d9-beb0-544a82e14c75"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#fa0a3418-2b08-4ca4-82ad-1b2d02b2ea2c');
+var element = $('#38d45cce-93ae-44d9-beb0-544a82e14c75');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -3907,10 +3918,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="97f9857f-0f0b-4b34-85cf-7b9bd2cb2655"></div>
+<div id="33ad4104-bb97-4650-a6e5-18c60db211f0"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#97f9857f-0f0b-4b34-85cf-7b9bd2cb2655');
+var element = $('#33ad4104-bb97-4650-a6e5-18c60db211f0');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4866,10 +4877,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="a2a3ce99-fb96-4cd6-bae2-17e0e11e4825"></div>
+<div id="7cc2b8b9-99d9-4080-af5f-e133d002075c"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#a2a3ce99-fb96-4cd6-bae2-17e0e11e4825');
+var element = $('#7cc2b8b9-99d9-4080-af5f-e133d002075c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -5754,10 +5765,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="2c620002-9d90-4d0d-a6ec-94edbb74e502"></div>
+<div id="08ac4e6f-c31e-41c9-8145-083b49db9ef0"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#2c620002-9d90-4d0d-a6ec-94edbb74e502');
+var element = $('#08ac4e6f-c31e-41c9-8145-083b49db9ef0');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7143,10 +7154,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="4f6c0b09-295b-475b-b974-5cb7981a7996"></div>
+<div id="1e50e403-47a2-428e-8765-1ad923d1e705"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#4f6c0b09-295b-475b-b974-5cb7981a7996');
+var element = $('#1e50e403-47a2-428e-8765-1ad923d1e705');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7967,10 +7978,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="1de0d430-2faf-4de2-9c1c-09f0d9869fc3"></div>
+<div id="6f0d2338-b02b-4606-82c9-00b99d93658c"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#1de0d430-2faf-4de2-9c1c-09f0d9869fc3');
+var element = $('#6f0d2338-b02b-4606-82c9-00b99d93658c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -8923,17 +8934,31 @@ IQR       :       78.4  ~      120.9 , AVG =  98.1
         <aside>
         <nav>
         <ul class="articles-timeline">
-            <li class="previous-article">« <a href="/uncertainty-modeling-with-monte-carlo-simulation" title="Previous: Uncertainty Modeling with Monte-Carlo Simulation">Uncertainty Modeling with Monte-Carlo Simulation</a></li>
-            <li class="next-article"><a href="/creating-a-jupyternotebook-powered-data-science-blog-with-pelican" title="Next: Creating a Jupyter Notebook-Powered Data Science Blog with Pelican">Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</a> »</li>
+            <li class="previous-article">« <a href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation" title="Previous: Uncertainty Modeling with Monte-Carlo Simulation">Uncertainty Modeling with Monte-Carlo Simulation</a></li>
+            <li class="next-article"><a href="https://aegis4048.github.io/creating-a-jupyternotebook-powered-data-science-blog-with-pelican" title="Next: Creating a Jupyter Notebook-Powered Data Science Blog with Pelican">Creating a Jupyter Notebook-Powered Data Science Blog with Pelican</a> »</li>
         </ul>
         </nav>
         </aside>
+  <section>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'pythonic-excursions';
+      var disqus_identifier = '/non-parametric-confidence-interval-with-bootstrap';
+      var disqus_url = 'https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap';
+      var disqus_title = 'Non-Parametric Confidence Interval with Bootstrap';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section>
         <hr/>
 <section style="margin-top: 30px">
     <h2>Related Posts</h2>
 <ul class="related-posts-list related-post row">
     <div class="pop-over col-12 col-md-6 col-lg-4">
-        <div class="article-row" onclick="window.location='/uncertainty-modeling-with-monte-carlo-simulation';">
+        <div class="article-row" onclick="window.location='https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation';">
             <div class="article-cell-1">
                 <img class="article-img" src="images/featured_images/monte-carlo.png">
             </div>
@@ -8949,15 +8974,15 @@ IQR       :       78.4  ~      120.9 , AVG =  98.1
                     <div class="meta-right">
                         <i class="far fa-clock index-comment-icon"></i>
                         <span class="index-reading-time">9 min reading</span>
-                        <i class="fas fa-comment index-comment-icon" href="/uncertainty-modeling-with-monte-carlo-simulation#disqus_thread"></i>
-                        <a class="index-reading-time disqus-comment" href="/uncertainty-modeling-with-monte-carlo-simulation#disqus_thread"></a>
+                        <i class="fas fa-comment index-comment-icon" href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation#disqus_thread"></i>
+                        <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation#disqus_thread"></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="pop-over col-12 col-md-6 col-lg-4">
-        <div class="article-row" onclick="window.location='/transforming-non-normal-distribution-to-normal-distribution';">
+        <div class="article-row" onclick="window.location='https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution';">
             <div class="article-cell-1">
                 <img class="article-img" src="images/featured_images/control_chart.png">
             </div>
@@ -8973,15 +8998,15 @@ IQR       :       78.4  ~      120.9 , AVG =  98.1
                     <div class="meta-right">
                         <i class="far fa-clock index-comment-icon"></i>
                         <span class="index-reading-time">13 min reading</span>
-                        <i class="fas fa-comment index-comment-icon" href="/transforming-non-normal-distribution-to-normal-distribution#disqus_thread"></i>
-                        <a class="index-reading-time disqus-comment" href="/transforming-non-normal-distribution-to-normal-distribution#disqus_thread"></a>
+                        <i class="fas fa-comment index-comment-icon" href="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution#disqus_thread"></i>
+                        <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution#disqus_thread"></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="pop-over col-12 col-md-6 col-lg-4">
-        <div class="article-row" onclick="window.location='/comprehensive_confidence_intervals_for_python_developers';">
+        <div class="article-row" onclick="window.location='https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers';">
             <div class="article-cell-1">
                 <img class="article-img" src="images/featured_images/rock_por_conf.png">
             </div>
@@ -8997,8 +9022,8 @@ IQR       :       78.4  ~      120.9 , AVG =  98.1
                     <div class="meta-right">
                         <i class="far fa-clock index-comment-icon"></i>
                         <span class="index-reading-time">66 min reading</span>
-                        <i class="fas fa-comment index-comment-icon" href="/comprehensive_confidence_intervals_for_python_developers#disqus_thread"></i>
-                        <a class="index-reading-time disqus-comment" href="/comprehensive_confidence_intervals_for_python_developers#disqus_thread"></a>
+                        <i class="fas fa-comment index-comment-icon" href="https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers#disqus_thread"></i>
+                        <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers#disqus_thread"></a>
                     </div>
                 </div>
             </div>
@@ -9015,7 +9040,7 @@ IQR       :       78.4  ~      120.9 , AVG =  98.1
          <div class="col">
             <h5 class="headin5_amrc col_white_amrc pt2">ABOUT ERIC</h5>
             <!--headin5_amrc-->
-            <p class="mb10"><img id="profile_img" align="left" src="/theme/img/profile_photo_footer.jpg">Petroleum engineering analyst at <a href="https://flogistix.com/" target="blank">Flogistix</a>. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
+            <p class="mb10"><img id="profile_img" align="left" src="https://aegis4048.github.io/theme/img/profile_photo_footer.jpg">Petroleum engineering analyst at <a href="https://flogistix.com/" target="blank">Flogistix</a>. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
             <p><i class="fa fa-envelope mr-2"></i>aegis4048@gmail.com</p>
          </div>
       </div>
@@ -9040,11 +9065,11 @@ IQR       :       78.4  ~      120.9 , AVG =  98.1
       <!--social_footer_ul ends here-->
    </div>
 </footer>
-            <script type="text/javascript" src="/theme/libs/jquery.min.js"></script>
-            <script type="text/javascript" src="/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
-        <script src="/theme/libs/prism.js"></script>
-        <script src="/theme/libs/Countable.js"></script>
+        <script src="https://aegis4048.github.io/theme/libs/prism.js"></script>
+        <script src="https://aegis4048.github.io/theme/libs/Countable.js"></script>
 
         <script>
             Prism.plugins.NormalizeWhitespace.setDefaults({
@@ -9061,7 +9086,7 @@ IQR       :       78.4  ~      120.9 , AVG =  98.1
         </script>
 
 
-        <script type="text/javascript" src="/theme/js/custom.js"></script>
+        <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
             <script>
                 function validateForm(query)
                 {
