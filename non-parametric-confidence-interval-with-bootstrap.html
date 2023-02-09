@@ -1207,24 +1207,29 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 </style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
-.highlight .c { color: #408080; font-style: italic } /* Comment */
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
-.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
-.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
 .highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
 .highlight .gs { font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
@@ -1237,15 +1242,15 @@ h6:hover .anchor-link {
 .highlight .kt { color: #B00040 } /* Keyword.Type */
 .highlight .m { color: #666666 } /* Literal.Number */
 .highlight .s { color: #BA2121 } /* Literal.String */
-.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .na { color: #687822 } /* Name.Attribute */
 .highlight .nb { color: #008000 } /* Name.Builtin */
 .highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
 .highlight .no { color: #880000 } /* Name.Constant */
 .highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
 .highlight .nf { color: #0000FF } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nl { color: #767600 } /* Name.Label */
 .highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
 .highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
 .highlight .nv { color: #19177C } /* Name.Variable */
@@ -1262,11 +1267,11 @@ h6:hover .anchor-link {
 .highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
 .highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
 .highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
@@ -1331,17 +1336,17 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 
 <img class="admonition-image" src="jupyter_images/wrong_bootstrap_CI_of_mean_demo.png"/>
 <br/>It can be observed that the CI obtained by using a wrong N-value for Bootstrap generates narrower CI. As a result, the CI of the sample mean does not cover the true population mean, returning a misleading estimation.
-</div></div></div></div>
-<p>In summary, Bootstrapping is used for three reasons:</p>
+
+</div><p>In summary, Bootstrapping is used for three reasons:</p>
 <ol>
 <li>Bootstrap can obtain confidence interval in any statistics.</li>
 <li>Bootstrap does not assume anything about a distribution.</li>
 <li>Bootstrap helps when there are too few number of samples.</li>
 </ol>
 <p><strong> Imports </strong></p>
-
-
-
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In [2]:</div>
@@ -1369,11 +1374,11 @@ where $N$ is the number of measured samples. If you increase the number of sampl
     <br/><b>Standard Deviation : </b>2.3 ~ 3.4 with 2.9 being the average
     <br/><b>Min : </b>54.3 ~ 57.2, with 55.2 being the average
     <br/><b>Max : </b>77.8 ~ 82.4, with 79.8 being the average
-    <br/><b>Skew : </b>-0.053 ~ 0.323, with 0.023 being the average</div></div></div></div>
-<h3 id="1.A.0.-Bootstrap-Scripts">1.A.0. Bootstrap Scripts<a class="anchor-link" href="#1.A.0.-Bootstrap-Scripts">¶</a></h3><p><strong> Bootstrap Simulator </strong></p>
-
-
-
+    <br/><b>Skew : </b>-0.053 ~ 0.323, with 0.023 being the average
+</div><h3 id="1.A.0.-Bootstrap-Scripts">1.A.0. Bootstrap Scripts<a class="anchor-link" href="#1.A.0.-Bootstrap-Scripts">¶</a></h3><p><strong> Bootstrap Simulator </strong></p>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In [3]:</div>
@@ -1694,10 +1699,10 @@ where $N$ is the number of measured samples. If you increase the number of sampl
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="ad3b1933-53b6-4320-b531-d62034bda2a2"></div>
+<div id="0e45772f-e261-40c6-ba8e-6732f38bf8e7"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#ad3b1933-53b6-4320-b531-d62034bda2a2');
+var element = $('#0e45772f-e261-40c6-ba8e-6732f38bf8e7');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -3086,10 +3091,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="38d45cce-93ae-44d9-beb0-544a82e14c75"></div>
+<div id="b857dadc-4c95-48fc-b933-ab32ed1e73f0"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#38d45cce-93ae-44d9-beb0-544a82e14c75');
+var element = $('#b857dadc-4c95-48fc-b933-ab32ed1e73f0');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -3918,10 +3923,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="33ad4104-bb97-4650-a6e5-18c60db211f0"></div>
+<div id="befe1feb-203d-4df6-b293-2b499458821f"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#33ad4104-bb97-4650-a6e5-18c60db211f0');
+var element = $('#befe1feb-203d-4df6-b293-2b499458821f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4877,10 +4882,10 @@ IQR       :        4.0  ~        5.8 , AVG =   4.9
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="7cc2b8b9-99d9-4080-af5f-e133d002075c"></div>
+<div id="8d224ebb-f6c3-4aa5-b388-99b417695455"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#7cc2b8b9-99d9-4080-af5f-e133d002075c');
+var element = $('#8d224ebb-f6c3-4aa5-b388-99b417695455');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -5765,10 +5770,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="08ac4e6f-c31e-41c9-8145-083b49db9ef0"></div>
+<div id="f77ec441-2600-4fdf-a2a6-428ec49d80cf"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#08ac4e6f-c31e-41c9-8145-083b49db9ef0');
+var element = $('#f77ec441-2600-4fdf-a2a6-428ec49d80cf');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7154,10 +7159,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="1e50e403-47a2-428e-8765-1ad923d1e705"></div>
+<div id="a9f3a9b1-415e-454f-92ee-65eea0e240a8"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#1e50e403-47a2-428e-8765-1ad923d1e705');
+var element = $('#a9f3a9b1-415e-454f-92ee-65eea0e240a8');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -7978,10 +7983,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="6f0d2338-b02b-4606-82c9-00b99d93658c"></div>
+<div id="641b0f87-74e1-46b0-8f6e-c3287b18e2a6"></div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#6f0d2338-b02b-4606-82c9-00b99d93658c');
+var element = $('#641b0f87-74e1-46b0-8f6e-c3287b18e2a6');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 

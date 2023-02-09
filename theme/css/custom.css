@@ -2321,7 +2321,7 @@ margin-top: 20px;
     font-family: -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 .article-cell-2 p {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     line-height: 1.55em;
     margin-top: 20px;
     margin-bottom: 0;
@@ -2757,3 +2757,28 @@ div.output_area {
     max-width: 580px;
     max-width: inherit !important;
 }
+.ico.xls:before {
+    content: " ";
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 61.65 66.17'%3E%3Cpath fill='%23777' d='M43.2 5.4H12.5v56.2h44.7V19.4l-14-14z'/%3E%3Cpath fill='%23fff' d='M54.4 58.8H15.2V8.2h28v11.2h11.2v39.4z'/%3E%3Cpath fill='%23bed5ad' d='M30.29 17.94h8.3v3.99h-8.3zM30.29 24.43h8.3v3.99h-8.3zM40.6 24.43h8.31v3.99H40.6zM19.98 24.43h8.31v3.99h-8.31zM30.29 30.92h8.3v3.99h-8.3zM40.6 30.92h8.31v3.99H40.6zM19.98 30.92h8.31v3.99h-8.31zM30.29 37.41h8.3v3.99h-8.3zM40.6 37.41h8.31v3.99H40.6zM19.98 37.41h8.31v3.99h-8.31zM30.29 43.9h8.3v3.99h-8.3zM40.6 43.9h8.31v3.99H40.6zM19.98 43.9h8.31v3.99h-8.31zM30.29 50.4h8.3v3.99h-8.3zM40.6 50.4h8.31v3.99H40.6zM19.98 50.4h8.31v3.99h-8.31zM42.8 18.83v-.89h-2.2v3.99h8.31v-3.1H42.8z'/%3E%3Cpath fill='%235d9732' d='M4.16 12.34h33.28v14.5H4.16z'/%3E%3Ctext transform='translate(11.08 23.24)' font-size='10' fill='%23fff' font-family='Arial' font-weight='700' style='text-transform:uppercase'%3Exls%3C/text%3E%3Cpath fill='%23c8c8c8' d='m56.8 18.83-14-14v14h14z'/%3E%3C/svg%3E") no-repeat 50%;
+    display: inline-block;
+    height: 16px;
+    margin-bottom: -3px;
+    width: 15px;
+    margin-right: 3px;
+}
+.bold {
+    font-weight: bold;
+}
+
+.inline-image {    
+    display: inline-block;
+    height: 14px;
+    margin-right: 2px;
+    margin-top: 0px !important;
+    margin-left: 6px;
+    margin-bottom: 2px;
+}
+#list-of-translations {
+    display: none
+}
+
