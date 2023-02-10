@@ -1612,7 +1612,7 @@ fig.set_facecolor("white")
 <div class="text_cell_render border-box-sizing rendered_html">
 <div id="How are DUC wells created?"></div><h2 id="2.-How-are-DUC-wells-created?">2. How are DUC wells created?<a class="anchor-link" href="#2.-How-are-DUC-wells-created?">¶</a></h2><p>The formation of DUC wells in the oil and gas industry is caused by a variety of factors. The most straightforward reason is that they occur when operators drill more wells than they complete, and vice versa, whether by choice or not. If they drill more wells than they complete, DUC wells accumulate. If they complete more wells than they drill, DUC wells deplete. This trend can be observed in <a href="#fig-4">Figure 4</a>, which showcases three distinct periods where the US DUC well counts in the seven DPR regions experienced rapid increases and decreases as a result of imbalanced drilling and completion activities.</p>
 <div class="row full_screen_margin_90 mobile_responsive_plot_full_width" id="fig-4" style="margin-top: 15px;">
-<div class="col"><img src="jupyter_images/US Major Basins Completion & Drilling Activities.png"/></div>
+<div class="col"><img src="jupyter_images/US Major Basins Completion & Drilling Activities and Commodities.png"/></div>
 <div class="col-12"><p class="image-description">Figure 4: The line plots depict three distinct periods of significant fluctuations in DUC well inventories, with [1] and [3] representing instances of rapid depletion due to low completion rates, and [2] reflecting a period of accumulation resulting from high drilling activities.</p></div>
 </div>
 </div>
@@ -1680,11 +1680,11 @@ ax.plot(df_completed.index, df_completed['Total Completed'], label='Completed')
 ax2.plot(df_DUCs.index, df_DUCs['Total DUCs'], color='purple', label='DUC')
 
 
-ax.fill_between(df_drilled.index, df_drilled['Total Drilled'], df_completed['Total Completed'], 
+ax.fill_between(df_drilled.index, df_drilled['Total Drilled'], df_completed['Total Completed'],
                 where=(df_drilled.index >= '2016-03-1') & (df_drilled.index <= '2017-1-1'), color='red', alpha=0.4)
-ax.fill_between(df_drilled.index, df_drilled['Total Drilled'], df_completed['Total Completed'], 
+ax.fill_between(df_drilled.index, df_drilled['Total Drilled'], df_completed['Total Completed'],
                 where=(df_drilled.index >= '2018-08-01') & (df_drilled.index <= '2019-3-1'), color='green', alpha=0.4)
-ax.fill_between(df_drilled.index, df_drilled['Total Drilled'], df_completed['Total Completed'], 
+ax.fill_between(df_drilled.index, df_drilled['Total Drilled'], df_completed['Total Completed'],
                 where=(df_drilled.index >= '2020-07-1') & (df_drilled.index <= '2022-8-1'), color='red', alpha=0.4)
 
 ax.axvline(x=df_drilled.index[26], color='k', linestyle='--', linewidth=1, alpha=0.7)
@@ -1721,17 +1721,52 @@ ax.text(0.295, 0.05, '[1]', fontsize=9, transform=ax.transAxes, color='k')
 ax.text(0.53, 0.05, '[2]', fontsize=9, transform=ax.transAxes, color='k')
 ax.text(0.805, 0.05, '[3]', fontsize=9, transform=ax.transAxes, color='k')
 
-def setbold(txt): 
+def setbold(txt):
     return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
 
 ax.set_title(setbold('US Major Basins Completion & Drilling Activities')  + ",  Jan 2014 - Dec 2022", fontsize=12, pad=10, x=0.4, y=1.06)
 ax.annotate('', xy=(-0.11, 1.07), xycoords='axes fraction', xytext=(1.11, 1.07), arrowprops=dict(arrowstyle="-", color='k'))
-ax.annotate('Source: Pythonic Excursions, EIA', xy=(-0.11, -0.18), xycoords='axes fraction', fontsize=10)
-ax.text(0.145, 0.1, 'aegis4048.github.io', fontsize=10, ha='center', va='center', 
+ax.text(0.145, 0.1, 'aegis4048.github.io', fontsize=10, ha='center', va='center',
         transform=ax.transAxes, color='grey', alpha=0.5)
 
 fig.set_facecolor("white")
 fig.tight_layout()
+
+############################################# Plot 2 ##############################################
+
+df = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EIA-commodity.xls', sheet_name='Data 1')
+df = df.iloc[338:-1, :-1] # between Jan 2014 to Dec 2022
+df.columns = ['date', 'value']
+df.reset_index(inplace=True, drop=True)
+df['date'] = df['date'].apply(lambda x: x.strftime('%Y-%m'))
+df['date'] = pd.to_datetime(df['date'])
+
+fig, ax = plt.subplots(figsize=(7, 1))
+
+ax.plot(df['date'], df['value'], color='green')
+
+ax.set_ylabel('oil ($)', fontsize=10)
+ax.set_ylim(0, 120)
+ax.set_yticks(np.linspace(0, 120, 4))
+ax.tick_params(axis='both', which='major', labelsize=9)
+
+ax.axvspan(df_drilled.index[26], df_drilled.index[35], facecolor='lightgrey', alpha=0.3)
+ax.axvspan(df_drilled.index[55], df_drilled.index[61], facecolor='lightgrey', alpha=0.3)
+ax.axvspan(df_drilled.index[78], df_drilled.index[103], facecolor='lightgrey', alpha=0.3)
+
+ax.axvline(x=df_drilled.index[26], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[35], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[55], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[61], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[78], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[103], color='k', linestyle='--', linewidth=1, alpha=0.7)
+
+ax.grid(axis='y', alpha=0.5)
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+
+ax.annotate('Source: Pythonic Excursions, EIA', xy=(-0.11, -.5), xycoords='axes fraction', fontsize=9)
             </code>
         </pre>
 </div>
