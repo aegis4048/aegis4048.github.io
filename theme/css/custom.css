@@ -2769,16 +2769,21 @@ div.output_area {
 .bold {
     font-weight: bold;
 }
-
 .inline-image {    
+    padding: 1px;
     display: inline-block;
     height: 14px;
     margin-right: 2px;
     margin-top: 0px !important;
-    margin-left: 6px;
-    margin-bottom: 2px;
+    margin-left: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 #list-of-translations {
     display: none
+}
+.terminology {
+    display: block;
+    margin-bottom: 5px;
 }
 
