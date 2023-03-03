@@ -1995,7 +1995,6 @@ ax.annotate('Source: Pythonic Excursions, DrillingInfo', xy=(0.01, 0.02),
 fig.set_facecolor("white")
 
 plt.subplots_adjust(bottom=.15)
-fig.savefig('Extreme Data Removal for EURs and PPF.png', dpi=300, bbox_inches='tight')
             &lt;/code&gt;
         &lt;/pre&gt;
 &lt;/div&gt;
@@ -2874,7 +2873,6 @@ ax.annotate('', xy=(0.006, y_pos), xycoords='figure fraction', xytext=(1, y_pos)
 ax.annotate('Source: Pythonic Excursions, DrillingInfo', xy=(0.055, 0.173), xycoords='figure fraction', fontsize=16)
 
 fig.set_facecolor("white")    
-fig.savefig('6_normalized_EUR_Lateral_FPF_PPF_2.png', dpi=300, bbox_inches='tight')
             &lt;/code&gt;
         &lt;/pre&gt;
 &lt;/div&gt;
@@ -2888,7 +2886,7 @@ fig.savefig('6_normalized_EUR_Lateral_FPF_PPF_2.png', dpi=300, bbox_inches='tigh
 &lt;div id="detailed" style="margin-top: -15px"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Anadarko&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The normalized EUR for Anadarko wells completed beyond 50 days since drilled dropped by 81% over a 150-day span. The two outlier points in the average normalized EUR at 400-day and 450-day bins were identified as a result of extreme data points that could not be filtered out using the percentile method due to a lack of data. The observed decrease in normalized EUR with increasing DUC time follows a logarithmic production decline curve with a high b-factor, indicating a fast initial decline in production due to reservoir depletion. This could be an indication of severe well-to-well interference problems in the Anadarko basin.&lt;/p&gt;
 &lt;div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-9" style="margin-top: 10px;"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_normalized_Anadarko.png"/&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_normalized_anadarko.png"/&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 9: Anadarko basin from Figure 8&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;div&gt;&lt;hr/&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Appalachia&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The normalized EUR dropped by 19% over a span of 300 DUC days beyond the initial 50-day bin average. It seems to decrease linearly with DUC time at a very slow pace compared to Anadarko or Permian. Assuming linear regression, one could argue that the Appalachia DUC wells lose 2.7% EUR every 50 days of delay in completion.&lt;/p&gt;
@@ -5346,11 +5344,12 @@ fig.tight_layout()
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div id="Continued discussion: Dead DUC wells"&gt;&lt;/div&gt;&lt;h2 id='4.-Continued-discussion:-"Dead"-DUC-wells'&gt;4. Continued discussion: "Dead" DUC wells&lt;a class="anchor-link" href='#4.-Continued-discussion:-"Dead"-DUC-wells'&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The empirical evidence shows that 95% of the wells in the US are completed within 2 years after drilling. Failing to drill within that time may give birth to what we call the "Dead" DUCs - the wells that will never be completed. The speculations as to why those old DUCs are never completed include lost leases and reservoir pressure depletion. However, the study I conducted shows intriguing characteristics that contradict the conventional wisdom that the gap time between drilling and completion has negative impact on EUR and production rates. In fact, longer gap time seems to positively affect production rates for DUC wells under 250~400 days old since drilled as shown in &lt;a href="#fig-8"&gt;Figure 8&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Check out my next article &lt;a href="https://aegis4048.github.io/how_do_old_duc_wells_become_dead_ducs" target="_blank"&gt;How Do Old DUC Wells Become DEAD DUCs?&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;div id="Continued discussion: Dead DUC wells"&gt;&lt;/div&gt;&lt;h2 id='4.-Continued-discussion:-"Dead"-DUC-wells'&gt;4. Continued discussion: "Dead" DUC wells&lt;a class="anchor-link" href='#4.-Continued-discussion:-"Dead"-DUC-wells'&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;DUC wells are considered to be a working oil field capital because the wells can be turned on line for production for cheap. However, the empirical evidences suggests that the DUC wells may no longer function as a working capital if completion is delayed for too long. The empirical evidence presented in &lt;a href="#fig-8"&gt;Figure 8&lt;/a&gt; reveals that 95% of the wells in Anadarko are completed within 308 days afterd drilled, and Appalachia wells within 956 days. Failing to complete within this time frame may give birth to "dead" DUCs - wells that will never be completed. The expensive drilling cost the operator paid would be wasted.&lt;/p&gt;
+&lt;p&gt;Two main causes for the birth of dead DUCs include costs associated with extending oil and gas lease and degrading economics with increasing DUC time due to reservoir depletion. In another study conducted in my next article, I demonstrate and quantify the impact of delay in completion since drilled on production by normalizing EURs with lateral length and completion size.&lt;/p&gt;
+&lt;p&gt;Check out my next article &lt;a href="https://aegis4048.github.io/quantifying_the_impact_of_completion_delay_since_drilled_on_production" target="_blank"&gt;Quantifying The Impact Of Completion Delay Since Drilled On Production&lt;/a&gt; for more information.&lt;/p&gt;
 &lt;div class="row" id="fig-8" style="margin-top: 15px;"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/Total EUR vs Days Till Completion Zoomed In.png"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 8: Each dot represents one well's EUR in the basin. The wells are binned by 50 lag days. Each vertical band of dots represents wells completed, for example, between 100 ~ 200 days after drilled. The blue line plot represents the average of wells in each 50-day bins. Note that the credibility of this average line plot falls with the increasing lag days due to lack of data on high-lag-day-bins.&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/Time Limit Until Completion.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 8: 95% Box plot of gap time between drilling and completion. The plot shows the time limit until completion for each basin. Each dot (very small, 99.5% transparency) represent one well of a basin. Upper whisker and the numeric annotation above it represent 95% upper limit. This means that wells with DUC time longer than the annotated number have less then 95% chance of ever being completed. Box plot for "All Regions" represent weighted average of all basins.&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
