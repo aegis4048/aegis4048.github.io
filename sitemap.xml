@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://aegis4048.github.io/</loc>
-<lastmod>2023-02-10T10:23:53-00:00</lastmod>
+<lastmod>2023-03-03T17:00:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/archives.html</loc>
-<lastmod>2023-02-10T10:23:53-00:00</lastmod>
+<lastmod>2023-03-03T17:00:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/how_do_old_duc_wells_become_dead_ducs</loc>
-<lastmod>2023-02-10T00:00:00-08:00</lastmod>
+<loc>https://aegis4048.github.io/quantifying_the_impact_of_completion_delay_since_drilled_on_production</loc>
+<lastmod>2023-03-03T00:00:00-08:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -117,7 +117,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://aegis4048.github.io/category/oil-and-gas.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -138,112 +138,161 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://aegis4048.github.io/tag/oil-and-gas.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/oil.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/gas.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/duc.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/drilling.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/horizontals.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/verticals.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/completion.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/production.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/recent-trend.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/energy-shortage.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/eia.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/drillinginfo.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/enverus.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/dpr.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/dead-duc.html</loc>
-<lastmod>2023-02-10T00:00:00-07:53</lastmod>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/anadarko.html</loc>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/appalachia.html</loc>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/bakken.html</loc>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/eagle-ford.html</loc>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/niobrara.html</loc>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/hanyesville.html</loc>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/permian.html</loc>
+<lastmod>2023-03-03T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Oil and Gas</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/oil-and-gas.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2023-02-10T00:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>How Do Old DUC Wells Become "Dead" DUCs?</title><link href="https://aegis4048.github.io/how_do_old_duc_wells_become_dead_ducs" rel="alternate"></link><published>2023-02-10T00:00:00-08:00</published><updated>2023-02-10T00:00:00-08:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2023-02-10:/how_do_old_duc_wells_become_dead_ducs</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Oil and Gas</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/oil-and-gas.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2023-03-03T00:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Quantifying The Impact Of Completion Delay Since Drilled On Production</title><link href="https://aegis4048.github.io/quantifying_the_impact_of_completion_delay_since_drilled_on_production" rel="alternate"></link><published>2023-03-03T00:00:00-08:00</published><updated>2023-03-03T00:00:00-08:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2023-03-03:/quantifying_the_impact_of_completion_delay_since_drilled_on_production</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1146,9 +1146,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;blockquote class="quote" style="font-family: unset; font-size: unset; font-style: unset;"&gt;
-  This article is a continuation from the previous article, &lt;a href="https://aegis4048.github.io/duc_wells_and_their_economic_complications" target="_blank"&gt;DUC Wells and Their Economic Complications.&lt;/a&gt;
-&lt;/blockquote&gt;&lt;p&gt;The empirical evidence shows that 95% of the wells in the US are completed within 2 years after drilling. Failing to drill within that time may give birth to what we call the "Dead" DUCs - the wells that will never be completed. The speculations as to why those old DUCs are never completed include lost leases and reservoir pressure depletion. However, the study I conducted shows intriguing characteristics that contradict the conventional wisdom that the gap time between drilling and completion has negative impact reservoir conditions, and that it may discourage operators from drilling their old DUCs. In fact, longer gap time seemed to even positively affect production rates for DUC wells under 250~400 days old since drilled.&lt;/p&gt;
+&lt;p&gt;Once a well is drilled, it must be completed to produce oil and gas. However, operators sometimes delay completing a well for various reasons, such as waiting for fracking crews or facing budget constraints. These delayed wells, known as &lt;strong&gt;Drilled but Uncompleted (DUC)&lt;/strong&gt; wells, are considered to be a working oil field capital because the wells can be turned on line for production for cheap. However, the empirical evidences suggests that the DUC wells may no longer function as a working capital if completion is delayed for too long. The probability of completion falls drastically after two years of delay in completion, and DUC wells that still remain un-completed beyond this time frame are likely to never be completed.&lt;/p&gt;
+&lt;p&gt;The study conducted in this article is built on top of the previous scientific findings which claim that the nearby parent wells can have a negative impact on the production of child wells, which worsens the longer the parent wells have been producing. This is particularly critical for DUC wells, as the wells awaiting completion are already exposed to these pressure variations from existing wells that continue to produce and deplete. This study aims to quantify the impact of increasing delays in completion on production by observing changes in estimated ultimate recovery (EUR) normalized by lateral length and completion concentration per perforated foot as a function of DUC time.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1160,12 +1159,17 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;ul class="toc_list"&gt;
 &lt;li&gt;&lt;a href="#Sample data description"&gt;&lt;span class="toc_label"&gt;0&lt;/span&gt;Sample data description&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#Key takeaways"&gt;&lt;span class="toc_label"&gt;1&lt;/span&gt;Key takeaways&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#Complications with old DUC wells"&gt;&lt;span class="toc_label"&gt;2&lt;/span&gt;Complications with old DUC wells&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#Quick overview on DUC wells"&gt;&lt;span class="toc_label"&gt;2&lt;/span&gt;Quick overview on DUC wells&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#Reservoir depletion due to existing offset wells"&gt;&lt;span class="toc_label"&gt;3&lt;/span&gt;Reservoir depletion due to existing offset wells&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#Quantifying the impact of DUC time on EUR"&gt;&lt;span class="toc_label"&gt;4&lt;/span&gt;Quantifying the impact of DUC time on EUR&lt;/a&gt;&lt;/li&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#Reasons for dead DUCs: Lost leases"&gt;&lt;span class="toc_label"&gt;2.1&lt;/span&gt;Reasons for dead DUCs: Lost leases&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#Reasons for dead DUCs: Reservoir conditions...?"&gt;&lt;span class="toc_label"&gt;2.2&lt;/span&gt;Reasons for dead DUCs: Reservoir conditions...?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#Reasons for dead DUCs: Conclusion"&gt;&lt;span class="toc_label"&gt;2.3&lt;/span&gt;Reasons for dead DUCs: Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#Preliminary data cleaning"&gt;&lt;span class="toc_label"&gt;4.1&lt;/span&gt;Preliminary data cleaning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#Raw EUR vs. DUC time"&gt;&lt;span class="toc_label"&gt;4.2&lt;/span&gt;Raw EUR vs. DUC time&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#Factors that affect EUR: Completion size and lateral length"&gt;&lt;span class="toc_label"&gt;4.3&lt;/span&gt;Factors that affect EUR: Completion size and lateral length&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#Normalized EUR vs. DUC time"&gt;&lt;span class="toc_label"&gt;4.4&lt;/span&gt;Normalized EUR vs. DUC time&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;li&gt;&lt;a href="#Dead DUC wells"&gt;&lt;span class="toc_label"&gt;5&lt;/span&gt;"Dead" DUC wells&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#Conclusion"&gt;&lt;span class="toc_label"&gt;6&lt;/span&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1178,8 +1182,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="row full_screen_margin_80 mobile_responsive_plot_full_width" id="fig-1" style="margin-top: 15px;"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/DPR-basins.png"/&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 1: 7 major basins in the US, Source: EIA&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;The DPR provides which county and state they used to define each major basins. For your convenience, I compiled a text file (&lt;a href="https://aegis4048.github.io/downloads/notebooks/sample_data/Basins_Boundaries.txt" target="_blank"&gt;Basins_Boundaries.txt&lt;/a&gt;) that has the list of state and counties that can be easily pasted into Drilling Info's filter tab. Pulling all wells in the specified counties and states gives this &lt;a class="ico xls" href="https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx" target="_blank"&gt;Excel file&lt;/a&gt; &lt;strong&gt;(EUR_vs_Lag.xlsx).&lt;/strong&gt; Unfortunately Enverus Drilling Info is a commerical software and not everyone will be able to use it.&lt;/p&gt;
-&lt;div class="row full_screen_margin_70 mobile_responsive_plot_full_width" id="fig-2" style="margin-top: 15px;"&gt;
+&lt;/div&gt;&lt;p&gt;The DPR provides which county and state they used to define each major basins. For your convenience, I compiled a text file (&lt;a href="https://aegis4048.github.io/downloads/notebooks/sample_data/Basins_Boundaries.txt" target="_blank"&gt;Basins_Boundaries.txt&lt;/a&gt;) that has the list of state and counties that can be easily pasted into Drilling Info's filter tab. Unfortunately Enverus Drilling Info is a commerical software and not everyone will be able to use it.&lt;/p&gt;
+&lt;div class="row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-2" style="margin-top: 15px;"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/drilling_info_paste.png"/&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 2: Pasting the Eagle Ford basin's state and county data into Drilling Info for query&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1189,18 +1193,157 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div id="Key takeaways"&gt;&lt;/div&gt;&lt;h2 id="1.-Key-takeaways"&gt;1. Key takeaways&lt;a class="anchor-link" href="#1.-Key-takeaways"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;div class="highlights" id="key1"&gt;
-&lt;div class="highlights-title"&gt;1. 95% of the DUCs in the US are completed within 2 years. DUCs older than that have high chance of becoming "Dead" DUCs&lt;/div&gt;
-&lt;div class="highlights-content"&gt;The probability of completion falls drastically after two years, and the operators may risk a chance of losing their drilling investment.&lt;/div&gt;
-&lt;/div&gt;&lt;div class="highlights" id="key2"&gt;
-&lt;div class="highlights-title"&gt;2. Dead DUC wells are born from lost leases&lt;/div&gt;
-&lt;div class="highlights-content"&gt;A lessee who fails to actively use their lease risks losing their rights. This often results in the operator having to incur additional costs to re-lease the land, which can make the investment in completing the well unviable. As a result, the well may never be completed.&lt;/div&gt;
-&lt;/div&gt;&lt;div class="highlights" id="key3"&gt;
-&lt;div class="highlights-title"&gt;3. Gap time between drilling and completion has negligible impact on reservoir conditions&lt;/div&gt;
-&lt;div class="highlights-content"&gt;The study conducted in this article suggests that the gap time does not have enough impact on EUR or first-year production to discourage operators from completing their old DUCs.&lt;/div&gt;
-&lt;/div&gt;&lt;div class="highlights" id="key4"&gt;
-&lt;div class="highlights-title"&gt;4. DUC wells with 250~400 days of gap time showed the best EUR and first-year production rates&lt;/div&gt;
-&lt;div class="highlights-content"&gt;Contrary to what people would normally think, that gap time would deplete the reservoir pressure over time and result in lower production, the gap time seems to have positive effects production for DUC wells under 250~400 days, and then decrease production afterwards.&lt;/div&gt;
+&lt;div id="pandas table"&gt;&lt;/div&gt;&lt;p&gt;Pulling all active wells in the specified counties and states gives this &lt;a class="ico xls" href="https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx" target="_blank"&gt;Excel file&lt;/a&gt; &lt;strong&gt;(EUR_vs_Lag.xlsx).&lt;/strong&gt; The file has 7 tabs for each basin. The below code output shows small portion of the Anadarko wells data. Each row represents a record of one well.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [3]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+
+&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_excel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sheet_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'Anadarko'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[3]:&lt;/div&gt;
+&lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
+&lt;div&gt;
+&lt;style scoped=""&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+&lt;/style&gt;
+&lt;table border="1" class="dataframe"&gt;
+&lt;thead&gt;
+&lt;tr style="text-align: right;"&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Spud Date&lt;/th&gt;
+&lt;th&gt;Completion Date&lt;/th&gt;
+&lt;th&gt;Drill Type&lt;/th&gt;
+&lt;th&gt;Lag&lt;/th&gt;
+&lt;th&gt;EUR Oil (Full)&lt;/th&gt;
+&lt;th&gt;EUR Gas (Full)&lt;/th&gt;
+&lt;th&gt;EUR (Full) BOE&lt;/th&gt;
+&lt;th&gt;First 12 BOE&lt;/th&gt;
+&lt;th&gt;Production Type&lt;/th&gt;
+&lt;th&gt;DI Lateral Length&lt;/th&gt;
+&lt;th&gt;Total Proppant (First Treatment Job)&lt;/th&gt;
+&lt;th&gt;Total Fluid (First Treatment Job)&lt;/th&gt;
+&lt;th&gt;Proppant per Perforated Foot (First Treatment Job)&lt;/th&gt;
+&lt;th&gt;Fluid per Perforated Foot (First Treatment Job)&lt;/th&gt;
+&lt;th&gt;Proppant Concentration (lbs/gal) (First Treatment Job)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;td&gt;2020-01-09&lt;/td&gt;
+&lt;td&gt;2021-04-09&lt;/td&gt;
+&lt;td&gt;H&lt;/td&gt;
+&lt;td&gt;456.0&lt;/td&gt;
+&lt;td&gt;672317.75&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;672317.750000&lt;/td&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;td&gt;OIL&lt;/td&gt;
+&lt;td&gt;10776.0&lt;/td&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;td&gt;2019-05-03&lt;/td&gt;
+&lt;td&gt;2019-07-26&lt;/td&gt;
+&lt;td&gt;H&lt;/td&gt;
+&lt;td&gt;84.0&lt;/td&gt;
+&lt;td&gt;129760.25&lt;/td&gt;
+&lt;td&gt;2348886.00&lt;/td&gt;
+&lt;td&gt;521241.250000&lt;/td&gt;
+&lt;td&gt;141195.17&lt;/td&gt;
+&lt;td&gt;GAS&lt;/td&gt;
+&lt;td&gt;5739.0&lt;/td&gt;
+&lt;td&gt;6137496.0&lt;/td&gt;
+&lt;td&gt;170614.00&lt;/td&gt;
+&lt;td&gt;1069.4365&lt;/td&gt;
+&lt;td&gt;29.73&lt;/td&gt;
+&lt;td&gt;0.86&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;2&lt;/th&gt;
+&lt;td&gt;2018-06-20&lt;/td&gt;
+&lt;td&gt;2018-07-28&lt;/td&gt;
+&lt;td&gt;H&lt;/td&gt;
+&lt;td&gt;38.0&lt;/td&gt;
+&lt;td&gt;89633.48&lt;/td&gt;
+&lt;td&gt;472189.47&lt;/td&gt;
+&lt;td&gt;168331.725000&lt;/td&gt;
+&lt;td&gt;61155.83&lt;/td&gt;
+&lt;td&gt;GAS&lt;/td&gt;
+&lt;td&gt;4338.0&lt;/td&gt;
+&lt;td&gt;4304900.0&lt;/td&gt;
+&lt;td&gt;100874.00&lt;/td&gt;
+&lt;td&gt;992.3698&lt;/td&gt;
+&lt;td&gt;23.25&lt;/td&gt;
+&lt;td&gt;1.02&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;3&lt;/th&gt;
+&lt;td&gt;2018-05-21&lt;/td&gt;
+&lt;td&gt;2018-07-07&lt;/td&gt;
+&lt;td&gt;H&lt;/td&gt;
+&lt;td&gt;47.0&lt;/td&gt;
+&lt;td&gt;158308.72&lt;/td&gt;
+&lt;td&gt;2718710.75&lt;/td&gt;
+&lt;td&gt;611427.178333&lt;/td&gt;
+&lt;td&gt;222754.17&lt;/td&gt;
+&lt;td&gt;GAS&lt;/td&gt;
+&lt;td&gt;4859.0&lt;/td&gt;
+&lt;td&gt;5627071.0&lt;/td&gt;
+&lt;td&gt;194148.98&lt;/td&gt;
+&lt;td&gt;1158.0718&lt;/td&gt;
+&lt;td&gt;39.96&lt;/td&gt;
+&lt;td&gt;0.69&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;4&lt;/th&gt;
+&lt;td&gt;2018-04-09&lt;/td&gt;
+&lt;td&gt;2018-07-06&lt;/td&gt;
+&lt;td&gt;H&lt;/td&gt;
+&lt;td&gt;88.0&lt;/td&gt;
+&lt;td&gt;153994.27&lt;/td&gt;
+&lt;td&gt;3887145.75&lt;/td&gt;
+&lt;td&gt;801851.895000&lt;/td&gt;
+&lt;td&gt;268463.00&lt;/td&gt;
+&lt;td&gt;GAS&lt;/td&gt;
+&lt;td&gt;4845.0&lt;/td&gt;
+&lt;td&gt;8990772.0&lt;/td&gt;
+&lt;td&gt;292805.38&lt;/td&gt;
+&lt;td&gt;1855.6805&lt;/td&gt;
+&lt;td&gt;60.43&lt;/td&gt;
+&lt;td&gt;0.73&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1208,12 +1351,42 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div id="Complications with old DUC wells"&gt;&lt;/div&gt;&lt;h2 id="2.-Complications-with-old-DUC-wells"&gt;2. Complications with old DUC wells&lt;a class="anchor-link" href="#2.-Complications-with-old-DUC-wells"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;DUC wells are a form of oilfield working capital. They are essentially a long-term, partially funded storage of hydrocarbons "under" the ground instead of "on" the ground. An operator drills a well but decides to complete it later when its convenient for him for various reasons. For example he contracted rig crews to drill 50 wells, but the oil price suddenly crashed while drilling the 27th well, which makes completing the well and producing from it much less lucrative compared to the high oil price days. Revoking a rig contract can be expensive. He has no choice but to let the rig crews keep drilling through the 50th well. But he does have a choice of when he wants to complete the drilled wells - he chooses to leave the drilled wells uncompleted and plans to frack them when the oil price recovers... but is this really a smart move?&lt;/p&gt;
-&lt;p&gt;&lt;u class="bold"&gt;If a well remains in DUC stage for too long, it no longer functions as a working oilfield capital.&lt;/u&gt; Analyst John Freeman from Raymond James &amp; Associates Inc. said that that 95% of the drilled wells have been completed within 2 years, and that DUCs older than 2 years have low chance of ever being completed and considered &lt;em&gt;out-of-the-system&lt;/em&gt; (a.k.a. &lt;em&gt;Dead DUCs&lt;/em&gt;). Comparing with the Enverus data of wells in the seven DPR regions supports this claim to be reasonably true (I say "reasonably" because the average lag time between completion and drilling varies from basins to basins).&lt;/p&gt;
-&lt;p&gt;I compiled the &lt;a class="ico xls" href="https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx" target="_blank"&gt;Spud and completion dates and EUR data (aggregated by region)&lt;/a&gt; &lt;strong&gt;(EUR_vs_Lag.xlsx)&lt;/strong&gt; from the Enverus Drilling Info, and restricted it to horizontal wells that have &lt;em&gt;Completion Date&lt;/em&gt; field populated. This means that I'm excluding wells that are never completed (I do this because there are many uncompleted wells drilled since 2014 or before that will never be completed. Including these wells will skew the resulting statistics). Visualizing the data for each basin with 95% box plot generates the following figure:&lt;/p&gt;
+&lt;div id="Key takeaways"&gt;&lt;/div&gt;&lt;h2 id="1.-Key-takeaways"&gt;1. Key takeaways&lt;a class="anchor-link" href="#1.-Key-takeaways"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;div class="highlights" id="key1"&gt;
+&lt;div class="highlights-title"&gt;1. Characteristics of DUC wells&lt;/div&gt;
+&lt;div class="highlights-content"&gt;DUC wells can be turned on line for cheap since the cost of drilling have been paid. This allows them to function as a secondary form of hydrocarbon storage under the ground, instead of traditional above-ground facilities.&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlights" id="key2"&gt;
+&lt;div class="highlights-title"&gt;2. Delaying completion during times of low oil prices in the hope of a future recovery may not be a financially wise decision&lt;/div&gt;
+&lt;div class="highlights-content"&gt;This is because nearby wells can induce reservoir depletion, which can significantly reduce the potential yield. Operators should carefully consider the long-term financial implications of delaying completion and weigh them against the potential benefits of waiting for better market conditions.&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlights" id="key3"&gt;
+&lt;div class="highlights-title"&gt;3. Scientific wisdom states that the greater difference in completion timing among adjacent wells worsens child well's production&lt;/div&gt;
+&lt;div class="highlights-content"&gt;The prolonged production from nearby parent wells can lead to reservoir depletion and pressure sinks, which can affect the productivity of the child well. This issue is particularly important for DUC wells because as existing wells continue to produce and deplete, the wells awaiting completion are already exposed to these pressure variations, which can worsen if completion is further delayed &lt;a href="https://onepetro.org/REE/article-abstract/22/01/190/206725/Concerns-and-Clarifications-for-Drilled" target="_blank"&gt;(Srinivasan et al. 2018)&lt;/a&gt;.&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlights" id="key4"&gt;
+&lt;div class="highlights-title"&gt;4. Contrary to the scientific wisdom, wells completed shortly after drilling tend to have smaller EUR compared to wells with longer DUC time&lt;/div&gt;
+&lt;div class="highlights-content"&gt;This is due to the fact that younger DUC wells tend to have shorter lateral length and treated with smaller completion concentration for each lateral foot. This means that the operators tend to undersize completion design for their younger DUC wells, resulting in sub-optimal EUR.&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlights" id="key5"&gt;
+&lt;div class="highlights-title"&gt;5. To discern the genuine influence of DUC time on production, EUR is normalized by lateral length, proppant per perforated foot, and fluid per perforated foot&lt;/div&gt;
+&lt;div class="highlights-content"&gt;This decision is made after visually confirming positive correlation between EUR vs. lateral length and completion size in &lt;a href="#fig-7"&gt;Figure 7&lt;/a&gt;.&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlights" id="key6"&gt;
+&lt;div class="highlights-title"&gt;6. Anadarko and Permian basins showed the worst reduction in normalized EUR in the shortest time span between drilling and completion&lt;/div&gt;
+&lt;div class="highlights-content"&gt;Normalized EUR dropped by 81% and 74%, respectively, for Anadarko and Permian basins over a span of 150 days of additional delay in completion (&lt;a href="#fig-8"&gt;Figure 8&lt;/a&gt;), followed by the Haynesville basin which showed 46% decrease in normalized EUR over a span of additional 100 days of delay in completion.&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlights" id="key7"&gt;
+&lt;div class="highlights-title"&gt;7. Appalachia, Eagle Ford and Niobrara basins showed minimal loss in normalized EUR with increasing DUC time&lt;/div&gt;
+&lt;div class="highlights-content"&gt;Appalachia experienced only 19% reduction in normalized EUR with 350 days of delay in completion, and Eagle Ford and Niobrara basins showed negligible change in normalized EUR with increasing DUC time. This finding shows that wells in these basins are the least likely to suffer from well-to-well interference problems with increasing DUC time compared to the other basins.&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlights" id="key8"&gt;
+&lt;div class="highlights-title"&gt;8. DUC wells have time limit till completion. &lt;/div&gt;
+&lt;div class="highlights-content"&gt;The probability of completion falls drastically after a certain time limit due to the degrading economics associated with delays in completion. For example in &lt;a href="#fig-16"&gt;Figure 16&lt;/a&gt;, the completion time limits for Anadarko and Hanyesville are 308 days and 409 days after drilled, respectively. Beyond these limits, the probability of completion in these basins drops below 5%. This study demonstrates a positive correlation between the extent of these time limits and changes in both normalized EUR and absolute EUR as DUC time increases.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="Quick overview on DUC wells"&gt;&lt;/div&gt;&lt;h2 id="2.-Quick-overview-on-DUC-wells"&gt;2. Quick overview on DUC wells&lt;a class="anchor-link" href="#2.-Quick-overview-on-DUC-wells"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Once a well is drilled, it must be completed to produce oil and gas. However, operators sometimes delay completing a well for various reasons, such as waiting for fracking crews or facing budget constraints. These delayed wells, known as &lt;strong&gt;Drilled but Uncompleted (DUC)&lt;/strong&gt; wells, accumulate when drilling outpaces completion and decrease when the opposite occurs. &lt;a href="#fig-3"&gt;Figure 3&lt;/a&gt; illustrates the historical trend of DUC inventories in the seven major US basins, as defined by the &lt;a href="https://www.eia.gov/petroleum/drilling/" target="_blank"&gt;EIA's DPR&lt;/a&gt; page. &lt;a href="#fig-4"&gt;Figure 4&lt;/a&gt; provides more detailed information on each basin, including hydrocarbon production volumes and drilling activities.&lt;/p&gt;
+&lt;p&gt;DUC wells have unique features that make them an attractive option for low-cost production. The wells can be turned on line for production for cheap; the costs of drilling have been paid, and completion won't be as costly as new drilling. They can function as a secondary form of hydrocarbon storage underground, unlike traditional above-ground facilities. In times of low oil prices, operators may choose to complete them later, hoping that the oil price would recover in a near future. Throughout the rest of the article, however, I show why this may not be a smart idea for some basins (especially Anadarko and Permian) due to reservoir depletion induced by existing producing offset wells.&lt;/p&gt;
 &lt;div class="row full_screen_margin_90 mobile_responsive_plot_full_width" id="fig-3" style="margin-top: 15px;"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/Days Till Completion After Drilled.png"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 3: The numeric annotations above each box plot whisker represent 95% upper limit.&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/US Major Basins Completion &amp; Drilling Activities and Commodities.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 3: DUCs accumulate when drilling activity exceeds completion, and vice versa. The line plots depict three distinct periods of significant fluctuations in DUC well inventories, with [1] and [3] representing instances of rapid depletion due to low completion rates, and [2] reflecting a period of accumulation resulting from high drilling activities. WTI Crude oil prices is appended at the bottom to show the effect of commodity prices on DUCs.&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1224,6 +1397,1558 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="solution_panel closed"&gt;
 &lt;div class="solution_title"&gt;
 &lt;p class="solution_title_string"&gt;Source Code For Figure (3)&lt;/p&gt;
+&lt;ul class="nav navbar-right panel_toolbox"&gt;
+&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="solution_content"&gt;
+&lt;pre&gt;
+            &lt;code class="language-python"&gt;
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.ticker as ticker
+
+############################################# Basins ##############################################
+
+basins = sorted(['Anadarko', 'Appalachia', 'Eagle Ford', 'Haynesville', 'Niobrara', 'Permian', 'Bakken'])
+
+################################### DUC Wells Count per Basin #####################################
+
+# compile a DataFrame to store count of DUC wells per basin
+# source: EIA - https://www.eia.gov/petroleum/drilling/
+
+dfs = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/Duc-EIA.xlsx', sheet_name=basin)
+    df_cur['Basin'] = basin
+    dfs.append(df_cur)
+
+df = pd.concat(dfs)
+df = df.sort_values('Date')
+df.index = pd.to_datetime(df['Date'])
+
+df_DUCs = df.groupby([pd.Grouper(freq='M'), 'Basin'])['DUC'].mean()
+df_DUCs = df_DUCs.unstack().fillna(0)
+df_DUCs = round(df_DUCs, 0)
+df_DUCs['Total DUCs'] = df_DUCs.T.apply(lambda x: sum(x))
+
+df_drilled = df.groupby([pd.Grouper(freq='M'), 'Basin'])['Drilled'].sum()
+df_drilled = df_drilled.unstack().fillna(0)
+df_drilled['Total Drilled'] = df_drilled.T.apply(lambda x: sum(x))
+
+df_completed = df.groupby([pd.Grouper(freq='M'), 'Basin'])['Completed'].sum()
+df_completed = df_completed.unstack().fillna(0)
+df_completed['Total Completed'] = df_completed.T.apply(lambda x: sum(x))
+
+############################################# Plot ##############################################
+
+fig, ax = plt.subplots(figsize=(8, 4))
+
+ax2 = ax.twinx()
+
+ax.plot(df_drilled.index, df_drilled['Total Drilled'], color='k', label='Newly Drilled')
+ax.plot(df_completed.index, df_completed['Total Completed'], label='Completed')
+ax2.plot(df_DUCs.index, df_DUCs['Total DUCs'], color='purple', label='DUC')
+
+
+ax.fill_between(df_drilled.index, df_drilled['Total Drilled'], df_completed['Total Completed'],
+                where=(df_drilled.index &gt;= '2016-03-1') &amp; (df_drilled.index &lt;= '2017-1-1'), color='red', alpha=0.4)
+ax.fill_between(df_drilled.index, df_drilled['Total Drilled'], df_completed['Total Completed'],
+                where=(df_drilled.index &gt;= '2018-08-01') &amp; (df_drilled.index &lt;= '2019-3-1'), color='green', alpha=0.4)
+ax.fill_between(df_drilled.index, df_drilled['Total Drilled'], df_completed['Total Completed'],
+                where=(df_drilled.index &gt;= '2020-07-1') &amp; (df_drilled.index &lt;= '2022-8-1'), color='red', alpha=0.4)
+
+ax.axvline(x=df_drilled.index[26], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[35], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvspan(df_drilled.index[26], df_drilled.index[35], facecolor='lightgrey', alpha=0.3)
+
+ax.axvline(x=df_drilled.index[55], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[61], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvspan(df_drilled.index[55], df_drilled.index[61], facecolor='lightgrey', alpha=0.3)
+
+ax.axvline(x=df_drilled.index[78], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[102], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvspan(df_drilled.index[78], df_drilled.index[102], facecolor='lightgrey', alpha=0.3)
+
+ax.set_ylim(0, 2500)
+ax2.set_ylim(0, 10000)
+
+ax.grid(axis='y', alpha=0.5)
+ax.yaxis.get_major_ticks()[5].gridline.set_visible(False)
+ax.spines.top.set_visible(False)
+ax2.spines.top.set_visible(False)
+
+h1, l1 = ax.get_legend_handles_labels()
+h2, l2 = ax2.get_legend_handles_labels()
+ax.legend(h1 + h2, l1 + l2, fontsize=10, ncol=3, loc='upper left', framealpha=1)
+
+ax.set_ylabel('Drilled &amp; Completed Wells', fontsize=11)
+ax2.set_ylabel('DUC Wells', fontsize=11)
+
+ax.arrow(df_drilled.index[71], 1500, 60, -270, head_width=40, head_length=60, fc='k', ec='k')
+ax.text(0.58, 0.62, 'Covid Crash', fontsize=9, transform=ax.transAxes, color='k')
+
+ax.text(0.295, 0.05, '[1]', fontsize=9, transform=ax.transAxes, color='k')
+ax.text(0.53, 0.05, '[2]', fontsize=9, transform=ax.transAxes, color='k')
+ax.text(0.805, 0.05, '[3]', fontsize=9, transform=ax.transAxes, color='k')
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+ax.set_title(setbold('US Major Basins Completion &amp; Drilling Activities')  + ",  Jan 2014 - Dec 2022", fontsize=12, pad=10, x=0.4, y=1.06)
+ax.annotate('', xy=(-0.11, 1.07), xycoords='axes fraction', xytext=(1.11, 1.07), arrowprops=dict(arrowstyle="-", color='k'))
+ax.text(0.145, 0.1, 'aegis4048.github.io', fontsize=10, ha='center', va='center',
+        transform=ax.transAxes, color='grey', alpha=0.5)
+
+fig.set_facecolor("white")
+fig.tight_layout()
+
+############################################# Plot 2 ##############################################
+
+df = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EIA-commodity.xls', sheet_name='Data 1')
+df = df.iloc[338:-1, :-1] # between Jan 2014 to Dec 2022
+df.columns = ['date', 'value']
+df.reset_index(inplace=True, drop=True)
+df['date'] = df['date'].apply(lambda x: x.strftime('%Y-%m'))
+df['date'] = pd.to_datetime(df['date'])
+
+fig, ax = plt.subplots(figsize=(7, 1))
+
+ax.plot(df['date'], df['value'], color='green')
+
+ax.set_ylabel('oil ($)', fontsize=10)
+ax.set_ylim(0, 120)
+ax.set_yticks(np.linspace(0, 120, 4))
+ax.tick_params(axis='both', which='major', labelsize=9)
+
+ax.axvspan(df_drilled.index[26], df_drilled.index[35], facecolor='lightgrey', alpha=0.3)
+ax.axvspan(df_drilled.index[55], df_drilled.index[61], facecolor='lightgrey', alpha=0.3)
+ax.axvspan(df_drilled.index[78], df_drilled.index[103], facecolor='lightgrey', alpha=0.3)
+
+ax.axvline(x=df_drilled.index[26], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[35], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[55], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[61], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[78], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[103], color='k', linestyle='--', linewidth=1, alpha=0.7)
+
+ax.grid(axis='y', alpha=0.5)
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+
+ax.annotate('Source: Pythonic Excursions, EIA', xy=(-0.11, -.5), xycoords='axes fraction', fontsize=9)
+            &lt;/code&gt;
+        &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="row" id="fig-4"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/DUC &amp; Newly Drilled Wells and Production by Basins, Jan 2014 - Dec 2022.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 4: Quick glance at the EIA DPR data for each basin. Note that the Permian basin has different y-axis scale for DUC &amp; newly drilled wells count.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="solution_panel closed"&gt;
+&lt;div class="solution_title"&gt;
+&lt;p class="solution_title_string"&gt;Source Code For Figure (4)&lt;/p&gt;
+&lt;ul class="nav navbar-right panel_toolbox"&gt;
+&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="solution_content"&gt;
+&lt;pre&gt;
+            &lt;code class="language-python"&gt;
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.colors import LinearSegmentedColormap
+import warnings
+import matplotlib.gridspec as gridspec
+import matplotlib.ticker as ticker
+
+############################################# Basins ##############################################
+
+basins = sorted(['Anadarko', 'Appalachia', 'Eagle Ford', 'Haynesville', 'Niobrara', 'Permian', 'Bakken'])
+
+################################### DUC Wells Count per Basin #####################################
+
+# compile a DataFrame to store count of DUC wells per basin
+# source: EIA - https://www.eia.gov/petroleum/drilling/
+
+dfs = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/Duc-EIA.xlsx', sheet_name=basin)
+    df_cur['Basin'] = basin
+    dfs.append(df_cur)
+
+df = pd.concat(dfs)
+df = df.sort_values('Date')
+df.index = pd.to_datetime(df['Date'])
+
+df_DUCs_year = df.groupby([df.index.year, 'Basin'])['DUC'].mean()
+df_DUCs_year = df_DUCs_year.unstack().fillna(0)
+df_DUCs_year = round(df_DUCs_year, 0)
+
+df_drilled_year = df.groupby([df.index.year, 'Basin'])['Drilled'].sum()
+df_drilled_year = df_drilled_year.unstack().fillna(0)
+df_drilled_year['Total Drilled'] = df_drilled_year.T.apply(lambda x: sum(x))
+
+#################### Import All Data - Rig Count, Oil &amp; Gas Prod per Basins #######################
+
+dfs2 = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/dpr-data.xlsx', sheet_name=basin + ' Region', skiprows=1)
+    df_cur['Basin'] = basin
+    dfs2.append(df_cur)
+
+year_cutoff = '2013' # counting from year_cutoff + 1
+date_header = 'Month'
+
+df2 = pd.concat(dfs2)
+df2 = df2.sort_values(date_header)
+df2.index = pd.to_datetime(df2[date_header])
+df2.drop(df2.columns[[2, 3, 5, 6]], axis=1, inplace=True)
+df2.columns = ['Date', 'Rig Count', 'Total Oil Prod (BBLD)', 'Total Gas Prod (MCFD)', 'Basin']
+df2 = df2[df2.index &gt; year_cutoff + '-12-31']
+
+################################ Cross Table for Gas Production ###################################
+
+# Total Gas Production
+df2_total_gas_prod_year = df2.groupby([df2.index.year, 'Basin'])['Total Gas Prod (MCFD)'].sum()
+df2_total_gas_prod_year = df2_total_gas_prod_year.unstack().fillna(0)
+df2_total_gas_prod_year['Total Gas (BCFD)'] = df2_total_gas_prod_year.T.apply(lambda x: sum(x))
+df2_total_gas_prod_year = df2_total_gas_prod_year / 1000000
+
+################################ Cross Table for Oil Production ###################################
+
+df2_total_oil_prod_year = df2.groupby([df2.index.year, 'Basin'])['Total Oil Prod (BBLD)'].sum()
+df2_total_oil_prod_year = df2_total_oil_prod_year.unstack().fillna(0)
+df2_total_oil_prod_year['Total (MMBBLD)'] = df2_total_oil_prod_year.T.apply(lambda x: sum(x))
+df2_total_oil_prod_year = df2_total_oil_prod_year / 1000000
+
+############################################# Plot ##############################################
+
+# changing datetime index to str is necessary to overlay lineplot on top of barplot
+df_drilled_year.index = [str(item) for item in df_drilled_year.index]
+df2_total_gas_prod_year.index = [str(item) for item in df2_total_gas_prod_year.index]
+df2_total_oil_prod_year.index = [str(item) for item in df2_total_oil_prod_year.index]
+
+cmap_name = 'cubehelix'
+colors = sns.color_palette(cmap_name, n_colors=len(basins))
+np.random.seed(34)
+np.random.shuffle(colors)
+colors = colors.as_hex()
+colors[0] = 'grey'
+colors[-2] = '#914810'
+cmap = LinearSegmentedColormap.from_list("my_colormap", colors)
+barcolor_dict = {label: color for label, color in zip(basins, colors)}
+
+axis_fontsize = 15
+axis_tick_fontsize = 11
+title_fontsize = 18
+figure_title_fontsize = 20
+label_fontsize = 13
+legend_fontsize = 16
+markersize = 9
+y_label_fontsize = 15
+
+gas_prod_color = 'red'
+oil_prod_color = 'green'
+drilled_color = 'k'
+
+fig = plt.figure(figsize=(16, 17))
+gs = gridspec.GridSpec(4, 4)
+ax1 = plt.subplot(gs[0, 0:2])
+ax2 = plt.subplot(gs[0,2:])
+ax3 = plt.subplot(gs[1,0:2])
+ax4 = plt.subplot(gs[1,2:])
+ax5 = plt.subplot(gs[2,0:2])
+ax6 = plt.subplot(gs[2,2:])
+ax7 = plt.subplot(gs[3,2:4])
+axes = [ax1,ax2,ax3,ax4,ax5,ax6,ax7]
+
+for i, (ax, basin) in enumerate(zip(axes, basins)):
+
+    df_DUCs_year.plot.bar(alpha=1, y=basin, ax=ax, legend=None, width=0.9, edgecolor='k', linewidth=0.1, label='DUC Count', color=barcolor_dict[basin])
+
+    ax1 = ax.twinx()
+    df_drilled_year.plot(y=basin, ax=ax1, linestyle='-', legend=None, marker='o', color=drilled_color, markersize=markersize, label='New Drilled Wells')
+
+    ax2 = ax.twinx()
+    df2_total_oil_prod_year.plot(y=basin, ax=ax2, linestyle='-', marker='o', color='green', markersize=markersize, label='Oil Prod Total', legend=None)
+    ax2.set_ylim(0, 70)
+
+    ax3 = ax.twinx()
+    df2_total_gas_prod_year.plot(y=basin, ax=ax3, linestyle='-', marker='o', color='red', markersize=markersize, label='Gas Prod Total', legend=None)
+    ax3.set_ylim(0, 500)
+
+    ax.set_facecolor('#eeeeee')
+    ax.set_axisbelow(True)
+    ax.grid(axis='y')
+    ax.set_xticklabels([str(dt).split('-')[0] for dt in df_DUCs_year.index])
+    ax.tick_params(axis='x', labelrotation=45, labelsize=axis_tick_fontsize)
+    ax.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax1.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax.set_title(basin, fontsize=title_fontsize)
+
+    if i % 2 == 0 and i != 6:
+        ax.set_ylabel('DUC Wells Count (k)', fontsize=axis_fontsize)
+        ax2.set_yticks([])
+        ax3.set_yticks([])        
+    else:
+        ax1.set_ylabel('Drilled Wells Count (k)', fontsize=axis_fontsize)
+
+        ax2.tick_params(axis='y', colors='green')
+        ax2.spines['right'].set_position(('outward', 50))
+        ax2.spines['right'].set_color('green')
+        ax2.set_ylabel('Total Oil Prod. (MMBBLD)', color='green', fontsize= axis_fontsize)
+
+        ax3.tick_params(axis='y', colors='red')
+        ax3.spines['right'].set_position(('outward', 100))
+        ax3.spines['right'].set_color('red')
+        ax3.set_ylabel('Total Gas Prod. (BCFD)', color='red', fontsize= axis_fontsize) 
+
+    if i == 6:
+        ax.set_ylabel('DUC Wells Count (k)', fontsize=axis_fontsize)
+    #else:
+        #ax1.set_yticks([])
+        #ax2.set_yticks([])
+        #ax3.set_yticks([])
+
+    if i == 4 or i == 6:
+        ax.set_xlabel('Spud Date', fontsize=y_label_fontsize)
+    else:
+        ax.set_xlabel('')
+
+    if basin == 'Permian':
+        pass
+        ax.set_ylim(0, 5000)
+        ax1.set_ylim(0, 15000)
+
+    else:
+        ax.set_ylim(0, 1400)
+        ax1.set_ylim(0, 7000)
+
+    ax.yaxis.set_major_formatter(ticker.EngFormatter())
+    ax1.yaxis.set_major_formatter(ticker.EngFormatter())        
+
+    ax.spines.top.set_visible(False)
+    ax1.spines.top.set_visible(False)
+    ax2.spines.top.set_visible(False)
+    ax3.spines.top.set_visible(False)
+
+    #ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+    #ax1.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+
+    h0, l0 = ax.get_legend_handles_labels()
+    h1, l1 = ax1.get_legend_handles_labels()
+    h2, l2 = ax2.get_legend_handles_labels()
+    h3, l3 = ax3.get_legend_handles_labels()
+    ax.legend(h0, l0, loc='upper left', ncol=2, fontsize=13, framealpha=0.5)
+
+    fig.legend(h3 + h2 + h1, l3 + l2 + l1, loc='lower left', ncol=2,
+               bbox_to_anchor=(0.046, 0.165), bbox_transform=fig.transFigure, fontsize=legend_fontsize)
+
+    for c in ax.containers:
+        ax.bar_label(c, label_type='center', color='white', weight='bold', fontsize=label_fontsize)
+
+    ax.text(0.16, 0.80, 'aegis4048.github.io', fontsize=12, ha='center', va='center',
+            transform=ax.transAxes, color='grey', alpha=0.5)        
+
+fig.tight_layout()
+
+def setbold(txt): 
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+y_pos = 0.998
+fig.suptitle(setbold('DUC &amp; Newly Drilled Wells Count and Production')  + ",  Jan 2014 - June 2022", fontsize=19, x=0.328, y=1.025)
+ax.annotate('', xy=(0.006, y_pos), xycoords='figure fraction', xytext=(1, y_pos), arrowprops=dict(arrowstyle="-", color='k', lw=1.3))
+ax.annotate('Source: Pythonic Excursions, EIA', xy=(0.05, 0.145), xycoords='figure fraction', fontsize=16)
+
+fig.set_facecolor("white")
+            &lt;/code&gt;
+        &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="Reservoir depletion due to existing offset wells"&gt;&lt;/div&gt;&lt;h2 id="3.-Reservoir-depletion-due-to-existing-offset-wells"&gt;3. Reservoir depletion due to existing offset wells&lt;a class="anchor-link" href="#3.-Reservoir-depletion-due-to-existing-offset-wells"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Rarely the operators get a chance to drill a well in a virgin reservoir condition, especially in the Permian basin. Most times it's infill drilling among pre-existing wells that have been on production for some time, potentially inducing reservoir depletion problems when chained with unoptimized fracture design and well spacing.&lt;/p&gt;
+&lt;p&gt;Well-to-well interference is known to have negative impact on production for both parent (old) and child (new) wells. The prolonged production from a parent well induces reservoir depletion and creates pressure sinks (area of lower pressure). A child well's hydraulic fractures are more prone to grow towards the pressure sink, causing fracture hits. &lt;a href="https://onepetro.org/URTECONF/proceedings-abstract/17URTC/All-17URTC/URTEC-2690466-MS/156487/" target="_blank"&gt;Ajisafe et al. (2016)&lt;/a&gt; studied 300 horizontal wells in the Avalon Shale of the Delaware basin and found that child wells were almost 30% less productive than parent wells. To mitigate the effects of frac hits, they simulated 1,320-ft and 660-ft lateral spacing and found that child wells with 1,320-ft spacing saw only a 5% reduction in cumulative production over five years compared to parent wells, while 660-ft spacing saw a 24% reduction.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://onepetro.org/REE/article-abstract/22/01/190/206725/Concerns-and-Clarifications-for-Drilled" target="_blank"&gt;Srinivasan et al. (2018)&lt;/a&gt; conducted study on the Williston basin, and discovered that &lt;i&gt;"the longer the difference in timing between completions in areas of high reservoir quality, the more pronounced the impacts of pressure depletion will be on new adjacent completions."&lt;/i&gt; It has particular significance for DUC wells because, as existing wells continue to produce and deplete, wells waiting on completion are already experiencing these variations around them, which will worsen as completion is delayed further.&lt;/p&gt;
+&lt;p&gt;While the impact of a parent well on a child well is a convoluted function of fracture design, well spacing, DUC time, and many other factors, this article focuses on the effect of DUC time (gap between drilling and completion) on EUR to show why it may not be wise to delay completion for wells in certain basins (especailly Anadarko and Permian).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="Quantifying the impact of DUC time on EUR"&gt;&lt;/div&gt;&lt;h2 id="4.-Quantifying-the-impact-of-DUC-time-on-EUR"&gt;4. Quantifying the impact of DUC time on EUR&lt;a class="anchor-link" href="#4.-Quantifying-the-impact-of-DUC-time-on-EUR"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;blockquote class="quote" style="font-family: unset; font-size: unset; font-style: unset; padding-bottom: 12px"&gt;
+&lt;div class="terminology" style="margin-top: 2px"&gt;&lt;strong&gt;DUC time:&lt;/strong&gt; Gap in time between drilling and completion of a well (days).&lt;/div&gt;
+&lt;div class="terminology"&gt;&lt;strong&gt;PPF:&lt;/strong&gt; Proppant per Perforated Foot (lbs/ft).&lt;/div&gt;
+&lt;div class="terminology"&gt;&lt;strong&gt;FPF:&lt;/strong&gt; Fluid per Perforated Foot (gal/ft).&lt;/div&gt;
+&lt;div class="terminology"&gt;&lt;strong&gt;Completion size:&lt;/strong&gt; Total volume of proppant and fracturing fluid.&lt;/div&gt;
+&lt;/blockquote&gt;&lt;p&gt;&lt;strong&gt;Data Description&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The primary data source used in this study is Enverus' Drilling Info application (refer to &lt;a href="#pandas table"&gt;above&lt;/a&gt; for quick peek at the sample data). The data was filtered to include only horizontal wells (column: &lt;em&gt;Drill Type&lt;/em&gt;) and producing wells (column: &lt;em&gt;Production Type&lt;/em&gt;), while excluding injection wells, dry holes, cores, etc. DUC time (column: &lt;em&gt;Lag&lt;/em&gt;) is calculated by the difference between spud date and completion date. Since Drilling Info does not provide finished drilling date, spud date was assumed to be equivalent to drilled date. Modern day drilling typically takes less than 20 days.&lt;/p&gt;
+&lt;p&gt;The EUR (column: &lt;em&gt;EUR (Full) BOE&lt;/em&gt;) is expressed in Barrels of Oil Equivalent (BOE). The oil and gas EURs are regularly calculated and updated by Enverus. Although these auto-fitted EURs may not be completely accurate when examined on a well-by-well basis, they provide valuable insights for basin-scale analysis. The gas EUR is converted from MCFD to BOE using a conversion factor of 6 before being combined with the oil EUR.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Methodology&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Literature review suggests that the volume of hydrocarbons lost to parent wells from child wells increases with longer DUC times. However, visualizing the raw EUR vs. DUC time contradicts this proved scientific wisdom, as shown in &lt;a href="#fig-6"&gt;Figure 6&lt;/a&gt;, due to the factors that have inconsistent effects on production at different DUC times. The presented study below attempts to separate the sole effects of DUC time on reservoir depletion by normalizing EUR by lateral length and completion size.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="Preliminary data cleaning"&gt;&lt;/div&gt;&lt;h3 id="4.1.-Preliminary-data-cleaning"&gt;4.1. Preliminary data cleaning&lt;a class="anchor-link" href="#4.1.-Preliminary-data-cleaning"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;It is of common phenomenon that real life data has unwanted extreme data points or outliers that skew the derived statistics. This study filters those unwanted data based on percentile method; data points bigger or smaller than 97.5% or 2.5% are removed for lateral length, PPF, and FPF. In case of EUR, data points bigger than 95% percentile are filtered out. &lt;a href="#fig-5"&gt;Figure 5&lt;/a&gt; illustrates the result of outlier removal process for Anadarko and Haynesville for EUR and PPF. Though not shown in the below figure, the outlier removal process is applied for all data types of interest (EUR, lateral, PPF, and FPF) for all seven DPR basins.&lt;/p&gt;
+&lt;div class="row" id="fig-5" style="margin-top: 15px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/Extreme Data Removal for EURs and PPF.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 5: Each dot represents one well. The wells are binned by 50 lag days. Each band of dots represents wells completed within the 50-day binned interval. For EUR, upper 5% are removed. For PPF (proppant per perforated foot), upper and lower 2.5% are removed.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="solution_panel closed"&gt;
+&lt;div class="solution_title"&gt;
+&lt;p class="solution_title_string"&gt;Source Code For Figure (5)&lt;/p&gt;
+&lt;ul class="nav navbar-right panel_toolbox"&gt;
+&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="solution_content"&gt;
+&lt;pre&gt;
+            &lt;code class="language-python"&gt;
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+import matplotlib.ticker as ticker
+from scipy import stats
+
+############################################# Basins ##############################################
+
+basins = ['Anadarko', 'Haynesville', 'Anadarko', 'Haynesville']
+
+################################### DUC Wells Count per Basin #####################################
+
+EURs = ['EUR (Full) BOE', 'EUR Oil (Full)', 'EUR Gas (Full)']
+dfs = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx', sheet_name=basin)
+    df_cur = df_cur.dropna(subset=['Completion Date'])           # Drop wells that are not completed
+    df_cur = df_cur[df_cur['Drill Type'] == 'H']                 # Horizontal wells only
+
+    # Drops non-hydrocarbon wells like: Dry hole, injection, core, etc.
+    df_cur = df_cur[df_cur['Production Type'].isin(['OIL', 'GAS', 'OIL &amp; GAS'])]
+
+    df_cur = df_cur.dropna(subset=EURs)
+    df_cur[EURs] = df_cur[EURs].div(1000).round(0)
+    dfs.append(df_cur)
+
+############################################# Plot ##############################################
+
+fig = plt.figure(figsize=(16, 9))
+gs = gridspec.GridSpec(4, 4)
+ax1 = plt.subplot(gs[0:2, 0:2])
+ax2 = plt.subplot(gs[0:2, 2:])
+ax3 = plt.subplot(gs[2:, 0:2])
+ax4 = plt.subplot(gs[2:, 2:])
+axes = [ax1,ax2,ax3,ax4]
+
+axis_tick_fontsize = 15
+title_fontsize = 19
+markersize = 20
+y_label_fontsize = 18
+legend_annot_fontsize = 18
+
+colors = ['grey', '#c6b4ee', 'grey', '#c6b4ee']
+columns = ['EUR (Full) BOE', 'EUR (Full) BOE', 
+           'Proppant per Perforated Foot (First Treatment Job)', 'Proppant per Perforated Foot (First Treatment Job)']
+
+for i, (ax, basin, column) in enumerate (zip(axes, basins, columns)):
+
+    df = dfs[i]
+
+    stepsize= 50
+    bins = np.arange(0, 1000 + stepsize, stepsize)
+
+    binned = []
+    for b in bins[: -1]:
+        _ = df[df['Lag'].between(b, b + stepsize)][column]
+        binned.append(_)
+
+    binned_outlier = []
+    binned_cleaned = []
+
+    ################################# For EURs ######################################
+
+    if column == 'EUR (Full) BOE':
+
+        for item in binned:
+            threshold = item.quantile(0.975)
+            binned_outlier.append(item[item &gt;= threshold])
+            binned_cleaned.append(item[item &lt; threshold])
+
+        if basin == 'Anadarko':
+            y_max = 18000
+            n_ticks = 7        
+        else:
+            y_max = 25000
+            n_ticks = 6        
+
+        ax.set_ylabel('EUR (MBOE)', fontsize=y_label_fontsize)
+        ax.set_title(basin, fontsize=title_fontsize)
+        ax.text(0.98, 0.65, 'EURs', fontsize=20, ha='right', transform=ax.transAxes, color='k', alpha=0.5)
+
+    ################################# For Proppants ######################################
+
+    if column == 'Proppant per Perforated Foot (First Treatment Job)':
+        for item in binned:
+            threshold_upper = item.quantile(0.975) 
+            threshold_lower = item.quantile(0.025)
+            binned_outlier.append(item[(item &lt; threshold_lower) | (item &gt; threshold_upper)])
+            binned_cleaned.append(item[(item &gt;= threshold_lower) &amp; (item &lt;= threshold_upper)])
+
+        if basin == 'Anadarko':
+            y_max = 7000
+            n_ticks = 8       
+        else:
+            y_max = 10000
+            n_ticks = 6             
+
+        ax.set_ylabel('PPF (lbs/ft)', fontsize=y_label_fontsize)
+        ax.set_xlabel('DUC Time (Days)', fontsize=y_label_fontsize + 1)
+        ax.text(0.98, 0.65, 'Proppants/Ft', fontsize=20, ha='right', transform=ax.transAxes, color='k', alpha=0.5)
+
+    ######################################################################################
+
+    # scatter plot of cleaned data
+    for j, item in enumerate(binned_cleaned):
+        x = np.random.normal(j + 1, 0.06, size=len(item))
+        ax.scatter(x, item, color=colors[i], alpha=0.5, s=10, edgecolors='k', linewidth=0.1, label='Original wells')
+
+    # scatter plot of outliers
+    for k, item_outlier in enumerate(binned_outlier):
+        x_outlier = np.random.normal(k + 1, 0.06, size=len(item_outlier))
+        ax.scatter(x_outlier, item_outlier, color='r', alpha=0.5, s=50, marker='x', label='Outliers')
+
+    # axis range
+    ymin = 0 - 0.05 * y_max
+    ax.set_ylim(ymin, y_max)
+
+    # tick settings
+    ax.yaxis.set_major_locator(plt.MaxNLocator(n_ticks))
+    ax.tick_params(axis='x', labelsize=axis_tick_fontsize)
+    ax.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax.yaxis.set_major_formatter(ticker.EngFormatter())
+    ax.xaxis.set_major_locator(plt.MaxNLocator(11))
+    ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+    ax.set_xticklabels([int(item) for item in ax.get_xticks() * stepsize], rotation=30, fontsize=axis_tick_fontsize)
+
+    # spines and grid
+    ax.spines.top.set_visible(False)
+    ax.spines.right.set_visible(False)
+    ax.grid(axis='y', alpha=0.5)
+    ax.set_axisbelow(True)
+    ax.set_facecolor('#eeeeee')
+
+    # legend
+    h0, l0 = ax.get_legend_handles_labels()
+    leg = ax.legend([h0[0], h0[-1]], [l0[0], l0[-1]], fontsize=16, ncol=1, loc='upper right')
+    for lh in leg.legendHandles:
+        lh.set_alpha(1)
+        lh.set_sizes([50])
+    ax.text(0.19, 0.88, 'aegis4048.github.io', fontsize=16, ha='center', va='center',
+            transform=ax.transAxes, color='grey', alpha=0.5)
+
+fig.tight_layout()
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+y_pos = 0.993
+fig.suptitle(setbold('Extreme Data Removal for EURs and PPF')  + ",  Jan 2014 - June 2022", fontsize=19, x=0.29, y=1.04)
+ax.annotate('', xy=(0.005, y_pos), xycoords='figure fraction', xytext=(1, y_pos), arrowprops=dict(arrowstyle="-", color='k', lw=1.3))
+ax.annotate('Source: Pythonic Excursions, DrillingInfo', xy=(0.01, 0.02),
+            xycoords='figure fraction', fontsize=legend_annot_fontsize)
+
+fig.set_facecolor("white")
+
+plt.subplots_adjust(bottom=.15)
+fig.savefig('Extreme Data Removal for EURs and PPF.png', dpi=300, bbox_inches='tight')
+            &lt;/code&gt;
+        &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="Raw EUR vs. DUC time"&gt;&lt;/div&gt;&lt;h3 id="4.2.-Raw-EUR-vs.-DUC-time"&gt;4.2. Raw EUR vs. DUC time&lt;a class="anchor-link" href="#4.2.-Raw-EUR-vs.-DUC-time"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;According to prevailing scientific knowledge, the duration of DUC time is expected to negatively impact production. Nevertheless, the findings displayed in &lt;a href="#fig-6"&gt;Figure 6&lt;/a&gt; appear to contradict this notion. The plot depicts the raw EUR on the y-axis and the DUC time on the x-axis. The mean EURs for wells completed soon after drilling (within 50 days, first bands of dots in each basin plot) appear to be lower than those completed between 250 and 350 days after drilling. Notably, this difference is most pronounced for the Haynesville wells, as &lt;strong&gt;those completed within 300-350 days exhibit an EUR that is 328% higher than wells completed within 50 days after drilling&lt;/strong&gt;. This observation is illogical and suggests that further data analysis and investigation are required to discern the genuine influence of DUC time on EUR.&lt;/p&gt;
+&lt;div class="row" id="fig-6" style="margin-top: 15px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/0_EUR_raw.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 6: Each dot represents one well. The wells are binned by 50 DUC days. Each band of dots represents wells completed within the 50-day binned interval. The blue line plot represetns the average of wells in each 50-day bin. Note that the credibility of this average line plot falls with the increasing DUC time due to lack of data near the end of the x-axis. Index of peak is chosen by visual inspection; the point which "looks like" an inflection point is chosen, and is prone to subjectivity.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="solution_panel closed"&gt;
+&lt;div class="solution_title"&gt;
+&lt;p class="solution_title_string"&gt;Source Code For Figure (6)&lt;/p&gt;
+&lt;ul class="nav navbar-right panel_toolbox"&gt;
+&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="solution_content"&gt;
+&lt;pre&gt;
+            &lt;code class="language-python"&gt;
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+import matplotlib.ticker as ticker
+
+############################################# Basins ##############################################
+
+basins = sorted(['Anadarko', 'Appalachia', 'Eagle Ford', 'Haynesville', 'Niobrara', 'Permian', 'Bakken'])
+
+################################### DUC Wells Count per Basin #####################################
+
+no_NA = ['EUR (Full) BOE']
+dfs = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx', sheet_name=basin)
+    df_cur = df_cur.dropna(subset=no_NA)           # Drop wells that are not completed
+    df_cur = df_cur[df_cur['Drill Type'] == 'H']                   # Horizontal wells only
+
+    # Drops non-hydrocarbon wells like: Dry hole, injection, core, etc.
+    df_cur = df_cur[df_cur['Production Type'].isin(['OIL', 'GAS', 'OIL &amp; GAS'])]
+
+    # BOE to MBOE unit conversion
+    df_cur[no_NA] = df_cur[no_NA].div(1000).round(0)
+    dfs.append(df_cur)
+
+############################################# Plot ################################################
+
+axis_tick_fontsize = 14
+title_fontsize = 19
+markersize = 20
+y_label_fontsize = 16
+
+colors = ['grey', '#a1794a', '#d484a9', '#cbe8f0', '#c6b4ee', '#914810', '#16534c']
+
+fig = plt.figure(figsize=(16, 17))
+gs = gridspec.GridSpec(4, 4)
+ax1 = plt.subplot(gs[0, 0:2])
+ax2 = plt.subplot(gs[0,2:])
+ax3 = plt.subplot(gs[1,0:2])
+ax4 = plt.subplot(gs[1,2:])
+ax5 = plt.subplot(gs[2,0:2])
+ax6 = plt.subplot(gs[2,2:])
+ax7 = plt.subplot(gs[3,2:])
+axes = [ax1,ax2,ax3,ax4,ax5,ax6,ax7]
+
+def annotate_arrows(data_y, num, tick_spacing, ymax, x_start=1, ox=0.2, fontsize=14, flip_y=False):
+    '''
+    data_y = y coordinate of the datapoint of interest
+    num = index of the datapoint of interest
+    tick_spacing = spacing between two major ticks
+    ox = offset of x
+    '''
+
+    head_padding = ymax * 0.04                 # extra space between the datapoint of interest and arrowhead
+    oy = ymax * 0.15                           # offset of y
+    sx = x_start + (tick_spacing / 2) * num
+    sy = data_y + head_padding
+
+    if flip_y:
+        oy = -ymax * 0.15
+        sy = data_y - head_padding
+
+    ax.arrow(sx + ox, sy + oy, -ox, -oy, head_width=0.3, head_length=ymax * 0.0333, fc='k', ec='k', lw=2)
+    t1 = ax.text(sx + ox, sy + oy, int(data_y), fontsize=fontsize, color='k', ha='center')
+    t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+
+    xytext = (sx + ox, sy + oy)
+
+    return xytext 
+
+for i, (ax, basin) in enumerate (zip(axes, basins)):
+
+    # select current basin data
+    df = dfs[i]
+
+     # cut off high lag bins with too few wells
+    df = df[df['Lag'] &lt;= 1000]
+
+    # binning by 50 days
+    stepsize = 50
+    bins = np.arange(0, 1000 + stepsize, stepsize)
+
+    # scatter plot of binned wells
+    eur_original = []
+    eur_cleaned = []
+    eur_outlier = []
+    #cleaned_indices = []
+    for b in bins[: -1]:
+
+        eur_original_ = df[df['Lag'].between(b, b + stepsize)]['EUR (Full) BOE']
+
+        cutoff = 0.95
+        eur_cleaned_ = eur_original_[eur_original_ &lt;= eur_original_.quantile(cutoff)]
+        eur_outlier_ = eur_original_[eur_original_ &gt; eur_original_.quantile(cutoff)]
+
+        eur_cleaned.append(eur_cleaned_)
+        eur_outlier.append(eur_outlier_)    
+
+    for j, item in enumerate(eur_cleaned):
+        x = np.random.normal(j + 1, 0.06, size=len(item))
+        ax.scatter(x, item, color=colors[i], alpha=0.5, s=10, edgecolors='k', linewidth=0.1, label='One well data')
+
+    for k, item_outlier in enumerate(eur_outlier):
+        x_outlier = np.random.normal(k + 1, 0.06, size=len(item_outlier))
+        ax.scatter(x_outlier, item_outlier, color='r', alpha=0.3, s=30, marker='x', label='Outliers')   
+
+    # line plot of average of binned wells
+    means = [np.mean(item) for item in eur_cleaned]
+    ax.plot([i + 1 for i in range(len(means))], means, linestyle='-', marker='o', markersize=8, alpha=0.7,
+            label='AVG. EUR, binned by 50 lag days')       
+
+    # axis range
+    #ymax = y_max[basin]
+    ymax = 5000
+    ymin = 0 - 0.05 * ymax
+    ax.set_ylim(ymin, ymax)
+    #ax.set_ylim(2500, 12000)
+
+    # tick settings
+    ax.minorticks_on()
+    ax.xaxis.set_tick_params(which='minor', bottom=False)
+    ax.xaxis.set_major_locator(plt.MaxNLocator(12))
+    ax.yaxis.set_major_locator(plt.MaxNLocator(7))  
+
+    ax.yaxis.set_major_locator(plt.MaxNLocator(6)) 
+    ax.yaxis.set_minor_locator(ticker.AutoMinorLocator(2)) 
+
+    ax.set_xticklabels([int(item) for item in ax.get_xticks() * stepsize], fontsize=axis_tick_fontsize)
+    ax.tick_params(axis='x', labelsize=axis_tick_fontsize, labelrotation=30)
+    ax.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+    ax.yaxis.set_major_formatter(ticker.EngFormatter())
+
+    # spines and grid
+    ax.spines.top.set_visible(False)
+    ax.spines.right.set_visible(False)
+    ax.grid(axis='y', alpha=0.5)
+    ax.grid(axis='y', which='minor', color='grey', linestyle='--', alpha=0.2)
+    ax.set_axisbelow(True)
+
+    # texts
+    ax.set_title(basin + ': ' + str(df.shape[0]) + ' wells', fontsize=title_fontsize)
+    ax.set_ylabel('EUR (MBOE)', fontsize=y_label_fontsize)
+    if i == 4 or i == 6:
+        ax.set_xlabel('DUC time (Days)', fontsize=y_label_fontsize)
+    ax.set_facecolor('#eeeeee')
+    ax.text(0.15, 0.88, 'aegis4048.github.io', fontsize=12, ha='center', va='center',
+            transform=ax.transAxes, color='grey', alpha=0.5)    
+
+    # legends
+    h0, l0 = ax.get_legend_handles_labels()
+    leg = ax.legend([h0[0]], [l0[0]], fontsize=14, ncol=2, loc='upper right')
+    for lh in leg.legendHandles:
+        lh.set_alpha(1)
+        lh.set_sizes([50])
+
+    h1, l1 = ax.get_legend_handles_labels()
+    fig.legend([h1[-1]], [l1[-1]], loc='lower left', ncol=2,
+               bbox_to_anchor=(0.046, 0.195), bbox_transform=fig.transFigure, fontsize=18) 
+
+    fs = 15
+    lw = 2
+    _1 = 0
+    spacing = abs(ax.get_xticks()[1] - ax.get_xticks()[2])
+    if basin == 'Anadarko':
+        _2 = 4
+        yloc = 3000 
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+
+    if basin == 'Appalachia': 
+        _2 = 2
+        yloc = 1000 
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+    if basin == 'Bakken':
+        _2 = 4
+        yloc = 3000 
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+    if basin == 'Eagle Ford':
+        _2 = 4
+        yloc = 3000
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2))        
+    if basin == 'Haynesville': 
+        _2 = 6
+        yloc = 4200 
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs, flip_y=False)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs, flip_y=True)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+    if basin == 'Niobrara':
+        _2 = 4
+        yloc = 3000
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2))  
+    if basin == 'Permian':
+        _2 = 6
+        yloc = 3500 
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+
+fig.tight_layout()
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+y_pos = 0.998
+fig.suptitle(setbold('EUR vs. Days Till Completion')  + ",  Jan 2014 - June 2022", fontsize=20, x=0.24, y=1.025)
+ax.annotate('', xy=(0.006, y_pos), xycoords='figure fraction', xytext=(1, y_pos), arrowprops=dict(arrowstyle="-", color='k', lw=1.3))
+ax.annotate('Source: Pythonic Excursions, DrillingInfo', xy=(0.055, 0.173), xycoords='figure fraction', fontsize=16)
+
+fig.set_facecolor("white")    
+            &lt;/code&gt;
+        &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="row" id="table-1" style="margin-top: -15px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_table_1.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Table 1: Summary table of Figure 6.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="Factors that affect EUR: Completion size and lateral length"&gt;&lt;/div&gt;&lt;h3 id="4.3.-Factors-that-affect-EUR:-Completion-size-and-lateral-length"&gt;4.3. Factors that affect EUR: Completion size and lateral length&lt;a class="anchor-link" href="#4.3.-Factors-that-affect-EUR:-Completion-size-and-lateral-length"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The trend observed in &lt;a href="#fig-6"&gt;Figure 6&lt;/a&gt; above, where EURs increase with increasing DUC time, contradicts the established scientific knowledge. However, we have found that this illogical trend is due to the use of smaller completion sizes and shorter lateral lengths for wells with shorter DUC times. Interestingly, the basins showing the greatest difference in EUR between the peak and trough in &lt;a href="#table-1"&gt;Table 1&lt;/a&gt; (Anandarko and Haynesville) are also those with the largest increase in completion size and lateral length as DUC time increases.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p style="display: inline"&gt;&lt;a href="#fig-7"&gt;Figure 7&lt;/a&gt; illustrates the variation in EUR due to completion size and lateral length with increasing DUC time for different basins. The largest increase in EUR between two time periods ([1] and [2]) was observed in the Haynesville basin, with a difference of 2,223 MBOE (a 209% increase)(&lt;a href="#table-2"&gt;Table 2&lt;/a&gt;)&lt;/p&gt;&lt;strong style="color: #a4a4a4"&gt;(&lt;img class="inline-image" src="jupyter_images/duc_legend_1.png"/&gt;&lt;p style="display: inline"&gt;grey bars)&lt;/p&gt;&lt;/strong&gt;. A correlation analysis showed that this increase was positively associated with a 46% increase (2,111 ft) in lateral length (&lt;a href="#table-3"&gt;Table 3&lt;/a&gt;)&lt;strong style="color: #111111"&gt;(&lt;img class="inline-image" src="jupyter_images/duc_legend_2.png"/&gt;black line)&lt;/strong&gt;, 121% boost in PPF (&lt;a href="#table-4"&gt;Table 4&lt;/a&gt;)&lt;strong style="color: #9504d3"&gt;(&lt;img class="inline-image" src="jupyter_images/duc_legend_3.png"/&gt;&lt;p style="display: inline"&gt;purple lines)&lt;/p&gt;&lt;/strong&gt; and a 95% boost in FPF (&lt;a href="#table-5"&gt;Table 5&lt;/a&gt;)&lt;strong style="color: #287cb7"&gt;(&lt;img class="inline-image" src="jupyter_images/duc_legend_4.png"/&gt;&lt;p style="display: inline"&gt;blue lines)&lt;/p&gt;&lt;/strong&gt;&lt;p style="display: inline"&gt; for wells completed between 200-250 days after drilling, compared to wells completed within 50 days after drilling. Similar trends were observed for the Anadarko, Permian, and Bakken basins, although the EUR increase in the Bakken basin occurred at a much slower pace over a 500-day period.&lt;/p&gt;&lt;p&gt;Recall that PPF and FPF represent completion size normalized by lateral length (per foot). An increase in PPF and FPF implies that operators are not only increasing the total volume of proppant and fluid to fracture additional lateral length, but also increasing the completion concentration for each foot of the lateral for older DUC wells. This increase in completion size may be an effort to compensate for potential reservoir depletion issues that older DUC wells may encounter due to nearby parent wells.&lt;/p&gt;
+&lt;p&gt;However, an examination of &lt;a href="#table-2"&gt;Table 2&lt;/a&gt; reveals a significant 217% (Anadarko) and 209% (Haynesville) increase in EUR &lt;strong style="color: #a4a4a4"&gt;(&lt;img class="inline-image" src="jupyter_images/duc_legend_1.png"/&gt;grey bars)&lt;/strong&gt; when completion concentration is boosted between [1] and [2]. This finding suggests that &lt;strong&gt;operators tend to undersize their completion design for wells completed shortly after drilling (within 250 days), resulting in sub-optimal EUR&lt;/strong&gt;. Put another way, wells completed shortly after drilling often have smaller completion concentrations. As such, operators could potentially profit more from larger completion investments for wells completed shortly after drilling.&lt;/p&gt;
+&lt;p&gt;In contrast, wells in the Appalachia, Eagle Ford, and Niobrara basins showed only a slight increase in completion size and lateral length with increasing DUC time, with the exception of the Niobrara basin which showed a decrease in PPF (&lt;a href="#table-4"&gt;Table 4&lt;/a&gt;)&lt;strong style="color: #9504d3"&gt;(&lt;img class="inline-image" src="jupyter_images/duc_legend_3.png"/&gt;purple line)&lt;/strong&gt; despite the longer lateral length. The magnitude of the difference between [1] and [2] was not as drastic as in the other basins. This finding explains why wells in these basins showed minimal difference in EUR with increasing DUC time in contrast to the Anadarko, Bakken, Haynesville, and Permian basins; because the volume of proppants and fluids used for completion and lateral length stayed relatively constant with increasing DUC time.&lt;/p&gt;
+&lt;p&gt;Additionally, it is worth noting that the wells with longer lateral length tended to have longer DUC time. While this may sound obvious, taking a closer look at it reveals that it is not so. Between [1] and [2], the average difference in lateral length of wells in the Haynesville basin was 2,111 ft and the difference in time was 200 days. An experienced drilling and completion engineer would recognize that it does not take an additional 200 days to drill an extra 2,111 ft and hydraulically fracture that additional length. Modern day drilling takes under 15~25 days, and completion 3~5 days. One possible explanation for operators' tendency to delay completion for longer lateral wells is that the costs and time associated with bigger proppant and fluid volumes required to adequately fracture longer lateral sections are higher. Nevertheless, further research is needed to fully understand the economic trade-offs involved in completion timing for longer lateral wells.&lt;/p&gt;
+&lt;div class="row" id="fig-7" style="margin-top: 15px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/7_factors_that_affect_EUR.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 7: Each data point represents an average data (lateral length, PPF and FPF) of wells completed within 50-day binned interval. Each bar represents raw EUR. Note that the credibility of the average line plots decrease with the increasing DUC time due to lack of data near the end of the x-axis (refer to Figure 6 to visually understand how each average is calculated). [1] and [2] represent local trough and peak used for comparison in Table 2, 3, 4 and 5. Indices of [2]s are chosen by visual inspection; the point which "looks like" an inflection point is chosen, and is prone to subjectivity.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="solution_panel closed"&gt;
+&lt;div class="solution_title"&gt;
+&lt;p class="solution_title_string"&gt;Source Code For Figure (7)&lt;/p&gt;
+&lt;ul class="nav navbar-right panel_toolbox"&gt;
+&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="solution_content"&gt;
+&lt;pre&gt;
+            &lt;code class="language-python"&gt;
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+import matplotlib.ticker as ticker
+
+############################################# Basins ##############################################
+
+basins = sorted(['Anadarko', 'Appalachia', 'Eagle Ford', 'Haynesville', 'Niobrara', 'Permian', 'Bakken'])
+
+################################### DUC Wells Count per Basin #####################################
+
+no_NA = ['EUR (Full) BOE', 'Fluid per Perforated Foot (First Treatment Job)', 
+         'DI Lateral Length', 'Proppant per Perforated Foot (First Treatment Job)']
+dfs = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx', sheet_name=basin)
+    df_cur = df_cur.dropna(subset=no_NA)           # Drop wells that are not completed
+    df_cur = df_cur[df_cur['Drill Type'] == 'H']                   # Horizontal wells only
+
+    # Drops non-hydrocarbon wells like: Dry hole, injection, core, etc.
+    df_cur = df_cur[df_cur['Production Type'].isin(['OIL', 'GAS', 'OIL &amp; GAS'])]
+
+    dfs.append(df_cur)
+
+############################################# Plot ##############################################
+
+colors = ['grey', '#a1794a', '#d484a9', '#cbe8f0', '#c6b4ee', '#914810', '#16534c']
+
+axis_tick_fontsize = 14
+title_fontsize = 19
+markersize = 20
+y_label_fontsize = 16
+
+gas_prod_color = 'red'
+oil_prod_color = 'green'
+drilled_color = 'k'
+
+fig = plt.figure(figsize=(16, 17))
+gs = gridspec.GridSpec(4, 4)
+ax1 = plt.subplot(gs[0, 0:2])
+ax2 = plt.subplot(gs[0,2:])
+ax3 = plt.subplot(gs[1,0:2])
+ax4 = plt.subplot(gs[1,2:])
+ax5 = plt.subplot(gs[2,0:2])
+ax6 = plt.subplot(gs[2,2:])
+ax7 = plt.subplot(gs[3,2:4])
+axes = [ax1,ax2,ax3,ax4,ax5,ax6,ax7]
+
+for i, (ax, basin) in enumerate(zip(axes, basins)):
+
+    # select current basin data
+    df = dfs[i]
+
+    # cut off high lag bins with too few wells
+    df = df[df['Lag'] &lt;= 1000]
+
+    # binning by 50 days
+    stepsize = 50
+    bins = np.arange(0, 1000 + stepsize, stepsize)    
+
+    # extreme data removal - 5%
+    binned_cleaned_lateral = []
+    binned_cleaned_ppf = []
+    binned_cleaned_fpf = []
+    binned_cleaned_eur = []
+    for b in bins[: -1]:
+        binned_lateral = df[df['Lag'].between(b, b + stepsize)]['DI Lateral Length']
+        binned_ppf = df[df['Lag'].between(b, b + stepsize)]['Proppant per Perforated Foot (First Treatment Job)']
+        binned_fpf = df[df['Lag'].between(b, b + stepsize)]['Fluid per Perforated Foot (First Treatment Job)']
+        binned_eur = df[df['Lag'].between(b, b + stepsize)]['EUR (Full) BOE']
+
+        # cutoff between 2.5% and 97.5%
+        binned_cleaned_lateral_ = np.clip(binned_lateral, binned_lateral.quantile(0.025), binned_lateral.quantile(0.975))
+        binned_cleaned_ppf_ = np.clip(binned_ppf, binned_ppf.quantile(0.025), binned_ppf.quantile(0.975))
+        binned_cleaned_fpf_ = np.clip(binned_fpf, binned_fpf.quantile(0.025), binned_fpf.quantile(0.975))
+        binned_cleaned_eur_ = np.clip(binned_eur, binned_eur.quantile(0.025), binned_eur.quantile(0.975))
+
+        binned_cleaned_lateral.append(binned_cleaned_lateral_)
+        binned_cleaned_ppf.append(binned_cleaned_ppf_)
+        binned_cleaned_fpf.append(binned_cleaned_fpf_)
+        binned_cleaned_eur.append(binned_cleaned_eur_)    
+
+    means_lateral = [np.mean(item) for item in binned_cleaned_lateral]
+    means_ppf = [np.mean(item) for item in binned_cleaned_ppf]
+    means_fpf = [np.mean(item) for item in binned_cleaned_fpf]
+    means_eur = [np.mean(item) / 1000 for item in binned_cleaned_eur] # BOE to MBOE
+
+    # colors
+    color_lat = 'k'
+    color_ppf = 'darkviolet'
+    color_fpf = '#1f77b4'
+
+    # EUR (MBOE) - bar plot
+    ax.bar([i + 1 for i in range(len(means_eur))], [item for item in means_eur], label='Avg. EUR', 
+           alpha=0.3, color='k')
+    ymax = 5000
+    ax.set_ylim(0 - 0.025 * ymax, ymax)
+
+    # Lateral length (ft) - line plot
+    ax1 = ax.twinx()
+    ax1.plot([i + 1 for i in range(len(means_lateral))], means_lateral, linestyle='--', marker='o', markersize=6, alpha=0.7,
+        label='Avg. Lateral length', color=color_lat)    
+    ymax = 15000
+    ax1.set_ylim(0 - 0.025 * ymax, ymax)
+
+    # PPF (lbs/ft) - line plot
+    ax2 = ax.twinx()
+    ax2.plot([i + 1 for i in range(len(means_ppf))], means_ppf, linestyle='--', marker='o', markersize=6, alpha=0.7,
+        label='Avg. PPF', color=color_ppf)    
+    ymax = 5000
+    ax2.set_ylim(0 - 0.025 * ymax, ymax)
+
+    # FPF (gal/ft) - line plot
+    ax3 = ax.twinx()
+    ax3.plot([i + 1 for i in range(len(means_fpf))], means_fpf, linestyle='--', marker='o', markersize=6, alpha=0.7,
+        label='Avg. FPF', color=color_fpf)   
+    ymax = 100
+    ax3.set_ylim(0 - 0.025 * ymax, ymax)
+
+    # 
+    ax.yaxis.set_major_locator(plt.MaxNLocator(6))
+    ax1.yaxis.set_major_locator(plt.MaxNLocator(6))
+    ax2.yaxis.set_major_locator(plt.MaxNLocator(6))
+    ax3.yaxis.set_major_locator(plt.MaxNLocator(6))
+    ax.minorticks_on()
+    ax.xaxis.set_tick_params(which='minor', bottom=False)
+    ax.yaxis.set_minor_locator(ticker.AutoMinorLocator(3))
+
+    ax.set_title(basin + ': ' + str(df.shape[0]) + ' wells', fontsize=title_fontsize)
+    ax.set_facecolor('#eeeeee')
+    ax.set_axisbelow(True)
+    ax.grid(axis='y')
+    ax.tick_params(axis='x', labelrotation=45, labelsize=axis_tick_fontsize)
+    ax.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax1.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax2.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax3.tick_params(axis='y', labelsize=axis_tick_fontsize)
+
+    if i % 2 == 0 and i != 6:
+        ax.set_ylabel('EUR (MBOE)', fontsize=y_label_fontsize)
+        ax1.set_yticks([])
+        ax2.set_yticks([])
+        ax3.set_yticks([])
+    else:
+        ax1.tick_params(axis='y', colors=color_lat)
+        #ax1.spines['right'].set_color(color_lat)
+        ax1.set_ylabel('Lateral Length (ft)', color=color_lat, fontsize=y_label_fontsize)
+
+        ax2.tick_params(axis='y', colors=color_ppf)
+        ax2.spines['right'].set_position(('outward', 65))
+        ax2.spines['right'].set_color(color_ppf)
+        ax2.set_ylabel('PPF (lbs/ft)', color=color_ppf, fontsize=y_label_fontsize)
+
+        ax3.tick_params(axis='y', colors=color_fpf)
+        ax3.spines['right'].set_position(('outward', 120))
+        ax3.spines['right'].set_color(color_fpf)
+        ax3.set_ylabel('FPF (gal/ft)', color=color_fpf, fontsize=y_label_fontsize)        
+
+    if i == 6:
+        ax.set_ylabel('EUR (MBOE)', fontsize=y_label_fontsize)
+
+    if i == 4 or i == 6:
+        ax.set_xlabel('DUC Time (Days)', fontsize=y_label_fontsize)
+    else:
+        ax.set_xlabel('')
+
+    ax.grid(axis='y', which='minor', color='grey', linestyle='--', alpha=0.2)
+
+    ax.xaxis.set_major_locator(plt.MaxNLocator(12))
+    ax.set_xticklabels([int(item) for item in ax.get_xticks() * stepsize], fontsize=axis_tick_fontsize)
+    ax.tick_params(axis='x', labelsize=axis_tick_fontsize, labelrotation=30)
+
+    ax.yaxis.set_major_formatter(ticker.EngFormatter())
+    ax1.yaxis.set_major_formatter(ticker.EngFormatter())
+    ax2.yaxis.set_major_formatter(ticker.EngFormatter())
+    ax1.yaxis.set_major_formatter(ticker.EngFormatter())
+
+    ax.spines.top.set_visible(False)
+    ax1.spines.top.set_visible(False)
+    ax2.spines.top.set_visible(False)
+
+    h0, l0 = ax.get_legend_handles_labels()
+    h1, l1 = ax1.get_legend_handles_labels()
+    h2, l2 = ax2.get_legend_handles_labels()
+    h3, l3 = ax3.get_legend_handles_labels()
+
+    fig.legend(h0 + h1 + h2 + h3, l0 + l1 + l2 + l3, loc='lower left', ncol=2,
+               bbox_to_anchor=(0.046, 0.18), bbox_transform=fig.transFigure, fontsize=18)
+
+    ax.text(0.86, 0.85, 'aegis4048.github.io', fontsize=12, ha='center', va='center',
+            transform=ax.transAxes, color='grey', alpha=0.5)
+
+    _1 = 1
+    if basin == 'Anadarko':
+        _2 = 5
+    elif basin == 'Appalachia':
+        _2 = 4
+    elif basin == 'Bakken':
+        _2 = 10
+    elif basin == 'Eagle Ford':
+        _2 = 5
+    elif basin == 'Haynesville':
+        _2 = 5
+    elif basin == 'Niobrara':
+        _2 = 6
+    else:
+        _2 = 7
+
+    ax.axvline(x=_1, color='k', linestyle='--', linewidth=1, alpha=0.7)
+    t1 = ax.text(_1, 4000, '[1]', fontsize=14, color='k', ha='center', va='center')    
+    t1.set_bbox(dict(facecolor='#eeeeee', alpha=1, edgecolor='#eeeeee', pad=1))
+
+    ax.axvline(x=_2, color='k', linestyle='--', linewidth=1, alpha=0.7)
+    t2 = ax.text(_2, 4000, '[2]', fontsize=14, color='k', ha='center', va='center')    
+    t2.set_bbox(dict(facecolor='#eeeeee', alpha=1, edgecolor='#eeeeee', pad=1))
+
+fig.tight_layout()
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+y_pos = 0.998
+fig.suptitle(setbold('Factors Affecting EUR: Lateral Length, PPF, and FPF')  + ",  Jan 2014 - June 2022", fontsize=19, x=0.345, y=1.025)
+ax.annotate('', xy=(0.006, y_pos), xycoords='figure fraction', xytext=(1, y_pos), arrowprops=dict(arrowstyle="-", color='k', lw=1.3))
+ax.annotate('Source: Pythonic Excursions, EIA', xy=(0.055, 0.16), xycoords='figure fraction', fontsize=16)
+
+fig.set_facecolor("white")
+            &lt;/code&gt;
+        &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="row" id="table-2" style="margin-top: -15px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_table_5.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Table 2: Summary table for Figure 7 - Estimated Ultimate Recovery&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div class="row" id="table-3"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_table_2.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Table 3: Summary table for Figure 7 - Lateral length&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div class="row" id="table-4"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_table_3.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Table 4: Summary table for Figure 7 - Proppant per Perforated Feet&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div class="row" id="table-5"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_table_4.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Table 5: Summary table for Figure 7 - Fluid per Perforated Feet&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="Normalized EUR vs. DUC time"&gt;&lt;/div&gt;&lt;h3 id="4.4.-Normalized-EUR-vs.-DUC-time"&gt;4.4. Normalized EUR vs. DUC time&lt;a class="anchor-link" href="#4.4.-Normalized-EUR-vs.-DUC-time"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a href="#fig-7"&gt;Figure 7&lt;/a&gt; above revealed positive correlation between completion size and lateral length with EUR; increased lateral length requires a larger completion size to fracture the additional length, leading to a greater EUR. To isolate the effect of DUC time on EUR and eliminate the influence of other confounding variables, EURs (BOE) are normalized (divided) by PPF (lbs/ft), FPF (gal/ft), and lateral length (ft). The resulting statistic has an unit of (BOE &lt;em&gt; ft)/(lbs &lt;/em&gt; gal). Its absolute value is meaningless, as it is a statistic created solely to distinguish the effects of other variables on EUR. Only the relative percentage change in the statistic is relevant.&lt;/p&gt;
+&lt;p&gt;&lt;a href="#fig-8"&gt;Figure 8&lt;/a&gt; displays the impact of DUC time on normalized EUR for each basin. The local troughs and peaks in each basin represent points of interest used to quantify the relative change in EUR for wells completed shortly after drilling compared to old DUC wells. A detailed analysis and commentary for each basin are presented &lt;a href="#detailed"&gt;below&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Moreover, &lt;a href="#fig-8"&gt;Figure 8&lt;/a&gt; has the potential to be a useful tool in evaluating completion investment efficiency. For instance, the Bakken basin, which has the highest mean normalized EUR along the x-axis, can be argued to have superior rate of return for each dollars spent for hydraulic fracturing compared to the other basins. Conversely, the Eagle Ford and Permian basins have lower mean normalized EUR values at different DUC times, which is expected due to their status as some of the oldest oil and gas plays in the US and the significant depletion of their "sweet spots."&lt;/p&gt;
+&lt;p&gt;It is important to note that the calculated statistic in &lt;a href="#fig-8"&gt;Figure 8&lt;/a&gt;, the average normalized EUR &lt;strong style="color: #287cb7"&gt;(&lt;img class="inline-image" src="jupyter_images/duc_legend_5.png"/&gt;blue lines)&lt;/strong&gt;, is heavily influenced by extreme data points due to two reasons. Firstly, the statistic is a combination of four variables, each of which may not contain outliers individually but may do so when combined. Therefore, if multiple variables have extreme data points, the calculated statistic will have greater skewness due to a larger standard deviation. Secondly, the derivation of the statistic necessitates the presence of four variables (EUR, PPF, FPF, and lateral length) simultaneously, causing the source data file (&lt;a class="ico xls" href="https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx" target="_blank"&gt;EUR_vs_Lag.xlsx&lt;/a&gt;) to drop rows with any of the four variables missing. Consequently, the Haynesville basin, which had 2,858 wells in &lt;a href="#fig-6"&gt;Figure 6&lt;/a&gt;, had only 1,724 wells in &lt;a href="#fig-8"&gt;Figure 8&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="row" id="fig-8" style="margin-top: 10px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/6_normalized_EUR_Lateral_FPF_PPF_2.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 8: Each dot represents one well's normalized EUR. The wells are binned by 50 DUC days. Each band of dots represents wells completed within the 50-day binned interval. The blue line plot represetns the average of wells in each 50-day bin. Note that the credibility of this average line plot is affected by the number of data points in each bin. Bakken and Haynesville have suffers from lack of data for their first bin. Indices of the local peaks and troughs are chosen by visual inspection; the points which "look like" local troughs and peaks are picked, and are prone to subjectivity.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="solution_panel closed"&gt;
+&lt;div class="solution_title"&gt;
+&lt;p class="solution_title_string"&gt;Source Code For Figure (8)&lt;/p&gt;
+&lt;ul class="nav navbar-right panel_toolbox"&gt;
+&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="solution_content"&gt;
+&lt;pre&gt;
+            &lt;code class="language-python"&gt;
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+import matplotlib.ticker as ticker
+
+############################################# Basins ##############################################
+
+basins = sorted(['Anadarko', 'Appalachia', 'Eagle Ford', 'Haynesville', 'Niobrara', 'Permian', 'Bakken'])
+
+################################### DUC Wells Count per Basin #####################################
+
+no_NA = ['EUR (Full) BOE', 'Fluid per Perforated Foot (First Treatment Job)', 
+         'DI Lateral Length', 'Proppant per Perforated Foot (First Treatment Job)']
+dfs = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx', sheet_name=basin)
+    df_cur = df_cur.dropna(subset=no_NA)           # Drop wells that are not completed
+    df_cur = df_cur[df_cur['Drill Type'] == 'H']                   # Horizontal wells only
+
+    # Drops non-hydrocarbon wells like: Dry hole, injection, core, etc.
+    df_cur = df_cur[df_cur['Production Type'].isin(['OIL', 'GAS', 'OIL &amp; GAS'])]
+
+    #df_cur[EURs] = df_cur[EURs].div(1000).round(0)
+    dfs.append(df_cur)
+
+############################################# Plot ################################################
+
+axis_tick_fontsize = 14
+title_fontsize = 19
+markersize = 20
+y_label_fontsize = 16
+
+colors = ['grey', '#a1794a', '#d484a9', '#cbe8f0', '#c6b4ee', '#914810', '#16534c']
+
+fig = plt.figure(figsize=(16, 17))
+gs = gridspec.GridSpec(4, 4)
+ax1 = plt.subplot(gs[0, 0:2])
+ax2 = plt.subplot(gs[0,2:])
+ax3 = plt.subplot(gs[1,0:2])
+ax4 = plt.subplot(gs[1,2:])
+ax5 = plt.subplot(gs[2,0:2])
+ax6 = plt.subplot(gs[2,2:])
+ax7 = plt.subplot(gs[3,2:])
+axes = [ax1,ax2,ax3,ax4,ax5,ax6,ax7]
+
+def annotate_arrows(data_y, num, tick_spacing, ymax, x_start=1, ox=0.2, fontsize=14, flip_y=False):
+    '''
+    data_y = y coordinate of the datapoint of interest
+    num = index of the datapoint of interest
+    tick_spacing = spacing between two major ticks
+    ox = offset of x
+    '''
+
+    head_padding = ymax * 0.04                 # extra space between the datapoint of interest and arrowhead
+    oy = ymax * 0.15                           # offset of y
+    sx = x_start + (tick_spacing / 2) * num
+    sy = data_y + head_padding
+
+    if flip_y:
+        oy = -ymax * 0.15
+        sy = data_y - head_padding
+
+#------------------------------------------------------------------------------------------------------------------
+
+    ax.arrow(sx + ox, sy + oy, -ox, -oy, head_width=0.0, fc='k', ec='k', lw=2)
+    t1 = ax.text(sx + ox, sy + oy, round(data_y, 5), fontsize=fontsize, color='k', ha='center')
+    t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+
+#------------------------------------------------------------------------------------------------------------------
+
+    xytext = (sx + ox, sy + oy)
+
+    return xytext 
+
+
+for i, (ax, basin) in enumerate (zip(axes, basins)):
+
+    # select current basin data
+    df = dfs[i]
+
+     # cut off high lag bins with too few wells
+    df = df[df['Lag'] &lt;= 1000]
+
+    # binning by 50 days
+    stepsize = 50
+    bins = np.arange(0, 1000 + stepsize, stepsize)
+
+    # scatter plot of binned wells
+    #norm_eur_original = []
+    norm_eur_cleaned = []
+    norm_eur_outlier = []
+    for b in bins[: -1]:
+
+        eur_bin = df[df['Lag'].between(b, b + stepsize)]['EUR (Full) BOE']
+        lateral_bin = df[df['Lag'].between(b, b + stepsize)]['DI Lateral Length']
+        fpf_bin = df[df['Lag'].between(b, b + stepsize)]['Fluid per Perforated Foot (First Treatment Job)']
+        ppf_bin = df[df['Lag'].between(b, b + stepsize)]['Proppant per Perforated Foot (First Treatment Job)']
+
+        cutoff = 0.95
+        norm_eur_original_ = eur_bin/lateral_bin/fpf_bin/ppf_bin
+        norm_eur_cleaned_ = norm_eur_original_[norm_eur_original_ &lt;= norm_eur_original_.quantile(cutoff)]
+        norm_eur_outlier_ = norm_eur_original_[norm_eur_original_ &gt; norm_eur_original_.quantile(cutoff)]
+
+        norm_eur_cleaned.append(norm_eur_cleaned_)
+        norm_eur_outlier.append(norm_eur_outlier_)    
+
+    for j, item in enumerate(norm_eur_cleaned):
+        x = np.random.normal(j + 1, 0.06, size=len(item))
+        ax.scatter(x, item, color=colors[i], alpha=0.5, s=10, edgecolors='k', linewidth=0.0, label='One well data')
+
+    for k, item_outlier in enumerate(norm_eur_outlier):
+        x_outlier = np.random.normal(k + 1, 0.06, size=len(item_outlier))
+        ax.scatter(x_outlier, item_outlier, color='r', alpha=0.3, s=30, marker='x', label='Outliers')   
+
+    # line plot of average of binned wells
+    means = [np.mean(item) for item in norm_eur_cleaned]
+    ax.plot([i + 1 for i in range(len(means))], means, linestyle='-', marker='o', markersize=8, alpha=0.7,
+            label='AVG. normalized EUR, binned by 50 lag days')       
+
+    # axis range
+    ymax = 0.02
+    ymin = 0 - 0.05 * ymax
+    ax.set_ylim(ymin, ymax)
+
+    # tick settings
+    ax.xaxis.set_major_locator(plt.MaxNLocator(12))
+    ax.yaxis.set_major_locator(plt.MaxNLocator(6))  
+    ax.set_xticklabels([int(item) for item in ax.get_xticks() * stepsize], fontsize=axis_tick_fontsize)
+    ax.tick_params(axis='x', labelsize=axis_tick_fontsize, labelrotation=30)
+    ax.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+    #ax.yaxis.set_major_formatter(ticker.EngFormatter())
+    ax.minorticks_on()
+    ax.xaxis.set_tick_params(which='minor', bottom=False)
+    ax.yaxis.set_minor_locator(ticker.AutoMinorLocator(2))
+
+    # spines and grid
+    ax.spines.top.set_visible(False)
+    ax.spines.right.set_visible(False)
+    ax.grid(axis='y', alpha=0.5)
+    ax.grid(axis='y', which='minor', color='grey', linestyle='--', alpha=0.2)
+    ax.set_axisbelow(True)
+
+    # texts
+    ax.set_title(basin + ': ' + str(np.concatenate(norm_eur_cleaned).shape[0]) + ' wells', fontsize=title_fontsize)
+    ax.set_ylabel('EUR/PPF/FPF/Lateral', fontsize=y_label_fontsize)
+    if i == 4 or i == 6:
+        ax.set_xlabel('DUC time (Days)', fontsize=y_label_fontsize)
+    ax.set_facecolor('#eeeeee')
+    ax.text(0.15, 0.88, 'aegis4048.github.io', fontsize=12, ha='center', va='center',
+            transform=ax.transAxes, color='grey', alpha=0.5)    
+
+    # legends
+    h0, l0 = ax.get_legend_handles_labels()
+    leg = ax.legend([h0[0]], [l0[0]], fontsize=14, ncol=2, loc='upper right')
+    for lh in leg.legendHandles:
+        lh.set_alpha(1)
+        lh.set_sizes([50])
+
+    h1, l1 = ax.get_legend_handles_labels()
+    fig.legend([h1[-1]], [l1[-1]], loc='lower left', ncol=2,
+               bbox_to_anchor=(0.046, 0.195), bbox_transform=fig.transFigure, fontsize=18) 
+
+    fs = 15
+    lw = 2
+    _1 = 0
+    spacing = abs(ax.get_xticks()[1] - ax.get_xticks()[2])
+    if basin == 'Anadarko':
+        _2 = 3
+        yloc = 0.011
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='red', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+
+    if basin == 'Appalachia': 
+        _2 = 6
+        yloc = 0.015
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs, flip_y=False)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs, flip_y=False)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='red', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+    if basin == 'Bakken':
+        _1 = 1
+        _2 = 14
+        yloc = 0.012
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='red', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+    if basin == 'Eagle Ford':
+        _2 = 5
+        yloc = 0.014
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='red', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2))        
+    if basin == 'Haynesville': 
+        _1 = 1
+        _2 = 3
+        yloc = 0.015
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs, flip_y=False)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs, flip_y=False)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='red', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+    if basin == 'Niobrara':
+        _2 = 5
+        yloc = 0.015
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2))  
+    if basin == 'Permian':
+        _2 = 3
+        yloc = 0.014
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='red', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+
+    #break
+
+fig.tight_layout()
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+y_pos = 0.998
+fig.suptitle(setbold('EUR Normalized by PPF, FPF and Lateral Length')  + ",  Jan 2014 - June 2022", fontsize=20, x=0.34, y=1.025)
+ax.annotate('', xy=(0.006, y_pos), xycoords='figure fraction', xytext=(1, y_pos), arrowprops=dict(arrowstyle="-", color='k', lw=1.3))
+ax.annotate('Source: Pythonic Excursions, DrillingInfo', xy=(0.055, 0.173), xycoords='figure fraction', fontsize=16)
+
+fig.set_facecolor("white")    
+fig.savefig('6_normalized_EUR_Lateral_FPF_PPF_2.png', dpi=300, bbox_inches='tight')
+            &lt;/code&gt;
+        &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="detailed" style="margin-top: -15px"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Anadarko&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The normalized EUR for Anadarko wells completed beyond 50 days since drilled dropped by 81% over a 150-day span. The two outlier points in the average normalized EUR at 400-day and 450-day bins were identified as a result of extreme data points that could not be filtered out using the percentile method due to a lack of data. The observed decrease in normalized EUR with increasing DUC time follows a logarithmic production decline curve with a high b-factor, indicating a fast initial decline in production due to reservoir depletion. This could be an indication of severe well-to-well interference problems in the Anadarko basin.&lt;/p&gt;
+&lt;div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-9" style="margin-top: 10px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_normalized_Anadarko.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 9: Anadarko basin from Figure 8&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div&gt;&lt;hr/&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Appalachia&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The normalized EUR dropped by 19% over a span of 300 DUC days beyond the initial 50-day bin average. It seems to decrease linearly with DUC time at a very slow pace compared to Anadarko or Permian. Assuming linear regression, one could argue that the Appalachia DUC wells lose 2.7% EUR every 50 days of delay in completion.&lt;/p&gt;
+&lt;div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-10" style="margin-top: 10px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_normalized_appalachia.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 10: Appalachia basin from Figure 8&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div&gt;&lt;hr/&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Bakken&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The normalized EUR of Bakken wells exhibits an exponential decline trend, with a smaller initial decline rate than Anadarko but greater than Appalachia. However, the first bin of data (50-day bin) for Bakken wells is characterized by a limited number of data points, including extreme outliers that heavily skew the calculated normalized EUR values. Therefore, the second bin (100-day bin) is considered as the starting point, where Bakken wells experienced a 70% decrease in production over 700 DUC days. It is important to note that this decline would likely be greater if more data points were available in the first bin, thereby yielding a more reliable average normalized EUR value.&lt;/p&gt;
+&lt;p&gt;Based on the observation that Anadarko and Permian wells exhibit logarithmic decline in normalized EUR and experience rapid decline during early DUC time, it is expected that the initial average normalized EUR value for Bakken wells would be higher in the first day bin compared to the second day bin. Assuming an initial average normalized EUR value of 0.016 (although this is subjective), it is projected that the Bakken basin would experience a 78% decrease in production over a span of 750 DUC days.&lt;/p&gt;
+&lt;div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-11" style="margin-top: 10px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_normalized_bakken.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 11: Bakken basin from Figure 8&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div&gt;&lt;hr/&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Eagle Ford&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The Eagle Ford wells showed very minimal or no degradation in EUR with increasing DUC time. One can deduce that the Eagle Ford wells are more resilient to the well-to-well interference problems than the other basins. Note that this shows the trend of the entire basin; limiting the data pool to a small group of wells in a small area of interest may reveal different trend.&lt;/p&gt;
+&lt;div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-12" style="margin-top: 10px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_normalized_eagleford.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 12: Eagle Ford basin from Figure 8&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div&gt;&lt;hr/&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Haynesville&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The statistical analysis of the Haynesville basin is limited due to the dearth of available data. Specifically, only 1,792 wells in the basin have complete information on EUR, proppant, fluid volume, and lateral length, which was further reduced to 1,724 after removing outliers. Notably, the average normalized EUR for the 50-day and 450-day bins extends beyond the y-axis range, while only the wells within the 100- to 350-day bins exhibit reliable results with sufficient number of records.&lt;/p&gt;
+&lt;p&gt;Treating the 100-day bin as the first index of a local peak and the 200-day bin as the index of a local trough, the Haynesville wells demonstrated a 46% decrease in normalized EUR during 100 days of DUC time. However, given the logarithmic decline in average normalized EUR observed in Anadarko and Permian wells, an interpolation can be performed to estimate a plausible value of the first bin, around 0.008, although subjectivity is a possible limitation. This estimation leads to an anticipated 69% production decline in the Haynesville basin during the subsequent 150 DUC days after the initial 50 DUC days, followed by a relatively constant level of production afterwards.&lt;/p&gt;
+&lt;div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-13" style="margin-top: 10px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_normalized_haynesville.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 13: Haynesville basin from Figure 8&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div&gt;&lt;hr/&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Niobrara&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Notably, the Niobrara basin demonstrated a substantial increasing trend in normalized estimated ultimate recovery (EUR) with increasing days uncompleted (DUC) time up to the 300-day bin, followed by a relatively constant or slowly declining trend in normalized EUR.&lt;/p&gt;
+&lt;p&gt;The observation of increasing normalized EUR with increasing DUC time in Niobrara wells is intriguing and contradicts the prevailing scientific literature, which suggests that child wells tend to underperform relative to parent wells. However, this premise assumes the presence of a parent-child relationship between wells. In the absence of well-to-well interference factors, DUC wells waiting to be completed may be free from such negative impacts on production.&lt;/p&gt;
+&lt;p&gt;One potential explanation for this counter-intuitive trend in normalized EUR could be the presence of unique geologic characteristics specific to the Niobrara basin, or the existence of hidden factors that were not accounted for during the normalization process. For example, Niobrara may be relatively free from vertical fracture interference problems associated with stacked laterals compared to other basins, or may have been subjected to substantially different completion or production techniques. It is important to note that &lt;a href="#fig-7"&gt;Figure 7&lt;/a&gt; and &lt;a href="#table-4"&gt;Table 4&lt;/a&gt; above revealed that Niobrara was the only basin to exhibit a decrease in PPF with increasing DUC time, which suggests the presence of hidden factors not captured in the data set used for this study. Therefore, further analysis and study is required to understand this unexpected behavior.&lt;/p&gt;
+&lt;div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-14" style="margin-top: 10px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_normalized_niobrara.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 14: Niobrara basin from Figure 8&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div&gt;&lt;hr/&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Permian&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The normalized EUR for Permian wells completed beyond 50 days since drilled dropped by 74% over a span of 150 days. The normalized EUR does not substantially drop further after the 200-day bin. This trend is very similar to that of the Anadarko basin's.&lt;/p&gt;
+&lt;div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-15" style="margin-top: 10px;"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/duc_normalized_permian.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 15: Permian basin from Figure 8&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="Dead DUC wells"&gt;&lt;/div&gt;&lt;h2 id='5.-"Dead"-DUC-wells'&gt;5. "Dead" DUC wells&lt;a class="anchor-link" href='#5.-"Dead"-DUC-wells'&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;DUC wells are treated as a form of oilfield working capital. They are essentially a long-term, partially funded storage of hydrocarbons "under" the ground instead of "on" the ground. However, if a well remains in DUC stage for too long, it no longer functions as a working oilfield capital. Analyst John Freeman from Raymond James &amp; Associates Inc. said that that 95% of the drilled wells have been completed within 2 years, and that DUCs older than 2 years have low chance of ever being completed and considered out-of-the-system (a.k.a. Dead DUCs). Comparing with the Enverus data of wells in the seven DPR regions supports this claim to be reasonably true.&lt;/p&gt;
+&lt;p&gt;&lt;a href="#fig-16"&gt;Figure 16&lt;/a&gt; presents a 95% box plot of the DUC time for wells in each basin, providing insight into the time limit till completion for oil and gas wells in the US. The plot indicates that 95% of the wells in the Anadarko basin were completed within 307 days after drilling, while wells in the Appalachia basin were completed within 944 days. The weighted average for all DPR regions reveals that 95% of wells in the US are completed within 556 days after drilling. The implications of these results suggest that any well not completed within this timeframe has a less than 5% chance of being completed, thereby rendering the expensive drilling cost that the operator incurred a waste.&lt;/p&gt;
+&lt;p&gt;The completion time limit for DUC wells depends on their ultimate rate of return, which is a complex function of various factors, including EUR, well-to-well interference problems, royalty rate, and costs associated with site-clearing, drilling, lateral length, completion size and concentration per foot, daily operating costs, and lease purchase and renewal. However, comparing the 95% upper limit for DUC time across basins in &lt;a href="#fig-16"&gt;Figure 16&lt;/a&gt; reveals an interesting correlation with the other findings of this study.&lt;/p&gt;
+&lt;p&gt;Notably, the three basins with the shortest DUC time limit, namely Anadarko (307 days), Haynesville (393 days), and Permian (477 days), also had the worst depletion rates in normalized EUR (&lt;a href="#fig-8"&gt;Figure 8&lt;/a&gt;). For instance, Anadarko experienced an 81% drop in normalized EUR in 150 DUC days, while Haynesville and Permian experienced a 46% and 74% drop, respectively. Conversely, the Appalachia, Eagle Ford, and Niobrara basins demonstrated greater resilience to reductions in normalized EUR with increasing DUC time, and showed longer time limit till completion in &lt;a href="#fig-16"&gt;Figure 16&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;When considering the economic factors that impact the time limit till completion, it is essential to consider EUR as it has a direct impact on the final economic rate of return of a well. In &lt;a href="#fig-16"&gt;Figure 16&lt;/a&gt;, Appalachia has the longest time limit till completion, which can be attributed to its highest EUR along the x-axis compared to other basins. The high EUR renders operators to be more flexible with the costs associated with maintaining their DUC wells' lease. This understanding explains why Niobrara has a close DUC time limit with that of Permian despite Niobrara's strong resilience to the decrease in normalized EUR with increasing DUC time. In &lt;a href="#fig-7"&gt;Figure 7&lt;/a&gt;'s &lt;a href="#table-2"&gt;Table 2&lt;/a&gt;, Niobrara shows 574 MBOE of EUR at its local peak [2], while Permian shows 1,061 MBOE of EUR, which is almost double. In summary, Niobrara and Permian have opposing pros and cons that balance their time limit till completion to be similar.&lt;/p&gt;
+&lt;div class="row" id="fig-16" style="margin-top: 20px"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/Time Limit Until Completion.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 16: 95% Box plot of gap time between drilling and completion. The plot shows the time limit until completion for each basin. Each dot (very small, 99.5% transparency) represent one well of a basin. Upper whisker and the numeric annotation above it represent 95% upper limit. This means that wells with DUC time longer than the annotated number have less then 95% chance of ever being completed. Box plot for "All Regions" represent weighted average of all basins.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="solution_panel closed"&gt;
+&lt;div class="solution_title"&gt;
+&lt;p class="solution_title_string"&gt;Source Code For Figure (16)&lt;/p&gt;
 &lt;ul class="nav navbar-right panel_toolbox"&gt;
 &lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1271,7 +2996,7 @@ cutoff = 95
 
 for i, basin_lag in enumerate(lags):
     i = i + 1
-    x = np.random.normal(i, 0.06, size=len(basin_lag))    
+    x = np.random.normal(i, 0.06, size=len(basin_lag))
     ax.scatter(x, basin_lag, color=colors[i - 1], alpha=0.005)
     _cutoff = int(np.percentile(basin_lag, cutoff))
     ax.text(i, _cutoff + 150, str(_cutoff) + ' days', fontsize=10, ha='center', va='center', color='k')
@@ -1297,230 +3022,20 @@ ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
 ax.spines.top.set_visible(False)
 ax.spines.right.set_visible(False)
 
-def setbold(txt): 
+def setbold(txt):
     return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
 
-ax.set_title(setbold('Days Till Completion After Drilled: 95\% Boxplot')  + ",  Jan 2014 - June 2022", fontsize=12, pad=10, 
-             x=0.35, y=1.06)
+ax.set_title(setbold('Time Limit Until Completion: 95\% Boxplot')  + ",  Jan 2014 - June 2022", fontsize=12, pad=10,
+             x=0.31, y=1.06)
 ax.annotate('', xy=(-0.11, 1.07), xycoords='axes fraction', xytext=(1.02, 1.07), arrowprops=dict(arrowstyle="-", color='k'))
 ax.annotate('Data Source: Pythonic Excursions, DrillingInfo', xy=(-0.11, -0.3), xycoords='axes fraction', fontsize=10)
-ax.text(0.16, 0.23, 'aegis4048.github.io', fontsize=10, ha='center', va='center', 
+ax.text(0.16, 0.23, 'aegis4048.github.io', fontsize=10, ha='center', va='center',
         transform=ax.transAxes, color='white', alpha=0.5)
 
 ax.axvline(x=7.5, color='k', linestyle='--', linewidth=1, alpha=0.7)
 
 fig.set_facecolor("white")
-fig.tight_layout()    
-            &lt;/code&gt;
-        &lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Different basins have different average lag time between drilling and completion. &lt;a href="#fig-3"&gt;Figure 3&lt;/a&gt; shows that 95% of the wells in Anadarko were completed within 307 days after drilled and the wells in Appalachia within 944 days. Taking the weighted average for all DPR regions shows that &lt;strong&gt;95% wells in the US are completed within 556 days after drilling.&lt;/strong&gt; In the other words, if a well is not completed within that time, it has less than 5% chance of ever being completed. The expensive drilling cost the operator paid would be wasted.&lt;/p&gt;
-&lt;p&gt;The natural question we wonder is this - "Why does the probability of completion falls with old DUCs?" The possible causes for this phenomenon can be speculated as the following: logistical issues vs. mechanical problems.&lt;/p&gt;
-&lt;div id="Limitations with the EIA data"&gt;&lt;/div&gt;
-&lt;div class="alert alert-info"&gt;
-&lt;h4&gt;Notes: Limitations with the EIA data&lt;/h4&gt;
-&lt;p&gt;While the EIA publishes the number of DUC well estimations and the counties they used for each basin, the EIA doesn't publish what wells are used for their statistics - a.k.a. the well API numbers. According to this &lt;a href="https://www.eia.gov/petroleum/drilling/pdf/duc_supplement.pdf" target="_blank"&gt;supplementary document&lt;/a&gt;, they applied their own historical correlations on top of the Enverus database to make their DUC count estimations. I attempted to match the EIA DUC count with the Enverus data by tweaking filters on Drilling Info (ex: setting &lt;i&gt;Well Status = DUC or Drilled&lt;/i&gt; and selecting &lt;i&gt;Completion Date&lt;/i&gt; column with no entries), only to find out that it's not possible until I know exactly what kind of correlations the EIA used to make their estimations. This makes me doubt the legitimacy of the plots like &lt;a href="https://www.ogj.com/general-interest/economics-markets/article/14207996/rystad-live-us-duc-well-inventory-lowest-since-2013" target="_blank"&gt;this&lt;/a&gt; since EIA doesn't publish well API numbers and spud dates and it's not possible to match the EIA wells with the Enverus wells.&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;It would be interesting to see the percentage of live DUCs vs. Dead DUCs (older than 2 years), had the EIA also published the well API numbers they used to compile their DPR report.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div id="Reasons for dead DUCs: Lost leases"&gt;&lt;/div&gt;&lt;h3 id="2.1.-Reasons-for-dead-DUCs:-Lost-leases"&gt;2.1. Reasons for dead DUCs: Lost leases&lt;a class="anchor-link" href="#2.1.-Reasons-for-dead-DUCs:-Lost-leases"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;a href="https://glossary.slb.com/en/terms/p/primary_term" target="_blank"&gt;primary term of an oil &amp; gas lease&lt;/a&gt; is a period of time (usually a few years) in which a lessee has an option to drill an oil or gas well, without having to complete and produce. However, the lessee may lose his lease rights if he isn't drilling, producing, or performing any other operations within the 90-day grace period after the first term expiration day. In simple words, &lt;i&gt;"You can't hold onto your lease unless you are doing something with it"&lt;/i&gt;.&lt;/p&gt;
-&lt;p&gt;The primary term can be extended into the &lt;a href="https://glossary.slb.com/en/terms/s/secondary_term" target="_blank"&gt;secondary term&lt;/a&gt; withouta the need to drill a new well or completing and producing from a well if the lessee "commences operations for the drilling of a well on leased lands." However, there is often disagreement over what constitutes "commencing operations" between lessees, lessors, and litigants. The courts generally consider both an objective standard (i.e., whether the operator was diligent in pursuing completion) and a subjective standard (i.e., whether the operator acted in good faith) to determine if DUC operations extend the primary term.&lt;/p&gt;
-&lt;p&gt;Failing to extend the primary term will result in lost lease, and will require additional dollars to re-lease the land to complete any DUC wells in it. Naturally this reduces profit from the completion and production investments, which contributes to the birth of &lt;em&gt;dead DUCs&lt;/em&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div id="Reasons for dead DUCs: Reservoir conditions...?"&gt;&lt;/div&gt;&lt;h3 id="2.2.-Reasons-for-dead-DUCs:-Reservoir-conditions...?"&gt;2.2. Reasons for dead DUCs: Reservoir conditions...?&lt;a class="anchor-link" href="#2.2.-Reasons-for-dead-DUCs:-Reservoir-conditions...?"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;During my research on the causes of dead DUC wells, I found that many people attribute them to reservoir conditions (e.g. declining pressure) and other technical issues (e.g. wellbore integrity). However, after analyzing the Enverus database for seven DPR regions, I found that the time gap between drilling and completion has a negligible effect on production volume and rate, not significant enough to deter operators from completing their old DUCs.&lt;/p&gt;
-&lt;p&gt;To determine if the time lag has a significant impact on production, I will use two measures: EUR, which assesses if the lag time affects the total recoverable volume over the well's lifetime, and first-year BOE, which evaluates if it affects the initial production rate. I will restrict my analysis to hydrocarbon wells and horizontal wells only, excluding any injection wells, dry holes, cores, etc.&lt;/p&gt;
-&lt;div&gt;&lt;hr/&gt;&lt;/div&gt;&lt;div id="Comparison with EUR"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Comparison with EUR&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The Enverus Drilling Info employs automated algorithms to calculate and update oil and gas EURs. Although these auto-fitted EURs may not be entirely accurate when inspected on a single well-by-well basis, they provide valuable insights for large-scale basin analysis. The oil EUR and gas EUR are combined by converting the gas EUR from MCFD to BOE using a conversion factor of 6. The EUR vs. lag scatter plot (&lt;a href="#fig-4"&gt;Figure 4&lt;/a&gt;) shows that the average of each bin remains arguably constant, with some exceptions at the far right due to a lack of data. This suggests that the lag time between drilling and completion has limited impact on total recoverable hydrocarbon volumes, which should not discourage operators from completing their old DUC wells.&lt;/p&gt;
-&lt;div class="row" id="fig-4" style="margin-top: 15px;"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/Total EUR vs Days Till Completion.png"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 4: Each dot represents one well's EUR in the basin. Note that the Permian has the most number of wells and Haynesville has the least. The wells are binned by 100 lag days. Each vertical band of dots represents wells completed, for example, between 100 ~ 200 days after drilled. The blue line plot represents the average of wells in each 100-day bins. Note that the credibility of this average line plot falls with the increasing lag days due to lack of data on high-lag-day-bins.&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div class="solution_panel closed"&gt;
-&lt;div class="solution_title"&gt;
-&lt;p class="solution_title_string"&gt;Source Code For Figure (4)&lt;/p&gt;
-&lt;ul class="nav navbar-right panel_toolbox"&gt;
-&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="clearfix"&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="solution_content"&gt;
-&lt;pre&gt;
-            &lt;code class="language-python"&gt;
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.gridspec as gridspec
-import matplotlib.ticker as ticker
-import seaborn as sns
-from matplotlib.colors import LinearSegmentedColormap
-from scipy import stats
-
-############################################# Basins ##############################################
-
-basins = sorted(['Anadarko', 'Appalachia', 'Eagle Ford', 'Haynesville', 'Niobrara', 'Permian', 'Bakken'])
-
-################################### DUC Wells Count per Basin #####################################
-
-x_max = {
-    'Anadarko': 1000,
-    'Appalachia' : 1500,
-    'Bakken' : 1500,
-    'Eagle Ford' : 1500,
-    'Haynesville' : 1000,
-    'Niobrara' : 1500,
-    'Permian' : 1500,
-}
-y_max = {
-    'Anadarko': 3000,
-    'Appalachia' : 8000,
-    'Bakken' : 3000,
-    'Eagle Ford' : 3000,
-    'Haynesville' : 8000,
-    'Niobrara' : 2000,
-    'Permian' : 5000,
-}
-EURs = ['EUR (Full) BOE', 'EUR Oil (Full)', 'EUR Gas (Full)']
-dfs = []
-for basin in basins:
-    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx', sheet_name=basin)
-    df_cur = df_cur.dropna(subset=['Completion Date'])           # Drop wells that are not completed
-    df_cur = df_cur[df_cur['Drill Type'] == 'H']                 # Horizontal wells only
-
-    # Drops non-hydrocarbon wells like: Dry hole, injection, core, etc.
-    df_cur = df_cur[df_cur['Production Type'].isin(['OIL', 'GAS', 'OIL &amp; GAS'])] 
-
-    df_cur = df_cur.dropna(subset=EURs) 
-    df_cur[EURs] = df_cur[EURs].div(1000).round(0)
-    df_cur = df_cur[df_cur['EUR (Full) BOE'] &lt; y_max[basin]]
-    dfs.append(df_cur)
-
-############################################# Plot ##############################################
-
-cmap_name = 'cubehelix'
-colors = sns.color_palette(cmap_name, n_colors=len(basins))
-np.random.seed(34)
-np.random.shuffle(colors)
-colors = colors.as_hex()
-colors[0] = 'grey'
-colors[-2] = '#914810'
-cmap = LinearSegmentedColormap.from_list("my_colormap", colors)
-barcolor_dict = {label: color for label, color in zip(basins, colors)}
-
-fig = plt.figure(figsize=(16, 17))
-gs = gridspec.GridSpec(4, 4)
-ax1 = plt.subplot(gs[0, 0:2])
-ax2 = plt.subplot(gs[0,2:])
-ax3 = plt.subplot(gs[1,0:2])
-ax4 = plt.subplot(gs[1,2:])
-ax5 = plt.subplot(gs[2,0:2])
-ax6 = plt.subplot(gs[2,2:])
-ax7 = plt.subplot(gs[3,2:4])
-axes = [ax1,ax2,ax3,ax4,ax5,ax6,ax7]
-
-axis_tick_fontsize = 13
-title_fontsize = 19
-markersize = 20
-y_label_fontsize = 15
-
-colors = ['grey', '#a1794a', '#d484a9', '#cbe8f0', '#c6b4ee', '#914810', '#16534c']
-
-for i, (ax, df, basin) in enumerate (zip(axes, dfs, basins)):
-
-    df_cur = dfs[i]
-
-    stepsize= 100
-    bins = np.arange(0, x_max[basins[i]] + stepsize, stepsize)
-
-    temp = []
-    for b in bins[: -1]:
-        aa = df_cur[df_cur['Lag'].between(b, b + stepsize)]['EUR (Full) BOE']
-        temp.append(aa)
-
-    for j, item in enumerate(temp):
-        x = np.random.normal(j + 1, 0.06, size=len(item))
-        ax.scatter(x, item, color=colors[i], alpha=0.5, s=10, edgecolors='k', linewidth=0.1, label='One Well EUR')
-
-    ymin = 0 - 0.05 * y_max[basin]
-    ax.set_ylim(ymin, y_max[basin])
-
-    means = [np.mean(item) for item in temp]
-    ax.plot([i + 1 for i in range(len(means))], means, linestyle='-', marker='o', markersize=8, alpha=0.7, 
-            label='Average EUR of wells, binned by 100 lag days')
-
-    ax.set_title(basin, fontsize=title_fontsize)
-    ax.tick_params(axis='x', labelsize=axis_tick_fontsize)
-    ax.tick_params(axis='y', labelsize=axis_tick_fontsize)
-
-    ax.set_ylabel('EUR (MBOE)', fontsize=y_label_fontsize)
-    if i == 4 or i == 6:
-        ax.set_xlabel('Lag (Days)', fontsize=y_label_fontsize)
-
-    ax.yaxis.set_major_formatter(ticker.EngFormatter())
-
-    if basin == 'Appalachia' or basin == 'Haynesville' or basin == 'Niobrara':
-        ax.yaxis.set_major_locator(plt.MaxNLocator(5))
-    elif basin == 'Permian':
-        ax.yaxis.set_major_locator(plt.MaxNLocator(6))
-    else:
-        ax.yaxis.set_major_locator(plt.MaxNLocator(7))
-
-    ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
-    ax.spines.top.set_visible(False)
-    ax.spines.right.set_visible(False)
-
-    ax.set_xticklabels([str(int(item)) + '00' for item in ax.get_xticks()], rotation=30, fontsize=axis_tick_fontsize)
-
-    h0, l0 = ax.get_legend_handles_labels()
-    leg = ax.legend([h0[0]], [l0[0]], fontsize=14, ncol=2, loc='upper right')
-    for lh in leg.legendHandles:
-        lh.set_alpha(1)
-        lh.set_sizes([50])
-
-    h1, l1 = ax.get_legend_handles_labels()
-    fig.legend([h1[-1]], [l1[-1]], loc='lower left', ncol=2,
-               bbox_to_anchor=(0.046, 0.195), bbox_transform=fig.transFigure, fontsize=16)
-
-    ax.set_facecolor('#eeeeee')
-    ax.grid(axis='y', alpha=0.5)
-    ax.set_axisbelow(True)
-    ax.text(0.15, 0.88, 'aegis4048.github.io', fontsize=12, ha='center', va='center',
-            transform=ax.transAxes, color='grey', alpha=0.5)
-
 fig.tight_layout()
-
-def setbold(txt):
-    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
-
-y_pos = 0.998
-fig.suptitle(setbold('Total EUR vs. Days Till Completion')  + ",  Jan 2014 - June 2022", fontsize=20, x=0.28, y=1.025)
-ax.annotate('', xy=(0.006, y_pos), xycoords='figure fraction', xytext=(1, y_pos), arrowprops=dict(arrowstyle="-", color='k', lw=1.3))
-ax.annotate('Source: Pythonic Excursions, DrillingInfo', xy=(0.05, 0.173), xycoords='figure fraction', fontsize=16)
-
-fig.set_facecolor("white")
             &lt;/code&gt;
         &lt;/pre&gt;
 &lt;/div&gt;
@@ -1531,360 +3046,31 @@ fig.set_facecolor("white")
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div id="Comparison with the first 12 month production"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Comparison with the first 12 month production&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;While the EUR shows &lt;i&gt;"how much total"&lt;/i&gt; oil and gas can be produced throughout the entire life of a well, the first 12 month production shows &lt;i&gt;"how fast"&lt;/i&gt; they can be extracted. Usually a high rate (fast) is desirable as it reduces operating costs and extends the lifespan of a well. Each well has an economic limit, beyond which it becomes unprofitable if the cost of operations exceeds the revenue generated from the hydrocarbons produced. High production rate shifts this economic limit to the right on the time axis of a production decline curve, thus extending the life of the well.&lt;/p&gt;
-&lt;p&gt;The first 12-month production is particularly significant for horizontal wells, as they produce a significant portion of their lifetime oil and gas production, accounting for 37% and 25% respectively, in the first 12 months of production (&lt;a href="https://nondoc.com/2017/07/12/horizontal-wells-first-three-years/" target="_blank"&gt;source&lt;/a&gt;). This is of particular relevance in the current oil and gas industry, where 94% of newly drilled wells are horizontal.&lt;/p&gt;
-&lt;p&gt;Visualizing the wells with the first 12 month production vs. lag scatter plot generates &lt;a href="#fig-5"&gt;Figure 5&lt;/a&gt;, which confirms the observations and conclusions drawn from &lt;a href="#fig-4"&gt;Figure 4&lt;/a&gt;: the lag time between drilling and completion does not affect the first 12 month production enough to make operators shy away from completing their old DUCs.&lt;/p&gt;
-&lt;div class="row" id="fig-5" style="margin-top: 15px;"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/First 12 month Production vs Days Till Completion.png"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 5: Same as Figure 4 except that the line plot represents average of the first 12 month production of each 100-day bin.&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div class="solution_panel closed"&gt;
-&lt;div class="solution_title"&gt;
-&lt;p class="solution_title_string"&gt;Source Code For Figure (5)&lt;/p&gt;
-&lt;ul class="nav navbar-right panel_toolbox"&gt;
-&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;div id="Conclusion"&gt;&lt;/div&gt;&lt;h2 id="6.-Conclusion"&gt;6. Conclusion&lt;a class="anchor-link" href="#6.-Conclusion"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The well-established scientific wisdom suggests that parent (old) wells perform better than their nearby child (new) wells, due to the parent wells having already drained a significant volume of hydrocarbons and left the child well with lower reservoir pressure and smaller volume of fluids left to produce.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Wells completed shortly after drilling (within 50 days) tend to have substantially smaller EUR compared to wells with longer DUC time (&lt;a href="#fig-6"&gt;Figure 6&lt;/a&gt;). This is because wells with longer DUC time tend to have longer lateral length and are treated with bigger completion. Conversely, it means that operators tend to undersize their completion concentration per lateral foot for wells completed shortly after drilling (&lt;a href="#fig-7"&gt;Figure 7&lt;/a&gt;). Thus, investing in larger completion size for wells completed shortly after drilling may yield greater profit for operators.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;To assess the genuine impact of DUC time on production, EUR was normalized by lateral length, proppant per perforated foot (PPF), and fluid per perforated foot (FPF).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;It has been found that increasing DUC time has a significant negative impact on the EUR of Anadarko, Bakken, Hanyesville, and Permian wells. However, Appalachia, Eagle Ford and Niobrara wells have been found to be resilient from the EUR loss due to increasing DUC time (&lt;a href="#fig-8"&gt;Figure 8&lt;/a&gt;). Notably, Anadarko and Permian showed 81% and 74% drop in noramlized EUR, respectively, over a span of 150 days of DUC time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;In some basins, delaying completion due to unfavorable commodity prices may not be a financially sound strategy.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="#fig-8"&gt;Figure 8&lt;/a&gt; provides valuable insight to evaluate completion investment efficiency as it shows EUR normalized by completion size and lateral length.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;DUC wells have time limit till completion. For example, Anadarko wells have less than 5% chance of completion for DUC wells older than 308 days since drilled (&lt;a href="#fig-16"&gt;Figure 16&lt;/a&gt;). Chance of completion drastically falls afterwards, which may render the drilling investment made for the well to be a waste.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Anadarko and Haynesville wells have the shortest time limit till completion (&lt;a href="#fig-16"&gt;Figure 16&lt;/a&gt;). This can be attributed to the fact that they are the ones with the worst decrease in normalized EUR with increasing DUC time, as demonstrated in &lt;a href="#fig-8"&gt;Figure 8&lt;/a&gt;. On the other hand, Appalachia wells have the longest time limit till completion because they yield the greatest EUR at differnt DUC times, and their normalized EUR decreases minimally with increasing DUC time.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="clearfix"&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="solution_content"&gt;
-&lt;pre&gt;
-            &lt;code class="language-python"&gt;
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.gridspec as gridspec
-import matplotlib.ticker as ticker
-import seaborn as sns
-from matplotlib.colors import LinearSegmentedColormap
-from scipy import stats
-
-############################################# Basins ##############################################
-
-basins = sorted(['Anadarko', 'Appalachia', 'Eagle Ford', 'Haynesville', 'Niobrara', 'Permian', 'Bakken'])
-
-################################### DUC Wells Count per Basin #####################################
-
-x_max = {
-    'Anadarko': 1000,
-    'Appalachia' : 1500,
-    'Bakken' : 1500,
-    'Eagle Ford' : 1500,
-    'Haynesville' : 1000,
-    'Niobrara' : 1500,
-    'Permian' : 1500,
-}
-y_max = {
-    'Anadarko': 1000,
-    'Appalachia' : 2000,
-    'Bakken' : 500,
-    'Eagle Ford' : 1000,
-    'Haynesville' : 1500,
-    'Niobrara' : 500,
-    'Permian' : 1000,
-}
-EURs = ['EUR (Full) BOE', 'EUR Oil (Full)', 'EUR Gas (Full)', 'First 12 BOE']
-dfs = []
-for basin in basins:
-    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx', sheet_name=basin)
-    df_cur = df_cur.dropna(subset=['Completion Date'])           # Drop wells that are not completed
-    df_cur = df_cur[df_cur['Drill Type'] == 'H']                 # Horizontal wells only
-
-    # Drops non-hydrocarbon wells like: Dry hole, injection, core, etc.
-    df_cur = df_cur[df_cur['Production Type'].isin(['OIL', 'GAS', 'OIL &amp; GAS'])] 
-
-    df_cur = df_cur.dropna(subset=EURs) 
-    df_cur[EURs] = df_cur[EURs].div(1000).round(0)
-    dfs.append(df_cur)
-
-############################################# Plot ##############################################
-
-cmap_name = 'cubehelix'
-colors = sns.color_palette(cmap_name, n_colors=len(basins))
-np.random.seed(34)
-np.random.shuffle(colors)
-colors = colors.as_hex()
-colors[0] = 'grey'
-colors[-2] = '#914810'
-cmap = LinearSegmentedColormap.from_list("my_colormap", colors)
-barcolor_dict = {label: color for label, color in zip(basins, colors)}
-
-fig = plt.figure(figsize=(16, 17))
-gs = gridspec.GridSpec(4, 4)
-ax1 = plt.subplot(gs[0, 0:2])
-ax2 = plt.subplot(gs[0,2:])
-ax3 = plt.subplot(gs[1,0:2])
-ax4 = plt.subplot(gs[1,2:])
-ax5 = plt.subplot(gs[2,0:2])
-ax6 = plt.subplot(gs[2,2:])
-ax7 = plt.subplot(gs[3,2:4])
-axes = [ax1,ax2,ax3,ax4,ax5,ax6,ax7]
-
-axis_tick_fontsize = 13
-title_fontsize = 19
-markersize = 20
-y_label_fontsize = 15
-
-colors = ['grey', '#a1794a', '#d484a9', '#cbe8f0', '#c6b4ee', '#914810', '#16534c']
-
-for i, (ax, df, basin) in enumerate (zip(axes, dfs, basins)):
-
-    df_cur = dfs[i]
-
-    stepsize= 100
-    bins = np.arange(0, x_max[basins[i]] + stepsize, stepsize)
-
-    temp = []
-    for b in bins[: -1]:
-        aa = df_cur[df_cur['Lag'].between(b, b + stepsize)]['First 12 BOE']
-        temp.append(aa)
-
-    for j, item in enumerate(temp):
-        x = np.random.normal(j + 1, 0.06, size=len(item))
-        ax.scatter(x, item, color=colors[i], alpha=0.5, s=10, edgecolors='k', linewidth=0.1, label='One Well First 12mo Prod.')
-
-    ymin = 0 - 0.05 * y_max[basin]
-    ax.set_ylim(ymin, y_max[basin])
-
-    means = [np.mean(item) for item in temp]
-    ax.plot([i + 1 for i in range(len(means))], means, linestyle='-', marker='o', markersize=8, alpha=0.7, color='k',
-            label='AVG 1st 12mo Prod. of wells, binned by 100 lag days')
-
-    ax.set_title(basin, fontsize=title_fontsize)
-    ax.tick_params(axis='x', labelsize=axis_tick_fontsize)
-    ax.tick_params(axis='y', labelsize=axis_tick_fontsize)
-
-    ax.set_ylabel('First 12mo Prod. (MBOE)', fontsize=y_label_fontsize)
-    if i == 4 or i == 6:
-        ax.set_xlabel('Lag (Days)', fontsize=y_label_fontsize)
-
-    ax.yaxis.set_major_formatter(ticker.EngFormatter())
-
-    if basin == 'Appalachia':
-        ax.yaxis.set_major_locator(plt.MaxNLocator(5))
-    else:
-        ax.yaxis.set_major_locator(plt.MaxNLocator(6))
-
-    ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
-    ax.spines.top.set_visible(False)
-    ax.spines.right.set_visible(False)
-
-    ax.set_xticklabels([str(int(item)) + '00' for item in ax.get_xticks()], rotation=30, fontsize=axis_tick_fontsize)
-
-    h0, l0 = ax.get_legend_handles_labels()
-    leg = ax.legend([h0[0]], [l0[0]], fontsize=14, ncol=2, loc='upper right')
-    for lh in leg.legendHandles:
-        lh.set_alpha(1)
-        lh.set_sizes([50])
-
-    h1, l1 = ax.get_legend_handles_labels()
-    fig.legend([h1[-1]], [l1[-1]], loc='lower left', ncol=2,
-               bbox_to_anchor=(0.046, 0.195), bbox_transform=fig.transFigure, fontsize=16)
-
-    ax.set_facecolor('#eeeeee')
-    ax.grid(axis='y', alpha=0.5)
-    ax.set_axisbelow(True)
-    ax.text(0.15, 0.88, 'aegis4048.github.io', fontsize=12, ha='center', va='center',
-            transform=ax.transAxes, color='grey', alpha=0.5)
-
-fig.tight_layout()
-
-def setbold(txt):
-    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
-
-y_pos = 0.998
-fig.suptitle(setbold('First 12 month Production vs. Days Till Completion')  + ",  Jan 2014 - June 2022", fontsize=20, x=0.35, y=1.025)
-ax.annotate('', xy=(0.006, y_pos), xycoords='figure fraction', xytext=(1, y_pos), arrowprops=dict(arrowstyle="-", color='k', lw=1.3))
-ax.annotate('Source: Pythonic Excursions, DrillingInfo', xy=(0.058, 0.173), xycoords='figure fraction', fontsize=16)
-
-fig.set_facecolor("white")
-            &lt;/code&gt;
-        &lt;/pre&gt;
+&lt;div class="highlights red-theme" id="boxcox-warning"&gt;
+&lt;div class="highlights-title red-theme"&gt;WARNING!&lt;/div&gt;
+&lt;div class="highlights-content red-theme"&gt;
+&lt;p&gt;The presented analysis provides a basin-wide overview at a high level, and the conclusions drawn assume homogeneity within each basin. However, this assumption may not hold true for many regions. By restricting the analysis to a county-level, different trends may emerge compared to those observed at the basin level.&lt;/p&gt;
+&lt;p&gt;In &lt;a href="#fig-8"&gt;Figure 8&lt;/a&gt;, it was observed that delaying completion by 150 days resulted in an 81% decline in normalized EUR for Anadarko wells. In contrast, no drop in EUR was observed for Eagle Ford wells. These conclusions should be interpreted as follows: "If a new well is drilled in a typical area where most other operators drill, and typical well spacing, completion, and production techniques are applied across the basin, an 81% loss of EUR can be expected for Anadarko wells if completion is delayed by 150 days. It would be advisable to complete Anadarko wells as soon as possible to avoid drainage from neighboring competitor wells. However, for Eagle Ford wells, completion can be delayed for a prolonged period if the oil price is not favorable."&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div id="Noteworthy pattern with lag days"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Noteworthy pattern on lag time vs. production&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The plot of lag vs. EUR (or the first 12 months of production) in our study exhibits intriguing characteristics that contradict conventional wisdom, which assumes that older DUCs have inferior reservoir conditions compared to newly drilled wells. However, our analysis shows that this assumption is only true for wells with lag days exceeding 400. As seen in &lt;a href="#fig-6"&gt;Figure 6&lt;/a&gt; below, which is a zoomed in version of &lt;a href="#fig-4"&gt;Figure 4&lt;/a&gt; above, binned by 50 days instead of 100 days, the average EUR for wells in Anadarko and Haynesville increases with the increasing lag days until it reaches 250 lag days, after which it slightly decreases. A closer examination of the other basins in &lt;a href="#fig-4"&gt;Figure 4&lt;/a&gt; reveals similar trends, with the EUR increasing until 250~400 lag days and then gradually decreasing.&lt;/p&gt;
-&lt;p&gt;The findings of this study challenge the conventional notion that older DUC wells would exhibit decreased reservoir pressure compared to newly drilled wells. Interestingly, the results indicate the opposite trend for DUC wells with an age less than 400 days.&lt;/p&gt;
-&lt;p&gt;The reasons behind this unexpected outcome are not clear. Further investigation is needed to fully understand the impact of increasing lag days on production. It is possible that the wells completed within the 250-400 lag day period possess favorable attributes that contribute to their high production or that improved perforation and production techniques tend to be utilized for those wells. Further research is required to validate these speculations.&lt;/p&gt;
-&lt;div class="row" id="fig-6" style="margin-top: 15px;"&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/Total EUR vs Days Till Completion Zoomed In.png"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 6: Similar to Figure 4, but this time it's binned by 50-day instead of 100-day and zoomed-in on both x- and y-axis. The EUR seems to increase with the increasing lag days between drilling and completion until ~250 lag days&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div class="solution_panel closed"&gt;
-&lt;div class="solution_title"&gt;
-&lt;p class="solution_title_string"&gt;Source Code For Figure (6)&lt;/p&gt;
-&lt;ul class="nav navbar-right panel_toolbox"&gt;
-&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="clearfix"&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="solution_content"&gt;
-&lt;pre&gt;
-            &lt;code class="language-python"&gt;
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.gridspec as gridspec
-import matplotlib.ticker as ticker
-import seaborn as sns
-from matplotlib.colors import LinearSegmentedColormap
-from scipy import stats
-
-############################################# Basins ##############################################
-
-basins = sorted(['Anadarko', 'Haynesville'])
-
-################################### DUC Wells Count per Basin #####################################
-
-x_max = {
-    'Anadarko': 1000,
-    'Haynesville' : 1000,
-}
-y_max = {
-    'Anadarko': 1500,
-    'Haynesville' : 4000,
-}
-EURs = ['EUR (Full) BOE', 'EUR Oil (Full)', 'EUR Gas (Full)']
-dfs = []
-for basin in basins:
-    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx', sheet_name=basin)
-    df_cur = df_cur.dropna(subset=['Completion Date'])           # Drop wells that are not completed
-    df_cur = df_cur[df_cur['Drill Type'] == 'H']                 # Horizontal wells only
-
-    # Drops non-hydrocarbon wells like: Dry hole, injection, core, etc.
-    df_cur = df_cur[df_cur['Production Type'].isin(['OIL', 'GAS', 'OIL &amp; GAS'])] 
-
-    df_cur = df_cur.dropna(subset=EURs) 
-    df_cur[EURs] = df_cur[EURs].div(1000).round(0)
-    df_cur = df_cur[df_cur['EUR (Full) BOE'] &lt; y_max[basin]]
-    dfs.append(df_cur)
-
-############################################# Plot ##############################################
-
-cmap_name = 'cubehelix'
-colors = sns.color_palette(cmap_name, n_colors=len(basins))
-np.random.seed(34)
-np.random.shuffle(colors)
-colors = colors.as_hex()
-colors[0] = 'grey'
-colors[-2] = '#914810'
-cmap = LinearSegmentedColormap.from_list("my_colormap", colors)
-barcolor_dict = {label: color for label, color in zip(basins, colors)}
-
-fig = plt.figure(figsize=(16, 8.5))
-gs = gridspec.GridSpec(2, 4)
-ax1 = plt.subplot(gs[0, 0:2])
-ax2 = plt.subplot(gs[0,2:])
-axes = [ax1,ax2]
-
-axis_tick_fontsize = 14
-title_fontsize = 19
-markersize = 20
-y_label_fontsize = 16
-legend_annot_fontsize = 18
-
-colors = ['grey', '#c6b4ee']
-
-for i, (ax, df, basin) in enumerate (zip(axes, dfs, basins)):
-
-    df_cur = dfs[i]
-
-    stepsize= 50
-    bins = np.arange(0, x_max[basins[i]] + stepsize, stepsize)
-
-    temp = []
-    for b in bins[: -1]:
-        aa = df_cur[df_cur['Lag'].between(b, b + stepsize)]['EUR (Full) BOE']
-        temp.append(aa)
-
-    for j, item in enumerate(temp):
-        x = np.random.normal(j + 1, 0.06, size=len(item))
-        ax.scatter(x, item, color=colors[i], alpha=0.5, s=10, edgecolors='k', linewidth=0.1, label='One Well EUR')
-
-    ymin = 0 - 0.05 * y_max[basin]
-    ax.set_ylim(ymin, y_max[basin])
-
-    means = [np.mean(item) for item in temp]
-    ax.plot([i + 1 for i in range(len(means))], means, linestyle='-', marker='o', markersize=8, alpha=0.7, 
-            label='Average EUR of wells, binned by 100 lag days')
-
-    ax.set_title(basin, fontsize=title_fontsize)
-    ax.tick_params(axis='x', labelsize=axis_tick_fontsize)
-    ax.tick_params(axis='y', labelsize=axis_tick_fontsize)
-
-    ax.set_ylabel('EUR (MBOE)', fontsize=y_label_fontsize)
-    ax.set_xlabel('Lag (Days)', fontsize=y_label_fontsize + 1)
-    ax.yaxis.set_major_formatter(ticker.EngFormatter())
-
-    if basin == 'Haynesville':
-        ax.yaxis.set_major_locator(plt.MaxNLocator(5))
-    else:
-        ax.yaxis.set_major_locator(plt.MaxNLocator(6))
-
-    ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
-    ax.spines.top.set_visible(False)
-    ax.spines.right.set_visible(False)
-
-    ax.set_xticklabels([str(int(item)) + '00' for item in ax.get_xticks()], rotation=30, fontsize=axis_tick_fontsize)
-
-    h0, l0 = ax.get_legend_handles_labels()
-    leg = ax.legend([h0[0]], [l0[0]], fontsize=13, ncol=2, loc='upper right')
-    for lh in leg.legendHandles:
-        lh.set_alpha(1)
-        lh.set_sizes([50])
-
-    h1, l1 = ax.get_legend_handles_labels()
-    fig.legend([h1[-1]], [l1[-1]], loc='lower left', ncol=2,
-               bbox_to_anchor=(0.315, 0.35), bbox_transform=fig.transFigure, fontsize=legend_annot_fontsize)
-
-    ax.set_facecolor('#eeeeee')
-    ax.grid(axis='y', alpha=0.5)
-    ax.set_axisbelow(True)
-    ax.text(0.17, 0.88, 'aegis4048.github.io', fontsize=14, ha='center', va='center',
-            transform=ax.transAxes, color='grey', alpha=0.5)
-
-fig.tight_layout()
-
-def setbold(txt):
-    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
-
-y_pos = 0.86
-fig.suptitle(setbold('Total EUR vs. Days Till Completion Zoomed In')  + ",  Jan 2014 - June 2022", fontsize=19, x=0.31, y=1.05)
-ax.annotate('', xy=(0.005, y_pos), xycoords='figure fraction', xytext=(1, y_pos), arrowprops=dict(arrowstyle="-", color='k', lw=1.3))
-ax.annotate('Source: Pythonic Excursions, DrillingInfo', xy=(0.01, 0.16), 
-            xycoords='figure fraction', fontsize=legend_annot_fontsize)
-
-fig.set_facecolor("white")   
-            &lt;/code&gt;
-        &lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div id="Reasons for dead DUCs: Conclusion"&gt;&lt;/div&gt;&lt;h3 id="2.3.-Reasons-for-dead-DUCs:-Conclusion"&gt;2.3. Reasons for dead DUCs: Conclusion&lt;a class="anchor-link" href="#2.3.-Reasons-for-dead-DUCs:-Conclusion"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The empirical evidence shows that wells older than 2 years have a low likelihood of completion and become dead DUCs. Our analysis of seven DPR regions revealed that 95% of wells in the US are completed within 556 days of drilling, with the probability of completion rapidly declining after that. The speculations as to why those old DUCs are never completed include lost leases and reservoir pressure depletion, in which the latter has been challenged by our study; we found that the decline in EUR and first 12-month production due to increasing time gap between drilling and completion is not substantial enough to discourage operators from completing these wells. In fact, our findings showed that EUR and production actually increase with increasing lag time, up to 250-400 days, which was surprising.&lt;/p&gt;
-&lt;p&gt;In conclusion, our study suggests that the underlying cause of dead DUCs is not technical problems like reservoir pressure depletion, but logistical issues such as lost leases. Further more, wells completed rougly 1 year after drilling seems to show the best EUR and first year production rates.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1915,7 +3101,7 @@ fig.set_facecolor("white")
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="oil-and-gas"></category><category term="oil"></category><category term="gas"></category><category term="DUC"></category><category term="drilling"></category><category term="horizontals"></category><category term="verticals"></category><category term="completion"></category><category term="production"></category><category term="recent-trend"></category><category term="energy-shortage"></category><category term="EIA"></category><category term="DrillingInfo"></category><category term="Enverus"></category><category term="DPR"></category><category term="dead-duc"></category></entry><entry><title>DUC Wells and Their Economic Complications</title><link href="https://aegis4048.github.io/duc_wells_and_their_economic_complications" rel="alternate"></link><published>2023-02-09T00:00:00-08:00</published><updated>2023-02-09T00:00:00-08:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2023-02-09:/duc_wells_and_their_economic_complications</id><summary type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="oil-and-gas"></category><category term="oil"></category><category term="gas"></category><category term="DUC"></category><category term="drilling"></category><category term="horizontals"></category><category term="verticals"></category><category term="completion"></category><category term="production"></category><category term="recent-trend"></category><category term="energy-shortage"></category><category term="EIA"></category><category term="DrillingInfo"></category><category term="Enverus"></category><category term="DPR"></category><category term="dead-duc"></category><category term="Anadarko"></category><category term="Appalachia"></category><category term="Bakken"></category><category term="Eagle Ford"></category><category term="Niobrara"></category><category term="Hanyesville"></category><category term="Permian"></category></entry><entry><title>DUC Wells and Their Economic Complications</title><link href="https://aegis4048.github.io/duc_wells_and_their_economic_complications" rel="alternate"></link><published>2023-02-09T00:00:00-08:00</published><updated>2023-02-09T00:00:00-08:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2023-02-09:/duc_wells_and_their_economic_complications</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -3381,7 +4567,7 @@ fig.set_facecolor("white")
 &lt;div id="How are DUC wells created?"&gt;&lt;/div&gt;&lt;h2 id="2.-How-are-DUC-wells-created?"&gt;2. How are DUC wells created?&lt;a class="anchor-link" href="#2.-How-are-DUC-wells-created?"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The formation of DUC wells in the oil and gas industry is caused by a variety of factors. The most straightforward reason is that they occur when operators drill more wells than they complete, and vice versa, whether by choice or not. If they drill more wells than they complete, DUC wells accumulate. If they complete more wells than they drill, DUC wells deplete. This trend can be observed in &lt;a href="#fig-4"&gt;Figure 4&lt;/a&gt;, which showcases three distinct periods where the US DUC well counts in the seven DPR regions experienced rapid increases and decreases as a result of imbalanced drilling and completion activities.&lt;/p&gt;
 &lt;div class="row full_screen_margin_90 mobile_responsive_plot_full_width" id="fig-4" style="margin-top: 15px;"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/US Major Basins Completion &amp; Drilling Activities and Commodities.png"/&gt;&lt;/div&gt;
-&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 4: The line plots depict three distinct periods of significant fluctuations in DUC well inventories, with [1] and [3] representing instances of rapid depletion due to low completion rates, and [2] reflecting a period of accumulation resulting from high drilling activities.&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;&lt;p class="image-description"&gt;Figure 4: The line plots depict three distinct periods of significant fluctuations in DUC well inventories, with [1] and [3] representing instances of rapid depletion due to high completion rates, and [2] reflecting a period of accumulation resulting from high drilling activities.&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
