@@ -1554,7 +1554,6 @@ table.dataframe {
     background: #f5f2f0 !important;
 }
 .image-description {
-    text-align: center;
     font-style: italic;
     margin-top: 0.3rem;
 }
@@ -2786,4 +2785,73 @@ div.output_area {
     display: block;
     margin-bottom: 5px;
 }
+.ordered-list {
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border: 3px solid #abd5ea;
+}
+.ordered-list h2 {
+    background-color: #abd5ea;
+    color: #333;
+    font-size: 18px;
+    line-height: 35px;
+    margin: 0;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    margin-top: 0 !important;
+}
+.ordered-list ol {
+    list-style-position: inside;
+    padding-left: 0 !important;
+    margin: 0 !important;
+}
+.ordered-list ol li{
+    border-bottom: #e6e6e6 1px solid;
+    padding-left: 20px;
+    line-height: 25px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-right: 15px;
+}
+.ordered-list ::marker {
+    font-weight: 700;
+}
+article code.language-python {
+    padding: 0 !important;
+}
+.col-1 {
+    max-width: 3% !important;
+}
+a.internal-link {
+    text-shadow: 0 0 1px #ffadad !important;
+    color: red !important;
+    font-family: monospace !important;
+}
+.fig-title p {
+    margin-top: 0 !important;
 
+}
+.fig-title {
+    padding: 0 !important;
+}
+
+
+
+
+
+
+.ordered-list ol li.no-number {
+    list-style-type: none; /* Remove the list style (number) */
+    counter-increment: none; /* Do not increment the counter */
+}
+
+.ordered-list ol li.no-number:before {
+    content: ""; /* Remove the counter content */
+}
+.ordered-list .solution_panel li {
+    border-bottom: unset;
+    padding-left: unset;
+    line-height: unset;
+    padding-top: unset;
+    padding-bottom: unset;
+}
