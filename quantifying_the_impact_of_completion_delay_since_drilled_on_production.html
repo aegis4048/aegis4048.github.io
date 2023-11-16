@@ -1,0 +1,3381 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <meta name="google-site-verification" content="ZsWFnpirKDgtbmwb1YRymDnSfvnUrpzCbf6LD1F_4TY" />
+
+            <meta name="msvalidate.01" content="8FF1B025212A47B5B27CC47163A042F0" />
+
+            <meta name="author" content="ERIC KIM" />
+
+
+            <meta name="description" content="        Anadarko and Permian wells may lose 70% of production if completion is delayed for 200 days.
+" />
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="oil-and-gas, oil, gas, DUC, drilling, horizontals, verticals, completion, production, recent-trend, energy-shortage, EIA, DrillingInfo, Enverus, DPR, dead-duc, Anadarko, Appalachia, Bakken, Eagle Ford, Niobrara, Hanyesville, Permian, Oil and Gas, "/>
+
+        <link rel="canonical" href="https://aegis4048.github.io/quantifying_the_impact_of_completion_delay_since_drilled_on_production">
+    <meta property="og:title" content="Quantifying The Impact Of Completion Delay Since Drilled On Production | Pythonic Excursions"/>
+    <meta property="og:url" content="https://aegis4048.github.io/quantifying_the_impact_of_completion_delay_since_drilled_on_production" />
+    <meta property="og:description" content="Anadarko and Permian wells may lose 70% of production if completion is delayed for 200 days." />
+    <meta property="og:site_name" content="Pythonic Excursions" />
+    <meta property="og:article:author" content="ERIC KIM" />
+        <meta property="og:article:published_time" content="2023-03-03T00:00:00-08:00" />
+    <meta name="twitter:title" content="Quantifying The Impact Of Completion Delay Since Drilled On Production | Pythonic Excursions">
+    <meta name="twitter:description" content="Anadarko and Permian wells may lose 70% of production if completion is delayed for 200 days.">
+        <meta property="og:image" content="https://aegis4048.github.io/images/featured_images/old_ducs.png" />
+        <meta name="twitter:image" content="https://aegis4048.github.io/images/featured_images/old_ducs.png" >
+
+
+        <title>    Quantifying The Impact Of Completion Delay Since Drilled On Production  | Pythonic Excursions
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: #24292e;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: #24292e;
+                }
+            </style>
+
+        <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+        <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="https://aegis4048.github.io/theme/img/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://aegis4048.github.io/theme/img/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="https://aegis4048.github.io/theme/img/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://aegis4048.github.io/theme/img/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="https://aegis4048.github.io/theme/img/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="https://aegis4048.github.io/theme/img/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="https://aegis4048.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133310548-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-133310548-1');
+</script>
+
+    </head>
+    <body>
+<progress id="progressBar" max="19827" class="flat">
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+</progress>        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://aegis4048.github.io/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/about.html">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/archives.html">Archive</a>
+                        </li>
+                     </ul>
+                    <ul class="navbar-nav">
+                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="https://aegis4048.github.io/search.html">
+                        <div id="third-item" class="search-box-div row" style="margin-top:-3.5px;">
+                            <input id="tipue_search_input" class="form-control mr-md-2 rem_08 col-9" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" aria-label="Search"/>
+                            <button id="search-btn" class="btn btn-search btn-outline-success btn-circle rem_08 col-3" type="submit" for="tipue_search_input" style="margin-left: 3px;">Search</button>
+                        </div>
+                    </form>
+                    </ul>
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div></div>
+<div id="article-container" class="row">
+    <article id="article" class="col-12 col-xl-9">
+        <header class="pop-over">
+            <h1>Quantifying The Impact Of Completion Delay Since Drilled On Production</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://aegis4048.github.io/archives.html">Oil and Gas</a></h4>
+                <span class="article-date">Mar 03, 2023</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://aegis4048.github.io/tag/oil-and-gas.html" class="tag">oil-and-gas</a>
+                        <a href="https://aegis4048.github.io/tag/oil.html" class="tag">oil</a>
+                        <a href="https://aegis4048.github.io/tag/gas.html" class="tag">gas</a>
+                        <a href="https://aegis4048.github.io/tag/duc.html" class="tag">DUC</a>
+                        <a href="https://aegis4048.github.io/tag/drilling.html" class="tag">drilling</a>
+                        <a href="https://aegis4048.github.io/tag/horizontals.html" class="tag">horizontals</a>
+                        <a href="https://aegis4048.github.io/tag/verticals.html" class="tag">verticals</a>
+                        <a href="https://aegis4048.github.io/tag/completion.html" class="tag">completion</a>
+                        <a href="https://aegis4048.github.io/tag/production.html" class="tag">production</a>
+                        <a href="https://aegis4048.github.io/tag/recent-trend.html" class="tag">recent-trend</a>
+                        <a href="https://aegis4048.github.io/tag/energy-shortage.html" class="tag">energy-shortage</a>
+                        <a href="https://aegis4048.github.io/tag/eia.html" class="tag">EIA</a>
+                        <a href="https://aegis4048.github.io/tag/drillinginfo.html" class="tag">DrillingInfo</a>
+                        <a href="https://aegis4048.github.io/tag/enverus.html" class="tag">Enverus</a>
+                        <a href="https://aegis4048.github.io/tag/dpr.html" class="tag">DPR</a>
+                        <a href="https://aegis4048.github.io/tag/dead-duc.html" class="tag">dead-duc</a>
+                        <a href="https://aegis4048.github.io/tag/anadarko.html" class="tag">Anadarko</a>
+                        <a href="https://aegis4048.github.io/tag/appalachia.html" class="tag">Appalachia</a>
+                        <a href="https://aegis4048.github.io/tag/bakken.html" class="tag">Bakken</a>
+                        <a href="https://aegis4048.github.io/tag/eagle-ford.html" class="tag">Eagle Ford</a>
+                        <a href="https://aegis4048.github.io/tag/niobrara.html" class="tag">Niobrara</a>
+                        <a href="https://aegis4048.github.io/tag/hanyesville.html" class="tag">Hanyesville</a>
+                        <a href="https://aegis4048.github.io/tag/permian.html" class="tag">Permian</a>
+                </div>
+            </div>
+            <section>
+    <div id="share-links" class="row justify-content-end mt-3" style="align-items: center">
+        <div class="share-post-intro mr-2">Share This Post :</div>
+        <div class="social-share-btns-container">
+            <div class="social-share-btns">
+                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=https://aegis4048.github.io/quantifying_the_impact_of_completion_delay_since_drilled_on_production" rel="nofollow" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=https://aegis4048.github.io/quantifying_the_impact_of_completion_delay_since_drilled_on_production" rel="nofollow" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://aegis4048.github.io/quantifying_the_impact_of_completion_delay_since_drilled_on_production" rel="nofollow" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+        </header>
+        <div class="article_content">
+            
+            <style type="text/css">/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph > img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once a well is drilled, it must be completed to produce oil and gas. However, operators sometimes delay completing a well for various reasons, such as waiting for fracking crews or facing budget constraints. These delayed wells, known as <strong>Drilled but Uncompleted (DUC)</strong> wells, are considered to be a working oil field capital because the wells can be turned on line for production for cheap. However, the empirical evidences suggests that the DUC wells may no longer function as a working capital if completion is delayed for too long. The probability of completion falls drastically after two years of delay in completion, and DUC wells that still remain un-completed beyond this time frame are likely to be never completed.</p>
+<p>The study conducted in this article is built on top of the previous scientific findings which claim that the nearby parent wells can have a negative impact on the production of child wells, which worsens the longer the parent wells have been producing. This is particularly critical for DUC wells, as the wells awaiting completion are already exposed to these pressure variations from existing wells that continue to produce and deplete. This study aims to quantify the impact of increasing delays in completion on production by observing changes in estimated ultimate recovery (EUR) normalized by lateral length and completion concentration per perforated foot as a function of DUC time.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="display-none" id="toc_container">
+<p class="toc_title"><i class="fas fa-list"></i>Contents</p>
+<ul class="toc_list">
+<li><a href="#Sample data description"><span class="toc_label">0.</span>Sample data description</a></li>
+<li><a href="#Key takeaways"><span class="toc_label">1.</span>Key takeaways</a></li>
+<li><a href="#Quick overview on DUC wells"><span class="toc_label">2.</span>Quick overview on DUC wells</a></li>
+<li><a href="#Reservoir depletion due to existing offset wells"><span class="toc_label">3.</span>Reservoir depletion due to existing offset wells</a></li>
+<li><a href="#Quantifying the impact of DUC time on EUR"><span class="toc_label">4.</span>Quantifying the impact of DUC time on EUR</a></li>
+<ul>
+<li><a href="#Preliminary data cleaning"><span class="toc_label">4.1.</span>Preliminary data cleaning</a></li>
+<li><a href="#Raw EUR vs. DUC time"><span class="toc_label">4.2.</span>Raw EUR vs. DUC time</a></li>
+<li><a href="#Factors that affect EUR: Completion size and lateral length"><span class="toc_label">4.3.</span>Factors that affect EUR: Completion size and lateral length</a></li>
+<li><a href="#Normalized EUR vs. DUC time"><span class="toc_label">4.4.</span>Normalized EUR vs. DUC time</a></li>
+</ul>
+<li><a href="#Dead DUC wells"><span class="toc_label">5.</span>"Dead" DUC wells</a></li>
+<li><a href="#Conclusion"><span class="toc_label">6.</span>Conclusion</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Sample data description"></div><h2 id="0.-Sample-data-description">0. Sample data description<a class="anchor-link" href="#0.-Sample-data-description">¶</a></h2><p>The main data source used for this article is the <a href="https://www.enverus.com/" target="_blank">Enverus</a> Drilling Info application. Within Drilling Info's data base, I selected wells in the seven major basins in the US, defined by the US Energy Information Adminitration's (EIA) <a href="https://www.eia.gov/petroleum/drilling/" target="_blank">Drilling Productivity Report</a> (DPR): Anadarko, Appalachia, Bakken, Eagle Ford, Haynesville, Niobrara, and Permian.</p>
+<div class="row full_screen_margin_80 mobile_responsive_plot_full_width" id="fig-1" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/DPR-basins.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 1:</strong> 7 major basins in the US, Source: EIA</p></div><p>The DPR provides which county and state they used to define each major basins. For your convenience, I compiled a text file (<a href="https://aegis4048.github.io/downloads/notebooks/sample_data/Basins_Boundaries.txt" target="_blank">Basins_Boundaries.txt</a>) that has the list of state and counties that can be easily pasted into Drilling Info's filter tab. Unfortunately Enverus Drilling Info is a commerical software and not everyone will be able to use it.</p>
+<div class="row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-2" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/drilling_info_paste.png"/></div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 2:</strong> Pasting the Eagle Ford basin's state and county data into Drilling Info for query</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="pandas table"></div><p>Pulling all active wells in the specified counties and states gives this <a class="ico xls" href="https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx" target="_blank">Excel file</a> <strong>(EUR_vs_Lag.xlsx).</strong> The file has 7 tabs for each basin. The below code output shows small portion of the Anadarko wells data. Each row represents a record of one well.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">'https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx'</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">'Anadarko'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Spud Date</th>
+<th>Completion Date</th>
+<th>Drill Type</th>
+<th>Lag</th>
+<th>EUR Oil (Full)</th>
+<th>EUR Gas (Full)</th>
+<th>EUR (Full) BOE</th>
+<th>First 12 BOE</th>
+<th>Production Type</th>
+<th>DI Lateral Length</th>
+<th>Total Proppant (First Treatment Job)</th>
+<th>Total Fluid (First Treatment Job)</th>
+<th>Proppant per Perforated Foot (First Treatment Job)</th>
+<th>Fluid per Perforated Foot (First Treatment Job)</th>
+<th>Proppant Concentration (lbs/gal) (First Treatment Job)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2020-01-09</td>
+<td>2021-04-09</td>
+<td>H</td>
+<td>456.0</td>
+<td>672317.75</td>
+<td>0.00</td>
+<td>672317.750000</td>
+<td>NaN</td>
+<td>OIL</td>
+<td>10776.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2019-05-03</td>
+<td>2019-07-26</td>
+<td>H</td>
+<td>84.0</td>
+<td>129760.25</td>
+<td>2348886.00</td>
+<td>521241.250000</td>
+<td>141195.17</td>
+<td>GAS</td>
+<td>5739.0</td>
+<td>6137496.0</td>
+<td>170614.00</td>
+<td>1069.4365</td>
+<td>29.73</td>
+<td>0.86</td>
+</tr>
+<tr>
+<th>2</th>
+<td>2018-06-20</td>
+<td>2018-07-28</td>
+<td>H</td>
+<td>38.0</td>
+<td>89633.48</td>
+<td>472189.47</td>
+<td>168331.725000</td>
+<td>61155.83</td>
+<td>GAS</td>
+<td>4338.0</td>
+<td>4304900.0</td>
+<td>100874.00</td>
+<td>992.3698</td>
+<td>23.25</td>
+<td>1.02</td>
+</tr>
+<tr>
+<th>3</th>
+<td>2018-05-21</td>
+<td>2018-07-07</td>
+<td>H</td>
+<td>47.0</td>
+<td>158308.72</td>
+<td>2718710.75</td>
+<td>611427.178333</td>
+<td>222754.17</td>
+<td>GAS</td>
+<td>4859.0</td>
+<td>5627071.0</td>
+<td>194148.98</td>
+<td>1158.0718</td>
+<td>39.96</td>
+<td>0.69</td>
+</tr>
+<tr>
+<th>4</th>
+<td>2018-04-09</td>
+<td>2018-07-06</td>
+<td>H</td>
+<td>88.0</td>
+<td>153994.27</td>
+<td>3887145.75</td>
+<td>801851.895000</td>
+<td>268463.00</td>
+<td>GAS</td>
+<td>4845.0</td>
+<td>8990772.0</td>
+<td>292805.38</td>
+<td>1855.6805</td>
+<td>60.43</td>
+<td>0.73</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Key takeaways"></div><h2 id="1.-Key-takeaways">1. Key takeaways<a class="anchor-link" href="#1.-Key-takeaways">¶</a></h2><div class="highlights" id="key1">
+<div class="highlights-title">1. Characteristics of DUC wells</div>
+<div class="highlights-content">DUC wells can be turned on line for cheap since the cost of drilling have been paid. This allows them to function as a secondary form of hydrocarbon storage under the ground, instead of traditional above-ground facilities.</div>
+</div><div class="highlights" id="key2">
+<div class="highlights-title">2. Delaying completion during times of low oil prices in the hope of a future recovery may not be a financially wise decision</div>
+<div class="highlights-content">This is because nearby wells can induce reservoir depletion, which can significantly reduce the potential yield. Operators should carefully consider the long-term financial implications of delaying completion and weigh them against the potential benefits of waiting for better market conditions.</div>
+</div><div class="highlights" id="key3">
+<div class="highlights-title">3. Scientific wisdom states that the greater difference in completion timing among adjacent wells worsens child well's production</div>
+<div class="highlights-content">The prolonged production from nearby parent wells can lead to reservoir depletion and pressure sinks, which can affect the productivity of the child well. This issue is particularly important for DUC wells because as existing wells continue to produce and deplete, the wells awaiting completion are already exposed to these pressure variations, which can worsen if completion is further delayed <a href="https://onepetro.org/REE/article-abstract/22/01/190/206725/Concerns-and-Clarifications-for-Drilled" target="_blank">(Srinivasan et al. 2018)</a>.</div>
+</div><div class="highlights" id="key4">
+<div class="highlights-title">4. Contrary to the scientific wisdom, wells completed shortly after drilling tend to have smaller EUR compared to wells with longer DUC time</div>
+<div class="highlights-content">This is due to the fact that younger DUC wells tend to have shorter lateral length and treated with smaller completion concentration for each lateral foot. This means that the operators tend to undersize completion design for their younger DUC wells, resulting in sub-optimal EUR.</div>
+</div><div class="highlights" id="key5">
+<div class="highlights-title">5. To discern the genuine influence of DUC time on production, EUR is normalized by lateral length, proppant per perforated foot, and fluid per perforated foot</div>
+<div class="highlights-content">This decision is made after visually confirming positive correlation between EUR vs. lateral length and completion size in <a class="internal-link" href="#fig-7">Figure 7</a>.</div>
+</div><div class="highlights" id="key6">
+<div class="highlights-title">6. Anadarko and Permian basins showed the worst reduction in normalized EUR in the shortest time span between drilling and completion</div>
+<div class="highlights-content">Normalized EUR dropped by 81% and 74%, respectively, for Anadarko and Permian basins over a span of 150 days of additional delay in completion (<a class="internal-link" href="#fig-8">Figure 8</a>), followed by the Haynesville basin which showed 46% decrease in normalized EUR over a span of additional 100 days of delay in completion.</div>
+</div><div class="highlights" id="key7">
+<div class="highlights-title">7. Appalachia, Eagle Ford and Niobrara basins showed minimal loss in normalized EUR with increasing DUC time</div>
+<div class="highlights-content">Appalachia experienced only 19% reduction in normalized EUR with 350 days of delay in completion, and Eagle Ford and Niobrara basins showed negligible change in normalized EUR with increasing DUC time. This finding shows that wells in these basins are the least likely to suffer from well-to-well interference problems with increasing DUC time compared to the other basins.</div>
+</div><div class="highlights" id="key8">
+<div class="highlights-title">8. DUC wells have time limit till completion. </div>
+<div class="highlights-content">The probability of completion falls drastically after a certain time limit due to the degrading economics associated with delays in completion. For example in <a class="internal-link" href="#fig-16">Figure 16</a>, the completion time limits for Anadarko and Hanyesville are 308 days and 409 days after drilled, respectively. Beyond these limits, the probability of completion in these basins drops below 5%. This study demonstrates a positive correlation between the extent of these time limits and changes in both normalized EUR and absolute EUR as DUC time increases.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Quick overview on DUC wells"></div><h2 id="2.-Quick-overview-on-DUC-wells">2. Quick overview on DUC wells<a class="anchor-link" href="#2.-Quick-overview-on-DUC-wells">¶</a></h2><p>Once a well is drilled, it must be completed to produce oil and gas. However, operators sometimes delay completing a well for various reasons, such as waiting for fracking crews or facing budget constraints. These delayed wells, known as <strong>Drilled but Uncompleted (DUC)</strong> wells, accumulate when drilling outpaces completion and decrease when the opposite occurs. <a class="internal-link" href="#fig-3">Figure 3</a> illustrates the historical trend of DUC inventories in the seven major US basins, as defined by the <a href="https://www.eia.gov/petroleum/drilling/" target="_blank">EIA's DPR</a> page. <a class="internal-link" href="#fig-4">Figure 4</a> provides more detailed information on each basin, including hydrocarbon production volumes and drilling activities.</p>
+<p>DUC wells have unique features that make them an attractive option for low-cost production. The wells can be turned on line for production for cheap; the costs of drilling have been paid, and completion won't be as costly as new drilling. They can function as a secondary form of hydrocarbon storage underground, unlike traditional above-ground facilities. In times of low oil prices, operators may choose to complete them later, hoping that the oil price would recover in a near future. Throughout the rest of the article, however, I show why this may not be a smart idea for some basins (especially Anadarko and Permian) due to reservoir depletion induced by existing producing offset wells.</p>
+<div class="row full_screen_margin_90 mobile_responsive_plot_full_width" id="fig-3" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/US Major Basins Completion & Drilling Activities and Commodities.png"/></div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 3:</strong> DUCs accumulate when drilling activity exceeds completion, and vice versa. The line plots depict three distinct periods of significant fluctuations in DUC well inventories, with [1] and [3] representing instances of rapid depletion due to high completion rates, and [2] reflecting a period of accumulation resulting from high drilling activities. WTI Crude oil prices is appended at the bottom to show the effect of commodity prices on DUCs.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (3)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.ticker as ticker
+
+############################################# Basins ##############################################
+
+basins = sorted(['Anadarko', 'Appalachia', 'Eagle Ford', 'Haynesville', 'Niobrara', 'Permian', 'Bakken'])
+
+################################### DUC Wells Count per Basin #####################################
+
+# compile a DataFrame to store count of DUC wells per basin
+# source: EIA - https://www.eia.gov/petroleum/drilling/
+
+dfs = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/Duc-EIA.xlsx', sheet_name=basin)
+    df_cur['Basin'] = basin
+    dfs.append(df_cur)
+
+df = pd.concat(dfs)
+df = df.sort_values('Date')
+df.index = pd.to_datetime(df['Date'])
+
+df_DUCs = df.groupby([pd.Grouper(freq='M'), 'Basin'])['DUC'].mean()
+df_DUCs = df_DUCs.unstack().fillna(0)
+df_DUCs = round(df_DUCs, 0)
+df_DUCs['Total DUCs'] = df_DUCs.T.apply(lambda x: sum(x))
+
+df_drilled = df.groupby([pd.Grouper(freq='M'), 'Basin'])['Drilled'].sum()
+df_drilled = df_drilled.unstack().fillna(0)
+df_drilled['Total Drilled'] = df_drilled.T.apply(lambda x: sum(x))
+
+df_completed = df.groupby([pd.Grouper(freq='M'), 'Basin'])['Completed'].sum()
+df_completed = df_completed.unstack().fillna(0)
+df_completed['Total Completed'] = df_completed.T.apply(lambda x: sum(x))
+
+############################################# Plot ##############################################
+
+fig, ax = plt.subplots(figsize=(8, 4))
+
+ax2 = ax.twinx()
+
+ax.plot(df_drilled.index, df_drilled['Total Drilled'], color='k', label='Newly Drilled')
+ax.plot(df_completed.index, df_completed['Total Completed'], label='Completed')
+ax2.plot(df_DUCs.index, df_DUCs['Total DUCs'], color='purple', label='DUC')
+
+
+ax.fill_between(df_drilled.index, df_drilled['Total Drilled'], df_completed['Total Completed'],
+                where=(df_drilled.index >= '2016-03-1') & (df_drilled.index <= '2017-1-1'), color='red', alpha=0.4)
+ax.fill_between(df_drilled.index, df_drilled['Total Drilled'], df_completed['Total Completed'],
+                where=(df_drilled.index >= '2018-08-01') & (df_drilled.index <= '2019-3-1'), color='green', alpha=0.4)
+ax.fill_between(df_drilled.index, df_drilled['Total Drilled'], df_completed['Total Completed'],
+                where=(df_drilled.index >= '2020-07-1') & (df_drilled.index <= '2022-8-1'), color='red', alpha=0.4)
+
+ax.axvline(x=df_drilled.index[26], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[35], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvspan(df_drilled.index[26], df_drilled.index[35], facecolor='lightgrey', alpha=0.3)
+
+ax.axvline(x=df_drilled.index[55], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[61], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvspan(df_drilled.index[55], df_drilled.index[61], facecolor='lightgrey', alpha=0.3)
+
+ax.axvline(x=df_drilled.index[78], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[102], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvspan(df_drilled.index[78], df_drilled.index[102], facecolor='lightgrey', alpha=0.3)
+
+ax.set_ylim(0, 2500)
+ax2.set_ylim(0, 10000)
+
+ax.grid(axis='y', alpha=0.5)
+ax.yaxis.get_major_ticks()[5].gridline.set_visible(False)
+ax.spines.top.set_visible(False)
+ax2.spines.top.set_visible(False)
+
+h1, l1 = ax.get_legend_handles_labels()
+h2, l2 = ax2.get_legend_handles_labels()
+ax.legend(h1 + h2, l1 + l2, fontsize=10, ncol=3, loc='upper left', framealpha=1)
+
+ax.set_ylabel('Drilled & Completed Wells', fontsize=11)
+ax2.set_ylabel('DUC Wells', fontsize=11)
+
+ax.arrow(df_drilled.index[71], 1500, 60, -270, head_width=40, head_length=60, fc='k', ec='k')
+ax.text(0.58, 0.62, 'Covid Crash', fontsize=9, transform=ax.transAxes, color='k')
+
+ax.text(0.295, 0.05, '[1]', fontsize=9, transform=ax.transAxes, color='k')
+ax.text(0.53, 0.05, '[2]', fontsize=9, transform=ax.transAxes, color='k')
+ax.text(0.805, 0.05, '[3]', fontsize=9, transform=ax.transAxes, color='k')
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+ax.set_title(setbold('US Major Basins Completion & Drilling Activities')  + ",  Jan 2014 - Dec 2022", fontsize=12, pad=10, x=0.4, y=1.06)
+ax.annotate('', xy=(-0.11, 1.07), xycoords='axes fraction', xytext=(1.11, 1.07), arrowprops=dict(arrowstyle="-", color='k'))
+ax.text(0.145, 0.1, 'aegis4048.github.io', fontsize=10, ha='center', va='center',
+        transform=ax.transAxes, color='grey', alpha=0.5)
+
+fig.set_facecolor("white")
+fig.tight_layout()
+
+############################################# Plot 2 ##############################################
+
+df = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EIA-commodity.xls', sheet_name='Data 1')
+df = df.iloc[338:-1, :-1] # between Jan 2014 to Dec 2022
+df.columns = ['date', 'value']
+df.reset_index(inplace=True, drop=True)
+df['date'] = df['date'].apply(lambda x: x.strftime('%Y-%m'))
+df['date'] = pd.to_datetime(df['date'])
+
+fig, ax = plt.subplots(figsize=(7, 1))
+
+ax.plot(df['date'], df['value'], color='green')
+
+ax.set_ylabel('oil ($)', fontsize=10)
+ax.set_ylim(0, 120)
+ax.set_yticks(np.linspace(0, 120, 4))
+ax.tick_params(axis='both', which='major', labelsize=9)
+
+ax.axvspan(df_drilled.index[26], df_drilled.index[35], facecolor='lightgrey', alpha=0.3)
+ax.axvspan(df_drilled.index[55], df_drilled.index[61], facecolor='lightgrey', alpha=0.3)
+ax.axvspan(df_drilled.index[78], df_drilled.index[103], facecolor='lightgrey', alpha=0.3)
+
+ax.axvline(x=df_drilled.index[26], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[35], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[55], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[61], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[78], color='k', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=df_drilled.index[103], color='k', linestyle='--', linewidth=1, alpha=0.7)
+
+ax.grid(axis='y', alpha=0.5)
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+
+ax.annotate('Source: Pythonic Excursions, EIA', xy=(-0.11, -.5), xycoords='axes fraction', fontsize=9)
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row" id="fig-4">
+<div class="col"><img src="jupyter_images/DUC & Newly Drilled Wells and Production by Basins, Jan 2014 - Dec 2022.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 4:</strong> Quick glance at the EIA DPR data for each basin. Note that the Permian basin has different y-axis scale for DUC & newly drilled wells count.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (4)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.colors import LinearSegmentedColormap
+import warnings
+import matplotlib.gridspec as gridspec
+import matplotlib.ticker as ticker
+
+############################################# Basins ##############################################
+
+basins = sorted(['Anadarko', 'Appalachia', 'Eagle Ford', 'Haynesville', 'Niobrara', 'Permian', 'Bakken'])
+
+################################### DUC Wells Count per Basin #####################################
+
+# compile a DataFrame to store count of DUC wells per basin
+# source: EIA - https://www.eia.gov/petroleum/drilling/
+
+dfs = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/Duc-EIA.xlsx', sheet_name=basin)
+    df_cur['Basin'] = basin
+    dfs.append(df_cur)
+
+df = pd.concat(dfs)
+df = df.sort_values('Date')
+df.index = pd.to_datetime(df['Date'])
+
+df_DUCs_year = df.groupby([df.index.year, 'Basin'])['DUC'].mean()
+df_DUCs_year = df_DUCs_year.unstack().fillna(0)
+df_DUCs_year = round(df_DUCs_year, 0)
+
+df_drilled_year = df.groupby([df.index.year, 'Basin'])['Drilled'].sum()
+df_drilled_year = df_drilled_year.unstack().fillna(0)
+df_drilled_year['Total Drilled'] = df_drilled_year.T.apply(lambda x: sum(x))
+
+#################### Import All Data - Rig Count, Oil & Gas Prod per Basins #######################
+
+dfs2 = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/dpr-data.xlsx', sheet_name=basin + ' Region', skiprows=1)
+    df_cur['Basin'] = basin
+    dfs2.append(df_cur)
+
+year_cutoff = '2013' # counting from year_cutoff + 1
+date_header = 'Month'
+
+df2 = pd.concat(dfs2)
+df2 = df2.sort_values(date_header)
+df2.index = pd.to_datetime(df2[date_header])
+df2.drop(df2.columns[[2, 3, 5, 6]], axis=1, inplace=True)
+df2.columns = ['Date', 'Rig Count', 'Total Oil Prod (BBLD)', 'Total Gas Prod (MCFD)', 'Basin']
+df2 = df2[df2.index > year_cutoff + '-12-31']
+
+################################ Cross Table for Gas Production ###################################
+
+# Total Gas Production
+df2_total_gas_prod_year = df2.groupby([df2.index.year, 'Basin'])['Total Gas Prod (MCFD)'].sum()
+df2_total_gas_prod_year = df2_total_gas_prod_year.unstack().fillna(0)
+df2_total_gas_prod_year['Total Gas (BCFD)'] = df2_total_gas_prod_year.T.apply(lambda x: sum(x))
+df2_total_gas_prod_year = df2_total_gas_prod_year / 1000000
+
+################################ Cross Table for Oil Production ###################################
+
+df2_total_oil_prod_year = df2.groupby([df2.index.year, 'Basin'])['Total Oil Prod (BBLD)'].sum()
+df2_total_oil_prod_year = df2_total_oil_prod_year.unstack().fillna(0)
+df2_total_oil_prod_year['Total (MMBBLD)'] = df2_total_oil_prod_year.T.apply(lambda x: sum(x))
+df2_total_oil_prod_year = df2_total_oil_prod_year / 1000000
+
+############################################# Plot ##############################################
+
+# changing datetime index to str is necessary to overlay lineplot on top of barplot
+df_drilled_year.index = [str(item) for item in df_drilled_year.index]
+df2_total_gas_prod_year.index = [str(item) for item in df2_total_gas_prod_year.index]
+df2_total_oil_prod_year.index = [str(item) for item in df2_total_oil_prod_year.index]
+
+cmap_name = 'cubehelix'
+colors = sns.color_palette(cmap_name, n_colors=len(basins))
+np.random.seed(34)
+np.random.shuffle(colors)
+colors = colors.as_hex()
+colors[0] = 'grey'
+colors[-2] = '#914810'
+cmap = LinearSegmentedColormap.from_list("my_colormap", colors)
+barcolor_dict = {label: color for label, color in zip(basins, colors)}
+
+axis_fontsize = 15
+axis_tick_fontsize = 11
+title_fontsize = 18
+figure_title_fontsize = 20
+label_fontsize = 13
+legend_fontsize = 16
+markersize = 9
+y_label_fontsize = 15
+
+gas_prod_color = 'red'
+oil_prod_color = 'green'
+drilled_color = 'k'
+
+fig = plt.figure(figsize=(16, 17))
+gs = gridspec.GridSpec(4, 4)
+ax1 = plt.subplot(gs[0, 0:2])
+ax2 = plt.subplot(gs[0,2:])
+ax3 = plt.subplot(gs[1,0:2])
+ax4 = plt.subplot(gs[1,2:])
+ax5 = plt.subplot(gs[2,0:2])
+ax6 = plt.subplot(gs[2,2:])
+ax7 = plt.subplot(gs[3,2:4])
+axes = [ax1,ax2,ax3,ax4,ax5,ax6,ax7]
+
+for i, (ax, basin) in enumerate(zip(axes, basins)):
+
+    df_DUCs_year.plot.bar(alpha=1, y=basin, ax=ax, legend=None, width=0.9, edgecolor='k', linewidth=0.1, label='DUC Count', color=barcolor_dict[basin])
+
+    ax1 = ax.twinx()
+    df_drilled_year.plot(y=basin, ax=ax1, linestyle='-', legend=None, marker='o', color=drilled_color, markersize=markersize, label='New Drilled Wells')
+
+    ax2 = ax.twinx()
+    df2_total_oil_prod_year.plot(y=basin, ax=ax2, linestyle='-', marker='o', color='green', markersize=markersize, label='Oil Prod Total', legend=None)
+    ax2.set_ylim(0, 70)
+
+    ax3 = ax.twinx()
+    df2_total_gas_prod_year.plot(y=basin, ax=ax3, linestyle='-', marker='o', color='red', markersize=markersize, label='Gas Prod Total', legend=None)
+    ax3.set_ylim(0, 500)
+
+    ax.set_facecolor('#eeeeee')
+    ax.set_axisbelow(True)
+    ax.grid(axis='y')
+    ax.set_xticklabels([str(dt).split('-')[0] for dt in df_DUCs_year.index])
+    ax.tick_params(axis='x', labelrotation=45, labelsize=axis_tick_fontsize)
+    ax.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax1.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax.set_title(basin, fontsize=title_fontsize)
+
+    if i % 2 == 0 and i != 6:
+        ax.set_ylabel('DUC Wells Count (k)', fontsize=axis_fontsize)
+        ax2.set_yticks([])
+        ax3.set_yticks([])        
+    else:
+        ax1.set_ylabel('Drilled Wells Count (k)', fontsize=axis_fontsize)
+
+        ax2.tick_params(axis='y', colors='green')
+        ax2.spines['right'].set_position(('outward', 50))
+        ax2.spines['right'].set_color('green')
+        ax2.set_ylabel('Total Oil Prod. (MMBBLD)', color='green', fontsize= axis_fontsize)
+
+        ax3.tick_params(axis='y', colors='red')
+        ax3.spines['right'].set_position(('outward', 100))
+        ax3.spines['right'].set_color('red')
+        ax3.set_ylabel('Total Gas Prod. (BCFD)', color='red', fontsize= axis_fontsize) 
+
+    if i == 6:
+        ax.set_ylabel('DUC Wells Count (k)', fontsize=axis_fontsize)
+    #else:
+        #ax1.set_yticks([])
+        #ax2.set_yticks([])
+        #ax3.set_yticks([])
+
+    if i == 4 or i == 6:
+        ax.set_xlabel('Spud Date', fontsize=y_label_fontsize)
+    else:
+        ax.set_xlabel('')
+
+    if basin == 'Permian':
+        pass
+        ax.set_ylim(0, 5000)
+        ax1.set_ylim(0, 15000)
+
+    else:
+        ax.set_ylim(0, 1400)
+        ax1.set_ylim(0, 7000)
+
+    ax.yaxis.set_major_formatter(ticker.EngFormatter())
+    ax1.yaxis.set_major_formatter(ticker.EngFormatter())        
+
+    ax.spines.top.set_visible(False)
+    ax1.spines.top.set_visible(False)
+    ax2.spines.top.set_visible(False)
+    ax3.spines.top.set_visible(False)
+
+    #ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+    #ax1.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+
+    h0, l0 = ax.get_legend_handles_labels()
+    h1, l1 = ax1.get_legend_handles_labels()
+    h2, l2 = ax2.get_legend_handles_labels()
+    h3, l3 = ax3.get_legend_handles_labels()
+    ax.legend(h0, l0, loc='upper left', ncol=2, fontsize=13, framealpha=0.5)
+
+    fig.legend(h3 + h2 + h1, l3 + l2 + l1, loc='lower left', ncol=2,
+               bbox_to_anchor=(0.046, 0.165), bbox_transform=fig.transFigure, fontsize=legend_fontsize)
+
+    for c in ax.containers:
+        ax.bar_label(c, label_type='center', color='white', weight='bold', fontsize=label_fontsize)
+
+    ax.text(0.16, 0.80, 'aegis4048.github.io', fontsize=12, ha='center', va='center',
+            transform=ax.transAxes, color='grey', alpha=0.5)        
+
+fig.tight_layout()
+
+def setbold(txt): 
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+y_pos = 0.998
+fig.suptitle(setbold('DUC & Newly Drilled Wells Count and Production')  + ",  Jan 2014 - June 2022", fontsize=19, x=0.328, y=1.025)
+ax.annotate('', xy=(0.006, y_pos), xycoords='figure fraction', xytext=(1, y_pos), arrowprops=dict(arrowstyle="-", color='k', lw=1.3))
+ax.annotate('Source: Pythonic Excursions, EIA', xy=(0.05, 0.145), xycoords='figure fraction', fontsize=16)
+
+fig.set_facecolor("white")
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Reservoir depletion due to existing offset wells"></div><h2 id="3.-Reservoir-depletion-due-to-existing-offset-wells">3. Reservoir depletion due to existing offset wells<a class="anchor-link" href="#3.-Reservoir-depletion-due-to-existing-offset-wells">¶</a></h2><p>Rarely the operators get a chance to drill a well in a virgin reservoir condition, especially in the Permian basin. Most times it's infill drilling among pre-existing wells that have been on production for some time, potentially inducing reservoir depletion problems when chained with unoptimized fracture design and well spacing.</p>
+<p>Well-to-well interference is known to have negative impact on production for both parent (old) and child (new) wells. The prolonged production from a parent well induces reservoir depletion and creates pressure sinks (area of lower pressure). A child well's hydraulic fractures are more prone to grow towards the pressure sink, causing fracture hits. <a href="https://onepetro.org/URTECONF/proceedings-abstract/17URTC/All-17URTC/URTEC-2690466-MS/156487/" target="_blank">Ajisafe et al. (2016)</a> studied 300 horizontal wells in the Avalon Shale of the Delaware basin and found that child wells were almost 30% less productive than parent wells. To mitigate the effects of frac hits, they simulated 1,320-ft and 660-ft lateral spacing and found that child wells with 1,320-ft spacing saw only a 5% reduction in cumulative production over five years compared to parent wells, while 660-ft spacing saw a 24% reduction.</p>
+<p><a href="https://onepetro.org/REE/article-abstract/22/01/190/206725/Concerns-and-Clarifications-for-Drilled" target="_blank">Srinivasan et al. (2018)</a> conducted study on the Williston basin, and discovered that <i>"the longer the difference in timing between completions in areas of high reservoir quality, the more pronounced the impacts of pressure depletion will be on new adjacent completions."</i> It has particular significance for DUC wells because, as existing wells continue to produce and deplete, wells waiting on completion are already experiencing these variations around them, which will worsen as completion is delayed further.</p>
+<p>While the impact of a parent well on a child well is a convoluted function of fracture design, well spacing, DUC time, and many other factors, this article focuses on the effect of DUC time (gap between drilling and completion) on EUR to show why it may not be wise to delay completion for wells in certain basins (especailly Anadarko and Permian).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Quantifying the impact of DUC time on EUR"></div><h2 id="4.-Quantifying-the-impact-of-DUC-time-on-EUR">4. Quantifying the impact of DUC time on EUR<a class="anchor-link" href="#4.-Quantifying-the-impact-of-DUC-time-on-EUR">¶</a></h2><blockquote class="quote" style="font-family: unset; font-size: unset; font-style: unset; padding-bottom: 12px">
+<div class="terminology" style="margin-top: 2px"><strong>DUC time:</strong> Gap in time between drilling and completion of a well (days).</div>
+<div class="terminology"><strong>PPF:</strong> Proppant per Perforated Foot (lbs/ft).</div>
+<div class="terminology"><strong>FPF:</strong> Fluid per Perforated Foot (gal/ft).</div>
+<div class="terminology"><strong>Completion size:</strong> Total volume of proppant and fracturing fluid.</div>
+</blockquote><p><strong>Data Description</strong></p>
+<p>The primary data source used in this study is Enverus' Drilling Info application (refer to <a class="internal-link" href="#pandas table">above</a> for quick peek at the sample data). The data was filtered to include only horizontal wells (column: <em>Drill Type</em>) and producing wells (column: <em>Production Type</em>), while excluding injection wells, dry holes, cores, etc. DUC time (column: <em>Lag</em>) is calculated by the difference between spud date and completion date. Since Drilling Info does not provide finished drilling date, spud date was assumed to be equivalent to drilled date. Modern day drilling typically takes less than 20 days.</p>
+<p>The EUR (column: <em>EUR (Full) BOE</em>) is expressed in Barrels of Oil Equivalent (BOE). The oil and gas EURs are regularly calculated and updated by Enverus. Although these auto-fitted EURs may not be completely accurate when examined on a well-by-well basis, they provide valuable insights for basin-scale analysis. The gas EUR is converted from MCFD to BOE using a conversion factor of 6 before being combined with the oil EUR.</p>
+<p><strong>Methodology</strong></p>
+<p>Literature review suggests that the volume of hydrocarbons lost to parent wells from child wells increases with longer DUC times. However, visualizing the raw EUR vs. DUC time contradicts this proved scientific wisdom, as shown in <a class="internal-link" href="#fig-6">Figure 6</a>, due to the factors that have inconsistent effects on production at different DUC times. The presented study below attempts to separate the sole effects of DUC time on reservoir depletion by normalizing EUR by lateral length and completion size.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Preliminary data cleaning"></div><h3 id="4.1.-Preliminary-data-cleaning">4.1. Preliminary data cleaning<a class="anchor-link" href="#4.1.-Preliminary-data-cleaning">¶</a></h3><p>It is of common phenomenon that real life data has unwanted extreme data points or outliers that skew the derived statistics. This study filters those unwanted data based on percentile method; data points bigger or smaller than 97.5% or 2.5% are removed for lateral length, PPF, and FPF. In case of EUR, data points bigger than 95% percentile are filtered out. <a class="internal-link" href="#fig-5">Figure 5</a> illustrates the result of outlier removal process for Anadarko and Haynesville for EUR and PPF. Though not shown in the below figure, the outlier removal process is applied for all data types of interest (EUR, lateral, PPF, and FPF) for all seven DPR basins.</p>
+<div class="row" id="fig-5" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/Extreme Data Removal for EURs and PPF.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 5:</strong> Each dot represents one well. The wells are binned by 50 lag days. Each band of dots represents wells completed within the 50-day binned interval. For EUR, upper 5% are removed. For PPF (proppant per perforated foot), upper and lower 2.5% are removed.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (5)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+import matplotlib.ticker as ticker
+from scipy import stats
+
+############################################# Basins ##############################################
+
+basins = ['Anadarko', 'Haynesville', 'Anadarko', 'Haynesville']
+
+################################### DUC Wells Count per Basin #####################################
+
+EURs = ['EUR (Full) BOE', 'EUR Oil (Full)', 'EUR Gas (Full)']
+dfs = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx', sheet_name=basin)
+    df_cur = df_cur.dropna(subset=['Completion Date'])           # Drop wells that are not completed
+    df_cur = df_cur[df_cur['Drill Type'] == 'H']                 # Horizontal wells only
+
+    # Drops non-hydrocarbon wells like: Dry hole, injection, core, etc.
+    df_cur = df_cur[df_cur['Production Type'].isin(['OIL', 'GAS', 'OIL & GAS'])]
+
+    df_cur = df_cur.dropna(subset=EURs)
+    df_cur[EURs] = df_cur[EURs].div(1000).round(0)
+    dfs.append(df_cur)
+
+############################################# Plot ##############################################
+
+fig = plt.figure(figsize=(16, 9))
+gs = gridspec.GridSpec(4, 4)
+ax1 = plt.subplot(gs[0:2, 0:2])
+ax2 = plt.subplot(gs[0:2, 2:])
+ax3 = plt.subplot(gs[2:, 0:2])
+ax4 = plt.subplot(gs[2:, 2:])
+axes = [ax1,ax2,ax3,ax4]
+
+axis_tick_fontsize = 15
+title_fontsize = 19
+markersize = 20
+y_label_fontsize = 18
+legend_annot_fontsize = 18
+
+colors = ['grey', '#c6b4ee', 'grey', '#c6b4ee']
+columns = ['EUR (Full) BOE', 'EUR (Full) BOE', 
+           'Proppant per Perforated Foot (First Treatment Job)', 'Proppant per Perforated Foot (First Treatment Job)']
+
+for i, (ax, basin, column) in enumerate (zip(axes, basins, columns)):
+
+    df = dfs[i]
+
+    stepsize= 50
+    bins = np.arange(0, 1000 + stepsize, stepsize)
+
+    binned = []
+    for b in bins[: -1]:
+        _ = df[df['Lag'].between(b, b + stepsize)][column]
+        binned.append(_)
+
+    binned_outlier = []
+    binned_cleaned = []
+
+    ################################# For EURs ######################################
+
+    if column == 'EUR (Full) BOE':
+
+        for item in binned:
+            threshold = item.quantile(0.975)
+            binned_outlier.append(item[item >= threshold])
+            binned_cleaned.append(item[item < threshold])
+
+        if basin == 'Anadarko':
+            y_max = 18000
+            n_ticks = 7        
+        else:
+            y_max = 25000
+            n_ticks = 6        
+
+        ax.set_ylabel('EUR (MBOE)', fontsize=y_label_fontsize)
+        ax.set_title(basin, fontsize=title_fontsize)
+        ax.text(0.98, 0.65, 'EURs', fontsize=20, ha='right', transform=ax.transAxes, color='k', alpha=0.5)
+
+    ################################# For Proppants ######################################
+
+    if column == 'Proppant per Perforated Foot (First Treatment Job)':
+        for item in binned:
+            threshold_upper = item.quantile(0.975) 
+            threshold_lower = item.quantile(0.025)
+            binned_outlier.append(item[(item < threshold_lower) | (item > threshold_upper)])
+            binned_cleaned.append(item[(item >= threshold_lower) & (item <= threshold_upper)])
+
+        if basin == 'Anadarko':
+            y_max = 7000
+            n_ticks = 8       
+        else:
+            y_max = 10000
+            n_ticks = 6             
+
+        ax.set_ylabel('PPF (lbs/ft)', fontsize=y_label_fontsize)
+        ax.set_xlabel('DUC Time (Days)', fontsize=y_label_fontsize + 1)
+        ax.text(0.98, 0.65, 'Proppants/Ft', fontsize=20, ha='right', transform=ax.transAxes, color='k', alpha=0.5)
+
+    ######################################################################################
+
+    # scatter plot of cleaned data
+    for j, item in enumerate(binned_cleaned):
+        x = np.random.normal(j + 1, 0.06, size=len(item))
+        ax.scatter(x, item, color=colors[i], alpha=0.5, s=10, edgecolors='k', linewidth=0.1, label='Original wells')
+
+    # scatter plot of outliers
+    for k, item_outlier in enumerate(binned_outlier):
+        x_outlier = np.random.normal(k + 1, 0.06, size=len(item_outlier))
+        ax.scatter(x_outlier, item_outlier, color='r', alpha=0.5, s=50, marker='x', label='Outliers')
+
+    # axis range
+    ymin = 0 - 0.05 * y_max
+    ax.set_ylim(ymin, y_max)
+
+    # tick settings
+    ax.yaxis.set_major_locator(plt.MaxNLocator(n_ticks))
+    ax.tick_params(axis='x', labelsize=axis_tick_fontsize)
+    ax.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax.yaxis.set_major_formatter(ticker.EngFormatter())
+    ax.xaxis.set_major_locator(plt.MaxNLocator(11))
+    ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+    ax.set_xticklabels([int(item) for item in ax.get_xticks() * stepsize], rotation=30, fontsize=axis_tick_fontsize)
+
+    # spines and grid
+    ax.spines.top.set_visible(False)
+    ax.spines.right.set_visible(False)
+    ax.grid(axis='y', alpha=0.5)
+    ax.set_axisbelow(True)
+    ax.set_facecolor('#eeeeee')
+
+    # legend
+    h0, l0 = ax.get_legend_handles_labels()
+    leg = ax.legend([h0[0], h0[-1]], [l0[0], l0[-1]], fontsize=16, ncol=1, loc='upper right')
+    for lh in leg.legendHandles:
+        lh.set_alpha(1)
+        lh.set_sizes([50])
+    ax.text(0.19, 0.88, 'aegis4048.github.io', fontsize=16, ha='center', va='center',
+            transform=ax.transAxes, color='grey', alpha=0.5)
+
+fig.tight_layout()
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+y_pos = 0.993
+fig.suptitle(setbold('Extreme Data Removal for EURs and PPF')  + ",  Jan 2014 - June 2022", fontsize=19, x=0.29, y=1.04)
+ax.annotate('', xy=(0.005, y_pos), xycoords='figure fraction', xytext=(1, y_pos), arrowprops=dict(arrowstyle="-", color='k', lw=1.3))
+ax.annotate('Source: Pythonic Excursions, DrillingInfo', xy=(0.01, 0.02),
+            xycoords='figure fraction', fontsize=legend_annot_fontsize)
+
+fig.set_facecolor("white")
+
+plt.subplots_adjust(bottom=.15)
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Raw EUR vs. DUC time"></div><h3 id="4.2.-Raw-EUR-vs.-DUC-time">4.2. Raw EUR vs. DUC time<a class="anchor-link" href="#4.2.-Raw-EUR-vs.-DUC-time">¶</a></h3><p>According to prevailing scientific knowledge, the duration of DUC time is expected to negatively impact production. Nevertheless, the findings displayed in <a class="internal-link" href="#fig-6">Figure 6</a> appear to contradict this notion. The plot depicts the raw EUR on the y-axis and the DUC time on the x-axis. The mean EURs for wells completed soon after drilling (within 50 days, first bands of dots in each basin plot) appear to be lower than those completed between 250 and 350 days after drilling. Notably, this difference is most pronounced for the Haynesville wells, as <strong>those completed within 300-350 days exhibit an EUR that is 328% higher than wells completed within 50 days after drilling</strong>. This observation is illogical and suggests that further data analysis and investigation are required to discern the genuine influence of DUC time on EUR.</p>
+<div class="row" id="fig-6" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/0_EUR_raw.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 6:</strong> Each dot represents one well. The wells are binned by 50 DUC days. Each band of dots represents wells completed within the 50-day binned interval. The blue line plot represents the average of wells in each 50-day bin. Note that the credibility of this average line plot falls with the increasing DUC time due to lack of data near the end of the x-axis. Index of peak is chosen by visual inspection; the point which "looks like" an inflection point is chosen, and is prone to subjectivity.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (6)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+import matplotlib.ticker as ticker
+
+############################################# Basins ##############################################
+
+basins = sorted(['Anadarko', 'Appalachia', 'Eagle Ford', 'Haynesville', 'Niobrara', 'Permian', 'Bakken'])
+
+################################### DUC Wells Count per Basin #####################################
+
+no_NA = ['EUR (Full) BOE']
+dfs = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx', sheet_name=basin)
+    df_cur = df_cur.dropna(subset=no_NA)           # Drop wells that are not completed
+    df_cur = df_cur[df_cur['Drill Type'] == 'H']                   # Horizontal wells only
+
+    # Drops non-hydrocarbon wells like: Dry hole, injection, core, etc.
+    df_cur = df_cur[df_cur['Production Type'].isin(['OIL', 'GAS', 'OIL & GAS'])]
+
+    # BOE to MBOE unit conversion
+    df_cur[no_NA] = df_cur[no_NA].div(1000).round(0)
+    dfs.append(df_cur)
+
+############################################# Plot ################################################
+
+axis_tick_fontsize = 14
+title_fontsize = 19
+markersize = 20
+y_label_fontsize = 16
+
+colors = ['grey', '#a1794a', '#d484a9', '#cbe8f0', '#c6b4ee', '#914810', '#16534c']
+
+fig = plt.figure(figsize=(16, 17))
+gs = gridspec.GridSpec(4, 4)
+ax1 = plt.subplot(gs[0, 0:2])
+ax2 = plt.subplot(gs[0,2:])
+ax3 = plt.subplot(gs[1,0:2])
+ax4 = plt.subplot(gs[1,2:])
+ax5 = plt.subplot(gs[2,0:2])
+ax6 = plt.subplot(gs[2,2:])
+ax7 = plt.subplot(gs[3,2:])
+axes = [ax1,ax2,ax3,ax4,ax5,ax6,ax7]
+
+def annotate_arrows(data_y, num, tick_spacing, ymax, x_start=1, ox=0.2, fontsize=14, flip_y=False):
+    '''
+    data_y = y coordinate of the datapoint of interest
+    num = index of the datapoint of interest
+    tick_spacing = spacing between two major ticks
+    ox = offset of x
+    '''
+
+    head_padding = ymax * 0.04                 # extra space between the datapoint of interest and arrowhead
+    oy = ymax * 0.15                           # offset of y
+    sx = x_start + (tick_spacing / 2) * num
+    sy = data_y + head_padding
+
+    if flip_y:
+        oy = -ymax * 0.15
+        sy = data_y - head_padding
+
+    ax.arrow(sx + ox, sy + oy, -ox, -oy, head_width=0.3, head_length=ymax * 0.0333, fc='k', ec='k', lw=2)
+    t1 = ax.text(sx + ox, sy + oy, int(data_y), fontsize=fontsize, color='k', ha='center')
+    t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+
+    xytext = (sx + ox, sy + oy)
+
+    return xytext 
+
+for i, (ax, basin) in enumerate (zip(axes, basins)):
+
+    # select current basin data
+    df = dfs[i]
+
+     # cut off high lag bins with too few wells
+    df = df[df['Lag'] <= 1000]
+
+    # binning by 50 days
+    stepsize = 50
+    bins = np.arange(0, 1000 + stepsize, stepsize)
+
+    # scatter plot of binned wells
+    eur_original = []
+    eur_cleaned = []
+    eur_outlier = []
+    #cleaned_indices = []
+    for b in bins[: -1]:
+
+        eur_original_ = df[df['Lag'].between(b, b + stepsize)]['EUR (Full) BOE']
+
+        cutoff = 0.95
+        eur_cleaned_ = eur_original_[eur_original_ <= eur_original_.quantile(cutoff)]
+        eur_outlier_ = eur_original_[eur_original_ > eur_original_.quantile(cutoff)]
+
+        eur_cleaned.append(eur_cleaned_)
+        eur_outlier.append(eur_outlier_)    
+
+    for j, item in enumerate(eur_cleaned):
+        x = np.random.normal(j + 1, 0.06, size=len(item))
+        ax.scatter(x, item, color=colors[i], alpha=0.5, s=10, edgecolors='k', linewidth=0.1, label='One well data')
+
+    for k, item_outlier in enumerate(eur_outlier):
+        x_outlier = np.random.normal(k + 1, 0.06, size=len(item_outlier))
+        ax.scatter(x_outlier, item_outlier, color='r', alpha=0.3, s=30, marker='x', label='Outliers')   
+
+    # line plot of average of binned wells
+    means = [np.mean(item) for item in eur_cleaned]
+    ax.plot([i + 1 for i in range(len(means))], means, linestyle='-', marker='o', markersize=8, alpha=0.7,
+            label='AVG. EUR, binned by 50 lag days')       
+
+    # axis range
+    #ymax = y_max[basin]
+    ymax = 5000
+    ymin = 0 - 0.05 * ymax
+    ax.set_ylim(ymin, ymax)
+    #ax.set_ylim(2500, 12000)
+
+    # tick settings
+    ax.minorticks_on()
+    ax.xaxis.set_tick_params(which='minor', bottom=False)
+    ax.xaxis.set_major_locator(plt.MaxNLocator(12))
+    ax.yaxis.set_major_locator(plt.MaxNLocator(7))  
+
+    ax.yaxis.set_major_locator(plt.MaxNLocator(6)) 
+    ax.yaxis.set_minor_locator(ticker.AutoMinorLocator(2)) 
+
+    ax.set_xticklabels([int(item) for item in ax.get_xticks() * stepsize], fontsize=axis_tick_fontsize)
+    ax.tick_params(axis='x', labelsize=axis_tick_fontsize, labelrotation=30)
+    ax.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+    ax.yaxis.set_major_formatter(ticker.EngFormatter())
+
+    # spines and grid
+    ax.spines.top.set_visible(False)
+    ax.spines.right.set_visible(False)
+    ax.grid(axis='y', alpha=0.5)
+    ax.grid(axis='y', which='minor', color='grey', linestyle='--', alpha=0.2)
+    ax.set_axisbelow(True)
+
+    # texts
+    ax.set_title(basin + ': ' + str(df.shape[0]) + ' wells', fontsize=title_fontsize)
+    ax.set_ylabel('EUR (MBOE)', fontsize=y_label_fontsize)
+    if i == 4 or i == 6:
+        ax.set_xlabel('DUC time (Days)', fontsize=y_label_fontsize)
+    ax.set_facecolor('#eeeeee')
+    ax.text(0.15, 0.88, 'aegis4048.github.io', fontsize=12, ha='center', va='center',
+            transform=ax.transAxes, color='grey', alpha=0.5)    
+
+    # legends
+    h0, l0 = ax.get_legend_handles_labels()
+    leg = ax.legend([h0[0]], [l0[0]], fontsize=14, ncol=2, loc='upper right')
+    for lh in leg.legendHandles:
+        lh.set_alpha(1)
+        lh.set_sizes([50])
+
+    h1, l1 = ax.get_legend_handles_labels()
+    fig.legend([h1[-1]], [l1[-1]], loc='lower left', ncol=2,
+               bbox_to_anchor=(0.046, 0.195), bbox_transform=fig.transFigure, fontsize=18) 
+
+    fs = 15
+    lw = 2
+    _1 = 0
+    spacing = abs(ax.get_xticks()[1] - ax.get_xticks()[2])
+    if basin == 'Anadarko':
+        _2 = 4
+        yloc = 3000 
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+
+    if basin == 'Appalachia': 
+        _2 = 2
+        yloc = 1000 
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+    if basin == 'Bakken':
+        _2 = 4
+        yloc = 3000 
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+    if basin == 'Eagle Ford':
+        _2 = 4
+        yloc = 3000
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2))        
+    if basin == 'Haynesville': 
+        _2 = 6
+        yloc = 4200 
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs, flip_y=False)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs, flip_y=True)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+    if basin == 'Niobrara':
+        _2 = 4
+        yloc = 3000
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2))  
+    if basin == 'Permian':
+        _2 = 6
+        yloc = 3500 
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+
+fig.tight_layout()
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+y_pos = 0.998
+fig.suptitle(setbold('EUR vs. Days Till Completion')  + ",  Jan 2014 - June 2022", fontsize=20, x=0.24, y=1.025)
+ax.annotate('', xy=(0.006, y_pos), xycoords='figure fraction', xytext=(1, y_pos), arrowprops=dict(arrowstyle="-", color='k', lw=1.3))
+ax.annotate('Source: Pythonic Excursions, DrillingInfo', xy=(0.055, 0.173), xycoords='figure fraction', fontsize=16)
+
+fig.set_facecolor("white")    
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row" id="table-1" style="margin-top: -15px;">
+<div class="col"><img src="jupyter_images/duc_table_1.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Table 1:</strong> Summary table of Figure 6.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Factors that affect EUR: Completion size and lateral length"></div><h3 id="4.3.-Factors-that-affect-EUR:-Completion-size-and-lateral-length">4.3. Factors that affect EUR: Completion size and lateral length<a class="anchor-link" href="#4.3.-Factors-that-affect-EUR:-Completion-size-and-lateral-length">¶</a></h3><p>The trend observed in <a class="internal-link" href="#fig-6">Figure 6</a> above, where EURs increase with increasing DUC time, contradicts the established scientific knowledge. However, we have found that this illogical trend is due to the use of smaller completion sizes and shorter lateral lengths for wells with shorter DUC times. Interestingly, the basins showing the greatest difference in EUR between the peak and trough in <a class="internal-link" href="#table-1">Table 1</a> (Anandarko and Haynesville) are also those with the largest increase in completion size and lateral length as DUC time increases.</p>
+<p></p>
+<p style="display: inline"><a class="internal-link" href="#fig-7">Figure 7</a> illustrates the variation in EUR due to completion size and lateral length with increasing DUC time for different basins. The largest increase in EUR between two time periods ([1] and [2]) was observed in the Haynesville basin, with a difference of 2,223 MBOE (a 209% increase)(<a class="internal-link" href="#table-2">Table 2</a>)</p><strong style="color: #a4a4a4">(<img class="inline-image" src="jupyter_images/duc_legend_1.png"/><p style="display: inline">grey bars)</p></strong>. A correlation analysis showed that this increase was positively associated with a 46% increase (2,111 ft) in lateral length (<a class="internal-link" href="#table-3">Table 3</a>)<strong style="color: #111111">(<img class="inline-image" src="jupyter_images/duc_legend_2.png"/>black line)</strong>, 121% boost in PPF (<a class="internal-link" href="#table-4">Table 4</a>)<strong style="color: #9504d3">(<img class="inline-image" src="jupyter_images/duc_legend_3.png"/><p style="display: inline">purple lines)</p></strong> and a 95% boost in FPF (<a class="internal-link" href="#table-5">Table 5</a>)<strong style="color: #287cb7">(<img class="inline-image" src="jupyter_images/duc_legend_4.png"/><p style="display: inline">blue lines)</p></strong><p style="display: inline"> for wells completed between 200-250 days after drilling, compared to wells completed within 50 days after drilling. Similar trends were observed for the Anadarko, Permian, and Bakken basins, although the EUR increase in the Bakken basin occurred at a much slower pace over a 500-day period.</p><p>Recall that PPF and FPF represent completion size normalized by lateral length (per foot). An increase in PPF and FPF implies that operators are not only increasing the total volume of proppant and fluid to fracture additional lateral length, but also increasing the completion concentration for each foot of the lateral for older DUC wells. This increase in completion size may be an effort to compensate for potential reservoir depletion issues that older DUC wells may encounter due to nearby parent wells have have already been producing for a while.</p>
+<p>Such attempt to compensate for potential reservoir depletion induced by parent wells can be best observed in the Anadarko and Hanyesville wells. An examination of <a class="internal-link" href="#table-2">Table 2</a> reveals a significant 217% (Anadarko) and 209% (Haynesville) increase in EUR <strong style="color: #a4a4a4">(<img class="inline-image" src="jupyter_images/duc_legend_1.png"/>grey bars)</strong> when completion concentration is boosted between [1] and [2]. Anadarko observed 104% and 60% additional PPF and FPF, and Hanyesville 121% and 95% bigger PPF and FPF, respectively (<a class="internal-link" href="#table-2">Table 4</a> and <a class="internal-link" href="#table-2">Table 5</a>). These findings from <a class="internal-link" href="#fig-7">Figure 7</a> prove the positive correlation between bigger EUR and bigger completion size.</p>
+<p>Conversely, however, the figure also suggests that the <strong>operators tend to undersize their completion design for wells completed shortly after drilling (within 250 days), resulting in sub-optimal EUR</strong>. Put another way, wells completed shortly after drilling often receive smaller completion concentrations and yield smaller EUR, despite the fact that they have superior reservoir condition, compared to older DUC wells. As such, operators could potentially profit more from larger completion investments for wells completed shortly after drilling.</p>
+<p>In contrast, wells in the Appalachia, Eagle Ford, and Niobrara basins showed only a slight increase in completion size and lateral length with increasing DUC time, with the exception of the Niobrara basin which showed a decrease in PPF (<a class="internal-link" href="#table-4">Table 4</a>)<strong style="color: #9504d3">(<img class="inline-image" src="jupyter_images/duc_legend_3.png"/>purple line)</strong> despite the longer lateral length. The magnitude of the difference between [1] and [2] was not as drastic as in the other basins. This finding explains why wells in these basins showed minimal difference in EUR with increasing DUC time in contrast to the Anadarko, Bakken, Haynesville, and Permian basins; because the volume of proppants and fluids used for completion and lateral length stayed relatively constant with increasing DUC time.</p>
+<p>Additionally, it is worth noting that the wells with longer lateral length tended to have longer DUC time. While this may sound obvious, taking a closer look at it reveals that it is not so. Between [1] and [2], the average difference in lateral length of wells in the Haynesville basin was 2,111 ft and the difference in time was 200 days. An experienced drilling and completion engineer would recognize that it does not take an additional 200 days to drill an extra 2,111 ft and hydraulically fracture that additional length. Modern day drilling takes under 15~25 days, and completion 3~5 days. One possible explanation for operators' tendency to delay completion for longer lateral wells is that the costs and time associated with bigger proppant and fluid volumes required to adequately fracture longer lateral sections are higher. Nevertheless, further research is needed to fully understand the economic trade-offs involved in completion timing for longer lateral wells.</p>
+<div class="row" id="fig-7" style="margin-top: 15px;">
+<div class="col"><img src="jupyter_images/7_factors_that_affect_EUR.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 7:</strong> Each data point represents an average data (lateral length, PPF and FPF) of wells completed within 50-day binned interval. Each bar represents raw EUR. Note that the credibility of the average line plots decrease with the increasing DUC time due to lack of data near the end of the x-axis (refer to <a class="internal-link" href="#fig-6">Figure 6</a> to visually understand how each average is calculated). [1] and [2] represent local trough and peak used for comparison in Table 2, 3, 4 and 5. Indices of [2]s are chosen by visual inspection; the point which "looks like" an inflection point is chosen, and is prone to subjectivity.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (7)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+import matplotlib.ticker as ticker
+
+############################################# Basins ##############################################
+
+basins = sorted(['Anadarko', 'Appalachia', 'Eagle Ford', 'Haynesville', 'Niobrara', 'Permian', 'Bakken'])
+
+################################### DUC Wells Count per Basin #####################################
+
+no_NA = ['EUR (Full) BOE', 'Fluid per Perforated Foot (First Treatment Job)', 
+         'DI Lateral Length', 'Proppant per Perforated Foot (First Treatment Job)']
+dfs = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx', sheet_name=basin)
+    df_cur = df_cur.dropna(subset=no_NA)           # Drop wells that are not completed
+    df_cur = df_cur[df_cur['Drill Type'] == 'H']                   # Horizontal wells only
+
+    # Drops non-hydrocarbon wells like: Dry hole, injection, core, etc.
+    df_cur = df_cur[df_cur['Production Type'].isin(['OIL', 'GAS', 'OIL & GAS'])]
+
+    dfs.append(df_cur)
+
+############################################# Plot ##############################################
+
+colors = ['grey', '#a1794a', '#d484a9', '#cbe8f0', '#c6b4ee', '#914810', '#16534c']
+
+axis_tick_fontsize = 14
+title_fontsize = 19
+markersize = 20
+y_label_fontsize = 16
+
+gas_prod_color = 'red'
+oil_prod_color = 'green'
+drilled_color = 'k'
+
+fig = plt.figure(figsize=(16, 17))
+gs = gridspec.GridSpec(4, 4)
+ax1 = plt.subplot(gs[0, 0:2])
+ax2 = plt.subplot(gs[0,2:])
+ax3 = plt.subplot(gs[1,0:2])
+ax4 = plt.subplot(gs[1,2:])
+ax5 = plt.subplot(gs[2,0:2])
+ax6 = plt.subplot(gs[2,2:])
+ax7 = plt.subplot(gs[3,2:4])
+axes = [ax1,ax2,ax3,ax4,ax5,ax6,ax7]
+
+for i, (ax, basin) in enumerate(zip(axes, basins)):
+
+    # select current basin data
+    df = dfs[i]
+
+    # cut off high lag bins with too few wells
+    df = df[df['Lag'] <= 1000]
+
+    # binning by 50 days
+    stepsize = 50
+    bins = np.arange(0, 1000 + stepsize, stepsize)    
+
+    # extreme data removal - 5%
+    binned_cleaned_lateral = []
+    binned_cleaned_ppf = []
+    binned_cleaned_fpf = []
+    binned_cleaned_eur = []
+    for b in bins[: -1]:
+        binned_lateral = df[df['Lag'].between(b, b + stepsize)]['DI Lateral Length']
+        binned_ppf = df[df['Lag'].between(b, b + stepsize)]['Proppant per Perforated Foot (First Treatment Job)']
+        binned_fpf = df[df['Lag'].between(b, b + stepsize)]['Fluid per Perforated Foot (First Treatment Job)']
+        binned_eur = df[df['Lag'].between(b, b + stepsize)]['EUR (Full) BOE']
+
+        # cutoff between 2.5% and 97.5%
+        binned_cleaned_lateral_ = np.clip(binned_lateral, binned_lateral.quantile(0.025), binned_lateral.quantile(0.975))
+        binned_cleaned_ppf_ = np.clip(binned_ppf, binned_ppf.quantile(0.025), binned_ppf.quantile(0.975))
+        binned_cleaned_fpf_ = np.clip(binned_fpf, binned_fpf.quantile(0.025), binned_fpf.quantile(0.975))
+        binned_cleaned_eur_ = np.clip(binned_eur, binned_eur.quantile(0.025), binned_eur.quantile(0.975))
+
+        binned_cleaned_lateral.append(binned_cleaned_lateral_)
+        binned_cleaned_ppf.append(binned_cleaned_ppf_)
+        binned_cleaned_fpf.append(binned_cleaned_fpf_)
+        binned_cleaned_eur.append(binned_cleaned_eur_)    
+
+    means_lateral = [np.mean(item) for item in binned_cleaned_lateral]
+    means_ppf = [np.mean(item) for item in binned_cleaned_ppf]
+    means_fpf = [np.mean(item) for item in binned_cleaned_fpf]
+    means_eur = [np.mean(item) / 1000 for item in binned_cleaned_eur] # BOE to MBOE
+
+    # colors
+    color_lat = 'k'
+    color_ppf = 'darkviolet'
+    color_fpf = '#1f77b4'
+
+    # EUR (MBOE) - bar plot
+    ax.bar([i + 1 for i in range(len(means_eur))], [item for item in means_eur], label='Avg. EUR', 
+           alpha=0.3, color='k')
+    ymax = 5000
+    ax.set_ylim(0 - 0.025 * ymax, ymax)
+
+    # Lateral length (ft) - line plot
+    ax1 = ax.twinx()
+    ax1.plot([i + 1 for i in range(len(means_lateral))], means_lateral, linestyle='--', marker='o', markersize=6, alpha=0.7,
+        label='Avg. Lateral length', color=color_lat)    
+    ymax = 15000
+    ax1.set_ylim(0 - 0.025 * ymax, ymax)
+
+    # PPF (lbs/ft) - line plot
+    ax2 = ax.twinx()
+    ax2.plot([i + 1 for i in range(len(means_ppf))], means_ppf, linestyle='--', marker='o', markersize=6, alpha=0.7,
+        label='Avg. PPF', color=color_ppf)    
+    ymax = 5000
+    ax2.set_ylim(0 - 0.025 * ymax, ymax)
+
+    # FPF (gal/ft) - line plot
+    ax3 = ax.twinx()
+    ax3.plot([i + 1 for i in range(len(means_fpf))], means_fpf, linestyle='--', marker='o', markersize=6, alpha=0.7,
+        label='Avg. FPF', color=color_fpf)   
+    ymax = 100
+    ax3.set_ylim(0 - 0.025 * ymax, ymax)
+
+    # 
+    ax.yaxis.set_major_locator(plt.MaxNLocator(6))
+    ax1.yaxis.set_major_locator(plt.MaxNLocator(6))
+    ax2.yaxis.set_major_locator(plt.MaxNLocator(6))
+    ax3.yaxis.set_major_locator(plt.MaxNLocator(6))
+    ax.minorticks_on()
+    ax.xaxis.set_tick_params(which='minor', bottom=False)
+    ax.yaxis.set_minor_locator(ticker.AutoMinorLocator(3))
+
+    ax.set_title(basin + ': ' + str(df.shape[0]) + ' wells', fontsize=title_fontsize)
+    ax.set_facecolor('#eeeeee')
+    ax.set_axisbelow(True)
+    ax.grid(axis='y')
+    ax.tick_params(axis='x', labelrotation=45, labelsize=axis_tick_fontsize)
+    ax.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax1.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax2.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax3.tick_params(axis='y', labelsize=axis_tick_fontsize)
+
+    if i % 2 == 0 and i != 6:
+        ax.set_ylabel('EUR (MBOE)', fontsize=y_label_fontsize)
+        ax1.set_yticks([])
+        ax2.set_yticks([])
+        ax3.set_yticks([])
+    else:
+        ax1.tick_params(axis='y', colors=color_lat)
+        #ax1.spines['right'].set_color(color_lat)
+        ax1.set_ylabel('Lateral Length (ft)', color=color_lat, fontsize=y_label_fontsize)
+
+        ax2.tick_params(axis='y', colors=color_ppf)
+        ax2.spines['right'].set_position(('outward', 65))
+        ax2.spines['right'].set_color(color_ppf)
+        ax2.set_ylabel('PPF (lbs/ft)', color=color_ppf, fontsize=y_label_fontsize)
+
+        ax3.tick_params(axis='y', colors=color_fpf)
+        ax3.spines['right'].set_position(('outward', 120))
+        ax3.spines['right'].set_color(color_fpf)
+        ax3.set_ylabel('FPF (gal/ft)', color=color_fpf, fontsize=y_label_fontsize)        
+
+    if i == 6:
+        ax.set_ylabel('EUR (MBOE)', fontsize=y_label_fontsize)
+
+    if i == 4 or i == 6:
+        ax.set_xlabel('DUC Time (Days)', fontsize=y_label_fontsize)
+    else:
+        ax.set_xlabel('')
+
+    ax.grid(axis='y', which='minor', color='grey', linestyle='--', alpha=0.2)
+
+    ax.xaxis.set_major_locator(plt.MaxNLocator(12))
+    ax.set_xticklabels([int(item) for item in ax.get_xticks() * stepsize], fontsize=axis_tick_fontsize)
+    ax.tick_params(axis='x', labelsize=axis_tick_fontsize, labelrotation=30)
+
+    ax.yaxis.set_major_formatter(ticker.EngFormatter())
+    ax1.yaxis.set_major_formatter(ticker.EngFormatter())
+    ax2.yaxis.set_major_formatter(ticker.EngFormatter())
+    ax1.yaxis.set_major_formatter(ticker.EngFormatter())
+
+    ax.spines.top.set_visible(False)
+    ax1.spines.top.set_visible(False)
+    ax2.spines.top.set_visible(False)
+
+    h0, l0 = ax.get_legend_handles_labels()
+    h1, l1 = ax1.get_legend_handles_labels()
+    h2, l2 = ax2.get_legend_handles_labels()
+    h3, l3 = ax3.get_legend_handles_labels()
+
+    fig.legend(h0 + h1 + h2 + h3, l0 + l1 + l2 + l3, loc='lower left', ncol=2,
+               bbox_to_anchor=(0.046, 0.18), bbox_transform=fig.transFigure, fontsize=18)
+
+    ax.text(0.86, 0.85, 'aegis4048.github.io', fontsize=12, ha='center', va='center',
+            transform=ax.transAxes, color='grey', alpha=0.5)
+
+    _1 = 1
+    if basin == 'Anadarko':
+        _2 = 5
+    elif basin == 'Appalachia':
+        _2 = 4
+    elif basin == 'Bakken':
+        _2 = 10
+    elif basin == 'Eagle Ford':
+        _2 = 5
+    elif basin == 'Haynesville':
+        _2 = 5
+    elif basin == 'Niobrara':
+        _2 = 6
+    else:
+        _2 = 7
+
+    ax.axvline(x=_1, color='k', linestyle='--', linewidth=1, alpha=0.7)
+    t1 = ax.text(_1, 4000, '[1]', fontsize=14, color='k', ha='center', va='center')    
+    t1.set_bbox(dict(facecolor='#eeeeee', alpha=1, edgecolor='#eeeeee', pad=1))
+
+    ax.axvline(x=_2, color='k', linestyle='--', linewidth=1, alpha=0.7)
+    t2 = ax.text(_2, 4000, '[2]', fontsize=14, color='k', ha='center', va='center')    
+    t2.set_bbox(dict(facecolor='#eeeeee', alpha=1, edgecolor='#eeeeee', pad=1))
+
+fig.tight_layout()
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+y_pos = 0.998
+fig.suptitle(setbold('Factors Affecting EUR: Lateral Length, PPF, and FPF')  + ",  Jan 2014 - June 2022", fontsize=19, x=0.345, y=1.025)
+ax.annotate('', xy=(0.006, y_pos), xycoords='figure fraction', xytext=(1, y_pos), arrowprops=dict(arrowstyle="-", color='k', lw=1.3))
+ax.annotate('Source: Pythonic Excursions, EIA', xy=(0.055, 0.16), xycoords='figure fraction', fontsize=16)
+
+fig.set_facecolor("white")
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row" id="table-2" style="margin-top: -15px;">
+<div class="col"><img src="jupyter_images/duc_table_5.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>>Table 2:</strong> Summary table for Figure 7 - Estimated Ultimate Recovery</p></div><div class="row" id="table-3">
+<div class="col"><img src="jupyter_images/duc_table_2.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Table 3:</strong> Summary table for Figure 7 - Lateral length</p></div><div class="row" id="table-4">
+<div class="col"><img src="jupyter_images/duc_table_3.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Table 4:</strong> Summary table for Figure 7 - Proppant per Perforated Feet</p></div><div class="row" id="table-5">
+<div class="col"><img src="jupyter_images/duc_table_4.png"/></div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Table 5:</strong> Summary table for Figure 7 - Fluid per Perforated Feet</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Normalized EUR vs. DUC time"></div><h3 id="4.4.-Normalized-EUR-vs.-DUC-time">4.4. Normalized EUR vs. DUC time<a class="anchor-link" href="#4.4.-Normalized-EUR-vs.-DUC-time">¶</a></h3><p><a class="internal-link" href="#fig-7">Figure 7</a> above revealed positive correlation between completion size and lateral length with EUR; increased lateral length requires a larger completion size to fracture the additional length, leading to a greater EUR. To isolate the effect of DUC time on EUR and eliminate the influence of other confounding variables, EURs (BOE) are normalized (divided) by PPF (lbs/ft), FPF (gal/ft), and lateral length (ft). The resulting statistic has an unit of (BOE <em> ft)/(lbs </em> gal). Its absolute value is meaningless, as it is a statistic created solely to distinguish the effects of other variables on EUR. Only the relative percentage change in the statistic is relevant.</p>
+<p><a class="internal-link" href="#fig-8">Figure 8</a> displays the impact of DUC time on normalized EUR for each basin. The local troughs and peaks in each basin represent points of interest used to quantify the relative change in EUR for wells completed shortly after drilling compared to old DUC wells. A detailed analysis and commentary for each basin are presented <a class="internal-link" href="#detailed">below</a>.</p>
+<p>Moreover, <a class="internal-link" href="#fig-8">Figure 8</a> has the potential to be a useful tool in evaluating completion investment efficiency. For instance, the Bakken basin, which has the highest mean normalized EUR along the x-axis, can be argued to have superior rate of return for each dollars spent for hydraulic fracturing compared to the other basins. Conversely, the Eagle Ford and Permian basins have lower mean normalized EUR values at different DUC times, which is expected due to their status as some of the oldest oil and gas plays in the US and the significant depletion of their "sweet spots."</p>
+<p>It is important to note that the calculated statistic in <a class="internal-link" href="#fig-8">Figure 8</a>, the average normalized EUR <strong style="color: #287cb7">(<img class="inline-image" src="jupyter_images/duc_legend_5.png"/>blue lines)</strong>, is heavily influenced by extreme data points due to two reasons. Firstly, the statistic is a combination of four variables, each of which may not contain outliers individually but may do so when combined. Therefore, if multiple variables have extreme data points, the calculated statistic will have greater skewness due to a larger standard deviation. Secondly, the derivation of the statistic necessitates the presence of four variables (EUR, PPF, FPF, and lateral length) simultaneously, causing the source data file (<a class="ico xls" href="https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx" target="_blank">EUR_vs_Lag.xlsx</a>) to drop rows with any of the four variables missing. Consequently, the Haynesville basin, which had 2,858 wells in <a class="internal-link" href="#fig-6">Figure 6</a>, had only 1,724 wells in <a class="internal-link" href="#fig-8">Figure 8</a>.</p>
+<div class="row" id="fig-8" style="margin-top: 10px;">
+<div class="col"><img src="jupyter_images/6_normalized_EUR_Lateral_FPF_PPF_2.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 8:</strong> Each dot represents one well's normalized EUR. The wells are binned by 50 DUC days. Each band of dots represents wells completed within the 50-day binned interval. The blue line plot represetns the average of wells in each 50-day bin. Note that the credibility of this average line plot is affected by the number of data points in each bin. Bakken and Haynesville have suffers from lack of data for their first bin. Indices of the local peaks and troughs are chosen by visual inspection; the points which "look like" local troughs and peaks are picked, and are prone to subjectivity.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (8)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+import matplotlib.ticker as ticker
+
+############################################# Basins ##############################################
+
+basins = sorted(['Anadarko', 'Appalachia', 'Eagle Ford', 'Haynesville', 'Niobrara', 'Permian', 'Bakken'])
+
+################################### DUC Wells Count per Basin #####################################
+
+no_NA = ['EUR (Full) BOE', 'Fluid per Perforated Foot (First Treatment Job)', 
+         'DI Lateral Length', 'Proppant per Perforated Foot (First Treatment Job)']
+dfs = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx', sheet_name=basin)
+    df_cur = df_cur.dropna(subset=no_NA)           # Drop wells that are not completed
+    df_cur = df_cur[df_cur['Drill Type'] == 'H']                   # Horizontal wells only
+
+    # Drops non-hydrocarbon wells like: Dry hole, injection, core, etc.
+    df_cur = df_cur[df_cur['Production Type'].isin(['OIL', 'GAS', 'OIL & GAS'])]
+
+    #df_cur[EURs] = df_cur[EURs].div(1000).round(0)
+    dfs.append(df_cur)
+
+############################################# Plot ################################################
+
+axis_tick_fontsize = 14
+title_fontsize = 19
+markersize = 20
+y_label_fontsize = 16
+
+colors = ['grey', '#a1794a', '#d484a9', '#cbe8f0', '#c6b4ee', '#914810', '#16534c']
+
+fig = plt.figure(figsize=(16, 17))
+gs = gridspec.GridSpec(4, 4)
+ax1 = plt.subplot(gs[0, 0:2])
+ax2 = plt.subplot(gs[0,2:])
+ax3 = plt.subplot(gs[1,0:2])
+ax4 = plt.subplot(gs[1,2:])
+ax5 = plt.subplot(gs[2,0:2])
+ax6 = plt.subplot(gs[2,2:])
+ax7 = plt.subplot(gs[3,2:])
+axes = [ax1,ax2,ax3,ax4,ax5,ax6,ax7]
+
+def annotate_arrows(data_y, num, tick_spacing, ymax, x_start=1, ox=0.2, fontsize=14, flip_y=False):
+    '''
+    data_y = y coordinate of the datapoint of interest
+    num = index of the datapoint of interest
+    tick_spacing = spacing between two major ticks
+    ox = offset of x
+    '''
+
+    head_padding = ymax * 0.04                 # extra space between the datapoint of interest and arrowhead
+    oy = ymax * 0.15                           # offset of y
+    sx = x_start + (tick_spacing / 2) * num
+    sy = data_y + head_padding
+
+    if flip_y:
+        oy = -ymax * 0.15
+        sy = data_y - head_padding
+
+#------------------------------------------------------------------------------------------------------------------
+
+    ax.arrow(sx + ox, sy + oy, -ox, -oy, head_width=0.0, fc='k', ec='k', lw=2)
+    t1 = ax.text(sx + ox, sy + oy, round(data_y, 5), fontsize=fontsize, color='k', ha='center')
+    t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+
+#------------------------------------------------------------------------------------------------------------------
+
+    xytext = (sx + ox, sy + oy)
+
+    return xytext 
+
+
+for i, (ax, basin) in enumerate (zip(axes, basins)):
+
+    # select current basin data
+    df = dfs[i]
+
+     # cut off high lag bins with too few wells
+    df = df[df['Lag'] <= 1000]
+
+    # binning by 50 days
+    stepsize = 50
+    bins = np.arange(0, 1000 + stepsize, stepsize)
+
+    # scatter plot of binned wells
+    #norm_eur_original = []
+    norm_eur_cleaned = []
+    norm_eur_outlier = []
+    for b in bins[: -1]:
+
+        eur_bin = df[df['Lag'].between(b, b + stepsize)]['EUR (Full) BOE']
+        lateral_bin = df[df['Lag'].between(b, b + stepsize)]['DI Lateral Length']
+        fpf_bin = df[df['Lag'].between(b, b + stepsize)]['Fluid per Perforated Foot (First Treatment Job)']
+        ppf_bin = df[df['Lag'].between(b, b + stepsize)]['Proppant per Perforated Foot (First Treatment Job)']
+
+        cutoff = 0.95
+        norm_eur_original_ = eur_bin/lateral_bin/fpf_bin/ppf_bin
+        norm_eur_cleaned_ = norm_eur_original_[norm_eur_original_ <= norm_eur_original_.quantile(cutoff)]
+        norm_eur_outlier_ = norm_eur_original_[norm_eur_original_ > norm_eur_original_.quantile(cutoff)]
+
+        norm_eur_cleaned.append(norm_eur_cleaned_)
+        norm_eur_outlier.append(norm_eur_outlier_)    
+
+    for j, item in enumerate(norm_eur_cleaned):
+        x = np.random.normal(j + 1, 0.06, size=len(item))
+        ax.scatter(x, item, color=colors[i], alpha=0.5, s=10, edgecolors='k', linewidth=0.0, label='One well data')
+
+    for k, item_outlier in enumerate(norm_eur_outlier):
+        x_outlier = np.random.normal(k + 1, 0.06, size=len(item_outlier))
+        ax.scatter(x_outlier, item_outlier, color='r', alpha=0.3, s=30, marker='x', label='Outliers')   
+
+    # line plot of average of binned wells
+    means = [np.mean(item) for item in norm_eur_cleaned]
+    ax.plot([i + 1 for i in range(len(means))], means, linestyle='-', marker='o', markersize=8, alpha=0.7,
+            label='AVG. normalized EUR, binned by 50 lag days')       
+
+    # axis range
+    ymax = 0.02
+    ymin = 0 - 0.05 * ymax
+    ax.set_ylim(ymin, ymax)
+
+    # tick settings
+    ax.xaxis.set_major_locator(plt.MaxNLocator(12))
+    ax.yaxis.set_major_locator(plt.MaxNLocator(6))  
+    ax.set_xticklabels([int(item) for item in ax.get_xticks() * stepsize], fontsize=axis_tick_fontsize)
+    ax.tick_params(axis='x', labelsize=axis_tick_fontsize, labelrotation=30)
+    ax.tick_params(axis='y', labelsize=axis_tick_fontsize)
+    ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+    #ax.yaxis.set_major_formatter(ticker.EngFormatter())
+    ax.minorticks_on()
+    ax.xaxis.set_tick_params(which='minor', bottom=False)
+    ax.yaxis.set_minor_locator(ticker.AutoMinorLocator(2))
+
+    # spines and grid
+    ax.spines.top.set_visible(False)
+    ax.spines.right.set_visible(False)
+    ax.grid(axis='y', alpha=0.5)
+    ax.grid(axis='y', which='minor', color='grey', linestyle='--', alpha=0.2)
+    ax.set_axisbelow(True)
+
+    # texts
+    ax.set_title(basin + ': ' + str(np.concatenate(norm_eur_cleaned).shape[0]) + ' wells', fontsize=title_fontsize)
+    ax.set_ylabel('EUR/PPF/FPF/Lateral', fontsize=y_label_fontsize)
+    if i == 4 or i == 6:
+        ax.set_xlabel('DUC time (Days)', fontsize=y_label_fontsize)
+    ax.set_facecolor('#eeeeee')
+    ax.text(0.15, 0.88, 'aegis4048.github.io', fontsize=12, ha='center', va='center',
+            transform=ax.transAxes, color='grey', alpha=0.5)    
+
+    # legends
+    h0, l0 = ax.get_legend_handles_labels()
+    leg = ax.legend([h0[0]], [l0[0]], fontsize=14, ncol=2, loc='upper right')
+    for lh in leg.legendHandles:
+        lh.set_alpha(1)
+        lh.set_sizes([50])
+
+    h1, l1 = ax.get_legend_handles_labels()
+    fig.legend([h1[-1]], [l1[-1]], loc='lower left', ncol=2,
+               bbox_to_anchor=(0.046, 0.195), bbox_transform=fig.transFigure, fontsize=18) 
+
+    fs = 15
+    lw = 2
+    _1 = 0
+    spacing = abs(ax.get_xticks()[1] - ax.get_xticks()[2])
+    if basin == 'Anadarko':
+        _2 = 3
+        yloc = 0.011
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='red', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+
+    if basin == 'Appalachia': 
+        _2 = 6
+        yloc = 0.015
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs, flip_y=False)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs, flip_y=False)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='red', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+    if basin == 'Bakken':
+        _1 = 1
+        _2 = 14
+        yloc = 0.012
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='red', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+    if basin == 'Eagle Ford':
+        _2 = 5
+        yloc = 0.014
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='red', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2))        
+    if basin == 'Haynesville': 
+        _1 = 1
+        _2 = 3
+        yloc = 0.015
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs, flip_y=False)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs, flip_y=False)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='red', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+    if basin == 'Niobrara':
+        _2 = 5
+        yloc = 0.015
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '+' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='green', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2))  
+    if basin == 'Permian':
+        _2 = 3
+        yloc = 0.014
+        textxy1 = annotate_arrows(means[_1], _1, spacing, ymax, fontsize=fs)
+        textxy2 = annotate_arrows(means[_2], _2, spacing, ymax, fontsize=fs)   
+        ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+        ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+        diff_percentage = '' + str(int((means[_2] - means[_1])/means[_1] * 100)) + '%'
+        t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=fs, color='red', ha='center')
+        t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=2)) 
+
+    #break
+
+fig.tight_layout()
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+y_pos = 0.998
+fig.suptitle(setbold('EUR Normalized by PPF, FPF and Lateral Length')  + ",  Jan 2014 - June 2022", fontsize=20, x=0.34, y=1.025)
+ax.annotate('', xy=(0.006, y_pos), xycoords='figure fraction', xytext=(1, y_pos), arrowprops=dict(arrowstyle="-", color='k', lw=1.3))
+ax.annotate('Source: Pythonic Excursions, DrillingInfo', xy=(0.055, 0.173), xycoords='figure fraction', fontsize=16)
+
+fig.set_facecolor("white")    
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="detailed" style="margin-top: -15px"></div><p><strong>Anadarko</strong></p>
+<p>The normalized EUR for Anadarko wells completed beyond 50 days since drilled dropped by 81% over a 150-day span. The two outlier points in the average normalized EUR at 400-day and 450-day bins were identified as a result of extreme data points that could not be filtered out using the percentile method due to a lack of data. The observed decrease in normalized EUR with increasing DUC time follows the pattern observed in typical logarithmic production decline curve with a high b-factor, indicating a fast initial decline in production due to reservoir depletion. This could be an indication of severe well-to-well interference problems in the Anadarko basin.</p>
+<div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-9" style="margin-top: 10px;">
+<div class="col"><img src="jupyter_images/duc_normalized_anadarko.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 9:</strong> Anadarko basin from Figure 8</p></div><div><hr/></div><p><strong>Appalachia</strong></p>
+<p>The normalized EUR dropped by 19% over a span of 300 DUC days beyond the initial 50-day bin average. It seems to decrease linearly with DUC time at a very slow pace compared to Anadarko or Permian. Assuming linear regression, one could argue that the Appalachia DUC wells lose 2.7% EUR for every 50 days of delay in completion.</p>
+<div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-10" style="margin-top: 10px;">
+<div class="col"><img src="jupyter_images/duc_normalized_appalachia.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 10:</strong> Appalachia basin from Figure 8</p></div><div><hr/></div><p><strong>Bakken</strong></p>
+<p>The normalized EUR of Bakken wells exhibits an exponential decline trend, with the initial decline rate smaller than Anadarko but greater than Appalachia. Note that the first bin of data (50-day bin) for Bakken wells is characterized by a limited number of data points, including extreme outliers that heavily skew the calculated normalized EUR values. Therefore, the second bin (100-day bin) is considered as the starting point, where Bakken wells experienced a 70% decrease in production over 700 DUC days. It is important to note that this decline would likely be greater if more data points were available in the first bin, thereby yielding a more reliable average normalized EUR value.</p>
+<p>Based on the observation that Anadarko and Permian wells exhibit logarithmic decline in normalized EUR and experience rapid decline during early DUC time, it is expected that the initial average normalized EUR value for Bakken wells would be higher in the first day bin compared to the second day bin. Assuming an initial average normalized EUR value of 0.016 (although this is subjective), it is projected that the Bakken basin would experience a 78% decrease in production over a span of 750 DUC days.</p>
+<div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-11" style="margin-top: 10px;">
+<div class="col"><img src="jupyter_images/duc_normalized_bakken.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 11:</strong> Bakken basin from Figure 8</p></div><div><hr/></div><p><strong>Eagle Ford</strong></p>
+<p>The Eagle Ford wells showed very minimal or no degradation in EUR with increasing DUC time. One can deduce that the Eagle Ford wells are more resilient to the well-to-well interference problems than the other basins. Note that this shows the trend of the entire basin; limiting the data pool to a small group of wells in a small area of interest may reveal different trend.</p>
+<div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-12" style="margin-top: 10px;">
+<div class="col"><img src="jupyter_images/duc_normalized_eagleford.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 12:</strong> Eagle Ford basin from Figure 8</p></div><div><hr/></div><p><strong>Haynesville</strong></p>
+<p>The statistical analysis of the Haynesville basin is limited due to the dearth of available data. Specifically, only 1,792 wells in the basin have complete information on EUR, proppant, fluid volume, and lateral length, which was further reduced to 1,724 after removing outliers. Notably, the average normalized EUR for the 50-day and 450-day bins extends beyond the y-axis range, while only the wells within the 100- to 350-day bins exhibit reliable results with sufficient number of records.</p>
+<p>Treating the 100-day bin as the first index of a local peak and the 200-day bin as the index of a local trough, the Haynesville wells demonstrated a 46% decrease in normalized EUR during 100 days of DUC time. However, given the logarithmic decline in average normalized EUR observed in Anadarko and Permian wells, an interpolation can be performed to estimate a plausible value of the first bin, around 0.008, although subjectivity is a possible limitation. This estimation leads to an anticipated 69% production decline in the Haynesville basin during the subsequent 150 DUC days after the initial 50 DUC days, followed by a relatively constant level of production afterwards.</p>
+<div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-13" style="margin-top: 10px;">
+<div class="col"><img src="jupyter_images/duc_normalized_haynesville.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 13:</strong> Haynesville basin from Figure 8</p></div><div><hr/></div><p><strong>Niobrara</strong></p>
+<p>Notably, the Niobrara basin demonstrated a substantial increasing trend in normalized EUR with increasing DUC time up to the 300-day bin, followed by a relatively constant or slowly declining trend in normalized EUR.</p>
+<p>The observation of increasing normalized EUR with increasing DUC time in Niobrara wells is intriguing and contradicts the prevailing scientific literature, which suggests that child wells tend to underperform relative to parent wells. However, this premise assumes the presence of a parent-child relationship between wells. In the absence of well-to-well interference factors, DUC wells waiting to be completed may be free from such negative impacts on production.</p>
+<p>One potential explanation for this counter-intuitive trend in normalized EUR could be the presence of unique geologic characteristics specific to the Niobrara basin, or the existence of hidden factors that were not accounted for during the normalization process. For example, Niobrara may be relatively free from vertical fracture interference problems associated with stacked laterals compared to other basins, or may have been subjected to substantially different completion or production techniques. It is important to note that <a class="internal-link" href="#fig-7">Figure 7</a> and <a class="internal-link" href="#table-4">Table 4</a> above revealed that Niobrara was the only basin to exhibit a decrease in PPF with increasing DUC time, which suggests the presence of hidden factors not captured in the data set used for this study. Therefore, further analysis and study is required to understand this unexpected behavior.</p>
+<div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-14" style="margin-top: 10px;">
+<div class="col"><img src="jupyter_images/duc_normalized_niobrara.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 14:</strong> Niobrara basin from Figure 8</p></div><div><hr/></div><p><strong>Permian</strong></p>
+<p>The normalized EUR for Permian wells completed beyond 50 days since drilled dropped by 74% over a span of 150 days. The normalized EUR does not substantially drop further after the 200-day bin. This trend is very similar to that of the Anadarko basin's.</p>
+<div class="row row full_screen_margin_60 mobile_responsive_plot_full_width" id="fig-15" style="margin-top: 10px;">
+<div class="col"><img src="jupyter_images/duc_normalized_permian.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 15:</strong> Permian basin from Figure 8</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Dead DUC wells"></div><h2 id='5.-"Dead"-DUC-wells'>5. "Dead" DUC wells<a class="anchor-link" href='#5.-"Dead"-DUC-wells'>¶</a></h2><p>DUC wells are treated as a form of oilfield working capital. They are essentially a long-term, partially funded storage of hydrocarbons "under" the ground instead of "on" the ground. However, if a well remains in DUC stage for too long, it no longer functions as a working oilfield capital. Analyst John Freeman from Raymond James & Associates Inc. said that that 95% of the drilled wells have been completed within 2 years, and that DUCs older than 2 years have low chance of ever being completed and considered out-of-the-system (a.k.a. Dead DUCs). Comparing with the Enverus data of wells in the seven DPR regions supports this claim to be reasonably true.</p>
+<p><a class="internal-link" href="#fig-16">Figure 16</a> presents a 95% box plot of the DUC time for wells in each basin, providing insight into the time limit till completion for oil and gas wells in the US. The plot indicates that 95% of the wells in the Anadarko basin were completed within 309 days after drilling, while wells in the Appalachia basin were completed within 956 days. The weighted average for all DPR regions reveals that 95% of wells in the US are completed within 567 days after drilling. The implications of these results suggest that any well not completed within this timeframe has a less than 5% chance of being completed, thereby rendering the expensive drilling cost that the operator incurred a waste.</p>
+<p>The completion time limit for DUC wells depends on their ultimate rate of return, which is a complex function of various factors, including EUR, well-to-well interference problems, royalty rate, and costs associated with site-clearing, drilling, lateral length, completion size and concentration per foot, daily operating costs, and lease purchase and renewal. However, comparing the 95% upper limit for DUC time across basins in <a class="internal-link" href="#fig-16">Figure 16</a> reveals an interesting correlation with the other findings of this study.</p>
+<p>Notably, the three basins with the shortest DUC time limit, namely Anadarko (309 days), Haynesville (409 days), and Permian (470 days), also had the worst depletion rates in normalized EUR. Recall that in <a class="internal-link" href="#fig-8">Figure 8</a>, Anadarko experienced an 81% drop in normalized EUR in 150 DUC days, while Haynesville and Permian experienced a 46% and 74% drop, respectively. Conversely, the Appalachia, Eagle Ford, and Niobrara basins demonstrated greater resilience to reductions in normalized EUR with increasing DUC time, and showed longer time limit till completion in <a class="internal-link" href="#fig-16">Figure 16</a>.</p>
+<p>When considering the economic factors that impact the time limit till completion, it is essential to consider EUR as it has a direct impact on the final economic rate of return of a well. In <a class="internal-link" href="#fig-16">Figure 16</a>, Appalachia has the longest time limit till completion, which can be attributed to its highest EUR along the x-axis compared to other basins. The high EUR renders operators to be more flexible with the costs associated with maintaining their DUC wells' lease. This understanding explains why Niobrara has a close DUC time limit with that of Permian despite Niobrara's strong resilience to the decrease in normalized EUR with increasing DUC time. In <a class="internal-link" href="#fig-7">Figure 7</a>'s <a class="internal-link" href="#table-2">Table 2</a>, Niobrara shows 541 MBOE of EUR at its local peak [2], while Permian shows 1,061 MBOE of EUR, which is almost double. In summary, Niobrara and Permian have opposing pros and cons that balance their time limit till completion to be similar.</p>
+<div class="row" id="fig-16" style="margin-top: 20px">
+<div class="col"><img src="jupyter_images/Time Limit Until Completion.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 16:</strong> 95% Box plot of gap time between drilling and completion. The plot shows the time limit until completion for each basin. Each dot (very small, 99.5% transparency) represent one well of a basin. Upper whisker and the numeric annotation above it represent 95% upper limit. This means that wells with DUC time longer than the annotated number have less then 95% chance of ever being completed. Box plot for "All Regions" represent weighted average of all basins.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (16)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+############################################# Basins ##############################################
+
+basins = sorted(['Anadarko', 'Appalachia', 'Eagle Ford', 'Haynesville', 'Niobrara', 'Permian', 'Bakken'])
+
+################################### DUC Wells Count per Basin #####################################
+
+# compile a DataFrame to store the completion & drilling date difference data of 7 basins
+# data restricted to wells that has "Completion Date" column populated
+# source: DrillingInfo App of Enverus
+
+lags = []
+for basin in basins:
+    df_cur = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/EUR_vs_Lag.xlsx', sheet_name=basin)
+    df_cur = df_cur.dropna(subset=['Completion Date'])           # Drop wells that are not completed
+    df_cur = df_cur[df_cur['Drill Type'] == 'H']
+    lags.append(df_cur['Lag'].values)
+
+flattened = []
+temp = [list(lag) for lag in lags]
+for item in temp:
+    flattened += item
+
+lags.append(flattened)
+basins.append('All Regions')
+
+############################################# Plot ##############################################
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+colors = ['grey', '#a1794a', '#d484a9', '#cbe8f0', '#c6b4ee', '#914810', '#16534c', 'lightgrey']
+
+cutoff = 95
+
+for i, basin_lag in enumerate(lags):
+    i = i + 1
+    x = np.random.normal(i, 0.06, size=len(basin_lag))
+    ax.scatter(x, basin_lag, color=colors[i - 1], alpha=0.005)
+    _cutoff = int(np.percentile(basin_lag, cutoff))
+    ax.text(i, _cutoff + 150, str(_cutoff) + ' days', fontsize=10, ha='center', va='center', color='k')
+
+lw = 1
+caps = ax.boxplot(lags, sym='', whis=[0, cutoff], showfliers=True,
+                     boxprops=dict(linewidth=lw, color='#4e98c3'),
+                     whiskerprops=dict(linewidth=lw, color='#4e98c3', linestyle='--'), vert=True,
+                     capprops=dict(linewidth=lw, color='k'),
+                     medianprops=dict(linewidth=lw, color='#ad203e'));
+
+n = 0.12
+for cap in caps['caps']:
+    cap.set(xdata=cap.get_xdata() + (-n, +n))
+
+ax.set_xticklabels(basins, rotation=20)
+ax.set_ylim(-70, 2000)
+ax.set_ylabel('Lag (Days)')
+
+ax.yaxis.set_major_locator(plt.MaxNLocator(6))
+ax.grid(axis='y', alpha=0.5)
+ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+ax.spines.top.set_visible(False)
+ax.spines.right.set_visible(False)
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+ax.set_title(setbold('Time Limit Until Completion: 95\% Boxplot')  + ",  Jan 2014 - June 2022", fontsize=12, pad=10,
+             x=0.31, y=1.06)
+ax.annotate('', xy=(-0.11, 1.07), xycoords='axes fraction', xytext=(1.02, 1.07), arrowprops=dict(arrowstyle="-", color='k'))
+ax.annotate('Data Source: Pythonic Excursions, DrillingInfo', xy=(-0.11, -0.3), xycoords='axes fraction', fontsize=10)
+ax.text(0.16, 0.23, 'aegis4048.github.io', fontsize=10, ha='center', va='center',
+        transform=ax.transAxes, color='white', alpha=0.5)
+
+ax.axvline(x=7.5, color='k', linestyle='--', linewidth=1, alpha=0.7)
+
+fig.set_facecolor("white")
+fig.tight_layout()
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="Conclusion"></div><h2 id="6.-Conclusion">6. Conclusion<a class="anchor-link" href="#6.-Conclusion">¶</a></h2><ul>
+<li><p>The well-established scientific wisdom suggests that parent (old) wells perform better than their nearby child (new) wells, due to the parent wells having already drained a significant volume of hydrocarbons and left the child well with lower reservoir pressure and smaller volume of fluids left to produce.</p>
+</li>
+<li><p>Wells completed shortly after drilling (within 50 days) tend to have substantially smaller EUR compared to wells with longer DUC time (<a class="internal-link" href="#fig-6">Figure 6</a>). This is because wells with longer DUC time tend to have longer lateral length and are treated with bigger completion. Conversely, it means that operators tend to undersize their completion concentration per lateral foot for wells completed shortly after drilling (<a class="internal-link" href="#fig-7">Figure 7</a>). Thus, investing in larger completion size for wells completed shortly after drilling may yield greater profit for operators.</p>
+</li>
+<li><p>To assess the genuine impact of DUC time on production, EUR was normalized by lateral length, proppant per perforated foot (PPF), and fluid per perforated foot (FPF).</p>
+</li>
+<li><p>It has been found that increasing DUC time has a significant negative impact on the EUR of Anadarko, Bakken, Hanyesville, and Permian wells. Notably, Anadarko and Permian showed 81% and 74% drop in noramlized EUR, respectively, over a span of 150 days of DUC time. However, Appalachia, Eagle Ford and Niobrara wells have been found to be resilient from the EUR loss due to increasing DUC time (<a class="internal-link" href="#fig-8">Figure 8</a>), showing negligible decrease in normalized EUR along the x-axis.</p>
+</li>
+<li><p>In some basins, delaying completion due to unfavorable commodity prices may not be a financially sound strategy.</p>
+</li>
+<li><p><a class="internal-link" href="#fig-8">Figure 8</a> provides valuable insight to evaluate completion investment efficiency as it shows EUR normalized by completion size and lateral length.</p>
+</li>
+<li><p>DUC wells have time limit till completion. For example, Anadarko wells have less than 5% chance of completion for DUC wells older than 308 days since drilled (<a class="internal-link" href="#fig-16">Figure 16</a>). Chance of completion drastically falls afterwards, which may render the drilling investment made for the well to be a waste.</p>
+</li>
+<li><p>Anadarko and Haynesville wells have the shortest time limit till completion (<a class="internal-link" href="#fig-16">Figure 16</a>). This can be attributed to the fact that they are the ones with the worst decrease in normalized EUR with increasing DUC time, as demonstrated in <a class="internal-link" href="#fig-8">Figure 8</a>. On the other hand, Appalachia wells have the longest time limit till completion because they yield the greatest EUR at differnt DUC times, and their normalized EUR decreases minimally with increasing DUC time.</p>
+</li>
+</ul>
+<div class="highlights red-theme" id="boxcox-warning">
+<div class="highlights-title red-theme">WARNING!</div>
+<div class="highlights-content red-theme">
+<p>The presented analysis provides a basin-wide overview at a high level, and the conclusions drawn assume homogeneity within each basin. However, this assumption may not hold true for many regions. By restricting the analysis to a county-level, different trends may emerge compared to those observed at the basin level.</p>
+<p>In <a class="internal-link" href="#fig-8">Figure 8</a>, it was observed that delaying completion by 150 days resulted in an 81% decline in normalized EUR for Anadarko wells. In contrast, no drop in EUR was observed for Eagle Ford wells. These conclusions should be interpreted as follows: "If a new well is drilled in a typical area where most other operators drill, and typical well spacing, completion, and production techniques are applied across the basin, an 81% loss of EUR can be expected for Anadarko wells if completion is delayed by 150 days. It would be advisable to complete Anadarko wells as soon as possible to avoid drainage from neighboring competitor wells. However, for Eagle Ford wells, completion can be delayed for a prolonged period if the oil price is not favorable."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+        </div>
+        <hr/>
+        <aside>
+        <nav>
+        <ul class="articles-timeline">
+            <li class="previous-article">« <a href="https://aegis4048.github.io/duc_wells_and_their_economic_complications" title="Previous: DUC Wells and Their Economic Complications">DUC Wells and Their Economic Complications</a></li>
+            <li class="next-article"><a href="https://aegis4048.github.io/robust_linear_regressions_in_python" title="Next: Robust Linear Regressions In Python">Robust Linear Regressions In Python</a> »</li>
+        </ul>
+        </nav>
+        </aside>
+  <section>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'pythonic-excursions';
+      var disqus_identifier = '/quantifying_the_impact_of_completion_delay_since_drilled_on_production';
+      var disqus_url = 'https://aegis4048.github.io/quantifying_the_impact_of_completion_delay_since_drilled_on_production';
+      var disqus_title = 'Quantifying The Impact Of Completion Delay Since Drilled On Production';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section>
+        <hr/>
+<section style="margin-top: 30px">
+    <h2>Related Posts</h2>
+<ul class="related-posts-list related-post row">
+    <div class="pop-over col-12 col-md-6 col-lg-4">
+        <div class="article-row" onclick="window.location='https://aegis4048.github.io/duc_wells_and_their_economic_complications';">
+            <div class="article-cell-1">
+                <img class="article-img" src="images/featured_images/DUC_wells.png">
+            </div>
+            <div class="article-cell-2">
+                <div class="category">Oil and Gas</div>
+                <h2 class="">DUC Wells and Their Economic Complications</h2>
+                <p class="excerpt">During the Covid-19 Pandemic, the operators opted not to drill new wells, but instead completed their existing DUC wells to meet demand while conserving cash. This post explains the concept and the economic impact of DUC wells on the US energy industry.</p>
+                <div class="meta">
+                    <div class="meta-left">
+                        <i class="fa fa-calendar index-comment-icon"></i>
+                        <span class="index-reading-time">2023-02-09</span>
+                    </div>
+                    <div class="meta-right">
+                        <i class="far fa-clock index-comment-icon"></i>
+                        <span class="index-reading-time">11 min reading</span>
+                        <i class="fas fa-comment index-comment-icon" href="https://aegis4048.github.io/duc_wells_and_their_economic_complications#disqus_thread"></i>
+                        <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/duc_wells_and_their_economic_complications#disqus_thread"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ul>
+</section>
+    </article>
+    <div id="article-sidebar" class="col-12 col-xl-3"></div>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+      <div class="row">
+         <div class="col">
+            <h5 class="headin5_amrc col_white_amrc pt2">ABOUT ERIC</h5>
+            <!--headin5_amrc-->
+            <p class="mb10"><img id="profile_img" align="left" src="https://aegis4048.github.io/theme/img/profile_photo_footer.jpg">Petroleum engineering analyst at <a href="https://flogistix.com/" target="blank">Flogistix</a>. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
+            <p><i class="fa fa-envelope mr-2"></i>aegis4048@gmail.com</p>
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="about.html">ABOUT</a></li>
+         <li><a href="archives.html">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center">Handcrafted by me @2018</p>
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="row" align="center">
+                  <div class="footer-icon"><a href="https://www.linkedin.com/in/eric-kim-34318811b/"><i class="fab fa-linkedin-in"></i></a></div>
+                  <div class="footer-icon"><a href="https://github.com/aegis4048"><i class="fab fa-github"></i></a></div>
+              </div>
+          </div>
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://aegis4048.github.io/theme/libs/prism.js"></script>
+        <script src="https://aegis4048.github.io/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

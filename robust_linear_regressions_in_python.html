@@ -12,34 +12,34 @@
             <meta name="author" content="ERIC KIM" />
 
 
-            <meta name="description" content="        Strengthen your understanding of linear regression in multi-dimensional space through 3D visualization of linear models.
+            <meta name="description" content="        Illustrative guidance to outlier-robust linear regression modeling
 " />
 
                 <meta property="og:type" content="article" />
             <meta name="twitter:card" content="summary"/>
 
-        <meta name="keywords" content="correlation, machine learning, multiple linear regression, multicollinearity, linear regression, regression, feature ranking, permutation feature ranking, r-squared, model, 3d, visualization, features, data exploration, Machine Learning, "/>
+        <meta name="keywords" content="linear regression, robust linear regression, outliers, visualization, machine learning, statistics, TheilSen regression, RANSAC regression, Huber regression, OLS, L1 norm, L2 norm, L2 norm squared, spatial median, mean, median, central tendency, robustness, euclidean distance, absolute loss, squared loss, least-squares, Machine Learning, "/>
 
-        <link rel="canonical" href="/robust_linear_regressions_in_python">
+        <link rel="canonical" href="https://aegis4048.github.io/robust_linear_regressions_in_python">
     <meta property="og:title" content="Robust Linear Regressions In Python | Pythonic Excursions"/>
-    <meta property="og:url" content="/robust_linear_regressions_in_python" />
-    <meta property="og:description" content="Strengthen your understanding of linear regression in multi-dimensional space through 3D visualization of linear models." />
+    <meta property="og:url" content="https://aegis4048.github.io/robust_linear_regressions_in_python" />
+    <meta property="og:description" content="Illustrative guidance to outlier-robust linear regression modeling" />
     <meta property="og:site_name" content="Pythonic Excursions" />
     <meta property="og:article:author" content="ERIC KIM" />
-        <meta property="og:article:published_time" content="2023-10-19T00:00:00-07:00" />
+        <meta property="og:article:published_time" content="2023-11-15T00:00:00-08:00" />
     <meta name="twitter:title" content="Robust Linear Regressions In Python | Pythonic Excursions">
-    <meta name="twitter:description" content="Strengthen your understanding of linear regression in multi-dimensional space through 3D visualization of linear models.">
-        <meta property="og:image" content="/images/featured_images/multiple_linear_regression_and_visualization.png" />
-        <meta name="twitter:image" content="/images/featured_images/multiple_linear_regression_and_visualization.png" >
+    <meta name="twitter:description" content="Illustrative guidance to outlier-robust linear regression modeling">
+        <meta property="og:image" content="https://aegis4048.github.io/images/featured_images/robust_linear_regression.png" />
+        <meta name="twitter:image" content="https://aegis4048.github.io/images/featured_images/robust_linear_regression.png" >
 
 
         <title>    Robust Linear Regressions In Python  | Pythonic Excursions
 </title>
 
-                <link rel="stylesheet" type="text/css" href="/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
-                <link rel="stylesheet" type="text/css" href="/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
-            <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
-            <link rel="stylesheet" type="text/css" href="/theme/css/ipynb.css" media="screen">
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/ipynb.css" media="screen">
 
             <style>
                 #progressBar::-webkit-progress-value {
@@ -50,7 +50,7 @@
                 }
             </style>
 
-        <link href="/theme/libs/prism.css" rel="stylesheet" />
+        <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
 <script type="text/x-mathjax-config">
 
 MathJax.Hub.Config({
@@ -65,17 +65,28 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-        <link rel="shortcut icon" href="/theme/img/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/theme/img/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="/theme/img/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="/theme/img/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="/theme/img/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="/theme/img/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="/theme/img/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="/theme/img/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="/theme/img/apple-touch-icon-152x152.png" type="image/png" />
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
+        <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="https://aegis4048.github.io/theme/img/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://aegis4048.github.io/theme/img/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="https://aegis4048.github.io/theme/img/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://aegis4048.github.io/theme/img/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="https://aegis4048.github.io/theme/img/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="https://aegis4048.github.io/theme/img/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="https://aegis4048.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133310548-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-133310548-1');
+</script>
+
     </head>
     <body>
 <progress id="progressBar" max="19827" class="flat">
@@ -86,7 +97,7 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
             <div class="banner">
                 <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
                     <div class="container navbar-title">
-                        <a href="/"><img id="banner-logo" src="/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
+                        <a href="/"><img id="banner-logo" src="https://aegis4048.github.io/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -94,16 +105,16 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link rem_08" href="/about.html">About</a>
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/about.html">About</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li id="second-item" class="nav-item">
-                            <a class="nav-link rem_08" href="/archives.html">Archive</a>
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/archives.html">Archive</a>
                         </li>
                      </ul>
                     <ul class="navbar-nav">
-                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="/search.html">
+                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="https://aegis4048.github.io/search.html">
                         <div id="third-item" class="search-box-div row" style="margin-top:-3.5px;">
                             <input id="tipue_search_input" class="form-control mr-md-2 rem_08 col-9" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" aria-label="Search"/>
                             <button id="search-btn" class="btn btn-search btn-outline-success btn-circle rem_08 col-3" type="submit" for="tipue_search_input" style="margin-left: 3px;">Search</button>
@@ -115,44 +126,53 @@ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
             </div>
         </div>
         <div id="wrap">
-<div id="post-container" class="container post index">
-    <article>
+<div></div>
+<div id="article-container" class="row">
+    <article id="article" class="col-12 col-xl-9">
         <header class="pop-over">
             <h1>Robust Linear Regressions In Python</h1>
             <div class="row justify-content-between no-margin">
-                <h4 class="article-category">Category > <a class="article-category-link" href="/archives.html">Machine Learning</a></h4>
-                <span class="article-date">Oct 19, 2023</span>
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://aegis4048.github.io/archives.html">Machine Learning</a></h4>
+                <span class="article-date">Nov 15, 2023</span>
             </div>
             <div class="meta meta-tag no-margin no-border">
                 <div>
-                        <a href="/tag/correlation.html" class="tag">correlation</a>
-                        <a href="/tag/machine-learning.html" class="tag">machine learning</a>
-                        <a href="/tag/multiple-linear-regression.html" class="tag">multiple linear regression</a>
-                        <a href="/tag/multicollinearity.html" class="tag">multicollinearity</a>
-                        <a href="/tag/linear-regression.html" class="tag">linear regression</a>
-                        <a href="/tag/regression.html" class="tag">regression</a>
-                        <a href="/tag/feature-ranking.html" class="tag">feature ranking</a>
-                        <a href="/tag/permutation-feature-ranking.html" class="tag">permutation feature ranking</a>
-                        <a href="/tag/r-squared.html" class="tag">r-squared</a>
-                        <a href="/tag/model.html" class="tag">model</a>
-                        <a href="/tag/3d.html" class="tag">3d</a>
-                        <a href="/tag/visualization.html" class="tag">visualization</a>
-                        <a href="/tag/features.html" class="tag">features</a>
-                        <a href="/tag/data-exploration.html" class="tag">data exploration</a>
+                        <a href="https://aegis4048.github.io/tag/linear-regression.html" class="tag">linear regression</a>
+                        <a href="https://aegis4048.github.io/tag/robust-linear-regression.html" class="tag">robust linear regression</a>
+                        <a href="https://aegis4048.github.io/tag/outliers.html" class="tag">outliers</a>
+                        <a href="https://aegis4048.github.io/tag/visualization.html" class="tag">visualization</a>
+                        <a href="https://aegis4048.github.io/tag/machine-learning.html" class="tag">machine learning</a>
+                        <a href="https://aegis4048.github.io/tag/statistics.html" class="tag">statistics</a>
+                        <a href="https://aegis4048.github.io/tag/theilsen-regression.html" class="tag">TheilSen regression</a>
+                        <a href="https://aegis4048.github.io/tag/ransac-regression.html" class="tag">RANSAC regression</a>
+                        <a href="https://aegis4048.github.io/tag/huber-regression.html" class="tag">Huber regression</a>
+                        <a href="https://aegis4048.github.io/tag/ols.html" class="tag">OLS</a>
+                        <a href="https://aegis4048.github.io/tag/l1-norm.html" class="tag">L1 norm</a>
+                        <a href="https://aegis4048.github.io/tag/l2-norm.html" class="tag">L2 norm</a>
+                        <a href="https://aegis4048.github.io/tag/l2-norm-squared.html" class="tag">L2 norm squared</a>
+                        <a href="https://aegis4048.github.io/tag/spatial-median.html" class="tag">spatial median</a>
+                        <a href="https://aegis4048.github.io/tag/mean.html" class="tag">mean</a>
+                        <a href="https://aegis4048.github.io/tag/median.html" class="tag">median</a>
+                        <a href="https://aegis4048.github.io/tag/central-tendency.html" class="tag">central tendency</a>
+                        <a href="https://aegis4048.github.io/tag/robustness.html" class="tag">robustness</a>
+                        <a href="https://aegis4048.github.io/tag/euclidean-distance.html" class="tag">euclidean distance</a>
+                        <a href="https://aegis4048.github.io/tag/absolute-loss.html" class="tag">absolute loss</a>
+                        <a href="https://aegis4048.github.io/tag/squared-loss.html" class="tag">squared loss</a>
+                        <a href="https://aegis4048.github.io/tag/least-squares.html" class="tag">least-squares</a>
                 </div>
             </div>
             <section>
-    <div class="row justify-content-end mt-3" style="align-items: center">
+    <div id="share-links" class="row justify-content-end mt-3" style="align-items: center">
         <div class="share-post-intro mr-2">Share This Post :</div>
         <div class="social-share-btns-container">
             <div class="social-share-btns">
-                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=/robust_linear_regressions_in_python" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=https://aegis4048.github.io/robust_linear_regressions_in_python" rel="nofollow" target="_blank">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=/robust_linear_regressions_in_python" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=https://aegis4048.github.io/robust_linear_regressions_in_python" rel="nofollow" target="_blank">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/robust_linear_regressions_in_python" rel="nofollow" target="_blank">
+                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://aegis4048.github.io/robust_linear_regressions_in_python" rel="nofollow" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
@@ -1283,6 +1303,77 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<div class="display-none" id="toc_container">
+<p class="toc_title"><i class="fas fa-list"></i>Contents</p>
+<ul class="toc_list">
+<li><a href="#1.-Why-is-OLS-vulnerable-to-outliers?"><span class="toc_label">1.</span>
+            Why is OLS vulnerable to outliers?</a></li>
+<ul>
+<li><a href="#1.1.-Convergence-to-mean"><span class="toc_label">1.1.</span>
+                Convergence to mean</a></li>
+<li><a href="#1.2.-Squared-term-magnifies-impact-of-outliers"><span class="toc_label">1.2.</span>
+                Squared term magnifies impact of outliers</a></li>
+<li><a href="#1.3.-Understanding-the-L-norms-in-cartesian-space"><span class="toc_label">1.3.</span>
+                Understanding the L-norms in cartesian space</a></li>
+</ul>
+<li><a href="#2.-Robust-Models"><span class="toc_label">2.</span>
+            Robust Models</a></li>
+<ul>
+<li><a href="#2.1.-RANSAC-regressor"><span class="toc_label">2.1.</span>
+                RANSAC regressor</a></li>
+<ul>
+<li><a href="#2.1.1.-Visual-demonstrations"><span class="toc_label">2.1.1.</span>
+                        Visual demonstrations</a></li>
+<li><a href="#2.1.2.-Median-Absolute-Deviation-(MAD)-threshold"><span class="toc_label">2.1.2.</span>
+                        Median Absolute Deviation (MAD) threshold</a></li>
+<li><a href="#2.1.3.-Required-iteration-calculation"><span class="toc_label">2.1.3.</span>
+                        Required iteration calculation</a></li>
+<li><a href="#2.1.4.-More-detailed-visual-demonstrations"><span class="toc_label">2.1.4.</span>
+                        More detailed visual demonstrations</a></li>
+<li><a href="#2.1.5.-RANSAC-code-snippets"><span class="toc_label">2.1.5.</span>
+                        RANSAC code snippets</a></li>
+</ul>
+<li><a href="#2.2.-Huber-regressor"><span class="toc_label">2.2.</span>
+                Huber regressor</a></li>
+<ul>
+<li><a href="#2.2.1.-Huber-loss-function"><span class="toc_label">2.2.1.</span>
+                        Huber loss function</a></li>
+<li><a href="#2.2.2.-Motivation"><span class="toc_label">2.2.2.</span>
+                        Motivation</a></li>
+<li><a href="#2.2.3.-Parameter-tuning-($\delta$)"><span class="toc_label">2.2.3.</span>
+                        Parameter tuning</a></li>
+<li><a href="#2.2.4.-Huber-code-snippets"><span class="toc_label">2.2.4.</span>
+                        Huber code snippets</a></li>
+</ul>
+<li><a href="#2.3.-Theil-Sen-regressor"><span class="toc_label">2.3.</span>
+                Theil-Sen regressor</a></li>
+<ul>
+<li><a href="#2.3.1.-Sample-size-and-model-robustness"><span class="toc_label">2.3.1.</span>
+                        Sample size and model robustness</a></li>
+<li><a href="#2.3.2.-Spatial-median"><span class="toc_label">2.3.2.</span>
+                        Spatial median</a></li>
+<li><a href="#2.3.3.-Why-use-median-instead-of-mean-with-outliers?"><span class="toc_label">2.3.3.</span>
+                        Why use median instead of mean with outliers?</a></li>
+<ul>
+<li><a href="#2.3.3.1.-Effect-of-the-squared-term"><span class="toc_label">2.3.3.1.</span>
+                            Effect of the squared term</a></li>
+<li><a href="#2.3.3.2.-Measure-of-central-tendency"><span class="toc_label">2.3.3.2.</span>
+                            Measure of central tendency</a></li>
+</ul>
+<li><a href="#2.3.4.-Theil-Sen-code-snippets"><span class="toc_label">2.3.4.</span>
+                        Theil-Sen code snippets</a></li>
+</ul>
+<li><a href="#2.4.-Summary"><span class="toc_label">2.4.</span>
+                Summary</a></li>
+</ul>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>In regression analysis, understanding and mitigating the impact of outliers is crucial for accurate model predictions. Common approaches like Ordinary Least Squares (OLS) often fall short when outliers are present, leading to skewed results. This discussion will explore how various regression techniques, including OLS, RANSAC, Huber, and Theil-Sen regressors, each handle outliers differently. By examining these methods through both theoretical insights and practical demonstrations using Python, I aim to highlight their unique responses to outlier influences, thereby guiding the selection of the most appropriate regression model for datasets with varying outlier characteristics.</p>
 <div class="row full_screen_margin_90 mobile_responsive_plot_full_width" id="fig-1" style="">
 <div class="col"><img src="jupyter_images/robust linear regression comprisons.png"/></div>
@@ -1402,7 +1493,7 @@ fig.tight_layout()
 <div id="eq-1" style="font-size: 1rem;">
 $$L_{2}^{2} = \underset{m, b}{\text{argmin}} \sum_{i=1}^n [y_i - (mx_i + b)]^2 \tag{1}$$
 </div><p>Intuitively the objective function is finding the best slope and intercept that will minimize the <strong>squared</strong> prediction error (residuals) of your model prediction $\hat{y} = mX + b$ against the observation $y$. <a class="internal-link" href="#eq-1">Eq-1</a> is often referred to as <em>$L_{2}$-Norm squared</em>. It has some interesting properties that make it vulnerable to the outliers:</p>
-<div><hr/></div><div id="The equation converges to mean, and inherits the statistical properties of mean"></div><h3 id="1.1.-The-equation-converges-to-mean,-and-inherits-the-statistical-properties-of-mean">1.1. The equation converges to mean, and inherits the statistical properties of mean<a class="anchor-link" href="#1.1.-The-equation-converges-to-mean,-and-inherits-the-statistical-properties-of-mean">¶</a></h3><p>The equation has mathematical properties that make it converge to mean. While I'm not gonna bore the readers explaining the mathematical proof (I don't understand them anyway), I can show you in Python that it indeed converges to the mean. Consider the following code snippet:</p>
+<div><hr/></div><div id="The equation converges to mean, and inherits the statistical properties of mean"></div><h3 id="1.1.-Convergence-to-mean">1.1. Convergence to mean<a class="anchor-link" href="#1.1.-Convergence-to-mean">¶</a></h3><p>The equation has mathematical properties that make it converge to mean. While I'm not gonna bore the readers explaining the mathematical proof (I don't understand them anyway), I can show you in Python that it indeed converges to the mean. Consider the following code snippet:</p>
 </div>
 </div>
 </div>
@@ -1450,7 +1541,7 @@ Mean of x: [14.5]
 <div class="col"><img src="jupyter_images/mean - median - mode - outliers.png"/></div>
 </div>
 <div class="col-12 fig-title"><p class="image-description"><strong>Figure 2:</strong> Three measures of central tendency in presence of outliers: mode, median and mean (image adpated from <a href="https://www.researchgate.net/publication/10633674_Comparison_of_mode_estimation_methods_and_application_in_molecular_clock_analysis" target="_blank">here).</a></p></div><p>In an ideal normal distribution without outliers, the mode, median, and mean coincide. However, outliers skew the distribution, pulling the mean away from where most data points lie. The median, less affected by outliers, provides a better measure of central tendency in such cases, leading to the preference for median-based estimators like the<em>$L_{1}$-Norm</em> absolute loss over squared loss. <a class="internal-link" href="#fig-18">Figures 18 and 19</a> below shows visual demonstrations of superior performance of median-based estimators in presence of outliers.</p>
-<div id="Because the residuals are squared, large outliers disproportionately affects model fit"></div><h3 id="1.2.-Because-the-residuals-are-squared,-large-outliers-disproportionately-affects-model-fit">1.2. Because the residuals are squared, large outliers disproportionately affects model fit<a class="anchor-link" href="#1.2.-Because-the-residuals-are-squared,-large-outliers-disproportionately-affects-model-fit">¶</a></h3><p>The OLS loss function aims to minimize the squared residuals, which escalates the influence of outliers because the <u>loss increases exponentially with larger residuals</u>. This can lead to a poor fit. Less severe loss functions, like the regular <em>$L_{2}$-Norm</em> (square root of sum of squared residuals):</p>
+<div id="Because the residuals are squared, large outliers disproportionately affects model fit"></div><h3 id="1.2.-Squared-term-magnifies-impact-of-outliers">1.2. Squared term magnifies impact of outliers<a class="anchor-link" href="#1.2.-Squared-term-magnifies-impact-of-outliers">¶</a></h3><p>The OLS loss function aims to minimize the squared residuals, which escalates the influence of outliers because the <u>loss increases exponentially with larger residuals</u>. This can lead to a poor fit. Less severe loss functions, like the regular <em>$L_{2}$-Norm</em> (square root of sum of squared residuals):</p>
 <div id="eq-2" style="font-size: 1rem;">
 $$L_2 = \underset{m, b}{\text{argmin}} \sqrt{\sum_{i=1}^n [y_i - (mx_i + b)]^2} \tag{2}$$
 </div><p>or <em>$L_{1}$-Norm</em> (absolute residuals):</p>
@@ -1581,17 +1672,7 @@ fig.tight_layout()
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.-Robust-Models">2. Robust Models<a class="anchor-link" href="#2.-Robust-Models">¶</a></h2><div class="highlights" id="key1">
-<div class="highlights-title">1. RANSAC regressor</div>
-<div class="highlights-content"><a class="internal-link" href="#RANSAC regressor">Quick Scroll:</a> Identifies and excludes outliers prior to fitting the final model. The outliers are defined as the points that exceed the Median Absolute Deviation (MAD).</div>
-</div><div class="highlights" id="key2">
-<div class="highlights-title">2. Huber regressor</div>
-<div class="highlights-content"><a class="internal-link" href="#Huber regressor">Quick Scroll:</a> Detects outliers that exceed a certain threshold, and selectively apply different loss functions for outliers vs. inliers.</div>
-</div><div class="highlights" id="key3">
-<div class="highlights-title">3. Theil-Sen regressor</div>
-<div class="highlights-content"><a class="internal-link" href="#Theil-Sen regressor">Quick Scroll:</a> Fits OLS on all possible combinations of points (each of size 2 by default) and returns their spatial median slope and intercept as the final parameters.</div>
-</div><p>In the order of robustness:  RANSAC > Theil-Sen > Huber.</p>
-<p>RANSAC shows the best robustness because it identifies and excludes outliers prior to fitting the final model, whereas the other two attemts to <em>dampen</em> the effect of outliers instead of excluding them. When in doubt, use RANSAC. However, when reporting a result obtained with RANSAC, make sure to fix the random seed <code>RANSACRegressor(random_state=3)</code>, as explained <a class="internal-link" href="#warning-RANSAC">below</a>.</p>
+<h2 id="2.-Robust-Models">2. Robust Models<a class="anchor-link" href="#2.-Robust-Models">¶</a></h2>
 </div>
 </div>
 </div>
@@ -2857,7 +2938,7 @@ fig.tight_layout()
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div id="Advanced: Impact of adjusting $k$ on the model robustness" style="margin-top: -15px"></div><h4 id="2.3.1.-Impact-of-adjusting-sample-size-on-the-model-robustness">2.3.1. Impact of adjusting sample size on the model robustness<a class="anchor-link" href="#2.3.1.-Impact-of-adjusting-sample-size-on-the-model-robustness">¶</a></h4><p>When a sample size $k> 2$, indicating more than two data points in each sample, the Theil-Sen regressor employs the OLS method for each sample generated. This method uses the <em>$L_2$-norm squared</em> <a class="internal-link" href="#eq-1">eq-1</a> as its objective function, which, while effective, is sensitive to outliers because it places greater emphasis on larger residuals due to the squared term. As $k$ approaches $n$, the robustness of the Theil-Sen regressor decreases. This decrease in robustness occurs because at $k=n$, the model is essentially fitting an OLS model to the entire dataset as one single sample ($\binom{n}{k} = 1$). In a 3D regression context, $k$ is at leat 3, factoring in the number of features plus 1 if <code>fit_intercept=True</code> (default). The sklearn package sets $k$ to its minimum value by default to maximize robustness. <u>Adjusting $k$ is not recommended</u> unless there's a clear understanding of how it affects the model's robustness.</p>
+<div id="Advanced: Impact of adjusting $k$ on the model robustness" style="margin-top: -15px"></div><h4 id="2.3.1.-Sample-size-and-model-robustness">2.3.1. Sample size and model robustness<a class="anchor-link" href="#2.3.1.-Sample-size-and-model-robustness">¶</a></h4><p>When a sample size $k> 2$, indicating more than two data points in each sample, the Theil-Sen regressor employs the OLS method for each sample generated. This method uses the <em>$L_2$-norm squared</em> <a class="internal-link" href="#eq-1">eq-1</a> as its objective function, which, while effective, is sensitive to outliers because it places greater emphasis on larger residuals due to the squared term. As $k$ approaches $n$, the robustness of the Theil-Sen regressor decreases. This decrease in robustness occurs because at $k=n$, the model is essentially fitting an OLS model to the entire dataset as one single sample ($\binom{n}{k} = 1$). In a 3D regression context, $k$ is at leat 3, factoring in the number of features plus 1 if <code>fit_intercept=True</code> (default). The sklearn package sets $k$ to its minimum value by default to maximize robustness. <u>Adjusting $k$ is not recommended</u> unless there's a clear understanding of how it affects the model's robustness.</p>
 </div>
 </div>
 </div>
@@ -3337,6 +3418,23 @@ Intercept            : 29.378865864952733
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.4.-Summary">2.4. Summary<a class="anchor-link" href="#2.4.-Summary">¶</a></h3><div class="highlights" id="key1">
+<div class="highlights-title">1. RANSAC regressor</div>
+<div class="highlights-content"><a class="internal-link" href="#RANSAC regressor">Quick Scroll:</a> Identifies and excludes outliers prior to fitting the final model. The outliers are defined as the points with residuals that exceed the Median Absolute Deviation (MAD). It repeats random sampling and fitting a test model until enough inliers are detected.</div>
+</div><div class="highlights" id="key2">
+<div class="highlights-title">2. Huber regressor</div>
+<div class="highlights-content"><a class="internal-link" href="#Huber regressor">Quick Scroll:</a> Detects outliers that exceed a certain threshold, and selectively apply different loss functions for outliers vs. inliers.</div>
+</div><div class="highlights" id="key3">
+<div class="highlights-title">3. Theil-Sen regressor</div>
+<div class="highlights-content"><a class="internal-link" href="#Theil-Sen regressor">Quick Scroll:</a> Fits OLS on all possible combinations of points (each of size 2 by default) and returns their spatial median slope and intercept as the final parameters.</div>
+</div><p>In the order of robustness:  RANSAC > Theil-Sen > Huber.</p>
+<p>RANSAC shows the best robustness because it identifies and excludes outliers prior to fitting the final model, whereas the other two attempts to <em>dampen</em> the effect of outliers instead of excluding them. When in doubt, use RANSAC. However, when reporting a result obtained with RANSAC, make sure to fix the random seed <code>RANSACRegressor(random_state=3)</code>, as explained <a class="internal-link" href="#warning-RANSAC">above</a>.</p>
+</div>
+</div>
+</div>
 
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -3370,12 +3468,152 @@ Intercept            : 29.378865864952733
         <aside>
         <nav>
         <ul class="articles-timeline">
-            <li class="previous-article">« <a href="/comprehensive_confidence_intervals_for_python_developers" title="Previous: Comprehensive Confidence Intervals for Python Developers">Comprehensive Confidence Intervals for Python Developers</a></li>
+            <li class="previous-article">« <a href="https://aegis4048.github.io/quantifying_the_impact_of_completion_delay_since_drilled_on_production" title="Previous: Quantifying The Impact Of Completion Delay Since Drilled On Production">Quantifying The Impact Of Completion Delay Since Drilled On Production</a></li>
         </ul>
         </nav>
         </aside>
+  <section>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'pythonic-excursions';
+      var disqus_identifier = '/robust_linear_regressions_in_python';
+      var disqus_url = 'https://aegis4048.github.io/robust_linear_regressions_in_python';
+      var disqus_title = 'Robust Linear Regressions In Python';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section>
         <hr/>
+<section style="margin-top: 30px">
+    <h2>Related Posts</h2>
+<ul class="related-posts-list related-post row">
+    <div class="pop-over col-12 col-md-6 col-lg-4">
+        <div class="article-row" onclick="window.location='https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation';">
+            <div class="article-cell-1">
+                <img class="article-img" src="images/featured_images/monte-carlo.png">
+            </div>
+            <div class="article-cell-2">
+                <div class="category">Statistics</div>
+                <h2 class="">Uncertainty Modeling with Monte-Carlo Simulation</h2>
+                <p class="excerpt">How do casinos earn money? The answer is simple - the longer you play, the bigger the chance of you losing the money. Monte-Carlo simulation can construct its profit forecast model.</p>
+                <div class="meta">
+                    <div class="meta-left">
+                        <i class="fa fa-calendar index-comment-icon"></i>
+                        <span class="index-reading-time">2019-01-03</span>
+                    </div>
+                    <div class="meta-right">
+                        <i class="far fa-clock index-comment-icon"></i>
+                        <span class="index-reading-time">9 min reading</span>
+                        <i class="fas fa-comment index-comment-icon" href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation#disqus_thread"></i>
+                        <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/uncertainty-modeling-with-monte-carlo-simulation#disqus_thread"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pop-over col-12 col-md-6 col-lg-4">
+        <div class="article-row" onclick="window.location='https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap';">
+            <div class="article-cell-1">
+                <img class="article-img" src="images/featured_images/bootstrap.png">
+            </div>
+            <div class="article-cell-2">
+                <div class="category">Statistics</div>
+                <h2 class="">Non-Parametric Confidence Interval with Bootstrap</h2>
+                <p class="excerpt">Bootstrapping is a type of non-parametric re-sampling method used for statistical & machine learning techniques. One application of bootstrapping is that it can compute confidence intervals of any distribution, because it's distribution-free.</p>
+                <div class="meta">
+                    <div class="meta-left">
+                        <i class="fa fa-calendar index-comment-icon"></i>
+                        <span class="index-reading-time">2019-01-04</span>
+                    </div>
+                    <div class="meta-right">
+                        <i class="far fa-clock index-comment-icon"></i>
+                        <span class="index-reading-time">7 min reading</span>
+                        <i class="fas fa-comment index-comment-icon" href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap#disqus_thread"></i>
+                        <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/non-parametric-confidence-interval-with-bootstrap#disqus_thread"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pop-over col-12 col-md-6 col-lg-4">
+        <div class="article-row" onclick="window.location='https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution';">
+            <div class="article-cell-1">
+                <img class="article-img" src="images/featured_images/control_chart.png">
+            </div>
+            <div class="article-cell-2">
+                <div class="category">Statistics</div>
+                <h2 class="">Transforming Non-Normal Distribution to Normal Distribution</h2>
+                <p class="excerpt">Many statistical & machine learning techniques assume normality of data. What are the options you have if your data is not normally distributed? Transforming non-normal data to normal data using Box-Cox transformation is one of them.</p>
+                <div class="meta">
+                    <div class="meta-left">
+                        <i class="fa fa-calendar index-comment-icon"></i>
+                        <span class="index-reading-time">2019-02-25</span>
+                    </div>
+                    <div class="meta-right">
+                        <i class="far fa-clock index-comment-icon"></i>
+                        <span class="index-reading-time">13 min reading</span>
+                        <i class="fas fa-comment index-comment-icon" href="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution#disqus_thread"></i>
+                        <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/transforming-non-normal-distribution-to-normal-distribution#disqus_thread"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pop-over col-12 col-md-6 col-lg-4">
+        <div class="article-row" onclick="window.location='https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers';">
+            <div class="article-cell-1">
+                <img class="article-img" src="images/featured_images/rock_por_conf.png">
+            </div>
+            <div class="article-cell-2">
+                <div class="category">Statistics</div>
+                <h2 class="">Comprehensive Confidence Intervals for Python Developers</h2>
+                <p class="excerpt">This post covers everything you need to know about confidence intervals: from the introductory conceptual explanations, to the detailed discussions about the variations of different techniques, their assumptions, strength and weekness, when to use, and when not to use.</p>
+                <div class="meta">
+                    <div class="meta-left">
+                        <i class="fa fa-calendar index-comment-icon"></i>
+                        <span class="index-reading-time">2019-09-08</span>
+                    </div>
+                    <div class="meta-right">
+                        <i class="far fa-clock index-comment-icon"></i>
+                        <span class="index-reading-time">66 min reading</span>
+                        <i class="fas fa-comment index-comment-icon" href="https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers#disqus_thread"></i>
+                        <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/comprehensive_confidence_intervals_for_python_developers#disqus_thread"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pop-over col-12 col-md-6 col-lg-4">
+        <div class="article-row" onclick="window.location='https://aegis4048.github.io/mutiple_linear_regression_and_visualization_in_python';">
+            <div class="article-cell-1">
+                <img class="article-img" src="images/featured_images/multiple_linear_regression_and_visualization.png">
+            </div>
+            <div class="article-cell-2">
+                <div class="category">Machine Learning</div>
+                <h2 class="">Multiple Linear Regression and Visualization in Python</h2>
+                <p class="excerpt">Data scientists love linear regression for its simplicity. Strengthen your understanding of linear regression in multi-dimensional space through 3D visualization of linear models. This post comes with detailed scikit-learn code snippets for multiple linear regression.</p>
+                <div class="meta">
+                    <div class="meta-left">
+                        <i class="fa fa-calendar index-comment-icon"></i>
+                        <span class="index-reading-time">2019-11-18</span>
+                    </div>
+                    <div class="meta-right">
+                        <i class="far fa-clock index-comment-icon"></i>
+                        <span class="index-reading-time">10 min reading</span>
+                        <i class="fas fa-comment index-comment-icon" href="https://aegis4048.github.io/mutiple_linear_regression_and_visualization_in_python#disqus_thread"></i>
+                        <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/mutiple_linear_regression_and_visualization_in_python#disqus_thread"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ul>
+</section>
     </article>
+    <div id="article-sidebar" class="col-12 col-xl-3"></div>
 </div>
         </div>
 <footer class="footer">
@@ -3384,7 +3622,7 @@ Intercept            : 29.378865864952733
          <div class="col">
             <h5 class="headin5_amrc col_white_amrc pt2">ABOUT ERIC</h5>
             <!--headin5_amrc-->
-            <p class="mb10"><img id="profile_img" align="left" src="/theme/img/profile_photo_footer.jpg">Petroleum engineering analyst at <a href="https://flogistix.com/" target="blank">Flogistix</a>. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
+            <p class="mb10"><img id="profile_img" align="left" src="https://aegis4048.github.io/theme/img/profile_photo_footer.jpg">Petroleum engineering analyst at <a href="https://flogistix.com/" target="blank">Flogistix</a>. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
             <p><i class="fa fa-envelope mr-2"></i>aegis4048@gmail.com</p>
          </div>
       </div>
@@ -3409,11 +3647,11 @@ Intercept            : 29.378865864952733
       <!--social_footer_ul ends here-->
    </div>
 </footer>
-            <script type="text/javascript" src="/theme/libs/jquery.min.js"></script>
-            <script type="text/javascript" src="/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
-        <script src="/theme/libs/prism.js"></script>
-        <script src="/theme/libs/Countable.js"></script>
+        <script src="https://aegis4048.github.io/theme/libs/prism.js"></script>
+        <script src="https://aegis4048.github.io/theme/libs/Countable.js"></script>
 
         <script>
             Prism.plugins.NormalizeWhitespace.setDefaults({
@@ -3430,7 +3668,7 @@ Intercept            : 29.378865864952733
         </script>
 
 
-        <script type="text/javascript" src="/theme/js/custom.js"></script>
+        <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
             <script>
                 function validateForm(query)
                 {
