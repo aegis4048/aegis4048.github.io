@@ -1366,6 +1366,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <li><a href="#2.4.-Summary"><span class="toc_label">2.4.</span>
                 Summary</a></li>
 </ul>
+<li><a href="#3.-Extension-to-3D+-multivariate-linear-regressions"><span class="toc_label">3.</span>
+            Extension to 3D+ multivariate linear regressions</a></li>
+<ul><li><a href="#3.1.-Visual-demonstrations"><span class="toc_label">3.1.</span>
+            Visual demonstrations</a></li>
+</ul>
 </ul>
 </div>
 </div>
@@ -3200,6 +3205,17 @@ fig.tight_layout()
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3432,6 +3448,818 @@ Intercept            : 29.378865864952733
 <div class="highlights-content"><a class="internal-link" href="#Theil-Sen regressor">Quick Scroll:</a> Fits OLS on all possible combinations of points (each of size 2 by default) and returns their spatial median slope and intercept as the final parameters.</div>
 </div><p>In the order of robustness:  RANSAC > Theil-Sen > Huber.</p>
 <p>RANSAC shows the best robustness because it identifies and excludes outliers prior to fitting the final model, whereas the other two attempts to <em>dampen</em> the effect of outliers instead of excluding them. When in doubt, use RANSAC. However, when reporting a result obtained with RANSAC, make sure to fix the random seed <code>RANSACRegressor(random_state=3)</code>, as explained <a class="internal-link" href="#warning-RANSAC">above</a>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.-Extension-to-3D+-multivariate-linear-regressions">3. Extension to 3D+ multivariate linear regressions<a class="anchor-link" href="#3.-Extension-to-3D+-multivariate-linear-regressions">¶</a></h2><p>All three of the robust models are applicable to 3D or more n-dimensional regressions. Below is the simple code snippet for multivariate linear regression with 2 features and an intercept.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">RANSACRegressor</span><span class="p">,</span> <span class="n">HuberRegressor</span><span class="p">,</span> <span class="n">TheilSenRegressor</span>
+
+<span class="c1"># generate sample data</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">coef</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">coef</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Ordinary Least Squares</span>
+<span class="n">ols</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_pred_ols</span> <span class="o">=</span> <span class="n">ols</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># RANSAC</span>
+<span class="n">ransac</span> <span class="o">=</span> <span class="n">RANSACRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_pred_ransac</span> <span class="o">=</span> <span class="n">ransac</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Huber</span>
+<span class="n">huber</span> <span class="o">=</span> <span class="n">HuberRegressor</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_pred_huber</span> <span class="o">=</span> <span class="n">huber</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># TheilSen</span>
+<span class="n">TS</span> <span class="o">=</span> <span class="n">TheilSenRegressor</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_pred_TS</span> <span class="o">=</span> <span class="n">TS</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"OLS --------------------------------------"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Coefficients         :"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">ols</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Intercept            :"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">ols</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"RANSAC -----------------------------------"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Coefficients         :"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">ransac</span><span class="o">.</span><span class="n">estimator_</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Intercept            :"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">ransac</span><span class="o">.</span><span class="n">estimator_</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Huber ------------------------------------"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Coefficients         :"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">huber</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Intercept            :"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">huber</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"TheilSen ---------------------------------"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Coefficients         :"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">TS</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Intercept            :"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">TS</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"------------------------------------------"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>OLS --------------------------------------
+Coefficients         : [43.07  1.73]
+Intercept            : 1.41
+
+RANSAC -----------------------------------
+Coefficients         : [42.62  1.11]
+Intercept            : 2.08
+
+Huber ------------------------------------
+Coefficients         : [43.13  2.07]
+Intercept            : 1.23
+
+TheilSen ---------------------------------
+Coefficients         : [42.15  2.95]
+Intercept            : 0.71
+------------------------------------------
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.1.-Visual-demonstrations">3.1. Visual demonstrations<a class="anchor-link" href="#3.1.-Visual-demonstrations">¶</a></h3><p>(<em>Note that for models with more than 3D features, including intercept, they can't be visualized but the idea of robust regression still extends beyond 3D Cartesian space.</em>)</p>
+<p>For demonstrations, a 3D sample data set of 200 points is generated from the true model: $y = 200 x_{1} + 28x_{2} + 300$. Random Gaussian noise is added to the $y$ values to emulate the randomness and variability present in real-life data. Currently, the dataset is free of outliers. Fitting an OLS regression results in <a class="internal-link" href="#fig-20">Figure 20</a>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row" id="fig-20" style="">
+<div class="col"><img src="jupyter_images/OLS_3d_free.png"/></div>
+<div class="col-12"><p class="image-description"><strong>Figure 20:</strong> This illustration presents the 3D linear model alongside the dataset within a 3D Cartesian space. When an OLS model is applied to this dataset, it closely approximates the true model parameters, particularly in scenarios devoid of outliers. The middle plot highlights how the data points are closely aligned with the 3D model fit (illustrated as a blue plane).</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (20)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.linear_model import (LinearRegression, HuberRegressor,
+                                RANSACRegressor, TheilSenRegressor)
+
+###################################### Sample Data Generation ###################################
+
+np.random.seed(0)   # for reproducibility
+
+num_samples = 200  
+
+# Porosity
+x1_min, x1_max = 5, 15
+mean_x1 = (x1_min + x1_max) / 2  
+std_dev_x1 = (x1_max - x1_min) / 4 
+x1 = np.random.normal(mean_x1, std_dev_x1, num_samples)
+
+# Brittleness
+x2_min, x2_max = 20, 85
+mean_x2 = (x2_min + x2_max) / 2 
+std_dev_x2 = (x2_max - x2_min) / 4  
+x2 = np.random.normal(mean_x2, std_dev_x2, num_samples)  
+
+# Reshape X for comptibility with regression models
+X = np.vstack((x1, x2)).T
+
+# True model
+Y = 200* x1 + 28 * x2 + 300
+
+# Add Gaussian noise to Y
+noise = np.random.normal(0, 200, num_samples)  # Mean = 0, Standard deviation = 50
+Y = Y + noise
+
+######################## Prepare model data point for visualization ###############################
+
+x = X[:, 0]
+y = X[:, 1]
+z = Y
+
+x_pred = np.linspace(0, 25, 30)   # range of porosity values
+y_pred = np.linspace(0, 100, 30)  # range of brittleness values
+xx_pred, yy_pred = np.meshgrid(x_pred, y_pred)
+model_viz = np.array([xx_pred.flatten(), yy_pred.flatten()]).T
+
+################################################ Train #############################################
+
+model = LinearRegression()
+model.fit(X, Y)
+predicted = model.predict(model_viz)
+
+############################################## Plot ################################################
+
+plt.style.use('default')
+
+fig = plt.figure(figsize=(12, 4))
+
+ax1 = fig.add_subplot(131, projection='3d')
+ax2 = fig.add_subplot(132, projection='3d')
+ax3 = fig.add_subplot(133, projection='3d')
+
+axes = [ax1, ax2, ax3]
+
+for ax in axes:
+    ax.plot(x, y, z, color='k', zorder=15, linestyle='none', marker='o', alpha=0.5)
+    ax.scatter(xx_pred.flatten(), yy_pred.flatten(), predicted, facecolor=(0,0,0,0), s=20, edgecolor='#70b3f0')
+    ax.set_xlabel(r'$X_{1}$', fontsize=12)
+    ax.set_ylabel(r'$X_{2}$', fontsize=12)
+    ax.set_zlabel('Y', fontsize=12)
+    ax.locator_params(nbins=4, axis='x')
+    ax.locator_params(nbins=5, axis='x')
+    ax.set_xlim(0, 25)
+    ax.set_ylim(100, 0)
+    ax.set_zlim(0, 8000)
+
+
+ax1.text2D(0.2, 0.32, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax1.transAxes, color='grey', alpha=0.5)
+ax2.text2D(0.5, 0.32, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax2.transAxes, color='grey', alpha=0.5)
+ax3.text2D(0.85, 0.85, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax3.transAxes, color='grey', alpha=0.5)
+
+ax1.view_init(elev=30, azim=50)
+ax2.view_init(elev=2, azim=60)
+ax3.view_init(elev=60, azim=165)
+
+fig.tight_layout()
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+bold_txt = setbold(' OLS 3D Linear Regression (without outliers), ')
+plain_txt = r'fitted model:   $y = $ %.1f$x_{1}$ + %.1f$x_{2}$ + %.1f' % (model.coef_[0], model.coef_[1], model.intercept_)
+fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=16, y=1.03)
+yloc = 0.95
+ax.annotate('', xy=(0.01, yloc + 0.01), xycoords='figure fraction', xytext=(1.02, yloc + 0.01),
+            arrowprops=dict(arrowstyle="-", color='k', lw=0.7))
+
+fig.text(0.48, 0.8, 'true model:   $y = $ 200$x_{1}$ + 28$x_{2}$ + 300', ha='center', va='center', fontsize=16, color='grey');
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we will introduce 20 outlier points, constituting 10% of the original dataset, and reapply the OLS regression, as depicted in <a class="internal-link" href="#fig-21">Figure 21</a>. It is noticeable that the OLS parameters fitted in this scenario exhibit a more significant deviation from the population parameters compared to the initial fit that lacked outliers.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row" id="fig-21" style="">
+<div class="col"><img src="jupyter_images/OLS_3d.png"/></div>
+<div class="col-12"><p class="image-description"><strong>Figure 21:</strong> This figure highlights outlier points in red. The introduction of these outliers has caused a noticeable shift in the fitted blue plane, which is now skewed towards these outliers, affecting the accuracy of the model fit. The left plot distinctly shows the misalignment of the model plane with the main dataset. For a comparative analysis, refer to the visual and numerical parameters in <a class="internal-link" href="#fig-20">Figure 20</a>.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (21)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.linear_model import LinearRegression
+
+###################################### Sample Data Generation ###################################
+
+np.random.seed(0)   # for reproducibility
+
+num_samples = 200  
+
+# Porosity
+x1_min, x1_max = 5, 15
+mean_x1 = (x1_min + x1_max) / 2  
+std_dev_x1 = (x1_max - x1_min) / 4 
+x1 = np.random.normal(mean_x1, std_dev_x1, num_samples)
+
+# Brittleness
+x2_min, x2_max = 20, 85
+mean_x2 = (x2_min + x2_max) / 2 
+std_dev_x2 = (x2_max - x2_min) / 4  
+x2 = np.random.normal(mean_x2, std_dev_x2, num_samples)  
+
+# Reshape X for comptibility with regression models
+X = np.vstack((x1, x2)).T
+
+# True model
+Y = 200* x1 + 28 * x2 + 300
+
+# Add Gaussian noise to Y
+noise = np.random.normal(0, 200, num_samples)  # Mean = 0, Standard deviation = 50
+Y_noisy = Y + noise
+
+# Add outliers
+num_outliers = int(0.1 * num_samples)                    # define 5% of data to be outliers
+outlier_x1 = np.random.uniform(10, 12, num_outliers)     # outlier between range 10 ~ 12
+outlier_x2 = np.random.uniform(0, 5, num_outliers)       # outlier between range 0 ~ 5
+outlier_Y = np.random.uniform(6500, 7000, num_outliers)  # outlier between range 6500 ~ 7000
+X_outliers = np.vstack((outlier_x1, outlier_x2)).T
+
+# Append outliers to the original data
+X = np.vstack((X, X_outliers))
+Y = np.append(Y_noisy, outlier_Y)
+
+######################## Prepare model data point for visualization ###############################
+
+x = X[:, 0]
+y = X[:, 1]
+z = Y
+
+x_pred = np.linspace(0, 25, 30)   # range of porosity values
+y_pred = np.linspace(0, 100, 30)  # range of brittleness values
+xx_pred, yy_pred = np.meshgrid(x_pred, y_pred)
+model_viz = np.array([xx_pred.flatten(), yy_pred.flatten()]).T
+
+################################################ Train #############################################
+
+model = LinearRegression()
+model.fit(X, Y)
+predicted = model.predict(model_viz)
+
+############################################## Plot ################################################
+
+plt.style.use('default')
+
+fig = plt.figure(figsize=(12, 4))
+
+ax1 = fig.add_subplot(131, projection='3d')
+ax2 = fig.add_subplot(132, projection='3d')
+ax3 = fig.add_subplot(133, projection='3d')
+
+axes = [ax1, ax2, ax3]
+
+for ax in axes:
+    ax.plot(x, y, z, color='k', zorder=15, linestyle='none', marker='o', alpha=0.5)
+    ax.plot(X_outliers[:, 0], X_outliers[:, 1], outlier_Y, color='r', zorder=15, linestyle='none', marker='x', alpha=1, markersize=10)
+    ax.scatter(xx_pred.flatten(), yy_pred.flatten(), predicted, facecolor=(0,0,0,0), s=20, edgecolor='#70b3f0')
+    ax.set_xlabel(r'$X_{1}$', fontsize=12)
+    ax.set_ylabel(r'$X_{2}$', fontsize=12)
+    ax.set_zlabel('Y', fontsize=12)
+    ax.locator_params(nbins=4, axis='x')
+    ax.locator_params(nbins=5, axis='x')
+    ax.set_xlim(0, 25)
+    ax.set_ylim(100, 0)
+    ax.set_zlim(0, 8000)
+
+
+ax1.text2D(0.2, 0.32, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax1.transAxes, color='grey', alpha=0.5)
+ax2.text2D(0.5, 0.32, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax2.transAxes, color='grey', alpha=0.5)
+ax3.text2D(0.85, 0.85, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax3.transAxes, color='grey', alpha=0.5)
+
+ax1.view_init(elev=30, azim=50)
+ax2.view_init(elev=2, azim=60)
+ax3.view_init(elev=60, azim=165)
+
+fig.tight_layout()
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+bold_txt = setbold(' OLS 3D Linear Regression (with outliers), ')
+plain_txt = r'fitted model:   $y = $ %.1f$x_{1}$ + %.1f$x_{2}$ + %.1f' % (model.coef_[0], model.coef_[1], model.intercept_)
+fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=16, y=1.03)
+yloc = 0.95
+ax.annotate('', xy=(0.01, yloc + 0.01), xycoords='figure fraction', xytext=(1.02, yloc + 0.01),
+            arrowprops=dict(arrowstyle="-", color='k', lw=0.7))
+
+fig.text(0.48, 0.8, 'true model:   $y = $ 200$x_{1}$ + 28$x_{2}$ + 300', ha='center', va='center', fontsize=16, color='grey');
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The below three figures (<a class="internal-link" href="#fig-22">Figure 22</a>, <a class="internal-link" href="#fig-23">Figure 23</a> and <a class="internal-link" href="#fig-24">Figure 24</a>) presents 3D model fits and visualizations for the three robust models: RANSAC, Huber, and TheilSen.</p>
+<div class="row" id="fig-22" style="">
+<div class="col"><img src="jupyter_images/ransac_3d.png"/></div>
+<div class="col-12"><p class="image-description"><strong>Figure 22:</strong> RANSAC robust linear regression on 3D dataset with outliers.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (22)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.linear_model import RANSACRegressor
+
+###################################### Sample Data Generation ###################################
+
+np.random.seed(0)   # for reproducibility
+
+num_samples = 200  
+
+# Porosity
+x1_min, x1_max = 5, 15
+mean_x1 = (x1_min + x1_max) / 2  
+std_dev_x1 = (x1_max - x1_min) / 4 
+x1 = np.random.normal(mean_x1, std_dev_x1, num_samples)
+
+# Brittleness
+x2_min, x2_max = 20, 85
+mean_x2 = (x2_min + x2_max) / 2 
+std_dev_x2 = (x2_max - x2_min) / 4  
+x2 = np.random.normal(mean_x2, std_dev_x2, num_samples)  
+
+# Reshape X for comptibility with regression models
+X = np.vstack((x1, x2)).T
+
+# True model
+Y = 200* x1 + 28 * x2 + 300
+
+# Add Gaussian noise to Y
+noise = np.random.normal(0, 200, num_samples)  # Mean = 0, Standard deviation = 50
+Y_noisy = Y + noise
+
+# Add outliers
+num_outliers = int(0.1 * num_samples)                    # define 5% of data to be outliers
+outlier_x1 = np.random.uniform(10, 12, num_outliers)     # outlier between range 10 ~ 12
+outlier_x2 = np.random.uniform(0, 5, num_outliers)       # outlier between range 0 ~ 5
+outlier_Y = np.random.uniform(6500, 7000, num_outliers)  # outlier between range 6500 ~ 7000
+X_outliers = np.vstack((outlier_x1, outlier_x2)).T
+
+# Append outliers to the original data
+X = np.vstack((X, X_outliers))
+Y = np.append(Y_noisy, outlier_Y)
+
+######################## Prepare model data point for visualization ###############################
+
+x = X[:, 0]
+y = X[:, 1]
+z = Y
+
+x_pred = np.linspace(0, 25, 30)   # range of porosity values
+y_pred = np.linspace(0, 100, 30)  # range of brittleness values
+xx_pred, yy_pred = np.meshgrid(x_pred, y_pred)
+model_viz = np.array([xx_pred.flatten(), yy_pred.flatten()]).T
+
+################################################ Train #############################################
+
+model = RANSACRegressor()
+model.fit(X, Y)
+predicted = model.predict(model_viz)
+
+############################################## Plot ################################################
+
+plt.style.use('default')
+
+fig = plt.figure(figsize=(12, 4))
+
+ax1 = fig.add_subplot(131, projection='3d')
+ax2 = fig.add_subplot(132, projection='3d')
+ax3 = fig.add_subplot(133, projection='3d')
+
+axes = [ax1, ax2, ax3]
+
+for ax in axes:
+    ax.plot(x, y, z, color='k', zorder=15, linestyle='none', marker='o', alpha=0.5)
+    ax.plot(X_outliers[:, 0], X_outliers[:, 1], outlier_Y, color='r', zorder=15, linestyle='none', marker='x', alpha=1, markersize=10)
+    ax.scatter(xx_pred.flatten(), yy_pred.flatten(), predicted, facecolor=(0,0,0,0), s=20, edgecolor='#70b3f0')
+    ax.set_xlabel(r'$X_{1}$', fontsize=12)
+    ax.set_ylabel(r'$X_{2}$', fontsize=12)
+    ax.set_zlabel('Y', fontsize=12)
+    ax.locator_params(nbins=4, axis='x')
+    ax.locator_params(nbins=5, axis='x')
+    ax.set_xlim(0, 25)
+    ax.set_ylim(100, 0)
+    ax.set_zlim(0, 8000)
+
+
+ax1.text2D(0.2, 0.32, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax1.transAxes, color='grey', alpha=0.5)
+ax2.text2D(0.5, 0.32, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax2.transAxes, color='grey', alpha=0.5)
+ax3.text2D(0.85, 0.85, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax3.transAxes, color='grey', alpha=0.5)
+
+ax1.view_init(elev=30, azim=50)
+ax2.view_init(elev=2, azim=60)
+ax3.view_init(elev=60, azim=165)
+
+fig.tight_layout()
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+bold_txt = setbold(' RANSAC 3D Linear Regression, ')
+plain_txt = r'fitted model:   $y = $ %.1f$x_{1}$ + %.1f$x_{2}$ + %.1f' % (
+    model.estimator_.coef_[0], model.estimator_.coef_[1], model.estimator_.intercept_
+)
+fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=16, y=1.03)
+yloc = 0.95
+ax.annotate('', xy=(0.01, yloc + 0.01), xycoords='figure fraction', xytext=(1.02, yloc + 0.01),
+            arrowprops=dict(arrowstyle="-", color='k', lw=0.7))
+
+fig.text(0.48, 0.8, 'true model:   $y = $ 200$x_{1}$ + 28$x_{2}$ + 300', ha='center', va='center', fontsize=16, color='grey');
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row" id="fig-23" style="">
+<div class="col"><img src="jupyter_images/huber_3d.png"/></div>
+<div class="col-12"><p class="image-description"><strong>Figure 23:</strong> Huber robust linear regression on 3D dataset with outliers.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (23)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.linear_model import HuberRegressor
+
+###################################### Sample Data Generation ###################################
+
+np.random.seed(0)   # for reproducibility
+
+num_samples = 200  
+
+# Porosity
+x1_min, x1_max = 5, 15
+mean_x1 = (x1_min + x1_max) / 2  
+std_dev_x1 = (x1_max - x1_min) / 4 
+x1 = np.random.normal(mean_x1, std_dev_x1, num_samples)
+
+# Brittleness
+x2_min, x2_max = 20, 85
+mean_x2 = (x2_min + x2_max) / 2 
+std_dev_x2 = (x2_max - x2_min) / 4  
+x2 = np.random.normal(mean_x2, std_dev_x2, num_samples)  
+
+# Reshape X for comptibility with regression models
+X = np.vstack((x1, x2)).T
+
+# True model
+Y = 200* x1 + 28 * x2 + 300
+
+# Add Gaussian noise to Y
+noise = np.random.normal(0, 200, num_samples)  # Mean = 0, Standard deviation = 50
+Y_noisy = Y + noise
+
+# Add outliers
+num_outliers = int(0.1 * num_samples)                    # define 5% of data to be outliers
+outlier_x1 = np.random.uniform(10, 12, num_outliers)     # outlier between range 10 ~ 12
+outlier_x2 = np.random.uniform(0, 5, num_outliers)       # outlier between range 0 ~ 5
+outlier_Y = np.random.uniform(6500, 7000, num_outliers)  # outlier between range 6500 ~ 7000
+X_outliers = np.vstack((outlier_x1, outlier_x2)).T
+
+# Append outliers to the original data
+X = np.vstack((X, X_outliers))
+Y = np.append(Y_noisy, outlier_Y)
+
+######################## Prepare model data point for visualization ###############################
+
+x = X[:, 0]
+y = X[:, 1]
+z = Y
+
+x_pred = np.linspace(0, 25, 30)   # range of porosity values
+y_pred = np.linspace(0, 100, 30)  # range of brittleness values
+xx_pred, yy_pred = np.meshgrid(x_pred, y_pred)
+model_viz = np.array([xx_pred.flatten(), yy_pred.flatten()]).T
+
+################################################ Train #############################################
+
+model = HuberRegressor()
+model.fit(X, Y)
+predicted = model.predict(model_viz)
+
+############################################## Plot ################################################
+
+plt.style.use('default')
+
+fig = plt.figure(figsize=(12, 4))
+
+ax1 = fig.add_subplot(131, projection='3d')
+ax2 = fig.add_subplot(132, projection='3d')
+ax3 = fig.add_subplot(133, projection='3d')
+
+axes = [ax1, ax2, ax3]
+
+for ax in axes:
+    ax.plot(x, y, z, color='k', zorder=15, linestyle='none', marker='o', alpha=0.5)
+    ax.plot(X_outliers[:, 0], X_outliers[:, 1], outlier_Y, color='r', zorder=15, linestyle='none', marker='x', alpha=1, markersize=10)
+    ax.scatter(xx_pred.flatten(), yy_pred.flatten(), predicted, facecolor=(0,0,0,0), s=20, edgecolor='#70b3f0')
+    ax.set_xlabel(r'$X_{1}$', fontsize=12)
+    ax.set_ylabel(r'$X_{2}$', fontsize=12)
+    ax.set_zlabel('Y', fontsize=12)
+    ax.locator_params(nbins=4, axis='x')
+    ax.locator_params(nbins=5, axis='x')
+    ax.set_xlim(0, 25)
+    ax.set_ylim(100, 0)
+    ax.set_zlim(0, 8000)
+
+
+ax1.text2D(0.2, 0.32, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax1.transAxes, color='grey', alpha=0.5)
+ax2.text2D(0.5, 0.32, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax2.transAxes, color='grey', alpha=0.5)
+ax3.text2D(0.85, 0.85, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax3.transAxes, color='grey', alpha=0.5)
+
+ax1.view_init(elev=30, azim=50)
+ax2.view_init(elev=2, azim=60)
+ax3.view_init(elev=60, azim=165)
+
+fig.tight_layout()
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+bold_txt = setbold(' Huber 3D Linear Regression, ')
+plain_txt = r'fitted model:   $y = $ %.1f$x_{1}$ + %.1f$x_{2}$ + %.1f' % (model.coef_[0], model.coef_[1], model.intercept_)
+fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=16, y=1.03)
+yloc = 0.95
+ax.annotate('', xy=(0.01, yloc + 0.01), xycoords='figure fraction', xytext=(1.02, yloc + 0.01),
+            arrowprops=dict(arrowstyle="-", color='k', lw=0.7))
+
+fig.text(0.48, 0.8, 'true model:   $y = $ 200$x_{1}$ + 28$x_{2}$ + 300', ha='center', va='center', fontsize=16, color='grey');            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row" id="fig-24" style="">
+<div class="col"><img src="jupyter_images/TS_3d.png"/></div>
+<div class="col-12"><p class="image-description"><strong>Figure 24:</strong> TheilSen robust linear regression on 3D dataset with outliers.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (24)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.linear_model import TheilSenRegressor
+
+###################################### Sample Data Generation ###################################
+
+np.random.seed(0)   # for reproducibility
+
+num_samples = 200  
+
+# Porosity
+x1_min, x1_max = 5, 15
+mean_x1 = (x1_min + x1_max) / 2  
+std_dev_x1 = (x1_max - x1_min) / 4 
+x1 = np.random.normal(mean_x1, std_dev_x1, num_samples)
+
+# Brittleness
+x2_min, x2_max = 20, 85
+mean_x2 = (x2_min + x2_max) / 2 
+std_dev_x2 = (x2_max - x2_min) / 4  
+x2 = np.random.normal(mean_x2, std_dev_x2, num_samples)  
+
+# Reshape X for comptibility with regression models
+X = np.vstack((x1, x2)).T
+
+# True model
+Y = 200* x1 + 28 * x2 + 300
+
+# Add Gaussian noise to Y
+noise = np.random.normal(0, 200, num_samples)  # Mean = 0, Standard deviation = 50
+Y_noisy = Y + noise
+
+# Add outliers
+num_outliers = int(0.1 * num_samples)                    # define 5% of data to be outliers
+outlier_x1 = np.random.uniform(10, 12, num_outliers)     # outlier between range 10 ~ 12
+outlier_x2 = np.random.uniform(0, 5, num_outliers)       # outlier between range 0 ~ 5
+outlier_Y = np.random.uniform(6500, 7000, num_outliers)  # outlier between range 6500 ~ 7000
+X_outliers = np.vstack((outlier_x1, outlier_x2)).T
+
+# Append outliers to the original data
+X = np.vstack((X, X_outliers))
+Y = np.append(Y_noisy, outlier_Y)
+
+######################## Prepare model data point for visualization ###############################
+
+x = X[:, 0]
+y = X[:, 1]
+z = Y
+
+x_pred = np.linspace(0, 25, 30)   # range of porosity values
+y_pred = np.linspace(0, 100, 30)  # range of brittleness values
+xx_pred, yy_pred = np.meshgrid(x_pred, y_pred)
+model_viz = np.array([xx_pred.flatten(), yy_pred.flatten()]).T
+
+################################################ Train #############################################
+
+model = TheilSenRegressor()
+model.fit(X, Y)
+predicted = model.predict(model_viz)
+
+############################################## Plot ################################################
+
+plt.style.use('default')
+
+fig = plt.figure(figsize=(12, 4))
+
+ax1 = fig.add_subplot(131, projection='3d')
+ax2 = fig.add_subplot(132, projection='3d')
+ax3 = fig.add_subplot(133, projection='3d')
+
+axes = [ax1, ax2, ax3]
+
+for ax in axes:
+    ax.plot(x, y, z, color='k', zorder=15, linestyle='none', marker='o', alpha=0.5)
+    ax.plot(X_outliers[:, 0], X_outliers[:, 1], outlier_Y, color='r', zorder=15, linestyle='none', marker='x', alpha=1, markersize=10)
+    ax.scatter(xx_pred.flatten(), yy_pred.flatten(), predicted, facecolor=(0,0,0,0), s=20, edgecolor='#70b3f0')
+    ax.set_xlabel(r'$X_{1}$', fontsize=12)
+    ax.set_ylabel(r'$X_{2}$', fontsize=12)
+    ax.set_zlabel('Y', fontsize=12)
+    ax.locator_params(nbins=4, axis='x')
+    ax.locator_params(nbins=5, axis='x')
+    ax.set_xlim(0, 25)
+    ax.set_ylim(100, 0)
+    ax.set_zlim(0, 8000)
+
+
+ax1.text2D(0.2, 0.32, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax1.transAxes, color='grey', alpha=0.5)
+ax2.text2D(0.5, 0.32, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax2.transAxes, color='grey', alpha=0.5)
+ax3.text2D(0.85, 0.85, 'aegis4048.github.io', fontsize=13, ha='center', va='center',
+           transform=ax3.transAxes, color='grey', alpha=0.5)
+
+ax1.view_init(elev=30, azim=50)
+ax2.view_init(elev=2, azim=60)
+ax3.view_init(elev=60, azim=165)
+
+fig.tight_layout()
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+bold_txt = setbold(' TheilSen 3D Linear Regression, ')
+plain_txt = r'fitted model:   $y = $ %.1f$x_{1}$ + %.1f$x_{2}$ + %.1f' % (model.coef_[0], model.coef_[1], model.intercept_)
+fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=16, y=1.03)
+yloc = 0.95
+ax.annotate('', xy=(0.01, yloc + 0.01), xycoords='figure fraction', xytext=(1.02, yloc + 0.01),
+            arrowprops=dict(arrowstyle="-", color='k', lw=0.7))
+
+fig.text(0.48, 0.8, 'true model:   $y = $ 200$x_{1}$ + 28$x_{2}$ + 300', ha='center', va='center', fontsize=16, color='grey');
+            </code>
+        </pre>
+</div>
+</div>
 </div>
 </div>
 </div>
