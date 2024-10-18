@@ -1348,7 +1348,7 @@ $$L_{2}^{2} = \underset{m, b}{\text{argmin}} \sum_{i=1}^n [y_i - (mx_i + b)]^2 \
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
@@ -3045,17 +3045,6 @@ fig.tight_layout()
 &lt;div class="row" id="fig-19" style=""&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/mean vs median regression comparison.png"/&gt;&lt;/div&gt;
 &lt;div class="col-12"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure 19:&lt;/strong&gt; From the original 50 data points, 1225 samples of size $k=2$ are generated, and 1225 lines (light grey) are fitted. The median slope and intercept model (orange line) demonstrates greater robustness to outliers compared to the mean-based (blue) and OLS models (green).&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6331,10 +6320,10 @@ $$ \text{Gas Prod.} = 287.78 \cdot \text{Por} - 2.94 \tag{4}$$
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="864f56c5-ba99-417d-8a2d-8c6b9286634d"&gt;&lt;/div&gt;
+&lt;div id="b2ec0a02-3ba7-4b93-a833-1ee282f03ac5"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#864f56c5-ba99-417d-8a2d-8c6b9286634d');
+var element = $('#b2ec0a02-3ba7-4b93-a833-1ee282f03ac5');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 

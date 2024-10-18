@@ -218,6 +218,17 @@ function init_fixed_top() {
     }
 }
 
+function init_detectMathJaxParent() {
+    $('.MathJax_Preview').each(function() {
+        // Find the closest parent div and add 'overflow-hidden' class
+        $(this).closest('div').addClass('scroll-hidden');
+    });
+    console.log("test")
+}
+MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+MathJax.Hub.Queue(init_detectMathJaxParent);  // Call the function after MathJax completes
+
+
 function init_panel_toolbox() {
     $('.collapse-link').on('click', function () {
         var $BOX_PANEL = $(this).closest('.solution_panel'),
@@ -254,6 +265,7 @@ $(document).ready(function() {
     init_panel_toolbox();
     init_fixed_top();
     init_inpage_navigation();
+    init_detectMathJaxParent();
 });
 
 

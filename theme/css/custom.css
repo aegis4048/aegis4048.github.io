@@ -1549,36 +1549,72 @@ ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li:last-child > u
     width: 10%;
     margin: auto;
 }
+.full_screen_margin_15 {
+    width: 15%;
+    margin: auto;
+}
 .full_screen_margin_20 {
     width: 20%;
+    margin: auto;
+}
+.full_screen_margin_25 {
+    width: 25%;
     margin: auto;
 }
 .full_screen_margin_30 {
     width: 30%;
     margin: auto;
 }
+.full_screen_margin_35 {
+    width: 35%;
+    margin: auto;
+}
 .full_screen_margin_40 {
     width: 40%;
+    margin: auto;
+}
+.full_screen_margin_45 {
+    width: 45%;
     margin: auto;
 }
 .full_screen_margin_50 {
     width: 50%;
     margin: auto;
 }
+.full_screen_margin_55 {
+    width: 55%;
+    margin: auto;
+}
 .full_screen_margin_60 {
     width: 60%;
+    margin: auto;
+}
+.full_screen_margin_65 {
+    width: 65%;
     margin: auto;
 }
 .full_screen_margin_70 {
     width: 70%;
     margin: auto;
 }
+.full_screen_margin_75 {
+    width: 75%;
+    margin: auto;
+}
 .full_screen_margin_80 {
     width: 80%;
     margin: auto;
 }
+.full_screen_margin_85 {
+    width: 85%;
+    margin: auto;
+}
 .full_screen_margin_90 {
     width: 90%;
+    margin: auto;
+}
+.full_screen_margin_95 {
+    width: 95%;
     margin: auto;
 }
 .language-markdown {
@@ -2860,6 +2896,9 @@ div.output_area {
 .ordered-list ::marker {
     font-weight: 700;
 }
+.ordered-list .no-bullets {
+    list-style-type: none;
+}
 article code.language-python {
     padding: 0 !important;
 }
@@ -2870,6 +2909,9 @@ a.internal-link {
     text-shadow: 0 0 1px #ffadad !important;
     color: red !important;
     font-family: monospace !important;
+}
+a.internal-link::before {
+    content: none;
 }
 .fig-title p {
     margin-top: 0 !important;
@@ -2988,4 +3030,10 @@ a.internal-link {
     box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
     transition: all .4s ease;
     transform: translate3D(0,-1px,0) scale(1.02);
+}
+.scroll-hidden {
+    overflow-y: hidden;
+    overflow-x: auto;
+    scrollbar-width: thin; /* Thinner scrollbar */
+    scrollbar-color: #888 #f0f0f0; /* Scroll handle color and track color */
 }
