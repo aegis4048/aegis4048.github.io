@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <meta name="google-site-verification" content="ZsWFnpirKDgtbmwb1YRymDnSfvnUrpzCbf6LD1F_4TY" />
+
+            <meta name="msvalidate.01" content="8FF1B025212A47B5B27CC47163A042F0" />
+
+            <meta name="author" content="ERIC KIM" />
+
+
+            <meta name="description" content="        H₂S ppm levels obtained from high P aren&#39;t representative at low P.
+" />
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="oil-and-gas, oil, gas, H2S, process engineering, ProMax, measurements, gas-sample, separators, VRU, Oil and Gas, "/>
+
+        <link rel="canonical" href="https://aegis4048.github.io/h2s-levels-why-high-pressure-samples-dont-tell-the-full-story">
+    <meta property="og:title" content="H₂S Levels: Why High-Pressure Samples Don&#39;t Tell the Full Story | Pythonic Excursions"/>
+    <meta property="og:url" content="https://aegis4048.github.io/h2s-levels-why-high-pressure-samples-dont-tell-the-full-story" />
+    <meta property="og:description" content="H₂S ppm levels obtained from high P aren&#39;t representative at low P." />
+    <meta property="og:site_name" content="Pythonic Excursions" />
+    <meta property="og:article:author" content="ERIC KIM" />
+        <meta property="og:article:published_time" content="2024-05-06T00:00:00-07:00" />
+    <meta name="twitter:title" content="H₂S Levels: Why High-Pressure Samples Don&#39;t Tell the Full Story | Pythonic Excursions">
+    <meta name="twitter:description" content="H₂S ppm levels obtained from high P aren&#39;t representative at low P.">
+        <meta property="og:image" content="https://aegis4048.github.io/images/featured_images/H2S_study.png" />
+        <meta name="twitter:image" content="https://aegis4048.github.io/images/featured_images/H2S_study.png" >
+
+
+        <title>    H₂S Levels: Why High-Pressure Samples Don&#39;t Tell the Full Story  | Pythonic Excursions
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://aegis4048.github.io/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: #24292e;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: #24292e;
+                }
+            </style>
+
+        <link href="https://aegis4048.github.io/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+        <link rel="shortcut icon" href="https://aegis4048.github.io/theme/img/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="https://aegis4048.github.io/theme/img/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="https://aegis4048.github.io/theme/img/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://aegis4048.github.io/theme/img/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="https://aegis4048.github.io/theme/img/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://aegis4048.github.io/theme/img/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="https://aegis4048.github.io/theme/img/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="https://aegis4048.github.io/theme/img/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://aegis4048.github.io/theme/img/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="https://aegis4048.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Pythonic Excursions - Full Atom Feed" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133310548-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-133310548-1');
+</script>
+
+    </head>
+    <body>
+<progress id="progressBar" max="19827" class="flat">
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+</progress>        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://aegis4048.github.io/theme/img/logo_with_subtitle.svg" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/about.html">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_08" href="https://aegis4048.github.io/archives.html">Archive</a>
+                        </li>
+                     </ul>
+                    <ul class="navbar-nav">
+                    <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center" action="https://aegis4048.github.io/search.html">
+                        <div id="third-item" class="search-box-div row" style="margin-top:-3.5px;">
+                            <input id="tipue_search_input" class="form-control mr-md-2 rem_08 col-9" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" aria-label="Search"/>
+                            <button id="search-btn" class="btn btn-search btn-outline-success btn-circle rem_08 col-3" type="submit" for="tipue_search_input" style="margin-left: 3px;">Search</button>
+                        </div>
+                    </form>
+                    </ul>
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div></div>
+<div id="article-container" class="row">
+    <article id="article" class="col-12 col-xl-9">
+        <header class="pop-over">
+            <h1>H₂S Levels: Why High-Pressure Samples Don't Tell the Full Story</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://aegis4048.github.io/archives.html">Oil and Gas</a></h4>
+                <span class="article-date">May 06, 2024</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://aegis4048.github.io/tag/oil-and-gas.html" class="tag">oil-and-gas</a>
+                        <a href="https://aegis4048.github.io/tag/oil.html" class="tag">oil</a>
+                        <a href="https://aegis4048.github.io/tag/gas.html" class="tag">gas</a>
+                        <a href="https://aegis4048.github.io/tag/h2s.html" class="tag">H2S</a>
+                        <a href="https://aegis4048.github.io/tag/process-engineering.html" class="tag">process engineering</a>
+                        <a href="https://aegis4048.github.io/tag/promax.html" class="tag">ProMax</a>
+                        <a href="https://aegis4048.github.io/tag/measurements.html" class="tag">measurements</a>
+                        <a href="https://aegis4048.github.io/tag/gas-sample.html" class="tag">gas-sample</a>
+                        <a href="https://aegis4048.github.io/tag/separators.html" class="tag">separators</a>
+                        <a href="https://aegis4048.github.io/tag/vru.html" class="tag">VRU</a>
+                </div>
+            </div>
+            <section>
+    <div id="share-links" class="row justify-content-end mt-3" style="align-items: center">
+        <div class="share-post-intro mr-2">Share This Post :</div>
+        <div class="social-share-btns-container">
+            <div class="social-share-btns">
+                <a class="share-btn share-btn-twitter" href="https://twitter.com/home?status=https://aegis4048.github.io/h2s-levels-why-high-pressure-samples-dont-tell-the-full-story" rel="nofollow" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=https://aegis4048.github.io/h2s-levels-why-high-pressure-samples-dont-tell-the-full-story" rel="nofollow" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://aegis4048.github.io/h2s-levels-why-high-pressure-samples-dont-tell-the-full-story" rel="nofollow" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+        </header>
+        <div class="article_content">
+            
+            <style type="text/css">/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph > img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>H₂S (hydrogen sulfide) measurement is crucial in process engineering for several reasons: 1) regulatory compliance, 2) personnel safety, and 3) maintaining equipment integrity. Different safety and environmental standards protect both people and the environment, and costs associated with equipment damage vary based on the ppm levels of H₂S, making accurate measurements essential.</p>
+<p>One problem I've noticed in the energy industry is the assumption that gas sample lab analysis from one pressure point remains representative at other pressure points. For example, operators often take the 20 ppm H₂S value measured from the primary pressurized separator (typically operating between 100–1000 psig), and re-use it for vapor recovery applications, which usually operate at near 0 psig. At this lower pressure, the H₂S ppm can rise to 63 ppm due to phase behavior changes. A model simulating such a facility is shown in <a class="internal-link" href="#fig-1">Figure 1</a> below.</p>
+<div class="row" id="fig-1"> <div class="col"><img src="jupyter_images/H2S_study.png"/></div> <div class="col-12"> <p class="image-description"> <strong>Figure 1:</strong> A model of a typical upstream oil and gas facility, simulated with BR&E Promax. The heater treater is omitted for simplicity (as it doesn't significantly affect downstream conditions, with temperatures high enough to break emulsions in this case). The middle-left vessel (HP Sep #500) is the primary separator, operating at 500 psig and 141°F. The flash gas line (HP Sep. Gas) from this separator reports 20 ppm H₂S, which is higher than the typical 16 ppm midstream requirement and may require sour gas treatment. However, the gas line (Oil Tank Flash) from the oil tank, operating at 0.4 psig, shows 63.4 ppm H₂S. The H₂S value triples at the lower pressure, demonstrating that reusing the 20 ppm value measured at the HP separator for VRU or combustor applications would be inaccurate. This issue is even more severe for the water tank vapor (Water Tank Flash), which reports 302 ppm H₂S. In Oklahoma, according to subsection (c) Storage tank provision of <a href="https://casetext.com/regulation/oklahoma-administrative-code/title-165-corporation-commission/chapter-10-oil-and-gas-conservation/subchapter-3-drilling-developing-and-producing/part-3-completions/section-16510-3-16-operation-in-hydrogen-sulfide-areas" target="_blank">Okla. Admin. Code § 165:10-3-16</a>, this requires installation of a warning sign, wind indicator, and fencing. Additionally a flare, vapor recovery, or H₂S stripping system is required.</p> </div> </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="display-none" id="toc_container">
+<p class="toc_title"><i class="fas fa-list"></i>Contents</p>
+<ul class="toc_list">
+<li><a href="#1.-Why-does-H₂S-ppm-levels-matter?"><span class="toc_label">1.</span>
+            Why does H₂S ppm levels matter?</a></li>
+<ul>
+<li><a href="#1.1-Regulatory-Compliance"><span class="toc_label">1.1.</span>
+                Regulatory Compliance</a></li>
+<li><a href="#1.2-Equipment-Damage"><span class="toc_label">1.2.</span>
+                Equipment Damage</a></li>
+<li><a href="#1.3-Personnel-Safety"><span class="toc_label">1.3.</span>
+                Personnel Safety</a></li>
+</ul>
+<li><a href="#2.-H₂S-measurement-practices-in-upstream-Oil-and-Gas"><span class="toc_label">2.</span>
+            H₂S measurement practices in upstream Oil and Gas</a></li>
+<li><a href="#3.-Understanding-phase-behavior-of-H₂S-and-hydrocarbons"><span class="toc_label">3.</span>
+            Understanding phase behavior of H₂S and hydrocarbons</a></li>
+<ul>
+<li><a href="#3.1.-Flash-Point-Pressure"><span class="toc_label">3.1.</span>
+                Flash Point Pressure</a></li>
+<li><a href="#3.2.-H₂S-ppm-level-changes-in-vapor-vs-liquid"><span class="toc_label">3.2.</span>
+                H₂S ppm level changes in vapor vs liquid</a></li>
+</ul>
+<li><a href="#4.-H₂S-sim-results-at-various-production-rates"><span class="toc_label">4.</span>
+            H₂S sim results at various production rates</a></li>
+<ul>
+<li><a href="#4.1.-Simulation-screenshots"><span class="toc_label">4.1.</span>
+                Simulation screenshots</a></li>
+<li><a href="#4.2.-Simulation-results-summary"><span class="toc_label">4.2.</span>
+                Simulation results summary</a></li>
+</ul>
+<li><a href="#5.-Conclusion"><span class="toc_label">5.</span>
+            Conclusion</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.-Why-does-H₂S-ppm-levels-matter?">1. Why does H₂S ppm levels matter?<a class="anchor-link" href="#1.-Why-does-H₂S-ppm-levels-matter?">¶</a></h2><h3 id="1.1-Regulatory-Compliance">1.1 Regulatory Compliance<a class="anchor-link" href="#1.1-Regulatory-Compliance">¶</a></h3><p>In Oklahoma, <a href="https://casetext.com/regulation/oklahoma-administrative-code/title-165-corporation-commission/chapter-10-oil-and-gas-conservation/subchapter-3-drilling-developing-and-producing/part-3-completions/section-16510-3-15-venting-and-flaring" target="_blank">Okla. Admin. Code § 165:10-3-15 - Venting and Flaring</a> provides guidelines on when operators can vent or flare gas, depending on the situation. However, in all cases, if H₂S levels exceed 100 ppm, venting is prohibited, and the gas must be flared. It cannot be vented through storage tank thief hatches. This rule applies to scenarios such as initial flowback periods for newly completed or recompleted wells, exploration wells, etc.—all must be flared. The only exception is when the gas to be flared is not of pipeline quality, and this exception can only last for up to 45 days.</p>
+<p><a href="https://casetext.com/regulation/oklahoma-administrative-code/title-165-corporation-commission/chapter-10-oil-and-gas-conservation/subchapter-3-drilling-developing-and-producing/part-3-completions/section-16510-3-16-operation-in-hydrogen-sulfide-areas" target="_blank">Okla. Admin. Code § 165:10-3-16 - Operation in hydrogen sulfide areas</a> applies to upstream facilities with H₂S levels above 20 ppm. <strong>Notably, Subsection (c) requires measuring H₂S concentration 1-ft above the open thief hatches of atmospheric storage tanks. If levels exceed 100 ppm, warning signs, wind indicators, and fencing are required. Additionally, a flare, vapor recovery, or H₂S stripping system must be installed.</strong> In <a class="internal-link" href="#fig-1">Figure 1</a> above, the H₂S ppm level is triple of the 100 ppm threshold, and will most likely need to be monitored. Also, subsection (h) mandates that flaring equipment in public areas be made from hydrogen sulfide stress cracking (HSSC) resistant materials. Material selection guidelines for HSSC resistance can be found in NACE MR-0175/ISO 15156.</p>
+<p>In Texas, the Texas Railroad Commission (RRC) considers oil and gas operations with H₂S levels exceeding 100 ppm as sour gas operations and imposes safety and regulatory requirements (<a href="https://texreg.sos.state.tx.us/public/readtac$ext.TacPage?sl=R&app=9&p_dir=&p_rloc=&p_tloc=&p_ploc=&pg=1&p_tac=&ti=16&pt=1&ch=3&rl=36" target="_blank">RRC Statewide Rule 36</a>). On the other hand, the Texas Commission on Environmental Quality (TCEQ) defines sour gas as above 24 ppm and imposes additional restrictions beyond those required by the RRC. The RRC focuses on the safety and operational integrity of oil and gas facilities, while the TCEQ emphasizes air emissions control.</p>
+<h3 id="1.2-Equipment-Damage">1.2 Equipment Damage<a class="anchor-link" href="#1.2-Equipment-Damage">¶</a></h3><p>Natural gas pipeline companies require H₂S levels to be below 4–16 ppm (depending on the operator) and impose fees if these levels are exceeded to protect their pipelines from damage. Similarly, compressor rental companies also set limits on H₂S concentrations to prevent corrosion and protect their equipment. These thresholds are typically outlined in pipeline or equipment rental specifications.</p>
+<h3 id="1.3-Personnel-Safety">1.3 Personnel Safety<a class="anchor-link" href="#1.3-Personnel-Safety">¶</a></h3><p>Occupational Safety and Health Administration (OSHA) sets three standards based on ppm limits (note that OSHA ppm measurements are based on air sampling in the work environment, not inside a process stream):</p>
+<div class="highlights" id="key1">
+<div class="highlights-title">1. Permissible Exposure Limit (PEL)</div>
+<div class="highlights-content">A ceiling of 20 ppm during an 8-hour work shift. Workers should not be exposed to concentrations exceeding this level at any time during the shift, except under specific short-term conditions.</div>
+</div><div class="highlights" id="key2">
+<div class="highlights-title">2. Short-Term Exposure Limit (STEL)</div>
+<div class="highlights-content">Workers can be exposed to up to 50 ppm of H₂S, but only for a maximum of 10 minutes. Beyond this, protective measures are mandatory to prevent prolonged exposure.</div>
+</div><div class="highlights" id="key3">
+<div class="highlights-title">3. Immediately Dangerous to Life or Health (IDLH)</div>
+<div class="highlights-content">Exposure above 100 ppm is immediately dangerous to life and health. Immediate evacuation or the use of self-contained breathing apparatus (SCBA) is required for worker safety.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-H₂S-measurement-practices-in-upstream-Oil-and-Gas">2. H₂S measurement practices in upstream Oil and Gas<a class="anchor-link" href="#2.-H₂S-measurement-practices-in-upstream-Oil-and-Gas">¶</a></h2><p>H₂S measurements in upstream production facilities are rarely done using air detection devices. Typically, a gas sample is taken from a primary pressurized separator, usually operating between 100~1000 psig. The main purpose of this sample is to ensure compliance with gas pipeline specifications (such as water content, H₂S, CO₂, and N₂ levels) and to determine the fair price of the gas, with higher energy content leading to higher value. The sample is sent to a lab for compositional analysis.</p>
+<p>If the operation engineer has concerns about H₂S levels, based on offset well experiences, they may request the lab to specifically report H₂S concentrations at an extra cost. Some labs include this for free, while others charge for it. Often, H₂S is not reported in the standard lab analysis. When asked to provide H₂S ppm numbers, sometime they get a nearby offset well sample analysis that includes H₂S numbers, and report it instead of the actual well they are working on and call it good (which can be, of course, largely inaccurate). <a class="internal-link" href="#fig-2">Figure 2</a> shows a real lab sample where H₂S composition is reported, and <a class="internal-link" href="#fig-3">Figure 3</a> illustrates a case where H₂S was omitted.</p>
+<p>When H₂S ppm levels are reported by the lab, operators use this information to comply with regulations and meet pipeline and equipment rental specifications. However, issues arise when H₂S ppm values obtained from a pressurized vessel (operating between 100–1000 psig) are applied to atmospheric applications like storage tanks or vapor recovery systems. H₂S concentrations at near-atmospheric pressures can be significantly higher than those measured in high-pressure vessels.</p>
+<p><a class="internal-link" href="#fig-1">Figure 1</a> above illustrates this issue, showing a case where 20 ppm H₂S is reported at a 500 psig separator gas line, but 63.4 ppm and 302 ppm are reported in the gas lines of oil and water storage tanks at 0.4 psig, respectively.</p>
+<p>I witnessed a similar issue at a gas compressor rental company. Operators provided H₂S measurements of 10–15 ppm, but our rental equipment suffered damage consistent with much higher concentrations. Initially, our account managers suspected the customer was either lying or mistaken. However, as this problem occurred repeatedly, they asked me to model the facility and simulate H₂S at the compressor inlet. <strong><u>My analysis revealed that H₂S ppm values measured at high-pressure separators are not representative of atmospheric applications.</u></strong> As pressure decreases, lighter hydrocarbons like methane and ethane preferentially flash off more quickly than H₂S, leading to an increase in H₂S concentration as the lighter components escape first. Detailed explanation of this phenomenon is provided <a class="internal-link" href="#3.-Understanding-phase-behavior-of-H₂S-and-hydrocarbons">below</a>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row full_screen_margin_80 mobile_responsive_plot_full_width mb-2" id="fig-2">
+<div class="col"><img src="jupyter_images/H2S_lab_sample_reported.png" style="outline: 1px solid black;"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 2:</strong> Gas sample analysis from VRU pulling flash gas from upstream atmospheric oil tanks, reporting 0.01% mol frac = 100 ppm H₂S. This is right on the 100 ppm H₂S limit set by <a href="https://casetext.com/regulation/oklahoma-administrative-code/title-165-corporation-commission/chapter-10-oil-and-gas-conservation/subchapter-3-drilling-developing-and-producing/part-3-completions/section-16510-3-15-venting-and-flaring" target="_blank">Okla. Admin. Code § 165:10-3-15</a> and cannot be vented.</p></div><div class="row full_screen_margin_70 mobile_responsive_plot_full_width mb-1" id="fig-3">
+<div class="col"><img src="jupyter_images/H2S_lab_sample_omitted.png" style="outline: 1px solid black;"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 3:</strong> Example of a gas analysis from a primary HP separator operating at 959 psia. Although the lab offers an option for H₂S analysis, it was not measured as the customer opted not to pay extra for it.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.-Understanding-phase-behavior-of-H₂S-and-hydrocarbons">3. Understanding phase behavior of H₂S and hydrocarbons<a class="anchor-link" href="#3.-Understanding-phase-behavior-of-H₂S-and-hydrocarbons">¶</a></h2><p>During oil and gas phase separation and distillation processes, compounds with smaller molecular weights, known as "light-ends," tend to flash off into the gas phase before the "heavy-ends." The exact classification of light-ends versus heavy-ends can vary depending on the context, but for this article, I will use these terms to compare the relative weights of compounds.</p>
+<p><a class="internal-link" href="#fig-4">Figure 4</a> below shows a simulation of reservoir fluid being sequentially separated into gas and liquid phases through 3-stage separation (500 psig, 200 psig, and 0 psig). The fraction of methane, the lightest compound, in each vessel’s gas line sequentially decreases as the 2-phase fluid moves through lower-pressure vessels. Light-ends flash off into the gas phase much faster than heavy-ends. By the time the process stream pressure reaches atmospheric level (0 psig), a significant portion of the light-ends has already escaped in the previous separators, leaving behind a higher concentration of heavy-ends. This also increases the concentration of H₂S because H₂S is heavier than methane and other light-ends have already flashed off.</p>
+<p><a class="internal-link" href="#table-1">Table 1</a> shows the compositional changes in percentage between the 500# flash gas and the 0# flash gas. It also highlights that not only does the absolute fraction of heavy-ends increase relative to light-ends, but the magnitude of such increase is more pronounced for heavier compounds. For example, ethane (MW = 30.07) fraction increased by 376.4%, whereas pentane (MW = 72.15) saw a dramatic 1932% increase.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row" id="fig-4">
+<div class="col"><img src="jupyter_images/H2S_phase_behavior_pressure_decrease.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 4:</strong> Simulation of an upstream facility where reservoir fluid is separated through a series of 3 vessels, modeled using BR&E Promax. The reservoir fluid composition reflects real well fluid properties. Initially, the fluid enters the primary separator at 500 psig, with methane making up 87.3% of the gas line, decreasing to 70.3% and 25.5% in downstream separators as pressure drops. Meanwhile, the concentration of heavier compounds increases due to the reduction of methane. Note the rising energy content (Btu/ft³) and H₂S ppm levels as separator pressures decrease. The H₂S level increased from 18.8 ppm at the high-pressure separator to 129 ppm (a 6.86-fold increase) in the atmospheric tank. This demonstrates that H₂S ppm levels measured at high pressure cannot be directly applied to low-pressure applications.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row full_screen_margin_100 mobile_responsive_plot_full_width" id="table-1">
+<div class="col"><img src="jupyter_images/H2S_change_compare.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Table 1:</strong> Comparison of compositional changes at the 500 psig separator vs. the 0 psig atmospheric tank gas line. Methane fraction decreased as it flashed off first, increasing the concentration of heavier-ends. The magnitude of the change correlates with each compound's molecular weight, with heavier compounds showing greater changes.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.1.-Flash-Point-Pressure">3.1. Flash Point Pressure<a class="anchor-link" href="#3.1.-Flash-Point-Pressure">¶</a></h3><p>Why do light-ends flash to gas before heavy-ends? It’s because the flash point pressure of light-ends is higher than that of heavy-ends. <a class="internal-link" href="#fig-5">Figure 5</a> shows the flash point curves of six pure compounds. If the pressure and temperature are to the left of a compound’s curve, it exists as a liquid; if to the right, it exists as vapor.</p>
+<p>Take ethane (orange) as an example. At 80°F, the flash point pressure of ethane is 618 psig. At the same temperature, propane's (red) flash point pressure is 131 psig, which is lower than ethane. Now, assume these two compounds are in the same system (but exist as independent pure compounds) at the same temperature of 80°F (illustrated by the vertical dashed grey line), and the pressure changes from 620 psig to 300 psig and then 100 psig. At 620 psig, both compounds are in liquid form. As pressure drops to 300 psig, ethane will vaporize while propane remains liquid. When pressure drops further to 100 psig, pressure is below both compounds' flash curves, and both will vaporize. This occurs because ethane's flash point curve is higher than propane's, meaning ethane vaporizes first.</p>
+<p>Looking at the figure, you’ll notice that the lighter the compound, the higher its curve, illustrating why lighter compounds preferentially flash to vapor more easily than heavy-ends. <strong><u>The flash point curve of H₂S is located below (or to the right of) methane and ethane, which explains why methane and ethane vaporize more easily than H₂S.</u><strong></strong></strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row" id="fig-5">
+<div class="col"><img src="jupyter_images/H2S_flash_point_pressure.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 5:</strong> Flash point curves of pure compounds, calculated and generated using Python. Circular markers indicate critical points. Note that the critical point of H₂S extends far outside the plot at 1285 psig and 213°F (not shown), showing a different pattern from the hydrocarbon compounds. This is because H₂S does not contain a carbon atom and, therefore, does not fully follow the characteristics of hydrocarbons. The grey dashed line shows the 80°F isothermal temperature. Downward-triangular markers indicate flash point pressures of various compounds along the 80°F line. However, the 80°F isothermal is located far right of methane's flash curve, meaning it does not intersect. This indicates that methane will always be in a vapor phase, regardless of the pressure, until the pressure is below its critical pressure, after which methane enters a critical phase.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="solution_panel closed">
+<div class="solution_title">
+<p class="solution_title_string">Source Code For Figure (5)</p>
+<ul class="nav navbar-right panel_toolbox">
+<li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="solution_content">
+<pre>
+            <code class="language-python">
+import CoolProp.CoolProp as CP
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def Pa_to_psi(pa):
+    return pa / 6894.745
+
+def K_to_F(K):
+    return (K - 273.15) * 1.8 + 32
+
+components = ['Methane', 'Ethane', 'H2S', 'Propane', 'Butane', 'Pentane']
+comp_dict = {comp: {} for comp in components}
+for comp in components:
+    HEOS = CP.AbstractState('HEOS', comp)
+    HEOS.set_mole_fractions([1])
+    HEOS.build_phase_envelope("dummy")
+    PE = HEOS.get_phase_envelope_data()
+    comp_dict[comp]['Ts'] = np.array(sorted([K_to_F(item) for item in PE.T]))
+    comp_dict[comp]['Ps'] = np.array(sorted([Pa_to_psi(item) - 14.7 for item in PE.p]))
+
+T_unit = 'F'
+P_unit ='psig'
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+for comp in components: 
+    ax.plot(comp_dict[comp]['Ts'], comp_dict[comp]['Ps'], label=comp)
+    ax.scatter(comp_dict[comp]['Ts'][-1], comp_dict[comp]['Ps'][-1], s=40, edgecolor='k', fc='white', zorder=3)
+
+ax.scatter(comp_dict[comp]['Ts'][-1], comp_dict[comp]['Ps'][-1], s=40, edgecolor='k', fc='white', zorder=3)
+ax.axvline(x=80, color='grey', linestyle='--')
+
+ax.set_xlabel('Temperature [%s]' % T_unit)
+ax.set_ylabel('Pressure [%s]' % P_unit)
+
+ax.grid(True)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.set_xlim(-300, 400)
+ax.set_ylim(0, 799)
+
+ax.legend(ncol=3, fontsize=9, loc='upper left')
+
+x_increment = 5
+ax.text(73, 799, '80°F Line', fontsize=10, ha='center', va='top', color='grey', rotation=90)
+
+ax.text(80 + x_increment, 617.64, '618# (Ethane)', ha='left', c=plt.rcParams['axes.prop_cycle'].by_key()['color'][1])
+ax.text(80 + x_increment, 291.29, '291# (Hydrogen Sulfide)', ha='left', c=plt.rcParams['axes.prop_cycle'].by_key()['color'][2])
+ax.text(80 + x_increment, 130.64, '131# (Propane)', ha='left', c=plt.rcParams['axes.prop_cycle'].by_key()['color'][3])
+ax.text(80 + x_increment, 22.52, '23# (n-Butane)', ha='left', c=plt.rcParams['axes.prop_cycle'].by_key()['color'][4])
+
+ax.scatter(80, 617.64, marker='v', c=plt.rcParams['axes.prop_cycle'].by_key()['color'][1])
+ax.scatter(80, 291.29, marker='v', c=plt.rcParams['axes.prop_cycle'].by_key()['color'][2])
+ax.scatter(80, 130.64, marker='v', c=plt.rcParams['axes.prop_cycle'].by_key()['color'][3])
+ax.scatter(80, 22.52, marker='v', c=plt.rcParams['axes.prop_cycle'].by_key()['color'][4])
+
+ax.minorticks_on()
+ax.grid(axis='both', which='minor', color='grey', linestyle='--', alpha=0.2)
+
+ax.text(0.98, 0.08, 'aegis4048.github.io', fontsize=10, ha='right', transform=ax.transAxes, color='grey', alpha=0.5)
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+
+bold_txt = setbold('Pure Compound Flash Points at 80°F, ')
+plain_txt = 'Phase Diagram'
+fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=11)
+yloc = 0.9
+ax.annotate('', xy=(0.01, yloc + 0.01), xycoords='figure fraction', xytext=(1.02, yloc + 0.01),
+            arrowprops=dict(arrowstyle="-", color='k', lw=0.7))
+
+
+fig.tight_layout()
+            </code>
+        </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="mixture_behavior"></div>
+<div class="alert alert-info">
+<h4>Notes: Mixture behavior</h4>
+<p>Assume a 50:50 mol fraction binary mixture of ethane and propane at 80°F. In this case, they are mixed, not existing as independent pure compounds. The mixture starts at 1000 psig as 100% liquid. Now, drop the pressure to 300 psig, which is below ethane's flash point but above propane's. Would the mixture be a 2-phase fluid? Yes. However, does this mean the vapor fraction is composed of 100% ethane? No.</p>
+<p>When compounds are mixed and the pressure drops, it doesn't work as if all of the lighter compounds vaporize first, and then, once the pressure drops further, the heavier ones vaporize later. It doesn't work like that. Both compounds vaporize together, but the lighter compound preferentially vaporizes more than the heavier one. </p>
+<p>Running such a simulation in BR&E Promax, one can find that at 80°F and 300 psig, the mixture forms a 2-phase fluid with 35.4% vapor and 64.6% liquid. The vapor phase (35.4%) is composed of 64.8% ethane and 35.2% propane. The liquid phase (64.6%) is composed of 41.9% ethane and 58.1% propane. This distinction needs to be clarified.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.2.-H₂S-ppm-level-changes-in-vapor-vs-liquid">3.2. H₂S ppm level changes in vapor vs liquid<a class="anchor-link" href="#3.2.-H₂S-ppm-level-changes-in-vapor-vs-liquid">¶</a></h3><p>H₂S ppm levels are typically more problematic in the gas phase because concentrations are higher there than in the liquid phase. As shown in <a class="internal-link" href="#fig-6">Figure 6</a>, H₂S levels in the gas phase are consistently higher than in the liquid phase. Additionally, as the reservoir fluid undergoes separation at decreasing pressures, H₂S ppm in the gas phase rises, while it drops in the liquid phase. This trend holds in both 2-phase and 3-phase separations. Why does this happen?</p>
+<p>The answer lies in H₂S's high flash point pressure of 291 psig. At 80°F and 0 psig, H₂S primarily exists in the gas phase. In simpler terms, H₂S prefers the gas phase, although not as much as lighter gases like methane or ethane.</p>
+<p>In contrast, heavier compounds like pentane, hexane, and heptane, which usually end up in crude oil tanks, have much lower flash points. At 80°F, pentane’s flash point is -4.2 psig, hexane’s is -11.7 psig, and heptane’s is -13.8 psig. At atmospheric pressure (0 psig), these compounds mostly stay in the liquid phase.</p>
+<p>Most of the H₂S ends up in the gas phase because of its lower molecular weight and tendency to remain in gas form as pressure decreases. <strong>As pressure drops, H₂S flashes into the gas phase more easily than it dissolves in the liquid.</strong> Since H₂S has lower solubility in the liquid phase compared to heavier hydrocarbons, it concentrates in the gas phase as pressure decreases, while its presence in the liquid phase lessens.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row mb-1" id="fig-6">
+<div class="col"><img src="jupyter_images/H2S_vapor_vs_liquid.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 6:</strong> Simulation of an upstream facility where reservoir fluid is separated through 3 vessels, modeled using BR&E Promax. The reservoir fluid composition represents real well fluid properties. The simulation shows two key results: 1) H₂S levels are higher in the gas phase than in the liquid phase, and 2) H₂S concentrations increase in the gas phase as separation progresses, while they decrease in the liquid phase. This phenomenon is due to H₂S's high flash point pressure and its preference to flash into the gas phase rather than dissolve into the liquid phase.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="4.-H₂S-sim-results-at-various-production-rates">4. H₂S sim results at various production rates<a class="anchor-link" href="#4.-H₂S-sim-results-at-various-production-rates">¶</a></h2><p>In <a class="internal-link" href="#fig-1">Figure 1</a> above, H₂S increased from 20 ppm to 60 ppm at oil tank flash, and 300 ppm at water tank flash. This scenario was assuming 1000 BOPD, 500 BWPD, 5 MMSCFD production. How would the ppm values change at different production rates? I provide Promax sim result screenshots in this section for readers to observe and learn. For all scenarios, oil prod is fixed at 1000 BOPD. Water rate ranges between 100 to 2000 BWPD, and gas rate ranges from 2 MMSCFD to 20 MMSCFD. Oil gravity is assumed to be 40° API (impact of API gravity didn't seem to be much after running some simulations).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="4.1.-Simulation-screenshots">4.1. Simulation screenshots<a class="anchor-link" href="#4.1.-Simulation-screenshots">¶</a></h2><p>For summary, navigate down to <a class="internal-link" href="#4.2.-Simulation-results-summary">4.2. Simulation results summary.</a></p>
+<h4 id="4.1.1-100-BWPD">4.1.1 100 BWPD<a class="anchor-link" href="#4.1.1-100-BWPD">¶</a></h4><p><strong>2 MMSCFD</strong></p>
+<div class="row">
+<div class="col"><img src="jupyter_images/hs1.png"/></div>
+</div>
+<div><hr/></div><p><strong>5 MMSCFD</strong></p>
+<div class="row">
+<div class="col"><img src="jupyter_images/hs2.png"/></div>
+</div>
+<div><hr/></div><p><strong>10 MMSCFD</strong></p>
+<div class="row">
+<div class="col"><img src="jupyter_images/hs3.png"/></div>
+</div>
+<div><hr/></div><p><strong>20 MMSCFD</strong></p>
+<div class="row">
+<div class="col"><img src="jupyter_images/hs4.png"/></div>
+</div>
+<div><hr/></div><h4 id="4.1.2-1000-BWPD">4.1.2 1000 BWPD<a class="anchor-link" href="#4.1.2-1000-BWPD">¶</a></h4><p><strong>2 MMSCFD</strong></p>
+<div class="row">
+<div class="col"><img src="jupyter_images/hs5.png"/></div>
+</div>
+<div><hr/></div><p><strong>5 MMSCFD</strong></p>
+<div class="row">
+<div class="col"><img src="jupyter_images/hs6.png"/></div>
+</div>
+<div><hr/></div><p><strong>10 MMSCFD</strong></p>
+<div class="row">
+<div class="col"><img src="jupyter_images/hs7.png"/></div>
+</div>
+<div><hr/></div><p><strong>20 MMSCFD</strong></p>
+<div class="row">
+<div class="col"><img src="jupyter_images/hs8.png"/></div>
+</div>
+<div><hr/></div><h4 id="4.1.3-2000-BWPD">4.1.3 2000 BWPD<a class="anchor-link" href="#4.1.3-2000-BWPD">¶</a></h4><p><strong>2 MMSCFD</strong></p>
+<div class="row">
+<div class="col"><img src="jupyter_images/hs9.png"/></div>
+</div>
+<div><hr/></div><p><strong>5 MMSCFD</strong></p>
+<div class="row">
+<div class="col"><img src="jupyter_images/hs10.png"/></div>
+</div>
+<div><hr/></div><p><strong>10 MMSCFD</strong></p>
+<div class="row">
+<div class="col"><img src="jupyter_images/hs11.png"/></div>
+</div>
+<div><hr/></div><p><strong>17 MMSCFD</strong> *</p>
+<p>Simulated failed and could not be converged beyond 17 MMSCFD mark, so 17 MMSCFD is reported here instead of 20.</p>
+<div class="row">
+<div class="col"><img src="jupyter_images/hs_failed_17mmscfd.png"/></div>
+</div>
+<div><hr/></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="4.2.-Simulation-results-summary">4.2. Simulation results summary<a class="anchor-link" href="#4.2.-Simulation-results-summary">¶</a></h2><p><a class="internal-link" href="#table-2">Table 2</a> shows the simulated H₂S ppm levels at various production rates across different process streams. <a class="internal-link" href="#table-3">Table 3</a> is a normalized version of Table 2, allowing for easier comparison of how H₂S ppm levels measured at high-pressure conditions change at lower-pressure conditions. Normalization was necessary because H₂S ppm levels at the 500# separator’s gas side fluctuate as production rates (BOPD, BWPD, MMSCFD) change.</p>
+<p>Four key conclusions can be drawn from <a class="internal-link" href="#table-3">Table 3</a>:</p>
+<div><hr/></div><p><strong>1.</strong> H₂S ppm levels measured at high-pressure applications should not be used for low-pressure applications due to significant discrepancies.</p>
+<p><strong>2.</strong> These discrepancies are more pronounced in water tank flash gas than in oil tank flash gas. For oil tank flash gas, H₂S levels were 2.5 times higher than in the separator gas, whereas for water tank flash gas, the difference was 13–24 times greater. Stricter standards should be applied for water tank flash lines.</p>
+<p><strong>3.</strong> Increasing the Gas-Oil-Ratio (GOR) raises ppm levels to a certain extent in lower-pressure applications, increasing the deviation from high-pressure separator measurements. However, high GOR results in only ~10% higher H₂S ppm compared to low GOR, and the effect of GOR on H₂S ppm is minimized in high watercut applications.</p>
+<p><strong>4.</strong> An increase in water cut slightly reduces H₂S levels, but the effect is minimal.</p>
+<div><hr/></div><div class="row" id="table-2">
+<div class="col"><img src="jupyter_images/H2S_summary_table_original.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Table 2:</strong> H₂S ppm levels reported at various process streams and production rates, taken from simulation results shown in <a class="internal-link" href="#4.1.-Simulation-screenshots">4.1. Simulation screenshots</a> above.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row" id="table-3">
+<div class="col"><img src="jupyter_images/H2S_summary_table_normalized.png"/></div>
+</div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Table 3:</strong> Normalized version of <a class="internal-link" href="#table-2">Table 2</a>. All simulated ppm values were multiplied by a normalizing factor so that the H2S ppm levels taken at the 500# separator's gas side equals 20 ppm in all scenarios.</p></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="5.-Conclusion">5. Conclusion<a class="anchor-link" href="#5.-Conclusion">¶</a></h2><p><strong>1.</strong> H₂S ppm levels are important to comply with regulations, prevent equipment damage, and ensure personnel safety.</p>
+<p><strong>2.</strong> H₂S ppm levels measured in high-pressure applications should not be applied to low-pressure environments, as the compositions change during separation at lower pressures.</p>
+<p><strong>3.</strong> H₂S ppm levels significantly increase at low pressure. For example, in <a class="internal-link" href="#fig-1">Figure 1</a>, 20 ppm measured at the 500# separator rises to 63.4 ppm and 302 ppm at the atmospheric oil and water tank flash lines, respectively.</p>
+<p><strong>4.</strong> H₂S levels increase as lighter ends (methane and ethane) flash off before (and more) H₂S enters the gas phase. This occurs because methane (MW=16.04) and ethane (MW=30.07) are lighter than H₂S (MW=34.08), giving them higher flash point pressures, as shown in <a class="internal-link" href="#fig-5">Figure 5</a>. However, methane is the main driver, as it flashes significantly easier than ethane (shown in <a class="internal-link" href="#fig-4">Figure 4</a> and <a class="internal-link" href="#table-1">Table 1</a>), leaving a higher concentration of H₂S in lower-pressure vessels.</p>
+<p><strong>5.</strong> H₂S levels are much higher in gas streams than in liquid streams because H₂S has a high flash point pressure of 291 psig (at 80°F) and prefers the gas phase. As pressure drops, H₂S flashes into the gas phase more readily than it dissolves into the liquid.</p>
+<p><strong>6.</strong> Discrepancies between high- and low-pressure ppm levels are more pronounced in water tank flash gas than in oil tank flash gas. For oil tank flash gas, H₂S levels were 2.5 times higher than in the 500 psig separator gas, whereas for water tank flash gas, the difference was 13–24 times greater (shown in <a class="internal-link" href="#table-3">Table 3</a>). Stricter safety and corrosion standards should be applied for water tank flash lines.</p>
+<p><strong>7.</strong> The impact of GOR and water cut is minimal. The main factor is the compositional changes due to pressure drop and flashing.</p>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+        </div>
+        <hr/>
+        <aside>
+        <nav>
+        <ul class="articles-timeline">
+            <li class="previous-article">« <a href="https://aegis4048.github.io/robust_linear_regressions_in_python" title="Previous: Robust Linear Regressions In Python">Robust Linear Regressions In Python</a></li>
+        </ul>
+        </nav>
+        </aside>
+  <section>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'pythonic-excursions';
+      var disqus_identifier = '/h2s-levels-why-high-pressure-samples-dont-tell-the-full-story';
+      var disqus_url = 'https://aegis4048.github.io/h2s-levels-why-high-pressure-samples-dont-tell-the-full-story';
+      var disqus_title = 'H₂S Levels: Why High-Pressure Samples Don\'t Tell the Full Story';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section>
+        <hr/>
+<section style="margin-top: 30px">
+    <h2>Related Posts</h2>
+<ul class="related-posts-list related-post row">
+    <div class="pop-over col-12 col-md-6 col-lg-4">
+        <div class="article-row" onclick="window.location='https://aegis4048.github.io/duc_wells_and_their_economic_complications';">
+            <div class="article-cell-1">
+                <img class="article-img" src="images/featured_images/DUC_wells.png">
+            </div>
+            <div class="article-cell-2">
+                <div class="category">Oil and Gas</div>
+                <h2 class="">DUC Wells and Their Economic Complications</h2>
+                <p class="excerpt">During the Covid-19 Pandemic, the operators opted not to drill new wells, but instead completed their existing DUC wells to meet demand while conserving cash. This post explains the concept and the economic impact of DUC wells on the US energy industry.</p>
+                <div class="meta">
+                    <div class="meta-left">
+                        <i class="fa fa-calendar index-comment-icon"></i>
+                        <span class="index-reading-time">2023-02-09</span>
+                    </div>
+                    <div class="meta-right">
+                        <i class="far fa-clock index-comment-icon"></i>
+                        <span class="index-reading-time">11 min reading</span>
+                        <i class="fas fa-comment index-comment-icon" href="https://aegis4048.github.io/duc_wells_and_their_economic_complications#disqus_thread"></i>
+                        <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/duc_wells_and_their_economic_complications#disqus_thread"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pop-over col-12 col-md-6 col-lg-4">
+        <div class="article-row" onclick="window.location='https://aegis4048.github.io/quantifying_the_impact_of_completion_delay_since_drilled_on_production';">
+            <div class="article-cell-1">
+                <img class="article-img" src="images/featured_images/old_ducs.png">
+            </div>
+            <div class="article-cell-2">
+                <div class="category">Oil and Gas</div>
+                <h2 class="">Quantifying The Impact Of Completion Delay Since Drilled On Production</h2>
+                <p class="excerpt">In times of unfavorable commodity prices, operators may delay completion after drilling in the hope of a price recovery. The study conducted in this article shows why this may not be a financially sound idea for certain basins by quantifying the impact of DUC time on normalized EURs.</p>
+                <div class="meta">
+                    <div class="meta-left">
+                        <i class="fa fa-calendar index-comment-icon"></i>
+                        <span class="index-reading-time">2023-03-03</span>
+                    </div>
+                    <div class="meta-right">
+                        <i class="far fa-clock index-comment-icon"></i>
+                        <span class="index-reading-time">26 min reading</span>
+                        <i class="fas fa-comment index-comment-icon" href="https://aegis4048.github.io/quantifying_the_impact_of_completion_delay_since_drilled_on_production#disqus_thread"></i>
+                        <a class="index-reading-time disqus-comment" href="https://aegis4048.github.io/quantifying_the_impact_of_completion_delay_since_drilled_on_production#disqus_thread"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ul>
+</section>
+    </article>
+    <div id="article-sidebar" class="col-12 col-xl-3"></div>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+      <div class="row">
+         <div class="col">
+            <h5 class="headin5_amrc col_white_amrc pt2">ABOUT ERIC</h5>
+            <!--headin5_amrc-->
+            <p class="mb10"><img id="profile_img" align="left" src="https://aegis4048.github.io/theme/img/profile_photo_footer.jpg">Petroleum engineering analyst at <a href="https://flogistix.com/" target="blank">Flogistix</a>. I am a self-taught Python developer with strong engineering & statistical background. I am good at creating clean, easy-to-read codes for data analysis. I enjoy assisting my fellow engineers by developing accessible and reproducible codes.</p>
+            <p><i class="fa fa-envelope mr-2"></i>aegis4048@gmail.com</p>
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="about.html">ABOUT</a></li>
+         <li><a href="archives.html">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center">Handcrafted by me @2018</p>
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="row" align="center">
+                  <div class="footer-icon"><a href="https://www.linkedin.com/in/eric-kim-34318811b/"><i class="fab fa-linkedin-in"></i></a></div>
+                  <div class="footer-icon"><a href="https://github.com/aegis4048"><i class="fab fa-github"></i></a></div>
+              </div>
+          </div>
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://aegis4048.github.io/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://aegis4048.github.io/theme/libs/prism.js"></script>
+        <script src="https://aegis4048.github.io/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://aegis4048.github.io/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

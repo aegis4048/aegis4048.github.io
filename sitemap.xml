@@ -5,20 +5,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://aegis4048.github.io/</loc>
-<lastmod>2024-10-18T13:02:49-00:00</lastmod>
+<lastmod>2024-10-22T09:55:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/archives.html</loc>
-<lastmod>2024-10-18T13:02:49-00:00</lastmod>
+<lastmod>2024-10-22T09:55:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://aegis4048.github.io/change-in-h2s-ppm-levels-at-high-vs-low-pressure-vessels</loc>
+<loc>https://aegis4048.github.io/h2s-levels-why-high-pressure-samples-dont-tell-the-full-story</loc>
 <lastmod>2024-05-06T00:00:00-07:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
