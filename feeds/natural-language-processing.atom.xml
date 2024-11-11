@@ -9929,10 +9929,10 @@ Explained Variance = 0.996
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="4b08b386-a041-49d0-a523-689ef92be866"&gt;&lt;/div&gt;
+&lt;div id="cbe0a768-1247-44bb-8eeb-c696264ced68"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4b08b386-a041-49d0-a523-689ef92be866');
+var element = $('#cbe0a768-1247-44bb-8eeb-c696264ced68');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
