@@ -1,5 +1,1776 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Oil and Gas</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/oil-and-gas.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2024-05-06T00:00:00-07:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>H₂S Levels: Why High-Pressure Samples Don't Tell the Full Story</title><link href="https://aegis4048.github.io/h2s-levels-why-high-pressure-samples-dont-tell-the-full-story" rel="alternate"></link><published>2024-05-06T00:00:00-07:00</published><updated>2024-05-06T00:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2024-05-06:/h2s-levels-why-high-pressure-samples-dont-tell-the-full-story</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Oil and Gas</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/oil-and-gas.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2024-11-11T00:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Impact of Seasonal Changes on Storage Tank Emissions</title><link href="https://aegis4048.github.io/impact-of-seasonal-changes-on-storage-tank-emissions" rel="alternate"></link><published>2024-11-11T00:00:00-08:00</published><updated>2024-11-11T00:00:00-08:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2024-11-11:/impact-of-seasonal-changes-on-storage-tank-emissions</id><summary type="html">&lt;style type="text/css"&gt;/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color …&lt;/style&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell &gt; div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area &gt; div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area &gt; div.highlight &gt; pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the &lt;head&gt; if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph &gt; img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell &gt; div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+&lt;/style&gt;
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="introduction"&gt;&lt;/div&gt;&lt;p&gt;Concerns over global warming have led to stricter regulations, pushing oil and gas operators to produce "green" oil. One of the primary sources of emissions in the industry is from crude oil storage tanks. When hydrocarbon liquids are transferred into storage tanks from upstream separators, the crude oil is not fully stabilized yet and still contains some dissolved volatile gases, which vaporize inside the tank. These vapors accumulate, increasing pressure within the tank, requiring a pressure relief system to prevent explosions. Such relief mechanism can be either vapor recovery systems with compressors to capture vapors and send them to pipelines for sales, which are more environmentally friendly, or venting to air.&lt;/p&gt;
+&lt;p&gt;Vapor generation within a tank is influenced by two main factors: 1) the pressure drop from the upstream separator to the storage tank, and 2) the tank’s operating temperature. This article focuses on the latter—how the operating temperature of the tank, impacted by seasonal changes, affects emission volumes.&lt;/p&gt;
+&lt;p&gt;Here’s a quick takeaway for skimmers: &lt;strong&gt;Emission volumes are 22% (Texas) to 56% (North Dakota) higher in summer than in winter&lt;/strong&gt; due to increased air temperatures. The summer-winter discrepancy is more pronounced in colder regions because of the greater seasonal temperature difference. See &lt;a class="internal-link" href="#table-2"&gt;Table 2&lt;/a&gt; below for a simulation summary across various scenarios. Note that this result is specific to the site simulation setups detailed &lt;a class="internal-link" href="#1.1.-Site-(operational)-setups"&gt;below&lt;/a&gt; and may need fine tuning for different facility setups. However, the concept should still be generally applicable for most upstream facilities.&lt;/p&gt;
+&lt;div class="row" id="fig-1"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/seasonal_bakken2.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;
+&lt;p class="image-description"&gt;
+&lt;strong&gt;Figure 1:&lt;/strong&gt; Flash volume simulation at atmospheric storage tanks using BR&amp;E Promax. The setup assumes a liquid line from a heater operating at 30 psig and 120°F, dumping into an atmospheric tank at a rate of 3028 STBBL/D (34,600 lb/h) year-round. The red line represents vapor emission volumes from the tank. All conditions are held constant over 12 months, except for monthly ambient air temperature to isolate the effect of seasonal temperature on emissions. Williston, North Dakota, seasonal temperatures are used. Results show 47 MCFD emissions during winter and 73 MCFD during summer—a 56% increase. Elevated summer temperatures lead to higher emission volumes inside tanks. Refer to &lt;a class="internal-link" href="#fig-3"&gt;Figure 3&lt;/a&gt; below for a process flow diagram of the site.
+        &lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="solution_panel closed"&gt;
+&lt;div class="solution_title"&gt;
+&lt;p class="solution_title_string"&gt;Source Code For Figure (1)&lt;/p&gt;
+&lt;ul class="nav navbar-right panel_toolbox"&gt;
+&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="solution_content"&gt;
+&lt;pre&gt;
+            &lt;code class="language-python"&gt;
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+
+df = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/seasonal_impact_data.xlsx', sheet_name='Sim Format 1')
+df = df[df['Location'] == 'Williston, ND']
+
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+x = np.array([i for i in range(12)])
+
+fig, ax = plt.subplots(figsize=(8, 4))
+
+ax.plot(x, df['AVG Air T (F)'], color='purple', label='Avg Air T [°F]', marker='v', markersize=8, linestyle='-')
+ax.plot(x, df['Tank T (F)'], color='darkslateblue', label='Tank T [°F]', marker='x', markersize=8, linestyle='-')
+ax.plot(x, df['Gas (MCFD)'], color='red', label='Tank Vapor [MCFD]', marker='o', markersize=8, linestyle='-', markerfacecolor='white')
+
+
+ax.set_ylim(0, 140)
+ax.set_xlim(-0.3, 11.3)
+ax.set_xticks(range(len(months)))
+ax.set_xticklabels(months)
+
+ax.yaxis.set_minor_locator(ticker.AutoMinorLocator())
+
+ax.grid(axis='y', which='minor', linestyle='--', alpha=0.2)  # Minor grid lines
+ax.grid(axis='both', which='major', linestyle='-', alpha=0.3)  # Major grid lines
+
+ax.yaxis.get_major_ticks()[-1].gridline.set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines.top.set_visible(False)
+
+
+def annotate_arrows(data_y, num, tick_spacing, ymax, x_start=1, ox=0.2, fontsize=14, flip_y=False):
+    '''
+    data_y = y coordinate of the datapoint of interest
+    num = index of the datapoint of interest
+    tick_spacing = spacing between two major ticks
+    ox = offset of x
+    '''
+
+    head_padding = ymax * 0.04                 # extra space between the datapoint of interest and arrowhead
+    oy = ymax * 0.08                           # offset of y
+    sx = x_start + (tick_spacing / 2) * num
+    sy = data_y + head_padding
+
+    if flip_y:
+        oy = -ymax * 0.15
+        sy = data_y - head_padding
+
+    ax.arrow(sx + ox, sy + oy, -ox, -oy, head_width=0.1, head_length=ymax * 0.0333, fc='k', ec='k', lw=1)
+    t1 = ax.text(sx + ox, sy + oy, str(int(data_y)) + ' MCFD', fontsize=fontsize, color='k', ha='center')
+    t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=3, lw=1))
+
+    xytext = (sx + ox, sy + oy)
+
+    return xytext
+
+ymax = 160
+fs=9
+yloc=110
+lw=1
+spacing = abs(ax.get_xticks()[1] - ax.get_xticks()[2])
+
+y1 = df['Gas (MCFD)'].values[0]
+y2 = df['Gas (MCFD)'].values[6]
+
+_1 = -2
+_2 = 10
+
+textxy1 = annotate_arrows(y1, _1 + 0.1, spacing, ymax, fontsize=fs)
+textxy2 = annotate_arrows(y2, _2 + 0.1, spacing, ymax, fontsize=fs)
+
+ax.plot([textxy1[0], textxy1[0]], [textxy1[1], yloc], lw=lw, color='k', ls='--')
+ax.plot([textxy2[0], textxy2[0]], [textxy2[1], yloc], lw=lw, color='k', ls='--')
+ax.plot([textxy1[0], textxy2[0]], [yloc, yloc], lw=lw, color='k', ls='--')
+
+diff_percentage = '+' + str(int((y2 - y1)/y1 * 100)) + '%'
+t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=11, color='red', ha='center', fontweight='bold')
+t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=lw))
+
+ax.legend(fontsize=10, ncol=3, loc='upper left', framealpha=1)
+
+ax.set_ylabel('Tmp. [°F], Vapor Rate [MCFD]', fontsize=11)
+
+
+ax.text(0.4, 0.2, 'Upstream liquid line from heater', fontsize=10, ha='left', transform=ax.transAxes, color='k')
+ax.text(0.4, 0.14, '@30 psig, 120°F', fontsize=10, ha='left', transform=ax.transAxes, color='k')
+ax.text(0.98, 0.08, 'aegis4048.github.io', fontsize=10, ha='right', transform=ax.transAxes, color='grey', alpha=0.5)
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+
+bold_txt = setbold('Impact of Seasonal Changes on Tank Emissions, ')
+plain_txt = 'Bakken Shale'
+fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=11)
+yloc = 0.9
+ax.annotate('', xy=(0.01, yloc + 0.01), xycoords='figure fraction', xytext=(1.02, yloc + 0.01),
+            arrowprops=dict(arrowstyle="-", color='k', lw=0.7))
+
+fig.tight_layout()
+            &lt;/code&gt;
+        &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="display-none" id="toc_container"&gt;
+&lt;p class="toc_title"&gt;&lt;i class="fas fa-list"&gt;&lt;/i&gt;Contents&lt;/p&gt;
+&lt;ul class="toc_list"&gt;
+&lt;li&gt;&lt;a href="#introduction"&gt;&lt;span class="toc_label"&gt;0.&lt;/span&gt;
+            Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#1.-Theories:-Impact-of-temperature-changes-at-separator-vessels"&gt;&lt;span class="toc_label"&gt;1.&lt;/span&gt;
+            Theories: Impact of temperature changes at separator vessels&lt;/a&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#1.1.-Flash-volume-increase"&gt;&lt;span class="toc_label"&gt;1.1.&lt;/span&gt;
+                Flash volume increase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#1.2.-Heavier-separated-gas"&gt;&lt;span class="toc_label"&gt;1.2.&lt;/span&gt;
+                Heavier separated gas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#1.3.-Higher-energy-content"&gt;&lt;span class="toc_label"&gt;1.3.&lt;/span&gt;
+                Higher energy content&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#1.4.-Higher-dew-point-temperature"&gt;&lt;span class="toc_label"&gt;1.4.&lt;/span&gt;
+                Higher dew point temperature&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#1.5.-More-stabilized-crude-oil-(RVP)"&gt;&lt;span class="toc_label"&gt;1.5.&lt;/span&gt;
+                More stabilized crude oil (RVP)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;&lt;a href="#2.-Simulation-Setups"&gt;&lt;span class="toc_label"&gt;2.&lt;/span&gt;
+            Simulation Setups&lt;/a&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#2.1.-Site-(operational)-setups"&gt;&lt;span class="toc_label"&gt;2.1.&lt;/span&gt;
+                    Site (operational) setups&lt;/a&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#Notes_Flash_breathing_working_and_loading_losses"&gt;&lt;span class="toc_label"&gt;Notes:&lt;/span&gt; Flash, Breathing, Working, and Loading Losses&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;&lt;a href="#2.2.-Software-(Promax)-&amp;-calculation-methods-(AP42-Chap-7)"&gt;&lt;span class="toc_label"&gt;2.2.&lt;/span&gt;
+                    Software (Promax) &amp; calculation methods (AP42 Chap 7)&lt;/a&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#API_12F_Tanks"&gt;&lt;span class="toc_label"&gt;Notes:&lt;/span&gt; API 12F Tanks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;&lt;a href="#2.3.-Regional-ambient-air-temperatures-data"&gt;&lt;span class="toc_label"&gt;2.3.&lt;/span&gt;
+                    Regional ambient air temperatures data&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;&lt;a href="#3.-Simulation-results"&gt;&lt;span class="toc_label"&gt;3.&lt;/span&gt;
+            Simulation results&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#4.-Conclusion"&gt;&lt;span class="toc_label"&gt;4.&lt;/span&gt;
+            Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="1.-Theories:-Impact-of-temperature-changes-at-separator-vessels"&gt;1. Theories: Impact of temperature changes at separator vessels&lt;a class="anchor-link" href="#1.-Theories:-Impact-of-temperature-changes-at-separator-vessels"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Altering the operating temperature of a separator vessel impacts the phase behavior of fluids within it. This section provides a theoretical explanation of the effects of increasing temperature from low to high.&lt;/p&gt;
+&lt;div class="row" id="fig-2" style=""&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/seasonal_vessel_illustrations.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure 2:&lt;/strong&gt; Simulation of flash behavior at low (100°F) vs high (150°F) temperatures, modeled with BR&amp;E Promax. At higher operating temperatures in a separator vessel, the separated gas volume increases, with higher specific gravity, greater energy content (Btu/scf), and the separated crude becomes more stable, as indicated by a lower Reid Vapor Pressure value.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="1.1.-Flash-volume-increase"&gt;1.1. Flash volume increase&lt;a class="anchor-link" href="#1.1.-Flash-volume-increase"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Increasing the operating temperature of a separator vessel (or storage tanks) raises the fluid mole fraction that escapes into the gas line. This phenomenon can be explained by phase envelopes, which show phase behavior changes under different pressures and temperatures.&lt;/p&gt;
+&lt;p&gt;Assume &lt;a class="internal-link" href="#fig-3"&gt;Figure 3&lt;/a&gt; represents a phase envelope of a sample obtained from the liquid line of a separator operating at 200 psig. The blue circle on the figure sits on the 100% liquid bubble point curve, showing that by definition, the liquid is at its bubble point when it leaves any separator. This 200 psig liquid then flows into a heater operating at 50 psig and 120°F, causing the operating condition of the fluid to shift, represented by the red dashed circle. Flash gas is generated from the pressure drop from 200 psig to 50 psig, where 50% of the inlet liquid vaporizes and separates into the gas line of a heater.&lt;/p&gt;
+&lt;p&gt;Now assume the operator increases the heater temperature from 120°F to 150°F. The operating condition of the fluid in the heater shifts horizontally, and now sits on the 5% liquid (95% vapor) curve, shown by the solid red circle. The vapor fraction rises from 50% to 95% due to the temperature increase.&lt;/p&gt;
+&lt;p&gt;This demonstrates why raising temperature leads to higher flash volumes in any vessel, as the fluid’s operating condition moves closer to the 100% vapor dew point curve, increasing the vapor mole fraction. The same phase behavior applies to atmospheric tanks. When tank temperatures rise in summer due to hotter ambient air, more vapors are generated, as the fluid’s operating condition moves toward a higher vapor fraction curve.&lt;/p&gt;
+&lt;div class="row full_screen_margin_70 mobile_responsive_plot_full_width" id="fig-3" style=""&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/seasonal_phase_envelope2.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure 3:&lt;/strong&gt; "Fake" phase envelope of a sample from the outlet liquid line of a separator operating at 200 psig, 115°F. This envelope is an educational illustration and is not derived from an actual sample. The original condition of the sample is marked by the blue circle. The liquid from the 200# separator flows into a heater operating at 50#, 120°F, represented by the dashed red circle. When the heater temperature is raised from 120°F to 150°F, the condition shifts horizontally toward the 100% vapor dew point curve. The envelope shows the varying vapor fractions of the fluid inside the heater at different operating conditions.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="1.2.-Heavier-separated-gas"&gt;1.2. Heavier separated gas&lt;a class="anchor-link" href="#1.2.-Heavier-separated-gas"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Heavier hydrocarbon molecules vaporize more readily at elevated temperatures, increasing the mole fraction of heavy-ends in the gas line and, consequently, the overall gas gravity. In &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt;, the gas specific gravity rose from 0.816 to 0.956 after a 50°F increase in vessel temperature.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="1.3.-Higher-energy-content"&gt;1.3. Higher energy content&lt;a class="anchor-link" href="#1.3.-Higher-energy-content"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Heavier hydrocarbon molecules have higher energy content (Btu/scf). In &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt;, gas energy content increased from 1396 Btu/scf to 1567 Btu/scf after a 50°F increase in vessel temperature.&lt;/p&gt;
+&lt;p&gt;Light-ends like methane have a specific gravity (SG) of 0.5539 and an energy content of 1010 Btu/scf, whereas heavier-ends like n-pentane have an SG of 2.4911 and 4008.7 Btu/scf. In fact, gas specific gravity and energy content exhibit a nearly perfect linear correlation for paraffinic hydrocarbons (e.g., methane, ethane, butane, pentane, hexane), as shown in &lt;a class="internal-link" href="#fig-4"&gt;Figure 4&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="row full_screen_margin_80 mobile_responsive_plot_full_width" id="fig-4"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/liquid_sg_ghv_gas_vs_mw.png" style="margin-bottom: 10px;"/&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure 4:&lt;/strong&gt; Scatter plot of known compounds upto n-hexadecane (C16H34) listed in the GPA 2145 table.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="solution_panel closed" style="margin-top: -10px"&gt;
+&lt;div class="solution_title"&gt;
+&lt;p class="solution_title_string"&gt;Source Code For Figure (4)&lt;/p&gt;
+&lt;ul class="nav navbar-right panel_toolbox"&gt;
+&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="solution_content"&gt;
+&lt;pre&gt;
+            &lt;code class="language-python"&gt;
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('https://aegis4048.github.io/downloads/notebooks/sample_data/GPA 2145-16 Compound Properties Table - English - Truncated and PNA Identified.csv')
+
+# Labeling for displaying texts
+labels = ['methane', 'propane', 'n-butane', 'n-heptane', 'n-octane', 'n-decane', 'cyclohexane', 'cyclopentane', 'ethane',
+'n-dodecane','n-tetradecane','n-hexadecane', 'methanol', 'ethanol', 'naphthalene', 'isobutylcyclopentane', 'hydrogen',
+ 'sulfur dioxide', 'hydrogen sulfide', 'toluene', 'benzene', 'm-xylene', 'pentylbenzene', 'hexylbenzene',
+         'propylene', '1-butene'
+         ]
+df['Display Text'] = df['Compound'].isin(labels)
+
+BTEX_idx = df[df['Is BTEX'] == True].index
+aromatic_idx = df[df['Is Aromatic'] == True].index
+non_HC_idx = df[df['Is Hydrocarbon'] == False].index
+hydroxyl_idx = df[df['Is Hydroxyl'] == True].index
+paraffinic_idx = df[df['Is Paraffinic'] == True].index
+naphethenic_idx = df[df['Is Naphthenic'] == True].index
+other_idx = df[df['Others'] == True].index
+whole_idx = list(df.index)
+
+x = df['Molar Mass [g/mol]']
+y = df['Gross Heating Value Ideal Gas [Btu/ft^3]']
+
+##################################### Plotting #######################################
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+alpha = 1
+_1 = ax.scatter(x.loc[paraffinic_idx], y.loc[paraffinic_idx], s=50, edgecolor='k', alpha=alpha, label='Paraffinic')
+_2 = ax.scatter(x.loc[naphethenic_idx], y.loc[naphethenic_idx], s=50, edgecolor='k', alpha=alpha, label='Naphthenic')
+_3 = ax.scatter(x.loc[aromatic_idx], y.loc[aromatic_idx], s=50, edgecolor='k', alpha=alpha, label='Aromatic/BTEX')
+_4 = ax.scatter(x.loc[hydroxyl_idx], y.loc[hydroxyl_idx], s=50, edgecolor='k', alpha=alpha, label='Hydroxylic')
+_5 = ax.scatter(x.loc[non_HC_idx], y.loc[non_HC_idx], s=50, edgecolor='k', alpha=alpha, label='Non-HCs')
+_6 = ax.scatter(x.loc[other_idx], y.loc[other_idx], s=50, edgecolor='k', alpha=alpha, label='Other-HCs')
+
+c1 = _1.get_facecolor()[0]
+c2 = _2.get_facecolor()[0]
+c3 = _3.get_facecolor()[0]
+c4 = _4.get_facecolor()[0]
+c5 = _5.get_facecolor()[0]
+c6 = _6.get_facecolor()[0]
+
+ax.legend(fontsize=9, ncol=3)
+
+texts = df['Compound']
+for i, txt in enumerate(texts):
+    if df['Display Text'].loc[i]:
+        c = c5
+        ha ='left'
+        va = 'top'
+
+        if df['Is Paraffinic'].loc[i]: 
+            c = c1
+            ha ='right'
+            va = 'bottom'
+        if df['Is Naphthenic'].loc[i]:
+            c = c2
+            ha ='right'
+            va = 'bottom'
+        if df['Is Aromatic'].loc[i]:
+            c = c3
+            va = 'top'
+            ha = 'left'
+        if df['Is Hydroxyl'].loc[i]:
+            c = c4
+            va = 'bottom'
+            ha = 'left'
+        if df['Others'].loc[i]:
+            c = c6
+            va = 'top'
+            ha = 'left'
+
+        if ha == 'left':
+            icr = 3
+        else:
+            icr= -3
+
+        ax.annotate(txt, (x.loc[i] + icr, y.iloc[i]), fontsize=10, c=c, ha=ha, va=va)
+
+ax.minorticks_on()
+ax.grid(axis='y', which='major', linestyle='--', color='grey', alpha=0.5)
+#ax.grid(axis='y', which='minor', linestyle='--', color='grey', alpha=0.2)
+#ax.grid(axis='x', which='minor', color='grey', linestyle='--', alpha=0.2)
+ax.grid(axis='x', which='major', color='grey', linestyle='--', alpha=0.5)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+ax.set_xlabel('Molecular Weight', fontsize=11)
+ax.set_ylabel('Gross Heating Value [Btu/scf]', fontsize=11)
+ax.text(0.99, 0.1, 'aegis4048.github.io', fontsize=12, ha='right', va='center',
+    transform=ax.transAxes, color='grey', alpha=0.5)
+
+#ax.set_xlim(0, 1)
+#ax.set_ylim(10000, 30000)
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+bold_txt = setbold('GHV_{gas} vs. MW')
+plain_txt = ', for different compound groups'
+
+fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=12, y=0.96)
+yloc = 0.88
+ax.annotate('', xy=(0.01, yloc + 0.01), xycoords='figure fraction', xytext=(1.02, yloc + 0.01),
+            arrowprops=dict(arrowstyle="-", color='k', lw=0.7))
+
+ax.annotate('Data source: GPA 2145-16', xy=(-0.11, -.12), xycoords='axes fraction', fontsize=9)
+
+fig.tight_layout()
+            &lt;/code&gt;
+        &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="1.4.-Higher-dew-point-temperature"&gt;1.4. Higher dew point temperature&lt;a class="anchor-link" href="#1.4.-Higher-dew-point-temperature"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Gas dew point temperatures are critical for compressor applications. In high-pressure setups, like those using reciprocating compressors, accurate dew point calculations help define design parameters for compression chambers and ensure liquid knockout scrubbers are properly sized. For lower-pressure applications (below 300 psig), such as oil-flooded screw compressors, dew point control is essential to prevent liquid condensation during compression, which can lead to lube oil contamination.&lt;/p&gt;
+&lt;p&gt;The specific gravity of a mixture affects its dew and bubble points. While the relationship isn’t perfectly linear, heavier mixtures generally exhibit higher dew points at the same pressure than lighter ones. &lt;a class="internal-link" href="#fig-5"&gt;Figure 5&lt;/a&gt; illustrates this effect with vapor samples from the same tank in different seasons. The summer sample, with a higher specific gravity, has a dew point temperature of 222°F at 600 psig, while the lighter winter sample has a dew point of 184°F—a significant difference that could impact operations.&lt;/p&gt;
+&lt;p&gt;In this 600 psig scenario, which exceeds the operating capacity of screw compressors, reciprocating compressors are required. For reciprocating compressors, scrubber sizing for liquid knockout is heavily influenced by dew point temperature. A scrubber sized based on a winter sample may be undersized for summer operations, risking liquid carryover during higher-temperature seasons.&lt;/p&gt;
+&lt;div class="row" id="fig-5"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/seasonal_phase_envelope_winter_vs_summer.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure 5:&lt;/strong&gt; Phase envelopes of tank vapor samples under summer and winter conditions. The dashed line represents the winter sample, while the solid line represents the summer sample. The winter sample has an energy content of 2021 Btu/scf, whereas the summer sample is richer at 2317 Btu/scf. Yellow diamonds mark the dew point temperatures at 400 psig, showing the summer sample's higher dew point of 222°F compared to the winter sample’s 184°F.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="solution_panel closed" style="margin-top: -10px"&gt;
+&lt;div class="solution_title"&gt;
+&lt;p class="solution_title_string"&gt;Source Code For Figure (5)&lt;/p&gt;
+&lt;ul class="nav navbar-right panel_toolbox"&gt;
+&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="solution_content"&gt;
+&lt;pre&gt;
+            &lt;code class="language-python"&gt;
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+df = pd.read_excel('https://aegis4048.github.io/downloads/notebooks/sample_data/seasonal_impact_data.xlsx', sheet_name='Bakken Envelope')
+df.sort_values(by='Month')
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+months = sorted(list(set(df['Month'])))
+lss = ['--', '-']
+for ls, month in zip(lss, months):
+
+    df_cur = df[df['Month'] == month]
+    x_crit = df_cur['Critical T [°F]'].values[0]
+    y_crit = df_cur['Critical P [psig]'].values[0]
+    df_cur = df_cur[df_cur['Pressure [psig]'] - y_crit &lt; 20] # filter to remove outliers in sim results
+
+
+    x_dew = df_cur[df_cur['Curve Type'] == 'Dew']['Temperature [°F]'].values
+    y_dew = df_cur[df_cur['Curve Type'] == 'Dew']['Pressure [psig]'].values
+
+    x_bubble = df_cur[df_cur['Curve Type'] == 'Bubble']['Temperature [°F]'].values
+    y_bubble = df_cur[df_cur['Curve Type'] == 'Bubble']['Pressure [psig]'].values
+
+    ax.plot(x_bubble, y_bubble, label=month + ': Bubble Point', ls=ls, color='red')
+    ax.plot(x_dew, y_dew, label=month + ': Dew Point', ls=ls, color='blue')
+    ax.scatter(x_crit, y_crit, s=60, edgecolor='k', fc='white', zorder=3, label='Critical Point')
+
+
+ax.set_ylim(0, 1199)
+ax.set_xlabel('Temperature [°F]')
+ax.set_ylabel('Pressure [psig]')
+
+
+ax.grid(True)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+ax.minorticks_on()
+ax.grid(axis='both', which='minor', color='grey', linestyle='--', alpha=0.2)
+
+ax.scatter(184, 600, marker='D', s=60, fc='yellow', edgecolor='purple', zorder=10, label='Dew Point T @600 psig')
+ax.scatter(222, 600, marker='D', s=60, fc='yellow', edgecolor='purple', zorder=10)
+
+ax.text(184, 610, 'Dew T=184F°', fontsize=10, ha='right', va='bottom', color='purple')
+ax.text(107, 550, '(Winter)', fontsize=10, ha='left', va='bottom', color='purple')
+
+ax.text(230, 610, 'Dew T=222F°', fontsize=10, ha='left', va='bottom', color='purple')
+ax.text(230, 550, '(Summer)', fontsize=10, ha='left', va='bottom', color='purple')
+
+handles, labels = ax.get_legend_handles_labels()
+handles.pop(-2)
+labels.pop(-2)
+ax.legend(handles[:], labels[:], ncol=2)
+
+
+ax.text(0.98, 0.08, 'aegis4048.github.io', fontsize=10, ha='right', transform=ax.transAxes, color='grey', alpha=0.5)
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+bold_txt = setbold('Dew Point T. Difference In Summer vs. Winter')
+plain_txt = ', for tank vapor line'
+fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=11)
+yloc = 0.9
+ax.annotate('', xy=(0.01, yloc + 0.01), xycoords='figure fraction', xytext=(1.02, yloc + 0.01),
+            arrowprops=dict(arrowstyle="-", color='k', lw=0.7))
+
+
+fig.tight_layout()
+            &lt;/code&gt;
+        &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="1.5.-More-stabilized-crude-oil-(RVP)"&gt;1.5. More stabilized crude oil (RVP)&lt;a class="anchor-link" href="#1.5.-More-stabilized-crude-oil-(RVP)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Increased vapor generation rate inside a tank means that the stored liquid becomes more stabilized, with less volatiles because those dissolved volatiles in the crude escaped the system through a vent line (vented to air, captured, or flared). This can be seen in &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt;, in which the Reid Vapor Pressure (RVP) for higher temperature vessel (150F) is lower (RVP=8.84 psi) than the lower T vessel (100F, RVP=9.74 psi). Lower RVP means more stable crude. &lt;a href="https://www.epa.gov/gasoline-standards/gasoline-reid-vapor-pressure" target="_blank"&gt;EPA Gasoline Reid Vapor Pressure&lt;/a&gt; requires storage gasoline to have RVP value lower than 9 to 7.8 psi to reduce emissions of volatile organic compounds (VOCs).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="2.-Simulation-Setups"&gt;2. Simulation Setups&lt;a class="anchor-link" href="#2.-Simulation-Setups"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This section details the simulation setups and assumptions used to investigate the impact of seasonal temperature changes on storage tank emissions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="2.1.-Site-(operational)-setups"&gt;2.1. Site (operational) setups&lt;a class="anchor-link" href="#2.1.-Site-(operational)-setups"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A generic upstream facility structure is used for simulations. Reservoir fluid flows up the production tubing to the wellhead, then to a 2-phase separator, a heater treater, and finally to atmospheric storage tanks. &lt;a class="internal-link" href="#fig-6"&gt;Figure 6&lt;/a&gt; shows facility modeling done with Promax.&lt;/p&gt;
+&lt;div class="row" id="fig-6"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/seasonal_sim_screenshot1.png"/&gt;&lt;/div&gt;
+&lt;div class="col-12"&gt;
+&lt;p class="image-description"&gt;
+&lt;strong&gt;Figure 6:&lt;/strong&gt; Generic upstream facility modeling done in BR&amp;E Promax. This simulation assumes an ambient air temperature of 15.5°F in Williston, ND, in December (see &lt;a class="internal-link" href="#table-1"&gt;Table 1&lt;/a&gt; below for regional seasonal temperature data). All operating parameters are held constant except timeframe (month) and ambient air temperature across various locations to observe the impact of seasonal temperature changes on tank emission volumes.
+        &lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="ordered-list"&gt;
+&lt;h2&gt;Assumptions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Generic upstream oil and gas facility with wellhead.&lt;/li&gt;
+&lt;li&gt;2-phase separator operating at 150 psig.&lt;/li&gt;
+&lt;li&gt;VRU discharge pressure set equal to separator pressure: 150 psig.&lt;/li&gt;
+&lt;li&gt;Wellhead temperature: 140°F.&lt;/li&gt;
+&lt;li&gt;3-phase heater treater operating at 30 psig, 120°F.&lt;/li&gt;
+&lt;li&gt;Atmospheric oil tank operating at 0.6 psig, with temperature affected by ambient air and incoming fluid temperature.&lt;/li&gt;
+&lt;li&gt;47° API oil.&lt;/li&gt;
+&lt;li&gt;Sales gas energy content: 1203 Btu/scf, specific gravity: 0.69.&lt;/li&gt;
+&lt;li&gt;Facility production rates: 15 MMSCFD (gas), 3000 BOPD (oil), and 2000 BWPD (water).&lt;/li&gt;
+&lt;li&gt;Four standard 750 BBL &lt;a class="internal-link" href="#API_12F_Tanks"&gt;API 12F oil storage tanks&lt;/a&gt; (15.5' x 24', tan-colored).&lt;/li&gt;
+&lt;li&gt;Water tank sizing omitted for simplicity; water tank temperature assumed to match oil tank temperature.&lt;/li&gt;
+&lt;li&gt;Timeframe (month) and location are the only variables that change for each simulation run.&lt;/li&gt;
+&lt;li&gt;Compression boost for heater treater gas to salesline is omitted for simplicity, as it doesn't affect downstream tank conditions. Common handling strategies for HT gas include: 1) Installing an additional booster compressor dedicated to HT gas, 2) Routing the gas line to tank inlets so HT gas can be handled by the tank VRU along with tank vapors, and 3) Using a 3-way control system to enable a single compressor to handle both the tank gas line (0.4 psig) and HT gas line (30 psig).
+        &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;&lt;div id="Notes_Flash_breathing_working_and_loading_losses"&gt;&lt;/div&gt;&lt;div class="alert alert-info"&gt;
+&lt;h4&gt;Notes: Flash, Breathing, Working, and Loading Losses&lt;/h4&gt;
+&lt;p&gt;AP-42 calculation methods (see &lt;a class="internal-link" href="#1.2.-Software-(Promax)-&amp;-calculation-methods-(AP42-Chap-7)"&gt;below&lt;/a&gt;) for atmospheric storage tanks provide calculation methods for four vaporization types: flash, working, breathing, and loading.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;&lt;strong&gt;Flash:&lt;/strong&gt; Rapid release of dissolved gases from liquid due to a pressure drop from high to low pressure&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Working:&lt;/strong&gt; Occurs during tank filling operations. As the liquid level rises, vapor space pressure increases, expelling vapors through the roof vent. Although not included in AP-42 methods, working loss can also involve vaporization from turbulence and vapor/liquid contact due to splash loading. Downcomers (submerged loading) help reduce splash losses.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Breathing:&lt;/strong&gt; Vaporization caused by day (hot) vs night (cold) temperature differences.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Loading:&lt;/strong&gt; Results from inefficiencies during truck-loading operations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="2.2.-Software-(Promax)-&amp;-calculation-methods-(AP42-Chap-7)"&gt;2.2. Software (Promax) &amp; calculation methods (AP42 Chap 7)&lt;a class="anchor-link" href="#2.2.-Software-(Promax)-&amp;-calculation-methods-(AP42-Chap-7)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a href="https://www.bre.com/ProMax-Main.aspx" target="_blank"&gt;BR&amp;E Promax&lt;/a&gt; is a process simulation software widely used in the oil and gas industry. One of it's features include implementation storage tank emission calculation methods outlined in &lt;a href="https://www.epa.gov/air-emissions-factors-and-quantification/ap-42-fifth-edition-volume-i-chapter-7-liquid-storage-0" target="_blank"&gt;AP42 Chapter 7: Liquid Storage Tanks&lt;/a&gt;. The chapter explains emission mechanism for fixed and floating roof tanks for various tank dimensions, structures, paint color, location, month of year, etc. The site simulation setup for this article assumes upstream facility, which traditionally use standardized API 12F tanks. Some of the key inputs used in AP42 can be taken from standard API 12F tank specs such as dimensions (15.5' x 24' for 750 BBL capacity), design pressure (16 oz vent and 1 oz vacuum safety), and tank geometry (fixed roof vertical cylinder).&lt;/p&gt;
+&lt;div id="API_12F_Tanks"&gt;&lt;/div&gt;
+&lt;div class="alert alert-info"&gt;
+&lt;h4&gt;Notes: API 12F Tanks&lt;/h4&gt;
+&lt;p&gt;API 12F tanks are standardized storage tanks primarily used in upstream oil and gas production facilities to store crude oil and produced water at atmospheric pressure. Designed and built to the specifications set by the American Petroleum Institute (API), these tanks are widely used due to their reliability, uniformity, and compatibility with industry standards.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;&lt;strong&gt;Standardized Design:&lt;/strong&gt; API 12F tanks follow strict specifications for dimensions, shape, thickness, reinforcement details, and materials (typically carbon steel) with welded construction to ensure durability and strength. Standardized capacities range from 90 to 1,000 BBL.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Design Pressure:&lt;/strong&gt; Tanks are equipped with a pressure relief mechanism to keep operating pressure below 16 oz (1 psig) to prevent explosion, and a vacuum relief mechanism to stay above 1 oz, preventing implosion.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Compliance and Safety:&lt;/strong&gt; For facilities near commercial or residential areas, API guidelines recommend an additional pressure/vacuum relief mechanism for emergency scenarios, set to release at 24 oz for overpressure and 1.5 oz for vacuum. Most remote wellsites in the field do not require this extra installation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Vent Line Connection Sizing:&lt;/strong&gt; The guidelines specify minimum pipe diameters for roof vent lines, especially critical when not venting directly to air. This sizing ensures minimal pressure drop between the vent line and emission control system (e.g., VRU or flare). Typical tank operating pressure is below 0.6 psig, allowing only a small margin to ensure vapor flow to the VRU or flare. Even minor pressure drops from friction can restrict flow, leading to overpressurization and triggering relief valves, which results in unwanted emissions. Pipe diameters must be large enough to prevent any pressure drop that could block flow.&lt;/p&gt;
+&lt;div class="row" id="fig-A"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/seasonal_API12F1.png" style="border: 1px solid #ddd;"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure A:&lt;/strong&gt; API 12F tank standard specifications at different nominal capacities, screenshot from API 12F 13th edition, 2019.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="2.3.-Regional-ambient-air-temperatures-data"&gt;2.3. Regional ambient air temperatures data&lt;a class="anchor-link" href="#2.3.-Regional-ambient-air-temperatures-data"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;i&gt;AP-42 Chapter 7 Table 7.1-7. Meteorological Data for Selected U.S. Locations&lt;/i&gt; provides average monthly temperatures for all 12 months across various locations. Key oil and gas regions' average temperatures are summarized in &lt;a class="internal-link" href="#table-1"&gt;Table 1&lt;/a&gt;. Notably, the Bakken region shows the largest seasonal temperature difference between summer and winter, leading to the highest seasonal variation in emission volumes (56%), compared to regions like Eagle Ford (22%), as summarized in &lt;a class="internal-link" href="#table-2"&gt;Table 2&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="row" id="table-1"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/seasonal_locations.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Table 1:&lt;/strong&gt; Seasonal temperature data for key U.S. locations, selected from &lt;i&gt;AP-42 Chapter 7 Table 7.1-7&lt;/i&gt;, matched to corresponding basins. Rows are sorted by locations with the highest to lowest temperature differences between January and July.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="3.-Simulation-results"&gt;3. Simulation results&lt;a class="anchor-link" href="#3.-Simulation-results"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;a class="internal-link" href="#table-2"&gt;Table 2&lt;/a&gt; shows simulation results for quantifying the seasonal contrast for summer vs winter for tank vapor rates and other properties. The colder the region, such as in Bakken, Powder River, and Marcellus, the greater was the differences due to greater seosonal T difference than warmer regions in Texas. Bakken region showed the greated seasonal tank flash rate increase of 56% in summer compared to winter, while Eagleford showed the lowest increase of 22%.&lt;/p&gt;
+&lt;div class="row" id="table-2"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/seasonal_summary_table1.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Table 2:&lt;/strong&gt; Simulation result table contrasting seasonal differences for summer vs. winter for tank vapor line with assumed setups detailed in &lt;a class="internal-link" href="#2.-Simulation-Setups"&gt;Simulation Setups&lt;/a&gt; above. Air T (°F) is regional seasonal ambient air temperature taken from &lt;a class="internal-link" href="#table-1"&gt;Table 1&lt;/a&gt;. Tank T (°F) is the operating temperature of the storage tank, affected by upstream heater treater temperature (120F in this setup), and ambient air temperature. RVP (psia), Reid Vapor Pressure,  is taken from &lt;i&gt;"Prod. Oil"&lt;/i&gt; stream in &lt;a class="internal-link" href="#fig-6"&gt;Figure 6&lt;/a&gt;. Dew T (°F) taken from &lt;i&gt;"VRU Discharge"&lt;/i&gt; stream in &lt;a class="internal-link" href="#fig-6"&gt;Figure 6&lt;/a&gt;. This is the dew point temperature of the compressed gas at 150 psig. The rest of the properties, Gas (MCFD), SG, and GHV (Btu/scf) are taken from stream &lt;i&gt;"Total Vapor"&lt;/i&gt;. The biggest seasonal contrast occur between Jan vs. July due to the greatest air T difference. &lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="highlights red-theme" id="warning-regional"&gt;
+&lt;div class="highlights-title red-theme"&gt;WARNING: Important Assumption Regarding "Regional" Data&lt;/div&gt;
+&lt;div class="highlights-content red-theme"&gt;
+        It’s important to clarify that the simulation results for each region are based solely on variations in temperature across different time frames and locations. All other parameters—such as compositional differences from various reservoirs, wellhead pressure, and temperature—are held constant. In other words, when referencing results for "Bakken Shale," this does not imply that sample compositional data is obtained from Bakken wells. Only the regional temperature data is adjusted. The purpose of keeping all other variables static, aside from temperature, is to isolate and observe the sole impact of seasonal temperature variations across regions. This provides a clearer idea of how much more flash volume can be expected in summer compared to winter at different key regions.
+    &lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlights red-theme" id="warning-dewpoint"&gt;
+&lt;div class="highlights-title red-theme"&gt;WARNING: Dew Point Sensitivity To Compositions&lt;/div&gt;
+&lt;div class="highlights-content red-theme"&gt;
+                Dew point temperature (which is part of phase envelope) is highly sensitive to composition. The fact that it showed maximum dew point T difference, which was at max only 12F (168F vs 190.7F at winter vs. summer) difference at Bakken, in the sim result table should not be assumed to be similar for other real-life applications too. For example in &lt;a class="internal-link" href="#fig-5"&gt;Figure 5&lt;/a&gt;, dew point temperature difference at 150 psig is approximately 40 degrees for winter vs summer. However, other parameters are relatively less senstive to composition variations, and can be referenced for general applications.
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="4.-Conclusion"&gt;4. Conclusion&lt;a class="anchor-link" href="#4.-Conclusion"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; When an upstream liquid line flows into a separator vessel, it enters as 100% liquid, with separation occurring inside the vessel. Changing the vessel’s operating temperature or pressure shifts the fluid’s position on a phase envelope, altering its vapor fraction inside a vessel (see &lt;a class="internal-link" href="#1.1.-Flash-volume-increase"&gt;1.1. Flash volume increase&lt;/a&gt; and &lt;a class="internal-link" href="#fig-3"&gt;Figure 3&lt;/a&gt; above), and compositions of the separated outlet lines. This same phenomenon applies to atmospheric applications like storage tanks.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; Increasing a vessel’s temperature raises flash volume, producing a heavier (richer) separated gas with higher energy content and a higher dew point temperature at a given pressure. For the oil line, higher temperature lowers the crude oil’s Reid Vapor Pressure (RVP), meaning the crude is more stabilized as more volatiles have separated into the gas line.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; Emission handling systems (flares or vapor recovery units) should be sized to manage increased gas volume and gravity during summer compared to winter.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt; Summer flash volume increases ranged from 20–30% in Texas regions (Eagle Ford, Delaware, Midland) and from 50–60% in North Dakota (Bakken), compared to winter.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5.&lt;/strong&gt; Colder regions have larger temperature differences between summer and winter, resulting in a greater seasonal variation in tank vapor emissions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6.&lt;/strong&gt; See &lt;a class="internal-link" href="#table-2"&gt;Table 2&lt;/a&gt; for a summary of simulation results showing the impact of monthly air temperature on tank vapor emissions by region.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="oil-and-gas"></category><category term="oil"></category><category term="gas"></category><category term="process engineering"></category><category term="ProMax"></category><category term="measurements"></category><category term="gas-sample"></category><category term="separators"></category><category term="VRU"></category><category term="heaters"></category><category term="storage-tank"></category><category term="emissions"></category><category term="API12F"></category><category term="RVP"></category><category term="dew-point"></category><category term="flash"></category><category term="basins"></category></entry><entry><title>H₂S Levels: Why High-Pressure Samples Don't Tell the Full Story</title><link href="https://aegis4048.github.io/h2s-levels-why-high-pressure-samples-dont-tell-the-full-story" rel="alternate"></link><published>2024-05-06T00:00:00-07:00</published><updated>2024-05-06T00:00:00-07:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2024-05-06:/h2s-levels-why-high-pressure-samples-dont-tell-the-full-story</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
