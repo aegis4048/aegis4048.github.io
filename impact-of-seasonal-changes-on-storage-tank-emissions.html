@@ -1509,7 +1509,7 @@ fig.tight_layout()
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.2.-Heavier-separated-gas">1.2. Heavier separated gas<a class="anchor-link" href="#1.2.-Heavier-separated-gas">¶</a></h3><p>Heavier hydrocarbon molecules vaporize more readily at elevated temperatures, increasing the mole fraction of heavy-ends in the gas line and, consequently, the overall gas gravity. In <a class="internal-link" href="#fig-2">Figure 2</a>, the gas specific gravity rose from 0.816 to 0.956 after a 50°F increase in vessel temperature.</p>
+<h3 id="1.2.-Heavier-separated-gas">1.2. Heavier separated gas<a class="anchor-link" href="#1.2.-Heavier-separated-gas">¶</a></h3><p>Heavier hydrocarbon molecules vaporize more readily at elevated temperatures than at low temperatures, increasing the mole fraction of heavy-ends in the gas line and, consequently, the overall gas gravity. In <a class="internal-link" href="#fig-2">Figure 2</a>, the gas specific gravity rose from 0.816 to 0.956 after a 50°F increase in vessel temperature.</p>
 </div>
 </div>
 </div>
@@ -1541,7 +1541,7 @@ fig.tight_layout()
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('https://aegis4048.github.io/downloads/notebooks/sample_data/GPA 2145-16 Compound Properties Table - English - Truncated and PNA Identified.csv')
+df = pd.read_csv('https://aegis4048.github.io/downloads/notebooks/sample_data/GPA 2145-16_Compound_Properties_Table_English_Truncated_and_PNA_Identified.csv')
 
 # Labeling for displaying texts
 labels = ['methane', 'propane', 'n-butane', 'n-heptane', 'n-octane', 'n-decane', 'cyclohexane', 'cyclopentane', 'ethane',
@@ -1665,7 +1665,7 @@ fig.tight_layout()
 <div class="row" id="fig-5">
 <div class="col"><img src="jupyter_images/seasonal_phase_envelope_winter_vs_summer.png"/></div>
 </div>
-<div class="col-12 fig-title"><p class="image-description"><strong>Figure 5:</strong> Phase envelopes of tank vapor samples under summer and winter conditions. The dashed line represents the winter sample, while the solid line represents the summer sample. The winter sample has an energy content of 2021 Btu/scf, whereas the summer sample is richer at 2317 Btu/scf. Yellow diamonds mark the dew point temperatures at 400 psig, showing the summer sample's higher dew point of 222°F compared to the winter sample’s 184°F.</p></div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Figure 5:</strong> Phase envelopes of tank vapor samples under summer and winter conditions. The dashed line represents the winter sample, while the solid line represents the summer sample. The winter sample has an energy content of 2021 Btu/scf, whereas the summer sample is richer at 2317 Btu/scf. Yellow diamonds mark the dew point temperatures at 600 psig, showing the summer sample's higher dew point of 222°F compared to the winter sample’s 184°F.</p></div>
 </div>
 </div>
 </div>
@@ -1807,12 +1807,12 @@ fig.tight_layout()
 <li>Four standard 750 BBL <a class="internal-link" href="#API_12F_Tanks">API 12F oil storage tanks</a> (15.5' x 24', tan-colored).</li>
 <li>Water tank sizing omitted for simplicity; water tank temperature assumed to match oil tank temperature.</li>
 <li>Timeframe (month) and location are the only variables that change for each simulation run.</li>
-<li>Compression boost for heater treater gas to salesline is omitted for simplicity, as it doesn't affect downstream tank conditions. Common handling strategies for HT gas include: 1) Installing an additional booster compressor dedicated to HT gas, 2) Routing the gas line to tank inlets so HT gas can be handled by the tank VRU along with tank vapors, and 3) Using a 3-way control system to enable a single compressor to handle both the tank gas line (0.4 psig) and HT gas line (30 psig).
+<li>Compression boost for heater treater gas to salesline is omitted for simplicity, as it doesn't affect downstream tank conditions. Common handling strategies for HT gas include: 1) Installing an additional booster compressor dedicated to HT gas, 2) Routing the gas line to tank inlets so HT gas can be handled by the tank VRU along with tank vapors, and 3) Using a 3-way control system to enable a single compressor to handle both the tank gas line (0.6 psig) and HT gas line (30 psig).
         </li>
 </ol>
 </div><div id="Notes_Flash_breathing_working_and_loading_losses"></div><div class="alert alert-info">
 <h4>Notes: Flash, Breathing, Working, and Loading Losses</h4>
-<p>AP-42 calculation methods (see <a class="internal-link" href="#1.2.-Software-(Promax)-&-calculation-methods-(AP42-Chap-7)">below</a>) for atmospheric storage tanks provide calculation methods for four vaporization types: flash, working, breathing, and loading.</p>
+<p>AP-42 calculation methods (see <a class="internal-link" href="#2.2.-Software-(Promax)-&-calculation-methods-(AP42-Chap-7)">below</a>) for atmospheric storage tanks provide calculation methods for four vaporization types: flash, working, breathing, and loading.</p>
 <hr/>
 <p><strong>Flash:</strong> Rapid release of dissolved gases from liquid due to a pressure drop from high to low pressure</p>
 <p><strong>Working:</strong> Occurs during tank filling operations. As the liquid level rises, vapor space pressure increases, expelling vapors through the roof vent. Although not included in AP-42 methods, working loss can also involve vaporization from turbulence and vapor/liquid contact due to splash loading. Downcomers (submerged loading) help reduce splash losses.</p>
@@ -1834,7 +1834,7 @@ fig.tight_layout()
 <p><strong>Standardized Design:</strong> API 12F tanks follow strict specifications for dimensions, shape, thickness, reinforcement details, and materials (typically carbon steel) with welded construction to ensure durability and strength. Standardized capacities range from 90 to 1,000 BBL.</p>
 <p><strong>Design Pressure:</strong> Tanks are equipped with a pressure relief mechanism to keep operating pressure below 16 oz (1 psig) to prevent explosion, and a vacuum relief mechanism to stay above 1 oz, preventing implosion.</p>
 <p><strong>Compliance and Safety:</strong> For facilities near commercial or residential areas, API guidelines recommend an additional pressure/vacuum relief mechanism for emergency scenarios, set to release at 24 oz for overpressure and 1.5 oz for vacuum. Most remote wellsites in the field do not require this extra installation.</p>
-<p><strong>Vent Line Connection Sizing:</strong> The guidelines specify minimum pipe diameters for roof vent lines, especially critical when not venting directly to air. This sizing ensures minimal pressure drop between the vent line and emission control system (e.g., VRU or flare). Typical tank operating pressure is below 0.6 psig, allowing only a small margin to ensure vapor flow to the VRU or flare. Even minor pressure drops from friction can restrict flow, leading to overpressurization and triggering relief valves, which results in unwanted emissions. Pipe diameters must be large enough to prevent any pressure drop that could block flow.</p>
+<p><strong>Vent Line Connection Sizing:</strong> The guidelines specify minimum pipe diameters for roof vent lines, especially critical when not venting directly to air. This sizing ensures minimal pressure drop between the vent line and emission control system (e.g., VRU or flare). Typical tank operating pressure is below 0.6 psig, allowing only a small margin to ensure vapor flow to the VRU or flare. Even minor pressure drops from friction can restrict flow, leading to overpressurization and triggering relief valves on the tanks, which results in unwanted emissions. Pipe diameters must be large enough to prevent any pressure drop due to friction that could block flow.</p>
 <div class="row" id="fig-A">
 <div class="col"><img src="jupyter_images/seasonal_API12F1.png" style="border: 1px solid #ddd;"/></div>
 </div>
@@ -1857,11 +1857,12 @@ fig.tight_layout()
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.-Simulation-results">3. Simulation results<a class="anchor-link" href="#3.-Simulation-results">¶</a></h2><p><a class="internal-link" href="#table-2">Table 2</a> shows simulation results for quantifying the seasonal contrast for summer vs winter for tank vapor rates and other properties. The colder the region, such as in Bakken, Powder River, and Marcellus, the greater was the differences due to greater seosonal T difference than warmer regions in Texas. Bakken region showed the greated seasonal tank flash rate increase of 56% in summer compared to winter, while Eagleford showed the lowest increase of 22%.</p>
+<h2 id="3.-Simulation-results">3. Simulation results<a class="anchor-link" href="#3.-Simulation-results">¶</a></h2><p><a class="internal-link" href="#table-2">Table 2</a> shows storage tank simulation results for quantifying the seasonal contrast for summer vs winter for tank vapor rates and other properties. The colder the region, such as in Bakken, Powder River, and Marcellus, the greater was the differences due to greater seosonal T difference than warmer regions in Texas. Bakken region showed the greated seasonal tank flash rate increase of 56% in summer compared to winter, while Eagleford showed the lowest increase of 22%.</p>
+<p>My simulation result table can be downloaded from here: <a class="ico xls" href="https://aegis4048.github.io/downloads/notebooks/sample_data/seasonal_impact_data.xlsx" target="_blank">Storage Tank Emissions Simulation Data</a> <strong>(seasonal_impact_data.xlsx)</strong></p>
 <div class="row" id="table-2">
 <div class="col"><img src="jupyter_images/seasonal_summary_table1.png"/></div>
 </div>
-<div class="col-12 fig-title"><p class="image-description"><strong>Table 2:</strong> Simulation result table contrasting seasonal differences for summer vs. winter for tank vapor line with assumed setups detailed in <a class="internal-link" href="#2.-Simulation-Setups">Simulation Setups</a> above. Air T (°F) is regional seasonal ambient air temperature taken from <a class="internal-link" href="#table-1">Table 1</a>. Tank T (°F) is the operating temperature of the storage tank, affected by upstream heater treater temperature (120F in this setup), and ambient air temperature. RVP (psia), Reid Vapor Pressure,  is taken from <i>"Prod. Oil"</i> stream in <a class="internal-link" href="#fig-6">Figure 6</a>. Dew T (°F) taken from <i>"VRU Discharge"</i> stream in <a class="internal-link" href="#fig-6">Figure 6</a>. This is the dew point temperature of the compressed gas at 150 psig. The rest of the properties, Gas (MCFD), SG, and GHV (Btu/scf) are taken from stream <i>"Total Vapor"</i>. The biggest seasonal contrast occur between Jan vs. July due to the greatest air T difference. </p></div>
+<div class="col-12 fig-title"><p class="image-description"><strong>Table 2:</strong> Storage tank simulation result table contrasting seasonal differences for summer vs. winter for tank vapor line with assumed setups detailed in <a class="internal-link" href="#2.-Simulation-Setups">Simulation Setups</a> above. Air T (°F) is regional seasonal ambient air temperature taken from <a class="internal-link" href="#table-1">Table 1</a>. Tank T (°F) is the operating temperature of the storage tank, affected by upstream heater treater temperature (120F in this setup), and ambient air temperature. RVP (psia), Reid Vapor Pressure,  is taken from <i>"Prod. Oil"</i> stream in <a class="internal-link" href="#fig-6">Figure 6</a>. Dew T (°F) taken from <i>"VRU Discharge"</i> stream in <a class="internal-link" href="#fig-6">Figure 6</a>. This is the dew point temperature of the compressed gas at 150 psig. The rest of the properties, Gas (MCFD), SG, and GHV (Btu/scf) are taken from stream <i>"Total Vapor"</i>. The biggest seasonal contrast occur between Jan vs. July due to the greatest air T difference. </p></div>
 </div>
 </div>
 </div>
@@ -1871,12 +1872,12 @@ fig.tight_layout()
 <div class="highlights red-theme" id="warning-regional">
 <div class="highlights-title red-theme">WARNING: Important Assumption Regarding "Regional" Data</div>
 <div class="highlights-content red-theme">
-        It’s important to clarify that the simulation results for each region are based solely on variations in temperature across different time frames and locations. All other parameters—such as compositional differences from various reservoirs, wellhead pressure, and temperature—are held constant. In other words, when referencing results for "Bakken Shale," this does not imply that sample compositional data is obtained from Bakken wells. Only the regional temperature data is adjusted. The purpose of keeping all other variables static, aside from temperature, is to isolate and observe the sole impact of seasonal temperature variations across regions. This provides a clearer idea of how much more flash volume can be expected in summer compared to winter at different key regions.
+        It’s important to clarify that the simulation results for each region are based solely on variations in temperature across different time frames and locations. All other parameters—such as reservoir-specific compositions, pressure, and temperature conditions of vessels—are held constant. In other words, when referencing results for "Bakken Shale," this does not imply that sample compositional data is obtained from Bakken wells. Only the regional temperature data is adjusted. The purpose of keeping all other variables static, aside from temperature, is to isolate and observe the sole impact of seasonal temperature variations across regions. This provides a clearer idea of how much more flash volume can be expected in summer compared to winter at different key regions.
     </div>
 </div><div class="highlights red-theme" id="warning-dewpoint">
 <div class="highlights-title red-theme">WARNING: Dew Point Sensitivity To Compositions</div>
 <div class="highlights-content red-theme">
-                Dew point temperature (which is part of phase envelope) is highly sensitive to composition. The fact that it showed maximum dew point T difference, which was at max only 12F (168F vs 190.7F at winter vs. summer) difference at Bakken, in the sim result table should not be assumed to be similar for other real-life applications too. For example in <a class="internal-link" href="#fig-5">Figure 5</a>, dew point temperature difference at 150 psig is approximately 40 degrees for winter vs summer. However, other parameters are relatively less senstive to composition variations, and can be referenced for general applications.
+                Dew point temperature (which is part of phase envelope) is highly sensitive to composition. The fact that it showed maximum dew point T difference of only 12F (168F vs 190.7F at winter vs. summer) for Bakken in the sim result table should not be assumed to be similar for other similar applications too. For example in <a class="internal-link" href="#fig-5">Figure 5</a>, dew point temperature difference at 150 psig is approximately 40 degrees for winter vs summer. However, other parameters are relatively less senstive to composition variations, and can be referenced for general applications.
     </div>
 </div>
 </div>
