@@ -29,8 +29,8 @@
         <meta property="og:article:published_time" content="2024-11-11T00:00:00-08:00" />
     <meta name="twitter:title" content="Impact of Seasonal Changes on Storage Tank Emissions | Pythonic Excursions">
     <meta name="twitter:description" content="Impact of increased temperature during summer on tank emission volumes">
-        <meta property="og:image" content="https://aegis4048.github.io/images/featured_images/seasonal_changes1.png" />
-        <meta name="twitter:image" content="https://aegis4048.github.io/images/featured_images/seasonal_changes1.png" >
+        <meta property="og:image" content="https://aegis4048.github.io/images/featured_images/seasonal_thumbnail.png" />
+        <meta name="twitter:image" content="https://aegis4048.github.io/images/featured_images/seasonal_thumbnail.png" >
 
 
         <title>    Impact of Seasonal Changes on Storage Tank Emissions  | Pythonic Excursions
@@ -1301,8 +1301,28 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div id="introduction"></div><p>Concerns over global warming have led to stricter regulations, pushing oil and gas operators to produce "green" oil. One of the primary sources of emissions in the industry is from crude oil storage tanks. When hydrocarbon liquids are transferred into storage tanks from upstream separators, the crude oil is not fully stabilized yet and still contains some dissolved volatile gases, which vaporize inside the tank. These vapors accumulate, increasing pressure within the tank, requiring a pressure relief system to prevent explosions. Such relief mechanism can be either vapor recovery systems with compressors to capture vapors and send them to pipelines for sales, which are more environmentally friendly, or venting to air.</p>
 <p>Vapor generation within a tank is influenced by two main factors: 1) the pressure drop from the upstream separator to the storage tank, and 2) the tank’s operating temperature. This article focuses on the latter—how the operating temperature of the tank, impacted by seasonal changes, affects emission volumes.</p>
 <p>Here’s a quick takeaway for skimmers: <strong>Emission volumes are 22% (Texas) to 56% (North Dakota) higher in summer than in winter</strong> due to increased air temperatures. The summer-winter discrepancy is more pronounced in colder regions because of the greater seasonal temperature difference. See <a class="internal-link" href="#table-2">Table 2</a> below for a simulation summary across various scenarios. Note that this result is specific to the site simulation setups detailed <a class="internal-link" href="#1.1.-Site-(operational)-setups">below</a> and may need fine tuning for different facility setups. However, the concept should still be generally applicable for most upstream facilities.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="row" id="fig-0">
+<div class="col"><img src="jupyter_images/seasonal_thumbnail.png"/></div>
+<div class="col-12">
+<p class="image-description">
+<strong>Figure 0:</strong> Flash volume simulation at atmospheric storage tanks using BR&E Promax. The setup assumes a liquid line from a heater operating at 30 psig and 120°F, dumping into an atmospheric tank at a rate of 3028 STBBL/D (34,600 lb/h) year-round. The plot shows increased emission rate at summer compared to winter due to increased ambient air temperature
+        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <div class="row" id="fig-1">
-<div class="col"><img src="jupyter_images/seasonal_bakken2.png"/></div>
+<div class="col"><img src="jupyter_images/seasonal_bakken3.png"/></div>
 <div class="col-12">
 <p class="image-description">
 <strong>Figure 1:</strong> Flash volume simulation at atmospheric storage tanks using BR&E Promax. The setup assumes a liquid line from a heater operating at 30 psig and 120°F, dumping into an atmospheric tank at a rate of 3028 STBBL/D (34,600 lb/h) year-round. The red line represents vapor emission volumes from the tank. All conditions are held constant over 12 months, except for monthly ambient air temperature to isolate the effect of seasonal temperature on emissions. Williston, North Dakota, seasonal temperatures are used. Results show 47 MCFD emissions during winter and 73 MCFD during summer—a 56% increase. Elevated summer temperatures lead to higher emission volumes inside tanks. Refer to <a class="internal-link" href="#fig-3">Figure 3</a> below for a process flow diagram of the site.
@@ -1342,6 +1362,7 @@ fig, ax = plt.subplots(figsize=(8, 4))
 ax.plot(x, df['AVG Air T (F)'], color='purple', label='Avg Air T [°F]', marker='v', markersize=8, linestyle='-')
 ax.plot(x, df['Tank T (F)'], color='darkslateblue', label='Tank T [°F]', marker='x', markersize=8, linestyle='-')
 ax.plot(x, df['Gas (MCFD)'], color='red', label='Tank Vapor [MCFD]', marker='o', markersize=8, linestyle='-', markerfacecolor='white')
+ax.axhline(y=120, ls='--', color='green', label='Inlet Liquid T [°F]')
 
 
 ax.set_ylim(0, 140)
@@ -1407,7 +1428,7 @@ diff_percentage = '+' + str(int((y2 - y1)/y1 * 100)) + '%'
 t1 = ax.text((textxy1[0] + textxy2[0])/2, yloc, diff_percentage, fontsize=11, color='red', ha='center', fontweight='bold')
 t1.set_bbox(dict(facecolor='white', alpha=1, edgecolor='k', pad=5, lw=lw))
 
-ax.legend(fontsize=10, ncol=3, loc='upper left', framealpha=1)
+ax.legend(fontsize=10, ncol=4, loc='upper left', framealpha=1)
 
 ax.set_ylabel('Tmp. [°F], Vapor Rate [MCFD]', fontsize=11)
 
