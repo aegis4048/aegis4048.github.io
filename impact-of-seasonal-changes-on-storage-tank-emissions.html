@@ -1507,7 +1507,7 @@ fig.tight_layout()
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="1.-Theories:-Impact-of-temperature-changes-at-separator-vessels">1. Theories: Impact of temperature changes at separator vessels<a class="anchor-link" href="#1.-Theories:-Impact-of-temperature-changes-at-separator-vessels">¶</a></h2><p>Altering the operating temperature of a separator vessel impacts the phase behavior of fluids within it. This section provides a theoretical explanation of the effects of increasing temperature from low to high.</p>
 <div class="row" id="fig-2" style="">
-<div class="col"><img src="jupyter_images/seasonal_vessel_illustrations.png"/></div>
+<div class="col"><img src="jupyter_images/seasonal_vessel_illustrations1.png"/></div>
 </div>
 <div class="col-12 fig-title"><p class="image-description"><strong>Figure 2:</strong> Simulation of flash behavior at low (100°F) vs high (150°F) temperatures, modeled with BR&E Promax. At higher operating temperatures in a separator vessel, the separated gas volume increases, with higher specific gravity, greater energy content (Btu/scf), and the separated crude becomes more stable, as indicated by a lower Reid Vapor Pressure value.</p></div>
 </div>
@@ -1530,7 +1530,7 @@ fig.tight_layout()
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.2.-Heavier-separated-gas">1.2. Heavier separated gas<a class="anchor-link" href="#1.2.-Heavier-separated-gas">¶</a></h3><p>Heavier hydrocarbon molecules vaporize more readily at elevated temperatures than at low temperatures, increasing the mole fraction of heavy-ends in the gas line and, consequently, the overall gas gravity. In <a class="internal-link" href="#fig-2">Figure 2</a>, the gas specific gravity rose from 0.816 to 0.956 after a 50°F increase in vessel temperature.</p>
+<h3 id="1.2.-Heavier-separated-gas">1.2. Heavier separated gas<a class="anchor-link" href="#1.2.-Heavier-separated-gas">¶</a></h3><p>Heavier hydrocarbon molecules vaporize more readily at elevated temperatures than at low temperatures, increasing the mole fraction of heavy-ends in the gas line and, consequently, the overall gas gravity. In <a class="internal-link" href="#fig-2">Figure 2</a>, the gas specific gravity (SG) rose from 0.816 to 0.956, and molecular weight (MW) from 23.6 to 27.7 lb/lbmol after a 50°F increase in vessel temperature.</p>
 </div>
 </div>
 </div>
@@ -1538,7 +1538,7 @@ fig.tight_layout()
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="1.3.-Higher-energy-content">1.3. Higher energy content<a class="anchor-link" href="#1.3.-Higher-energy-content">¶</a></h3><p>Heavier hydrocarbon molecules have higher energy content (Btu/scf). In <a class="internal-link" href="#fig-2">Figure 2</a>, gas energy content increased from 1396 Btu/scf to 1567 Btu/scf after a 50°F increase in vessel temperature.</p>
-<p>Light-ends like methane have a specific gravity (SG) of 0.5539 and an energy content of 1010 Btu/scf, whereas heavier-ends like n-pentane have an SG of 2.4911 and 4008.7 Btu/scf. In fact, gas specific gravity and energy content exhibit a nearly perfect linear correlation for paraffinic hydrocarbons (e.g., methane, ethane, butane, pentane, hexane), as shown in <a class="internal-link" href="#fig-4">Figure 4</a>.</p>
+<p>Light-ends like methane have a MW of 16.04 lb/lbmol and an energy content of 1010 Btu/scf, whereas heavier-ends like n-pentane have an MW and energy content of 72.15 lb/lbmol and 4008.7 Btu/scf. In fact, gas molecular weight and energy content exhibit a nearly perfect linear correlation for paraffinic hydrocarbons (e.g., methane, ethane, butane, pentane, hexane), as shown in <a class="internal-link" href="#fig-4">Figure 4</a>.</p>
 <div class="row full_screen_margin_80 mobile_responsive_plot_full_width" id="fig-4">
 <div class="col"><img src="jupyter_images/liquid_sg_ghv_gas_vs_mw.png" style="margin-bottom: 10px;"/></div></div>
 <div class="col-12 fig-title"><p class="image-description"><strong>Figure 4:</strong> Scatter plot of known compounds upto n-hexadecane (C16H34) listed in the GPA 2145 table.</p></div>

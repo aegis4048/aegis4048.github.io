@@ -1356,7 +1356,7 @@ fig.tight_layout()
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="1.-Theories:-Impact-of-temperature-changes-at-separator-vessels"&gt;1. Theories: Impact of temperature changes at separator vessels&lt;a class="anchor-link" href="#1.-Theories:-Impact-of-temperature-changes-at-separator-vessels"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Altering the operating temperature of a separator vessel impacts the phase behavior of fluids within it. This section provides a theoretical explanation of the effects of increasing temperature from low to high.&lt;/p&gt;
 &lt;div class="row" id="fig-2" style=""&gt;
-&lt;div class="col"&gt;&lt;img src="jupyter_images/seasonal_vessel_illustrations.png"/&gt;&lt;/div&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/seasonal_vessel_illustrations1.png"/&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure 2:&lt;/strong&gt; Simulation of flash behavior at low (100°F) vs high (150°F) temperatures, modeled with BR&amp;E Promax. At higher operating temperatures in a separator vessel, the separated gas volume increases, with higher specific gravity, greater energy content (Btu/scf), and the separated crude becomes more stable, as indicated by a lower Reid Vapor Pressure value.&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1379,7 +1379,7 @@ fig.tight_layout()
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="1.2.-Heavier-separated-gas"&gt;1.2. Heavier separated gas&lt;a class="anchor-link" href="#1.2.-Heavier-separated-gas"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Heavier hydrocarbon molecules vaporize more readily at elevated temperatures than at low temperatures, increasing the mole fraction of heavy-ends in the gas line and, consequently, the overall gas gravity. In &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt;, the gas specific gravity rose from 0.816 to 0.956 after a 50°F increase in vessel temperature.&lt;/p&gt;
+&lt;h3 id="1.2.-Heavier-separated-gas"&gt;1.2. Heavier separated gas&lt;a class="anchor-link" href="#1.2.-Heavier-separated-gas"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Heavier hydrocarbon molecules vaporize more readily at elevated temperatures than at low temperatures, increasing the mole fraction of heavy-ends in the gas line and, consequently, the overall gas gravity. In &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt;, the gas specific gravity (SG) rose from 0.816 to 0.956, and molecular weight (MW) from 23.6 to 27.7 lb/lbmol after a 50°F increase in vessel temperature.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1387,7 +1387,7 @@ fig.tight_layout()
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="1.3.-Higher-energy-content"&gt;1.3. Higher energy content&lt;a class="anchor-link" href="#1.3.-Higher-energy-content"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Heavier hydrocarbon molecules have higher energy content (Btu/scf). In &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt;, gas energy content increased from 1396 Btu/scf to 1567 Btu/scf after a 50°F increase in vessel temperature.&lt;/p&gt;
-&lt;p&gt;Light-ends like methane have a specific gravity (SG) of 0.5539 and an energy content of 1010 Btu/scf, whereas heavier-ends like n-pentane have an SG of 2.4911 and 4008.7 Btu/scf. In fact, gas specific gravity and energy content exhibit a nearly perfect linear correlation for paraffinic hydrocarbons (e.g., methane, ethane, butane, pentane, hexane), as shown in &lt;a class="internal-link" href="#fig-4"&gt;Figure 4&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Light-ends like methane have a MW of 16.04 lb/lbmol and an energy content of 1010 Btu/scf, whereas heavier-ends like n-pentane have an MW and energy content of 72.15 lb/lbmol and 4008.7 Btu/scf. In fact, gas molecular weight and energy content exhibit a nearly perfect linear correlation for paraffinic hydrocarbons (e.g., methane, ethane, butane, pentane, hexane), as shown in &lt;a class="internal-link" href="#fig-4"&gt;Figure 4&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="row full_screen_margin_80 mobile_responsive_plot_full_width" id="fig-4"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/liquid_sg_ghv_gas_vs_mw.png" style="margin-bottom: 10px;"/&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure 4:&lt;/strong&gt; Scatter plot of known compounds upto n-hexadecane (C16H34) listed in the GPA 2145 table.&lt;/p&gt;&lt;/div&gt;
