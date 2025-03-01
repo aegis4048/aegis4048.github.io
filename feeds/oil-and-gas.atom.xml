@@ -1166,7 +1166,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div id="Clarifications-on-Terms"&gt;&lt;/div&gt;
 &lt;div class="alert alert-info"&gt;
-&lt;h4&gt;Clarifications on Terms&lt;/h4&gt;
+&lt;h4&gt;Notes: Clarifications on Terms&lt;/h4&gt;
 &lt;p&gt;&lt;hr/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Low Pressure Vessels:&lt;/strong&gt; Refers to vessels such as low-pressure separators, heater treaters (HT), vapor recovery towers (VRT), or tanks. These vessels are downstream of the primary separator and operate at pressures lower than the sales line pressure.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Sales (Produced) Gas:&lt;/strong&gt; High-pressure gas from the primary separator that operates around the sales line pressure, typically lean gas with a BTU content of 1050-1600 Btu/scf.&lt;/p&gt;
@@ -1185,6 +1185,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;ul class="toc_list"&gt;
 &lt;li&gt;&lt;a href="#introduction"&gt;&lt;span class="toc_label"&gt;0.&lt;/span&gt;
             Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#Clarifications-on-Terms"&gt;&lt;span class="toc_label"&gt;Notes:&lt;/span&gt;
+                    Clarifications on Terms&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;li&gt;&lt;a href="#1.-Industry-Practices-for-VRU-Sizing"&gt;&lt;span class="toc_label"&gt;1.&lt;/span&gt;
             Industry Practices for VRU Sizing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#2.-Predicting-lash-gas-flowrates-with-process-simulations"&gt;&lt;span class="toc_label"&gt;2.&lt;/span&gt;
