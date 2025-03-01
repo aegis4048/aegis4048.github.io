@@ -5,15 +5,22 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://aegis4048.github.io/</loc>
-<lastmod>2024-11-15T14:14:46-00:00</lastmod>
+<lastmod>2025-03-01T04:51:30-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/archives.html</loc>
-<lastmod>2024-11-15T14:14:46-00:00</lastmod>
+<lastmod>2025-03-01T04:51:30-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/predicting_vru_economics_for_declining_wells</loc>
+<lastmod>2025-02-25T00:00:00-08:00</lastmod>
+<changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -138,7 +145,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://aegis4048.github.io/category/oil-and-gas.html</loc>
-<lastmod>2024-11-11T00:00:00-07:53</lastmod>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -159,83 +166,118 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://aegis4048.github.io/tag/oil-and-gas.html</loc>
-<lastmod>2024-11-11T00:00:00-07:53</lastmod>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/oil.html</loc>
-<lastmod>2024-11-11T00:00:00-07:53</lastmod>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/gas.html</loc>
-<lastmod>2024-11-11T00:00:00-07:53</lastmod>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/process-engineering.html</loc>
-<lastmod>2024-11-11T00:00:00-07:53</lastmod>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/promax.html</loc>
-<lastmod>2024-11-11T00:00:00-07:53</lastmod>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/measurements.html</loc>
-<lastmod>2024-11-11T00:00:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://aegis4048.github.io/tag/gas-sample.html</loc>
-<lastmod>2024-11-11T00:00:00-07:53</lastmod>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/separators.html</loc>
-<lastmod>2024-11-11T00:00:00-07:53</lastmod>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/vru.html</loc>
-<lastmod>2024-11-11T00:00:00-07:53</lastmod>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/heaters.html</loc>
-<lastmod>2024-11-11T00:00:00-07:53</lastmod>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/storage-tank.html</loc>
-<lastmod>2024-11-11T00:00:00-07:53</lastmod>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://aegis4048.github.io/tag/emissions.html</loc>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/flash.html</loc>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/dca.html</loc>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/decline-curve-analysis.html</loc>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/economics.html</loc>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/cashflow.html</loc>
+<lastmod>2025-02-25T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://aegis4048.github.io/tag/gas-sample.html</loc>
 <lastmod>2024-11-11T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -257,13 +299,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://aegis4048.github.io/tag/dew-point.html</loc>
-<lastmod>2024-11-11T00:00:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://aegis4048.github.io/tag/flash.html</loc>
 <lastmod>2024-11-11T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>

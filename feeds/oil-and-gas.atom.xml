@@ -1,5 +1,1784 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Oil and Gas</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/oil-and-gas.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2024-11-11T00:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Impact of Seasonal Changes on Storage Tank Emissions</title><link href="https://aegis4048.github.io/impact-of-seasonal-changes-on-storage-tank-emissions" rel="alternate"></link><published>2024-11-11T00:00:00-08:00</published><updated>2024-11-11T00:00:00-08:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2024-11-11:/impact-of-seasonal-changes-on-storage-tank-emissions</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pythonic Excursions - Oil and Gas</title><link href="https://aegis4048.github.io/" rel="alternate"></link><link href="https://aegis4048.github.io/feeds/oil-and-gas.atom.xml" rel="self"></link><id>https://aegis4048.github.io/</id><updated>2025-02-25T00:00:00-08:00</updated><subtitle>Stories about Python and Data Science</subtitle><entry><title>Predicting VRU Economics For Declining Wells</title><link href="https://aegis4048.github.io/predicting_vru_economics_for_declining_wells" rel="alternate"></link><published>2025-02-25T00:00:00-08:00</published><updated>2025-02-25T00:00:00-08:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2025-02-25:/predicting_vru_economics_for_declining_wells</id><summary type="html">&lt;style type="text/css"&gt;/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color …&lt;/style&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell &gt; div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area &gt; div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area &gt; div.highlight &gt; pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the &lt;head&gt; if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph &gt; img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell &gt; div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+&lt;/style&gt;
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="introduction"&gt;&lt;/div&gt;&lt;p&gt;Many producers, when sizing vapor recovery units (VRUs) or signing long-term contracts for them, tend to overlook an important factor: the inevitable decline of flash gas rates over time. Flash gas rates at heater treaters (HT), vapor recovery towers (VRT), and tanks follow a similar decline pattern to well production, yet it's a common misconception that these rates will remain steady or only decrease marginally.&lt;/p&gt;
+&lt;p&gt;Working at a compressor company, I’ve seen firsthand how producers expect flash gas rates to hold relatively flat or marginally decline; the flash gas rates go down much quicker than they think. While the oil decline rate plays the largest role in this reduction, many still fail to account for it when planning for long-term operations. It's not necessarily that they don't know about the decline, but rather that they simply forget to think about it. Downsizing is often not done in a timely manner because it’s overlooked, and as a result, VRUs quickly become oversized and uneconomical. It's also common to see a well experience more than a 50% drop in production within the first few months, making this issue even more critical.&lt;/p&gt;
+&lt;p&gt;&lt;hr/&gt;
+&lt;strong&gt;KEY DELIVERABLES OF THIS ARTICLE:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlights mb-2 mt-2" id="key1"&gt;
+&lt;div class="highlights-title"&gt;1. Process simulation results for predicting low-pressure flash gas rates at each monthly decline.&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlights mb-2 mt-2" id="key2"&gt;
+&lt;div class="highlights-title"&gt;2. Evidence demonstrating that flash gas rate declines are primarily driven by oil decline, with sales gas decline having a minor impact in comparison.&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlights mb-2 mt-2" id="key3"&gt;
+&lt;div class="highlights-title"&gt;3. An Excel sheet for calculating VRU economics alongside simulation results.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div id="Clarifications-on-Terms"&gt;&lt;/div&gt;
+&lt;div class="alert alert-info"&gt;
+&lt;h4&gt;Clarifications on Terms&lt;/h4&gt;
+&lt;p&gt;&lt;hr/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Low Pressure Vessels:&lt;/strong&gt; Refers to vessels such as low-pressure separators, heater treaters (HT), vapor recovery towers (VRT), or tanks. These vessels are downstream of the primary separator and operate at pressures lower than the sales line pressure.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sales (Produced) Gas:&lt;/strong&gt; High-pressure gas from the primary separator that operates around the sales line pressure, typically lean gas with a BTU content of 1050-1600 Btu/scf.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Flash Gas:&lt;/strong&gt; Gas volumes coming from low-pressure vessels operating below sales line pressure. These gases are richer, typically ranging from 1400-3000 Btu/scf, and lack sufficient pressure to enter the sales line. Flash gas can either be flared or recovered by VRUs that compress the gas to above sales line pressure. Flash gas is often distinguished from sales gas. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;VRU Flowrate:&lt;/strong&gt; For the purpose of this article, VRU flowrate is synonymous to flash gas.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;VRU:&lt;/strong&gt; Vapor Recovery Unit, VRU, is one application of a compressor. The compressor type can be rotary vane, rotary screw, or reciprocating.
+&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="display-none" id="toc_container"&gt;
+&lt;p class="toc_title"&gt;&lt;i class="fas fa-list"&gt;&lt;/i&gt;Contents&lt;/p&gt;
+&lt;ul class="toc_list"&gt;
+&lt;li&gt;&lt;a href="#introduction"&gt;&lt;span class="toc_label"&gt;0.&lt;/span&gt;
+            Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#1.-Industry-Practices-for-VRU-Sizing"&gt;&lt;span class="toc_label"&gt;1.&lt;/span&gt;
+            Industry Practices for VRU Sizing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#2.-Predicting-lash-gas-flowrates-with-process-simulations"&gt;&lt;span class="toc_label"&gt;2.&lt;/span&gt;
+            Predicting lash gas flowrates with process simulations&lt;/a&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#2.1.-Site-(operational)-setups"&gt;&lt;span class="toc_label"&gt;2.1.&lt;/span&gt;
+                    Site (operational) setups&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#2.2.-Simulation-scenarios"&gt;&lt;span class="toc_label"&gt;2.2.&lt;/span&gt;
+                    Simulation scenarios&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;&lt;a href="#3.-Simulation-results"&gt;&lt;span class="toc_label"&gt;3.&lt;/span&gt;
+            Simulation results&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#4.-VRU-Economics"&gt;&lt;span class="toc_label"&gt;4.&lt;/span&gt;
+            VRU Economics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#5.-Conclusion/Summary"&gt;&lt;span class="toc_label"&gt;5.&lt;/span&gt;
+            Conclusion/Summary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="1.-Industry-Practices-for-VRU-Sizing"&gt;1. Industry Practices for VRU Sizing&lt;a class="anchor-link" href="#1.-Industry-Practices-for-VRU-Sizing"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When a new facility is being built, engineers typically input the expected initial production (IP) flowrates into process simulation software to estimate the expected flash gas flowrates at low-pressure vessels. In the absence of process simulation software, many producers and vendors rely on ballpark estimates using flat scf/bbl numbers based on regional experience to predict flash gas volumes. While quick, this scf/bbl method doesn't account for the operating pressure of the vessels, leading to inaccuracies. These projected rates are then provided to VRU vendors, who size the equipment and provide quotes based on the high IP flowrates. Since these flowrates are often large, the VRU is sized to handle peak capacity, resulting in a costly investment. However, as the well declines, these high flowrates no longer match reality, and the oversized VRU quickly becomes uneconomical. Unfortunately, this issue is often realized too late, as VRUs are not always the primary concern for producers.&lt;/p&gt;
+&lt;p&gt;Some keen producers who pay attention to VRUs predict monthly VRU flowrate declines using process simulations or by applying an oil decline curve to the IP flash gas rates. For example, if oil is expected to drop by 50% in the first 4 months and the IP flash gas rate is initially calculated to be 100 MCFD, the flash gas rate will decrease to around 50 MCFD in 4 months (It's important to note that downstream flash gas rates are not significantly impacted by sales gas decline. See section 3.1). The large and expensive compressor sized for peak initial flowrate will either be downsized or moved to a different location with similar production capacity to ensure its continued economic viability.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="2.-Predicting-lash-gas-flowrates-with-process-simulations"&gt;2. Predicting lash gas flowrates with process simulations&lt;a class="anchor-link" href="#2.-Predicting-lash-gas-flowrates-with-process-simulations"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The purpose of this section is to demonstrate that the declining flash gas rates at low-pressure vessels closely follow the oil decline curve and to highlight that gas decline has a minor impact compared to oil decline. BR&amp;E Promax software is used for the simulations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="2.1.-Site-(operational)-setups"&gt;2.1. Site (operational) setups&lt;a class="anchor-link" href="#2.1.-Site-(operational)-setups"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A generic upstream facility structure is used for simulations. Reservoir fluid flows up the production tubing to the wellhead, then to the first-stage 2-phase separator, followed by a second-stage 2-phase separator operating 5 psi lower than the first stage, a heater treater, VRT, and finally to atmospheric storage tanks. The purpose of the second-stage separator is to separate the liquids entrained in the gas stream from the first-stage separator. &lt;a class="internal-link" href="#fig-1"&gt;Figure 1&lt;/a&gt; shows the facility model created in Promax for IP flowrates. This model serves as the base, accepting monthly declining oil, gas, and water rates (&lt;a class="internal-link" href="#2.2.-Simulation-scenarios"&gt;Section 2.2&lt;/a&gt;) as inputs, and returning declining rates of downstream flash gases as outputs (&lt;a class="internal-link" href=""&gt;Table ???&lt;/a&gt;).&lt;/p&gt;
+&lt;div class="row" id="fig-1"&gt; &lt;div class="col"&gt;&lt;img src="jupyter_images/VRU_economics_sim_setup.png"/&gt;&lt;/div&gt; &lt;/div&gt; &lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure 1:&lt;/strong&gt; Generic upstream facility modeling done in BR&amp;E Promax. IP rates of 9 MMSCFD (gas), 1800 BOPD (oil), and 3700 BWPD (water) are assumed. Numbers in the red boxes show produced and flash gas rates.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="ordered-list"&gt;
+&lt;h2&gt;Assumptions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Generic upstream oil and gas facility with wellhead.&lt;/li&gt;
+&lt;li&gt;2 stage 2-phase separators operating at 140 and 135 psig.&lt;/li&gt;
+&lt;li&gt;VRU discharge pressure set equal to 1st separator pressure: 140 psig.&lt;/li&gt;
+&lt;li&gt;Details of VRU components (ex: cooler, knockout scrubbers) are omitted for simplicity.&lt;/li&gt;
+&lt;li&gt;Wellhead temperature: 120°F.&lt;/li&gt;
+&lt;li&gt;3-phase heater treater operating at 50 psig, 140°F.&lt;/li&gt;
+&lt;li&gt;Atmospheric oil tank operating at 0.4 psig, 120°F&lt;/li&gt;
+&lt;li&gt;48° API oil.&lt;/li&gt;
+&lt;li&gt;Sales gas energy content: around 1420 Btu/scf&lt;/li&gt;
+&lt;li&gt;Facility Initial production rates: 9 MMSCFD (gas), 1800 BOPD (oil), and 3700 BWPD (water).&lt;/li&gt;
+&lt;li&gt;Future declining production rates are predicted by &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;BR&amp;E Promax solver is used to solve for flowrates at wellhead. Solver adjusts inlet (wellhead) flowrates to match production rates at measurement points (sales gas meter/LACT/trucking/etc) leaving the system.&lt;/li&gt;
+&lt;li&gt;Realistic oil and gas compositions used.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="2.2.-Simulation-scenarios"&gt;2.2. Simulation scenarios&lt;a class="anchor-link" href="#2.2.-Simulation-scenarios"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;To observe the impact of well decline on downstream flash gas flowrates, decline curve analysis (DCA) parameters are set up to simulate declining oil, gas, and water flowrates. Oil and water decline rates (with water having no impact on flash gas volumes) are fixed to isolate the impact of gas declines. Three scenarios are considered: 1) gas declining faster than oil, 2) gas declining slower than oil, and 3) gas declining at the same rate as oil. The DCA parameters shown in &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt; are used to create hypothetical declining well production rates, as shown in &lt;a class="internal-link" href="#fig-3"&gt;Figures 3, 4, and 5&lt;/a&gt;. These rates are then fed into the Promax model to predict flash gas rates at low-pressure vessels.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;hr/&gt;
+&lt;div class="row" id="fig-2"&gt; &lt;div class="col"&gt;&lt;img src="jupyter_images/VRU_economics_DCA_scenarios.png"/&gt;&lt;/div&gt; &lt;/div&gt; &lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure 2:&lt;/strong&gt; DCA parameters used to simulate declining well flowrates. Oil and water decline rates are fixed to observe the sole impact of produced gas decline on flash gas declines. Note that the b-factor is set the same for both oil and gas in all scenarios for ease of decline curve comparisons.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="row" id="fig-3"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/VRU_economics_scenario_A.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure 3:&lt;/strong&gt; Well decline curve prediction from the DCA parameters in scenario A of &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="solution_panel closed" style="margin-top: -10px"&gt;
+&lt;div class="solution_title"&gt;
+&lt;p class="solution_title_string"&gt;Source Code For Figure (3)&lt;/p&gt;
+&lt;ul class="nav navbar-right panel_toolbox"&gt;
+&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="solution_content"&gt;
+&lt;pre&gt;
+            &lt;code class="language-python"&gt;
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def general_decline(t, qi, Di, b):
+    """
+    Arps' decline equation for production decline modeling.
+
+    Args:
+        t (array-like): Time values.
+        qi (float): Initial production rate.
+        Di (float): Initial decline rate.
+        b (float): Decline exponent.
+
+    Returns:
+        array-like: Production rate at time t.
+    """
+    return qi * (1 + b * Di * t) ** (-1 / b)
+
+params = {
+    'Oil': {'qi': 1800, 'Di': 0.3, 'b': .7},
+    'Gas': {'qi': 9000, 'Di': 0.5, 'b': 0.7},
+    'Water': {'qi': 3700, 'Di': 0.5, 'b': 1}
+}
+
+x = np.arange(0, 61)
+fits = {
+    'Oil': [],
+    'Gas': [],
+    'Water': [],
+}
+for key in params.keys():
+    target_params = list(params[key].values())
+    fits[key] = general_decline(x, *target_params)
+df = pd.DataFrame.from_dict(fits)
+df['Count'] = x
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+oc = 'green'
+gc = 'red'
+wc = 'blue'
+
+
+ax.plot(df['Count'], df['Oil'], c=oc, label='Oil')
+ax.plot(df['Count'], df['Gas'], c=gc, label='Gas')
+ax.plot(df['Count'], df['Water'], c=wc, label='Water')
+
+
+ax.set_xlabel('Months')
+ax.set_ylabel('BOPD, BWPD, MCFD')
+
+
+ax.grid(True)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+#ax.minorticks_on()
+ax.grid(axis='both', which='minor', color='grey', linestyle='--', alpha=0.2)
+ax.legend(ncol=6, loc='upper right')
+
+ymax = 10000
+ymin = 10
+xmax = ax.get_xlim()[1]
+xmin = 0 - xmax * 0.05
+ax.set_yscale('log')
+ax.set_ylim(20, None)
+ax.set_xlim(xmin, None)
+
+ax.text(0.05, 0.15, 'Gas:    ' + str(params['Gas']), fontsize=10, ha='left', transform=ax.transAxes, color=gc, alpha=0.7)
+ax.text(0.05, 0.1,  'Oil:      ' + str(params['Oil']), fontsize=10, ha='left', transform=ax.transAxes, color=oc, alpha=0.7)
+ax.text(0.05, 0.05, 'Water: ' + str(params['Water']), fontsize=10, ha='left', transform=ax.transAxes, color=wc, alpha=0.7)
+
+arps_equation = r"$q_t = q_i \left( 1 + b D_i t \right)^{-\frac{1}{b}}$"
+ax.text(
+    0.05, 0.35, arps_equation, fontsize=11, ha='left', va='top', transform=ax.transAxes, color='black',
+    bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.3')
+)
+
+ax.text(
+    0.95, 0.8, 'Scenario: A', fontsize=17, ha='right', va='top', transform=ax.transAxes, color='black',
+    bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.3')
+)
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+bold_txt = setbold('Scenario A: Gas Decline Faster Than Oil, ')
+plain_txt = 'from hypothetical DCA parameters'
+fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=11)
+yloc = 0.9
+ax.annotate('', xy=(0.01, yloc + 0.01), xycoords='figure fraction', xytext=(1.02, yloc + 0.01),
+            arrowprops=dict(arrowstyle="-", color='k', lw=0.7))
+
+ax.text(0.98, 0.08, 'aegis4048.github.io', fontsize=10, ha='right', transform=ax.transAxes, color='grey', alpha=0.5)
+
+fig.tight_layout()
+            &lt;/code&gt;
+        &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="row" id="fig-4"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/VRU_economics_scenario_B.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure 4:&lt;/strong&gt; Well decline curve prediction from the DCA parameters in scenario B of &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="solution_panel closed" style="margin-top: -10px"&gt;
+&lt;div class="solution_title"&gt;
+&lt;p class="solution_title_string"&gt;Source Code For Figure (4)&lt;/p&gt;
+&lt;ul class="nav navbar-right panel_toolbox"&gt;
+&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="solution_content"&gt;
+&lt;pre&gt;
+            &lt;code class="language-python"&gt;
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def general_decline(t, qi, Di, b):
+    """
+    Arps' decline equation for production decline modeling.
+
+    Args:
+        t (array-like): Time values.
+        qi (float): Initial production rate.
+        Di (float): Initial decline rate.
+        b (float): Decline exponent.
+
+    Returns:
+        array-like: Production rate at time t.
+    """
+    return qi * (1 + b * Di * t) ** (-1 / b)
+
+params = {
+    'Oil': {'qi': 1800, 'Di': 0.3, 'b': .7},
+    'Gas': {'qi': 9000, 'Di': 0.1, 'b': 0.7},
+    'Water': {'qi': 3700, 'Di': 0.5, 'b': 1}
+}
+
+x = np.arange(0, 61)
+fits = {
+    'Oil': [],
+    'Gas': [],
+    'Water': [],
+}
+for key in params.keys():
+    target_params = list(params[key].values())
+    fits[key] = general_decline(x, *target_params)
+df = pd.DataFrame.from_dict(fits)
+df['Count'] = x
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+oc = 'green'
+gc = 'red'
+wc = 'blue'
+
+
+ax.plot(df['Count'], df['Oil'], c=oc, label='Oil')
+ax.plot(df['Count'], df['Gas'], c=gc, label='Gas')
+ax.plot(df['Count'], df['Water'], c=wc, label='Water')
+
+
+ax.set_xlabel('Months')
+ax.set_ylabel('BOPD, BWPD, MCFD')
+
+
+ax.grid(True)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+#ax.minorticks_on()
+ax.grid(axis='both', which='minor', color='grey', linestyle='--', alpha=0.2)
+ax.legend(ncol=6, loc='upper right')
+
+ymax = 10000
+ymin = 10
+xmax = ax.get_xlim()[1]
+xmin = 0 - xmax * 0.05
+ax.set_yscale('log')
+ax.set_ylim(20, None)
+ax.set_xlim(xmin, None)
+
+ax.text(0.05, 0.15, 'Gas:    ' + str(params['Gas']), fontsize=10, ha='left', transform=ax.transAxes, color=gc, alpha=0.7)
+ax.text(0.05, 0.1,  'Oil:      ' + str(params['Oil']), fontsize=10, ha='left', transform=ax.transAxes, color=oc, alpha=0.7)
+ax.text(0.05, 0.05, 'Water: ' + str(params['Water']), fontsize=10, ha='left', transform=ax.transAxes, color=wc, alpha=0.7)
+
+arps_equation = r"$q_t = q_i \left( 1 + b D_i t \right)^{-\frac{1}{b}}$"
+ax.text(
+    0.05, 0.35, arps_equation, fontsize=11, ha='left', va='top', transform=ax.transAxes, color='black',
+    bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.3')
+)
+
+ax.text(
+    0.95, 0.8, 'Scenario: B', fontsize=17, ha='right', va='top', transform=ax.transAxes, color='black',
+    bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.3')
+)
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+bold_txt = setbold('Scenario B: Gas Decline Faster Than Oil, ')
+plain_txt = 'from hypothetical DCA parameters'
+fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=11)
+yloc = 0.9
+ax.annotate('', xy=(0.01, yloc + 0.01), xycoords='figure fraction', xytext=(1.02, yloc + 0.01),
+            arrowprops=dict(arrowstyle="-", color='k', lw=0.7))
+
+ax.text(0.98, 0.08, 'aegis4048.github.io', fontsize=10, ha='right', transform=ax.transAxes, color='grey', alpha=0.5)
+
+fig.tight_layout()
+            &lt;/code&gt;
+        &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="row" id="fig-5"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/VRU_economics_scenario_C.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure 5:&lt;/strong&gt; Well decline curve prediction from the DCA parameters in scenario C of &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="solution_panel closed" style="margin-top: -10px"&gt;
+&lt;div class="solution_title"&gt;
+&lt;p class="solution_title_string"&gt;Source Code For Figure (5)&lt;/p&gt;
+&lt;ul class="nav navbar-right panel_toolbox"&gt;
+&lt;li&gt;&lt;a class="collapse-link"&gt;&lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="solution_content"&gt;
+&lt;pre&gt;
+            &lt;code class="language-python"&gt;
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def general_decline(t, qi, Di, b):
+    """
+    Arps' decline equation for production decline modeling.
+
+    Args:
+        t (array-like): Time values.
+        qi (float): Initial production rate.
+        Di (float): Initial decline rate.
+        b (float): Decline exponent.
+
+    Returns:
+        array-like: Production rate at time t.
+    """
+    return qi * (1 + b * Di * t) ** (-1 / b)
+
+params = {
+    'Oil': {'qi': 1800, 'Di': 0.3, 'b': .7},
+    'Gas': {'qi': 9000, 'Di': 0.3, 'b': 0.7},
+    'Water': {'qi': 3700, 'Di': 0.5, 'b': 1}
+}
+
+x = np.arange(0, 61)
+fits = {
+    'Oil': [],
+    'Gas': [],
+    'Water': [],
+}
+for key in params.keys():
+    target_params = list(params[key].values())
+    fits[key] = general_decline(x, *target_params)
+df = pd.DataFrame.from_dict(fits)
+df['Count'] = x
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+oc = 'green'
+gc = 'red'
+wc = 'blue'
+
+
+ax.plot(df['Count'], df['Oil'], c=oc, label='Oil')
+ax.plot(df['Count'], df['Gas'], c=gc, label='Gas')
+ax.plot(df['Count'], df['Water'], c=wc, label='Water')
+
+
+ax.set_xlabel('Months')
+ax.set_ylabel('BOPD, BWPD, MCFD')
+
+
+ax.grid(True)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+#ax.minorticks_on()
+ax.grid(axis='both', which='minor', color='grey', linestyle='--', alpha=0.2)
+ax.legend(ncol=6, loc='upper right')
+
+ymax = 10000
+ymin = 10
+xmax = ax.get_xlim()[1]
+xmin = 0 - xmax * 0.05
+ax.set_yscale('log')
+ax.set_ylim(20, None)
+ax.set_xlim(xmin, None)
+
+ax.text(0.05, 0.15, 'Gas:    ' + str(params['Gas']), fontsize=10, ha='left', transform=ax.transAxes, color=gc, alpha=0.7)
+ax.text(0.05, 0.1,  'Oil:      ' + str(params['Oil']), fontsize=10, ha='left', transform=ax.transAxes, color=oc, alpha=0.7)
+ax.text(0.05, 0.05, 'Water: ' + str(params['Water']), fontsize=10, ha='left', transform=ax.transAxes, color=wc, alpha=0.7)
+
+arps_equation = r"$q_t = q_i \left( 1 + b D_i t \right)^{-\frac{1}{b}}$"
+ax.text(
+    0.05, 0.35, arps_equation, fontsize=11, ha='left', va='top', transform=ax.transAxes, color='black',
+    bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.3')
+)
+
+ax.text(
+    0.95, 0.8, 'Scenario: C', fontsize=17, ha='right', va='top', transform=ax.transAxes, color='black',
+    bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.3')
+)
+
+
+def setbold(txt):
+    return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
+
+bold_txt = setbold('Scenario C: Gas Decline Faster Than Oil, ')
+plain_txt = 'from hypothetical DCA parameters'
+fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=11)
+yloc = 0.9
+ax.annotate('', xy=(0.01, yloc + 0.01), xycoords='figure fraction', xytext=(1.02, yloc + 0.01),
+            arrowprops=dict(arrowstyle="-", color='k', lw=0.7))
+
+ax.text(0.98, 0.08, 'aegis4048.github.io', fontsize=10, ha='right', transform=ax.transAxes, color='grey', alpha=0.5)
+
+fig.tight_layout()
+            &lt;/code&gt;
+        &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="3.-Simulation-results"&gt;3. Simulation results&lt;a class="anchor-link" href="#3.-Simulation-results"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;BR&amp;E Promax is used to simulate flash gas declines at the heater and VRT. The base model shown in &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt; was fed with the three declining scenarios shown in &lt;a class="internal-link" href="#fig-3"&gt;Figures 3, 4, and 5&lt;/a&gt;. Declines up to 60 months are simulated, though not all months are shown for brevity. You can download the full &lt;a class="ico xls" href="https://aegis4048.github.io//sample_data/VRU%20Declining%20Economics%20-%20Sim%20Results.xlsx" target="_blank"&gt;Simulation Results Data&lt;/a&gt; &lt;strong&gt;(VRU Declining Economics - Sim Results.xlsx)&lt;/strong&gt; to review the complete Promax simulation results in Excel. Refer to Tabs 1a, 1b, and 1c. Note that the DCA parameters shown on the right are realistic parameters that you can see in the field.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;&lt;strong&gt;Results Summary&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="no-margin"&gt;Flash gas declines closely follow the oil decline, with gas declines having a relatively minor impact in comparison.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="no-margin"&gt;The primary driver of downstream flash gas rate declines is the oil production rate. Do not predict flash gas decline from the produced (sales) gas decline.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="no-margin"&gt;VRU flowrates can decrease by up to 86% compared to IP flowrates in 12 months, or more than 50% in just 3 months. They decline faster than expected, much like oil production.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;hr/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="row" id="table-1"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/VRU_economics_results_2.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Table 1:&lt;/strong&gt; Simulation results using the base model shown in &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt; and declining flowrate inputs shown in &lt;a class="internal-link" href="#fig-3"&gt;Figures 3, 4, and 5&lt;/a&gt;. The DCA parameters shown on the right represents declining scenarios used to simulate well decline. The percentages represent how much production declines compared to the initial production. Actual flowrate numbers are shown in &lt;a class="internal-link" href="#table-2"&gt;Table 2&lt;/a&gt; below. The first rows in each scenario are emtpy because there's no decline at month=0.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="row" id="table-2"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/VRU_economics_results_1.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Table 2:&lt;/strong&gt; Simulation results using the base model shown in &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt; and declining flowrate inputs shown in &lt;a class="internal-link" href="#fig-3"&gt;Figures 3, 4, and 5&lt;/a&gt;. The DCA parameters shown on the right represents declining scenarios used to simulate well decline.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="4.-VRU-Economics"&gt;4. VRU Economics&lt;a class="anchor-link" href="#4.-VRU-Economics"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;VRU economics are calculated based on the simulation results from scenario C in &lt;a class="internal-link" href="#table-2"&gt;Table 2&lt;/a&gt; for both the heater treater and VRT. The calculation tables are provided below in &lt;a class="internal-link" href="#table-3"&gt;Table 3&lt;/a&gt; for the VRU installation on the VRT and &lt;a class="internal-link" href="#table-4"&gt;Table 4&lt;/a&gt; for the VRU installation on the heater. Note that the energy content of the flash gas from the VRT (2690 Btu/scf) is higher than that from the heater (1930 Btu/scf). This is because lighter hydrocarbons like methane and ethane flash off at higher pressures, while heavier hydrocarbons do not flash until the pressure is significantly lower. Recall from the site setups in &lt;a class="internal-link" href="#2.1.-Site-(operational)-setups"&gt;Section 2.1&lt;/a&gt; that the heater operates at 50 psig, while the VRT operates at 3 psig.&lt;/p&gt;
+&lt;p&gt;You can download the full &lt;a class="ico xls" href="https://aegis4048.github.io//sample_data/VRU%20Declining%20Economics%20-%20Sim%20Results.xlsx" target="_blank"&gt;Simulation Results Data&lt;/a&gt; &lt;strong&gt;(VRU Declining Economics - Sim Results.xlsx)&lt;/strong&gt; to review the economics calculation formulas in Excel. Refer to Tabs "Gas Economics Calcualtor -  HT", and "Gas Economics Calcualtor -  VRT".&lt;/p&gt;
+&lt;div class="ordered-list"&gt;
+&lt;h2&gt;Assumptions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Oklahoma 7% sales gas tax.&lt;/li&gt;
+&lt;li&gt;$0.75/MCF gathering fee, typical for Oklahoma.&lt;/li&gt;
+&lt;li&gt;Separate VRUs are used for heater and VRT each. This is because compressor inlet cannot take gases from two different pressures (the compressor company I work for has "Multi-stream" technology that enables dual inlet for two pressures, but it's not the focus of this article. Contact me if you are interested).&lt;/li&gt;
+&lt;li&gt;Same VRU sizing for both VRT and heater (although the heater may require smaller sizing due to its lower flash gas flowrate and higher operating pressure. The higher the gas pressure at the compressor inlet, the greater the compressor’s flowrate capacity).&lt;/li&gt;
+&lt;li&gt;Generic $3,500 monthly VRU rental cost. This can vary depending on application and vendors.&lt;/li&gt;
+&lt;li&gt;The operator is paid based on energy content (MMBtu) rather than volume. This may not be an option for some regions.&lt;/li&gt;
+&lt;li&gt;30 days assumed for all months for calculation simplicity.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;&lt;hr/&gt;
+&lt;p&gt;&lt;strong&gt;Economics Summary&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="no-margin"&gt;VRU installation on the heater becomes uneconomical after month 9.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="no-margin"&gt;VRU installation on the VRT becomes uneconomical after month 16.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="no-margin"&gt;The heater application becomes uneconomical much faster than the VRT due to its lower flowrate (22% lower) and lower energy content (39% lower).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;hr/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div class="row" id="table-3"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/VRU_economics_results_VRT.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Table 3:&lt;/strong&gt; VRU economics calculation table for VRU installed on scenario C's VRT gas rates. The VRU becomes uneconomical after month 15.&lt;/p&gt;&lt;/div&gt;&lt;div class="row" id="table-4"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/VRU_economics_results_heater.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Table 4:&lt;/strong&gt; VRU economics calculation table for VRU installed on scenario C's heater gas rates. The VRU becomes uneconomical after month 8. VRU installation on heater becomes uneconomical much faster than VRT application due to heater gas having lower flowrate and lower energy content.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="5.-Conclusion/Summary"&gt;5. Conclusion/Summary&lt;a class="anchor-link" href="#5.-Conclusion/Summary"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; Flash gas rates for VRU applications may decline quickly, quicker than people think. They follow the oil decline curve.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; Many people in the industry tend to forget about the fact that VRU flowrates decline quickly. I've witnessed this first-hand working at a compressor company. Downsizing is often not done in a timely manner.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; Process simulations are performed to show the impact of oil and gas decline on downstream flash gases from low pressure vessels. Simulation site setups are described in &lt;a class="internal-link" href="#2.1.-Site-(operational)-setups"&gt;Section 2.1&lt;/a&gt;. Well declining rates are simulated with 3 sets of DCA parameters described in &lt;a class="internal-link" href="#2.2.-Simulation-scenarios"&gt;Section 2.2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt; Simulation results in &lt;a class="internal-link" href="#table-1"&gt;Table 1&lt;/a&gt; indicate that flash gas rates at low pressure vessels (heater, VRT) follow oil decline. The primary sales gas has some impact, but negligible compared to oil decline's influence.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5.&lt;/strong&gt; When forecasting VRU decline, use the decline rate of oil production. Do not predict off the primary produced gas decline.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6.&lt;/strong&gt; Flash gas rates decline quickly after IP, just like oil. In &lt;a class="internal-link" href="#table-1"&gt;Table 1&lt;/a&gt;, flash gas off the heater became halved in 3 months, and quartered in 6 months.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7.&lt;/strong&gt; Due to fast decline after the initial production, VRU may become quickly uneconomical. In &lt;a class="internal-link" href="#table-4"&gt;Table 4&lt;/a&gt; that shows VRU economics for heater, VRU installation on heater flash gas became uneconomical 8 months after IP. Failure to downsize the unit in a timely manner, or being stuck with a long-term contract (unless the unit can be moved to another pad) can be detrimental to lease operating expense (LOE).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;8.&lt;/strong&gt; Be careful when signing a long-term contract for VRUs. Be prepared to predict VRU economics and move the long-term contracted VRU to new locations on a timely manner to avoid economic loss.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;9.&lt;/strong&gt; Energy content coming from low pressure vessel (VRT @3#: 2690 Btu/scf) is higher than the one coming from higher pressure vessel (Heater @50#: 1930 Btu/scf). This is because lighter hydrocarbons like methane and ethane flash off at higher pressures, while heavier hydrocarbons do not flash until the pressure is significantly lower. The difference in energy content has a huge impact on VRU economics. Process simulations are required for accurate prediction of flash gas energy content at different vessels.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Contact me via email (aegis4048@gmail.com) or leave a comment below for any professional inquiries regarding compressor applications or process simulations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="oil-and-gas"></category><category term="oil"></category><category term="gas"></category><category term="process engineering"></category><category term="ProMax"></category><category term="measurements"></category><category term="separators"></category><category term="VRU"></category><category term="heaters"></category><category term="storage-tank"></category><category term="emissions"></category><category term="flash"></category><category term="DCA"></category><category term="decline-curve-analysis"></category><category term="economics"></category><category term="cashflow"></category></entry><entry><title>Impact of Seasonal Changes on Storage Tank Emissions</title><link href="https://aegis4048.github.io/impact-of-seasonal-changes-on-storage-tank-emissions" rel="alternate"></link><published>2024-11-11T00:00:00-08:00</published><updated>2024-11-11T00:00:00-08:00</updated><author><name>ERIC KIM</name></author><id>tag:aegis4048.github.io,2024-11-11:/impact-of-seasonal-changes-on-storage-tank-emissions</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
