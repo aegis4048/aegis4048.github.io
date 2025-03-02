@@ -1148,7 +1148,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div id="introduction"&gt;&lt;/div&gt;&lt;p&gt;Many producers, when sizing vapor recovery units (VRUs) or signing long-term contracts for them, tend to overlook an important factor: the inevitable decline of flash gas rates over time. Flash gas rates at heater treaters (HT), vapor recovery towers (VRT), and tanks follow a similar decline pattern to well production, yet it's a common misconception that these rates will remain steady or only decrease marginally.&lt;/p&gt;
-&lt;p&gt;Working at a compressor company, I’ve seen firsthand how producers expect flash gas rates to hold relatively flat or marginally decline; the flash gas rates go down much quicker than they think. While the oil decline rate plays the largest role in this reduction, many still fail to account for it when planning for long-term operations. It's not necessarily that they don't know about the decline, but rather that they simply forget to think about it. Downsizing is often not done in a timely manner because it’s overlooked, and as a result, VRUs quickly become oversized and uneconomical. It's also common to see a well experience more than a 50% drop in production within the first few months, making this issue even more critical.&lt;/p&gt;
+&lt;p&gt;Working at a compressor company, I’ve seen firsthand how producers expect flash gas rates to hold relatively flat or marginally decline; the flash gas rates go down much quicker than they think. While the oil decline rate plays the largest role in this reduction, many still fail to account for it when planning for long-term operations. It's not necessarily that they don't know about the decline, but rather that they simply forget to think about it because VRUs are not their primary concern. Downsizing is often not done in a timely manner because it’s overlooked, and as a result, VRUs quickly become oversized and uneconomical. It's also common to see a well experience more than a 50% drop in production within the first few months since initial production (IP), making this issue even more critical.&lt;/p&gt;
 &lt;p&gt;&lt;hr/&gt;
 &lt;strong&gt;KEY DELIVERABLES OF THIS ARTICLE:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlights mb-2 mt-2" id="key1"&gt;
@@ -1170,7 +1170,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;p&gt;&lt;hr/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Low Pressure Vessels:&lt;/strong&gt; Refers to vessels such as low-pressure separators, heater treaters (HT), vapor recovery towers (VRT), or tanks. These vessels are downstream of the primary separator and operate at pressures lower than the sales line pressure.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Sales (Produced) Gas:&lt;/strong&gt; High-pressure gas from the primary separator that operates around the sales line pressure, typically lean gas with a BTU content of 1050-1600 Btu/scf.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Flash Gas:&lt;/strong&gt; Gas volumes coming from low-pressure vessels operating below sales line pressure. These gases are richer, typically ranging from 1400-3000 Btu/scf, and lack sufficient pressure to enter the sales line. Flash gas can either be flared or recovered by VRUs that compress the gas to above sales line pressure. Flash gas is often distinguished from sales gas. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Flash Gas:&lt;/strong&gt; Gas volumes coming from low-pressure vessels operating below sales line pressure. These gases are richer, typically ranging from 1400-3000 Btu/scf, and lack sufficient pressure to enter the sales line. Flash gas can either be flared or recovered by VRUs that compress the gas to above sales line pressure. Flash gas is often distinguished from sales gas coming from the primary high pressure separator. &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;VRU Flowrate:&lt;/strong&gt; For the purpose of this article, VRU flowrate is synonymous to flash gas.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;VRU:&lt;/strong&gt; Vapor Recovery Unit, VRU, is one application of a compressor. The compressor type can be rotary vane, rotary screw, or reciprocating.
 &lt;/p&gt;&lt;/div&gt;
@@ -1228,7 +1228,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="2.1.-Site-(operational)-setups"&gt;2.1. Site (operational) setups&lt;a class="anchor-link" href="#2.1.-Site-(operational)-setups"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A generic upstream facility structure is used for simulations. Reservoir fluid flows up the production tubing to the wellhead, then to the first-stage 2-phase separator, followed by a second-stage 2-phase separator operating 5 psi lower than the first stage, a heater treater, VRT, and finally to atmospheric storage tanks. The purpose of the second-stage separator is to separate the liquids entrained in the gas stream from the first-stage separator. &lt;a class="internal-link" href="#fig-1"&gt;Figure 1&lt;/a&gt; shows the facility model created in Promax for IP flowrates. This model serves as the base, accepting monthly declining oil, gas, and water rates (&lt;a class="internal-link" href="#2.2.-Simulation-scenarios"&gt;Section 2.2&lt;/a&gt;) as inputs, and returning declining rates of downstream flash gases as outputs (&lt;a class="internal-link" href="#table-3"&gt;Table 3&lt;/a&gt;).&lt;/p&gt;
+&lt;h3 id="2.1.-Site-(operational)-setups"&gt;2.1. Site (operational) setups&lt;a class="anchor-link" href="#2.1.-Site-(operational)-setups"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A generic upstream facility structure is used for simulations. Reservoir fluid flows up the production tubing to the wellhead, then to the first-stage 2-phase separator, followed by a second-stage 2-phase separator operating 5 psi lower than the first stage, a heater treater, VRT, and finally to atmospheric storage tanks. The purpose of the second-stage separator is to separate the liquids entrained in the gas stream from the first-stage separator. &lt;a class="internal-link" href="#fig-1"&gt;Figure 1&lt;/a&gt; shows the facility model created in Promax for IP flowrates. This model serves as the base, accepting monthly declining oil, gas, and water rates (&lt;a class="internal-link" href="#2.2.-Simulation-scenarios"&gt;Section 2.2&lt;/a&gt;) as inputs, and returning declining rates of downstream flash gases as outputs (&lt;a class="internal-link" href="#table-2"&gt;Table 2&lt;/a&gt;).&lt;/p&gt;
 &lt;div class="row" id="fig-1"&gt; &lt;div class="col"&gt;&lt;img src="jupyter_images/VRU_economics_sim_setup.png"/&gt;&lt;/div&gt; &lt;/div&gt; &lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Figure 1:&lt;/strong&gt; Generic upstream facility modeling done in BR&amp;E Promax. IP rates of 9 MMSCFD (gas), 1800 BOPD (oil), and 3700 BWPD (water) are assumed. Numbers in the red boxes show produced and flash gas rates.&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1241,7 +1241,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;ol&gt;
 &lt;li&gt;Generic upstream oil and gas facility with wellhead.&lt;/li&gt;
 &lt;li&gt;2 stage 2-phase separators operating at 140 and 135 psig.&lt;/li&gt;
-&lt;li&gt;VRU discharge pressure set equal to 1st separator pressure: 140 psig.&lt;/li&gt;
+&lt;li&gt;VRU discharge pressure set equal to 2nd separator pressure: 135 psig.&lt;/li&gt;
 &lt;li&gt;Details of VRU components (ex: cooler, knockout scrubbers) are omitted for simplicity.&lt;/li&gt;
 &lt;li&gt;Wellhead temperature: 120°F.&lt;/li&gt;
 &lt;li&gt;3-phase heater treater operating at 50 psig, 140°F.&lt;/li&gt;
@@ -1513,7 +1513,7 @@ ax.text(
 def setbold(txt):
     return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
 
-bold_txt = setbold('Scenario B: Gas Decline Faster Than Oil, ')
+bold_txt = setbold('Scenario B: Gas Decline Slower Than Oil, ')
 plain_txt = 'from hypothetical DCA parameters'
 fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=11)
 yloc = 0.9
@@ -1643,7 +1643,7 @@ ax.text(
 def setbold(txt):
     return ' '.join([r"$\bf{" + item + "}$" for item in txt.split(' ')])
 
-bold_txt = setbold('Scenario C: Gas Decline Faster Than Oil, ')
+bold_txt = setbold('Scenario C: Gas Decline At The Same Rate As Oil, ')
 plain_txt = 'from hypothetical DCA parameters'
 fig.suptitle(bold_txt + plain_txt, verticalalignment='top', x=0, horizontalalignment='left', fontsize=11)
 yloc = 0.9
@@ -1663,7 +1663,7 @@ fig.tight_layout()
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="2.3.-Simulation-results"&gt;2.3. Simulation results&lt;a class="anchor-link" href="#2.3.-Simulation-results"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;BR&amp;E Promax is used to simulate flash gas declines at the heater and VRT. The base model shown in &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt; was fed with the three declining scenarios shown in &lt;a class="internal-link" href="#fig-3"&gt;Figures 3, 4, and 5&lt;/a&gt;. Declines up to 60 months are simulated, though not all months are shown for brevity. You can download the full &lt;a class="ico xls" href="https://aegis4048.github.io/downloads/notebooks/sample_data/VRU_Declining_Economics-Sim_Results.xlsx" target="_blank"&gt;Simulation Results Data&lt;/a&gt; &lt;strong&gt;(VRU_Declining_Economics-Sim_Results.xlsx)&lt;/strong&gt; to review the complete Promax simulation results in Excel. Refer to Tabs 1a, 1b, and 1c. Note that the DCA parameters shown on the right are realistic parameters that you can see in the field.&lt;/p&gt;
+&lt;h3 id="2.3.-Simulation-results"&gt;2.3. Simulation results&lt;a class="anchor-link" href="#2.3.-Simulation-results"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;BR&amp;E Promax is used to simulate flash gas declines at the heater and VRT. The base model shown in &lt;a class="internal-link" href="#fig-1"&gt;Figure 1&lt;/a&gt; was fed with the three declining scenarios shown in &lt;a class="internal-link" href="#fig-3"&gt;Figures 3, 4, and 5&lt;/a&gt;. Declines up to 60 months are simulated. The simulaion results are shown in &lt;a class="internal-link" href="#table-1"&gt;Table 1&lt;/a&gt; and &lt;a class="internal-link" href="#table-2"&gt;Table 2&lt;/a&gt; below. Not all months are shown for brevity. You can download the full &lt;a class="ico xls" href="https://aegis4048.github.io/downloads/notebooks/sample_data/VRU_Declining_Economics-Sim_Results.xlsx" target="_blank"&gt;Simulation Results Data&lt;/a&gt; &lt;strong&gt;(VRU_Declining_Economics-Sim_Results.xlsx)&lt;/strong&gt; to review the complete Promax simulation results in Excel. Refer to Tabs "1a", "1b", and "1c". Note that the DCA parameters shown on the right are realistic parameters that can be observed in the field.&lt;/p&gt;
 &lt;hr/&gt;
 &lt;p&gt;&lt;strong&gt;Results Summary&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -1680,7 +1680,7 @@ fig.tight_layout()
 &lt;div class="row" id="table-1"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/VRU_economics_results_2.png"/&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Table 1:&lt;/strong&gt; Simulation results using the base model shown in &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt; and declining flowrate inputs shown in &lt;a class="internal-link" href="#fig-3"&gt;Figures 3, 4, and 5&lt;/a&gt;. The DCA parameters shown on the right represents declining scenarios used to simulate well decline. The percentages represent how much production declines compared to the initial production. Actual flowrate numbers are shown in &lt;a class="internal-link" href="#table-2"&gt;Table 2&lt;/a&gt; below. The first rows in each scenario are emtpy because there's no decline at month=0.&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Table 1:&lt;/strong&gt; Simulation results using the base model shown in &lt;a class="internal-link" href="#fig-1"&gt;Figure 1&lt;/a&gt; and declining flowrate inputs shown in &lt;a class="internal-link" href="#fig-3"&gt;Figures 3, 4, and 5&lt;/a&gt;. The DCA parameters shown on the right represents declining scenarios used to simulate well decline. The percentages represent how much production declines compared to the initial production. Actual flowrate numbers are shown in &lt;a class="internal-link" href="#table-2"&gt;Table 2&lt;/a&gt; below. The first rows in each scenario are emtpy because there's no decline at month=0.&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1690,7 +1690,7 @@ fig.tight_layout()
 &lt;div class="row" id="table-2"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/VRU_economics_results_1.png"/&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Table 2:&lt;/strong&gt; Simulation results using the base model shown in &lt;a class="internal-link" href="#fig-2"&gt;Figure 2&lt;/a&gt; and declining flowrate inputs shown in &lt;a class="internal-link" href="#fig-3"&gt;Figures 3, 4, and 5&lt;/a&gt;. The DCA parameters shown on the right represents declining scenarios used to simulate well decline.&lt;/p&gt;&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;&lt;p class="image-description"&gt;&lt;strong&gt;Table 2:&lt;/strong&gt; Simulation results using the base model shown in &lt;a class="internal-link" href="#fig-1"&gt;Figure 1&lt;/a&gt; and declining flowrate inputs shown in &lt;a class="internal-link" href="#fig-3"&gt;Figures 3, 4, and 5&lt;/a&gt;. The DCA parameters shown on the right represents declining scenarios used to simulate well decline.&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1705,7 +1705,7 @@ fig.tight_layout()
 &lt;li&gt;Oklahoma 7% sales gas tax.&lt;/li&gt;
 &lt;li&gt;$0.75/MCF gathering fee, typical for Oklahoma.&lt;/li&gt;
 &lt;li&gt;Separate VRUs are used for heater and VRT each. This is because compressor inlet cannot take gases from two different pressures (the compressor company I work for has "Multi-stream" technology that enables dual inlet for two pressures, but it's not the focus of this article. Contact me if you are interested).&lt;/li&gt;
-&lt;li&gt;Same VRU sizing for both VRT and heater (although the heater may require smaller sizing due to its lower flash gas flowrate and higher operating pressure. The higher the gas pressure at the compressor inlet, the greater the compressor’s flowrate capacity).&lt;/li&gt;
+&lt;li&gt;Same VRU sizing for both VRT and heater (although the heater may require smaller sizing due to its lower flash gas flowrate and higher operating pressure. The higher the gas pressure at the compressor inlet, the greater the compressor's flowrate capacity).&lt;/li&gt;
 &lt;li&gt;Generic $3,500 monthly VRU rental cost. This can vary depending on application and vendors.&lt;/li&gt;
 &lt;li&gt;The operator is paid based on energy content (MMBtu) rather than volume. This may not be an option for some regions.&lt;/li&gt;
 &lt;li&gt;30 days assumed for all months for calculation simplicity.&lt;/li&gt;
@@ -1713,8 +1713,8 @@ fig.tight_layout()
 &lt;/div&gt;&lt;hr/&gt;
 &lt;p&gt;&lt;strong&gt;Economics Summary&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p class="no-margin"&gt;VRU installation on the heater becomes uneconomical after month 9.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p class="no-margin"&gt;VRU installation on the VRT becomes uneconomical after month 16.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="no-margin"&gt;VRU installation on the heater becomes uneconomical after month 8.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="no-margin"&gt;VRU installation on the VRT becomes uneconomical after month 15.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p class="no-margin"&gt;The heater application becomes uneconomical much faster than the VRT due to its lower flowrate (22% lower) and lower energy content (39% lower).&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;hr/&gt;
 &lt;/div&gt;
