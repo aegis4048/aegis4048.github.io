@@ -228,6 +228,168 @@ function init_detectMathJaxParent() {
 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 MathJax.Hub.Queue(init_detectMathJaxParent);  // Call the function after MathJax completes
 
+function init_image_zoom() {
+    $('.row [class*="col-"] img').click(function() {
+        // Get the source of the clicked image
+        var imgSrc = $(this).attr('src');
+
+        // Create the overlay and zoomed image elements
+        var overlay = $('<div id="overlay" class="overlay"></div>');
+        var zoomedImage = $('<img src="' + imgSrc + '" class="zoomed-image">');
+
+        // Append the zoomed image to the overlay
+        overlay.append(zoomedImage);
+
+        // Append the overlay to the body
+        $('body').append(overlay);
+
+        // Show the overlay
+        overlay.fadeIn();
+
+        // Click event for the overlay (to close the pop-up)
+        overlay.click(function() {
+            // Hide and remove the overlay
+            $(this).fadeOut(function() {
+                $(this).remove();
+            });
+        });
+    });
+}
+function init_slideshow() {
+    $('.linkedin-slideshow').each(function() {
+        const $slider = $(this);
+        const $slides = $slider.find('.slide');
+        const $progressTrack = $slider.find('.progress-track');
+        const $pageCounter = $slider.find('.page-counter');
+        let currentSlide = 0;
+
+        // Initialize progress steps
+        function initProgressBar() {
+            $progressTrack.empty();
+
+            // Create one step per slide
+            for (let i = 0; i < $slides.length; i++) {
+                $progressTrack.append('<div class="progress-step"></div>');
+            }
+
+            updateSlider();
+        }
+
+        function updateSlider() {
+            // Update slides
+            $slides.removeClass('active').eq(currentSlide).addClass('active');
+
+            // Update progress steps
+            $progressTrack.find('.progress-step')
+                .removeClass('active')
+                .filter((index) => index <= currentSlide)
+                .addClass('active');
+
+            // Update counter
+            $pageCounter.text(`${currentSlide + 1}/${$slides.length}`);
+        }
+
+        function goNext() {
+            currentSlide = (currentSlide + 1) % $slides.length;
+            updateSlider();
+        }
+
+        function goPrev() {
+            currentSlide = (currentSlide - 1 + $slides.length) % $slides.length;
+            updateSlider();
+        }
+
+        // Initialize progress bar
+        initProgressBar();
+
+        // Event listeners - IMPORTANT: These must use the same class names as your HTML
+        $slider.find('.bottom-next, .image-next').on('click', goNext);
+        $slider.find('.bottom-prev, .image-prev').on('click', goPrev);
+
+        // Keyboard navigation
+        $(document).on('keydown', function(e) {
+            if ($slider.is(':visible')) {  // Changed from :hover to :visible for better reliability
+                if (e.key === 'ArrowLeft') goPrev();
+                if (e.key === 'ArrowRight') goNext();
+            }
+        });
+    });
+}
+
+
+function init_fullscreen() {
+    $('.linkedin-slideshow').each(function() {
+        var $slider = $(this);
+        var $wrapper = $slider.closest('.slideshow-wrapper');
+        var $fullscreen_toggle = $slider.find('.fullscreen-toggle');
+        var $enter_fs = $slider.find('.enter-fullscreen');
+        var $exit_fs = $slider.find('.exit-fullscreen');
+        var $top_band = $slider.find('.top-band');
+        var $bottom_band = $slider.find('.bottom-band');
+        var $nav_buttons = $slider.find('.image-prev, .image-next');
+
+        var hide_timeout;
+        var is_fullscreen = false;
+        var last_activity = 0;
+
+        // Core Functions
+        function toggle_fullscreen() {
+            if (!is_fullscreen) {
+                if ($wrapper[0].requestFullscreen) $wrapper[0].requestFullscreen();
+                else if ($wrapper[0].webkitRequestFullscreen) $wrapper[0].webkitRequestFullscreen();
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+            }
+        }
+
+        function show_controls() {
+            if (!is_fullscreen) return; // Only in fullscreen
+            clearTimeout(hide_timeout);
+            $top_band.add($bottom_band).add($nav_buttons).removeClass('hidden');
+            last_activity = Date.now();
+            hide_timeout = setTimeout(hide_controls, 2000);
+        }
+
+        function hide_controls() {
+            if (is_fullscreen) { // Only hide if still in fullscreen
+                $top_band.add($bottom_band).add($nav_buttons).addClass('hidden');
+            }
+        }
+
+        function handle_fullscreen_change() {
+            is_fullscreen = !is_fullscreen;
+            if (is_fullscreen) {
+                $enter_fs.hide();
+                $exit_fs.show();
+                show_controls();
+            } else {
+                // EXIT CLEANUP
+                $enter_fs.show();
+                $exit_fs.hide();
+                clearTimeout(hide_timeout); // Cancel pending hide
+                $top_band.add($bottom_band).add($nav_buttons)
+                    .removeClass('hidden') // Force remove hidden class
+                    .removeAttr('style'); // Clear any inline styles
+            }
+        }
+
+        // Event Listeners
+        $fullscreen_toggle.on('click', toggle_fullscreen);
+        $(document).on('fullscreenchange webkitfullscreenchange', handle_fullscreen_change);
+
+        $slider.on('mousemove', function() {
+            show_controls();
+        });
+
+        $(document).on('keydown', function(e) {
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                show_controls();
+            }
+        });
+    });
+}
+
 
 function init_panel_toolbox() {
     $('.collapse-link').on('click', function () {
@@ -266,6 +428,9 @@ $(document).ready(function() {
     init_fixed_top();
     init_inpage_navigation();
     init_detectMathJaxParent();
+    init_image_zoom();
+    init_slideshow();
+    init_fullscreen();
 });
 
 
