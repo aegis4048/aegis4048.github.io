@@ -2154,6 +2154,7 @@ margin-top: 20px;
 }
 
 .solution_panel {
+    margin-top: -10px;
     width: 100%;
     display: inline-block;
     background: #fff;
@@ -2169,7 +2170,7 @@ margin-top: 20px;
 }
 .solution_panel .solution_title {
     border-bottom: 2px solid #E6E9ED;
-    padding: 7px 22px;
+    padding: 3px 22px;
     background-color: #24292e;
 }
 .solution_panel .solution_title h2,
@@ -2220,10 +2221,12 @@ margin-top: 20px;
     padding-bottom: 9px;
     padding-top: 8px;
 }
-.solution_title.solution_admonition{
+.solution_title.solution_admonition {
     background-color: #276f86 !important;
 }
-
+.solution_title.solution_warning {
+    background-color: #e25353 !important;
+}
 .indented {
     padding-left: 2rem;
 }
@@ -3454,6 +3457,12 @@ a.internal-link::before {
 .numbered-bullets ul {
     margin-top: 0.5em !important;
     margin-bottom: 1.5em !important;
+}
+.no-marker {
+    list-style-type: none;
+}
+.no-marker li::before {
+    content: "";
 }
 .video {
     border: 1px solid #cfcfcf;
