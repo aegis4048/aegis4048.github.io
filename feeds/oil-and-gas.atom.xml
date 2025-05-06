@@ -1306,45 +1306,51 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;li&gt;&lt;a href="#7.9.-Suction-control-valve"&gt;&lt;span class="toc_label"&gt;7.9.&lt;/span&gt;
                 Suction control valve&lt;/a&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;a href="#note_2"&gt;&lt;span class="toc_label"&gt;Note 2:&lt;/span&gt;
+                Control valve emissions&lt;/a&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;li&gt;&lt;a href="#8.-Pressure-control"&gt;&lt;span class="toc_label"&gt;8.&lt;/span&gt;
             Pressure control&lt;/a&gt;
 &lt;/li&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#8.1.-VFD-and-PID-Loop"&gt;&lt;span class="toc_label"&gt;8.1.&lt;/span&gt;
-                VFD and PID Loop&lt;/a&gt;
+&lt;li&gt;&lt;a href="#8.1.-PID-Loop"&gt;&lt;span class="toc_label"&gt;8.1.&lt;/span&gt;
+                PID Loop&lt;/a&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#8.2.-Recycle-mode"&gt;&lt;span class="toc_label"&gt;8.2.&lt;/span&gt;
+&lt;li&gt;&lt;a href="#8.2.-RPM-Control"&gt;&lt;span class="toc_label"&gt;8.2.&lt;/span&gt;
+                RPM Control&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#8.3.-Recycle-mode"&gt;&lt;span class="toc_label"&gt;8.3.&lt;/span&gt;
                 Recycle mode&lt;/a&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#8.3.-Pressure-setpoint-scenarios"&gt;&lt;span class="toc_label"&gt;8.3.&lt;/span&gt;
+&lt;li&gt;&lt;a href="#8.4.-Pressure-setpoint-scenarios"&gt;&lt;span class="toc_label"&gt;8.4.&lt;/span&gt;
                 Pressure setpoint scenarios&lt;/a&gt;
 &lt;/li&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#8.3.1.-VRT-vapor-recovery"&gt;&lt;span class="toc_label"&gt;8.3.1.&lt;/span&gt;
+&lt;li&gt;&lt;a href="#8.4.1.-VRT-vapor-recovery"&gt;&lt;span class="toc_label"&gt;8.4.1.&lt;/span&gt;
                     VRT vapor recovery&lt;/a&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#8.3.2.-Tank-vapor-recovery"&gt;&lt;span class="toc_label"&gt;8.3.2.&lt;/span&gt;
+&lt;li&gt;&lt;a href="#8.4.2.-Tank-vapor-recovery"&gt;&lt;span class="toc_label"&gt;8.4.2.&lt;/span&gt;
                     Tank vapor recovery&lt;/a&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#8.3.3.-Heater-vapor-recovery"&gt;&lt;span class="toc_label"&gt;8.3.3.&lt;/span&gt;
+&lt;li&gt;&lt;a href="#8.4.3.-Heater-vapor-recovery"&gt;&lt;span class="toc_label"&gt;8.4.3.&lt;/span&gt;
                     Heater vapor recovery&lt;/a&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#8.3.4.-Separator-drawdown"&gt;&lt;span class="toc_label"&gt;8.3.4.&lt;/span&gt;
+&lt;li&gt;&lt;a href="#8.4.4.-Separator-drawdown"&gt;&lt;span class="toc_label"&gt;8.4.4.&lt;/span&gt;
                     Separator drawdown&lt;/a&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#8.3.5.-Casing-drawdown"&gt;&lt;span class="toc_label"&gt;8.3.5.&lt;/span&gt;
+&lt;li&gt;&lt;a href="#8.4.5.-Casing-drawdown"&gt;&lt;span class="toc_label"&gt;8.4.5.&lt;/span&gt;
                     Casing drawdown&lt;/a&gt;
 &lt;/li&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#8.3.5.1.-SRP-Casing-drawdown"&gt;&lt;span class="toc_label"&gt;8.3.5.1.&lt;/span&gt;
+&lt;li&gt;&lt;a href="#8.4.5.1.-SRP-Casing-drawdown"&gt;&lt;span class="toc_label"&gt;8.4.5.1.&lt;/span&gt;
                         SRP Casing drawdown&lt;/a&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#8.3.5.2.-ESP-Casing-drawdown"&gt;&lt;span class="toc_label"&gt;8.3.5.2.&lt;/span&gt;
+&lt;li&gt;&lt;a href="#8.4.5.2.-ESP-Casing-drawdown"&gt;&lt;span class="toc_label"&gt;8.4.5.2.&lt;/span&gt;
                         ESP Casing drawdown&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;li&gt;&lt;a href="#note_2"&gt;&lt;span class="toc_label"&gt;Note 2:&lt;/span&gt;
+&lt;li&gt;&lt;a href="#note_3"&gt;&lt;span class="toc_label"&gt;Note 3:&lt;/span&gt;
                     Relief to flare/combustor&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1384,11 +1390,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
                     High inlet temperature&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;li&gt;&lt;a href="#11.-Shutdown-triggers"&gt;&lt;span class="toc_label"&gt;11.&lt;/span&gt;
-            Shutdown triggers&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="#12.-Rental-vs.-Purchase"&gt;&lt;span class="toc_label"&gt;12.&lt;/span&gt;
-            Rental vs. Purchase&lt;/a&gt;
+&lt;li&gt;&lt;a href="#11.-Concluding-Remarks"&gt;&lt;span class="toc_label"&gt;11.&lt;/span&gt;
+            Concluding Remarks&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -1629,18 +1632,49 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="3.-Choice-of-a-Driver:-Electric-Motor-or-Gas-Engine"&gt;3. Choice of a Driver: Electric Motor or Gas Engine&lt;a class="anchor-link" href="#3.-Choice-of-a-Driver:-Electric-Motor-or-Gas-Engine"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A driver that turns the driving shaft can be either an electric motor or a gas engine. There are pros and cons for both, such as noise, weight, energy efficiency, safety, etc. However, the primary motivation to choose one model over the other in the upstream oil and gas industry is company policy on emissions and the presence of power. Note that the fuel gas and electricity consumption is negligible compared to the volume of gas being captured with compressors in the oil and gas industry. The gas engines I've seen consumes about 1~2% of the captured gas as fuel gas.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;u&gt;Presence of Power&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Even if an operator strongly prefers electric models over gas engines, this preference does not always guarantee the viability of electric model installation. Some facilities lack access to power, or installing a generator may be too expensive. In such cases, the operator is forced to choose a gas engine model due to the lack of alternatives.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;u&gt;Concerns over Emissions&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Some companies prioritize minimizing their carbon footprint, while others do not. Those focused on emissions often prefer electric motors, believing electricity is "cleaner" than burning natural gas. However, this isn't always true, as 59% of U.S. electricity comes from hydrocarbons (coal and natural gas). Depending on the electricity source, electric motors may not be cleaner than gas engines. For instance, one customer study found gas engines cleaner than electric models due to the lack of "clean" electricity source near their facilities.&lt;/p&gt;
+&lt;h2 id="3.-Choice-of-a-Driver:-Electric-Motor-or-Gas-Engine"&gt;3. Choice of a Driver: Electric Motor or Gas Engine&lt;a class="anchor-link" href="#3.-Choice-of-a-Driver:-Electric-Motor-or-Gas-Engine"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In short, electric models are almost always superior—as long as the site has access to electric power. Electric units offer better driver RPM control, temperature regulation, quicker response to source pressure fluctuation, and less maintenance compared to engine-driven models. They also tend to leave a smaller carbon footprint—though this depends on the local power generation source.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="3.1.-Gas-engine-compressor"&gt;3.1. Gas engine compressor&lt;a class="anchor-link" href="#3.1.-Gas-engine-compressor"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a class="internal-link" href="#fig-13"&gt;Figure 13&lt;/a&gt; below is a picture of the Flogistix FX12 gas engine-driven oil-flooded screw compressor. This specific unit has two cooling fans (both powered by the gas engine): one for the discharge gas and lubricating oil, and another for the engine coolant. Larger units, such as Flogistix FX17 or FX20, share a single fan for cooling the discharge gas, lubricating oil, and engine coolant. This design varies depending on the model. The engine coolant is circulated between the engine and the fan to maintain the engine temperature within safe limits. The burned exhaust gas is vented through the top vent line, which is a source of emissions that some companies aim to remove by using electric models. The unit includes an engine oil reserve and an engine oil level maintainer. The maintainer is equipped with an electric switch that sends a shutdown signal to the PLC when the engine oil level is too low. Additionally, though not shown in the photo, the unit is equipped with a solar panel to power the PLC, as the PLC requires electricity. While the gas engine generates rotational energy, it cannot produce electricity without a generator.&lt;/p&gt;
+&lt;div class="centered-title"&gt;
+&lt;span class="title-text mt-2"&gt;Electric vs. Gas Engine Selection Criteria&lt;/span&gt;
+&lt;/div&gt;&lt;ol class="numbered-bullets mt-4"&gt;
+&lt;li id="choice_of_driver_1" style="margin-bottom: 1.5em !important;"&gt;
+&lt;p&gt;&lt;strong&gt;Presence of electric power&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Not all wellsites have access to grid power. Some are too remote, and extending electric lines or installing generators may be cost-prohibitive. In such cases, gas engine units are the only practical option.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="choice_of_driver_2" style="margin-bottom: 1.5em !important;"&gt;
+&lt;p&gt;&lt;strong&gt;Concerns over emissions&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Gas engine models burn fuel directly at the site, producing on-site emissions. Electric units do not emit at the compressor, but instead draw electricity from the grid. If the electricity comes from coal-fired plant, indirect emissions may be higher than on-site combustion. If the source is natural gas or renewables, electric units are cleaner. Operators must assess the local power mix to compare total emissions accurately.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="choice_of_driver_3" style="margin-bottom: 1.5em !important;"&gt;
+&lt;p&gt;&lt;strong&gt;Driver RPM control&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Electric units can ramp up driver RPM faster and more precise than engine units, allowing quicker response to changing inlet pressure conditions. Gas engines respond slower because, unlike electric units which use readily available electricity, they must first burn fuel gas to generate the energy needed to turn the engine driver. See &lt;a class="internal-link" href="#8.2.-RPM-Control"&gt;Section 8.2&lt;/a&gt; for detailed discussion on RPM control mechanisms for electric vs. engine models.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="choice_of_driver_4" style="margin-bottom: 1.5em !important;"&gt;
+&lt;p&gt;&lt;strong&gt;Maintenance&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Engine units require more frequent maintenance than electric units due to having more moving parts. Compare &lt;a class="internal-link" href="#fig-13"&gt;Figure 13&lt;/a&gt; (engine) with &lt;a class="internal-link" href="#fig-14"&gt;Figure 14&lt;/a&gt; (electric)—it's clear that engine models involve significantly more components than their electric counterparts.&lt;/p&gt;
+&lt;li id="choice_of_driver_5" style="margin-bottom: 1.5em !important;"&gt;
+&lt;p&gt;&lt;strong&gt;Temperature control&lt;/strong&gt;&lt;/p&gt;
+&lt;p class="mb-3"&gt;Electric units have two motor drivers for a compressor and a cooling fan (see &lt;a class="internal-link" href="#fig-61"&gt;Figure 61&lt;/a&gt;), allowing independent RPM control for each. The VFD on the cooling fan motor provides primary control on the cooling fan, and the 3-way thermostatic valve (see &lt;a class="internal-link" href="#7.4.-3-Way-thermostatic-valve"&gt;Section 7.4&lt;/a&gt;) on the lube oil line provides secondary backup cooling in case the fan RPM control couldn't contain a sudden rise in process temperature. This dual control system makes electric units superior in managing temperature.&lt;/p&gt;
+&lt;p class="mb-3"&gt;Engine units have only one shared engine driver for both fan and the compressor (see &lt;a class="internal-link" href="#fig-65"&gt;Figure 65&lt;/a&gt; and &lt;a class="internal-link" href="#fig-66"&gt;66&lt;/a&gt;). Primary control is given to the compressor, meaning the cooling fan RPM floats. Without a dedicated fan motor, the 3-way thermostat valve becomes the only real-time temperature control mechanism. This setup becomes inadequate if the cooler can't handle the peak heat load. It's especially problematic during recycle mode, when compressor RPM drops—causing fan RPM to drop as well. While heat of compression is reduced, the heat from fuel gas combustion still remains significant. The post-catalyst temperature for the exhaust fuel gas operates between 250-1300F°. Lower fan speed reduces airflow, which degrades cooling performance. This could potentially trigger high temperature shutdown during hot summer conditions .&lt;/p&gt;
+&lt;p class="mb-3"&gt;There's a lot going on to fully understand temperature control differences between electric vs. engine models. Read both &lt;a class="internal-link" href="#7.4.-3-Way-thermostatic-valve"&gt;Section 7.4&lt;/a&gt; and &lt;a class="internal-link" href="#9.-Temperature-control"&gt;Section 9&lt;/a&gt; for full understanding.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/li&gt;&lt;/ol&gt;&lt;hr class="black-hr"/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="3.1.-Gas-engine-compressor"&gt;3.1. Gas engine compressor&lt;a class="anchor-link" href="#3.1.-Gas-engine-compressor"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a class="internal-link" href="#fig-13"&gt;Figure 13&lt;/a&gt; below is a picture of the Flogistix FX12 gas engine-driven oil-flooded screw compressor. This specific unit has two cooling fans (both powered by the gas engine): one for the discharge gas and lubricating oil, and another for the engine coolant. Larger units, such as Flogistix FX17 (&lt;a class="internal-link" href="#fig-1"&gt;Figure 1&lt;/a&gt;) or FX20, share a single fan for cooling the discharge gas, lubricating oil, and engine coolant. This design varies depending on the model.&lt;/p&gt;
+&lt;p&gt;The burned exhaust gas is vented through the top vent line, serving as an emissions source that many companies aim to eliminate by switching to electric models. The small pot mounted on top of the lube oil cooler contains a catalyst that triggers chemical reactions to convert harmful VOCs into less harmful compounds—for example, hydrocarbons and carbon monoxide into CO₂, and NOₓ into nitrogen and oxygen. The pot has a silencer that reduces reaction noises.&lt;/p&gt;
+&lt;p&gt;The engine coolant is circulated between the engine and the fan to maintain the engine temperature within safe limits. The unit includes an engine oil reserve and an engine oil level maintainer. The maintainer is equipped with an electric switch that sends a shutdown signal to the PLC when the engine oil level is too low. Additionally, though not shown in the photo, the unit is equipped with a solar panel to power the PLC, as the PLC requires electricity. While the gas engine generates rotational energy, it cannot produce electricity without a generator, requiring a solar panel.&lt;/p&gt;
+&lt;p&gt;Overall, gas engine units require larger cooling capacity due to the additional heat generated from fuel gas combustion—a factor that doesn't apply to electric models. Pre-catalyst exhaust gas temperatures typically range from 400–600°F, while post-catalyst temperatures can reach up to 1300°F.&lt;/p&gt;
+&lt;p&gt;The engine unit has one shared driver for both the cooling fans and the compressor. The driver prioritizes compressor RPM, meaning the cooler RPM floats. This makes temperature control difficult. See &lt;a class="internal-link" href="#9.2.-Gas-engine-models"&gt;Section 9.2&lt;/a&gt; for engine model temperature control mechanisms.&lt;/p&gt;
 &lt;div class="row full_screen_margin_90 mobile_responsive_plot_full_width" id="fig-13"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/screw_pic13.png"/&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1654,6 +1688,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="3.2.-Electric-motor-compressor"&gt;3.2. Electric motor compressor&lt;a class="anchor-link" href="#3.2.-Electric-motor-compressor"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a class="internal-link" href="#fig-14"&gt;Figure 14&lt;/a&gt; below is a picture of the Flogistix FX12 electric motor-driven oil-flooded screw compressor. This model has one fan for cooling the discharge gas and lubricating oil. It includes two motors: one for the cooling fan and one for the compressor. Its design is much simpler than the gas engine model, as it eliminates the need for engine coolant, engine oil, exhaust piping, a low engine oil level shutdown switch, a solar panel, and other components. The design and maintenance are simpler than gas engine models simply because fewer parts are involved. However, electric models are not viable in the absence of an electricity source.&lt;/p&gt;
+&lt;p&gt;The electric unit has two motor drivers for the compresesor and the cooling fan. This features competitive temperture control advantages compared to engine units that have only one shared engine driver for both. For electric model temperature control details, see &lt;a class="internal-link" href="#9.1.-Electric-models"&gt;Section 9.1&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="row full_screen_margin_90 mobile_responsive_plot_full_width" id="fig-14"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/screw_pic14.png"/&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -2022,7 +2057,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;ol&gt;
 &lt;li&gt;The customer prefers an electric model over a gas engine to minimize carbon footprint.&lt;/li&gt;
 &lt;li&gt;They don't have clean instrument air supply to (instead of natural gas) to operate pneumatic valves.&lt;/li&gt;
-&lt;li&gt;It is not easy or feasible to route control valve vent gas to a clean disposal system (most flow control valves vent used pilot gas)&lt;/li&gt;
+&lt;li&gt;It is not easy or feasible to route control valve vent gas to a clean disposal system (most flow control valves vent used pilot gas, see &lt;a class="internal-link" href="#note_2"&gt;Note 2&lt;/a&gt;)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;&lt;p&gt;All conditions must be satisfied for this configuration to be chosen. While most operators do not prioritize control valve vent gas due to minimal emissions, some companies maintain a zero-tolerance stance on emissions, making this design necessary.&lt;/p&gt;
 &lt;div class="centered-title"&gt;
@@ -2047,7 +2082,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="ordered-list"&gt;
 &lt;ol&gt;
 &lt;li&gt;The customer prefers an electric model over a gas engine to minimize carbon footprint.&lt;/li&gt;
-&lt;li&gt;They don't have clean instrument air supply to (instead of natural gas) to operate pneumatic valves.&lt;/li&gt;
+&lt;li&gt;They don't have clean instrument air supply to (instead of natural gas) to operate pneumatic valves (most flow control valves vent used pilot gas, see &lt;a class="internal-link" href="#note_2"&gt;Note 2&lt;/a&gt;).&lt;/li&gt;
 &lt;li&gt;They do not want to operate an electric liquid dump system due to higher costs and maintenance efforts.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;&lt;p&gt;All conditions must be satisfied for this configuration to be chosen. For the recycle valve, pneumatic valves are cheaper and easier to maintain, but some operators avoid them because they vent exhaust pilot gas. As a result, an electric actuator is used to power the recycle valve.&lt;/p&gt;
@@ -2346,7 +2381,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="7.4.-3-Way-thermostatic-valve"&gt;7.4. 3-Way thermostatic valve&lt;a class="anchor-link" href="#7.4.-3-Way-thermostatic-valve"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Oil-flooded screw compressors use a 3-way thermostatic valve to control lube oil injection temperature. The lube oil enters the compression chamber, mix with the process gas, and absorbs heat of compression. The 2-phase mixture leaving the chamber pickups 5-15°F increase in temperature (except during recycle mode, see &lt;a class="internal-link" href="#8.2.-Recycle-mode"&gt;Section 8.2&lt;/a&gt;). This temperature maintains the operating temperature of the whole unit.&lt;/p&gt;
+&lt;h2 id="7.4.-3-Way-thermostatic-valve"&gt;7.4. 3-Way thermostatic valve&lt;a class="anchor-link" href="#7.4.-3-Way-thermostatic-valve"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Oil-flooded screw compressors use a 3-way thermostatic valve to control lube oil injection temperature. The lube oil enters the compression chamber, mix with the process gas, and absorbs heat of compression. The 2-phase mixture leaving the chamber pickups 5-15°F increase in temperature (except during recycle mode, see &lt;a class="internal-link" href="#8.3.-Recycle-mode"&gt;Section 8.3&lt;/a&gt;). This temperature maintains the operating temperature of the whole unit.&lt;/p&gt;
 &lt;p&gt;&lt;a class="internal-link" href="#fig-27"&gt;Figure 27&lt;/a&gt; shows a typical installation on an electric compressor (the setup is the same for gas engine models). Inside the valve is a wax-based thermal element that expands or contracts in response to temperature, adjusting its position to regulate oil flow. The valve maintains a target temperature at the outlet (A-port) by blending hot bypass oil from the B-port with cooled oil from the C-port. The wax element determines the proper mixing ratio between the hot bypass oil and cooled oil. The wax must be physically swapped in the field to change the setpoint—there are no adjustable screws or dials. These valves are usually set anywhere between 200-250°F depending on applications.&lt;/p&gt;
 &lt;p&gt;Assume a 230°F setpoint with a ±3°F tolerance. The illustration below shows how the valve responds under different scenarios based on incoming oil temperature and cooler performance.&lt;/p&gt;
 &lt;div class="centered-title"&gt;
@@ -2419,13 +2454,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;hr/&gt;
 &lt;p&gt;The role of the 3-way thermostat valve differs between electric and gas engine compressor models. While detailed temperature control operations for both models are discussed in &lt;a class="internal-link" href="#9.-Temperature-control"&gt;Section 9&lt;/a&gt;, the following provides a quick overview of the functional differences between model types:&lt;/p&gt;
 &lt;ol class="numbered-bullets mt-4"&gt;
-&lt;li id="vrt_PT" style="margin-bottom: 1.5em !important;"&gt;
+&lt;li id="7-4-thermostat-electric" style="margin-bottom: 1.5em !important;"&gt;
 &lt;p&gt;&lt;strong&gt;Electric&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Electric compressors have a dedicated motor driver for the cooling fan. The motor receives a control signal from the PLC to adjust fan RPM based on lube oil temperature feedback. Fan RPM adjustment provides the primary temperature control. The thermostat valve serves as a secondary backup, preventing high-temperature spikes if the fan cannot react quickly enough to sudden load changes. Refer to &lt;a class="internal-link" href="#9.1.-Electric-models"&gt;Section 9.1&lt;/a&gt; for details on electric model temperature control.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id="vrt_SCV" style="margin-bottom: 1.5em !important;"&gt;
+&lt;li id="7-4-thermostat-gas-engine" style="margin-bottom: 1.5em !important;"&gt;
 &lt;p&gt;&lt;strong&gt;Gas Engine&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Gas engine compressors have only one driver—the engine crankshaft—which extends to both sides: one side drives the compressor rotors, and the other side drives the cooling fan through a belt-pulley assembly. The PLC prioritizes RPM control for the rotors, causing the cooling fan RPM to float. Real-time fan speed control is not possible. The thermostat valve acts as the sole real-time temperature control. However, the valve cannot maintain the target temperature if the fan cannot remove sufficient heat, especially during recycle mode (see &lt;a class="internal-link" href="#8.2.-Recycle-mode"&gt;Section 8.2&lt;/a&gt;) when both compressor and fan RPM decrease, reducing cooling capacity. Refer to &lt;a class="internal-link" href="#9.2.-Gas-engine-models"&gt;Section 9.2&lt;/a&gt; for gas engine temperature control details.&lt;/p&gt;
+&lt;p&gt;Gas engine compressors have only one driver—the engine crankshaft—which extends to both sides: one side drives the compressor rotors, and the other side drives the cooling fan through a belt-pulley assembly. The PLC prioritizes RPM control for the rotors, causing the cooling fan RPM to float. Real-time fan speed control is not possible. The thermostat valve acts as the sole real-time temperature control. However, the valve cannot maintain the target temperature if the fan cannot remove sufficient heat, especially during recycle mode (see &lt;a class="internal-link" href="#8.3.-Recycle-mode"&gt;Section 8.3&lt;/a&gt;) when both compressor and fan RPM decrease, reducing cooling capacity. Refer to &lt;a class="internal-link" href="#9.2.-Gas-engine-models"&gt;Section 9.2&lt;/a&gt; for gas engine temperature control details.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;&lt;p&gt;Electric models benefit from having two temperature control mechanisms: fan RPM adjustment as the primary control, and the thermostat valve as the secondary control. Gas engine models rely solely on the thermostat valve. This fundamental difference makes electric models superior in cooling performance compared to gas engine models.&lt;/p&gt;
 &lt;/div&gt;
@@ -2600,9 +2635,26 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="7.8.-Transmitters"&gt;7.8. Transmitters&lt;a class="anchor-link" href="#7.8.-Transmitters"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Pressure transmitters install on suction gas lines (tank top, tank manifold, inlet piping manifold, or suction scrubber outlet), between compressor discharge and discharge scrubber inlet, and on lube oil injection lines. Temperature transmitters with thermowells install on compressor gas discharge, compressor lube oil discharge, post-cooler lube oil, post-cooler gas line, and for gas engine models, engine oil and coolant lines.&lt;/p&gt;
-&lt;p&gt;Electrical wiring connects these transmitters to the PLC. The transmitters send signals that the PLC uses to execute shutdowns, trigger alarms, adjust driver RPM, and transmit operational data to servers.&lt;/p&gt;
-&lt;div class="row full_screen_margin_90 mobile_responsive_plot_full_width" id="fig-39"&gt;
+&lt;h3 id="7.8.-Transmitters"&gt;7.8. Transmitters&lt;a class="anchor-link" href="#7.8.-Transmitters"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Various transmitters send process condition feedback signals to the PLC to control a compressor unit. This section summarizes some of the key transmitters used to control oil-flooded screw compressor operation. See &lt;a class="internal-link" href="#8.-Pressure-control"&gt;Section 8: Pressure control&lt;/a&gt; and &lt;a class="internal-link" href="#9.-Temperature-control"&gt;Section 9: Temperature control&lt;/a&gt; to see how these transmitter feedbacks are used. Note that the number and type of transmitters may vary depending on the package and model. PT stands for pressure transmitter. TT stands for temperature transmitter.&lt;/p&gt;
+&lt;div class="centered-title"&gt;
+&lt;span class="title-text"&gt;Both Electric &amp; Engine Models&lt;/span&gt;
+&lt;/div&gt;&lt;ol class="numbered-bullets mt-4"&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Suction PT:&lt;/strong&gt; Installed either on the suction scrubber, or on the suction scrubber's gas outlet line. Pressure readings on the suction PT are assumed to represent the pressure of the source vessel. PLC sends RPM ramp up/down signal to a driver based on this feedback.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Source Vessel PT:&lt;/strong&gt; (optional) Installed directly on top of a source vessel and wired to the compressor PLC. Used for low suction pressure applications like tank vapor recovery operating in ounces. Compressor inlet readings may show falsely low pressures due to friction loss. Not needed for applications operating in psig. Can also be used for applications in which the source vessel pressure must operate higher than the maximum allowable pressure of a compressor suction, such as &lt;a class="internal-link" href="#8.4.5.2.-ESP-Casing-drawdown"&gt;ESP casing drawdown&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Discharge PT:&lt;/strong&gt; Sends discharge pressure feedback to the PLC. Triggers high discharge pressure shutdown when salesline sees abnormally high pressure beyond compressor MAWP due to process upsets.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Suction TT:&lt;/strong&gt; (optional) Helps identify potential dew point issues. Higher suction temperature increases water vapor saturation, which raises the dew point temperature (see &lt;a class="internal-link" href="#10.5.-High-inlet-temperature-VRT/Tank-vapor-recovery-(above-110F)"&gt;Section 10.5&lt;/a&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Lube Oil Injection TT:&lt;/strong&gt; Monitors lube oil temperature on the injection side. Temperature must stay below the thermostat valve setpoint (see &lt;a class="internal-link" href="#7.4.-3-Way-thermostatic-valve"&gt;Section 7.4&lt;/a&gt;) to avoid high-temperature shutdown. Temperature exceeding the valve setpoint indicates either the thermostat valve or cooler failure.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Discharge TT:&lt;/strong&gt; Installed at the 2-phase outlet of the compression chamber. Tracks post-compression temperature increase. Healthy trend should read 5–15°F higher than the lube oil injection temperature, as shown in &lt;a class="internal-link" href="#fig-58"&gt;Figure 58&lt;/a&gt;. 0-5°F gain in temperature indicates insufficient compression volumes, or an oversized unit.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Lube Oil Injection PT:&lt;/strong&gt; Monitors lube oil pressure on the injection side. Leroi manual specifies injection pressure to be 60–100 psig above suction pressure. Low readings may indicate a failed or miscalibrated back pressure valve (e.g., BPV-3000 in &lt;a class="internal-link" href="#fig-15"&gt;Figure 15&lt;/a&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Post-Cooler Gas TT:&lt;/strong&gt; (optional) Measures final discharge gas temperature after the cooler. Electric models may use this signal to control fan RPM. Most electric units target lube oil temperature instead so this is optional. Has no use on engine models since fan RPM is can't be independently controlled.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;div class="centered-title"&gt;
+&lt;span class="title-text"&gt;Engine Models Only&lt;/span&gt;
+&lt;/div&gt;&lt;ol class="numbered-bullets mt-4"&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Engine Manifold PT:&lt;/strong&gt; Measures intake manifold pressure—the pressure of the air-fuel mixture entering the engine cylinders. This is a critical input for the Air-Fuel Ratio Controller (AFRC). See &lt;a class="internal-link" href="#8.2.-RPM-Control"&gt;Section 8.2&lt;/a&gt; for more details.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Engine Oil PT:&lt;/strong&gt; Monitors engine oil injection pressure. Like lube oil used for the compression chamber, the engine requires a minimum specified pressure for proper lubrication. This PT can triggers low engine oil pressure shutdown of oil pressure drops too much.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Engine Coolant TT:&lt;/strong&gt; Provides temperature feedback for the coolant loop that cools the engine block and prevents overheating. Not that this transmitter can only trigger shutdown, and can't control fan RPM for the coolant.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;MPU:&lt;/strong&gt; Magnetic Pickup Unit monitors engine RPM. The RPM signal is sent to the PLC, which adjusts the governor and AFRC to control fuel and air ratio accordingly. Example shown in &lt;a class="internal-link" href="#fig-44A"&gt;Figure 44.A&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;div class="row full_screen_margin_90 mobile_responsive_plot_full_width" id="fig-39"&gt;
 &lt;div class="col"&gt;&lt;img alt="PSV activation demonstration" src="jupyter_images/screw_transmitter.png"/&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="col-12 fig-title"&gt;
@@ -2614,9 +2666,20 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="7.9.-Suction-control-valve"&gt;7.9. Suction control valve&lt;a class="anchor-link" href="#7.9.-Suction-control-valve"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A suction control valve (SCV) is a type of a pressure-reducing regulator that maintains outlet pressure at a target setpoint. It is not part of a compressor skid package, but installed outside a skid on the inlet piping into a suction scrubber. It serves two critical purposes: (1) ensuring pressure stays below setpoint to prevent compressor horsepower overload, and (2) maintaining pressure sufficiently close to setpoint to preserve desired flowrate capacity. As shown in &lt;a class="internal-link" href="#table-1"&gt;Table 1&lt;/a&gt; of &lt;a class="internal-link" href="#key4"&gt;Section 1.4&lt;/a&gt;, increasing suction pressure boosts flowrate capacity but also increases horsepower demand. The SCV must carefully balance these competing factors - excessive pressure risks high-HP shutdowns, while insufficient pressure reduces capacity and may force gas flaring to relieve excess gas.&lt;/p&gt;
-&lt;p&gt;The SCV maintains pressure through purely mechanical operation of its pressure pilot system (best explained in &lt;a class="internal-link" href="#video-2"&gt;Video 2&lt;/a&gt; by Kimray, highly recommend you to watch it). The process works as follows: (1) Process pressure acts on the pilot diaphragm through the sensing line, (2) Diaphragm movement physically adjusts a supply gas throttling stem, and (3) This stem modulation controls air flow to the main valve actuator, positioning the valve plug. When the sensing line pressure rises above setpoint, the pilot diaphragm moves to cutoff supply gas, closing the control valve. When pressure drops below setpoint, the diaphragm opens to allow supply gas passthrough, opening the control valve. This mechanical balance continues until stable pressure is achieved. &lt;a class="internal-link" href="#fig-40"&gt;Figure 40&lt;/a&gt; shows this system maintaining 30 psig suction pressure on a compressor processing 50 psig heater treater gas, preventing overload shutdowns during pressure surges.&lt;/p&gt;
-&lt;p&gt;Note that SCVs are not installed on tank (below 1 psig) or VRT (1-5 psig) vapor recovery applications because these vessels will never generate sufficient suction pressure to trigger high-HP compressor shutdowns. For separator and heater treater applications, SCVs (costing &lt;span&gt;$&lt;/span&gt;1,500-&lt;span&gt;$&lt;/span&gt;2,500 per valve package) are only installed when pressure swings could substantially affect compressor operation. They are mandatory for wellhead-proximate applications like casing or primary separator drawdown applications, where 200-300% pressure fluctuations frequently occur. Downstream vessels with stable operation may not require SCVs depending on their pressure characteristics.&lt;/p&gt;
+&lt;h3 id="7.9.-Suction-control-valve"&gt;7.9. Suction control valve&lt;a class="anchor-link" href="#7.9.-Suction-control-valve"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A suction control valve (SCV) is a type of a pressure-reducing regulator that maintains outlet pressure at a target setpoint. It is not part of a compressor skid package, but installed outside a skid on the inlet piping into a suction scrubber. It serves two critical purposes: (1) ensuring pressure stays below a desired setpoint to prevent high suction pressure shutdown, and (2) maintaining pressure sufficiently close to setpoint to preserve desired flowrate capacity. As shown in &lt;a class="internal-link" href="#table-1"&gt;Table 1&lt;/a&gt; of &lt;a class="internal-link" href="#key4"&gt;Section 1.4&lt;/a&gt;, increasing suction pressure boosts flowrate capacity but also increases horsepower demand. The SCV must carefully balance these competing factors - excessive pressure risks high-HP shutdowns, while insufficient pressure reduces capacity and may force gas flaring to relieve excess gas. All compressors have a manufacturer-specified maximum suction pressure; exceeding this limit will make the compressor to run out of horsepower and cause a shutdown.&lt;/p&gt;
+&lt;p&gt;The SCV maintains pressure through purely mechanical operation of its pressure pilot system (best explained in &lt;a class="internal-link" href="#video-2"&gt;Video 2&lt;/a&gt; by Kimray, HIGHLY recommend you to watch it). The process works as follows (see &lt;a class="internal-link" href="#fig-42"&gt;Figure 42&lt;/a&gt; and &lt;a class="internal-link" href="#fig-42A"&gt;42A&lt;/a&gt; for example illustrations):&lt;/p&gt;
+&lt;div class="ordered-list"&gt;
+&lt;h2&gt;SCV Working Principle&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Process pressure acts on the pilot diaphragm through the sensing line.&lt;/li&gt;
+&lt;li&gt;Diaphragm movement by the sensing line pressure physically adjusts the pilot plug. The position of the plug determines supply pressure passthrough or cutoff.&lt;/li&gt;
+&lt;li&gt;If pass through, the pilot plug lifts to let supply pressure flow into the diaphragm chamber of the main control valve.&lt;/li&gt;
+&lt;li&gt;If cutoff, the pilot plug falls to cutoff supply pressure. The remaining pressure in the main control valve's diaphragm chamber is vented through the pilot's vent port.&lt;/li&gt;
+&lt;li&gt;The diaphragm movement of the main control valve positions the control valve plug, allowing process gas passthrough or cutoff.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;&lt;p&gt;When the sensing line pressure rises above setpoint, the pilot diaphragm moves to cutoff supply gas, closing the control valve. When pressure drops below setpoint, the diaphragm opens to allow supply gas passthrough, opening the control valve. This mechanical balance continues until stable pressure is achieved. &lt;a class="internal-link" href="#fig-40"&gt;Figure 40&lt;/a&gt; shows a real-life SCV installation on a heater treater vapor recovery for stable suction pressure control.&lt;/p&gt;
+&lt;p&gt;It's important to note that during supply gas cut off, the mounted pilot vents the supply pressure through the vent port (shown in &lt;a class="internal-link" href="#fig-42a"&gt;Figure 42A&lt;/a&gt;), which is a source of emission when gas is used instead of air.&lt;/p&gt;
+&lt;p&gt;SCVs are not installed on tank (below 1 psig) or VRT (1-5 psig) vapor recovery applications because these vessels will never generate sufficient suction pressure to trigger high-HP compressor shutdowns. For separator and heater treater applications, SCVs (costing &lt;span&gt;$&lt;/span&gt;1,500-&lt;span&gt;$&lt;/span&gt;2,500 per valve package) are only installed when pressure swings could substantially affect compressor operation. They are mandatory for wellhead-proximate applications like casing or primary separator drawdown applications, where 200-300% pressure fluctuations frequently occur. Downstream vessels with stable operation may not require SCVs depending on their pressure characteristics.&lt;/p&gt;
 &lt;div class="centered-title"&gt;
 &lt;span class="title-text mt-2"&gt;Suction Control Valve 4 Major Components&lt;/span&gt;
 &lt;/div&gt;
@@ -2654,6 +2717,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;/div&gt;
 &lt;div class="col-12 fig-title"&gt;
 &lt;p class="image-description"&gt;&lt;strong&gt;Figure 42:&lt;/strong&gt; More detailed illustration of a fail-close SCV installation shown in &lt;a class="internal-link" href="#fig-40"&gt;Figure 40&lt;/a&gt;. Image adapted from: Kimray&lt;/p&gt;
+&lt;/div&gt;&lt;div class="row full_screen_margin_80 mobile_responsive_plot_full_width" id="fig-42A"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/screw_scv_3a.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;
+&lt;p class="image-description"&gt;&lt;strong&gt;Figure 42A:&lt;/strong&gt; The sensing line (blue) controls the movement of the pilot diaphragm that controls supply gas pass through or cut off. During supply pressure cutoff operation, the pilot diaphragm moves accordingly to vent supply pressure to the vent port, which is a source of emissions when gas is used operate the pilot instead of air. Image adapted from: Kimray&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2661,16 +2729,32 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="8.-Pressure-control"&gt;8. Pressure control&lt;a class="anchor-link" href="#8.-Pressure-control"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A programmable logic controller (PLC) on a compressor package controls pressure of the source vessel (tank, heater, separator, wellhead, etc). Different applications need different operating pressures - for example, a Vapor Recovery Tower (VRT) requires 2-4 psig. The PLC sends signals to either a variable frequency drive (VFD) to speed up/down or to a recycle valve to open/close, maintaining source vessel pressure within the target range. These settings are configured at the skid-mounted control panel.&lt;/p&gt;
+&lt;div class="alert alert-info" id="note_2"&gt;
+&lt;h4&gt;Note 2: Pneumatic Control Valve Emissions&lt;/h4&gt;
+&lt;p&gt;Many control components on screw compressor skids—such as liquid dump valves, recycle valves, back pressure valves (BPVs), suction control valves (SCVs), solenoid valves, and level switches—can be sources of emissions if they are pneumatic and use instrument gas instead of air. These devices often vent supply gas to atmosphere when actuated, which results in small but continuous emissions.&lt;/p&gt;
+&lt;p&gt;For example, the liquid dump valve is typically actuated by a 3-way pneumatic level switch that vents gas to atmosphere when closing the valve. Similarly, a pneumatic recycle valve (see &lt;a class="internal-link" href="#7.2.-Pneumatic-flow-control-valve"&gt;Section 7.2&lt;/a&gt;) is operated by a solenoid valve (see &lt;a class="internal-link" href="#7.3.-Solenoid-valve"&gt;Section 7.3&lt;/a&gt;) that also vents pressure during each cycle. The pilot controllers used on BPVs and SCVs include small vent ports that repeteadly release pressure to air during normal operation (shown in &lt;a class="internal-link" href="#fig-42A"&gt;Figure 42A&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;These vented gases become emission sources unless captured. This can be mitigated either by using electric control valves—or more practically, by routing the vent lines from pneumatic devices to a closed-capture system. For instance, &lt;a class="internal-link" href="#fig-29"&gt;Figure 29&lt;/a&gt; shows a tubing setup that captures vent gas and routes it to a closed loop contained within a compressor skid, preventing release to atmosphere.&lt;/p&gt;
+&lt;p&gt;On most upstream wellsites, especially on separators, pneumatic dump valves are common and often vent directly to air. Because of this, many operators assume they must switch to electric valves to meet emissions goals. This leads to unnecessary requests for electric recycle valves or electric pumps on compressor packages. In reality, if the compressor skid is properly designed to capture vent gas—like the design used in Flogistix screw compressors—there’s no need to switch to electric valves. The entire system can remain pneumatic, while still achieving zero control valve emissions through closed-loop vent capture.&lt;/p&gt;
+&lt;p&gt;Electric control valves are more expensive and generally require more frequent maintenance than pneumatic ones. Unless required by specific site conditions, choosing electric over pneumatic just for emissions purposes is often unnecessary—at least for well-designed, skid-mounted compressor systems like those from Flogistix. Be aware that this may not apply to all vendors, so confirm whether the packager routes the control valve vent gas to a closed system or vents it to atmosphere.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="8.1.-VFD-and-PID-Loop"&gt;8.1. VFD and PID Loop&lt;a class="anchor-link" href="#8.1.-VFD-and-PID-Loop"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A variable frequency drive (VFD) controls rotational speed for either electric motor or gas engine drivers (&lt;a class="internal-link" href="#3.-Choice-of-a-Driver:-Electric-Motor-or-Gas-Engine"&gt;Section 3&lt;/a&gt;), adjusting RPM based on electrical signals from the PLC. Pressure transmitters (&lt;a class="internal-link" href="#7.8.-Transmitters"&gt;Section 7.8&lt;/a&gt;) on the source vessel or suction line continuously transmit data to the PLC. For VRT applications maintaining 2-4 psig with 3 psig target, if pressure reaches 4 psig (indicating built up gas volumes), the PLC commands higher RPM (e.g., 2000 RPM to 2500 RPM) to draw more gas volumes and reduce pressure. Conversely at 2 psig, it reduces RPM (e.g., to 1200 RPM) or activate recycle mode (&lt;a class="internal-link" href="#8.2.-Recycle-mode"&gt;Section 8.2&lt;/a&gt;) to allow pressure buildup to 3 psig.&lt;/p&gt;
+&lt;h2 id="8.-Pressure-control"&gt;8. Pressure control&lt;a class="anchor-link" href="#8.-Pressure-control"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A programmable logic controller (PLC) on a compressor package controls pressure of the source vessel (tank, heater, separator, wellhead, etc). Different applications need different operating pressures - for example, a Vapor Recovery Tower (VRT) requires 2-4 psig. The PLC sends signals to compressor driver to speed up/down, and to a recycle valve to open/close, maintaining source vessel pressure within the target range. These settings are configured at the skid-mounted control panel.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="8.1.-PID-Loop"&gt;8.1. PID Loop&lt;a class="anchor-link" href="#8.1.-PID-Loop"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;BEFORE YOU READ:&lt;/strong&gt; P&amp;ID, with a "&amp;" symbol refers to Piping and Instrumentation Diagram. PID, without the "&amp;" symbol here refers to Pressure-Integral-Derivative.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;p&gt;PLC controls rotational speed of a compressor driver, either electric motor or a gas engine. Pressure transmitters (&lt;a class="internal-link" href="#7.8.-Transmitters"&gt;Section 7.8&lt;/a&gt;) on the source vessel or suction line continuously transmit data to the PLC. For VRT applications maintaining 2-4 psig with 3 psig target, if pressure reaches 4 psig (indicating built up gas volumes), the PLC commands higher RPM (e.g., 2000 RPM to 2500 RPM) to draw more gas volumes and reduce pressure. Conversely at 2 psig, it reduces RPM (e.g., to 1200 RPM) or activate recycle mode (&lt;a class="internal-link" href="#8.3.-Recycle-mode"&gt;Section 8.3&lt;/a&gt;) to allow pressure buildup to 3 psig.&lt;/p&gt;
 &lt;p&gt;The control panel runs a PID (Proportional-Integral-Derivative) loop algorithm that dynamically calculates RPM adjustments. This three-component system: (1) &lt;strong&gt;Proportional&lt;/strong&gt; responds to current pressure deviation (instant RPM change), (2) &lt;strong&gt;Integral&lt;/strong&gt; addresses persistent offsets (gradual correction), and (3) &lt;strong&gt;Derivative&lt;/strong&gt; anticipates trends (prevents overshoot). For a 2-4 psig target at 3.5 psig/1600 RPM, the PID might initially command 2000 RPM to pull down to 3 psig. If this overshoots to 2 psig, the algorithm automatically reduces the next RPM increment and incorporates the error to calculate a more precise adjustment, reaching stable operation within a few correction cycles.&lt;/p&gt;
-&lt;p&gt;However, VFDs with PID control cannot always maintain source pressure within target range, particularly in upstream production applications where wellhead pressures fluctuate significantly. Sudden slug flows can overflood vessels with high instantaneous rates, causing pressure to exceed both target (2-4 psig) and maximum (5 psig) ranges even at maximum compressor RPM. In these cases, excess pressure diverts to flare headers - an environmentally undesirable outcome. Frequent flare activation indicates undersized compressor capacity, necessitating larger unit installation. Conversely, if pressure drops below target range, the PLC activates recycle mode to prevent vessel overdrawing.&lt;/p&gt;
+&lt;p&gt;However, PID control cannot always maintain source pressure within target range, particularly in upstream production applications where wellhead pressures fluctuate significantly. Sudden slug flows can overflood vessels with high instantaneous rates, causing pressure to exceed both target (2-4 psig) and maximum (5 psig) ranges even at maximum compressor RPM. In these cases, excess pressure diverts to flare headers - an environmentally undesirable outcome. Frequent flare activation indicates undersized compressor capacity, necessitating larger unit installation. Conversely, if pressure drops below target range, the PLC activates recycle mode to prevent vessel overdrawing.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;u&gt;The PID tuning must be done by a mechanic experienced specifically with oil-flooded screw compressors&lt;/u&gt;&lt;/strong&gt;, including detailed knowledge of the particular model's design characteristics. This specialized tuning typically requires hours to a full day depending on application. The need for model-specific expertise makes rental units more practical than purchases, as most customer operators lack mechanics trained on both: (1) oil-flooded screw compressor technology in general, and (2) the packager's specific model implementation. Many purchased units underperform or experience frequent shutdowns when maintained by personnel unfamiliar with these model-specific knowledge.&lt;/p&gt;
 &lt;div class="row" id="fig-43"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/screw_PID_loop.png"/&gt;&lt;/div&gt;
@@ -2689,7 +2773,34 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="8.2.-Recycle-mode"&gt;8.2. Recycle mode&lt;a class="anchor-link" href="#8.2.-Recycle-mode"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In VRT applications maintaining 2-4 psig, recycle mode maybe set to activate when pressure falls below 2 psig - a critical threshold since VRTs require minimum 1 psig to prevent liquid overflow into gas lines. The system activates recycle mode before shutdown—shutdown is a last resort—to maintain continous opereation&lt;/p&gt;
+&lt;h3 id="8.2.-RPM-Control"&gt;8.2. RPM Control&lt;a class="anchor-link" href="#8.2.-RPM-Control"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The PID loop in the PLC sends a target RPM signal to the compressor driver to ramp up or down based on suction pressure. But how is this target RPM physically achieved? The underlying RPM control mechanisms differ entirely between electric and gas engine models.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;ol class="numbered-bullets mt-4"&gt;
+&lt;li id="rpm-control-electric" style="margin-bottom: 1.5em !important;"&gt;
+&lt;p&gt;&lt;strong&gt;Electric&lt;/strong&gt;&lt;/p&gt;
+&lt;p class="mb-3"&gt;Electric compressor models use Variable Frequency Drives (VFDs) to control RPM by adjusting the frequency (Hz) and voltage of the power supplied to the motor. Motor speed is directly proportional to input frequency. For example, if a motor is rated for 1800 RPM at 60 Hz, then at 30 Hz it will run at ~900 RPM, at 45 Hz ~1350 RPM, and at 72 Hz ~2160 RPM—assuming the motor and compressor are rated for overspeed. By changing frequency in real time, the VFD controls compressor RPM without mechanical linkages.&lt;/p&gt;
+&lt;p&gt;This allows the compressor to respond precisely and quickly to process demands. If suction pressure rises, the VFD increases frequency (Hz) to raise RPM and move more gas—for instance, from 1200 RPM to 1800 RPM. If pressure drops, the VFD lowers frequency to reduce speed and avoid over-compression. This level of control enables more stable pressure regulation management compared to engine-driven systems, which rely on slower, mechanical fuel and throttle adjustments.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="rpm-control-gas-engine" style="margin-bottom: 1.5em !important;"&gt;
+&lt;p&gt;&lt;strong&gt;Gas Engine&lt;/strong&gt;&lt;/p&gt;
+&lt;p class="mb-3"&gt;Gas engine-driven compressors control RPM using a combination of a magnetic pickup sensor (shown in &lt;a class="internal-link" href="#fig-44A"&gt;Figure 44A&lt;/a&gt;), a governor system, and an Air-Fuel Ratio Controller (AFRC). The magnetic pickup detects engine speed by sensing gear teeth or flywheel movement and sends this RPM signal to the PLC. The PLC uses this input—along with process data like suction pressure—to determine whether to increase or decrease engine speed. However, the engine does not receive direct RPM commands. Instead, the PLC sends control signals to mechanical components that influence speed indirectly.&lt;/p&gt;
+&lt;p class="mb-3"&gt;The governor adjusts the throttle to regulate how much fuel gas is delivered to the engine. When suction pressure rises, the PLC signals the governor to increase fuel flow, raising RPM. When demand drops, it reduces fuel to slow the engine. Operating alongside the governor, the AFRC controls the air-to-fuel ratio, ensuring stable combustion and reducing emissions. This is especially important when a catalyst is installed, since improper air-fuel balance can reduce catalyst efficiency or cause damage.&lt;/p&gt;
+&lt;p class="mb-3"&gt;Compared to electric compressor models, RPM control in gas engine systems is slower and less precise. Electric units use VFDs that directly adjust motor frequency (Hz), allowing instant RPM changes based on real-time suction pressure or flow. In contrast, engine-driven compressors rely on slower mechanical and pneumatic responses, which can introduce delays during rapid load swings and limit fine pressure control.&lt;/p&gt;
+&lt;p class="mb-3"&gt;The presence of additional control components—MPU, governor, and AFRC—contributes to the reason why gas engine models require more frequent maintenance than electric units, which have fewer moving parts and simpler control architecture.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;&lt;div class="row" id="fig-44A"&gt;
+&lt;div class="col"&gt;&lt;img src="jupyter_images/screw_magnetic_sensor.png"/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-12 fig-title"&gt;
+&lt;p class="image-description"&gt;&lt;strong&gt;Figure 44A:&lt;/strong&gt; Illustration of a magnetic pickup unit (MPU) that detects compressor RPM and sends it to PLC for RPM control feedback. Image on the right is an MPU installation on a gas-engine oil-flooded screw compressor. Left diagram from: &lt;a href="https://www.fwmurphy.com/product/magnetic-pickups/" target="_blank"&gt;FW Murphy&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="8.3.-Recycle-mode"&gt;8.3. Recycle mode&lt;a class="anchor-link" href="#8.3.-Recycle-mode"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In VRT applications maintaining 2-4 psig, recycle mode maybe set to activate when pressure falls below 2 psig - a critical threshold since VRTs require minimum 1 psig to prevent liquid overflow into gas lines. The system activates recycle mode before shutdown—shutdown is a last resort—to maintain continous opereation&lt;/p&gt;
 &lt;p&gt;During recycle mode, two primary actions occur. First, the driver RPM reduces to minimum sustainable levels. Second, the recycle valve opens (either electric type as shown in &lt;a class="internal-link" href="#fig-19"&gt;Figure 19&lt;/a&gt; or pneumatic type in &lt;a class="internal-link" href="#fig-21"&gt;Figure 21&lt;/a&gt;), redirecting discharge gas back to suction. Before reaching suction, the recycle gas passes through a pressure reducing regulator (PR-1000, shown in &lt;a class="internal-link" href="#fig-15"&gt;Figure 15&lt;/a&gt;) to prevent high-HP shutdown. See &lt;a class="internal-link" href="#fig-45"&gt;Figure 45&lt;/a&gt; for example telemetry data showing driver RPM change with recycle mode activation.&lt;/p&gt;
 &lt;p&gt;Oil-flooded screw compressors achieve 100% turndown capability through recycle valve operation. Turndown refers to the percentage reduction possible below a compressor's maximum design flowrate without triggering shutdown. The recycle system enables complete (100%) redirection of discharge gas back to suction.&lt;/p&gt;
 &lt;p&gt;While recycle mode maintains continuous operation, it carries an energy penalty - the compressor repeatedly recompresses and depressurizes the same gas volume by consuming energy (electricity/fuel gas). This trade-off preserves two critical operational benefits over complete shutdowns:&lt;/p&gt;
@@ -2712,7 +2823,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="8.3.-Pressure-setpoint-scenarios"&gt;8.3. Pressure setpoint scenarios&lt;a class="anchor-link" href="#8.3.-Pressure-setpoint-scenarios"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This section shows example source vessel pressure target and recycle setpoint scenarios. The target pressure is the desired pressure a compressor maintains by adjusting driver RPM, controlled by a panel receiving feedback from a pressure transmitter (PT). Location of PT installation depends on application:&lt;/p&gt;
+&lt;h3 id="8.4.-Pressure-setpoint-scenarios"&gt;8.4. Pressure setpoint scenarios&lt;a class="anchor-link" href="#8.4.-Pressure-setpoint-scenarios"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This section shows example source vessel pressure target and recycle setpoint scenarios. The target pressure is the desired pressure a compressor maintains by adjusting driver RPM, controlled by a panel receiving feedback from a pressure transmitter (PT). Location of PT installation depends on application:&lt;/p&gt;
 &lt;p&gt;&lt;u&gt;PT on source vessel required for:&lt;/u&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;ul style="margin-bottom: 1em;"&gt;
 &lt;li&gt;&lt;p class="mt-0"&gt;Low-pressure applications (tank vapor recovery, VRT vapor recovery) where pipeline friction losses would distort readings&lt;/p&gt;&lt;/li&gt;
@@ -2722,11 +2833,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;li&gt;&lt;p class="mt-0"&gt;Applications within 50 psig suction limit where friction losses are negligible (heater treater vapor recovery, separator drawdown, SRP casing drawdown)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;p&gt;Note that the setpoints presented in this section are examples - actual values may vary based on operational needs, but all shown scenarios are plausible:&lt;/p&gt;
 &lt;ul style="margin-bottom: 1em;"&gt;
-&lt;li&gt;&lt;p class="mt-0"&gt;&lt;a class="internal-link" href="#8.3.1.-VRT-vapor-recovery"&gt;8.3.1. VRT vapor recovery&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p class="mt-0"&gt;&lt;a class="internal-link" href="#8.3.2.-Tank-vapor-recovery"&gt;8.3.2. Tank vapor recovery&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p class="mt-0"&gt;&lt;a class="internal-link" href="#8.3.3.-Heater-vapor-recovery"&gt;8.3.3. Heater vapor recovery&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p class="mt-0"&gt;&lt;a class="internal-link" href="#8.3.4.-Separator-drawdown"&gt;8.3.4. Separator drawdown&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p class="mt-0"&gt;&lt;a class="internal-link" href="#8.3.5.-Casing-drawdown"&gt;8.3.5. Casing drawdown&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="mt-0"&gt;&lt;a class="internal-link" href="#8.4.1.-VRT-vapor-recovery"&gt;8.4.1. VRT vapor recovery&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="mt-0"&gt;&lt;a class="internal-link" href="#8.4.2.-Tank-vapor-recovery"&gt;8.4.2. Tank vapor recovery&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="mt-0"&gt;&lt;a class="internal-link" href="#8.4.3.-Heater-vapor-recovery"&gt;8.4.3. Heater vapor recovery&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="mt-0"&gt;&lt;a class="internal-link" href="#8.4.4.-Separator-drawdown"&gt;8.4.4. Separator drawdown&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="mt-0"&gt;&lt;a class="internal-link" href="#8.4.5.-Casing-drawdown"&gt;8.4.5. Casing drawdown&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2734,8 +2845,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="8.3.1.-VRT-vapor-recovery"&gt;8.3.1. VRT vapor recovery&lt;a class="anchor-link" href="#8.3.1.-VRT-vapor-recovery"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;The above discussions on VFD/PID loop (&lt;a class="internal-link" href="#8.1.-VFD-and-PID-Loop"&gt;Section 8.1&lt;/a&gt;) and recycle mode (&lt;a class="internal-link" href="#8.2.-Recycle-mode"&gt;Section 8.2&lt;/a&gt;) used VRT vapor recovery scenario as an example. VRTs typically require 2-4 psig operating range. Above 4 psig risks a chance of gas blowby to tanks and trigger venting/flaring, while below 2 psig risks a chance of liquid overflow to gas line, and into a VRU suction scrubber, potentailly triggering high liquid level shutdown on a VRU. This is due to the unique design of a VRT, which I do not cover in detail here.&lt;/p&gt;
-&lt;p&gt;&lt;a class="internal-link" href="#fig-46"&gt;Figure 46&lt;/a&gt; and &lt;a class="internal-link" href="#fig-47"&gt;47&lt;/a&gt; below shows a simplified P&amp;ID and layout diagram of a VRT vapor recovery system. Assuming 5 psig is the maximum pressure you want on a VRT (5 psig is for liquid level control, VRTs typically have 75-150 psig MAWP rating), there will be a BPV set at 5 psig for overpressure relief to combustor during compressor shutdown or volume surge. The VRU targets to maintain the VRT pressure between 2-4 psig by ramping up/down a VFD. Gas flows preferentially to the VRU side due to its lower suction pressure (2-4 psig) compared to the flare side BPV's 5 psig resistance, making the VRU the path of least resistance. Refer to &lt;a class="internal-link" href="#note_2"&gt;Note 2&lt;/a&gt; for working principles of flare/combustor relief.&lt;/p&gt;
+&lt;h4 id="8.4.1.-VRT-vapor-recovery"&gt;8.4.1. VRT vapor recovery&lt;a class="anchor-link" href="#8.4.1.-VRT-vapor-recovery"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;The above discussions on PID loop (&lt;a class="internal-link" href="#8.1.-PID-Loop"&gt;Section 8.1&lt;/a&gt;) and recycle mode (&lt;a class="internal-link" href="#8.3.-Recycle-mode"&gt;Section 8.3&lt;/a&gt;) used VRT vapor recovery scenario as an example. VRTs typically require 2-4 psig operating range. Above 4 psig risks a chance of gas blowby to tanks and trigger venting/flaring, while below 2 psig risks a chance of liquid overflow to gas line, and into a VRU suction scrubber, potentailly triggering high liquid level shutdown on a VRU. This is due to the unique design of a VRT, which I do not cover in detail here.&lt;/p&gt;
+&lt;p&gt;&lt;a class="internal-link" href="#fig-46"&gt;Figure 46&lt;/a&gt; and &lt;a class="internal-link" href="#fig-47"&gt;47&lt;/a&gt; below shows a simplified P&amp;ID and layout diagram of a VRT vapor recovery system. Assuming 5 psig is the maximum pressure you want on a VRT (5 psig is for liquid level control, VRTs typically have 75-150 psig MAWP rating), there will be a BPV set at 5 psig for overpressure relief to combustor during compressor shutdown or volume surge. The VRU targets to maintain the VRT pressure between 2-4 psig by ramping up/down a VFD. Gas flows preferentially to the VRU side due to its lower suction pressure (2-4 psig) compared to the flare side BPV's 5 psig resistance, making the VRU the path of least resistance. Refer to &lt;a class="internal-link" href="#note_3"&gt;Note 3&lt;/a&gt; for working principles of flare/combustor relief.&lt;/p&gt;
 &lt;div class="row" id="fig-46"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/screw_VRT_vapor_recovery.png"/&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -2775,9 +2886,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="8.3.2.-Tank-vapor-recovery"&gt;8.3.2. Tank vapor recovery&lt;a class="anchor-link" href="#8.3.2.-Tank-vapor-recovery"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Different pressure control applications (tanks, heaters, separators, wellheads) require different operating pressures. The most challenging is vapor recovery from atmospheric storage tanks due to their extremely low operating range (measured in ounces).&lt;/p&gt;
+&lt;h4 id="8.4.2.-Tank-vapor-recovery"&gt;8.4.2. Tank vapor recovery&lt;a class="anchor-link" href="#8.4.2.-Tank-vapor-recovery"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Different pressure control applications (tanks, heaters, separators, wellheads) require different operating pressures. The most challenging is vapor recovery from atmospheric storage tanks due to their extremely low operating range (measured in ounces).&lt;/p&gt;
 &lt;p&gt;These tanks (usually 8-16 oz MAWP, API 12F design) have oversized vent headers (4"-6") to minimize friction loss. Preserving their minimal pressure is critical to avoid flaring and thief hatch openings.&lt;/p&gt;
-&lt;p&gt;Assume a 16 oz MAWP tank vapor recovery system shown in &lt;a class="internal-link" href="#fig-48"&gt;Figure 48&lt;/a&gt; and &lt;a class="internal-link" href="#fig-49"&gt;49&lt;/a&gt;. Each tank will have a thief hatch with 16 oz setpoint, and an 14 oz Enardo valve (essentially functions like a back pressure valve) that dumps to flare during process upsets (see to &lt;a class="internal-link" href="#note_2"&gt;Note 2&lt;/a&gt; for working principles of flare/combustor relief). The Enardo setpoint is intentionally set lower than thief hatch setpoint, because these hatches do not automatically close once they are set off (thief hatch emissions are the biggest emission source in the oil and gas industry). A proper tank design should aim to never set off a thief hatch. A VRU can target 5 oz pressure on the tank. When pressure rises above 5 oz, compressor driver will speed up to pull gas and decrease pressure from the tank. A recycle mode can be set at 4 oz to prevent overdrawing the tank and introduce oxygen ingress.&lt;/p&gt;
+&lt;p&gt;Assume a 16 oz MAWP tank vapor recovery system shown in &lt;a class="internal-link" href="#fig-48"&gt;Figure 48&lt;/a&gt; and &lt;a class="internal-link" href="#fig-49"&gt;49&lt;/a&gt;. Each tank will have a thief hatch with 16 oz setpoint, and an 14 oz Enardo valve (essentially functions like a back pressure valve) that dumps to flare during process upsets (see to &lt;a class="internal-link" href="#note_3"&gt;Note 3&lt;/a&gt; for working principles of flare/combustor relief). The Enardo setpoint is intentionally set lower than thief hatch setpoint, because these hatches do not automatically close once they are set off (thief hatch emissions are the biggest emission source in the oil and gas industry). A proper tank design should aim to never set off a thief hatch. A VRU can target 5 oz pressure on the tank. When pressure rises above 5 oz, compressor driver will speed up to pull gas and decrease pressure from the tank. A recycle mode can be set at 4 oz to prevent overdrawing the tank and introduce oxygen ingress.&lt;/p&gt;
 &lt;div class="row" id="fig-48"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/screw_tank_vapor_recovery.png"/&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -2836,10 +2947,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="8.3.3.-Heater-vapor-recovery"&gt;8.3.3. Heater vapor recovery&lt;a class="anchor-link" href="#8.3.3.-Heater-vapor-recovery"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;h4 id="8.4.3.-Heater-vapor-recovery"&gt;8.4.3. Heater vapor recovery&lt;a class="anchor-link" href="#8.4.3.-Heater-vapor-recovery"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;BEFORE YOU READ:&lt;/strong&gt; This section assumes: (1) a compressor maximum suction of 50 psig (mechanical limit of &lt;a href="https://www.leroigas.com/en-us/products" target="_blank"&gt;Leroi HG series&lt;/a&gt; compressors), and (2) reader familiarity with suction control valve operation (&lt;a class="internal-link" href="#7.9.-Suction-control-valve"&gt;Section 7.9&lt;/a&gt;).&lt;/p&gt;
-&lt;/blockquote&gt;&lt;p&gt;Heater treaters operate at much higher pressures (30-70 psig) compared to VRT systems (1-5 psig) or atmospheric tanks (1-16 oz), giving much bigger operating margins for operation setpoints.&lt;/p&gt;
-&lt;p&gt;Similar to VRT and tank applications, the gas line splits into two paths: 1) to VRU suction (main path), and 2) to flare with a back pressure valve (BPV) set higher than the target suction pressure. This pressure differential ensures vapors flow to the VRU during normal operation (path of least resistance), while automatically diverting to flare for pressure relief during VRU shutdowns or process upsets. See &lt;a class="internal-link" href="#fig-C"&gt;Figure C&lt;/a&gt; below for an example telemetry data showing pressure relief to flare during VRU shutdown. See &lt;a class="internal-link" href="#fig-50"&gt;Figure 50&lt;/a&gt;, &lt;a class="internal-link" href="#fig-51"&gt;51&lt;/a&gt;, and &lt;a class="internal-link" href="#fig-52"&gt;52&lt;/a&gt; for example P&amp;IDs for BPV (BPV-6001) installations on flare side.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;p&gt;Heater treaters operate at much higher pressures (30-70 psig) compared to VRT systems (1-5 psig) or atmospheric tanks (1-16 oz), giving much bigger operating margins for compressor operation setpoints.&lt;/p&gt;
+&lt;p&gt;Similar to VRT and tank applications, the heater gas line splits into two paths: 1) to VRU suction (main path), and 2) to flare with a back pressure valve (BPV) set higher than the target suction pressure. This pressure differential between the suction pressure and the BPV setpoint ensures vapors flow to the VRU during normal operation (path of least resistance), while automatically diverting to flare for pressure relief during VRU shutdowns or process upsets. See &lt;a class="internal-link" href="#fig-C"&gt;Figure C&lt;/a&gt; below for an example telemetry data showing pressure relief to flare during VRU shutdown. See &lt;a class="internal-link" href="#fig-50"&gt;Figure 50&lt;/a&gt;, &lt;a class="internal-link" href="#fig-51"&gt;51&lt;/a&gt;, and &lt;a class="internal-link" href="#fig-52"&gt;52&lt;/a&gt; for example P&amp;IDs for BPV (BPV-6001) installations on flare side.&lt;/p&gt;
 &lt;p&gt;Heater vapor recovery differs from VRT/tank applications in &lt;strong&gt;&lt;u&gt;potentially requiring a suction control valve (SCV)&lt;/u&gt;&lt;/strong&gt; (see &lt;a class="internal-link" href="#7.9.-Suction-control-valve"&gt;Section 7.9&lt;/a&gt; for SCV working principles). Given heaters typically operate at 20-70 psig and compressors have 50 psig suction limits:&lt;/p&gt;
 &lt;div class="ordered-list ordered-list-note ordered-list-nested"&gt;
 &lt;ol&gt;
@@ -2899,10 +3010,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="8.3.4.-Separator-drawdown"&gt;8.3.4. Separator drawdown&lt;a class="anchor-link" href="#8.3.4.-Separator-drawdown"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Separator drawdown artificially lowers salesline backpressure on the wellhead by installing a compressor on a gas outlet line of a primary separator. A primary separator between the wellhead and salesline performs bulk gas/liquid separation. The separator experiences salesline backpressure (e.g., 150 psig), which propagates to the wellhead, wellbore, and reservoir, reducing flow rates as backpressure increases.&lt;/p&gt;
+&lt;h4 id="8.4.4.-Separator-drawdown"&gt;8.4.4. Separator drawdown&lt;a class="anchor-link" href="#8.4.4.-Separator-drawdown"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Separator drawdown artificially lowers salesline backpressure on the wellhead by installing a compressor on a gas outlet line of a primary separator. A primary separator between the wellhead and salesline performs bulk gas/liquid separation. The separator experiences salesline backpressure (e.g., 150 psig), which propagates to the wellhead, wellbore, and reservoir, reducing flow rates as backpressure increases.&lt;/p&gt;
 &lt;p&gt;Installing a compressor directly downstream of a compressor isolates the wellhead from 150 psig salesline pressure. Instead, the wellhead sees reduced 0-50 psig compressor suction pressure. The compressor boosts pressure to meet salesline requirements while creating significant wellhead drawdown, resulting in production uplift.&lt;/p&gt;
 &lt;p&gt;This technology can be used on: 1) naturally flowing wells, 2) liquid-loaded wells, 3) plunger-lift wells and 4) wells lacking pipeline infrastructure for buyback gas or facing expensive buyback sources (each of these topics deserve more in-depth discussion, but it's not the focus of this article)&lt;/p&gt;
-&lt;p&gt;Unlike the &lt;a class="internal-link" href="#8.3.1.-VRT-vapor-recovery"&gt;VRT&lt;/a&gt;, &lt;a class="internal-link" href="#8.3.2.-Tank-vapor-recovery"&gt;Tank&lt;/a&gt;, and &lt;a class="internal-link" href="#8.3.3.-Heater-vapor-recovery"&gt;Heater&lt;/a&gt; vapor recovery applications shown above that has a BPV set to dump to flare, separator gas bypasses the compressor during shutdowns/upsets, flowing directly to salesline.&lt;/p&gt;
+&lt;p&gt;Unlike the &lt;a class="internal-link" href="#8.4.1.-VRT-vapor-recovery"&gt;VRT&lt;/a&gt;, &lt;a class="internal-link" href="#8.4.2.-Tank-vapor-recovery"&gt;Tank&lt;/a&gt;, and &lt;a class="internal-link" href="#8.4.3.-Heater-vapor-recovery"&gt;Heater&lt;/a&gt; vapor recovery applications shown above that has a BPV set to dump to flare, separator gas bypasses the compressor during shutdowns/upsets, flowing directly to salesline.&lt;/p&gt;
 &lt;p&gt;Take &lt;a class="internal-link" href="#fig-53"&gt;Figure 53&lt;/a&gt; as an example. During normal operation, all separator gas flows to the compressor suction side (path of the lowest resistance) and the wellhead sees minimal back pressure. During compressor shutdown or volume surge, check valve CHK-6000 essentially functions as a BPV that relieves excess pressure to salesline. The check valve won't open until the separator pressure reaches 150 psig. Compressor shutdown or process upsets make separator pressure to build upto the salesline pressure, exerting high backpressure on the wellhead and negatively affecting hydrocarbon production.&lt;/p&gt;
 &lt;div class="row" id="fig-53"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/screw_drawdown_sep.png"/&gt;&lt;/div&gt;
@@ -2950,9 +3061,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="8.3.5.-Casing-drawdown"&gt;8.3.5. Casing drawdown&lt;a class="anchor-link" href="#8.3.5.-Casing-drawdown"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;The purpose of casing drawdown is to eliminate gas interference in tubing side with downhole pumps like sucker rod pumps (SRPs) and electric submersible pumps (ESPs). Gas interference reduces pump efficiency, damages equipment, and forces frequent shutdowns for repairs. Traditional fixes—such as installing downhole separators, optimizing pump placement, or increasing wellhead back pressure—are limited because gas must still travel up the tubing alongside liquids. Casing drawdown addresses the root cause by opening the casing side, creating a dedicated gas relief path.&lt;/p&gt;
+&lt;h4 id="8.4.5.-Casing-drawdown"&gt;8.4.5. Casing drawdown&lt;a class="anchor-link" href="#8.4.5.-Casing-drawdown"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;The purpose of casing drawdown is to eliminate gas interference in tubing side with downhole pumps like sucker rod pumps (SRPs) and electric submersible pumps (ESPs). Gas interference reduces pump efficiency, damages equipment, and forces frequent shutdowns for repairs. Traditional fixes—such as installing downhole separators, optimizing pump placement, or increasing wellhead back pressure—are limited because gas must still travel up the tubing alongside liquids. Casing drawdown addresses the root cause by opening the casing side, creating a dedicated gas relief path.&lt;/p&gt;
 &lt;p&gt;Consider a wellhead with 150 psig sales line backpressure at the separator. The tubing side with the pump sees 150 psig salesline back pressure. Casing side connected to a compressor inlet, sees much lower back pressure (0-50 psig suction pressure). Gas flows to the path of leat resistance - the casing side. The wellhead now functions like a giant two-phase separator, in which gas exits through the casing (to compressor) and liquids through the tubing (via a pump), eliminating gas interference problems.&lt;/p&gt;
-&lt;p&gt;While fixing gas interference in downhole pumps is the main purpose of casing drawdown, it also increases gas flow rates. Unlike conventional systems where gas harms pumps, here it flows exclusively up the casing. Reducing casing backpressure from 150 psig to 5 psig typically boosts gas flow rates 2x-6x. This is similar to increasing flowrates by lowering salesline backpressure, explained in &lt;a class="internal-link" href="#8.3.4.-Separator-drawdown"&gt;Section 8.3.4&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;While fixing gas interference in downhole pumps is the main purpose of casing drawdown, it also increases gas flow rates. Unlike conventional systems where gas harms pumps, here it flows exclusively up the casing. Reducing casing backpressure from 150 psig to 5 psig typically boosts gas flow rates 2x-6x. This is similar to increasing flowrates by lowering salesline backpressure through primary separator drawdown, explained in &lt;a class="internal-link" href="#8.4.4.-Separator-drawdown"&gt;Section 8.4.4&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;One operational concern for casing drawdown is potential liquid flow up the casing. Normally wells on artificial lift lack pressure to constantly pump liquid on their own, but pressure buildup from liquid accumulation, slug flow, or increased gas flow rate post-compression may occasionally cause gas to exceed critical flow rate (minimum gas flow rate needed to lift liquid). This can make liquids not captured by the tubing-side pump flow up the casing, potentially triggering high liquid level shutdowns on the compressor (see &lt;a class="internal-link" href="#fig-33"&gt;Figure 33&lt;/a&gt;), as the suction scrubber isn't designed as a bulk separator.&lt;/p&gt;
 &lt;p&gt;Predicting liquid flow rate up the casing is difficult as these come from entrained mist or liquid slugs from pressure swings that are difficult to be modeled. An operator may start with or without a test separator, observe how the well responds to casing-side liquid, and determine if a permanent external scrubber is needed. These vessels can be simple trailer-mounted test separators with hose connections.&lt;/p&gt;
 &lt;p&gt;Casing drawdown is applicable for either SRP or ESP systems.&lt;/p&gt;
@@ -2962,7 +3073,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h5 id="8.3.5.1.-SRP-Casing-drawdown"&gt;8.3.5.1. SRP Casing drawdown&lt;a class="anchor-link" href="#8.3.5.1.-SRP-Casing-drawdown"&gt;¶&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;&lt;a class="internal-link" href="#fig-54"&gt;Figure 54&lt;/a&gt; below shows an example P&amp;ID for SRP well casing drawdown, with test separator and 5 psig suction target pressure. 5 psig is not enough pressure to dump liquid to downstream process vessels, hence a liquid pump is installed to handle the liquids. Setting it at a higher pressure of 20 psig will ensure liquid dump without the pump, but production uplift will be smaller due to smaller pressure drawdown. Note that the test separator installation is optional, depending on well response.&lt;/p&gt;
+&lt;h5 id="8.4.5.1.-SRP-Casing-drawdown"&gt;8.4.5.1. SRP Casing drawdown&lt;a class="anchor-link" href="#8.4.5.1.-SRP-Casing-drawdown"&gt;¶&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;&lt;a class="internal-link" href="#fig-54"&gt;Figure 54&lt;/a&gt; below shows an example P&amp;ID for SRP well casing drawdown, with test separator and 5 psig suction target pressure. 5 psig is not enough pressure to dump liquid to downstream process vessels, hence a liquid pump is installed to handle the liquids. Setting it at a higher pressure of 20 psig will ensure liquid dump without the pump, but production uplift will be smaller due to smaller pressure drawdown. Note that the test separator installation is optional, depending on well response.&lt;/p&gt;
 &lt;p&gt;&lt;a class="internal-link" href="#fig-55"&gt;Figure 55&lt;/a&gt; is a similar setup, but without the test separator due to minimal casing side liquid volume.&lt;/p&gt;
 &lt;div class="row" id="fig-54"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/screw_drawdown_casing_SRP.png"/&gt;&lt;/div&gt;
@@ -3004,14 +3115,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h5 id="8.3.5.2.-ESP-Casing-drawdown"&gt;8.3.5.2. ESP Casing drawdown&lt;a class="anchor-link" href="#8.3.5.2.-ESP-Casing-drawdown"&gt;¶&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;ESP setups differ from SRPs due to requiring 70-90 psig casing pressure, exceeding the 50 psig compressor suction limit. Two implementation methods exist:&lt;/p&gt;
+&lt;h5 id="8.4.5.2.-ESP-Casing-drawdown"&gt;8.4.5.2. ESP Casing drawdown&lt;a class="anchor-link" href="#8.4.5.2.-ESP-Casing-drawdown"&gt;¶&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;ESP setups differ from SRPs due to requiring 70-90 psig casing pressure, exceeding the 50 psig compressor suction limit. Two implementation methods exist:&lt;/p&gt;
 &lt;p&gt;&lt;p&gt;&lt;u&gt;1) Install BPV on WH casing flowline&lt;/u&gt;&lt;br/&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;ul style="margin-bottom: 1em;"&gt;
 &lt;li&gt;&lt;p class="mt-0"&gt;The BPV maintains minimum casing pressure but requires additional valve installation costs.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;u&gt;2) Wire casing PT to compressor PLC (recommended)&lt;/u&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;ul style="margin-bottom: 1em;"&gt;
-&lt;li&gt;&lt;p class="mt-0"&gt;Existing casing PTs can be connected to the compressor PLC to control source pressure, similar to &lt;a class="internal-link" href="#8.3.2.-Tank-vapor-recovery"&gt;Tank vapor recovery&lt;/a&gt; systems.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="mt-0"&gt;Existing casing PTs can be connected to the compressor PLC to control source pressure, similar to &lt;a class="internal-link" href="#8.4.2.-Tank-vapor-recovery"&gt;Tank vapor recovery&lt;/a&gt; systems.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;p&gt;Since casing pressure exceeds compressor suction limits, an SCV must be installed between casing and suction. ESP systems also more frequently require external scrubbers to prevent compressor shutdowns, as ESPs typically handle larger flow rates than SRPs.&lt;/p&gt;
 &lt;p&gt;See figure &lt;a class="internal-link" href="#fig-56"&gt;Figure 56&lt;/a&gt; for an example P&amp;ID setups.&lt;/p&gt;
 &lt;div class="row" id="fig-56"&gt;
@@ -3050,8 +3161,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div class="alert alert-info" id="note_2"&gt;
-&lt;h4&gt;Note 2: Relief to flare/combustor&lt;/h4&gt;
+&lt;div class="alert alert-info" id="note_3"&gt;
+&lt;h4&gt;Note 3: Relief to flare/combustor&lt;/h4&gt;
 &lt;p&gt;Vapor recovery systems aim to capture all vapors from source vessels (tanks, VRTs, heaters, etc.), but VRUs occasionally experience downtime. The continuous flash gas generation builds up pressure that requires a relief point to prevent explosions. During VRU shutdowns, flare/combustors process these gases - burning harmful VOCs into CO2 instead of direct atmospheric venting.&lt;/p&gt;
 &lt;p&gt;The system design must ensure: (1) during normal operation, gases flow exclusively to the VRU, and (2) during VRU shutdowns or capacity overload, excess volumes automatically divert to flare. This is achieved through a back pressure valve (BPV) on the flare line set sufficiently above the VRU suction target. The BPV creates higher resistance, making the VRU path the least resistant route during normal operation, and diverting excess gas to flare only during process upsets or VRU shutdown. Example P&amp;IDs are shown in &lt;a class="internal-link" href="#fig-A"&gt;Figure A&lt;/a&gt; and &lt;a class="internal-link" href="#fig-B"&gt;Figure B&lt;/a&gt;. While the detailed valving and piping can be a bit different, the idea is the same. There's a low pressure VRU suction side intended to be used during normal operations, and a high pressure relief side with resistance that opens only during process upsets or VRU shutdown.&lt;/p&gt;
 &lt;div class="row" id="fig-A"&gt;
@@ -3090,8 +3201,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;p&gt;&lt;strong&gt;&lt;u&gt;Electric&lt;/u&gt;&lt;/strong&gt; (&lt;a class="internal-link" href="#9.1.-Electric-models"&gt;Section 9.1&lt;/a&gt;) compressors use two motors to independently to drive the compressor rotors and the cooling fan. This arrangement allows precise, real-time RPM adjustments for BOTH components, optimizing temperature control effectively. The cooling fan has 2 sections, for lube oil and and discharge gas (shown in &lt;a class="internal-link" href="#fig-59"&gt;Figure 59&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;u&gt;Gas engine&lt;/u&gt;&lt;/strong&gt; (&lt;a class="internal-link" href="#9.2.-Gas-engine-models"&gt;Section 9.2&lt;/a&gt;) compressors utilize a single engine to simultaneously power both the compressor rotors and the cooling fan. The rotor RPM becomes the primary control target, eliminating the possibility of dedicated real-time RPM adjustments for cooling. Additionally, gas engines generate significant heat from fuel combustion, which, combined with the heat produced from compression, makes temperature control difficult during hot summer seasons. The cooling fan has 3 sections, for lube oil, discharge gas, and engine coolant (shown in &lt;a class="internal-link" href="#fig-60"&gt;Figure 60&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;These inherent differences result in distinct temperature control characteristics for each compressor type, summarized in &lt;a class="internal-link" href="#table-4"&gt;Table 4&lt;/a&gt;. Overall, electric models are better than gas engines at handling temperature control, as long as a unit is not oversized. For electric models, timely downsizing is important as well declines to avoid low temperature and lube oil contamination issues. Oversized units experience frequent recycle, which may not generate enough heat to keep the unit hot.&lt;/p&gt;
-&lt;p&gt;For both compressor types, recycle mode (see &lt;a class="internal-link" href="#8.2.-Recycle-mode"&gt;Section 8.2&lt;/a&gt;) is preferred over complete shutdown when the source vessel lacks sufficient gas to draw from. Recycle maintains compressor operation at minimum sustainable RPM (ex: 900 RPM in &lt;a class="internal-link" href="#fig-57"&gt;Figure 57&lt;/a&gt;), continuously generating heat from compression to keep the unit warm. In contrast, a full shutdown significantly lowers compressor temperature due to surrounding ambient air cooling, increasing the risk of lube oil contamination from gas condensation at low temperatures (see &lt;a class="internal-link" href="#10.-Lube-oil-contamination-problems"&gt;Section 10&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;For instance, &lt;a class="internal-link" href="#fig-57"&gt;Figure 57&lt;/a&gt; shows telemetry data around a 12-hour shutdown. Upon restarting at 12:49 PM, the lube oil temperature was near ambient at 65°F. It took 35 minutes to reach 182°F (by 1:24 PM), then an additional 247 minutes to stabilize at 233°F (&lt;a class="internal-link" href="#7.4.-Cooling-fan-/-3-Way-thermostatic-valve"&gt;thermostatic valve&lt;/a&gt; setpoint ~230°F, acceptable valve ±3°F tolerance) by 5:31 PM. During this extended warm-up period, gas condensation into liquid likely occurred, mixing with and contaminating the lube oil. Due to these thermal challenges, recycle mode is programmed to activate prior to shutdown to maintain optimal compressor temperatures.&lt;/p&gt;
+&lt;p&gt;For both compressor types, recycle mode (see &lt;a class="internal-link" href="#8.3.-Recycle-mode"&gt;Section 8.3&lt;/a&gt;) is preferred over complete shutdown when the source vessel lacks sufficient gas to draw from. Recycle maintains compressor operation at minimum sustainable RPM (ex: 900 RPM in &lt;a class="internal-link" href="#fig-57"&gt;Figure 57&lt;/a&gt;), continuously generating heat from compression to keep the unit warm. In contrast, a full shutdown significantly lowers compressor temperature due to surrounding ambient air cooling, increasing the risk of lube oil contamination from gas condensation at low temperatures (see &lt;a class="internal-link" href="#10.-Lube-oil-contamination-problems"&gt;Section 10&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;For instance, &lt;a class="internal-link" href="#fig-57"&gt;Figure 57&lt;/a&gt; shows telemetry data around a 12-hour shutdown. Upon restarting at 12:49 PM, the lube oil temperature was near ambient at 65°F. It took 35 minutes to reach 182°F (by 1:24 PM), then an additional 247 minutes to stabilize at 233°F (&lt;a class="internal-link" href="#7.4.-3-Way-thermostatic-valve"&gt;thermostatic valve&lt;/a&gt; setpoint ~230°F, acceptable valve ±3°F tolerance) by 5:31 PM. During this extended warm-up period, gas condensation into liquid likely occurred, mixing with and contaminating the lube oil. Due to these thermal challenges, recycle mode is programmed to activate prior to shutdown to maintain optimal compressor temperatures.&lt;/p&gt;
 &lt;p&gt;A healthy temperature trend for lube oil and discharge gas should look like &lt;a class="internal-link" href="#fig-58"&gt;Figure 58&lt;/a&gt;, with the average temperature slightly below the thermostat valve setpoint (e.g., 230°F) and a 5-15°F approach temperature between lube oil and discharge gas. This ensures the gas stays hot enough to prevent lube oil contamination, while also staying below the thermostat setpoint to avoid high temperature shutdown.&lt;/p&gt;
 &lt;div class="row" id="table-4"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/screw_temp_control_comparison.png"/&gt;&lt;/div&gt;
@@ -3161,7 +3272,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;p class="image-description"&gt;&lt;strong&gt;Figre 63:&lt;/strong&gt; Example telemetry data of an electric compressor. The unit uses a fan with a dedicated motor driver that provides primary temperature control, targeting 215°F on the lube oil. A 3-way thermostat valve provides secondary temperature control in case the fan does not respond quickly enough to sudden temperature rises. Because the fan motor targets only lube oil temperature, the aftercooled gas temperature floats. Aftercooled gas temperature was 92°F during the day at 5:00 PM [1], but dropped to 54°F at night around 4:30 AM [2]. This day-night sine wave pattern repeats daily. While configuring the PLC to target aftercooled gas temperature at a setpoint (e.g., 120°F) would create a flat trend on the aftercooled gas line, lube oil temperature management could become more difficult.&lt;/p&gt;
 &lt;/div&gt;&lt;hr/&gt;
 &lt;div id="low_temperature_problems_during_recycle"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Low Temperature Problems During Recycle&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Overall, electric units are superior to gas engine models for temperature control. However, there is one area where electric models are inferior: when a unit is oversized and experiences frequent recycle mode (see &lt;a class="internal-link" href="#8.2.-Recycle-mode"&gt;Section 8.2&lt;/a&gt;), it cannot generate enough heat of compression to maintain a target temperature (e.g., 215°F on lube oil). While this is not an issue if the unit is properly sized, upstream wells typically decline quickly—often seeing production drop by more than half within 6–12 months. Vapor volumes processed by the compressor decline at a similar rate. For example, in a simulation shown in Table 1 of my &lt;a href="https://aegis4048.github.io/predicting_vru_economics_downsizing_timing_for_declining_wells#table-1" target="_blank"&gt;previous post&lt;/a&gt;, vapor volumes on a VRT reduced by 86% within 12 months after initial production (IP). Although actual decline rates vary by well, such steep declines are common in the field.&lt;/p&gt;
+&lt;p&gt;Overall, electric units are superior to gas engine models for temperature control. However, there is one area where electric models are inferior: when a unit is oversized and experiences frequent recycle mode (see &lt;a class="internal-link" href="#8.3.-Recycle-mode"&gt;Section 8.3&lt;/a&gt;), it cannot generate enough heat of compression to maintain a target temperature (e.g., 215°F on lube oil). While this is not an issue if the unit is properly sized, upstream wells typically decline quickly—often seeing production drop by more than half within 6–12 months. Vapor volumes processed by the compressor decline at a similar rate. For example, in a simulation shown in Table 1 of my &lt;a href="https://aegis4048.github.io/predicting_vru_economics_downsizing_timing_for_declining_wells#table-1" target="_blank"&gt;previous post&lt;/a&gt;, vapor volumes on a VRT reduced by 86% within 12 months after initial production (IP). Although actual decline rates vary by well, such steep declines are common in the field.&lt;/p&gt;
 &lt;p&gt;While timely downsizing would save rental costs and maintain proper compressor operation, it is rarely done on time because VRU downsizing is not the operator's primary focus. As a result, oversized compressors often end up operating in 40–90% recycle mode, failing to generate enough heat to keep the unit hot.&lt;/p&gt;
 &lt;p&gt;&lt;a class="internal-link" href="#fig-64"&gt;Figure 64&lt;/a&gt; shows an example where an electric compressor failed to maintain the 215°F lube oil target during recycle mode. Over the 16-day span, recycle was active 65% of the time, and the average lube oil temperature was only 191.93°F—well below the desired 215°F. The temperature followed a daily sine wave pattern, peaking around 215°F during the day and dropping to around 170°F at night, reflecting ambient air temperature swings. If the gas system’s dew point temperature is, say, 190°F, this would result in lube oil contamination during the night, as the operating temperature (170°F) falls below the dew point, allowing gas condensation into liquid. This can be fixed by replacing with a smaller unit to decrease, or completely remove, recycle time.&lt;/p&gt;
 &lt;div class="row" id="fig-64"&gt;
@@ -3215,7 +3326,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;p&gt;Still, no real-time fan RPM adjustment is possible. When the compressor operates at full speed, the fan does too, potentially causing overcooling. When the compressor slows down, the fan also slows, increasing the risk of undercooling. In practice, undercooling is more common, as the additional heat from fuel combustion overwhelms the fan's maximum cooling capacity, especially during hot summer days. This inability to independently control fan speed is a key reason why electric-driven models offer superior temperature management compared to gas engine models.&lt;/p&gt;
 &lt;hr/&gt;
 &lt;div id="high_temperature_problems_during_recycle"&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;High Temperature Problems During Recycle&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;(see &lt;a class="internal-link" href="#8.2.-Recycle-mode"&gt;Section 8.2&lt;/a&gt; for recycle mode explanations)&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;(see &lt;a class="internal-link" href="#8.3.-Recycle-mode"&gt;Section 8.3&lt;/a&gt; for recycle mode explanations)&lt;/i&gt;&lt;/p&gt;
 &lt;p&gt;In electric compressor models (see &lt;a class="internal-link" href="#9.1.-Electric-models"&gt;Section 9.1&lt;/a&gt;), recycle mode often leads to low temperature problems due to limited heat of compression. Engine-driven models face the opposite issue: high temperatures during recycle. While the heat of compression is still reduced under low-flow conditions, the heat generated from continuous fuel gas combustion remains significant.&lt;/p&gt;
 &lt;p&gt;This becomes particularly problematic because fan RPM is directly tied to compressor RPM. When recycle mode slows the compressor, fan speed also drops, reducing cooling capacity. However, combustion continues producing heat, sometimes overwhelming the cooler’s reduced capacity. Unlike electric models, engine-driven systems must manage both compression and combustion heat sources without fan RPM control capability, making thermal control more complex.&lt;/p&gt;
 &lt;p&gt;To mitigate this, the fan must be sized to handle peak heat loads even at minimum operating speeds. For example, if recycle mode maintains minimum compressor speed at 900 RPM and the pulley ratio to the fan is 2:1, the fan operates at 450 RPM. If the maximum compressor RPM is 2400 RPM, the corresponding fan RPM would be 1200 RPM. The cooling system must be capable of removing sufficient thermal load at the reduced 450 RPM during recycle, without excessive overcooling at 1200 RPM during full-speed operation. Proper cooling fan sizing by compressor packagers is essential to maintain thermal stability across the full operating range.&lt;/p&gt;
@@ -3265,7 +3376,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;li&gt;&lt;p class="mt-0"&gt;&lt;a class="internal-link" href="#lube_oil_contamination_3"&gt;10.3. High discharge pressure vapor recovery&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p class="mt-0"&gt;&lt;a class="internal-link" href="#lube_oil_contamination_4"&gt;10.4. High BTU vapor recovery (above 2000 Btu)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p class="mt-0"&gt;&lt;a class="internal-link" href="#lube_oil_contamination_5"&gt;10.5. High inlet temperature VRT/Tank vapor recovery (above 110F)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ul&gt;&lt;p&gt;If you prefer a quick takeaway: run a dew point check if your system handles gas above 2000 Btu/scf or has an inlet temperature over 110°F. Higher Btu values correlate with higher dew point temperatures. Similarly, inlet temperatures above 110°F increase water vapor saturation, which also raises the dew point. When acquiring a gas sample, specifically request the lab to include water fractions, as most standard lab reports include water contents. Absence of exact water fraction number will force you to assume maximum water saturation to prepare for the worst-case scenario which may over-predict dew point temperature and falsely rule out oil-flooded screw compressor options.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3329,7 +3440,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
-file = 'screw_compressor_article.xlsx'
+file = 'https://aegis4048.github.io/downloads/notebooks/sample_data/screw_compressor_article.xlsx'
 dfs = [pd.read_excel(file, sheet_name=f'{n}% Vapor') for n in range(0, 101, 10)]
 
 fig, ax = plt.subplots(figsize=(8, 4.5))
@@ -3457,7 +3568,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
-file = 'screw_compressor_article.xlsx'
+file = 'https://aegis4048.github.io/downloads/notebooks/sample_data/screw_compressor_article.xlsx'
 dfs = [pd.read_excel(file, sheet_name=f'{n}% Vapor') for n in range(0, 101, 10)]
 
 fig, ax = plt.subplots(figsize=(8, 4.5))
@@ -3614,7 +3725,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
-file = 'screw_compressor_article.xlsx'
+file = 'https://aegis4048.github.io/downloads/notebooks/sample_data/screw_compressor_article.xlsx'
 dfs = [pd.read_excel(file, sheet_name=f'{n}% Vapor') for n in range(0, 101, 10)]
 dfs.append(pd.read_excel(file, sheet_name='2000 Btu Bubble'))
 dfs.append(pd.read_excel(file, sheet_name='2000 Btu Dew'))
@@ -3706,9 +3817,9 @@ fig.tight_layout()
 &lt;div class="highlights-title red-theme"&gt;WARNING: Impact of Water on Phase Envelope&lt;/div&gt;
 &lt;div class="highlights-content red-theme"&gt;
 &lt;p&gt;Phase envelopes are intended for two-phase systems. In oil and gas systems, water introduces a third phase because it is immiscible with hydrocarbons. &lt;a class="internal-link" href="#fig-D"&gt;Figure D&lt;/a&gt; demonstrates distortion on the dew point curve near the critical point due to the presence of liquid phase water. Adding just 2% water distorts the envelope. This effect is common in low suction pressure vapor recovery systems, which often have 0–8% water content depending on temperature.&lt;/p&gt;
-&lt;p&gt;The distortion becomes more severe at the compressor discharge side (i.e., at elevated pressures), because the amount of water a gas stream can hold in vapor phase—i.e., saturated water—decreases with increasing pressure. &lt;a class="internal-link" href="#table-6"&gt;Table 6&lt;/a&gt; illustrates this: at 60°F, the maximum water saturation mol fraction is 1.75% at 0 psig, but drops to 0.40% at 50 psig.&lt;/p&gt;
+&lt;p&gt;The distortion becomes severe at the compressor discharge side (i.e., at elevated pressures) than the suction side, because the amount of water a gas stream can hold in vapor phase—i.e., saturated water—decreases with increasing pressure. &lt;a class="internal-link" href="#table-6"&gt;Table 6&lt;/a&gt; illustrates this: at 60°F inlet temperature, a gas stream can handle upto 1.75% mol frac water at 0 psig before dropping liquid-phase water, while at 50 psig, it can hold only 0.40% mol frac water.&lt;/p&gt;
 &lt;p&gt;In &lt;a class="internal-link" href="#fig-D"&gt;Figure D&lt;/a&gt;, the phase envelope was constructed assuming a constant 2% mol fraction water across all operating conditions (T, P). The following numbers are illustrative: at low pressure (e.g., 0 psig), a system might be able to hold 2–4% mol frac water in vapor phase without forming liquid. At high pressure (e.g., 500 psig), it might hold only about 0.2%. The excess water—e.g., 1.8% (2.0 − 0.2)—would condense as a separate immiscible water phase, creating a third phase and distorting the envelope, which is valid only for two-phase mixtures. While increasing temperature allows more water to remain in the vapor phase, rising pressure dominates and suppresses this capacity.&lt;/p&gt;
-&lt;p&gt;ProMax (the simulator used here) excludes water by default when constructing phase envelopes, which can lead to incorrect dew point readings if water is present. Fortunately, ProMax offers an alternate dew point calculation method that includes water. &lt;strong&gt;&lt;u&gt;Do not rely on phase envelopes for dew points when water is present&lt;/u&gt;&lt;/strong&gt;. Instead, use direct dew point calculation tools that account for water content (in ProMax, see &lt;i&gt;"Vapor Pressure, Dew, Bubble Point"&lt;/i&gt; under &lt;i&gt;"Add Analysis"&lt;/i&gt;). If using a different simulator, confirm with your software vendor how water is handled in dew point calculations.&lt;/p&gt;
+&lt;p&gt;ProMax (the simulator used here) excludes water by default when constructing phase envelopes, which can lead to incorrect dew point readings if water is present. Fortunately, ProMax offers an alternate dew point calculation method that includes water. &lt;strong&gt;&lt;u&gt;Do not rely on phase envelopes for dew points when water is present&lt;/u&gt;&lt;/strong&gt;. Instead, use other dew point calculation tools that account for water content (in ProMax, &lt;i&gt;"Vapor Pressure, Dew, Bubble Point"&lt;/i&gt; under &lt;i&gt;"Add Analysis"&lt;/i&gt; supports this). If using a different simulator, confirm with your software vendor how water is handled in dew point calculations.&lt;/p&gt;
 &lt;div class="row full_screen_margin_85 mobile_responsive_plot_full_width" id="fig-D"&gt;
 &lt;div class="col"&gt;&lt;img src="jupyter_images/screw_phase_envelope4.png" style="border: 1px solid #ddd;"/&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -3729,7 +3840,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
-file = 'screw_compressor_article.xlsx'
+file = 'https://aegis4048.github.io/downloads/notebooks/sample_data/screw_compressor_article.xlsx'
 dfs = []
 dfs.append(pd.read_excel(file, sheet_name='2% Water Bubble'))
 dfs.append(pd.read_excel(file, sheet_name='2% Water Dew'))
@@ -3830,35 +3941,10 @@ fig.tight_layout()
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="-"&gt; &lt;a class="anchor-link" href="#-"&gt;¶&lt;/a&gt;&lt;/h3&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="11.-Shutdown-triggers"&gt;11. Shutdown triggers&lt;a class="anchor-link" href="#11.-Shutdown-triggers"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Coming soon...&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="12.-Rental-vs.-Purchase"&gt;12. Rental vs. Purchase&lt;a class="anchor-link" href="#12.-Rental-vs.-Purchase"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Coming soon...&lt;/p&gt;
+&lt;h2 id="11.-Concluding-Remarks"&gt;11. Concluding Remarks&lt;a class="anchor-link" href="#11.-Concluding-Remarks"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This is a long article—because there’s a lot to learn about oil-flooded screw compressors. I put real effort into including as much practical information as possible while keeping the content compact and clear. I don’t expect most readers to go through the entire piece from start to finish. Most will likely jump to specific sections using the table of contents sidebar.&lt;/p&gt;
+&lt;p&gt;The purpose of this article was to educate readers on how to operate an oil-flooded screw compressor from an operator’s point of view. It’s meant to help you understand how each control device works, how they regulate pressure and temperature, and how to interpret what you’re seeing on telemetry data. I wanted this to be a practical guide that helps you identify root causes when issues arise and understand how different configurations apply to different use cases. If you’ve read and understood the full content, you should feel confident selecting, operating, and troubleshooting an oil-flooded screw compressor for your specific application. Well—that’s my goal (I hope I achieved it).&lt;/p&gt;
+&lt;p&gt;If you did read the whole article in order, you may have noticed that I repeatedly reference the same sections and figures. That’s intentional. I assume readers will jump around and won’t absorb everything in one section—because many of these topics are interconnected. You need to understand one area to fully grasp another, so I wrote each section assuming the reader may not have full context from the others. Hopefully, that approach made it easier to navigate and understand.&lt;/p&gt;
+&lt;p&gt;Feel free to leave a comment below—whether it’s a question, feedback, or just to share what you thought of the post. For business inquiries, contact me at aegis4048@gmail.com.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
