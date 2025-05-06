@@ -6320,10 +6320,10 @@ $$ \text{Gas Prod.} = 287.78 \cdot \text{Por} - 2.94 \tag{4}$$
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="6d30f67b-35c2-47b7-8e46-2392b15de965"&gt;&lt;/div&gt;
+&lt;div id="73bd0d12-0ed5-4052-9e17-a427cd9d43b6"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#6d30f67b-35c2-47b7-8e46-2392b15de965');
+var element = $('#73bd0d12-0ed5-4052-9e17-a427cd9d43b6');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
