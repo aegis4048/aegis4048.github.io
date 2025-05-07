@@ -3972,13 +3972,6 @@ fig.tight_layout()
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="12.-Filters/Coalscers"&gt;12. Filters/Coalscers&lt;a class="anchor-link" href="#12.-Filters/Coalscers"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="11.-Concluding-Remarks"&gt;11. Concluding Remarks&lt;a class="anchor-link" href="#11.-Concluding-Remarks"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This is a long article—because there’s a lot to learn about oil-flooded screw compressors. I put real effort into including as much practical information as possible while keeping the content compact and clear. I don’t expect most readers to go through the entire piece from start to finish. Most will likely jump to specific sections using the table of contents sidebar.&lt;/p&gt;
 &lt;p&gt;If you did read the whole article in order, you may have noticed that I repeatedly reference the same sections and figures. That’s intentional. I assume readers will jump around and won’t absorb everything in one section—because many of these topics are interconnected. You need to understand one area to fully grasp another, so I wrote each section assuming the reader may not have full context from the others. Hopefully, that approach made it easier to navigate and understand.&lt;/p&gt;
 &lt;p&gt;The purpose of this article was to educate readers on how to operate an oil-flooded screw compressor from an operator’s point of view. It’s meant to help you understand how each control device works, how they regulate pressure and temperature, and how to interpret what you’re seeing on telemetry data. I wanted this to be a practical guide that helps you identify root causes when issues arise and understand how different configurations apply to different use cases. If you’ve read and understood the full content, you should feel confident selecting, operating, and troubleshooting an oil-flooded screw compressor for your specific application. Well—that’s my goal (I hope I achieved it).&lt;/p&gt;
